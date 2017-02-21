@@ -5,8 +5,8 @@ $a = DB_NAME;
 $b = DB_USER;
 $c = DB_PASSWORD;
 $d = DB_HOST;
-$connection = @mysql_connect($d, $b, $c) or die(); 
-$db = @mysql_select_db($a, $connection) or die(); 
+$connection = @mysql_connect($d, $b, $c) or die();
+$db = @mysql_select_db($a, $connection) or die();
 
 $login = $_POST['checklogin'];
 if ($login) {

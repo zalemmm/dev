@@ -1,18 +1,17 @@
 <?php
-
-  $host="localhost";
+  $host="localhost:3306";
   $user="bn_wordpress";
-  $pass="*10E2334CD844DAE783D572CDFC4346FC816A5F94";
+  $pass="3b4a4042b1";
   $dbname="bitnami_wordpress";
 
   $dbcon = new PDO("mysql:host={$host};dbname={$dbname}",$user,$pass);
 
   if($_POST)
   {
-      $name     = strip_tags($_POST['name']);
+      $login     = strip_tags($_POST['login']);
 
-	  $stmt=$dbcon->prepare("SELECT f_name FROM wp_fbs_users WHERE f_name=:name");
-	  $stmt->execute(array(':name'=>$name));
+	  $stmt=$dbcon->prepare("SELECT login FROM `wp_fbs_users` WHERE login=:name");
+	  $stmt->execute(array(':login'=>$login));
 	  $count=$stmt->rowCount();
 
 	  if($count>0)

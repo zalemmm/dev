@@ -1427,16 +1427,20 @@ validator: function(){
 
     var oldMail = jQuery('#mailOrigin').text();
 
+
+
     // for each validation element
     $$('*[class*="validate"]').each(function(input){
 
       var validations = input.className.replace(/.*validate\[(.*)\].*/, '$1').split(/\s*,\s*/);
 
       input.validateInput = function(){
+
+
         if ( (input.readAttribute('id')=='input_1') ){
 
           if($('input_1').value != oldMail) {
-            new Ajax.Request('http://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
+            new Ajax.Request('check_data.php', {
               method: 'post',
               parameters: {checkemail: $('input_1').value},
               onComplete: function showAlert(request) {
@@ -1449,7 +1453,7 @@ validator: function(){
         }
 
         if ( (input.readAttribute('id')=='input_2') ){
-          new Ajax.Request('http://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
+          new Ajax.Request('check_data.php', {
             method: 'post',
             parameters: {checklogin: $('input_2').value},
             onComplete: function showAlert(request) {
