@@ -16,8 +16,8 @@ function fb_admin_init() {
     add_action('admin_head', 'fbs_admin_head');
 
 
-$resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
-$existsaddcolumn = (mysqli_num_rows($resultaddcolumn)?true:false);
+$resultaddcolumn = mysql_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
+$existsaddcolumn = (mysql_num_rows($resultaddcolumn)?true:true);
 if(!$existsaddcolumn) {
 	$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
     $wpdb->query($sql);
@@ -1025,7 +1025,7 @@ function fbadm_bon_print($number) {
         }
 		/* Si colis revendeur, on affiche par le RCS */
 		if (!$coliR) {
-        	$view .= '<div class="bottomfak onlyprint">PAIEMENT PAR ' . $method . '<br /><br /><i>RCS PONTOISE: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i><br /><b><font color="red">CETTE COMMANDE A ÉTÉ CONTROLÉE PAR : OUI - NON</b>  - SIGNATURE : </font></div>';
+        	$view .= '<div class="bottomfak onlyprint">PAIEMENT PAR ' . $method . '<br /><br /><i>RCS PONTOISE: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i><br /><b><span class="highlight">CETTE COMMANDE A ÉTÉ CONTROLÉE PAR : OUI - NON</b>  - SIGNATURE : </span></div>';
 		}
 
 		 $view .= '<div id="fbcart_buttons3"><p><a href="#" id="but_imprimerbon">Imprimer le bon de commande</a><br /></p></div>';
@@ -1297,7 +1297,6 @@ $liczbezmak = 0;
 			if ($exist_color->att_value == 'b9dbfe') $c8 = ' checked="checked"';
 			if ($exist_color->att_value == 'd1ffb4') $c9 = ' checked="checked"';
 			if ($exist_color->att_value == 'e1ceb0') $c10 = ' checked="checked"';
-			if ($exist_color->att_value == '929395') $c11 = ' checked="checked"';
 		}
 		echo '<div style="float:left;display:inline;width:30%;padding:5px;height:150px;border:1px solid #ccc;margin:10px 0 10px 0;font-size:11px;line-height:14px;"><b>Adresse de facturation:</b><br /><form name="fb_view_user" method="post" action="admin.php?page=fb-users"><input type="hidden" name="action" value="fb_view_user" /><input type="hidden" name="fb_view_user_id" value="'.$userinfo->id.'" /><input type="submit" name="fb_user_view" class="edit" value="'.$userinfo->login.'"></form>'.$userinfo->email.'<br />'.$userinfo->f_name.'<br />'.$userinfo->f_comp.'<br />'.$f_address.'<br />'.$f_porte.'<br />'.$userinfo->f_code.'<br />'.$userinfo->f_city.'<br />'.$userinfo->f_phone.'</div>';
 		echo '<div style="float:left;display:inline;padding:5px;width:30%;height:150px;border:1px solid #ccc;margin:10px 0 10px 10px;font-size:11px;line-height:14px;"><b>Adresse de livraison:</b><br />'.$userinfo->l_name.'<br />'.$userinfo->l_comp.'<br />'.$l_address.'<br />'.$l_porte.'<br />'.$userinfo->l_code.'<br />'.$userinfo->l_city.'<br />'.$userinfo->l_phone.'</div>';
@@ -1320,7 +1319,6 @@ $liczbezmak = 0;
 		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="b9dbfe"'.$c8.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#b9dbfe;"></span></div>
 		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="d1ffb4"'.$c9.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#d1ffb4;"></span></div>
 		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="e1ceb0"'.$c10.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#e1ceb0;"></span></div>
-		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="929395"'.$c11.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#929395;"></span></div>
 		<br /><br /><br /><br /><input type="submit" value="save changes" /><input type="hidden" name="client_saveremise" value="true" /><input type="hidden" name="pokaztab" value="" /><input type="hidden" name="user_name" value="'.$_POST["user_name"].'" /><input type="hidden" name="user_login" value="'.$_POST["user_login"].'" />
 		</form>
 		</div>';
@@ -1527,7 +1525,6 @@ $liczbezmak = 0;
 			if ($exist_color->att_value == 'b9dbfe') $c8 = ' checked="checked"';
 			if ($exist_color->att_value == 'd1ffb4') $c9 = ' checked="checked"';
 			if ($exist_color->att_value == 'e1ceb0') $c10 = ' checked="checked"';
-			if ($exist_color->att_value == '929395') $c11 = ' checked="checked"';
 		}
 		echo '<div style="float:left;display:inline;width:30%;padding:5px;height:150px;border:1px solid #ccc;margin:10px 0 10px 0;font-size:11px;line-height:14px;"><b>Adresse de facturation:</b><br /><form name="fb_view_user" method="post" action="admin.php?page=fb-users"><input type="hidden" name="action" value="fb_view_user" /><input type="hidden" name="fb_view_user_id" value="'.$userinfo->id.'" /><input type="submit" name="fb_user_view" class="edit" value="'.$userinfo->login.'"></form>'.$userinfo->email.'<br />'.$userinfo->f_name.'<br />'.$userinfo->f_comp.'<br />'.$f_address.'<br />'.$f_porte.'<br />'.$userinfo->f_code.'<br />'.$userinfo->f_city.'<br />'.$userinfo->f_phone.'</div>';
 		echo '<div style="float:left;display:inline;padding:5px;width:30%;height:150px;border:1px solid #ccc;margin:10px 0 10px 10px;font-size:11px;line-height:14px;"><b>Adresse de livraison:</b><br />'.$userinfo->l_name.'<br />'.$userinfo->l_comp.'<br />'.$l_address.'<br />'.$l_porte.'<br />'.$userinfo->l_code.'<br />'.$userinfo->l_city.'<br />'.$userinfo->l_phone.'</div>';
@@ -1550,7 +1547,6 @@ $liczbezmak = 0;
 		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="b9dbfe"'.$c8.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#b9dbfe;"></span></div>
 		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="d1ffb4"'.$c9.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#d1ffb4;"></span></div>
 		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="e1ceb0"'.$c10.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#e1ceb0;"></span></div>
-		<div style="float:left;display:block;width:30px;height:20px;line-height:20px;"><input type="radio" name="client_color" value="929395"'.$c11.' /> <span style="display:block;width:20px;height:20px;margin:5px 0 0 0;background:#929395;"></span></div>
 		<br /><br /><br /><br /><input type="submit" value="save changes" /><input type="hidden" name="client_saveremise" value="true" /><input type="hidden" name="pokaztab" value="" /><input type="hidden" name="user_name" value="'.$_POST["user_name"].'" /><input type="hidden" name="user_login" value="'.$_POST["user_login"].'" />
 		</form>
 		</div>';
@@ -2230,7 +2226,7 @@ function fbs_admin_head() {
 	echo '<link rel="stylesheet" href="'.get_option("home").'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_option("home").'/wp-content/plugins/fbshop/admin_print.css" />';
 	if (isset($_GET['fbdet'])) {
-/*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
+//	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';
 	}
 }
 
@@ -2671,7 +2667,6 @@ if (isset($_GET['fbdet'])) {
 			}
 			echo '</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td'.$stylstatusu.'>'.$status.'</td><td>'.$maktype.'</td><td>'.$filepath.'</td>
 			<td>'.$czyjostatniruch.'</td><td>'.$czyjostatnikomentarz.'</td>
-
 			<td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="DETAILS"></form><br />
 			<form id="delitem" name="delitem" action="" method="post"><input type="hidden" name="delete_item" value="'.$o->unique_id.'" /><input class="delete" type="submit" value="delete" onclick=\'if (confirm("'.esc_js( "Are you sure? You will delete this order, all products and all comments!" ).'")) {return true;} return false;\' /></form></td></tr>';
 		endforeach;
@@ -3006,8 +3001,8 @@ function fb_admin_users2() {
 function fbadm_print_details($number) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
-$resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
-$existsaddcolumn = mysqli_num_rows($resultaddcolumn)?true:false;
+$resultaddcolumn = mysql_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
+$existsaddcolumn = mysql_num_rows($resultaddcolumn)?true:false;
 if(!$existsaddcolumn) {
 	$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
     $wpdb->query($sql);
@@ -3237,10 +3232,8 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
         $header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
         $header .= "\nContent-type: text/html; charset=UTF-8\n" . "Content-Transfer-Encoding: 8bit\n";
         //mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
-        //mail("contact@tempopasso.com", "ESSAI ENVOI MAIL=".stripslashes($temat), stripslashes($zawar), $header);
-        //wp_mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
-        mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
-        //mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar),$header);
+        //mail("contact@tempopasso.com", stripslashes($temat), stripslashes($zawar), $header);
+        wp_mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
     }
 
 	//Traitement du changement de groupe
@@ -3310,7 +3303,7 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
 
 
     echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Send mail for user:</span></h3><div class="inside">';
-    echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" style="float:left"><option value="">choisir...</option>';
+    echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" class=""><option value="">choisir...</option>';
     foreach ($mails as $ma) :
         $con = stripslashes($ma[content]);
         $con = htmlspecialchars($con);
@@ -4725,7 +4718,6 @@ function fb_admin_mma() {
 					}
 		      		$imagem->save($path_mini.$rand.$fmini['name']);
 					$nazwaplikumini = $rand.$fmini['name'];
-
 				} else {
 					$kopiowanie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
 					$nazwaplikumini = $rand.$fmini['name'];
@@ -6087,7 +6079,6 @@ function getFedex($id, $user) {
       function startDownload() {
       alert();
       var url="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem";
-
       window.open(url,"Download");
       setTimeout("startDownload()",500);
       }

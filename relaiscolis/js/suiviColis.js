@@ -13,7 +13,7 @@ var tntSCMsgBodyFldDtl = "Date de livraison :&#160;";
 var tntSCMsgBodyFldDst = "Destination :&#160;";
 var tntSCMsgBodyFldSta = "Statut de votre exp&#233;dition :";
 var tntSCMsgBodyFldRel = "Relais Colis<sup class='tntSCSup'>&#174;</sup> :";
-var tntSCMsgFooterTitle = "Les solutions de livraisons <div class='tntSCTextBold'>TNT 24h chez Moi</div>&#160;et&#160;<div class='tntSCTextBold'>TNT 24h Relais Colis<sup class='tntSCSup'>&#174;</sup></div><BR>sont des offres exclusives TNT Express France.<BR><BR>Pour toute information: <a href='https://www.tnt.fr' class='tntSCTextBold'>www.tnt.fr</a>";
+var tntSCMsgFooterTitle = "Les solutions de livraisons <div class='tntSCTextBold'>TNT 24h chez Moi</div>&#160;et&#160;<div class='tntSCTextBold'>TNT 24h Relais Colis<sup class='tntSCSup'>&#174;</sup></div><BR>sont des offres exclusives TNT Express France.<BR><BR>Pour toute information: <a href='http://www.tnt.fr' class='tntSCTextBold'>www.tnt.fr</a>";
 var tntSCMsgErrModulo = "Votre r&#233;f&#233;rence d'exp&#233;dition est invalide, veuillez v&#233;rifier votre saisie"
 var tntSCMsgErrConnexion = "Erreur de connexion";
 var tntSCMsgErrBtInvalide = tntSCMsgErrModulo;
@@ -131,7 +131,7 @@ function tntB2CSuiviColisGetDetail() {
 	var ajaxUrl;
 	var ajaxData;
 
-	ajaxUrl = "https://" + tntDomain + "/public/b2c/suiviColis/rechercheJson.do?bonTransport=" + bonTransport;
+	ajaxUrl = "http://" + tntDomain + "/public/b2c/suiviColis/rechercheJson.do?bonTransport=" + bonTransport;
 	ajaxData = "";
 
 	// Chargement du colis
