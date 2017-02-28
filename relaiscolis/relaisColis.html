@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>Relais Colis B2C</title>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="js/relaisColis.js"></script>
+		<link rel="stylesheet" href="css/ui.tabs.css" type="text/css" />
+		<link rel="stylesheet" href="css/ui.dialog.css" type="text/css" />
+		<link rel="stylesheet" href="css/tntB2CRelaisColis.css" type="text/css" />
+	</head>
+
+	<body>
+		<!-- Element (obligatoire) à définir pour afficher la liste de relais -->
+		<div id="tntB2CRelaisColis" class="exemplePresentation"></div>
+
+		<!-- Element (optionel) à définir pour afficher une Google Map associée à la liste de relais
+			 Note: les propriétés de css "width" et "height" doivent obligatoirement être définis dans 
+			 l'attribut "style", sinon la carte ne s'affichera pas   
+		-->
+		<div id="map_canvas" class="exemplePresentation" style="width: 482px; height: 482px"></div>
+		
+<!-- 	EXEMPLE INTEGRATEUR (enlever la mise en commentaires) -->
+<!-- 
+		<div style="text-align: justify; font-family: arial,helvetica,sans-serif; font-size: 10pt; width: 600px;">
+			<div style="height: 25px;">&nbsp;</div>
+			<a href="#" onclick="$('#exempleIntegration').slideToggle('fast');" style="text-decoration: none; vertical-align: middle; color:#b1b2b4; font-weight:bold;">
+				(<img src="img/notes.gif" style="border: 0px; vertical-align: bottom;"/>&nbsp;Note int&#233;grateur)
+			</a>
+			<div id="exempleIntegration">
+				<script type="text/javascript">
+					/**
+					 * Exemple de fonction de callback suite à la sélection d'un Relais Colis
+					 * Lorsque cette fonction est définie, un lien "Choisir ce relais" apparaît
+					 * en plus dans la popup d'un marqueur sur la carte Google pour l'appeler.
+					 */
+				  	function callbackSelectionRelais() {
+				  		
+				  		// Récupération des informations
+				  		var codeRelais = $("#tntRCSelectedCode").val();
+			  			var nom = $("#tntRCSelectedNom").val();
+			  			var adresse = $("#tntRCSelectedAdresse").val();
+			  			var codePostal = $("#tntRCSelectedCodePostal").val();
+			  			var commune = $("#tntRCSelectedCommune").val();
+				  			
+				  		if (!codeRelais || codeRelais == "") {
+				  			alert("Aucun relais n'a été sélectionné !");
+				  		}
+				  		else {
+				  			alert("Info relais sélectionné"+
+				  				  "\nCode\t\t: " + codeRelais + 
+				  				  "\nNom\t\t: " + nom +
+				  				  "\nAdresse\t\t: " + adresse +
+				  				  "\nCode postal\t: " + codePostal +
+				  				  "\nCommune\t\t: " + commune);
+				  		}
+				  	}
+				</script>
+				<b>Exemple de r&#233;cup&#233;ration du code du Relais Colis<sup>&reg;</sup> s&#233;lectionn&#233;</b><br/>
+				Les informations sont lues dans les champs cach&#233;s correspondants et affich&#233;es dans une popup javascript.<br/>
+				<input type='button' value='Afficher' onclick="callbackSelectionRelais();" />
+				<script type="text/javascript">$('#exempleIntegration').hide()</script>
+			</div>
+		</div>
+ --> 
+	</body>
+</html>

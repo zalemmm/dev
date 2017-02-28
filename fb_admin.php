@@ -3303,7 +3303,7 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
 
 
     echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Send mail for user:</span></h3><div class="inside">';
-    echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" class="floatLeft"><option value="">choisir...</option>';
+    echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" class=""><option value="">choisir...</option>';
     foreach ($mails as $ma) :
         $con = stripslashes($ma[content]);
         $con = htmlspecialchars($con);
