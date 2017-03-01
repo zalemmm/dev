@@ -109,33 +109,33 @@ function get_ratings($type_prod, $nb_comment=2) {
 			$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 			$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
 			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-			if ($prodname->name == 'Kakemono'){$lienprod = "http://www.france-banderole.com/kakemonos";}
-			elseif ($prodname->name == 'Banderole'){$lienprod = "http://www.france-banderole.com/banderoles";}
-			elseif ($prodname->name == 'Adhésif / Sticker'){$lienprod = "http://www.france-banderole.com/stickers";}
-			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "http://www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "http://www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "http://www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Oriflamme'){$lienprod = "http://www.france-banderole.com/oriflammes";}
-			elseif ($prodname->name == 'depliants 80g'){$lienprod = "http://www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 135g'){$lienprod = "http://www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 170g'){$lienprod = "http://www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 250g'){$lienprod = "http://www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'Enseigne'){$lienprod = "http://www.france-banderole.com/enseignes";}
-			elseif ($prodname->name == 'Flyers 80g'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 135g'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 170g'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 250g'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 350g'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "http://www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Affiches 135g'){$lienprod = "http://www.france-banderole.com/affiches";}
-			elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "http://www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "http://www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "http://www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "http://www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "http://www.france-banderole.com/plv-exterieur";}
-			else {$lienprod = "http://www.france-banderole.com";};
+			if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/kakemonos";}
+			elseif ($prodname->name == 'Banderole'){$lienprod = "//www.france-banderole.com/banderoles";}
+			elseif ($prodname->name == 'Adhésif / Sticker'){$lienprod = "//www.france-banderole.com/stickers";}
+			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "//www.france-banderole.com/cartes";}
+			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "//www.france-banderole.com/cartes";}
+			elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "//www.france-banderole.com/cartes";}
+			elseif ($prodname->name == 'Oriflamme'){$lienprod = "//www.france-banderole.com/oriflammes";}
+			elseif ($prodname->name == 'depliants 80g'){$lienprod = "//www.france-banderole.com/depliants";}
+			elseif ($prodname->name == 'depliants 135g'){$lienprod = "//www.france-banderole.com/depliants";}
+			elseif ($prodname->name == 'depliants 170g'){$lienprod = "//www.france-banderole.com/depliants";}
+			elseif ($prodname->name == 'depliants 250g'){$lienprod = "//www.france-banderole.com/depliants";}
+			elseif ($prodname->name == 'Enseigne'){$lienprod = "//www.france-banderole.com/enseignes";}
+			elseif ($prodname->name == 'Flyers 80g'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 135g'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 170g'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 250g'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 350g'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "//www.france-banderole.com/flyers";}
+			elseif ($prodname->name == 'Affiches 135g'){$lienprod = "//www.france-banderole.com/affiches";}
+			elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
+			elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
+			elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
+			elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
+			elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
+			else {$lienprod = "//www.france-banderole.com";};
 
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
@@ -3612,7 +3612,7 @@ if($order->status==3 ){
 		if ($dir = @opendir($pathfiles)) {
 		    while(($file = readdir($dir))) {
 				if(!is_dir($file) && !in_array($file, array(".",".."))) {
-					$filepath .= '<a href="http://www.france-banderole.com/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
+					$filepath .= '<a href="//www.france-banderole.com/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
 				}
     		}
 	    	closedir($dir);
