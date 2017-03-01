@@ -16,8 +16,8 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" media="screen" />
-<script language="JavaScript" type="text/javascript" src="http://www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
-<script type="text/javascript" src="http://www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
+<script language="JavaScript" type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
+<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
 <script type="text/javascript">
 	window.addEvent('load', function() {
 	$('demo-close').addEvent('click', function() {
@@ -30,7 +30,7 @@
 </script>
 </head>
 <body>
-<img src="http://www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/close.png" id="demo-close" style="cursor:pointer" border="0" />
+<img src="://www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/close.png" id="demo-close" style="cursor:pointer" border="0" />
 <div id="pagen">
 <!-- start content -->
 <div id="contentn">
