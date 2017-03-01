@@ -10,22 +10,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>Tï¿½lï¿½charger des fichers</title>
+	<title>Télécharger des fichers</title>
 
 	<!-- FancyUpload2 Styles-->
     <link rel="stylesheet" type="text/css" href="./css/funcystyle.css" media="screen, projection" />
-
+        
     <!-- FancyUpload2-->
 	<script type="text/javascript" src="./js/mootools-1.2-core-nc.js"></script>
 	<script type="text/javascript" src="./js/Swiff.Uploader.js"></script>
 	<script type="text/javascript" src="./js/Fx.ProgressBar.js"></script>
 	<script type="text/javascript" src="./js/FancyUpload2.js"></script>
-
+  
 	<script type="text/javascript">
 		/* <![CDATA[ */
 
 	window.addEvent('load', function() {
-
+	
 	// For testing, showing the user the current Flash version.
 	//document.getElement('h3 + p').appendText(' Detected Flash ' + Browser.Plugins.Flash.version + '!');
 
@@ -106,10 +106,10 @@
 	</fieldset>
 	<div id="demo-status" ><span class="Style1"></span>
     <p>
-			<font color="#000"><strong>ATTENTION : </strong>Ce module fonctionne avec </font><a href="http://get.adobe.com/fr/flashplayer/trigger/2/" target="_blank" ><img src="images/afp.png" alt="tï¿½lï¿½charger Adobe Flash Player" width="112" align="absmiddle" border="0"/></a><br />
-			<strong><span class="highlight">Tï¿½Lï¿½CHARGEMENT DE FICHIERS : Maxi 10 Mo/Fichier</span></strong></p>
-			<input id="demo-browse" type="button" name="browse" value="Sï¿½lectionnez vos fichiers" />
-			<input id="demo-upload" type="button" name="upload" value="Lancer le tï¿½lï¿½chargement" /><br />
+			<font color="#000"><strong>ATTENTION : </strong>Ce module fonctionne avec </font><a href="http://get.adobe.com/fr/flashplayer/trigger/2/" target="_blank" ><img src="images/afp.png" alt="télécharger Adobe Flash Player" width="112" align="absmiddle" border="0"/></a><br />
+			<strong><font color="#FF0000">TÉLÉCHARGEMENT DE FICHIERS : Maxi 10 Mo/Fichier</font></strong></p>
+			<input id="demo-browse" type="button" name="browse" value="Sélectionnez vos fichiers" />
+			<input id="demo-upload" type="button" name="upload" value="Lancer le téléchargement" /><br />
 			<input id="demo-clear" type="button" name="clear" value="Effacer la liste" class="hide"/>
 		<div>
 			<strong class="overall-title">Progression totale</strong><br />
@@ -118,7 +118,7 @@
 			<strong class="current-title">Progression fichier</strong><br />
 			<img src="./images/bar.gif" class="progress current-progress" />		</div>
 		<div class="current-text"></div>
-
+		
 		<hr size="5" color="#E50000" />
 		<div style="height:250px;overflow:auto;">
 			<ul id="demo-list"></ul>
@@ -128,7 +128,7 @@
 </form>
 </div>
 <!-- fin div demo -->
-
+      
 </div>
 	</body>
 </html>
