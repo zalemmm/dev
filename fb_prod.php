@@ -1371,7 +1371,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div>
 	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span></div>
 	<div id="dodaj_koszyk">';
-	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
+	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
 	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
 	$wycena .= '</div></div>';}
 
@@ -2418,7 +2418,7 @@ function get_buraliste() {
 	$fb_tablename_promo = $prefix."fbs_buraliste";
 
 	$view .= '<h1>Buraliste</h1><hr />';
-	$view .= '<img src="http://www.france-banderole.com/wp-content/uploads/shopfiles/buraliste/slide.jpg"/>';
+	$view .= '<img src="//www.france-banderole.com/wp-content/uploads/shopfiles/buraliste/slide.jpg"/>';
 
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
