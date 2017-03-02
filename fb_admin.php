@@ -2565,7 +2565,7 @@ if (isset($_GET['fbdet'])) {
 				} else {
 					echo $p->name.' ('.$p->quantity.')<br />';
 				}
-			//sprawdzanie dla kolumny type //
+			//sprawdzanie dla kolumny type // vérifie le type de colonne
 				$wzorzec = '/j’ai déjà crée la maquette/';
 				$ktomak = preg_match_all($wzorzec, $p->description, $wynik);
 				$ktomak = count($wynik[0]);
@@ -2575,8 +2575,9 @@ if (isset($_GET['fbdet'])) {
 					$ktomakiete = 1;
 				}
 				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-			//sprawdzanie dla kolumny type //
-				// SPRAWDZANIE CZY OPIS ZAWIERA RUSH24 //
+			//sprawdzanie dla kolumny type // vérifie le type de colonne
+
+				// SPRAWDZANIE CZY OPIS ZAWIERA RUSH24 // VERIFICATION OU DESCRIPTION CONTIENT RUSH24
 				if ($p->status == 1) {
 					if ($kolorujstatus<1) {
 						$wzorzec2 = '/1J/';
@@ -2594,7 +2595,7 @@ if (isset($_GET['fbdet'])) {
 						}
 					}
 				}
-				// SPRAWDZANIE CZY OPIS ZAWIERA RUSH24 //
+				// SPRAWDZANIE CZY OPIS ZAWIERA RUSH24 // VERIFICATION OU DESCRIPTION CONTIENT RUSH24
 			endforeach;
 			$maktype = 'impression';
 			if ($czyfbrobimakiete == 1) $maktype = 'creation';
