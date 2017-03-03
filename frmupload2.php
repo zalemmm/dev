@@ -16,8 +16,8 @@
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" media="screen" />
-<script language="JavaScript" type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
-<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
+<script language="JavaScript" type="text/javascript" src="https://dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
+<script type="text/javascript" src="https://dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
 <script type="text/javascript">
 	window.addEvent('load', function() {
 	$('demo-close').addEvent('click', function() {
@@ -30,16 +30,16 @@
 </script>
 </head>
 <body>
-<img src="://www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/close.png" id="demo-close" style="cursor:pointer" border="0" />
+<img src="https://dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/close.png" id="demo-close" style="cursor:pointer" border="0" />
 <div id="pagen">
 <!-- start content -->
 <div id="contentn">
 <div class="post">
          <div id="mon_flash">
-		Pour utiliser notre module de téléchargement, vous devez télécharger <a href="http://www.adobe.com/go/getflashplayer_fr" target="_blank" onClick="window.open(this.href); return false;"><strong>Adobe Flash Player</strong></a>	</div>
+		Pour utiliser notre module de téléchargement, vous devez télécharger <a href="https://www.adobe.com/go/getflashplayer_fr" target="_blank" onClick="window.open(this.href); return false;"><strong>Adobe Flash Player</strong></a>	</div>
   <script type="text/javascript">
 		// <![CDATA[
-		var so = new SWFObject("http://france-banderole.com/applications/NasUploader15.swf", "nasuploader", "456", "350", "8");
+		var so = new SWFObject("https://dev.france-banderole.com/applications/NasUploader15.swf", "nasuploader", "456", "350", "8");
 		so.addParam ('FlashVars','varget=cmd%3D<?php echo $IdOrder;?>%26usr%3D<?php echo $IdCustomer;?>%26isproject%3D<?php echo $IsProject;?>%26isemail%3D<?php echo $IsEmail;?>');
 		so.write("mon_flash");
 		// ]]>
