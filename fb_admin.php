@@ -3426,7 +3426,7 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
             $ship2 = '';
             $ship3 = '';
 			$ship4 = '';
-            $lien_check_status = 'http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport=' . $order->tnt . '&radiochoixtypeexpedition=NAT';
+            $lien_check_status = 'https://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport=' . $order->tnt . '&radiochoixtypeexpedition=NAT';
             $texte_check_status = "TNT";
 
         }
