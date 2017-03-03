@@ -9,7 +9,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 	exit;
 }
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>telechargements</title>
@@ -29,7 +29,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 		});
 		</script>
 	</head>
-	
+
 	<body>
 		<img src="https://dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/close.png" id="demo-close" style="cursor:pointer" border="0" />
 		<div id="pagen">
