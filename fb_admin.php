@@ -3613,7 +3613,7 @@ if($order->status==3 ){
 		if ($dir = @opendir($pathfiles)) {
 		    while(($file = readdir($dir))) {
 				if(!is_dir($file) && !in_array($file, array(".",".."))) {
-					$filepath .= '<a href="//www.france-banderole.com/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
+					$filepath .= '<a href="'.get_bloginfo("url").'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
 				}
     		}
 	    	closedir($dir);
