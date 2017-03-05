@@ -3549,7 +3549,7 @@ if($order->status==4){
 	echo $select_pre.$select_inter.$select_post;
 	echo '</select><input type="submit" value="SAVE" class="savebutt2" /></form></div>';
 // wysylanie plikow
-	echo '<div class="statusp2">Upload <a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
+	echo '<div class="statusp2">Upload <a href="https://127.0.0.1/wordpress/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
 	if(file_exists($name))
