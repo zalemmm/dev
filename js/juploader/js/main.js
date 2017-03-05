@@ -26,9 +26,9 @@ $(function () {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: '/uploaded/'
+        url: '/wordpress/uploaded/'
     });
-	
+
 	var hoss = 'http://'+document.location.host+'/wp-content/plugins/fbshop/js/juploader/';
     // Enable iframe cross-domain access via redirect option:
     $('#fileupload').fileupload(
@@ -64,8 +64,8 @@ $(function () {
         );
     });
 
-	$('#fileupload').bind('fileuploaddone', callbackfunc); 
-	function callbackfunc(e, data) { 
+	$('#fileupload').bind('fileuploaddone', callbackfunc);
+	function callbackfunc(e, data) {
     	$.ajax({
             type: "POST",
 	        url: "http://"+document.location.host+"/uploaded.php",
