@@ -15,6 +15,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 		<title>telechargements</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="screen" /> <!--?? c'est quoi ce default.css-->
 		<script language="JavaScript" type="text/javascript" src="https://dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
 		<script type="text/javascript" src="https://dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
 
@@ -44,7 +45,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 						so.addParam ('FlashVars','varget=cmd%3D<?php echo $IdOrder;?>%26usr%3D<?php echo $IdCustomer;?>%26isproject%3D<?php echo $IsProject;?>%26isemail%3D<?php echo $IsEmail;?>');
 						so.write("mon_flash");
 						// ]]>
-						</script>default.css
+						</script>
 				</div>
 			</div>
 	</body>

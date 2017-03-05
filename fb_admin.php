@@ -2227,8 +2227,8 @@ if (isset($_POST['pokaztab'])) {
 
 
 function fbs_admin_head() {
-	echo '<link rel="stylesheet" href="'.get_option("home").'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
-	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_option("home").'/wp-content/plugins/fbshop/admin_print.css" />';
+	echo '<link rel="stylesheet" href="https://127.0.0.1/wordpress/wp-content/plugins/fbshop/admin.css" type="text/css" />';
+	echo '<link rel="stylesheet" type="text/css" media="print" href="https://127.0.0.1/wordpress/wp-content/plugins/fbshop/admin_print.css" />';
 	if (isset($_GET['fbdet'])) {
 /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
 	}
