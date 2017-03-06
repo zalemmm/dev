@@ -17,7 +17,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 		<meta name="description" content="" />
 		<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
 		<script language="JavaScript" type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
-		<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootogetols-1.2-core-nc.js"></script>
+		<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
 
 		<script type="text/javascript">
 		window.addEvent('load', function() {
@@ -40,7 +40,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 						Pour utiliser notre module de téléchargement, vous devez télécharger <a href="https://www.adobe.com/go/getflashplayer_fr" target="_blank" onClick="window.open(this.href); return false;"><strong>Adobe Flash Player</strong></a>	</div>
 						<script type="text/javascript">
 						// <![CDATA[
-						var so = new SWFObject("//www.france-banderole.com/applications/NasUploader15.swf", "nasuploader", "456", "350", "8");
+						var so = new SWFObject("https://www.france-banderole.com/applications/NasUploader15.swf", "nasuploader", "456", "350", "8");
 						so.addParam ('FlashVars','varget=cmd%3D<?php echo $IdOrder;?>%26usr%3D<?php echo $IdCustomer;?>%26isproject%3D<?php echo $IsProject;?>%26isemail%3D<?php echo $IsEmail;?>');
 						so.write("mon_flash");
 						// ]]>
