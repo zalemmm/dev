@@ -18,10 +18,10 @@ if ($dir = @opendir($name)) {
 			if($cur_img != 0) {
 				$x++;
 				if ($x == $cur_img) {
-					$img .= '<img src="//dev.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
+					$img .= '<img src="https://dev.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
 				}
 			} else if ($x<1) {
-				$img .= '<img src="//dev.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
+				$img .= '<img src="https://dev.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
 				$x++;
 			}
 		}
@@ -52,7 +52,7 @@ if($total > 1) {
 		?>
 	</p>
 	<p style="text-align: center;"><?php echo $precedent; ?>
-		<a href="//dev.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" style="margin-left:14px;margin-bottom:10px;width:142px;height:19px;background:url(images/but_bat.png) no-repeat;overflow:hidden;border:none;display:inline-block;margin: auto;"></a>
+		<a href="https://dev.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" style="margin-left:14px;margin-bottom:10px;width:142px;height:19px;background:url(images/but_bat.png) no-repeat;overflow:hidden;border:none;display:inline-block;margin: auto;"></a>
 		<?php echo $suivant; ?>
 	</p>
 </body>
