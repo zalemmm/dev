@@ -68,7 +68,7 @@ if (is_page('votre-panier')){
 	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  	if($relais_colis !== false){
 		echo '
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery.js"></script>
+<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery.js"></script>
 <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery-ui.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/relaisColis.js"></script>
@@ -1048,7 +1048,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f4';
 		$info_title='Impression rapide flyers pas cher et prospectus';
-		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span style="color:#F00"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
+		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span class="highlight"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
 		$formularz = get_flyers_form();
 	}
 
@@ -1075,7 +1075,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f11';
 		$info_title='Stand Parapluie et Présentoirs Cartons';
-		$info_info='Nos stand parapluie tissu et présentoirs à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" img class="alignleft" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Nos stand parapluie tissu et présentoirs à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_parapluie_form();
 	}
 
@@ -1298,7 +1298,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f3';
 		$info_title='Oriflammes Windflag Beachflag et drapeaux';
-		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" img class="alignleft" title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
+		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
 		$formularz = get_oriflammes_form();
 	}
 	if ($page=='Kakemonos') {
@@ -1308,7 +1308,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f2';
 		$info_title='KAKEMONO ROLL-UP ENROULEUR ';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" img class="alignleft" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_kakemonos_form();
 	}
 
@@ -1319,7 +1319,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='roll-up';
 		$info_title='KAKEMONO ROLL-UP ENROULEUR';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" img class="alignleft" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_rollup_form();
 	}
 
@@ -1343,7 +1343,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='t';
 		$info_title='Kakemono Totem ';
-		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" img class="alignleft" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_totem_form();
 	}
 
@@ -1354,7 +1354,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f1';
 		$info_title='Banderole ';
-		$info_info='<span style="font-size:9px">France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours </span><br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" img class="alignleft" title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
+		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours<br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" title="Banderole : Tout savoir"><span class="highlight"><b>AIDE ET EXPLICATIFS</b></span></a>';
 		$formularz = get_banderoles_form();
 	}
 
@@ -1625,7 +1625,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
 	} else {
-		$view .= 'Your shopping cart is empty!';
+		$view .= 'Votre panier est vide !';
 	}
 	$view .= $epilog;
 	return $view;
@@ -1838,7 +1838,7 @@ function print_devis($products, $prolog, $epilog) {
 		</table>';
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>';
 	} else {
-		$view .= 'Your shopping cart is empty!';
+		$view .= 'Votre panier est vide !';
 	}
 	$view .= $epilog;
 	return $view;
