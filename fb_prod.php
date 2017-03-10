@@ -25,7 +25,7 @@ if (is_page('flyers') || is_page('affiches') || is_page('roll-up') || is_page('c
 	echo '
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+
 	<script type="text/javascript">
     var flashvars = {};
     var params = {};
@@ -39,7 +39,7 @@ if (is_page('flyers') || is_page('affiches') || is_page('roll-up') || is_page('c
 	echo '
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+
 	<script type="text/javascript">
     var flashvars = {};
     var params = {};
