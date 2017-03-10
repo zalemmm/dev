@@ -351,6 +351,7 @@
 
 		</form>
 	</div>
+
 	<div id="preview">
 		<div id="preview_imag"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
 	</div>
