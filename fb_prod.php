@@ -25,7 +25,7 @@ if (is_page('flyers') || is_page('affiches') || is_page('roll-up') || is_page('c
 	echo '
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
+	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
     var flashvars = {};
     var params = {};
@@ -39,7 +39,7 @@ if (is_page('flyers') || is_page('affiches') || is_page('roll-up') || is_page('c
 	echo '
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
+	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
     var flashvars = {};
     var params = {};
@@ -1387,7 +1387,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.jpg" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.jpg" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}
@@ -1905,7 +1905,7 @@ function get_stickers_form_old() {
             </li>
             <li class="form-line sizehigher" id="id_8">
                 <label class="form-label-left" id="label_8" for="input_8">taille (en metre):</label>
-                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="llar">[largeur]</span><span class="lhau">[hauteur]</span>
+                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[largeur]</span><span class="lhau">[hauteur]</span>
             </li>
             <li class="form-line" id="id_9a">
                 <div class="form-input-wide">

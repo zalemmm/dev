@@ -1,11 +1,101 @@
+<style type="text/css">
+<!--
+#1060900217 .form-section #id_9 #label_9 strong {
+	color: #F00;
+}
+#1060900217 .form-section #id_9 #label_9 strong {
+	color: #F00;
+}
+#box {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+}
+.production {
+	width: 90px;
+	height: 20px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	cursor: pointer;
+}
+#p1 {
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal1.png);
+	background-repeat: no-repeat;"
+}
+#p2 {
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide1.png);
+	background-repeat: no-repeat;"
+}
+#p3 {
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express1.png);
+	background-repeat: no-repeat;"
+}
+
+.delivery {
+	width: 90px;
+	height: 20px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	cursor: pointer;
+}
+#l1 {
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal1.png);
+	background-repeat: no-repeat;"
+}
+#l2 {
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide1.png);
+	background-repeat: no-repeat;"
+}
+#l3 {
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express1.png);
+	background-repeat: no-repeat;"
+}
+
+
+
+h5 {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+#p1.active{
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal2.png);
+}
+#p2.active{
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide2.png);
+}
+#p3.active{
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express2.png);
+}
+#l1.active{
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal2.png);
+}
+#l2.active{
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide2.png);
+}
+#l3.active{
+	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express2.png);
+}
+-->
+</style>
 <div id="buying">
 	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_banderoles(); return false;">
 		<input type="hidden" name="formID" value="1060900217" />
 		<div class="form-all">
 			<ul class="form-section">
-
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Utilisation en exterieur</u>: <span class="highlight">Dès 6,50€/m²</span></b><br/>Voir toutes nos baches disponibles.<br />• <u><b>Utilisation en intérieur</u>: <span class="highlight">Dès 13,50€/m²</span></b><br/>Uniquement Bâche avec garantie anti-feu.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Utilisation en exterieur</u>: <font color="#FF0000">Dès 6,50€/m²</font></b><br/>Voir toutes nos baches disponibles.<br />• <u><b>Utilisation en intérieur</u>: <font color="#FF0000">Dès 13,50€/m²</font></b><br/>Uniquement Bâche avec garantie anti-feu.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir l'utilisation...</option>
 						<option value="extérieur">extérieur </option>
@@ -13,10 +103,9 @@
 						<option value="int/ext">int/ext </option>
 					</select>
 				</li>
-
 				<!--support-->
 				<li class="form-line" id="id_ext">
-					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />• <u><b>Bâche 550g B1</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Toutes les banderoles jusqu'à 3 ans en Ext.<br />• <u><b>Bâche nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <font color="#FF0000">Le moins cher dès 6,50€/m²</font></b><br/>Pour petite banderole à courte durée de vie.<br />• <u><b>Bâche 550g B1</u>: <font color="#FF0000">qualité/prix dès 9,50€/m²</font></b><br/>Toutes les banderoles jusqu'à 3 ans en Ext.<br />• <u><b>Bâche nontissé 150g</u>: <font color="#FF0000">légèreté dès 10,00€/m²</font></b><br/>Toile polyester pour balisage, jupe palette...<br />• <u><b>Bâche 470g M1</u>: <font color="#FF0000">Anti-feu dès 13,50€/m²</font></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <font color="#FF0000">dès 14,00€/m²</font></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <font color="#FF0000">dès 17,50€/m²</font></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <font color="#FF0000">dès 8,50€/m²</font></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <font color="#FF0000">dès 21,00€/m²</font></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="bache 440g">bache 440g </option>
@@ -29,9 +118,8 @@
 						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
 					</select>
 				</li>
-
 				<li class="form-line" id="id_int">
-					<span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText2" style="visibility:hidden;">• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />• <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText2" style="visibility:hidden;">• <u><b>Bâche 470g M1</u>: <font color="#FF0000">Anti-feu dès 13,50€/m²</font></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <font color="#FF0000">dès 14,00€/m²</font></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <font color="#FF0000">dès 17,50€/m²</font></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <font color="#FF0000">dès 8,50€/m²</font></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <font color="#FF0000">dès 21,00€/m²</font></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />• <u><b>Bâche nontissé 150g M1</u>: <font color="#FF0000"> dès 12,00€/m²</font></b><br/>Toile polyester pour balisage, jupe palette...<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_int" name="qint_support2" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="bache 470g M1">bache 470g M1 </option>
@@ -42,9 +130,8 @@
 						<option value="bache nontissé 150g M1">bache nontissé 150g M1</option>
 					</select>
 				</li>
-
 				<li class="form-line" id="id_intext">
-					<span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText3" style="visibility:hidden;">• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />• <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText3" style="visibility:hidden;">• <u><b>Bâche 470g M1</u>: <font color="#FF0000">Anti-feu dès 13,50€/m²</font></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <font color="#FF0000">dès 14,00€/m²</font></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <font color="#FF0000">dès 17,50€/m²</font></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <font color="#FF0000">dès 8,50€/m²</font></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <font color="#FF0000">dès 21,00€/m²</font></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />• <u><b>Bâche nontissé 150g M1</u>: <font color="#FF0000"> dès 12,00€/m²</font></b><br/>Toile polyester pour balisage, jupe palette...<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_intext" name="qintext_support3" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="bache 470g M1">bache 470g M1</option>
@@ -55,7 +142,6 @@
 						<option value="bache nontissé 150g M1">bache nontissé 150g M1</option>
 					</select>
 				</li>
-
 				<!--oeillets-->
 				<li class="form-line optionsformline4" id="id_21">
 					<select class="form-dropdown validate[required] option3" id="input_21" name="q21_finition1" onchange="JKakemono.czyscpola(); ">
@@ -67,7 +153,6 @@
 						<option value="oeillets périmétrique">oeillets tout le tour </option>
 					</select>
 				</li>
-
 				<!--espacement oeillets-->
 				<li class="form-line optionsformline5" id="id_22">
 					<select class="form-dropdown validate[required] option4" id="input_22" name="q22_finition1" onchange="JKakemono.czyscpola(); ">
@@ -78,7 +163,6 @@
 						<option value="tous les 10cm">tous les 10cm</option>
 					</select>
 				</li>
-
 				<li class="form-line optionsformline5" id="id_23">
 					<select class="form-dropdown validate[required] option4" id="input_23" name="q23_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">espacement des oeillets...</option>
@@ -88,7 +172,6 @@
 						<option value="tous les 10cm">tous les 10cm</option>
 					</select>
 				</li>
-
 				<li class="form-line optionsformline5" id="id_24">
 					<select class="form-dropdown validate[required] option4" id="input_24" name="q24_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">espacement des oeillets...</option>
@@ -98,12 +181,11 @@
 						<option value="tous les 10cm">tous les 10cm</option>
 					</select>
 				</li>
-
 				<div style="clear:both"> </div>
 				<!--ourlet-->
 
 				<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <font color="#FF0000">dès 0,50€/m</font></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la largeur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm aux 2 dimensions de la bache</b></font> lors du choix de la taille.</span></span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -113,7 +195,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <font color="#FF0000">dès 0,50€/m</font></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la largeur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm aux 2 dimensions de la bache</b></font> lors du choix de la taille.</span></span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -121,7 +203,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <font color="#FF0000">dès 0,50€/m</font></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la largeur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm aux 2 dimensions de la bache</b></font> lors du choix de la taille.</span></span>
 					<select class="form-dropdown validate[required]" id="input_33" name="q33_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -129,7 +211,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText7" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText7" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <font color="#FF0000">dès 0,50€/m</font></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm à la largeur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <font color="#FF0000"><b>! ajouter 5cm aux 2 dimensions de la bache</b></font> lors du choix de la taille.</span></span>
 					<select class="form-dropdown validate[required]" id="input_34" name="q34_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -139,7 +221,7 @@
 
 				<!--fourreaux-->
 				<li class="form-line" id="id_41">
-					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText8" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText8" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <font color="#FF0000">dès 0,75€/m</font></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la largeur de la banderole</b></font> lors du choix de la taille.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_41" name="q41_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
@@ -147,27 +229,24 @@
 						<option value="fourreaux gauche/droite">fourreaux gauche/droite</option>
 					</select>
 				</li>
-
 				<li class="form-line" id="id_42">
-					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText9" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText9" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <font color="#FF0000">dès 0,75€/m</font></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la largeur de la banderole</b></font> lors du choix de la taille.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_42" name="q42_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
 						<option value="fourreaux haut/bas">fourreaux haut/bas</option>
 					</select>
 				</li>
-
 				<li class="form-line" id="id_43">
-					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText10" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText10" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <font color="#FF0000">dès 0,75€/m</font></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la largeur de la banderole</b></font> lors du choix de la taille.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_43" name="q43_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
 						<option value="fourreaux gauche/droite">fourreaux gauche/droite</option>
 					</select>
 				</li>
-
 				<li class="form-line" id="id_44">
-					<span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText11" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText11" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <font color="#FF0000">dès 0,75€/m</font></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la hauteur de la banderole</b></font> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <font color="#FF0000"><b>! ajouter 20cm à la largeur de la banderole</b></font> lors du choix de la taille.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_44" name="q44_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
@@ -175,7 +254,6 @@
 						<option value="fourreaux gauche/droite">fourreaux gauche/droite</option>
 					</select>
 				</li>
-
 				<!--fixation-->
 				<li class="form-line optionsformline4" id="id_51">
 					<select class="form-dropdown validate[required] option3" id="input_51" name="q51_fixations1" onchange="JKakemono.czyscpola(); ">
@@ -189,53 +267,51 @@
 						<option value="drisse fourreaux H/B">drisse fourreaux H/B </option>
 					</select>
 				</li>
-
 				<li class="form-line optionsformline5" id="id_52">
 					<select class="form-dropdown validate[required] option4" id="input_52" name="q52_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">quantité par banderole</option>
-						<option class="select-alt" value="2">2 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="2">2 tendeurs</option>
 						<option value="4">4 tendeurs</option>
-						<option class="select-alt" value="6">6 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="6">6 tendeurs</option>
 						<option value="8">8 tendeurs</option>
-						<option class="select-alt" value="10">10 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="10">10 tendeurs</option>
 						<option value="12">12 tendeurs</option>
-						<option class="select-alt" value="14">14 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="14">14 tendeurs</option>
 						<option value="16">16 tendeurs</option>
-						<option class="select-alt" value="18">18 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="18">18 tendeurs</option>
 						<option value="20">20 tendeurs</option>
-						<option class="select-alt" value="22">22 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="22">22 tendeurs</option>
 						<option value="24">24 tendeurs</option>
-						<option class="select-alt" value="26">26 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="26">26 tendeurs</option>
 						<option value="28">28 tendeurs</option>
-						<option class="select-alt" value="30">30 tendeurs</option>
+						<option style="background-color:#e8e8e9" value="30">30 tendeurs</option>
 					</select>
 				</li>
-
 				<li class="form-line optionsformline5" id="id_53">
 					<select class="form-dropdown validate[required] option4" id="input_53" name="q53_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">quantité par banderole</option>
-						<option class="select-alt" value="2">2 rislans</option>
+						<option style="background-color:#e8e8e9" value="2">2 rislans</option>
 						<option value="4">4 rislans</option>
-						<option class="select-alt" value="6">6 rislans</option>
+						<option style="background-color:#e8e8e9" value="6">6 rislans</option>
 						<option value="8">8 rislans</option>
-						<option class="select-alt" value="10">10 rislans</option>
+						<option style="background-color:#e8e8e9" value="10">10 rislans</option>
 						<option value="12">12 rislans</option>
-						<option class="select-alt" value="14">14 rislans</option>
+						<option style="background-color:#e8e8e9" value="14">14 rislans</option>
 						<option value="16">16 rislans</option>
-						<option class="select-alt" value="18">18 rislans</option>
+						<option style="background-color:#e8e8e9" value="18">18 rislans</option>
 						<option value="20">20 rislans</option>
-						<option class="select-alt" value="22">22 rislans</option>
+						<option style="background-color:#e8e8e9" value="22">22 rislans</option>
 						<option value="24">24 rislans</option>
-						<option class="select-alt" value="26">26 rislans</option>
+						<option style="background-color:#e8e8e9" value="26">26 rislans</option>
 						<option value="28">28 rislans</option>
-						<option class="select-alt" value="30">30 rislans</option>
+						<option style="background-color:#e8e8e9" value="30">30 rislans</option>
 					</select>
 				</li>
 
 				<!--150gr-->
-				<li class="form-line optionsformline4" id="id_81">
+				<li class="form-line optionsformline4" id="id_81" style="height:22px;padding-top:13px;">
 					<select class="form-dropdown validate[required] option3" id="input_81" name="q81_finition4" onchange="JKakemono.czyscpola(); ">
-						<option value="">Voulez-vous des finitions ?</option>
+						<option value="">Vouez-vous des finitions ?</option>
 						<option value="pas de finition">pas de finition </option>
 						<option value="oeillets haut/bas">oeillets haut/bas</option>
 						<option value="nouettes haut/bas">nouettes haut/bas</option>
@@ -252,7 +328,6 @@
 						<option value="tous les 10cm">tous les 10cm</option>
 					</select>
 				</li>
-
 				<li class="form-line optionsformline5" id="id_92">
 					<select class="form-dropdown validate[required] option4" id="input_92" name="q92_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">espacement...</option>
@@ -263,7 +338,7 @@
 					</select>
 				</li>
 
-				<li class="form-line optionsformline4" id="id_101">
+				<li class="form-line optionsformline4" id="id_101" style="height:22px;padding-top:13px;">
 					<select class="form-dropdown validate[required] option3" id="input_101" name="q101_fixations1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fixation ?</option>
 						<option value="tendeurs H/B tous les mètres">tendeurs H/B tous les mètres</option>
@@ -272,9 +347,10 @@
 					</select>
 				</li>
 
+
 				<!--maquette-->
 				<li class="form-line" id="id_12">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<font color="#FF0000"><b> de 1 à 6 éléments séparés</b></font> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <font color="#FF0000"><b>BAT gratuit à valider</b></font> vous sera transmis dans votre accès client.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
 						<option value="fb">France banderole crée la mise en page</option>
@@ -282,15 +358,16 @@
 					</select>
 				</li>
 
+
 				<li class="form-line optionsformline2" id="id_13">
-					<label class="form-label-left label-highlight" id="label_13" for="input_13">quantité (par visuel):</label>
+					<label class="form-label-left" id="label_13" for="input_13" style="color:#3097c0; font-weight:bold; text-transform:capitalize; margin-left:0">quantité (par visuel):</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " style="" />
 				</li>
 				<li id="id_14" class="form-line optionsformline2" style="nothing">
-					<label class="form-label-left label-highlight" id="label_14" for="input_14">taille <strong><span  class="highlight">(en Mètres)</span></strong>:</label>
+					<label class="form-label-left" id="label_14" for="input_14"style="color:#3097c0; font-weight:bold; text-transform:capitalize">taille <strong><font color="#FF0000" font-size="12px">(en Mètres)</font></strong>:</label>
 
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola();" style="margin-left:18px"/>
-					<span class="highlight">M</span> <span class="heusepar" style="left:185px;">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " style="top:12px; left:200px;" /><span class="highlight" style="position:absolute; top:16px; left:255px">M</span> <span class="llar" style="left:120px;">[hauteur]</span><span class="lhau" style="left:203px;">[largeur]</span></li>
+					<input type="text" class="form-textbox validate[required, Numeric]" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " style="margin-left:18px"/>
+					<span style="color:#FF0000; font-size:12px;">M</span> <span class="heusepar" style="margin-left:50px;">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " style="top:12px; left:200px;" /><span style="color:#FF0000; font-size:12px; position:absolute; top:16px; left:255px">M</span> <span class="llar" style="margin-left:45px;">[hauteur]</span><span class="lhau" style="margin-left:50px;">[largeur]</span></li>
 					<li id="id_16" class="form-line optionsformline">
 						<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
 
@@ -299,11 +376,11 @@
 							<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
 							<span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 						</span>
-						<div class="break-line"></div>
+						<div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
 
 
 						<p id="production" >
-							<h5 class="delivery-delay">Delai Production:</h5>
+							<h5 style="float:left; width:98px">Delai Production:</h5>
 							<button class="production" text-value="4-5" id="p1"></button>
 							<button class="production" text-value="2-3" id="p2"></button>
 							<button class="production" text-value="1-1" id="p3"></button>
@@ -311,7 +388,7 @@
 						</p>
 						<div id="delivery-div" style='display:none;'>
 							<p id="delivery" >
-								<h5 class="delivery-delay">Delai Livraison:</h5>
+								<h5 style="float:left; width:98px">Delai Livraison:</h5>
 								<button class="delivery" text-value="3-4" id="l1"></button>
 								<button class="delivery" text-value="2-3" id="l2"></button>
 								<button class="delivery" text-value="1-1" id="l3"></button>
@@ -321,7 +398,7 @@
 							<p>
 								<!--<span id="totaldays"></span>&nbsp;-->
 								<span id="totalamt_16"></span>
-								<span id='estdate_16' class="delivery-date"></span>
+								<span id='estdate_16' style="color:#d23562; text-transform: uppercase; font-weight:bold"></span>
 							</p>
 						</div>
 					</li>
@@ -352,7 +429,6 @@
 
 		</form>
 	</div>
-
 	<div id="preview">
 		<div id="preview_imag"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
 	</div>
@@ -1464,7 +1540,7 @@ if ( ($('input_1').value) ) {
 						{
 							//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 							//jQuery('#prix_unitaire').text(finalPrice);
-							jQuery('#estdate_16').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+							jQuery('#estdate_16').html('Date de livraison : '+output+' <a style="text-transform: uppercase; text-decoration: none" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
 
 
 						}

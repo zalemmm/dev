@@ -216,7 +216,7 @@
 
 <li id="id_9" class="form-line sizehigher">
   <label class="form-label-left" id="label_9" for="input_9">taille (en metre):</label>
-  <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+  <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 </li>
 
 

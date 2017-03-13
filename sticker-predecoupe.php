@@ -117,8 +117,8 @@
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
                 </li>
                 <li class="form-line optionsformline2" id="id_8">
-                    <label class="form-label-left" id="label_8" for="input_8"style="color:#3097c0; font-weight:bold; text-transform:capitalize;">taille <strong><span class="highlight">(en CM)</span></strong>:</label>
-                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+                    <label class="form-label-left" id="label_8" for="input_8"style="color:#3097c0; font-weight:bold; text-transform:capitalize;">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
+                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
                 </li>
                  <li class="form-line optionsformline" id="id_10">
 				<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
