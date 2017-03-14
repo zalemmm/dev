@@ -21,7 +21,14 @@ define( 'FS_CHMOD_FILE', ( 0660 & ~ umask() ) );
 define('FORCE_SSL_ADMIN', false);
 
 Bug admin https :
-DELETE FROM wp_options WHERE option_name LIKE 'wordpress-https%'
+DELETE FROM wp_options WHERE option_name LIKE 'wordpress-https%'<FilesMatch ".(eot|ttf|otf|woff)">
+	Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+Pb fonts htaccess :
+<FilesMatch ".(eot|ttf|otf|woff)">
+	Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
 
 WP-CLI
 --------------------------------------------------------------------------------
@@ -37,33 +44,9 @@ in html
 
 GIT SNIP
 --------------------------------------------------------------------------------
-git remote add origin https://github.com/zalemmm/nom-du-rep.git
+git remote add origin https://github.com/user/nom-du-rep.git
 git push -u origin master
 
 
 ssl in php.ini :    uncoment ;extension=php_openssl.dll
     in httpd.conf : uncoment #LoadModule ssl_module modules/mod_ssl.so
-
-
-
-
-
-
-
-
-
-
---------------------------------------------------------------------------------
-
-francebanderole2.evolix.net
-
-devbanderolecom Boin'OvDiUts4
-bdd devbanderolecom FladNiam
-
-frbanderolecom rotyemnush
-bdd frbanderolecom JidredPai
-
-http://francebanderole.evolix.net/phpmyadmin-21504
-
-frbanderolecom rotyemnush
-bdd frbanderolecom JidredPai
