@@ -63,3 +63,5 @@ ssl in php.ini :    uncoment ;extension=php_openssl.dll
         });
     });
     </script>
+
+    <script>jQuery.noConflict();</script>
