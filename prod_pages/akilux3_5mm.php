@@ -89,13 +89,13 @@
           </li>
 
           <li class="form-line optionsformline2" id="id_13">
-            <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité:</label>
-            <input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
+            <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité (par visuel):</label>
+            <input type="text" class="form-textbox textboxPush validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
           </li>
 
           <li id="id_9" class="form-line optionsformline2">
-            <label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><span class="highlight">(en CM)</span></strong>:</label>
-            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+            <label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
+            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 
           </li>
 

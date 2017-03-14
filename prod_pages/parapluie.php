@@ -5,9 +5,8 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_0">
-          <label class="form-label-left" id="label_0" for="input_0">type:</label>
           <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir...</option>
+            <option value="">choisir le type</option>
             <option value="Tissu">Tissu Easy quick</option>
             <option value="Stand ExpoBag">Stand Expo’Bag</option>
             <option value="PLV carton">PLV carton pliable</option>
@@ -15,9 +14,8 @@
         </li>
 
         <li class="form-line" id="id_1">
-          <label class="form-label-left" id="label_1" for="input_1">option:</label>
           <select class="form-dropdown validate[required]" id="input_1" name="q1_option" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir...</option>
+            <option value="">choisir l'option...</option>
             <option value="1b">Totem oval (154x50cm)</option>
             <option value="2b">Totem oval (190x63cm)</option>
             <option value="3b">Comptoir (69x99cm) </option>
@@ -28,18 +26,16 @@
         </li>
 
         <li class="form-line" id="id_2">
-          <label class="form-label-left" id="label_2" for="input_2">option: </label>
           <select class="form-dropdown validate[required]" id="input_2" name="q2_option" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir... </option>
+            <option value="">choisir l'option... </option>
             <option value="1">2 spots hallogène 35w aluminium </option>
             <option value="0">non merci </option>
           </select>
         </li>
 
         <li class="form-line" id="id_50">
-          <label class="form-label-left" id="label_50" for="input_50">option des dimensions: </label>
           <select class="form-dropdown validate[required]" id="input_50" name="q50_option" onChange="JKakemono.czyscpola(); ">
-            <option value="">choisir... </option>
+            <option value="">choisir les dimensions... </option>
             <optgroup label="Recto Avec Retour">
               <option value="1">Recto Avec Retour 3x1 </option>
               <option value="2">Recto Avec Retour 3x2 </option>
@@ -58,27 +54,24 @@
         </li>
 
         <li class="form-line" id="id_51">
-          <label class="form-label-left" id="label_51" for="input_51">option: </label>
           <select class="form-dropdown validate[required]" id="input_51" name="q51_option" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir... </option>
+            <option value="">choisir l'option... </option>
             <option value="1">2 spots hallogène 150w noir </option>
             <option value="0">non merci </option>
           </select>
         </li>
 
         <li class="form-line" id="id_6">
-          <label class="form-label-left" id="label_6" for="input_6">option: </label>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir... </option>
+            <option value="">choisir l'option... </option>
             <option value="41">Valise de transport / Comptoir accueil </option>
             <option value="0">non merci </option>
           </select>
         </li>
 
         <li class="form-line" id="id_7">
-          <label class="form-label-left" id="label_7" for="input_7">maquette:</label>
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir...</option>
+            <option value="">choisir la mise en page...</option>
             <option value="fb">France banderole crée la maquette</option>
             <option value="user">j’ai déjà crée la maquette </option>
           </select>
@@ -121,13 +114,7 @@
         </div>
       </li>
 
-      <li class="form-line ceddreheigher" id="id_003">
-        <label class="form-label-left" id="label_003" for="input_003">RECYCLER LES VISUELS</label>
-        <span class="form-checkbox-item"><input type="checkbox" class="form-checkbox" id="input_003_0" name="q003_laCeddre003[]" value="Charte Eco citoyenne pour le Développement Durable et le Recyclage des Enduits PVC" onchange="JKakemono.czyscpola(); " />
-        </span>
-        <label for="input_003_0" class="boxcheck"> Charte Eco citoyenne pour le Développement Durable et le Recyclage des Enduits PVC </label>
-        <a rel="shadowbox" href="/la-ceddre/" target="_blank" class="pytajnik" title="CEDDRE">&nbsp;</a>
-      </li>
+      
 
       <li class="form-line" id="id_9a">
         <div class="form-input-wide">

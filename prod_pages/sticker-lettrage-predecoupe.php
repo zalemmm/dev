@@ -1,5 +1,5 @@
 <div id="buying">
-	<form class="jotform-form" action="" method="post" name="form_1060900216" id="1060900216" accept-charset="utf-8" onsubmit="JKakemono.cal_stickers_lettrage_predecoupe(); return false;">
+	<form class="jotform-form" action="" method="post" name="form_1060900216" id="1060900216" accept-charset="utf-8" onsubmit="JKakemono.cal_stickers; return false;">
 		<input type="hidden" name="formID" value="1060900216" />
 		<div class="form-all">
 			<ul class="form-section">
@@ -42,13 +42,13 @@
 				</li>
 
 				<li class="form-line optionsformline2" id="id_7">
-					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité:</label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
+					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité (par visuel):</label>
+					<input type="text" class="form-textbox textboxPush validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
 				</li>
 
 				<li class="form-line optionsformline2" id="id_8">
-					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><span class="highlight">(en CM)</span></strong>:</label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
+					<input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li class="form-line optionsformline" id="id_10">

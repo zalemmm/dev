@@ -6,7 +6,7 @@
                 if(document.getElementById('rush24')){document.getElementById('rush24').checked = false;}
                 if(document.getElementById('rush72')){document.getElementById('rush72').checked = false;}
                 if(document.getElementById('relais')){document.getElementById('relais').checked = false;}
-                //if(document.getElementById('colis')){document.getElementById('colis').checked = false;}
+                if(document.getElementById('colis')){document.getElementById('colis').checked = false;}
                 if(document.getElementById('etiquette')){document.getElementById('etiquette').checked = false;}
             }
         });        
@@ -19,14 +19,12 @@
                 if(document.getElementById('rush24')){document.getElementById('rush24').checked = false;}
                 if(document.getElementById('rush72')){document.getElementById('rush72').checked = false;}
                 if(document.getElementById('relais')){document.getElementById('relais').checked = false;}
-                //if(document.getElementById('colis')){document.getElementById('colis').checked = false;}
+                if(document.getElementById('colis')){document.getElementById('colis').checked = false;}
                 if(document.getElementById('etiquette')){document.getElementById('etiquette').checked = false;}				
 			}
         });   		            
-        /*jQuery('#relais, #rush24, #rush72','#colis').change(function() {*/
-		jQuery('#relais, #rush24, #rush72').change(function() {	
-            /*if (document.getElementById('colis').checked == true || document.getElementById('relais').checked == true || document.getElementById('rush24').checked == true || document.getElementById('rush72').checked == true) {*/
-			if (document.getElementById('relais').checked == true || document.getElementById('rush24').checked == true || document.getElementById('rush72').checked == true) {
+        jQuery('#relais, #rush24, #rush72','#colis').change(function() {
+            if (document.getElementById('colis').checked == true || document.getElementById('relais').checked == true || document.getElementById('rush24').checked == true || document.getElementById('rush72').checked == true) {
                 document.getElementById('fedex').checked = false;
                 document.getElementById('tnt').checked = true;
             } else {
