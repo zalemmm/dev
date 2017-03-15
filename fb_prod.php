@@ -1340,7 +1340,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f2';
 		$info_title='KAKEMONO ROLL-UP ENROULEUR ';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" img class="alignleft" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_kakemonos_form();
 	}
 
@@ -1351,7 +1351,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='roll-up';
 		$info_title='KAKEMONO ROLL-UP ENROULEUR';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" img class="alignleft" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_rollup_form();
 	}
 
@@ -1375,7 +1375,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='t';
 		$info_title='Kakemono Totem ';
-		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" img class="alignleft" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_totem_form();
 	}
 
