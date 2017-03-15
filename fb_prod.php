@@ -25,8 +25,8 @@ if (is_page('flyers') || is_page('tente-pliante-exposition') || is_page('affiche
 	echo '
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-  <script type="text/javascript">
+	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jquery-1.6.2.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
     var flashvars = {};
     var params = {};
     params.wmode = "transparent";
@@ -39,7 +39,7 @@ if (is_page('flyers') || is_page('tente-pliante-exposition') || is_page('affiche
 	echo '
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
 	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
+	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jquery-1.6.2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
     var flashvars = {};
     var params = {};
@@ -1068,7 +1068,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f4';
 		$info_title='Impression rapide flyers pas cher et prospectus';
-		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span style="color:#F00"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
+		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span class="highlight"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
 		$formularz = get_flyers_form();
 	}
 
@@ -1386,7 +1386,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f1';
 		$info_title='Banderole ';
-		$info_info='<span style="font-size:9px">France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours </span><br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" img class="alignleft" title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
+		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours <br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" img class="alignleft" title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
 		$formularz = get_banderoles_form();
 	}
 
@@ -1419,7 +1419,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-	}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.jpg" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}
@@ -1983,7 +1983,7 @@ function get_plv() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f10.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2139,7 +2139,7 @@ function get_plv_int() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f22.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
