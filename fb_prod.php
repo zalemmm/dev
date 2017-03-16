@@ -22,34 +22,8 @@ function recursive_array_search($needle,$haystack) {
 
 function fbshop_head() {
 if (is_page('flyers') || is_page('tente-pliante-exposition') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
-	echo '
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-  <script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.wmode = "transparent";
-	swfobject.embedSWF("'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/banner_pr.swf", "banner", "706", "97", "8.0.0", "'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expressInstall.swf", flashvars, params);
-	$(document).ready(function(){
-		initBanner();
-	});
-	</script>
-	';
-	echo '
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-  <script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.wmode = "transparent";
-	swfobject.embedSWF("'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/devis.swf", "banner2", "115", "28", "8.0.0", "'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expressInstall.swf", flashvars, params);
-
-	</script>
-	';
-
 }
+
 $user = $_SESSION['loggeduser'];
 /*
 if (isset($_GET['detail']) && $user->login != 'schizoos' && $user->login != 'pocalypse') {
@@ -1330,7 +1304,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f3';
 		$info_title='Oriflammes Windflag Beachflag et drapeaux';
-		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" img class="alignleft" title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
+		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank"  class="notice"  title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
 		$formularz = get_oriflammes_form();
 	}
 	if ($page=='Kakemonos') {
@@ -1386,7 +1360,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f1';
 		$info_title='Banderole ';
-		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours <br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" img class="alignleft" title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
+		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours <br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
 		$formularz = get_banderoles_form();
 	}
 
