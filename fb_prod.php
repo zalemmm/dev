@@ -2923,9 +2923,9 @@ function get_promotions() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_promo";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-
+  
 	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
 	$licznik = 0;
