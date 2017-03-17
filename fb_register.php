@@ -605,18 +605,18 @@ function get_acces_client() {
 	$fb_tablename_users = $prefix."fbs_users";
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
 //	if (!isset($_SESSION['loggeduser'])) {
-// wysylanie przypomnienia hasla
+// envoi de rappels mot de passe
 		if ($_GET['resend'] == 'resend') {
 			$podanyemail = $_POST['resendaddress'];
 			$adresemail = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE email='$podanyemail'");
 			if ($adresemail) {
-				$chars = "abcdefghijklmnopqrstuw1234567890"; //zestaw znakow mozesz ustalic samodzielnie
+				$chars = "abcdefghijklmnopqrstuw1234567890"; //jeu de caractères que vous pouvez vous-même fixer
 			    $hasloodszyfrowane = '';
 			    for ( $i = 0; $i <= 4; $i++ ) {
 		          $losowy = rand(0, strlen($chars) - 1);
         		  $hasloodszyfrowane .= $chars{$losowy};
 			    }
-//				$hasloodszyfrowane = uniqid(rand()); // tworzenie nowe hasła
+//				$hasloodszyfrowane = uniqid(rand()); // création d'un nouveau mot de passe
 		        $haslo = sha1(md5($hasloodszyfrowane)); // szyfrowanie hasła
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
@@ -635,7 +635,7 @@ function get_acces_client() {
 			}
 
 		}
-// formularz przypomnienia hasla
+// mot de passe sous forme de rappel
 		elseif ($_GET['resend'] == 'pass') {
 			if (!isset($_SESSION['loggeduser'])) {
 				$view .= get_pass_resend_form();
