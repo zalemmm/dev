@@ -1775,7 +1775,7 @@ function get_devis() {
  		if($relais_colis !== false){
 			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;"></a>';
 		}else{
-			$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
+			$epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit"></button></form>';
 		}
 	}
 	$epilog .= '</div>';
