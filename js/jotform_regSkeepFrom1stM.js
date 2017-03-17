@@ -5,11 +5,11 @@ JotForm = {
   /**
   * @var JotForm domain
   */
-  url: "https://jotform.com/", // Will get the correct URL from this.getServerURL() method
+  url: "http://jotform.com/", // Will get the correct URL from this.getServerURL() method
   /**
   * @var JotForm request server location
   */
-  server: "https://jotform.com/server.php", // Will get the correct URL from this.getServerURL() method
+  server: "http://jotform.com/server.php", // Will get the correct URL from this.getServerURL() method
   /**
   * @var All conditions defined on the form
   */
@@ -1436,7 +1436,7 @@ validator: function(){
         if ( (input.readAttribute('id')=='input_1') ){
 
           if($('input_1').value != oldMail) {
-            new Ajax.Request('https://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
+            new Ajax.Request('http://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
               method: 'post',
               parameters: {checkemail: $('input_1').value},
               onComplete: function showAlert(request) {
@@ -1449,7 +1449,7 @@ validator: function(){
         }
 
         if ( (input.readAttribute('id')=='input_2') ){
-          new Ajax.Request('https://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
+          new Ajax.Request('http://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
             method: 'post',
             parameters: {checklogin: $('input_2').value},
             onComplete: function showAlert(request) {
