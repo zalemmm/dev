@@ -2227,13 +2227,8 @@ if (isset($_POST['pokaztab'])) {
 
 
 function fbs_admin_head() {
-<<<<<<< HEAD
-	echo '<link rel="stylesheet" href="https://127.0.0.1/wordpress/wp-content/plugins/fbshop/admin.css" type="text/css" />';
-	echo '<link rel="stylesheet" type="text/css" media="print" href="https://127.0.0.1/wordpress/wp-content/plugins/fbshop/admin_print.css" />';
-=======
 	echo '<link rel="stylesheet" href="//dev.france-banderole.com/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="//dev.france-banderole.com/wp-content/plugins/fbshop/admin_print.css" />';
->>>>>>> origin/master
 	if (isset($_GET['fbdet'])) {
 /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
 	}
@@ -3554,11 +3549,7 @@ if($order->status==4){
 	echo $select_pre.$select_inter.$select_post;
 	echo '</select><input type="submit" value="SAVE" class="savebutt2" /></form></div>';
 // wysylanie plikow
-<<<<<<< HEAD
-	echo '<div class="statusp2">Upload <a href="https://127.0.0.1/wordpress/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
-=======
 	echo '<div class="statusp2">Upload <a href="//dev.france-banderole.com/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
->>>>>>> origin/master
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
 	if(file_exists($name))

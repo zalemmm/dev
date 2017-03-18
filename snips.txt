@@ -21,14 +21,7 @@ define( 'FS_CHMOD_FILE', ( 0660 & ~ umask() ) );
 define('FORCE_SSL_ADMIN', false);
 
 Bug admin https :
-DELETE FROM wp_options WHERE option_name LIKE 'wordpress-https%'<FilesMatch ".(eot|ttf|otf|woff)">
-	Header set Access-Control-Allow-Origin "*"
-</FilesMatch>
-
-Pb fonts htaccess :
-<FilesMatch ".(eot|ttf|otf|woff)">
-	Header set Access-Control-Allow-Origin "*"
-</FilesMatch>
+DELETE FROM wp_options WHERE option_name LIKE 'wordpress-https%'
 
 WP-CLI
 --------------------------------------------------------------------------------
@@ -40,28 +33,36 @@ plugins status      : php $HOME/wp-cli/wp-cli.phar plugin status
 PHP SNIP
 --------------------------------------------------------------------------------
 php inline       '.get_bloginfo("url").'
-in html
-
-GIT SNIP
---------------------------------------------------------------------------------
-git remote add origin https://github.com/user/nom-du-rep.git
-git push -u origin master
-
+in html          <?php bloginfo('url'); ?>
 
 ssl in php.ini :    uncoment ;extension=php_openssl.dll
     in httpd.conf : uncoment #LoadModule ssl_module modules/mod_ssl.so
 
-    <!--img flip plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+GIT SNIP
+--------------------------------------------------------------------------------
+git remote add origin https://github.com/zalemmm/nom-du-rep.git
+git push -u origin master
 
-    <script>
-    $(function(){
-        $("#top_info").flip({
-            trigger: 'hover',
-            axis: 'y'
-        });
-    });
-    </script>
+JQUERY FLIP structure
+--------------------------------------------------------------------------------
+<div id="card">
+  <div class="front">
+    Front content
+  </div>
+  <div class="back">
+    Back content
+  </div>
+</div>
 
-    <script>jQuery.noConflict();</script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
+<script>
+jQuery(document).ready(function ($) {
+  //img flip plugin
+  $(function(){
+      $("#top_info").flip({
+          trigger: 'hover',
+          axis: 'y'
+      });
+  });
+});
