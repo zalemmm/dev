@@ -21,35 +21,9 @@ function recursive_array_search($needle,$haystack) {
 }
 
 function fbshop_head() {
-if (is_page('flyers') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
-	echo '
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-	<script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.wmode = "transparent";
-	swfobject.embedSWF("'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/banner_pr.swf", "banner", "706", "97", "8.0.0", "'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expressInstall.swf", flashvars, params);
-	$(document).ready(function(){
-		initBanner();
-	});
-	</script>
-	';
-	echo '
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-	<script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.wmode = "transparent";
-	swfobject.embedSWF("'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/devis.swf", "banner2", "115", "28", "8.0.0", "'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expressInstall.swf", flashvars, params);
-
-	</script>
-	';
-
+if (is_page('flyers') || is_page('tente-pliante-exposition') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
 }
+
 $user = $_SESSION['loggeduser'];
 /*
 if (isset($_GET['detail']) && $user->login != 'schizoos' && $user->login != 'pocalypse') {
@@ -68,7 +42,7 @@ if (is_page('votre-panier')){
 	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  	if($relais_colis !== false){
 		echo '
-<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery.js"></script>
 <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery-ui.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/relaisColis.js"></script>
@@ -80,7 +54,7 @@ if (is_page('votre-panier')){
 }
 
 
-	if ((is_page('roll-up')) || (is_page('totem')) || (is_page('banderoles')) || (is_page('oriflammes')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe'))  || (is_page('sticker-lettrage-predecoupe'))) {
+	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
 	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/roll.css?v26032013" type="text/css" media="all" />';
 }
 
@@ -811,6 +785,26 @@ JotForm.init();
 }
 
 
+if (is_page('tente-pliante-exposition')) {
+echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-tente-exposition.js?v4" type="text/javascript"></script>
+<script type="text/javascript">
+JotForm.setConditions([
+
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "option", "operator": "isFilled", "value": false}], "action": {"field": "couleur", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Personnalisé"}], "action": {"field": "maquette", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Blanc"}, {"field": "couleur", "operator": "equals", "value": "Noir"}, {"field": "couleur", "operator": "equals", "value": "Rouge"}, {"field": "couleur", "operator": "equals", "value": "Bleu"}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Blanc"}, {"field": "couleur", "operator": "equals", "value": "Noir"}, {"field": "couleur", "operator": "equals", "value": "Rouge"}, {"field": "couleur", "operator": "equals", "value": "Bleu"}], "action": {"field": "16", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+
+]);
+JotForm.init();
+</script>';
+}
+
+
 if (is_page('panneaux-forex-3mm')) {
 echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
 <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-3mm.js?v4" type="text/javascript"></script>
@@ -1048,7 +1042,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f4';
 		$info_title='Impression rapide flyers pas cher et prospectus';
-		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span class="highlight"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
+		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span class="highlight notice"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
 		$formularz = get_flyers_form();
 	}
 
@@ -1075,7 +1069,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f11';
 		$info_title='Stand Parapluie et Présentoirs Cartons';
-		$info_info='Nos stand parapluie tissu et présentoirs à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Nos stand parapluie tissu et présentoirs à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" class="notice" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_parapluie_form();
 	}
 
@@ -1117,6 +1111,18 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$info_info='Les panneaux Akilux au meilleur prix sont fabriquées en Akilux 3mm ou 450g. Impression directe UV sur panneaux akilux. tailles de 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
 		$formularz = get_akilux3mm_form();
 	}
+
+	if ($page=='tente-pliante-exposition') {
+		$h1name='Tente pliante d\'Exposition';
+		$imghead1='kakemonos1';
+		$imghead2='kakemonos2';
+		$imghead3='kakemonos3';
+		$mini='tentes';
+		$info_title='Tente';
+		$info_info='Céer un espcace à vos évènements grâce aux tentes pliantes. France Banderole vous propose différentes options pour personnaliser vos barnums.';
+		$formularz = get_tente_exposition_form();
+	}
+
 
 	if ($page=='panneaux-akilux-3_5mm') {
 		$h1name='panneaux akilux, panneau akylux, panneaux de chantier, Akilux 3.5mm, Akilux 600g';
@@ -1298,7 +1304,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f3';
 		$info_title='Oriflammes Windflag Beachflag et drapeaux';
-		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
+		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank"  class="notice"  title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
 		$formularz = get_oriflammes_form();
 	}
 	if ($page=='Kakemonos') {
@@ -1308,7 +1314,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f2';
 		$info_title='KAKEMONO ROLL-UP ENROULEUR ';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_kakemonos_form();
 	}
 
@@ -1319,7 +1325,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='roll-up';
 		$info_title='KAKEMONO ROLL-UP ENROULEUR';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_rollup_form();
 	}
 
@@ -1343,7 +1349,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='t';
 		$info_title='Kakemono Totem ';
-		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_totem_form();
 	}
 
@@ -1354,7 +1360,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f1';
 		$info_title='Banderole ';
-		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours<br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" title="Banderole : Tout savoir"><span class="highlight"><b>AIDE ET EXPLICATIFS</b></span></a>';
+		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours <br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
 		$formularz = get_banderoles_form();
 	}
 
@@ -1387,7 +1393,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.jpg" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}
@@ -1769,7 +1775,7 @@ function get_devis() {
  		if($relais_colis !== false){
 			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;"></a>';
 		}else{
-			$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
+			$epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit"></button></form>';
 		}
 	}
 	$epilog .= '</div>';
@@ -1951,7 +1957,7 @@ function get_plv() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f10.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2107,7 +2113,7 @@ function get_plv_int() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f22.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2502,7 +2508,7 @@ function get_acc() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2597,7 +2603,7 @@ function get_mma() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	/*$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
+	/*$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
 
 	$view .= '<table id="promotions_tablemma" cellspacing="0">';
 	$view .= '
@@ -2738,7 +2744,7 @@ function get_acc2() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>';
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2834,7 +2840,7 @@ function get_acc2() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>';
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2919,7 +2925,7 @@ function get_promotions() {
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 
 	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f8.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
 	$licznik = 0;
@@ -3146,5 +3152,9 @@ function get_oriflammes_form() {
 	return $form;
 }
 
+function get_tente_exposition_form() {
+    $form = file_get_contents(getTplPath('tente-pliante-exposition.php'));
+    return $form;
+}
 
 ?>

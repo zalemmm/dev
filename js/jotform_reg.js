@@ -5,11 +5,11 @@ JotForm = {
   /**
   * @var JotForm domain
   */
-  url: "http://jotform.com/", // Will get the correct URL from this.getServerURL() method
+  url: "https://jotform.com/", // Will get the correct URL from this.getServerURL() method
   /**
   * @var JotForm request server location
   */
-  server: "http://jotform.com/server.php", // Will get the correct URL from this.getServerURL() method
+  server: "https://jotform.com/server.php", // Will get the correct URL from this.getServerURL() method
   /**
   * @var All conditions defined on the form
   */
@@ -1334,7 +1334,7 @@ errored: function(input, message){
     var collapse = JotForm.getCollapseBar(input);
     if (!collapse.errored) {
       collapse.select(".form-collapse-mid")[0].insert({
-        top: '<img src="'+this.url+'images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+        top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
       }).setStyle({
         color: 'red'
       });
@@ -1349,7 +1349,7 @@ errored: function(input, message){
 
   container.insert(new Element('div', {
     className: 'form-error-message'
-  }).insert('<img src="'+this.url+'images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
+  }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
 
   return false;
 },
@@ -1436,7 +1436,7 @@ validator: function(){
         if ( (input.readAttribute('id')=='input_1') ){
 
           if($('input_1').value != oldMail) {
-            new Ajax.Request('http://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
+            new Ajax.Request('https://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
               method: 'post',
               parameters: {checkemail: $('input_1').value},
               onComplete: function showAlert(request) {
@@ -1449,7 +1449,7 @@ validator: function(){
         }
 
         if ( (input.readAttribute('id')=='input_2') ){
-          new Ajax.Request('http://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
+          new Ajax.Request('https://www.france-banderole.com/wp-content/plugins/fbshop/js/check_data.php', {
             method: 'post',
             parameters: {checklogin: $('input_2').value},
             onComplete: function showAlert(request) {
