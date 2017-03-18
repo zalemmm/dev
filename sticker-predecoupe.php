@@ -117,8 +117,8 @@
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
                 </li>
                 <li class="form-line optionsformline2" id="id_8">
-                    <label class="form-label-left" id="label_8" for="input_8"style="color:#3097c0; font-weight:bold; text-transform:capitalize;">taille <strong><font color="#FF0000">(en CM)</font></strong>:</label>
-                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+                    <label class="form-label-left" id="label_8" for="input_8"style="color:#3097c0; font-weight:bold; text-transform:capitalize;">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
+                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
                 </li>
                  <li class="form-line optionsformline" id="id_10">
 				<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
@@ -128,10 +128,10 @@
 					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span></span></span>
 					<span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 				</span>				
-                    <div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
+                    <div class="break-line"></div>
                     
 <p id="production" >
-	<h5 style="float:left; width:98px">Delai Production:</h5>
+	<h5 class="delivery-delay">Delai Production:</h5>
 	<button class="production" text-value="4-5" id="p1"></button>
 	<button class="production" text-value="2-3" id="p2"></button>
 	<button class="production" text-value="1-1" id="p3"></button>
@@ -139,7 +139,7 @@
 </p>
 <div id="delivery-div" style='display:none;'>
 <p id="delivery" >
-	<h5 style="float:left; width:98px">Delai Livraison:</h5>
+	<h5 class="delivery-delay">Delai Livraison:</h5>
 	<button class="delivery" text-value="3-4" id="l1"></button>
 	<button class="delivery" text-value="2-3" id="l2"></button>
 	<button class="delivery" text-value="1-1" id="l3"></button>
@@ -148,7 +148,7 @@
 <p>
 <!--<span id="totaldays"></span>&nbsp;-->
 <span id="totalamt_10"></span>
-<span id='estdate_10' style="color:#d23562; text-transform: uppercase; font-weight:bold"></span>
+<span id='estdate_10' class="delivery-date"></span>
 </p>
           
               </div>                				
@@ -615,7 +615,7 @@ var total = document.getElementById("total");
 				{
 					//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 					//jQuery('#prix_unitaire').text(finalPrice);
-					jQuery('#estdate_10').html('Date de livraison : '+output+' <a style="text-transform: uppercase; text-decoration: none" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+					jQuery('#estdate_10').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
 					
 					
 				}

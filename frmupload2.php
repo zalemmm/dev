@@ -17,8 +17,8 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 		<meta name="description" content="" />
 		<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
 		<script language="JavaScript" type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
-		<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootools-1.2-core-nc.js"></script>
-
+		<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootogetols-1.2-core-nc.js"></script>
+		
 		<script type="text/javascript">
 		window.addEvent('load', function() {
 			$('demo-close').addEvent('click', function() {
