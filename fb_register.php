@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 function get_inscription() {
 	global $wpdb;
@@ -23,7 +23,7 @@ function get_inscription() {
 		}
 	} elseif ( $_GET['verify'] == 'confirm' ) {
 		$weryfikuj = $wpdb->update($fb_tablename_users, array ( 'status' => '1'), array ( 'confirm_link' => $_GET['unique'] ) );
-        if ($weryfikuj) {
+        if ($weryfikuj) {	
         	$view .= '<p>'._FB_ZWER.'</p><p>'._FB_CLICK.' <a href="'.get_bloginfo('url').'/acces-client/">'._FB_THERE.'</a>'._FB_TOLOG.'</p>';
         } else {
         	$view .= '<p>'._FB_NZWER.'</p>';
@@ -60,15 +60,15 @@ function get_inscription() {
 		}
 
 		if ($_POST['akcja'] == 'edit') {
-			if (isset($_POST['loggeduserid']) && $_POST['akcja'] == 'edit') {
-
+			if (isset($_POST['loggeduserid']) && $_POST['akcja'] == 'edit') {				
+				
 				// if($_POST['email'] != "") {
-
+					
 					// $test_mail = $wpdb->get_results()
-
+					
 				// }
-
-
+				
+				
 				if (!empty($f_porte)) {
 					$f_address = $f_address.'| '.$f_porte;
 				}
@@ -82,9 +82,9 @@ function get_inscription() {
 				} else {
 					$kolejka = $wpdb->update($fb_tablename_users, array ( 'email' => $email, 'f_name' => $f_name, 'f_comp' => $f_comp, 'f_address' => $f_address, 'f_code' => $f_code, 'f_city' => $f_city, 'f_phone' => $f_phone, 'l_name' => $l_name, 'l_comp' => $l_comp, 'l_address' => $l_address, 'l_code' => $l_code, 'l_city' => $l_city, 'l_phone' => $l_phone ), array ('id' => $_POST['loggeduserid']) );
 				}
-
+				
 				//$new_user = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE email = '".$email."'");
-				$new_user = $_POST['loggeduserid'];
+				$new_user = $_POST['loggeduserid'];				
 				$add_group = $wpdb->query("UPDATE `$fb_tablename_users_cf` SET att_value = '$f_group' WHERE uid = '$new_user' AND att_name = 'client_groupe'");
 				if (!empty($f_siret)) {
 					$setup_siret = $wpdb->query("UPDATE `$fb_tablename_users_cf` SET att_value = '$f_siret' WHERE uid = '$new_user' AND att_name = 'client_siret'");
@@ -99,10 +99,10 @@ function get_inscription() {
 					}
 				}
 				$view .= '<p>'._FB_EDIT_OK.'</p>';
-				$sprawdz = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$new_user'");
+				$sprawdz = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$new_user'");						
 				$_SESSION['loggeduser'] = $sprawdz;
 				$_SESSION['loggeduser']->logme = "yes";
-
+				
 			} else {
 				$view .= '<p>'._FB_ERROR.'</p>';
 			}
@@ -132,7 +132,7 @@ function get_inscription() {
 					if (!empty($f_epub)) {
 						$setup_epub = $wpdb->query("INSERT INTO `$fb_tablename_users_cf` VALUES ('','".$new_user->id."','client_epub','".$f_epub."')");
 					}
-
+					
         		//	$letter = ""._FB_THANK.", ".$login."!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
 		       //     mail($email, "france-banderole.com Inscription", $letter, "From: FRANCE BANDEROLE <info@france-banderole.fr>");
     	    	//	$view .= '<p>'._FB_TREG.'</p>';
@@ -143,7 +143,7 @@ function get_inscription() {
 		}
 
 	} else {
-		if (fb_is_logged()) {
+		if (fb_is_logged()) {		
 			$view .= '<h1>Accès Client: Edition profil</h1><hr />';
 			//$view .= '<p>Note : La modification de votre adresse e-mail est impossible. En cas de changement de cette dernière, merci de contacter un administrateur.</p>';
 		} else {
@@ -161,7 +161,7 @@ function get_inscription() {
 			}
 			$passrequire = ""; //jesli edytuje nie musi zmieniac hasla
 			$reginfo = ' style="display:none"';
-
+						
 		} else {
 			$action = '';
 			$user = '';
@@ -170,7 +170,7 @@ function get_inscription() {
 			$passrequire = "required, "; //jesli nie edytuje musi podac haslo
 			$reginfo = ' class="reg_info"';
 		}
-
+	
 			$explode = explode('|', $user->f_address);
 			$f_address = $explode['0'];
 			$f_porte = $explode['1'];
@@ -185,32 +185,32 @@ function get_inscription() {
 		$view .= '
 		<form action="'.$goaction.'" method="post" name="form_registerform" id="registerform" accept-charset="utf-8">
    		<input type="hidden" name="formID" value="registerform" />'.$action.'';
-
+   		
 		if (!isset($_GET['goback'])) {
-
+		
 		$view .= '
 		<div class="acces_left" style="margin-right:300px;">
 			<div class="acces_tab_name">CREATION DE VOTRE COMPTE</div>
 			<div class="acces_tab_content2">
         	<ul class="regiform">';
-
+			
 			if(fb_is_logged()) {
 				$view .= '<p id="mailOrigin" style="visibility: hidden; display: none;">'.$user->email.'</p>';
-
-				$view .= '
-				<li class="form-line" id="id_1">
+				
+				$view .= '            	
+				<li class="form-line" id="id_1">					
             	    <label class="registerlabel" id="label_1" for="input_1">adresse e-mail:</label>
-            	    <input type="text" class="registerinput validate[required, Email]" id="input_1" name="email" value="'.$user->email.'" />
+            	    <input type="text" class="registerinput validate[required, Email]" id="input_1" name="email" value="'.$user->email.'" />					
             	</li>
             	<li class="form-line" id="id_2">
             	    <label class="registerlabel" id="label_2" for="input_2">nom d\'utilisateur:</label>
             	    <input type="text" class="registerinput v" id="input_2" name="login" value="'.$user->login.'" disabled />
             	    <span class="info_unique">uniquement chiffres et lettres</span>
             	</li>';
-
-
+			
+			
 			} else {
-
+			
 				$view .= '
             	<li class="form-line" id="id_1">
             	    <label class="registerlabel" id="label_1" for="input_1">adresse e-mail:</label>
@@ -221,7 +221,7 @@ function get_inscription() {
             	    <input type="text" class="registerinput validate[required, AlphaNumeric]" id="input_2" name="login" value="'.$user->login.'" />
             	    <span class="info_unique">uniquement chiffres et lettres</span>
             	</li>';
-
+				
 			}
 			$view .= '
             	<li class="form-line" id="id_3">
@@ -280,19 +280,19 @@ function get_inscription() {
 					$view .= '
 					</select>
             	</li>';
-
+				
 				if($user_siret) {
 				$view .= '<li class="form-line" id="siret_pick">
 					<label class="registerlabel" id="label_32" for="input_32">n° SIRET:</label>
             	    <input type="text" class="registerinput validate[required, Numeric]" id="input_32" name="f_siret" value="'.stripslashes($user_siret->att_value).'" />
-				</li>';
+				</li>';				
 				} else {
-				$view .= '<li class="form-line" id="siret_pick" style="visibility: hidden; display: none;>
+				$view .= '<li class="form-line" id="siret_pick" style="visibility: hidden; display: none;> 
 					<label class="registerlabel" id="label_32" for="input_32">n° SIRET:</label>
             	    <input type="text" class="registerinput validate[required, Numeric]" id="input_32" name="f_siret" />
 				</li>';
 				}
-
+				
 				if($user_epub) {
 				$view .= '<li class="form-line" id="epub_pick">
 					<label class="registerlabel" id="label_33" for="input_33">Trésor public<br /> payeur:</label>
@@ -304,7 +304,7 @@ function get_inscription() {
             	    <input type="text" class="registerinput validate[required]" id="input_33" name="f_epub" />
 				</li>';
 				}
-
+				
 				$view .= '
 				<li class="form-line" id="id_5">
             	    <label class="registerlabel" id="label_5" for="input_5">prénom et nom:</label>
@@ -314,7 +314,7 @@ function get_inscription() {
             	    <label class="registerlabel" id="label_6" for="input_6">société:</label>
             	    <input type="text" class="registerinput" id="input_6" name="f_comp" value="'.stripslashes($user->f_comp).'" />
             	</li>
-
+				
             	<li class="form-line" id="id_7">
             	    <label class="registerlabel" id="label_7" for="input_7">adresse <br />de facturation:</label>
             	    <input type="text" class="registerinput validate[required]" id="input_7" name="f_address" value="'.stripslashes($f_address).'" />
@@ -342,7 +342,7 @@ function get_inscription() {
 			</ul>
 			</div>';
 		if (!isset($_GET['goback'])) {
-
+	
 		/*$view .= '
 			<div class="acces_tab_content2">
         	<ul class="regiform">
@@ -363,7 +363,7 @@ function get_inscription() {
                 	<input type="text" id="input_20" class="registerinput" name="captcha" />
                     <input type="hidden" name="captcha_id" id="input_20_captcha_id" value="0" />
                 </div>
-             </li>
+             </li>     	
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	        <div style="margin-left:156px">
@@ -390,13 +390,13 @@ function get_inscription() {
             <li class="form-line" id="id_20" style="height:auto !important;padding-right:58px;">
             	<div style="position:relative;float:left;display:inline;width:100%;height:100px;">
 				ANTI-SPAM, merci de cocher la case ci-dessous:<br/>
-               <div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>
+               <div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>				
                 </div>
             </li>';
-
-
+			
+			
 			if(fb_is_logged()) {
-
+			
 			$view .= '
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
@@ -431,7 +431,7 @@ function get_inscription() {
 		</div>
 		';
 			}
-
+				
 		} else {
 		$view .= '
 			<div class="acces_tab_content2">
@@ -513,20 +513,20 @@ function get_inscription2() {
 				$_POST['f_address'] = $_POST['f_address'].'|'.$_POST['f_porte'];
 			}
 			if ($user) {
-				$kolejka = $wpdb->update($fb_tablename_address, array (
-																	   'l_name' => addslashes($_POST['f_name']),
-																	   'l_comp' => addslashes($_POST['f_comp']),
-																	   'l_address' => addslashes($_POST['f_address']),
-																	   'l_code' => addslashes($_POST['f_code']),
-																	   'l_city' => addslashes($_POST['f_city']),
-																	   'l_phone' => addslashes($_POST['f_phone'])),
+				$kolejka = $wpdb->update($fb_tablename_address, array ( 
+																	   'l_name' => addslashes($_POST['f_name']), 
+																	   'l_comp' => addslashes($_POST['f_comp']), 
+																	   'l_address' => addslashes($_POST['f_address']), 
+																	   'l_code' => addslashes($_POST['f_code']), 
+																	   'l_city' => addslashes($_POST['f_city']), 
+																	   'l_phone' => addslashes($_POST['f_phone'])), 
 										 array ('unique_id' => addslashes($_POST['orderid'])) );
 			} else {
 				$dodaj = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".addslashes($_SESSION['loggeduser']->id)."', '".addslashes($_POST[orderid])."', '".addslashes($_POST[f_name])."', '".addslashes($_POST[f_comp])."', '".addslashes($_POST[f_address])."', '".addslashes($_POST[f_code])."', '".addslashes($_POST[f_city])."', '".addslashes($_POST[f_phone])."')");
 			}
-
+				
 		}
-
+		
 		$view .= '<h1>Accès Client: Livraison Nº '.$goback.'</h1><hr />';
 		$action = '<input type="hidden" name="akcja" value="edit" /><input type="hidden" name="orderid" value="'.$goback.'" />';
 		$goaction = get_bloginfo('url').'/vos-devis/?detail='.$_GET['goback'];
@@ -594,7 +594,7 @@ function get_inscription2() {
 function fb_is_logged() {
 	if (isset($_SESSION['loggeduser']) && $_SESSION['loggeduser']->logme == "yes") {
 		return true;
-	} else {
+	} else { 
 		return false;
 	}
 }
@@ -605,18 +605,18 @@ function get_acces_client() {
 	$fb_tablename_users = $prefix."fbs_users";
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
 //	if (!isset($_SESSION['loggeduser'])) {
-// envoi de rappels mot de passe
+// wysylanie przypomnienia hasla
 		if ($_GET['resend'] == 'resend') {
 			$podanyemail = $_POST['resendaddress'];
 			$adresemail = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE email='$podanyemail'");
 			if ($adresemail) {
-				$chars = "abcdefghijklmnopqrstuw1234567890"; //jeu de caractères que vous pouvez vous-même fixer
+				$chars = "abcdefghijklmnopqrstuw1234567890"; //zestaw znakow mozesz ustalic samodzielnie
 			    $hasloodszyfrowane = '';
 			    for ( $i = 0; $i <= 4; $i++ ) {
 		          $losowy = rand(0, strlen($chars) - 1);
         		  $hasloodszyfrowane .= $chars{$losowy};
 			    }
-//				$hasloodszyfrowane = uniqid(rand()); // création d'un nouveau mot de passe
+//				$hasloodszyfrowane = uniqid(rand()); // tworzenie nowe hasła
 		        $haslo = sha1(md5($hasloodszyfrowane)); // szyfrowanie hasła
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
@@ -625,7 +625,7 @@ function get_acces_client() {
         			$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($adresemail->email, "nouveau mot de passe et nom d utilisateur", $letter, $header);
 			        wp_mail($adresemail->email, "Nouveau mot de passe et nom d utilisateur", $letter);
-    	    		$view .= '<p>'._FB_NPASS3.'</p>';
+    	    		$view .= '<p>'._FB_NPASS3.'</p>';				
     	    	} else {
     	    		$view .= '<p>'._FB_ERROR.'</p><p><a href="'.get_bloginfo('url').'/acces-client/?resend=pass">'._FB_COFNIJ.'</a></p>';
     	    	}
@@ -633,9 +633,9 @@ function get_acces_client() {
 				$view .= '<p>'._FB_PEMAIL.'</p>';
 				$view .= get_pass_resend_form();
 			}
-
+			
 		}
-// mot de passe sous forme de rappel
+// formularz przypomnienia hasla		
 		elseif ($_GET['resend'] == 'pass') {
 			if (!isset($_SESSION['loggeduser'])) {
 				$view .= get_pass_resend_form();
@@ -662,18 +662,18 @@ function get_acces_client() {
 						$l_code = $_SESSION['loggeduser']->l_code;
 						$l_city = $_SESSION['loggeduser']->l_city;
 						$code_relais_colis = $_SESSION['loggeduser']->code_relais_colis;
-						$code_client_dest = $_SESSION['loggeduser']->code_client_dest;
-
+						$code_client_dest = $_SESSION['loggeduser']->code_client_dest;						
+						
 						/* connection utilisateur*/
 						$_SESSION['loggeduser'] = $sprawdz;
 						$_SESSION['loggeduser']->logme = "yes";
 						$view .= '<p>'._FB_LOGOK.'</p>';
-
+						
 						/* on restaure les vairables dans la session pour prise en compte dans la page de vérification de commande */
 						$_SESSION['loggeduser']->l_comp = $l_comp;
 						$_SESSION['loggeduser']->l_name = $l_name;
 						$_SESSION['loggeduser']->l_address = $l_address;
-						$_SESSION['loggeduser']->l_code = $l_code;
+						$_SESSION['loggeduser']->l_code = $l_code; 
 						$_SESSION['loggeduser']->l_city = $l_city;
 						$_SESSION['loggeduser']->code_client_dest = $code_client_dest;
 						//$_SESSION['loggeduser']->changement_relais_colis = "2nd_passage";
@@ -681,12 +681,12 @@ function get_acces_client() {
 						$_SESSION['loggeduser']->relais_colis = "yes";
 						/*if($_SESSION['loggeduser']->l_name!="")
 							$_SESSION['loggeduser']->changement_relais_colis_name = $_SESSION['loggeduser']->l_name;
-						else
+						else	
 							$_SESSION['loggeduser']->changement_relais_colis_name = $_SESSION['loggeduser']->f_name;
-
+							
 						if($_SESSION['loggeduser']->l_phone!="")
 							$_SESSION['loggeduser']->changement_relais_colis_tel = $_SESSION['loggeduser']->l_phone;
-						else
+						else	
 							$_SESSION['loggeduser']->changement_relais_colis_tel = $_SESSION['loggeduser']->f_phone;
 						*/
 						if($_SESSION['loggeduser']->changement_relais_colis!="") $_SESSION['loggeduser']->relais_colis = "yes";
@@ -697,7 +697,7 @@ function get_acces_client() {
 						$_SESSION['loggeduser']->logme = "yes";
 						$view .= '<p>'._FB_LOGOK.'</p>';
 					}
-
+									
 				}
 			} else {
 				$view .= get_acces_panel($p);
@@ -758,7 +758,7 @@ if ($p == 2) {
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>
 	</div>
-	<div class="acces_right">
+	<div class="acces_right">		
 	<div class="acces_tab_name">PAS ENCORE INSCRIT?</div>
 	<div class="acces_tab_content"><span id="notregistered"><font color="red">Je m\'enregistre pour continuer mon devis et télécharger mes fichiers</font color></span><a href="'.get_bloginfo('url').'/inscription/" class="pleaseregister">S\'ENREGISTRER</a></div>
 	</div>';
