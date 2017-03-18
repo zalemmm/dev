@@ -1,0 +1,68 @@
+HTTPS
+--------------------------------------------------------------------------------
+/vos-devis/
+/inscription/
+/verification/
+/paiement/
+/acces-client/
+/order-inscription/
+/valider-mon-bat/
+
+.htaccess :
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.mysite.com/$1 [R,L]
+</IfModule>
+
+wp-config :
+define( 'FS_CHMOD_DIR', ( 0770 & ~ umask() ) );
+define( 'FS_CHMOD_FILE', ( 0660 & ~ umask() ) );
+define('FORCE_SSL_ADMIN', false);
+
+Bug admin https :
+DELETE FROM wp_options WHERE option_name LIKE 'wordpress-https%'
+
+WP-CLI
+--------------------------------------------------------------------------------
+change pw           : php $HOME/wp-cli/wp-cli.phar user update 1 --user_pass=evolix123
+plugins status      : php $HOME/wp-cli/wp-cli.phar plugin status
+        desactivate : php $HOME/wp-cli/wp-cli.phar plugin deactivate wordpress-https
+
+
+PHP SNIP
+--------------------------------------------------------------------------------
+php inline       '.get_bloginfo("url").'
+in html          <?php bloginfo('url'); ?>
+
+ssl in php.ini :    uncoment ;extension=php_openssl.dll
+    in httpd.conf : uncoment #LoadModule ssl_module modules/mod_ssl.so
+
+GIT SNIP
+--------------------------------------------------------------------------------
+git remote add origin https://github.com/zalemmm/nom-du-rep.git
+git push -u origin master
+
+JQUERY FLIP structure
+--------------------------------------------------------------------------------
+<div id="card">
+  <div class="front">
+    Front content
+  </div>
+  <div class="back">
+    Back content
+  </div>
+</div>
+
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
+<script>
+jQuery(document).ready(function ($) {
+  //img flip plugin
+  $(function(){
+      $("#top_info").flip({
+          trigger: 'hover',
+          axis: 'y'
+      });
+  });
+});

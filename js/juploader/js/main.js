@@ -68,7 +68,7 @@ $(function () {
 	function callbackfunc(e, data) {
     	$.ajax({
             type: "POST",
-	        url: "http://"+document.location.host+"/uploaded.php",
+	        url: "//"+document.location.host+"/uploaded.php",
             data: "cmdId="+$("#cmdID").val(),
             success: function (response) {
             	if (response == 'ok') {
