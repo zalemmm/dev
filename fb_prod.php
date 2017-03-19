@@ -1393,7 +1393,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}

@@ -1334,7 +1334,7 @@ errored: function(input, message){
     var collapse = JotForm.getCollapseBar(input);
     if (!collapse.errored) {
       collapse.select(".form-collapse-mid")[0].insert({
-        top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+        top: '<img src="http://www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
       }).setStyle({
         color: 'red'
       });
@@ -1349,7 +1349,7 @@ errored: function(input, message){
 
   container.insert(new Element('div', {
     className: 'form-error-message'
-  }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
+  }).insert('<img src="http://www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
 
   return false;
 },

@@ -20,6 +20,7 @@
           <select class="form-dropdown validate[required]" id="input_32" name="q32_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille...</option>
             <option class="option1" value="60x160">60x160 cm </option>
+            <option class="option2" value="80x180">80x180 cm </option>
           </select>
         </li>
 
@@ -67,6 +68,7 @@
           <span class="helpButton" onmouseover="pokazt('helpText51');" onmouseout="ukryjt('helpText51');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText51" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_51" name="q51_visuel">
             <option class="titre" value="">choisir le support...</option>
+            <option class="option1" value="440g">bâche 440g</option>
             <option class="option1" value="470g M1">bâche 470g M1</option>
             <option class="option2" value="100% écologique M1">toile 100% écologique M1</option>
           </select>
@@ -314,14 +316,31 @@
           dodatkowaopcja='<br />- '+$('input_16').value;
         }
         if ($('input_1').value == 'x-screen') {
+			
           if ($('input_32').value == '60x160') {
             cena=34;
             ktorytyp=$('input_32').value;
-          }
-          if ($('input_51').value == '100% écologique M1') {
+          	if ($('input_51').value == '100% écologique M1') {
+            cena+=18;
+          	}
+		  	if ($('input_51').value == '440g') {
+            cena-=6;
+          	}
+            dodatkowaopcja='<br />- '+$('input_51').value;
+		  }
+		  ///////////
+		  if ($('input_32').value == '80x180') {
+            cena=39;
+            ktorytyp=$('input_32').value;
+          	if ($('input_51').value == '100% écologique M1') {
             cena+=20;
-          }
-          dodatkowaopcja='<br />- '+$('input_51').value;
+          	}
+		  	if ($('input_51').value == '440g') {
+            cena-=8;
+          	}
+          	dodatkowaopcja='<br />- '+$('input_51').value;
+		  }
+		  
         }
         if ($('input_1').value == 'clipit') {
           if ($('input_33').value == '60x100') {
@@ -858,7 +877,7 @@
                   ProdPercent = 15;
                   prliv += '<br />- P 2-3J';
                 }else if(PorductType =='1-1'){
-                  ProdPercent = 25;
+                  ProdPercent = 30;
                   prliv += '<br />- P 1J';
                 }else{
                   ProdPercent = 0;
@@ -869,7 +888,7 @@
                   DeliPercent = 15;
                   prliv += ' / L 2-3J';
                 }else if(DeliveryType =='1-1'){
-                  DeliPercent = 25;
+                  DeliPercent = 30;
                   prliv += ' / L 1J';
                 }else{
                   DeliPercent = 0;

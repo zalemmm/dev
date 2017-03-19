@@ -625,7 +625,7 @@ if ($('input_1').value == '4x6') {
                       ProdPercent = 15;
                       prliv += '<br />-P 2-3J';
                     }else if(PorductType =='1-1'){
-                      ProdPercent = 25;
+                      ProdPercent = 30;
                       prliv += '<br />-P 1J';
                     }else{
                       ProdPercent = 0;
@@ -636,7 +636,7 @@ if ($('input_1').value == '4x6') {
                       DeliPercent = 15;
                       prliv += ' / L 2-3J';
                     }else if(DeliveryType =='1-1'){
-                      DeliPercent = 25;
+                      DeliPercent = 30;
                       prliv += ' / L 1J';
                     }else{
                       DeliPercent = 0;

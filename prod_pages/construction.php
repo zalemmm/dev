@@ -1064,7 +1064,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 				if(PorductType == '2-3' ){
 					ProdPercent = 15;
 				}else if(PorductType =='1-1'){
-					ProdPercent = 25;
+					ProdPercent = 30;
 				}else{
 					ProdPercent = 0;
 				}

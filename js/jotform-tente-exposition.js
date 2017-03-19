@@ -565,7 +565,7 @@ JotForm = {
      */
     checkCondition: function(condition){
         var any=false, all=true;
-      
+        
         $A(condition.terms).each(function(term){
             try{
                 switch(JotForm.getInputType(term.field)){
@@ -605,344 +605,121 @@ JotForm = {
                             all = false;
                         }
 //denisedesign
-                     if(JotForm.checkValueByOperator(term.operator, term.value, value)){
-						var podglad = $("preview");
-						var podglad2 = $("preview2");
-						podglad.style.visibility="hidden";
-						podglad2.style.display="none";
+                        if(JotForm.checkValueByOperator(term.operator, term.value, value)){
 						var preview_info_ul = $("preview_info_ul");
-						var preview_info_ul2 = $("preview_info_ul2");
-							if ($('input_1').value) {
-								var preview_name = $('preview_name');
-								var preview_name2 = $('preview_name2');
-								preview_name.innerHTML='PVC  :';
-								
-								var preview_info_title = $("preview_info_title");
-								var folder = 'enseignes'; var plik; var nazwa; var li1; var li2; var li3;								
-								if ($('input_1').value == 'recto' ) { var nazwa = '300 microns'; }
-								if ($('input_1').value == 'rectoverso' ) { var nazwa = '300 microns'; }
-
-							
-								
-								if (preview_info_title) {
-									preview_info_title.innerHTML='';
-									preview_info_title.insert(nazwa);
-								}
-// obrazki 1
-								var imag = $("preview_imag");
-								podglad.style.visibility="visible";
-								if (term.field==1) {
-									imag.style.background="url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/forex1mm') no-repeat";
-								}
-								
-								
-								
-								
-								
-								
-								if (term.field == 1) {
-									var obecny2 = $("line1");
-									if (obecny2) {
-										var mysel = $('input_'+term.field);
-										obecny2.replace('<span id="line1"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line1"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 2) {
-									var line2 = $("line2");
-									if (line2) {
-										var mysel = $('input_'+term.field);
-										line2.replace('<span id="line2"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line2"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								if (term.field == 2+'perso') {
-									var line2perso = $("line2");
-									if (line2perso) {
-										var mysel = $('input_'+term.field);
-										line2perso.replace('<span id="line2"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line2"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 31) {
-									var line31 = $("line3");
-									if (line31) {
-										var mysel = $('input_'+term.field);
-										line31.replace('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 32) {
-									var line32 = $("line3");
-									if (line32) {
-										var mysel = $('input_'+term.field);
-										line32.replace('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 31+'perso') {
-									var line31perso = $("line3");
-									if (line31perso) {
-										var mysel = $('input_'+term.field);
-										line31perso.replace('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 32+'perso') {
-									var line32perso = $("line3");
-									if (line32perso) {
-										var mysel = $('input_'+term.field);
-										line32perso.replace('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line3"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								
-								if (term.field == 4) {
-									var line4 = $("line4");
-									if (line4) {
-										var mysel = $('input_'+term.field);
-										line4.replace('<span id="line4"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line4"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								if (term.field == 4+'perso') {
-									var line4perso = $("line4");
-									if (line4perso) {
-										var mysel = $('input_'+term.field);
-										line4perso.replace('<span id="line4"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line4"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 5) {
-									var line5 = $("line5");
-									if (line5) {
-										var mysel = $('input_'+term.field);
-										line5.replace('<span id="line5"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line5"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								if (term.field == 5+'perso') {
-									var line5perso = $("line5");
-									if (line5perso) {
-										var mysel = $('input_'+term.field);
-										line5perso.replace('<span id="line5"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line5"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								if (term.field == 6) {
-									var line6 = $("line6");
-									if (line6) {
-										var mysel = $('input_'+term.field);
-										line6.replace('<span id="line6"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line6"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								if (term.field == 6+'perso') {
-									var line6perso = $("line6");
-									if (line6perso) {
-										var mysel = $('input_'+term.field);
-										line6perso.replace('<span id="line6"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="line6"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-								
-								
-								
-								
-								var obecny1 = $("lista1");
-								if (obecny1) { 
-									obecny1.replace(li1);
+						var podglad = $("preview");
+						if ($('input_1').value) {
+							var preview_info_title = $("preview_info_title");
+							if (preview_info_title) {
+								preview_info_title.innerHTML='';
+								if ($('input_1').value == 'clipit') {
+									preview_info_title.insert('Clip\'it');
 								} else {
-									preview_info_ul.insert(li1);
+									preview_info_title.insert($('input_1').value);
 								}
 							}
-							if ($('input_1').value) {
-							var preview_info_title2 = $("preview_info_title2");
-								
-							}	
+							podglad.style.visibility="visible";
+						}	
+						/*if (term.field>1) {
+							var obecny = $("lista"+term.field);
+							if (obecny) { 
+								var mysel = $('input_'+term.field);
+								var rep='<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>';
+								$('lista'+term.field).replace(rep);
+							} else {
+								var mysel = $('input_'+term.field);
+								preview_info_ul.insert('<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>');
+							}
+						}*/
+						
+						
+						/////////////////////taille//////////
+						
+				       	if ($('input_1').value == '2x2') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x2m.jpg) no-repeat" ;
 						}
+							if ($('input_1').value == '2x3') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x3m.jpg) no-repeat" ;
+						}
+							if ($('input_1').value == '3x3') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x3m.jpg) no-repeat" ;
+						}
+							if ($('input_1').value == '3x4') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x4m.jpg) no-repeat" ;
+						}
+							if ($('input_1').value == '3x6') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x6m.jpg) no-repeat" ;
+						}
+							if ($('input_1').value == '4x6') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-4x6m.jpg) no-repeat" ;
+						}
+						
+						
+						/////////////////////option//////////
+						
+				       	if (($('input_1').value == '2x2') && ($('input_option').value == '1x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x2m-1dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '2x3') && ($('input_option').value == '1x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x3m-1dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '3x3') && ($('input_option').value == '1x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x3m-1dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '3x4') && ($('input_option').value == '1x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x4m-1dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '3x6' && ($('input_option').value == '1x Demi-mur'))) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x6m-1dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '4x6') && ($('input_option').value == '1x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-4x6m-1dm.jpg) no-repeat" ;
+						}
+						
+						///////////////////////
+						
+						if (($('input_1').value == '2x2') && ($('input_option').value == '2x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x2m-2dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '2x3') && ($('input_option').value == '2x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x3m-2dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '3x3') && ($('input_option').value == '2x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x3m-2dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '3x4') && ($('input_option').value == '2x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x4m-2dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '3x6' && ($('input_option').value == '2x Demi-mur'))) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x6m-2dm.jpg) no-repeat" ;
+						}
+							if (($('input_1').value == '4x6') && ($('input_option').value == '2x Demi-mur')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-4x6m-2dm.jpg) no-repeat" ;
+						}
+						
+						
+																									
+				}							
+										
 //							
-
-
-							if ($('input_10').value) {
-							var preview_info_title = $("preview_info_title");
-								var preview_name = $('preview_name');
-								var preview_name2 = $('preview_name2');
-								preview_name.innerHTML='PANNEAU sélectionné:';
-								preview_name2.innerHTML='DIMENSIONS sélectionné:';
-								var folder = 'panneau'; var plik; var nazwa; var li1; var li2; var li3;								
-								if ($('input_10').value == 'akilux' ) { var nazwa = 'Akilux 3mm'; li1='<span id="lista1"><li>akilux 3mm</li></span>'; }
-								if (preview_info_title) {
-									preview_info_title.innerHTML='';
-									preview_info_title.insert(nazwa);
-								}
-// obrazki 1
-								var imag = $("preview_imag");
-								var podglad = $("preview");
-								podglad.style.visibility="visible";
-								if (term.field==10) {
-									imag.style.background="url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+$('input_10').value+".jpg') no-repeat";
-								}
-								var obecny1 = $("lista1");
-								if (obecny1) { 
-									obecny1.replace(li1);
-								} else {
-									preview_info_ul.insert(li1);
-								}
-							}
-							if ($('input_10').value) {
-							var preview_info_title = $("preview_info_title");
-								var preview_name = $('preview_name');
-								var preview_name2 = $('preview_name2');
-								preview_name.innerHTML='PANNEAU sélectionné:';
-								preview_name2.innerHTML='DIMENSIONS sélectionné:';
-								var folder = 'panneau'; var plik; var nazwa; var li1; var li2; var li3;								
-								if ($('input_10').value == 'forex1mm' ) { var nazwa = 'Forex 1mm'; li1='<span id="lista1"><li>forex 1mm</li></span>'; }
-								if (preview_info_title) {
-									preview_info_title.innerHTML='';
-									preview_info_title.insert(nazwa);
-								}
-// obrazki 1
-								var imag = $("preview_imag");
-								var podglad = $("preview");
-								podglad.style.visibility="visible";
-								if (term.field==10) {
-									imag.style.background="url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+$('input_10').value+".jpg') no-repeat";
-								}
-								var obecny1 = $("lista1");
-								if (obecny1) { 
-									obecny1.replace(li1);
-								} else {
-									preview_info_ul.insert(li1);
-								}
-							}
-							if ($('input_11').value) {
-								if ($('input_11').value == 'recto' ) { li2='<span id="lista2"><li>Recto</li></span>'; }
-								if ($('input_11').value == 'rectoverso' ) { li2='<span id="lista2"><li>Recto/Verso</li></span>'; }
-								var obecny2 = $("lista2");
-								if (obecny2) { 
-									obecny2.replace(li2);
-								} else {
-									preview_info_ul.insert(li2);
-								}							
-							}
-							if ($('input_11bis').value) {
-								if ($('input_11bis').value == 'recto' ) { li2='<span id="lista2"><li>Recto</li></span>'; }
-								if ($('input_11bis').value == 'rectoverso' ) { li2='<span id="lista2"><li>Recto/Verso</li></span>'; }
-								var obecny2 = $("lista2");
-								if (obecny2) { 
-									obecny2.replace(li2);
-								} else {
-									preview_info_ul.insert(li2);
-								}							
-							}
-							
-							if ($('input_13bis').value) {
-								if ($('input_13bis').value == 'oeillets' ) { li3='<span id="lista3"><li>oeillets nickels</li></span>'; }
-								if ($('input_13bis').value == 'pas de finition' ) { li3='<span id="lista3"><li>pas de finition</li></span>'; }
-								var obecny3 = $("lista3");
-								if (obecny3) { 
-									obecny3.replace(li3);
-								} else {
-									preview_info_ul.insert(li3);
-								}							
-							}
-							
-							if ($('input_14bis').value) {
-								if ($('input_14bis').value == 'user' ) { li4='<span id="lista4"><li>j’ai déjà crée la maquette </li></span>'; }
-								if ($('input_14bis').value == 'fb' ) { li4='<span id="lista4"><li>France banderole crée la maquette</li></span>'; }
-								var obecny4 = $("lista4");
-								if (obecny4) { 
-									obecny4.replace(li4);
-								} else {
-									preview_info_ul.insert(li4);
-								}							
-							}
-
-
-							if ($('input_12').value) {
-							var preview_info_title2 = $("preview_info_title2");
-								if ($('input_12').value == '40x40' ) { var nazwa2 = '40x40'; li3='<span id="lista3"><li>40x40cm (6 panneaux)</li></span>'; }
-								if ($('input_12').value == '40x120' ) { var nazwa2 = '40x120'; li3='<span id="lista3"><li>40x120cm (2 panneaux)</li></span>'; }
-								if ($('input_12').value == '60x40' ) { var nazwa2 = '40x120'; li3='<span id="lista3"><li>60x40cm (4 panneaux)</li></span>'; }
-								if ($('input_12').value == '60x80' ) { var nazwa2 = '40x120'; li3='<span id="lista3"><li>60x80cm (2 panneaux)</li></span>'; }
-								if ($('input_12').value == '80x120' ) { var nazwa2 = '40x120'; li3='<span id="lista3"><li>80x120cm (1 panneau)</li></span>'; }
-								if (preview_info_title2) {
-									preview_info_title2.innerHTML='';
-									preview_info_title2.insert(nazwa2);
-								}
-								var imag2 = $("preview_imag2");
-								var podglad2 = $("preview2");
-								podglad2.style.display="block";
-								if (term.field==12) {
-									imag2.style.background="url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/panneaux_"+$('input_12').value+".jpg') no-repeat";
-								}
-								var obecny3 = $("lista3");
-								if (obecny3) { 
-									obecny3.replace(li3);
-								} else {
-									preview_info_ul2.insert(li3);
-								}
-
-								if (term.field == 13) {
-									var li4='<span id="lista4"><li>'+$('input_13').value+'</li></span>';
-									var obecny4 = $("lista4");
-									if (obecny4) { 
-										obecny4.replace(li4);
-									} else {
-										preview_info_ul.insert(li4);
-									}									
-								}
-								
-								
-								if (term.field == 14) {
-									var obecny5 = $("maq");
-									if (obecny5) {
-										var mysel = $('input_'+term.field);
-										obecny5.replace('<span id="maq"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="maq"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');						
-									}
-								}
-							}	
-							
-							
-
                 }
                 
             }catch(e){ 
@@ -1763,14 +1540,13 @@ JotForm = {
                 
                 input.validateInput = function(){
                 
-/*                	if ( (input.readAttribute('type') == "text") && (input.readAttribute('id')=='input_9') ){
-                		var pass1 = $('input_8');
-                		var pass2 = $('input_9');
-                		var suma = ($(pass1).value) * ($(pass2).value);
-                		if ( suma < 5 ) {  }
-                		else { return JotForm.errored(input, "Please retype password correctly!"+suma); }
+                	if ( (input.readAttribute('type') == "password") && (input.readAttribute('id')=='input_4') ){
+                		var pass1 = $('input_3');
+                		var pass2 = $('input_4');
+                		if ($(pass1).value == $(pass2).value) {  }
+                		else { return JotForm.errored(input, "Please retype password correctly!"); }
                 	}
-*/                
+                
                     if (!JotForm.isVisible(input)) {
                         return true; // if it's hidden then user cannot fill this field then don't validate
                     }
@@ -1829,7 +1605,7 @@ JotForm = {
                             break;
                         case "Alphabetic":
                             if (!reg.alphabetic.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres sans accent sans espace");
                             }
                             break;
                         case "Numeric":

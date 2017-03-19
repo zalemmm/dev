@@ -917,7 +917,7 @@ var myClass = jQuery(this).attr("class");
 					ProdPercent = 15;
 					prliv += '- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 25;
+					ProdPercent = 30;
 					prliv += '- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -928,7 +928,7 @@ var myClass = jQuery(this).attr("class");
 					DeliPercent = 15;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 25;
+					DeliPercent = 30;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;
