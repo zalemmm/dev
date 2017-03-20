@@ -279,7 +279,7 @@
         if (ax1) {
           ax1.style.background="none";
           ax1.style.border="none";
-          ax1.style.borderBottom="1px solid #9fa3a8";
+          /*ax1.style.borderBottom="1px solid #9fa3a8";*/
         }
 
 

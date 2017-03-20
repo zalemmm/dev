@@ -493,7 +493,7 @@
 			if (ax1) {
 			ax1.style.background="#FFAAAA";
 			ax1.style.border="none";
-			ax1.style.borderBottom="1px solid #9fa3a8";
+			/*ax1.style.borderBottom="1px solid #9fa3a8";*/
 		}
 		if (ax2) {
 		ax2.style.background="#FFAAAA";
