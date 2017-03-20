@@ -5,7 +5,7 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText1" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();  ">
             <option class="titre" value="">choisir le type...</option>
             <option class="option1"  value="blizzard">Kakemono Extérieur Blizzard </option>
@@ -16,7 +16,7 @@
         </li>
 
         <li class="form-line" id="id_32">
-          <span class="helpButton" onmouseover="pokazt('helpText32');" onmouseout="ukryjt('helpText32');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText32" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText32');" onmouseout="ukryjt('helpText32');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_32" name="q32_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille...</option>
             <option class="option1" value="60x160">60x160 cm </option>
@@ -24,7 +24,7 @@
         </li>
 
         <li class="form-line" id="id_33">
-          <span class="helpButton" onmouseover="pokazt('helpText33');" onmouseout="ukryjt('helpText33');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText33" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText33');" onmouseout="ukryjt('helpText33');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText33" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_33" name="q33_dimensions" onclick="JKakemono.czyscpola(); ">
             <option class="option1" value="">choisir la taille...</option>
             <option class="option2" value="60x100">60x100 cm </option>
@@ -55,7 +55,7 @@
         </li>
 
         <li class="form-line" id="id_34">
-          <span class="helpButton" onmouseover="pokazt('helpText34');" onmouseout="ukryjt('helpText34');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText34" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText34');" onmouseout="ukryjt('helpText34');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText34" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_34" name="q34_dimensions34" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille...</option>
             <option class="option1" value="60x160">60x160 cm </option>
@@ -64,7 +64,7 @@
         </li>
 
         <li class="form-line" id="id_51">
-          <span class="helpButton" onmouseover="pokazt('helpText51');" onmouseout="ukryjt('helpText51');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText51" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText51');" onmouseout="ukryjt('helpText51');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText51" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_51" name="q51_visuel">
             <option class="titre" value="">choisir le support...</option>
             <option class="option1" value="470g M1">bâche 470g M1</option>
@@ -73,7 +73,7 @@
         </li>
 
         <li class="form-line" id="id_52">
-          <span class="helpButton" onmouseover="pokazt('helpText52');" onmouseout="ukryjt('helpText52');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText52" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText52');" onmouseout="ukryjt('helpText52');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText52" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_52" name="q52_visuel">
             <option class="titre" value="">choisir le support... </option>
             <option class="option1" value="470g M1">bâche 470g M1</option>
@@ -83,7 +83,7 @@
         </li>
 
         <li class="form-line" id="id_11">
-          <span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText11" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText11" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_11" name="q11_maquette11" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir une option...</option>
             <option class="option1" value="ventouse">Ventouse super adhesive 65mm</option>
@@ -92,7 +92,7 @@
         </li>
 
         <li class="form-line" id="id_16">
-          <span class="helpButton" onmouseover="pokazt('helpText16');" onmouseout="ukryjt('helpText16');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText16" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText16');" onmouseout="ukryjt('helpText16');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText16" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_16" name="q16_maquette16" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir une option...</option>
             <option class="option1" value="aucune">aucune</option>
@@ -101,7 +101,7 @@
         </li>
 
         <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText6" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6" style="visibility:hidden;">infos </span></span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>

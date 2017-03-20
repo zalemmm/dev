@@ -91,7 +91,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 
 		//$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 2", ARRAY_A);
 		$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_cache_comments` c WHERE r.exist = 'true' AND c.code_parent = '$prod_family' AND (r.id = c.comment1 OR r.id = c.comment2 OR r.id = c.comment3 OR r.id = c.comment4 OR r.id = c.comment5) ORDER BY r.date DESC LIMIT 2", ARRAY_A);
-		$view .= '<h1>Vos commentaires:</h1><hr />';
+		$view .= '<h1 class="comTitre">Vos commentaires:</h1><hr />';
 		$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 		$i = 0;
 
@@ -151,7 +151,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 		endforeach;
 
 		$view .= '</tbody></table>';
-		$view .= '<p><a href="'.get_bloginfo("url").'/avis?prod_type='.$prod_family.'">Voir les autres avis sur cette famille de produits</a></p>';
+		$view .= '<p class="comVoir"><a href="'.get_bloginfo("url").'/avis?prod_type='.$prod_family.'">Voir les autres avis sur cette famille de produits</a></p>';
 
 	return $view;
 }

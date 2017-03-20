@@ -5,7 +5,7 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_support1" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le support </option>
 						<option value="permanent">vinyle blanc permanent 95μ monomère 3 ans</option>
@@ -15,7 +15,7 @@
 				</li>
 
 				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;">Option</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;">Option</span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir l'option pose facile</option>
 						<option value="tape">Film de pose facile (Tape)</option>
@@ -24,7 +24,7 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le fichier</option>
 						<option value="fb">France banderole crée la maquette</option>
