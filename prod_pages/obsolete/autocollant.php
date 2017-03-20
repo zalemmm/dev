@@ -5,16 +5,20 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_support1" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le support </option>
+						<option value="permanent">vinyle blanc permanent 95μ monomère 3 ans</option>
+						<option value="semi-permanent">vinyle blanc semi-permanent 95μ monomère 2 ans</option>
 						<option value="vinyle micro-perforè M1 dos noir">vinyle micro-perforé M1 dos noir 2 ans</option>
+						<option value="permanent75μ">vinyle blanc permanent 75μ polymère 5 ans</option>
+						<option value="vinyle magnètique">vinyle magnétique 500μ</option>
 						<option value="vinyle transparent">vinyle transparent</option>
 					</select>
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le fichier</option>
 						<option value="fb">France banderole crée la maquette</option>
@@ -34,12 +38,12 @@
 
 				<li class="form-line optionsformline" id="id_10">
 					<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
-
 					<span class="options_single">
 						<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
 						<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
 						<span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 					</span>
+
 					<div class="break-line"></div>
 
 					<p id="production" >
@@ -84,6 +88,9 @@
 		</script>
 
 	</form>
+
+
+
 
 </form>
 </div>
@@ -136,6 +143,8 @@ function Masquer()
 
 	if (divInfo.style.display == 'block')
 	divInfo.style.display = 'none';
+
+
 }
 </script>
 
@@ -263,7 +272,6 @@ jQuery(document).ready(function(){
 				ktorapodstawa = ($('input_1').value);
 				cena = metraz*0.0055;
 			}
-
 			if ( ($('input_1').value == 'vinyle transparent') ) {
 				ktorytyp='Autocollant (carré/rectangulaire)';
 				ktorapodstawa = ($('input_1').value);
@@ -282,6 +290,7 @@ jQuery(document).ready(function(){
 			if ($('input_6').value == 'user') {
 				ktodaje = 'j’ai déjà crée la maquette';
 			}
+
 
 			////reszta
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
@@ -311,6 +320,8 @@ jQuery(document).ready(function(){
 				cena=cenapojedyncza*ilosc;
 				iloscmetrow=iloscmetrow1/10000;
 			}
+
+			//////////
 
 			///////
 			var total = document.getElementById("total");
@@ -363,7 +374,6 @@ jQuery(document).ready(function(){
 
 					});});
 
-
 					jQuery(document).ready(function(){
 						jQuery('.form-textbox').click(function(){
 							jQuery('#delivery-value').val(Masquer());
@@ -381,7 +391,6 @@ jQuery(document).ready(function(){
 							jQuery(delivery-value).prop("disabled",true);
 
 						});});
-
 
 						jQuery(document).ready(function(){
 							jQuery('.form-checkbox').click(function(){
@@ -419,7 +428,7 @@ jQuery(document).ready(function(){
 								ProdPercent = 15;
 								prliv += '<br />- P 2-3J';
 							}else if(PorductType =='1-1'){
-								ProdPercent = 30;
+								ProdPercent = 25;
 								prliv += '<br />- P 1J';
 							}else{
 								ProdPercent = 0;
@@ -430,7 +439,7 @@ jQuery(document).ready(function(){
 								DeliPercent = 15;
 								prliv += ' / L 2-3J';
 							}else if(DeliveryType =='1-1'){
-								DeliPercent = 30;
+								DeliPercent = 25;
 								prliv += ' / L 1J';
 							}else{
 								DeliPercent = 0;
@@ -474,10 +483,12 @@ jQuery(document).ready(function(){
 								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 								//jQuery('#prix_unitaire').text(finalPrice);
 								jQuery('#estdate_10').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+
 							}
 
 							finalPrice1=fixstr(finalPrice);
 							finalPrice2 = finalPrice1.replace(".", ",");
+
 
 							jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
 							jQuery('#remise').html(rabat2);
@@ -507,6 +518,34 @@ jQuery(document).ready(function(){
 							prix.innerHTML='-';
 							remise.innerHTML='-';
 							total.innerHTML='-';
+						}
+
+						if ( (szerokosc > 160) && (wysokosc > 160) ) {
+							var blad = document.getElementById("id_1");
+							var blad2 = document.getElementById("id_8");
+							blad.style.background = "#FFAAAA";
+							blad.style.border = "1px solid #FFAAAA";
+							blad2.style.background = "#FFAAAA";
+							blad2.style.border = "1px solid #FFAAAA";
+							eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 160cm!';
+							niepokazuj=1;
+						}
+
+						if ( ($('input_1').value == 'vinyle magnètique') && (szerokosc > 60) ) {
+							var blad = document.getElementById("id_1");
+							var blad2 = document.getElementById("id_8");
+							blad.style.background = "#FFAAAA";
+							blad.style.border = "1px solid #FFAAAA";
+							blad2.style.background = "#FFAAAA";
+							blad2.style.border = "1px solid #FFAAAA";
+							eBox.innerHTML = 'Largeur doit être inférieure à 60cm!';
+							niepokazuj=1;
+						}
+
+						if ( ((szerokosc < 10) || (wysokosc < 10)) ) {
+
+							eBox.innerHTML = 'Hauteur et Largeur supérieur ou égal à 10cm!';
+							niepokazuj=1;
 						}
 
 						///////////livraison le jour même////////
@@ -540,44 +579,8 @@ jQuery(document).ready(function(){
 							}
 
 							var dodajkoszyk = document.getElementById("cart_form");
-							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Vitrophanie" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Autocollant" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
 
-
-							if ( (szerokosc > 160) && (wysokosc > 160) ) {
-								var blad = document.getElementById("id_1");
-								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
-								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 160cm!';
-								niepokazuj=1;
-							}
-
-							if ( ($('input_21').value == 'vinyle magnètique') && (szerokosc > 60) ) {
-								var blad = document.getElementById("id_1");
-								var blad2 = document.getElementById("id_8");
-								var blad3 = document.getElementById("id_21");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
-								blad3.style.background = "#FFAAAA";
-								blad3.style.border = "1px solid #FFAAAA";
-								eBox.innerHTML = 'Largeur doit être inférieure à 60cm!';
-								niepokazuj=1;
-							}
-
-							if ( ((szerokosc < 10) || (wysokosc < 10)) ) {
-								var blad = document.getElementById("id_1");
-								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
-								eBox.innerHTML = 'Hauteur et Largeur supérieur ou égal à 10cm!';
-								niepokazuj=1;
-							}
 						}
 					}
 				});

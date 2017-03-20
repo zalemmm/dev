@@ -14,7 +14,6 @@
 				</li>
 
 				<li class="form-line" id="id_HD">
-                					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression dibond Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression dibond standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression dibond pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux dibond pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés dibond pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir qualité d'impression...</option>
 						<option value="HD">Haute définition</option>
@@ -1245,7 +1244,7 @@
 										ProdPercent = 15;
 										prliv += '<br />- P 2-3J';
 									}else if(PorductType =='1-1'){
-										ProdPercent = 30;
+										ProdPercent = 25;
 										prliv += '<br />- P 1J';
 									}else{
 										ProdPercent = 0;
@@ -1256,7 +1255,7 @@
 										DeliPercent = 15;
 										prliv += ' / L 2-3J';
 									}else if(DeliveryType =='1-1'){
-										DeliPercent = 30;
+										DeliPercent = 25;
 										prliv += ' / L 1J';
 									}else{
 										DeliPercent = 0;

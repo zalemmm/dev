@@ -1,20 +1,30 @@
 <div id="buying">
-	<form class="jotform-form" action="" method="post" name="form_1060900216" id="1060900216" accept-charset="utf-8" onsubmit="JKakemono.cal_autocollant(); return false;">
+	<form class="jotform-form" action="" method="post" name="form_1060900216" id="1060900216" accept-charset="utf-8" onsubmit="JKakemono.cal_stickers(); return false;">
 		<input type="hidden" name="formID" value="1060900216" />
 		<div class="form-all">
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_support1" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le support </option>
-						<option value="vinyle micro-perforè M1 dos noir">vinyle micro-perforé M1 dos noir 2 ans</option>
-						<option value="vinyle transparent">vinyle transparent</option>
+						<option value="permanent">vinyle blanc permanent 95μ monomère 3 ans</option>
+						<option value="semi-permanent">vinyle blanc semi-permanent 95μ monomère 2 ans</option>
+						<option value="permanent75μ">vinyle blanc permanent 75μ polymère 5 ans</option>
+					</select>
+				</li>
+
+				<li class="form-line" id="id_4">
+					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;">Option</span></span>
+					<select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onclick="JKakemono.czyscpola(); ">
+						<option value="">Choisir l'option pose facile</option>
+						<option value="tape">Film de pose facile (Tape)</option>
+						<option value="Pas de film de pose">Pas de film de pose facile</option>
 					</select>
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le fichier</option>
 						<option value="fb">France banderole crée la maquette</option>
@@ -29,7 +39,7 @@
 
 				<li class="form-line optionsformline2" id="id_8">
 					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="cm" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="cm" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li class="form-line optionsformline" id="id_10">
@@ -49,6 +59,7 @@
 						<button class="production" text-value="1-1" id="p3"></button>
 						<input type="hidden" id="production-value" value=""  onClick="" />
 					</p>
+
 					<div id="delivery-div" style='display:none;'>
 						<p id="delivery" >
 							<h5 class="delivery-delay">Delai Livraison:</h5>
@@ -57,6 +68,7 @@
 							<button class="delivery" text-value="1-1" id="l3"></button>
 							<input type="hidden" id="delivery-value" value="" />
 						</p>
+
 						<p>
 							<!--<span id="totaldays"></span>&nbsp;-->
 							<span id="totalamt_10"></span>
@@ -72,18 +84,30 @@
 						<button id="input_9a" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 					</div>
 				</li>
+
 				<li style="display:none">
 					Should be Empty:
 					<input type="text" name="website" value="" />
 				</li>
+
 			</ul>
 		</div>
+
 		<input type="hidden" id="simple_spc" name="simple_spc" value="1060900214" />
 		<script type="text/javascript">
 		document.getElementById("simple_spc").value += "-1060900214";
 		</script>
 
 	</form>
+
+
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+	<script type="text/javascript">
+	$("#preview_imag").attr("href", "http://www.web-design-weekly/");
+	$( "#preview_imag a" ).prop( "href", "allMyHrefsAreTheSameNow.html" );
+
+	</script>
 
 </form>
 </div>
@@ -95,21 +119,6 @@
 
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
-
-<script type="text/javascript">
-/* Voici la fonction javascript qui change la propriété "display"
-livraison le jour même */
-
-function Afficher()
-{
-	divliv = document.getElementById('livraisonrapide');
-
-	if (divliv.style.display == 'none')
-	divliv.style.display = 'block';
-
-
-}
-</script>
 
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
@@ -136,6 +145,8 @@ function Masquer()
 
 	if (divInfo.style.display == 'block')
 	divInfo.style.display = 'none';
+
+
 }
 </script>
 
@@ -217,7 +228,7 @@ jQuery(document).ready(function(){
 			ax3.style.borderBottom="1px solid #9fa3a8";
 		}
 
-		if ( ($('input_1').value) &&   ($('input_6').value) && ($('input_7').value) && ($('input_8').value) && ($('input_9').value) ) {
+		if ( ($('input_1').value) &&  ($('input_4').value)  && ($('input_6').value) && ($('input_7').value) && ($('input_8').value) && ($('input_9').value) ) {
 			var ktorytyp='';
 			var ktorapodstawa='';
 			var tape='';
@@ -234,45 +245,68 @@ jQuery(document).ready(function(){
 			metraz = fixstr(metraz);
 
 
-			if ( ($('input_1').value == 'permanent') ) {
-				ktorytyp='Autocollant (carré/rectangulaire)';
+
+
+
+
+			if ( ($('input_1').value == 'permanent') && ($('input_4').value == 'Pas de film de pose') ) {
+				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
-				cena = metraz*0.002;
+				tape = ($('input_4').value);
+				cena = metraz*0.0030;
+			}
+			if ( ($('input_1').value == 'permanent') && ($('input_4').value == 'tape') ) {
+				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				ktorapodstawa = ($('input_1').value);
+				tape = ($('input_4').value);
+				cena = metraz*0.0045;
+				cedzik += '<br />- Tape';
 			}
 
-			if ( ($('input_1').value == 'semi-permanent')) {
-				ktorytyp='Autocollant (carré/rectangulaire)';
+
+
+			if ( ($('input_1').value == 'semi-permanent') && ($('input_4').value == 'Pas de film de pose') ) {
+				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
-				cena = metraz*0.0020;
+				tape = ($('input_4').value);
+				cena = metraz*0.0030;
+			}
+			if ( ($('input_1').value == 'semi-permanent') && ($('input_4').value == 'tape') ) {
+				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				ktorapodstawa = ($('input_1').value);
+				tape = ($('input_4').value);
+				cena = metraz*0.0045;
+				cedzik += '<br />- Tape';
 			}
 
-			if ( ($('input_1').value == 'vinyle micro-perforè M1 dos noir') ) {
-				ktorytyp='Autocollant (carré/rectangulaire)';
+
+			if ( ($('input_1').value == 'permanent75μ') && ($('input_4').value == 'Pas de film de pose') ) {
+				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
-				cena = metraz*0.0035;
+				tape = ($('input_4').value);
+				cena = metraz*0.0065;
+			}
+			if ( ($('input_1').value == 'permanent75μ')  && ($('input_4').value == 'tape') ) {
+				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				ktorapodstawa = ($('input_1').value);
+				tape = ($('input_4').value);
+				cena = metraz*0.008;
+				cedzik += '<br />- Tape';
 			}
 
-			if ( ($('input_1').value == 'permanent75μ') ) {
-				ktorytyp='Autocollant (carré/rectangulaire)';
-				ktorapodstawa = ($('input_1').value);
-				cena = metraz*0.0055;
-			}
 
-			if ( ($('input_1').value == 'vinyle magnètique') ) {
-				ktorytyp='Autocollant (carré/rectangulaire)';
-				ktorapodstawa = ($('input_1').value);
-				cena = metraz*0.0055;
-			}
 
-			if ( ($('input_1').value == 'vinyle transparent') ) {
-				ktorytyp='Autocollant (carré/rectangulaire)';
-				ktorapodstawa = ($('input_1').value);
-				cena = metraz*0.0055;
-			}
+
 
 			///////
 
+
+
 			ilosc=$('input_7').value;
+
+
+
+
 
 			var ktodaje;
 			if ($('input_6').value == 'fb') {
@@ -282,6 +316,7 @@ jQuery(document).ready(function(){
 			if ($('input_6').value == 'user') {
 				ktodaje = 'j’ai déjà crée la maquette';
 			}
+
 
 			////reszta
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
@@ -312,12 +347,21 @@ jQuery(document).ready(function(){
 				iloscmetrow=iloscmetrow1/10000;
 			}
 
+
 			///////
 			var total = document.getElementById("total");
 			var remise = document.getElementById("remise");
 
+
+
+
 			cenapojedyncza=fixstr(cenapojedyncza);
 			cena2 = cenapojedyncza.replace(".", ",");
+
+
+
+
+
 
 			var myClass = jQuery(this).attr("class");
 
@@ -343,6 +387,10 @@ jQuery(document).ready(function(){
 				var delivery = jQuery(this).attr('text-value');
 				jQuery('#delivery-value').val(delivery);
 				jQuery(this).prop("disabled",true);
+
+
+
+
 
 				jQuery(document).ready(function(){
 					jQuery('.jotform-form select').click(function(){
@@ -401,11 +449,21 @@ jQuery(document).ready(function(){
 
 							});});
 
+
+
+
 						}
+
+
+
 
 						var production      = jQuery('#production-value').val();
 						//alert(production);
 						var delivery        = jQuery('#delivery-value').val();
+
+
+
+
 
 						if(production && delivery){
 
@@ -419,7 +477,7 @@ jQuery(document).ready(function(){
 								ProdPercent = 15;
 								prliv += '<br />- P 2-3J';
 							}else if(PorductType =='1-1'){
-								ProdPercent = 30;
+								ProdPercent = 25;
 								prliv += '<br />- P 1J';
 							}else{
 								ProdPercent = 0;
@@ -430,12 +488,18 @@ jQuery(document).ready(function(){
 								DeliPercent = 15;
 								prliv += ' / L 2-3J';
 							}else if(DeliveryType =='1-1'){
-								DeliPercent = 30;
+								DeliPercent = 25;
 								prliv += ' / L 1J';
 							}else{
 								DeliPercent = 0;
 								prliv += ' / L 3-4J';
 							}
+
+
+
+
+
+
 
 							var price_unit = parseFloat(cenapojedyncza);
 
@@ -444,6 +508,9 @@ jQuery(document).ready(function(){
 							var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
 							var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
 							var finalPrice           = calculatedTotalPrice + price_unit;
+
+
+
 
 							// Calculate Days
 							var prod_first_val  = parseInt(production[0]);
@@ -474,15 +541,26 @@ jQuery(document).ready(function(){
 								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 								//jQuery('#prix_unitaire').text(finalPrice);
 								jQuery('#estdate_10').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+
+
 							}
+
+
+
 
 							finalPrice1=fixstr(finalPrice);
 							finalPrice2 = finalPrice1.replace(".", ",");
+
 
 							jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
 							jQuery('#remise').html(rabat2);
 
 						}
+
+
+
+
+
 
 						cenapojedyncza = finalPrice1;
 
@@ -494,12 +572,32 @@ jQuery(document).ready(function(){
 						var total = document.getElementById("total");
 						var remise = document.getElementById("remise");
 
+
+
+
 						cenapojedyncza=fixstr(cenapojedyncza);
 						cena2 = cenapojedyncza.replace(".", ",")
 
+
+
+
+
+
+
 						/* koszty transportu */
 
-						transport=0;
+
+
+
+
+
+
+
+
+
+
+
+
 
 						var niepokazuj = 0;
 
@@ -508,14 +606,6 @@ jQuery(document).ready(function(){
 							remise.innerHTML='-';
 							total.innerHTML='-';
 						}
-
-						///////////livraison le jour même////////
-						if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-							livraisonrapide.style.display = 'block';
-						}
-						else {livraisonrapide.style.display = 'none';}
-						/////////////////////////////////////////
-
 						if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 							suma=cena-rabat;
 							suma=fixstr(suma);
@@ -539,32 +629,22 @@ jQuery(document).ready(function(){
 								newtotal.innerHTML=suma2+' &euro;';
 							}
 
+
+
 							var dodajkoszyk = document.getElementById("cart_form");
-							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Vitrophanie" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
 
 
-							if ( (szerokosc > 160) && (wysokosc > 160) ) {
+
+
+							if ( (szerokosc > 103) && (wysokosc > 103) ) {
 								var blad = document.getElementById("id_1");
 								var blad2 = document.getElementById("id_8");
 								blad.style.background = "#FFAAAA";
 								blad.style.border = "1px solid #FFAAAA";
 								blad2.style.background = "#FFAAAA";
 								blad2.style.border = "1px solid #FFAAAA";
-								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 160cm!';
-								niepokazuj=1;
-							}
-
-							if ( ($('input_21').value == 'vinyle magnètique') && (szerokosc > 60) ) {
-								var blad = document.getElementById("id_1");
-								var blad2 = document.getElementById("id_8");
-								var blad3 = document.getElementById("id_21");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
-								blad3.style.background = "#FFAAAA";
-								blad3.style.border = "1px solid #FFAAAA";
-								eBox.innerHTML = 'Largeur doit être inférieure à 60cm!';
+								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 103cm!';
 								niepokazuj=1;
 							}
 
@@ -578,9 +658,32 @@ jQuery(document).ready(function(){
 								eBox.innerHTML = 'Hauteur et Largeur supérieur ou égal à 10cm!';
 								niepokazuj=1;
 							}
+
+
+							if ( ($('input_4').value == 'tape') && (szerokosc > 103) && (wysokosc > 103) ) {
+								var blad = document.getElementById("id_4");
+								var blad2 = document.getElementById("id_8");
+								blad.style.background = "#FFAAAA";
+								blad.style.border = "1px solid #FFAAAA";
+								blad2.style.background = "#FFAAAA";
+								blad2.style.border = "1px solid #FFAAAA";
+								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 103cm!';
+								niepokazuj=1;
+							}
+
+
+
+
 						}
+
+
 					}
 				});
+
+
+
 			});
+
+
 
 			</script>
