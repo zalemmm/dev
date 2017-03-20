@@ -8,7 +8,7 @@
 
       <li class="form-line" id="id_1">
         <label class="form-label-left" id="label_1" for="input_1">grammage:</label>
-        <a href="#grammage"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#grammage"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="depliants 80g">80g</option>
@@ -20,7 +20,7 @@
 
       <li class="form-line" id="id_21">
         <label class="form-label-left" id="label_21" for="input_21">format:</label>
-        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_21" name="q21_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option class="select-alt" value="1">19,8x21cm ouvert -> 9,9x21cm fermé</option>
@@ -33,7 +33,7 @@
 
       <li class="form-line" id="id_22">
         <label class="form-label-left" id="label_22" for="input_22">format:</label>
-        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_22" name="q22_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option class="select-alt" value="1">19,8x21cm ouvert -> 9,9x21cm fermé</option>
@@ -46,7 +46,7 @@
 
       <li class="form-line" id="id_23">
         <label class="form-label-left" id="label_23" for="input_23">format:</label>
-        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_23" name="q23_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option class="select-alt" value="1">19,8x21cm ouvert -> 9,9x21cm fermé</option>
@@ -59,7 +59,7 @@
 
       <li class="form-line" id="id_24">
         <label class="form-label-left" id="label_24" for="input_24">format:</label>
-        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_24" name="q24_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option class="select-alt" value="1">19,8x21cm ouvert -> 9,9x21cm fermé</option>
@@ -72,7 +72,7 @@
 
       <li class="form-line" id="id_32">
         <label class="form-label-left" id="label_32" for="input_32">type de papier:</label>
-        <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="1">Couché Brillant </option>
@@ -83,7 +83,7 @@
 
       <li class="form-line" id="id_33">
         <label class="form-label-left" id="label_33" for="input_33">type de papier:</label>
-        <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_33" name="q33_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="1">Couché Brillant </option>
@@ -94,7 +94,7 @@
 
       <li class="form-line" id="id_34">
         <label class="form-label-left" id="label_34" for="input_34">type de papier:</label>
-        <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_34" name="q34_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="1">Couché Brillant </option>
@@ -105,7 +105,7 @@
 
       <li class="form-line" id="id_41">
         <label class="form-label-left" id="label_41" for="input_41">maquette:</label>
-        <a href="#maquette"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#maquette"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_41" name="q41_maquette41" onchange="JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="fb">France banderole crée la maquette</option>
@@ -115,7 +115,7 @@
 
       <li class="form-line" id="id_42">
         <label class="form-label-left" id="label_42" for="input_42">maquette:</label>
-        <a href="#maquette"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+        <a href="#maquette"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_42" name="q42_maquette42" onchange="JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="fb">France banderole crée la maquette</option>
@@ -154,7 +154,7 @@
       </li>
 
       <li id="id_101" class="form-line optionsformline">
-        <span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+        <span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
         <span class="options_single">
           <span class="optionsright"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span></span></span>
           <span class="optionsleft"><label class="form-label-left" id="label_rush24" for="rush24">Délai Rush 24/48H</label><input type="checkbox" class="form-checkbox" id="rush24" name="rush24[]" value="" onchange="JKakemono.rushcheckbox24(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextRush24');" onmouseout="ukryjt('helpTextRush24');"><span class="helpText" id="helpTextRush24" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>

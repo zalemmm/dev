@@ -30,13 +30,13 @@
 			
 			
 			 <li class="form-line" id="id_4">
-quantité (par visuel):
+quantité :<br /><span class="small">(par visuel)</span>
                     <input type="text" class="form-textbox validate[required, Numeric]" style="width:30px" id="input_4" name="q4_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
             </li>
 			
             
             <li id="id_7" class="form-line optionsformline">
-				<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+				<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 				<span class="options_single">
 	
                 

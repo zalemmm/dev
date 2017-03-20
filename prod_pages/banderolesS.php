@@ -284,13 +284,13 @@
 
 				<li class="form-line optionsformline2" id="id_13">
 					<label class="form-label-left label-highlight" id="label_13" for="input_13">quantité :<br /><span class="small">(par visuel)</span></label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " style="" />
+					<input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
 				</li>
 				<li id="id_14" class="form-line optionsformline2" style="nothing">
-					<label class="form-label-left label-highlight" id="label_14" for="input_14">taille :<strong><span class="highlight small"><br />(Mètres)</span></strong></label>
+					<label class="form-label-left label-highlight" id="label_14" for="input_14">taille <strong><span  class="highlight">(en Mètres)</span></strong>:</label>
 
-					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola();" />
-					<span class="mLeft highlight">M</span> <span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola(); "  /><span class="mRight highlight">M</span> <span class="llar" style="left:120px;">[hauteur]</span><span class="lhau" style="left:203px;">[largeur]</span></li>
+					<input type="text" class="form-textbox validate[required, Numeric]"  placeholder="hauteur" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola();" />
+					<span class="mLeft highlight">M </span> <span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur" id="input_15" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="mRight highlight">M </span> <span class="llar" >[hauteur]</span><span class="lhau">[largeur]</span></li>
 					<li id="id_16" class="form-line optionsformline">
 						<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 
@@ -493,7 +493,7 @@
 			if (ax1) {
 			ax1.style.background="#FFAAAA";
 			ax1.style.border="none";
-			ax1.style.borderBottom="1px solid #9fa3a8";
+			/*ax1.style.borderBottom="1px solid #9fa3a8";*/
 		}
 		if (ax2) {
 		ax2.style.background="#FFAAAA";

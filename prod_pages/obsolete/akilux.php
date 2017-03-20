@@ -46,7 +46,7 @@
                     </select>
             </li>
              <li class="form-line" id="id_31">
-                <label class="form-label-left" id="label_31" for="input_31">quantité (par visuel): </label>
+                <label class="form-label-left" id="label_31" for="input_31">quantité :<br /><span class="small">(par visuel)</span> </label>
                     <select class="form-dropdown validate[required]" id="input_31" name="q31_usage" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir...</option>
                         <option style="background-color:#e8e8e9" value="1">1</option>
@@ -71,7 +71,7 @@
                     </select>
             </li>
             <li class="form-line" id="id_32">
-                <label class="form-label-left" id="label_32" for="input_32">quantité (par visuel): </label>
+                <label class="form-label-left" id="label_32" for="input_32">quantité :<br /><span class="small">(par visuel)</span> </label>
                     <select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir...</option>
                         <option style="background-color:#e8e8e9" value="12">12</option>
@@ -97,7 +97,7 @@
                     </select>
             </li>
              <li class="form-line" id="id_31perso">
-                <label class="form-label-left" id="label_31perso" for="input_31perso">quantité (par visuel): </label>
+                <label class="form-label-left" id="label_31perso" for="input_31perso">quantité :<br /><span class="small">(par visuel)</span> </label>
                     <select class="form-dropdown validate[required]" id="input_31perso" name="q31perso_usage" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir...</option>
                         <option style="background-color:#e8e8e9" value="1">1</option>
@@ -122,7 +122,7 @@
                     </select>
             </li>
             <li class="form-line" id="id_32perso">
-                <label class="form-label-left" id="label_32perso" for="input_32perso">quantité (par visuel): </label>
+                <label class="form-label-left" id="label_32perso" for="input_32perso">quantité :<br /><span class="small">(par visuel)</span> </label>
                     <select class="form-dropdown validate[required]" id="input_32perso" name="q32perso_usage" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir...</option>
                         <option style="background-color:#e8e8e9" value="12">12</option>
@@ -218,7 +218,7 @@
             
 
             <li id="id_7" class="form-line optionsformline">
-				<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+				<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 				<span class="options_single">
 					<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onchange="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
 					<span class="optionsright"><label class="form-label-left" id="label_rush24" for="rush24">Délai express</label><input type="checkbox" class="form-checkbox" id="rush24" name="rush24[]" value="" onchange="JKakemono.rushcheckbox24(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextRush24');" onmouseout="ukryjt('helpTextRush24');"><span class="helpText" id="helpTextRush24" style="visibility:hidden;">Pour toute commande passée et réglée avant midi, le colis sera livré 3 à 4 jours ouvrés par TNT Express à l’adresse indiquée par le client.</span></span></span>

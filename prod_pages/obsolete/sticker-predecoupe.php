@@ -38,12 +38,12 @@
 				</li>
 
 				<li class="form-line optionsformline2" id="id_8">
-					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><span class="highlight split">(en centimètres)</span></strong>:</label>
+					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><span class="highlight split"><span class="small">(centimètres)</span></span></strong>:</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur en cm" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur en cm" id="input_8" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li class="form-line optionsformline" id="id_10">
-					<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+					<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 
 					<span class="options_single">
 						<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>

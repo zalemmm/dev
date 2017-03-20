@@ -96,7 +96,7 @@
             <ul class="form-section">
               <li class="form-line" id="id_1">
                 <a href="#">
-                    <img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png">                </a>
+                    <img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">                </a>
                 <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
                     <option value="">choisir la taille...</option>
                     <option value="2x2">Tente 2x2m</option>
@@ -110,7 +110,7 @@
               <!--support-->
                 <li class="form-line" id="id_option">
                     <a href="#">
-                        <img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+                        <img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_option" name="qoption_support1" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir une option...</option>
                         <option value="1x Demi-mur">1x Demi-mur</option>
@@ -119,7 +119,7 @@
                     </select>
                 </li>
                 <li class="form-line" id="id_couleur">
-                    <a href="#support-banderole"><img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+                    <a href="#support-banderole"><img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_couleur" name="qcouleur_couleur" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir la couleur...</option>
                         <option value="Blanc">Blanc</option>
@@ -134,7 +134,7 @@
                 
                <!--maquette-->
                 <li class="form-line" id="id_maquette">
-                    <a href="#"><img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"></a>
+                    <a href="#"><img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_maquette" name="q6_maquette" onchange="JKakemono.czyscpola(); ">
                         <option value="">Visuel...</option>
                         <option value="fb">France banderole crée la mise en page</option>
@@ -149,7 +149,7 @@
                 </li>
                
                <li id="id_16" class="form-line optionsformline">
-    <span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+    <span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 
             <span class="options_single">
               <span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>

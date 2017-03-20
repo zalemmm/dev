@@ -85,7 +85,7 @@
         </li>
 
         <li class="form-line" id="id_5">
-          <label class="form-label-left" id="label_5" for="input_5">quantité (par visuel):</label>
+          <label class="form-label-left" id="label_5" for="input_5">quantité :<br /><span class="small">(par visuel)</span></label>
           <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir...</option>
             <option value="1">1 </option>
@@ -108,7 +108,7 @@
         </li>
 
         <li id="id_101" class="form-line optionsformline">
-          <span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+          <span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 
           <span class="options_single">
             <span class="optionsright"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onchange="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextcolis\');" onmouseout="ukryjt(\'helpTextcolis\');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>

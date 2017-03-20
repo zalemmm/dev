@@ -6,7 +6,7 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_0">
-					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText0" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir l'impression</option>
 						<option value="recto">Recto </option>
@@ -15,7 +15,7 @@
 				</li>
 
 				<li class="form-line" id="id_HD">
-					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression forex Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression forex standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression forex pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux forex pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés forex pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression forex Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression forex standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression forex pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux forex pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés forex pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir qualité d'impression...</option>
 						<option value="HD">Haute définition</option>
@@ -24,7 +24,7 @@
 				</li>
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText1" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la dimension</option>
 						<option value="60x40">60x40cm </option>
@@ -39,7 +39,7 @@
 				</li>
 
 				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="pokazt('helpText32');" onmouseout="ukryjt('helpText32');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText32" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText32');" onmouseout="ukryjt('helpText32');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la quantité</option>
 						<option class="select-alt" value="1">1</option>
@@ -84,7 +84,7 @@
 				</li>
 
 				<li class="form-line" id="id_32perso">
-					<span class="helpButton" onmouseover="pokazt('helpText32perso');" onmouseout="ukryjt('helpText32perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText32perso" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText32perso');" onmouseout="ukryjt('helpText32perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32perso" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_32perso" name="q32perso_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la quantité</option>
 						<option class="select-alt" value="1">1</option>
@@ -128,7 +128,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText4" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la fixation</option>
 						<option value="double face">double face (4 adhésifs)</option>
@@ -138,7 +138,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_4perso">
-					<span class="helpButton" onmouseover="pokazt('helpText4perso');" onmouseout="ukryjt('helpText4perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText4perso" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText4perso');" onmouseout="ukryjt('helpText4perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4perso" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_4perso" name="4perso_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la fixation</option>
 						<option value="double face">double face (4 adhésifs)</option>
@@ -149,7 +149,7 @@
 				</li>
 
 				<li class="form-line" id="id_5">
-					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText5" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_5" name="5_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir le perçage</option>
 						<option value="2">2 trous</option>
@@ -160,7 +160,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_5perso">
-					<span class="helpButton" onmouseover="pokazt('helpText5perso');" onmouseout="ukryjt('helpText5perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText5perso" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText5perso');" onmouseout="ukryjt('helpText5perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5perso" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_5perso" name="5perso_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir le perçage</option>
 						<option value="2">2 trous</option>
@@ -172,7 +172,7 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText6" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
@@ -180,7 +180,7 @@
 					</select>
 				</li>
 				<li class="form-line" id="id_6perso">
-					<span class="helpButton" onmouseover="pokazt('helpText6perso');" onmouseout="ukryjt('helpText6perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpText6perso" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText6perso');" onmouseout="ukryjt('helpText6perso');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6perso" style="visibility:hidden;">infos </span></span>
 					<select class="form-dropdown validate[required]" id="input_6perso" name="q6perso_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
@@ -190,12 +190,12 @@
 
 
 				<li id="id_9" class="form-line optionsformline3">
-					<label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
+					<label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li id="id_7" class="form-line optionsformline" style="z-index:100">
-					<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+					<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 
 					<span class="options_single">
 						<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>

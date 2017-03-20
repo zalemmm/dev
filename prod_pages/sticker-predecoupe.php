@@ -5,7 +5,7 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_support1" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le support </option>
 						<option value="permanent">vinyle blanc permanent 95μ monomère 3 ans</option>
@@ -15,7 +15,7 @@
 				</li>
 
 				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;">Option</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;">Option</span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir l'option pose facile</option>
 						<option value="tape">Film de pose facile (Tape)</option>
@@ -24,7 +24,7 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le fichier</option>
 						<option value="fb">France banderole crée la maquette</option>
@@ -33,17 +33,17 @@
 				</li>
 
 				<li class="form-line optionsformline2" id="id_7">
-					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité (par visuel):</label>
+					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité :<br /><span class="small">(par visuel)</span></label>
 					<input type="text" class="form-textbox textboxPush validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
 				</li>
 
 				<li class="form-line optionsformline2" id="id_8">
-					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
+					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li class="form-line optionsformline" id="id_10">
-					<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+					<span class="title">OPTIONS COMPLEMENTAIRES <span class="split">DISPONIBLES :</span> </span>
 
 					<span class="options_single">
 						<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
@@ -220,12 +220,12 @@ jQuery(document).ready(function(){
 		if (ax2) {
 			ax2.style.background="none";
 			ax2.style.border="none";
-			ax2.style.borderBottom="1px solid #9fa3a8";
+			/*ax2.style.borderBottom="1px solid #9fa3a8";*/
 		}
 		if (ax3) {
 			ax3.style.background="none";
 			ax3.style.border="none";
-			ax3.style.borderBottom="1px solid #9fa3a8";
+			/*ax3.style.borderBottom="1px solid #9fa3a8";*/
 		}
 
 		if ( ($('input_1').value) &&  ($('input_4').value)  && ($('input_6').value) && ($('input_7').value) && ($('input_8').value) && ($('input_9').value) ) {
