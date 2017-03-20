@@ -139,7 +139,7 @@
 				</li>
 
 				<li class="form-line" id="id_7">
-					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité:</label>
+					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité (par visuel):</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
 				</li>
 				<li class="form-line optionsformline" id="id_8">
@@ -866,7 +866,7 @@ jQuery(document).ready(function(){
 								ProdPercent = 15;
 								prliv += '<br />- P 2-3J';
 							}else if(PorductType =='1-1'){
-								ProdPercent = 25;
+								ProdPercent = 30;
 								prliv += '<br />- P 1J';
 							}else{
 								ProdPercent = 0;
@@ -877,7 +877,7 @@ jQuery(document).ready(function(){
 								DeliPercent = 15;
 								prliv += ' / L 2-3J';
 							}else if(DeliveryType =='1-1'){
-								DeliPercent = 25;
+								DeliPercent = 30;
 								prliv += ' / L 1J';
 							}else{
 								DeliPercent = 0;

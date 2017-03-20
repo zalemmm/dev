@@ -103,8 +103,8 @@
         </li>
 
         <li class="form-line" id="id_9">
-          <label class="form-label-left" id="label_9" for="input_9">quantité:</label>
-          <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
+          <label class="form-label-left" id="label_9" for="input_9">quantité (par visuel):</label>
+          <input type="text" class="form-textbox validate[required, Numeric]" placeholder="largeur en cm" id="input_8" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
         </li>
 
         <li id="id_10" class="form-line optionsformline">
@@ -917,7 +917,7 @@ var myClass = jQuery(this).attr("class");
 					ProdPercent = 15;
 					prliv += '- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 25;
+					ProdPercent = 30;
 					prliv += '- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -928,7 +928,7 @@ var myClass = jQuery(this).attr("class");
 					DeliPercent = 15;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 25;
+					DeliPercent = 30;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;

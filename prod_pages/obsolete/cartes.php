@@ -61,7 +61,7 @@
       </li>
 
       <li class="form-line" id="id_5">
-        <label class="form-label-left" id="label_5" for="input_5">quantité:</label>
+        <label class="form-label-left" id="label_5" for="input_5">quantité (par visuel):</label>
         <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="100">100 </option>

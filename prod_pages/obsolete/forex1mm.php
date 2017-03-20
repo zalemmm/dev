@@ -47,7 +47,7 @@
   </select>
 </li>
 <li class="form-line" id="id_31">
-<label class="form-label-left" id="label_31" for="input_31">quantité: </label>
+<label class="form-label-left" id="label_31" for="input_31">quantité (par visuel): </label>
 <select class="form-dropdown validate[required]" id="input_31" name="q31_usage" onchange="JKakemono.czyscpola(); ">
 <option value="">choisir...</option>
 <option class="select-alt" value="1">1</option>
@@ -72,7 +72,7 @@
 </select>
 </li> -->
 <li class="form-line" id="id_32">
-  <label class="form-label-left" id="label_32" for="input_32">quantité: </label>
+  <label class="form-label-left" id="label_32" for="input_32">quantité (par visuel): </label>
   <select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onchange="JKakemono.czyscpola(); ">
     <option value="">choisir...</option>
     <option class="select-alt" value="6">6</option>
@@ -99,7 +99,7 @@
   </select>
 </li>
 <!-- <li class="form-line" id="id_31perso">
-<label class="form-label-left" id="label_31perso" for="input_31perso">quantité: </label>
+<label class="form-label-left" id="label_31perso" for="input_31perso">quantité (par visuel): </label>
 <select class="form-dropdown validate[required]" id="input_31perso" name="q31perso_usage" onchange="JKakemono.czyscpola(); ">
 <option value="">choisir...</option>
 <option class="select-alt" value="1">1</option>
@@ -124,7 +124,7 @@
 </select>
 </li> -->
 <li class="form-line" id="id_32perso">
-  <label class="form-label-left" id="label_32perso" for="input_32perso">quantité: </label>
+  <label class="form-label-left" id="label_32perso" for="input_32perso">quantité (par visuel): </label>
   <select class="form-dropdown validate[required]" id="input_32perso" name="q32perso_usage" onchange="JKakemono.czyscpola(); ">
     <option value="">choisir...</option>
     <option class="select-alt" value="6">6</option>
@@ -216,7 +216,7 @@
 
 <li id="id_9" class="form-line sizehigher">
   <label class="form-label-left" id="label_9" for="input_9">taille (en metre):</label>
-  <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+  <input type="text" class="form-textbox validate[required, Numeric]" placeholder="largeur en cm" id="input_8" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 </li>
 
 

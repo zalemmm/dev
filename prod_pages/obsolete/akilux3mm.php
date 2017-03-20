@@ -95,7 +95,7 @@
 
 					<li id="id_9" class="form-line optionsformline2">
 						<label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
-						<input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+						<input type="text" class="form-textbox validate[required, Numeric]" placeholder="largeur en cm" id="input_8" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 
 					</li>
 
@@ -710,7 +710,7 @@
 											ProdPercent = 15;
 											prliv += '<br />- P 2-3J';
 										}else if(PorductType =='1-1'){
-											ProdPercent = 25;
+											ProdPercent = 30;
 											prliv += '<br />- P 1J';
 										}else{
 											ProdPercent = 0;
@@ -721,7 +721,7 @@
 											DeliPercent = 15;
 											prliv += ' / L 2-3J';
 										}else if(DeliveryType =='1-1'){
-											DeliPercent = 25;
+											DeliPercent = 30;
 											prliv += ' / L 1J';
 										}else{
 											DeliPercent = 0;

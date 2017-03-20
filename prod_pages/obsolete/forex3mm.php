@@ -15,7 +15,7 @@
 				</li>
 
 				<li class="form-line" id="id_HD">
-					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">infos </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression forex Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression forex standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression forex pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux forex pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés forex pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir qualité d'impression...</option>
 						<option value="HD">Haute définition</option>
@@ -191,7 +191,7 @@
 
 				<li id="id_9" class="form-line optionsformline3">
 					<label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><span class="highlight">(en centimètres)</span></strong>:</label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="largeur en cm" id="input_8" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li id="id_7" class="form-line optionsformline" style="z-index:100">
@@ -1329,7 +1329,7 @@
 										ProdPercent = 15;
 										prliv += '<br />- P 2-3J';
 									}else if(PorductType =='1-1'){
-										ProdPercent = 25;
+										ProdPercent = 30;
 										prliv += '<br />- P 1J';
 									}else{
 										ProdPercent = 0;
@@ -1340,7 +1340,7 @@
 										DeliPercent = 15;
 										prliv += ' / L 2-3J';
 									}else if(DeliveryType =='1-1'){
-										DeliPercent = 25;
+										DeliPercent = 30;
 										prliv += ' / L 1J';
 									}else{
 										DeliPercent = 0;

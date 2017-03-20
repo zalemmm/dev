@@ -5,18 +5,16 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_1">
-          <label class="form-label-left" id="label_1" for="input_1">impression: </label>
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir...</option>
+            <option value="">choisir l'impression...</option>
             <option value="recto">Recto </option>
             <option value="rectoverso">Recto/Verso </option>
           </select>
         </li>
 
         <li class="form-line" id="id_2">
-          <label class="form-label-left" id="label_2" for="input_2">fixations: </label>
           <select class="form-dropdown validate[required]" id="input_2" name="2_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir...</option>
+            <option value="">choisir les fixations...</option>
             <option value="2oeillets">2 oeillets (en haut)</option>
             <option value="4oeillets">4 oeillets</option>
             <option value="sans">pas de fixations</option>
@@ -24,22 +22,22 @@
         </li>
 
         <li class="form-line" id="id_3">
-          <label class="form-label-left" id="label_3" for="input_3">maquette:</label>
           <select class="form-dropdown validate[required]" id="input_3" name="q3_maquette" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir...</option>
-            <option value="fb">France banderole crée la maquette</option>
+            <option value="">choisir la mise en page...</option>
+            <option value="fb">France banderole crée la mise en page</option>
             <option value="user">j’ai déjà crée la maquette </option>
           </select>
         </li>
 
-        <li class="form-line" id="id_4">
-          <label class="form-label-left" id="label_4" for="input_4">quantité:</label>
+        <li class="form-line optionsformline2" id="id_4">
+          <label class="form-label-left label-highlight" id="label_4" for="input_4">quantité (par visuel): (par visuel):</label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_4" name="q4_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
         </li>
 
-        <li id="id_5" class="form-line sizehigher">
-          <label class="form-label-left" id="label_5" for="input_5">taille (en metre):</label>
-          <input type="text" class="form-textbox validate[required, Numeric]" id="input_5" name="q5_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_6" name="q6_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+        <li id="id_5" class="form-line optionsformline2" style="nothing"">
+          <label class="form-label-left label-highlight" id="label_5" for="input_5">taille <span  class="highlight">(en Mètres)</span>:</label>
+          <input type="text" class="form-textbox validate[required, Numeric]" id="input_5" name="q5_taile" size="20" onchange="JKakemono.czyscpola(); " style="margin-left:18px/>
+		<span class="highlight" style="color:red;">M</span> <span class="heusepar" style="left:185px;">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_6" name="q6_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " style="top:12px; left:200px;" /><span class="highlight" style="position:absolute; top:16px; left:255px">M</span> <span class="llar" style="left:100px;">[hauteur]</span><span class="lhau" style="left:203px;">[largeur]</span></li>
         </li>
 
         <li id="id_7" class="form-line optionsformline">
