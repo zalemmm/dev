@@ -1073,7 +1073,7 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+ktorytyp+' '+ktorywymiar+'<br />- '+composant+ktorapodstawa+ktodaje+cedzik+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+ktorytyp+' '+ktorywymiar+'<br />- '+composant+ktorapodstawa+ktodaje+cedzik+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 }
 
 }

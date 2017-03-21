@@ -189,8 +189,8 @@ function get_inscription() {
 		if (!isset($_GET['goback'])) {
 
 		$view .= '
-		<div class="acces_left" style="margin-right:300px;">
-			<div class="acces_tab_name">CREATION DE VOTRE COMPTE</div>
+		<div class="acces_left" >
+			<div class="acces_tab_name">VOTRE COMPTE</div>
 			<div class="acces_tab_content2">
         	<ul class="regiform">';
 
@@ -240,13 +240,13 @@ function get_inscription() {
 			$view .= '<input type="hidden" name="email" value="'.$user->email.'" /><input type="hidden" name="login" value="'.$user->login.'" />';
 		}
 		$view .= '
-		<div class="acces_left">
+		<div class="acces_right">
 			<div class="acces_tab_name2">VOTRE ADRESSE DE FACTURATION</div>
 			<div class="acces_tab_content2" style="margin-bottom:6px">
         	<ul class="regiform2">
             	<li class="form-line" id="id_30">
             	    <label class="registerlabel" id="label_30" for="cl_group">vous êtes un... ?</label>
-            	    <select class="registerinput validate[required]" id="cl_group" name="f_group" style="height: 18px;" onchange="champsReq();" />';
+            	    <select class="registerinput validate[required]" id="cl_group" name="f_group" onchange="champsReq();" />';
 		if($user_groupe->att_value == 'PART') {
 			$view .= '<option value="PART" selected>Particulier</option>';
 		} else {
@@ -336,7 +336,7 @@ function get_inscription() {
             	    <input type="text" class="registerinput validate[required]" id="input_10" name="f_phone" value="'.stripslashes($user->f_phone).'" />
             	</li>
             	<li class="form-line" id="id_11">
-            		<label style="position:absolute;bottom:0;color:#ea2a6a;" for="input_11"><b>VOS ADRESSES DE LIVRAISON SONT GEREES DIRECTEMENT<br /> DANS VOS DEVIS ET COMMANDES ENREGISTREES.</b></label>
+            		<label class="registerWarning" for="input_11"><b>VOS ADRESSES DE LIVRAISON SONT GEREES DIRECTEMENT DANS VOS DEVIS ET COMMANDES ENREGISTREES.</b></label>
             		<input style="position:absolute;bottom:5px;right:86px;visibility:hidden;" type="checkbox"'.$islavraison.' class="form-checkbox" id="sprawdzrejestr" name="input_11"'.$islivraison.' value="true" onclick="sprawdzrejestracje();" />
             	</li>
 			</ul>
@@ -387,8 +387,8 @@ function get_inscription() {
 		$view .= '
 			<div class="acces_tab_content2">
         	<ul class="regiform">
-            <li class="form-line" id="id_20" style="height:auto !important;padding-right:58px;">
-            	<div style="position:relative;float:left;display:inline;width:100%;height:100px;">
+            <li class="form-line" id="id_20">
+            	<div class="antiSpam">
 				ANTI-SPAM, merci de cocher la case ci-dessous:<br/>
                <div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>
                 </div>
@@ -400,7 +400,7 @@ function get_inscription() {
 			$view .= '
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
-            	        <div style="margin-left:156px">
+            	        <div class="pushButton">
             	            <button id="input_21" type="submit" class="edit-button">CONTINUER</button>
             	        </div>
             	    </div>
@@ -417,8 +417,8 @@ function get_inscription() {
 				$view .= '
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
-            	        <div style="margin-left:156px">
-            	            <button id="input_21" type="submit" class="register-button">CONTINUER</button>
+            	        <div class="pushButton">
+            	            <button id="input_21" type="submit" class="register-button">Inscription</button>
             	        </div>
             	    </div>
             	</li>
@@ -737,7 +737,7 @@ if ($p == 2) {
 	<input type="text" name="loginname" class="logininput" />
 	<label class="loginlabel" for="loginpass">mot de passe:</label>
 	<input type="password" name="loginpass" class="logininput" />
-	<button id="loginsubmit2" class="loginbutton2" type="submit">Submit</button>
+	<button id="loginsubmit2" class="loginbutton2" type="submit"></button>
 	</form>
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>
@@ -753,7 +753,7 @@ if ($p == 2) {
 	<input type="text" name="loginname" class="logininput" />
 	<label class="loginlabel" for="loginpass">mot de passe:</label>
 	<input type="password" name="loginpass" class="logininput" />
-	<button id="loginsubmit" class="loginbutton" type="submit">Submit</button>
+	<button id="loginsubmit" class="loginbutton" type="submit"></button>
 	</form>
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>

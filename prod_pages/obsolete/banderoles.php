@@ -503,7 +503,7 @@
 	if (ax3) {
 	ax3.style.background="none";
 	ax3.style.border="none";
-	ax3.style.borderBottom="1px solid #9fa3a8";
+	// ax3.style.borderBottom="1px solid #9fa3a8";
 }
 */
 
@@ -1782,7 +1782,7 @@ if (niepokazuj==2) {
 
 		var rodzaj = "banderole Thermo-soudure";
 		var dodajkoszyk = document.getElementById("cart_form");
-		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE BANDEROLE AVEC THERMO-SOUDURE<input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Send</button> ';
+		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE BANDEROLE AVEC THERMO-SOUDURE<input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 	}
 
@@ -1851,7 +1851,7 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 
 		var rodzaj = "banderole";
 		var dodajkoszyk = document.getElementById("cart_form");
-		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 	}
 

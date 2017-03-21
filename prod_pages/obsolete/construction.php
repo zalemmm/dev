@@ -369,7 +369,7 @@ if (ax1) {
 if (ax2) { 
 	ax2.style.background="none";
 	ax2.style.border="none";
-	ax2.style.borderBottom="1px solid #9fa3a8";
+	// ax2.style.borderBottom="1px solid #9fa3a8";
 }
 
 if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_36').value) || ($('input_51').value) || ($('input_52').value) || ($('input_53').value) || ($('input_54').value) && ($('input_16').value)) && ($('input_6').value || $('input_61').value) && ($('input_7').value) ) {
@@ -1314,7 +1314,7 @@ if (niepokazuj==0) {
 //alert(finalprice1);
 //alert(cena2);
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Kakemono" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Kakemono" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 }
 
 }

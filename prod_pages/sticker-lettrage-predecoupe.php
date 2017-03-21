@@ -222,12 +222,12 @@ jQuery(document).ready(function(){
 		if (ax2) {
 			ax2.style.background="none";
 			ax2.style.border="none";
-			//ax2.style.borderBottom="1px solid #9fa3a8";
+			//// ax2.style.borderBottom="1px solid #9fa3a8";
 		}
 		if (ax3) {
 			ax3.style.background="none";
 			ax3.style.border="none";
-			//ax3.style.borderBottom="1px solid #9fa3a8";
+			//// ax3.style.borderBottom="1px solid #9fa3a8";
 		}
 
 		if ( ($('input_1').value) &&  ($('input_4').value)  && ($('input_6').value) && ($('input_7').value) && ($('input_8').value) && ($('input_9').value) ) {
@@ -639,7 +639,7 @@ jQuery(document).ready(function(){
 
 
 							var dodajkoszyk = document.getElementById("cart_form");
-							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+opis+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+opis+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 
 

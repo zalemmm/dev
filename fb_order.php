@@ -32,7 +32,7 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	    //   ex :
 	    //    -> Windows : $pathfile="pathfile=c:\\repertoire\\pathfile"
 	    //    -> Unix    : $pathfile="pathfile=/home/repertoire/pathfile"
-	    
+
 	$pathfile="pathfile=/home/frbanderolecom/www/sherlock/param/pathfile";
 	fwrite( $fp, "test_point_2: true\n");
 
@@ -139,7 +139,7 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 		fwrite( $fp, "capture_day: $capture_day\n");
 		fwrite( $fp, "capture_mode: $capture_mode\n");
 		fwrite( $fp, "data: $data\n");
-		if($bank_response_code=='00') {	
+		if($bank_response_code=='00') {
 			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$order_id'");
 			if ($setorder->status < '2') {
 				$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='2' WHERE unique_id='$order_id'");
@@ -154,18 +154,18 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 }
 
 function has_bat($cmd) {
-	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd.'-projects';		
+	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd.'-projects';
 	$has_bat=0;
 	if(file_exists($name))
 	if ($dir = @opendir($name)) {
 	$x=0;
-	
-	    while(($file = readdir($dir))) {      
+
+	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
-				if ($x<1) {					
-					$has_bat = 1;					
+				if ($x<1) {
+					$has_bat = 1;
 					$x=1;
-				} 
+				}
 			}
     	}
 	    closedir($dir);
@@ -177,7 +177,7 @@ function is_bat_validated($cmd) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_comments = $prefix."fbs_comments";
-	
+
 	$req_bat = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments` WHERE order_id = '$cmd' AND topic = 'VALIDATION BAT CLIENT'");
 	if($req_bat) {
 		return 1;
@@ -188,11 +188,11 @@ function is_bat_validated($cmd) {
 
 
 function has_uploaded_files($cmd, $userid) {
-	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd;		
+	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd;
 	$fichiers="";
 	if(file_exists($name))
 	if ($dir = @opendir($name)) {
-	    while(($file = readdir($dir))) {      
+	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				$fichiers.=$file.'<br />';
 			}
@@ -207,7 +207,7 @@ function get_filesender($products) {
 	$user = $_SESSION['loggeduser'];
 	$b = has_uploaded_files($idzamowienia, $user->login);
 
-//if ($user->login == 'schizoos' || $user->login == 'pocalypse') {	
+//if ($user->login == 'schizoos' || $user->login == 'pocalypse') {
 //	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
 $view .= '
 <form id="fileupload" class="noprint" action="'.get_bloginfo("url").'/uploaded/" method="post" enctype="multipart/form-data"><input type="hidden" id="cmdID" name="cmd" value="'.$idzamowienia.'" /><input type="hidden" name="usr" value="'.$user->login.'" />
@@ -240,7 +240,7 @@ $view .= '
 		<thead><tr><th class="lefttd"></th><th class="tabname">FICHER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
         <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
 </form>
-    ';	
+    ';
 
 $view .= '
 <script id="template-upload" type="text/x-tmpl">
@@ -357,42 +357,42 @@ function get_details() {
 	$zamowienie = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
 	$status = $zamowienie->status;
-	
+
 	$need_act = 0;
 	$bat = 0;
 	$to_pay = 0;
 	$upload = 0;
-	
+
 	if((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))) AND ($status != 4) AND ($status != 5) AND ($status != 6)) {
 		$bat = 1;
 		$need_act = 1;
 	}
 	if((!(has_uploaded_files($idzamowienia,$user->id))) AND ($status != 4) AND ($status != 5) AND ($status != 6)) {
 		$upload = 1;
-		$need_act = 1;		
+		$need_act = 1;
 	}
-	
+
 	if(($status == 0) OR ($status == 1)) {
 		$to_pay = 1;
 		$need_act = 1;
 	}
-	
+
 	if($need_act == 0) {
 		$prolog .= '<div class="box_info"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
 	} else {
 		$prolog .= '<div class="box_warning"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_warning.png" /></td><td><p><strong>CETTE COMMANDE ATTEND DES RETOURS DE VOTRE PART !</strong></p><p><ul>';
 		if($to_pay == 1) {
-			$prolog .= '<li>Vous n\'avez pas <strong>réglé cette commande</strong>.</li>';					
+			$prolog .= '<li>Vous n\'avez pas <strong>réglé cette commande</strong>.</li>';
 		}
 		if($upload == 1) {
-			$prolog .= '<li>Vous n\'avez pas <strong>mis vos fichiers en ligne</strong>.</li>';					
+			$prolog .= '<li>Vous n\'avez pas <strong>mis vos fichiers en ligne</strong>.</li>';
 		}
 		if($bat == 1) {
-			$prolog .= '<li>Vous n\'avez pas <strong>validé votre BAT</strong>.</li>';					
+			$prolog .= '<li>Vous n\'avez pas <strong>validé votre BAT</strong>.</li>';
 		}
-		
+
 		$prolog .= '</ul></p>';
-		
+
 		if($to_pay == 1) {
 			$prolog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"></button></form>';
 		}
@@ -400,11 +400,11 @@ function get_details() {
 			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
 			$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"></a>';
 		}
-		
+
 		$prolog .= '</td></tr></table></div>';
 
 	}
-	
+
 	$prolog .= '<h1 class="noprint">Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
 	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :<span>ETAT : '.print_status($zamowienie->status).'</span></div>';
 
@@ -422,7 +422,7 @@ function get_details() {
 			$ostcomment = stripslashes($ostcomment);
 			if ($lastcomment->author != 'France Banderole') {
 				$ostcomment = htmlspecialchars($ostcomment);
-			}			
+			}
 			$idostcomment = $lastcomment->order_id;
 			$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...</a>';
 			$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">LE DERNIER COMMENTAIRE EN DATE</th><th></th><th></th></tr>';
@@ -437,33 +437,33 @@ function get_details() {
 		}
 
 	$epilog .= '<div id="fbcart_buttons" class="noprint">';
-	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a>'; 
+	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a>';
 	if ($status<2) {
 		$epilog .= '<form name="delfromvosdevis" id="delfromvosdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="annulervosdevis" value="'.$idzamowienia.'" /><button id="but_annulercommande" type="submit"></button></form>';
 	} elseif ($status>1) {
 		$epilog .= '<span id="but_annulercommande" class="deactive"></span>';
 	}
 	if ($status!=3 && $status!=4 && $status!=5) {
-		$epilog .= '<a href="javascript:window.print()" id="but_imprimer"></a>'; 
+		$epilog .= '<a href="javascript:window.print()" id="but_imprimer"></a>';
 	} else {
-		$epilog .= '<span id="but_imprimer" class="deactive"></span>'; 
+		$epilog .= '<span id="but_imprimer" class="deactive"></span>';
 	}
 // wyswietlanie przycisku podgladu projektów
 //$epilog .= '<a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-5.jpg"></a><a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-6.jpg"></a><a rel="shadowbox[kakemonosgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/exkak3.jpg"></a>';
 	$has_bat = 0;
 	if (($zamowienie->status) > 0) {
-	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$idzamowienia.'-projects';		
+	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$idzamowienia.'-projects';
 	if(file_exists($name))
 	if ($dir = @opendir($name)) {
 	$x=0;
-	    while(($file = readdir($dir))) {      
+	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				if ($x<1) {
 					$epilog .= '<a rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette">&nbsp;</a>';
-					$has_bat = 1;					
+					$has_bat = 1;
 					$x=1;
 				} else {
-					$epilog .= '<a style="display: none;" rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';				
+					$epilog .= '<a style="display: none;" rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
 				}
 			}
     	}
@@ -514,8 +514,8 @@ function get_details() {
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
 	//}
-	
-	
+
+
 	$epilog .= '</div>';
 
 	$view .= print_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia);
@@ -535,7 +535,7 @@ function reorganize_votre($idzamowienia) {
 		foreach ( $products as $products => $item ) {
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
-			$transportcalosci = $transportcalosci + $item[frais];			
+			$transportcalosci = $transportcalosci + $item[frais];
 		}
 //dodatkowy rabat
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
@@ -555,7 +555,7 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $wysokoscrabatu), array ( 'sku' => $idzamowienia ) );
 			}
-//koniec//  		
+//koniec//
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
 //zmiana podatku TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
@@ -563,16 +563,16 @@ function reorganize_votre($idzamowienia) {
 			if ($czyjesttva->remis == 0) {
 				$podatekcalosci = 0;
 			} elseif ($czyjesttva->remis == '') {
-			  	$podatekcalosci = $kosztcalosci*0.200;		
+			  	$podatekcalosci = $kosztcalosci*0.200;
 			} else {
 				$tvapod = $czyjesttva->remis/100;
 				$podatekcalosci = $kosztcalosci*$tvapod;
 			}
 		} else {
-		  	$podatekcalosci = $kosztcalosci*0.200;		
+		  	$podatekcalosci = $kosztcalosci*0.200;
 		}
 //zmiana podatku TVA
-	  	$totalcalosci = $kosztcalosci+$podatekcalosci;  		
+	  	$totalcalosci = $kosztcalosci+$podatekcalosci;
 	  	$kosztcalosci = number_format($kosztcalosci, 2);
 		$transportcalosci = number_format($transportcalosci, 2);
 		$podatekcalosci = number_format($podatekcalosci, 2);
@@ -581,7 +581,7 @@ function reorganize_votre($idzamowienia) {
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $transportcalosci, 'totalht' => $kosztcalosci, 'tva' => $podatekcalosci, 'totalttc' => $totalcalosci), array ( 'unique_id' => $idzamowienia ) );
 	} else {
 		$nowadata = date('Y-m-d H:i:s');
-		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );	
+		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
 	}
 }
 
@@ -596,11 +596,11 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	$idzamowienia=$_GET['detail'];
 
 	$r = get_inscription2();
-	
+
 /* nowy komentarz, jesli tak ustawiamy jako przeczytany */
 	$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$idzamowienia'");
 	if ($newcomment) {
-		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");			
+		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");
 	}
 
 if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) {
@@ -642,7 +642,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
 				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
 			}
-//koniec//  		
+//koniec//
 
  	  	$tfrais = str_replace('.', ',', $kosztorder->frais).' &euro;';
 	  	$ttotalht = str_replace('.', ',', $kosztorder->totalht).' &euro;';
@@ -660,7 +660,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 				$epilog_0 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
 			} else {
 				$epilog_0 .= $user->l_name.'<br />'.$user->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$user->l_code.'<br />'.$user->l_city;
-			}			
+			}
 			$useraddress = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$idzamowienia'");
 			if ($useraddress) {
 				$explode2 = explode('|', $useraddress->l_address);
@@ -728,7 +728,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
 				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
 			}
-//koniec//  		
+//koniec//
 	  	$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  	$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  	$ttva = str_replace('.', ',', $query->tva).' &euro;';
@@ -770,7 +770,7 @@ function print_votre() {
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
  if (isset($_POST['annulervosdevis'])) {
 	$ident = $_POST['annulervosdevis'];
-	$anulowany = $wpdb->query("UPDATE `$fb_tablename_order` SET status='6' WHERE unique_id='$ident'"); 	
+	$anulowany = $wpdb->query("UPDATE `$fb_tablename_order` SET status='6' WHERE unique_id='$ident'");
  }
  if (isset($_GET['detail'])) {
  	$idz = $_GET['detail'];
@@ -810,68 +810,68 @@ function print_votre() {
 	$count_bat = 0;
 	$total_count = 0;
 	$alert_content = '<div class="box_info"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
-	
+
 	foreach($order_list AS $order_row) {
 		$idzamowienia = $order_row->unique_id;
 		$zamowienie = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
 		//$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
 		$status = $zamowienie->status;
-			
+
 		$need_act = 0;
 		$bat = 0;
 		$to_pay = 0;
 		$upload = 0;
-			
+
 		if((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))) AND ($status != 4) AND ($status != 5) AND ($status != 6)) {
 			$bat = 1;
 			$need_act = 1;
 		}
-		if((!(has_uploaded_files($idzamowienia,$user->id))) AND (($status <= 2) OR ($status == 7))) { 
+		if((!(has_uploaded_files($idzamowienia,$user->id))) AND (($status <= 2) OR ($status == 7))) {
 			$upload = 1;
-			$need_act = 1;		
+			$need_act = 1;
 		}
-			
+
 		if(($status == 0) OR ($status == 1)) {
 			$to_pay = 1;
 			$need_act = 1;
 		}
-			
+
 		if($need_act == 1) {
 			$alert_content .= '<li><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'">Commande n°'.$idzamowienia.'</a></li>';
 			$total_count++;
-		} 	
-		
+		}
+
 	}
-	
+
 	if($total_count != 0) {
 		$alert_content .= '</ul></td></tr></table></div>';
 		$view .= $alert_content;
 	}
-	
+
 	$view .= '<h1>Accès client: Votre compte et devis</h1><hr />';
 	$user = $_SESSION['loggeduser'];
-	
+
 	//Récupération des variables
 	if ((isset($_GET['archive'])) AND ($_GET['archive'] == 1)) { $archive = 1;	} else { $archive = 0; 	}
 	if (isset($_GET['pagination'])) { $page_act = $_GET['pagination'];	} else { $page_act = 1; }
-	
+
 	//Récupération conditionnelle de la liste des commandes
-	
+
 	$count_old = 0; $count_curr = 0;
-	
+
 	//$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' ORDER BY date DESC");
 	$orders_old = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status = 5");
 	$count_old = $wpdb->num_rows;
 	$orders_curr = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC");
 	$count_curr = $wpdb->num_rows;
-	
-	if ($archive) {		
+
+	if ($archive) {
 		$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status = 5 ORDER BY date DESC");
 		//$count_o = $wpdb->num_rows;
 		if ($count_old > 15) {
 			$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status = 5 ORDER BY date DESC LIMIT ". 50*($page_act-1) .", 50");
 		}
-	} else {		
+	} else {
 		$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC");
 		//$count_o = $wpdb->num_rows;
 		if ($count_curr > 15) {
@@ -879,27 +879,29 @@ function print_votre() {
 			//$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC");
 		}
 	}
-	
+
 	if ($orders) {
 		$view .= '<div id="votre"><div class="votre_tab_name">MON COMPTE:</div>
-					<div class="votre_tab_content">Bonjour, '.stripslashes($user->f_name).'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod">Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec">Se deconnecter</a></div>';
-					
-					
+					<div class="votre_tab_content">Bonjour, '.stripslashes($user->f_name).'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte
+</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>
+ Se deconnecter </a></div>';
+
+
 		// $view .= '<div class="votre_tab_name2">MES DEVIS ET COMMANDES :</div>
 				  // </div>';
-				  
+
 		$view .= '</div>';
-				
+
 		$view .= '<div class="votre_tab_head">';
-				
+
 		if ($archive) {
 			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_inactive">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_active">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
-		} else {			
+		} else {
 			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
-		}		  		
-		
-				  
-				  
+		}
+
+
+
 //		$view .= '<div class="votre_detail_text"><b>CLIQUEZ pour voir les détails</b></div>';
 /*		$lastcomment = $wpdb->get_row("SELECT c.* FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = o.unique_id AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
 		if ($lastcomment) {
@@ -917,17 +919,17 @@ function print_votre() {
 */
 
 		//Switch Archive/Non Archive
-		
+
 		// if ($archive) {
 			// $view .= '<p style="clear: both;"><a href="vos-devis?archive=0">Vos commandes en cours</a> | <strong>&middot; <a href="vos-devis?archive=1">Commandes archivées</a> &middot;</strong></p>';
-		// } else {			
+		// } else {
 			// $view .= '<p style="clear: both;"><strong>&middot; <a href="vos-devis?archive=0">Vos commandes en cours</a> &middot;</strong> | <a href="vos-devis?archive=1">Commandes archivées</a></p>';
 		// }
 
 		$view .= '<table id="fbcart_votre" cellspacing="0">';
-		
+
 		// $view .= '<tr><td colspan="6">HEADER</td></tr>';
-		
+
 		$view .= '<tr><th class="leftth">VOIR LE DEVIS<br />OU LA COMMANDE</th><th class="tddesc">DESCRIPTION</th><th>N° DE COMMANDE</th><th>PRIX</th><th>DATE</th><th>ETAT</th></tr>';
 		foreach ($orders as $o) :
 			$view .= '<tr>';
@@ -945,13 +947,13 @@ function print_votre() {
 			$prods = $wpdb->get_results("SELECT name, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' ORDER BY name ASC");
 			foreach ($prods as $p) :
 				if ($p->status == 0) {
-					$view .= '<s style="color:red;">'.$p->name.'</s><br />';				
+					$view .= '<s style="color:red;">'.$p->name.'</s><br />';
 				} else {
 					$view .= $p->name.'<br />';
 				}
 			endforeach;
-//			if (($o->unique_id == $idostcomment)) { 
-//				$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idostcomment.'" class="lcomment"></a>'; 
+//			if (($o->unique_id == $idostcomment)) {
+//				$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idostcomment.'" class="lcomment"></a>';
 //			}
 
 			$comment_new = '';
@@ -967,11 +969,11 @@ function print_votre() {
 			$view .= '</tr>';
 		endforeach;
 		$view .= '</table>';
-		
+
 		//Pagination au besoin
-		
+
 		if(($archive == 0) AND($count_curr > 50)) {
-						
+
 			$view .= '<div class="votre_pagi"> -';
 			$nb_pages = intval($count_curr/50) + 1;
 			for($i = 1; $i <= $nb_pages; $i++) {
@@ -983,7 +985,7 @@ function print_votre() {
 			}
 			$view .= '</div>';
 		} else if(($archive == 1) AND($count_old > 50)) {
-						
+
 			$view .= '<div class="votre_pagi"> -';
 			$nb_pages = intval($count_old/50) + 1;
 			for($i = 1; $i <= $nb_pages; $i++) {
@@ -995,36 +997,36 @@ function print_votre() {
 			}
 			$view .= '</div>';
 		}
-	
+
 	} else if (($count_curr != 0) OR ($count_old != 0)) {
 		$view .= '<div id="votre"><div class="votre_tab_name">MON COMPTE:</div>
 					<div class="votre_tab_content">Bonjour, '.stripslashes($user->f_name).'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod">Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec">Se deconnecter</a></div>';
-					
-					
+
+
 		// $view .= '<div class="votre_tab_name2">MES DEVIS ET COMMANDES :</div>
 				  // </div>';
-				  
+
 		$view .= '</div>';
-				
+
 		$view .= '<div class="votre_tab_head">';
-				
+
 		if ($archive) {
 			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_inactive">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_active">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
-		} else {			
+		} else {
 			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
-		}		  		
-		
+		}
+
 		if ($archive) {
 			$view .= '<div style="float: left;"><p>Vous n\'avez aucune commande archivée.</p></div>';
 		} else {
 			$view .= '<div style="float: left;"><p>Vous n\'avez aucune commande en cours.</p></div>';
 		}
-		
+
 		$view .= '</div>';
-		
-		
-		
-		
+
+
+
+
 	} else {
 		$view .= '<div id="votre"><div class="votre_tab_name">MON COMPTE:</div>
 					<div class="votre_tab_content">Bonjour, '.$user->f_name.'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod">Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec">Se deconnecter</a></div>
@@ -1118,12 +1120,12 @@ function add_to_db() {
 
 			/* On teste que le cart contienne bien un produit en relais colis*/
 			$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
-		 	
+
 			$user = $_SESSION['loggeduser'];
 			foreach ( $products as $products => $item ) {
 				$koszttotal = str_replace(',', '.', $item[total]);
 				$kosztcalosci = $kosztcalosci + $koszttotal;
-				$transportcalosci = $transportcalosci + $item[transport];			
+				$transportcalosci = $transportcalosci + $item[transport];
 			}
 //sprawdzanie czy jest rabat dla uzytkownika//
 			$uid = $user->id;
@@ -1136,10 +1138,10 @@ function add_to_db() {
 					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				}
 			}
-//koniec//  		
+//koniec//
 			$kosztcalosci = $kosztcalosci + $transportcalosci;
 	  		$podatekcalosci = $kosztcalosci*0.200;
-	  		$totalcalosci = $kosztcalosci+$podatekcalosci;  		
+	  		$totalcalosci = $kosztcalosci+$podatekcalosci;
 	  		$kosztcalosci = number_format($kosztcalosci, 2);
 	  		$transportcalosci = number_format($transportcalosci, 2);
 	  		$podatekcalosci = number_format($podatekcalosci, 2);
@@ -1152,15 +1154,15 @@ function add_to_db() {
 			$mj_list = getListId('Tous clients');
 			$mj_user = getIdFromEmail($user->email);
 			abonnerListe($mj_user,$mj_list);
-			
-			
-			
+
+
+
 			if ($dodaj_zamowienie) {
 				if (!empty($client_remise) && ($client_remise != '0')) {
 					$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$wysokoscrabatu."')");
 					if ($dodaj_nowyrabat) { }
 				}
-				$ktomakiete = 0; 
+				$ktomakiete = 0;
 				$czyfbrobimakiete = 0;
 				$products = $_SESSION['fbcart'];
 				foreach ( $products as $products => $item ) {
@@ -1190,8 +1192,8 @@ function add_to_db() {
 		        //mail($user->email, $lettert, $letter, $header);
 		        wp_mail($user->email, $lettert, $letter);
 			}
-			
-			
+
+
 			/* Ajout de l'indicateur "retrait atelier" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
 			if($retrait_atelier !== false){
 				$requeteretrait_atelier = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='retrait atelier' AND unique_id = '$unique_id'");
@@ -1199,7 +1201,7 @@ function add_to_db() {
 					$requeteretrait_atelier1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='retrait atelier'");
 				} else {
 					$requeteretrait_atelier2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'retrait atelier', 'yes')");
-				}								
+				}
 			}
 
 
@@ -1210,17 +1212,17 @@ function add_to_db() {
 					$requetecolis_revendeur1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='revendeur'");
 				} else {
 					$requetecolis_revendeur2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'revendeur', 'yes')");
-				}								
+				}
 			}
-			
-			/* Ajout de l'indicateur "relais" dans le champ "type" et numéro de relais dans le champ "Value" la table "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address" 
+
+			/* Ajout de l'indicateur "relais" dans le champ "type" et numéro de relais dans le champ "Value" la table "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address"
 			et ajout de l'adresse de livraison dans la table "fbs_users */
 			/*mail("contact@tempopasso.com","Session_Loggedusers dans add_to_db function",print_r($_SESSION,true)."REQ=".
 								"SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$unique_id' AND user = '$uid'");
 			*/
-			
+
 			if(!($relais_colis !== false)) $_SESSION['loggeduser']->relais_colis == "no!";
-			
+
 			if($_SESSION['loggeduser']->relais_colis == "yes" && $_SESSION['loggeduser']->code_relais_colis != ""){
 				$code_relais_colis = $_SESSION['loggeduser']->code_relais_colis;
 				$selectrelaiscolis = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='relais' AND unique_id = '$unique_id'");
@@ -1229,16 +1231,16 @@ function add_to_db() {
 				} else {
 					$requeterelais2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'relais', '".$code_relais_colis."')");
 				}
-				
+
 				$userZZ = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$unique_id' AND user = '$uid'");
 				if ($userZZ) {
-					$kolejka = $wpdb->update($fb_tablename_address, array ( 
-								'l_name' => addslashes($_SESSION['loggeduser']->l_name), 
-								'l_comp' => addslashes($_SESSION['loggeduser']->l_comp), 
-								'l_address' => addslashes($_SESSION['loggeduser']->l_address), 
-								'l_code' => addslashes($_SESSION['loggeduser']->l_code), 
-								'l_city' => addslashes($_SESSION['loggeduser']->l_city), 
-								'l_phone' => addslashes($_SESSION['loggeduser']->f_phone)), 
+					$kolejka = $wpdb->update($fb_tablename_address, array (
+								'l_name' => addslashes($_SESSION['loggeduser']->l_name),
+								'l_comp' => addslashes($_SESSION['loggeduser']->l_comp),
+								'l_address' => addslashes($_SESSION['loggeduser']->l_address),
+								'l_code' => addslashes($_SESSION['loggeduser']->l_code),
+								'l_city' => addslashes($_SESSION['loggeduser']->l_city),
+								'l_phone' => addslashes($_SESSION['loggeduser']->f_phone)),
 								array ('unique_id' => $unique_id) );
 				}else{
 					$dodaj = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".
@@ -1252,33 +1254,33 @@ function add_to_db() {
 								addslashes($_SESSION['loggeduser']->l_phone)."')");
 				}
 				/* Enregistrement de l'adresse du relais colis dans l'adresse de livraison utilisateur*/
-				/*$updateuserZZ = $wpdb->query("UPDATE `$fb_tablename_users` SET 											 
-								l_name = '".$_SESSION['loggeduser']->l_name."', 
-								l_comp = '".$_SESSION['loggeduser']->l_comp."', 
-								l_address = '".$_SESSION['loggeduser']->l_address."', 
-								l_code = '".$_SESSION['loggeduser']->l_code."', 
-								l_city = '".$_SESSION['loggeduser']->l_city."', 
-								l_phone = '".$_SESSION['loggeduser']->f_phone."' 
+				/*$updateuserZZ = $wpdb->query("UPDATE `$fb_tablename_users` SET
+								l_name = '".$_SESSION['loggeduser']->l_name."',
+								l_comp = '".$_SESSION['loggeduser']->l_comp."',
+								l_address = '".$_SESSION['loggeduser']->l_address."',
+								l_code = '".$_SESSION['loggeduser']->l_code."',
+								l_city = '".$_SESSION['loggeduser']->l_city."',
+								l_phone = '".$_SESSION['loggeduser']->f_phone."'
 									   WHERE id = '$uid'");
 				*/
-				
-			}						
+
+			}
 			/* FIN Ajout de l'indicateur "relaiscolis" dans la table  "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address" */
-			
+
 			/* On efface les données de session relatives à la livraison */
 			unset($_SESSION['loggeduser']->code_client_dest);
 			unset($_SESSION['loggeduser']->l_name);
             unset($_SESSION['loggeduser']->l_address);
 			unset($_SESSION['loggeduser']->l_comp);
-            unset($_SESSION['loggeduser']->l_code); 
-            unset($_SESSION['loggeduser']->l_phone); 
+            unset($_SESSION['loggeduser']->l_code);
+            unset($_SESSION['loggeduser']->l_phone);
             unset($_SESSION['loggeduser']->l_city);
-			unset($_SESSION['loggeduser']->l_country);			
+			unset($_SESSION['loggeduser']->l_country);
 			unset($_SESSION['loggeduser']->changement_relais_colis);
-			unset($_SESSION['loggeduser']->relais_colis);	
+			unset($_SESSION['loggeduser']->relais_colis);
 			unset($_SESSION['loggeduser']->code_relais_colis);
 			/* FIN effacement données session */
-			
+
 		}
 }
 
