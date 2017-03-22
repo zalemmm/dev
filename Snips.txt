@@ -38,6 +38,15 @@ in html          <?php bloginfo('url'); ?>
 ssl in php.ini :    uncoment ;extension=php_openssl.dll
     in httpd.conf : uncoment #LoadModule ssl_module modules/mod_ssl.so
 
+
+<? if ($condition): ?>
+  <p>Content</p>
+<? elseif ($other_condition): ?>
+  <p>Other Content</p>
+<? else: ?>
+  <p>Default Content</p>
+<? endif; ?>
+
 GIT SNIP
 --------------------------------------------------------------------------------
 git remote add origin https://github.com/zalemmm/nom-du-rep.git

@@ -394,7 +394,7 @@ function get_details() {
 		$prolog .= '</ul></p>';
 
 		if($to_pay == 1) {
-			$prolog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"></button></form>';
+			$prolog .= '<form name="paye" id="payeTop" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payerTop" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
 		}
 		if($bat == 1) {
 			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
@@ -437,16 +437,16 @@ function get_details() {
 		}
 
 	$epilog .= '<div id="fbcart_buttons" class="noprint">';
-	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a>';
+	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a>';
 	if ($status<2) {
-		$epilog .= '<form name="delfromvosdevis" id="delfromvosdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="annulervosdevis" value="'.$idzamowienia.'" /><button id="but_annulercommande" type="submit"></button></form>';
+		$epilog .= '<form name="delfromvosdevis" id="delfromvosdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="annulervosdevis" value="'.$idzamowienia.'" /><button id="but_annulercommande" type="submit"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</button></form>';
 	} elseif ($status>1) {
-		$epilog .= '<span id="but_annulercommande" class="deactive"></span>';
+		$epilog .= '<span id="but_annulercommande" class="deactive"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</span>';
 	}
 	if ($status!=3 && $status!=4 && $status!=5) {
-		$epilog .= '<a href="javascript:window.print()" id="but_imprimer"></a>';
+		$epilog .= '<a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	} else {
-		$epilog .= '<span id="but_imprimer" class="deactive"></span>';
+		$epilog .= '<span id="but_imprimer" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</span>';
 	}
 // wyswietlanie przycisku podgladu projektów
 //$epilog .= '<a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-5.jpg"></a><a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-6.jpg"></a><a rel="shadowbox[kakemonosgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/exkak3.jpg"></a>';
@@ -471,44 +471,44 @@ function get_details() {
   	}
   	}
   	if ($status != 5) {
-		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"></a>';
+		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
 	} else {
-		$epilog .= '<span id="but_comment" class="deactive"></span>';
+		$epilog .= '<span id="but_comment" class="deactive"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</span>';
 	}
 	if ($status<2) {
-		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"></button></form>';
+		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
 	} else {
-		$epilog .= '<span id="but_payer" class="deactive"></span>';
+		$epilog .= '<span id="but_payer" class="deactive"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</span>';
 	}
 	if ($status>=4) {
 		$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$idzamowienia'");
 		if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
 			if ($ktoryshipping->value == 'tnt') {
-				$epilog .= '<a href="http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?radiochoixrecherche=BT&bonTransport='.$zamowienie->tnt.'" target="_blank" id="but_suivre"></a>';
+				$epilog .= '<a href="http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?radiochoixrecherche=BT&bonTransport='.$zamowienie->tnt.'" target="_blank" id="but_suivre"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</a>';
 			} else if (strtolower($ktoryshipping->value) == 'fedex') {
-				$epilog .= '<a href="https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$idzamowienia.'" target="_blank" id="but_suivre"></a>';
+				$epilog .= '<a href="https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$idzamowienia.'" target="_blank" id="but_suivre"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</a>';
 			} else if ($ktoryshipping->value == 'autre') {
-				$epilog .= '<a href="'.$zamowienie->tnt.'" target="_blank" id="but_suivre"></a>';
+				$epilog .= '<a href="'.$zamowienie->tnt.'" target="_blank" id="but_suivre"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</a>';
 			}
 			if ($ktoryshipping->value == 'ciblex') {
-				$epilog .= '<a href="http://extranet.geodisciblex.com/extranet/client/corps.php?module=colis&colis='.$zamowienie->tnt.'" target="_blank" id="but_suivre"></a>';
+				$epilog .= '<a href="http://extranet.geodisciblex.com/extranet/client/corps.php?module=colis&colis='.$zamowienie->tnt.'" target="_blank" id="but_suivre"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</a>';
 			}
 		}
 	} else {
-		$epilog .= '<span id="but_suivre" class="deactive"></span>';
+		$epilog .= '<span id="but_suivre" class="deactive"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</span>';
 	}
 	if ($status==3 || $status==4 || $status==5) {
-		$epilog .= '<a href="javascript:window.print()" id="but_imprimerfacture"></a>';
+		$epilog .= '<a href="javascript:window.print()" id="but_imprimerfacture"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</a>';
 	} else {
-		$epilog .= '<span id="but_imprimerfacture" class="deactive"></span>';
+		$epilog .= '<span id="but_imprimerfacture" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</span>';
 	}
 	if ($status==4 || $status==5) {
 		$czyoceniony = $wpdb->get_row("SELECT * FROM `$fb_tablename_rating` WHERE unique_id = '$idzamowienia' AND exist = 'true'");
 		if (!$czyoceniony) {
-			$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?rating='.$idzamowienia.'" id="but_rating"></a>';
+			$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?rating='.$idzamowienia.'" id="but_rating"><i class="fa fa-star" aria-hidden="true"></i> Noter France Banderole</a>';
 		}
 	} else {
-		$epilog .= '<span id="but_rating" class="deactive"></span>';
+		$epilog .= '<span id="but_rating" class="deactive"><i class="fa fa-star" aria-hidden="true"></i> Noter France Banderole</span>';
 	}
 	//if((($status == 1) or ($status == 2) or ($status == 7)) and ((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))))) {
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
@@ -881,8 +881,8 @@ function print_votre() {
 	}
 
 	if ($orders) {
-		$view .= '<div id="votre"><div class="votre_tab_name">MON COMPTE:</div>
-					<div class="votre_tab_content">Bonjour, '.stripslashes($user->f_name).'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte
+		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
+					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte
 </a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>
  Se deconnecter </a></div>';
 
@@ -999,8 +999,8 @@ function print_votre() {
 		}
 
 	} else if (($count_curr != 0) OR ($count_old != 0)) {
-		$view .= '<div id="votre"><div class="votre_tab_name">MON COMPTE:</div>
-					<div class="votre_tab_content">Bonjour, '.stripslashes($user->f_name).'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod">Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec">Se deconnecter</a></div>';
+		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
+					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i>Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>Se deconnecter</a></div>';
 
 
 		// $view .= '<div class="votre_tab_name2">MES DEVIS ET COMMANDES :</div>
@@ -1029,7 +1029,7 @@ function print_votre() {
 
 	} else {
 		$view .= '<div id="votre"><div class="votre_tab_name">MON COMPTE:</div>
-					<div class="votre_tab_content">Bonjour, '.$user->f_name.'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod">Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec">Se deconnecter</a></div>
+					<div class="votre_tab_content">Bonjour, '.$user->f_name.'!<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i>Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>Se deconnecter</a></div>
 				  </div><p style="position:relative;float:left;display:block;width:100%;padding-top:20px;">'._FB_NZAM.'</p></div>';
 	}
   }

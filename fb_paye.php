@@ -8,7 +8,7 @@ function getPaiementDroits($customer_id) {
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_paiement = $prefix."fbs_paiement";
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
-	
+
 	$user_group = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$customer_id."' AND att_name = 'client_groupe'");
 	if($user_group) {
 		$group_paiement = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement` WHERE code = '".$user_group->att_value."'");
@@ -31,13 +31,13 @@ function calcOrder($uid) {
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
 	$kosztcalosci=0;
 	$idzamowienia = $uid;
-	
+
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$uid' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
-			$transportcalosci = $transportcalosci + $item[frais];			
+			$transportcalosci = $transportcalosci + $item[frais];
 		}
 //dodatkowy rabat
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
@@ -57,7 +57,7 @@ function calcOrder($uid) {
 				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $wysokoscrabatu), array ( 'sku' => $idzamowienia ) );
 			}
-//koniec//  		
+//koniec//
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
 //zmiana podatku TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
@@ -65,16 +65,16 @@ function calcOrder($uid) {
 			if ($czyjesttva->remis == 0) {
 				$podatekcalosci = 0;
 			} elseif ($czyjesttva->remis == '') {
-			  	$podatekcalosci = $kosztcalosci*0.200;		
+			  	$podatekcalosci = $kosztcalosci*0.200;
 			} else {
 				$tvapod = $czyjesttva->remis/100;
 				$podatekcalosci = $kosztcalosci*$tvapod;
 			}
 		} else {
-		  	$podatekcalosci = $kosztcalosci*0.200;		
+		  	$podatekcalosci = $kosztcalosci*0.200;
 		}
 //zmiana podatku TVA
-	  	$totalcalosci = $kosztcalosci+$podatekcalosci;  		
+	  	$totalcalosci = $kosztcalosci+$podatekcalosci;
 	  	$kosztcalosci = number_format($kosztcalosci, 2);
 		$transportcalosci = number_format($transportcalosci, 2);
 		$podatekcalosci = number_format($podatekcalosci, 2);
@@ -93,8 +93,8 @@ function setPaiementFinProd($uid,$pay_method) {
 	$fb_tablename_order = $prefix."fbs_order";
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_paiement_moy = $prefix."fbs_paiement_moy";
-	
-	
+
+
 	$has_pay_prod = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$uid' AND name = 'Suppression de l\'escompte commercial'");
 	if($has_pay_prod) {
 		$pay_percent = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement_moy` WHERE pay_code = '$pay_method'");
@@ -104,24 +104,24 @@ function setPaiementFinProd($uid,$pay_method) {
 			$order_tmp = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$uid'");
 			$montant_cmd = str_replace(',','',$order_tmp->totalttc);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
-			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';			
+			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';
 			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1')");
 			calcOrder($uid);
 		} else {
 			$wpdb->delete($fb_tablename_prods, array('order_id' => $uid, 'name' => 'Suppression de l\'escompte commercial'));
-			calcOrder($uid);		
+			calcOrder($uid);
 		}
-	
+
 	} else {
 		$pay_percent = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement_moy` WHERE pay_code = '$pay_method'");
 		if($pay_percent->pay_percent_add > 0) {
 			$order_tmp = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$uid'");
 			$montant_cmd = str_replace(',','',$order_tmp->totalttc);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
-			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';			
+			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';
 			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1')");
 			calcOrder($uid);
-		} 
+		}
 	}
 }
 
@@ -140,17 +140,17 @@ function get_payement() {
 	$user = $_SESSION['loggeduser'];
 	$userid = $user->id;
 	$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
- 
+
 if ($query) {
 	if (isset($_POST['addpayment'])) {
 		$metoda = $_POST['paymentmetod'];
-				
+
 		$set_payment = $wpdb->query("UPDATE `$fb_tablename_order` SET payment_ch = '$metoda' WHERE unique_id='$idzamowienia' AND user='$userid'");
 		if($metoda != 'carte') {
 			$set_statut = $wpdb->query("UPDATE `$fb_tablename_order` SET status = 7 WHERE unique_id='$idzamowienia' AND user='$userid'");
 		}
-		
-		
+
+
 	 	if ($metoda == 'virement') {
 	 		setPaiementFinProd($uid,'virement');
 			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
@@ -188,22 +188,22 @@ if ($query) {
 			if ($czyjestrabat) {
 				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 			}
-/////////////			
+/////////////
 	  		$view .= '</table>';
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';	
+	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a></div>';
-			
-			
-			
-			
-			
-			
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
+
+
+
+
+
+
 			// $view .= '<h1>France Banderole</h1><hr />';
 	 		// $view .= 'sas au capital de 15 000 €';
 	 		// $view .= '<p style="margin-top:20px;"><b>Siège social :</b></p><p>24 avenue de Bruxelles<br />13127 VITROLLES<br />tel : 0442.401.401</p><p style="margin-top:20px;">RCS Pontoise : 510.605.140<br />SIRET : 510.605.140.00019<br />APE : 7311Z<br />TVA INT : FR 65.510.605.140</p>';
@@ -250,16 +250,16 @@ if ($query) {
 			if ($czyjestrabat) {
 				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 			}
-		
+
 	  		$view .= '</table>';
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';	
+	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
 		}
 		if ($metoda == 'soixante') {
 			setPaiementFinProd($uid,'soixante');
@@ -298,16 +298,16 @@ if ($query) {
 			if ($czyjestrabat) {
 				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 			}
-		
+
 	  		$view .= '</table>';
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';	
+	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
 		}
 		if ($metoda == 'administratif') {
 			setPaiementFinProd($uid,'administratif');
@@ -347,16 +347,16 @@ if ($query) {
 			if ($czyjestrabat) {
 				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 			}
-		
+
 	  		$view .= '</table>';
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';	
+	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
 		}
 	 	if ($metoda == 'carte') {
 			setPaiementFinProd($uid,'carte');
@@ -406,20 +406,21 @@ if ($query) {
 			if ($czyjestrabat) {
 				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 			}
-/////////////			
+/////////////
 	  		$view .= '</table>';
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';	
+	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="javascript:window.print()" id="but_imprimerbon">Imprimer le bon de commande</a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"></a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i>
+ Imprimer le bon de commande</a></div>';
  		}
 	} else {
- 	
- 	
+
+
 	if (isset($_GET['pay'])) {
 		$chec = '';
 		$styl = '';
@@ -432,16 +433,17 @@ if ($query) {
 		$view .= '<h1>Accès client: Paiement de la commande</h1><hr />';
 		$view .= '<div id="paiements">';
 		$view .= '<div id="paiements_left"><div id="paiements_left_tit">acceder aux méthodes de paiement</div>
-		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv/" target="_blank" class="conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant</button></form></div>
-		</div>';	
+		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv/" target="_blank" class="conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i>
+</button></form></div>
+		</div>';
 		$view .= '<div id="paiements_right"'.$styl.'><div id="paiements_right_tit">choisissez une méthode de paiement</div>
 		<form id="paymetod" name="paymetod" action="" method="post">
 		<input type="hidden" name="regconf" value="true" />
 		<input type="hidden" name="addpayment" />
 		<input type="hidden" name="cmd" vakue="'.$idzamowienia.'" />';
-		
+
 		$paiement_tbl = getPaiementDroits($userid);
-		if($paiement_tbl['cb']) {		
+		if($paiement_tbl['cb']) {
 			$view .= '<div class="paiements_right_con">
 			<input type="radio" name="paymentmetod" value="carte" checked="checked" /> <span class="payement_underline">Paiement comptant sécurisé par carte bleue avec LCL</span>
 			<span class="pay_image"><img src="'.$images_url.'pay_carte.png" alt="Carte" /></span>
@@ -449,7 +451,7 @@ if ($query) {
 			</div>';
 		}
 		if($paiement_tbl['cheque']) {
-			$view .= '<div class="paiements_right_con">	
+			$view .= '<div class="paiements_right_con">
 			<input type="radio" name="paymentmetod" value="cheque" /> <span class="payement_underline">Paiement comptant par chèque bancaire ou postal</span>
 			<span class="pay_image"><img src="'.$images_url.'pay_cheque.png" alt="Cheque" /></span>
 			</div>';
@@ -461,34 +463,34 @@ if ($query) {
 			</div>';
 		}
 		if($paiement_tbl['trente']) {
-			$view .= '<div class="paiements_right_con_diff">	
+			$view .= '<div class="paiements_right_con_diff">
 			<input type="radio" name="paymentmetod" value="trente" /> <span class="payement_underline">Paiement différé à 30 jours net date de facture</span>
 			<span class="pay_image"><img src="'.$images_url.'pay_diff.png" alt="Paiement 30 jours" /></span>
 			<span class="pay_carte_info">Ce mode de paiement implique la suppression de l\'escompte commercial de 5% sur nos tarifs en ligne.</span>
 			</div>';
 		}
 		if($paiement_tbl['soixante']) {
-			$view .= '<div class="paiements_right_con_diff">	
+			$view .= '<div class="paiements_right_con_diff">
 			<input type="radio" name="paymentmetod" value="soixante" /> <span class="payement_underline">Paiement différé à 60 jours net date de facture</span>
 			<span class="pay_image"><img src="'.$images_url.'pay_diff.png" alt="Paiement 60 jours" /></span>
 			<span class="pay_carte_info">Ce mode de paiement implique la suppression de l\'escompte commercial de 5% sur nos tarifs en ligne.</span>
 			</div>';
 		}
 		if($paiement_tbl['administratif']) {
-			$view .= '<div class="paiements_right_con_diff">	
+			$view .= '<div class="paiements_right_con_diff">
 			<input type="radio" name="paymentmetod" value="administratif" /> <span class="payement_underline">Paiement différé par mandat administratif 25 jours</span>
 			<span class="pay_image"><img src="'.$images_url.'pay_diff.png" alt="Mandat administratif" /></span>
 			<span class="pay_carte_info">Ce mode de paiement implique la suppression de l\'escompte commercial de 5% sur nos tarifs en ligne.</span>
 			</div>';
 		}
-		
-		
-		$view .= '<div class="paiements_right_con2"><button id="but_conf_pay" type="submit">&nbsp;</button></div>
+
+
+		$view .= '<div class="paiements_right_con2"><button id="but_conf_pay" type="submit"><i class="fa fa-caret-right" aria-hidden="true"></i> Payer</button></div>
 		</form>
 		</div>';
-	
+
 		$view .= '</div>';
-	  } 
+	  }
 	  }
 } else {
   	$view .= ''._FB_404.'';
