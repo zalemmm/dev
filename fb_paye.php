@@ -197,7 +197,7 @@ if ($query) {
 	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 
 
 
@@ -259,7 +259,7 @@ if ($query) {
 	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 		if ($metoda == 'soixante') {
 			setPaiementFinProd($uid,'soixante');
@@ -307,7 +307,7 @@ if ($query) {
 	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 		if ($metoda == 'administratif') {
 			setPaiementFinProd($uid,'administratif');
@@ -415,8 +415,7 @@ if ($query) {
 	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i>
- Imprimer le bon de commande</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le Bon de commande</a></div>';
  		}
 	} else {
 

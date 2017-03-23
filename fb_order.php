@@ -211,21 +211,22 @@ function get_filesender($products) {
 //	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
 $view .= '
 <form id="fileupload" class="noprint" action="'.get_bloginfo("url").'/uploaded/" method="post" enctype="multipart/form-data"><input type="hidden" id="cmdID" name="cmd" value="'.$idzamowienia.'" /><input type="hidden" name="usr" value="'.$user->login.'" />
+				<div class="acces_tab_name">Envoyer vos maquettes</div>
         <div class="row fileupload-buttonbar">
             <div class="span7">
                 <input type="checkbox" class="toggle" />
                 <span class="btn btn-success fileinput-button fuselect">
-                    <span>Add files...</span>
+                    <span><i class="fa fa-plus" aria-hidden="true"></i> Choisir le(s) fichier()</span>
                     <input type="file" name="files[]" multiple />
                 </span>
                 <button type="submit" class="btn btn-primary start fustart">
-                    <span>Start upload</span>
+                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer le(s) fichier(s)</span>
                 </button>
                 <button type="reset" class="btn btn-warning cancel fucancel">
-                    <span>Cancel upload</span>
+                    <span><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler</span>
                 </button>
                 <button type="button" class="btn btn-danger delete fudelete">
-                    <span>Delete</span>
+                    <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
                 </button>
             </div>
             <div class="span5 fileupload-progress fade">
@@ -255,7 +256,7 @@ $view .= '
             <td class="tdprog"><div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div></td>
             <td class="tdstart">{% if (!o.options.autoUpload) { %}
                 <button class="btn btn-primary start fustart">
-                    <span>Start</span>
+                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer</span>
                 </button>
             {% } %}</td>
         {% } else { %}
@@ -671,7 +672,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
 		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
 		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
-		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"></a></td></tr>
+		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier adresse</a></td></tr>
 		</table>';
 
 
@@ -935,7 +936,8 @@ function print_votre() {
 			$view .= '<tr>';
 			$view .= '<td class="lefttd">';
 			if ($o->status != 6) {
-				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit"></button></form>';
+				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+ <span class="split">Gérer la</span> commande</button></form>';
 			}
 			$view .= '</td>';
 			$view .= '<td class="tddesc"><div class="kontener">';

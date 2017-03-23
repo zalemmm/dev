@@ -1542,7 +1542,7 @@ function get_verification() {
 			$prolog .= '<div class="address_tab_name">VOTRE COMMANDE:</div>';
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"></a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"></a>';
-			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit"></button></form>';
+			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
 			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION:</div>';
 			$explode = explode('|', $user->f_address);
@@ -1567,7 +1567,7 @@ function get_verification() {
 			$lien_catalogue = get_bloginfo("url") . "#tarifs";
 		}
 		/*$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.get_bloginfo("url").'#tarifs" id="but_ajouter"></a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;*/
-		$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.$lien_catalogue.'" id="but_ajouter"></a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;
+		$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;
 		$view .= print_devis_verification($products, $prolog, $epilog);
 	} else {
 		if (!(isset($_POST['logme']))) {
@@ -1757,7 +1757,8 @@ function get_devis() {
 	}
 	$epilog = '<div id="fbcart_buttons" class="noprint">';
 	if (is_cart_not_empty()) {
-		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"></a><a href="javascript:window.print()" id="but_imprimer"></a>';
+		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"><i class="fa fa-times-circle" aria-hidden="true"></i>
+ Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	}
 		if($_SESSION['isburaliste']){
 			$lien_catalogue = get_bloginfo("url") . "/buralistes";
@@ -1768,14 +1769,14 @@ function get_devis() {
 			$lien_catalogue = get_bloginfo("url") . "#tarifs";
 		}
 	/*$epilog .= '<a href="'.get_bloginfo("url").'#tarifs" id="but_ajouter"></a>';*/
-	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"></a>';
+	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>';
 	if (is_cart_not_empty()) {
 		//$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  		if($relais_colis !== false){
 			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;"></a>';
 		}else{
-			$epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit"></button></form>';
+			$epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 		}
 	}
 	$epilog .= '</div>';

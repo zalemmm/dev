@@ -8,7 +8,7 @@ function get_fb_comments() {
 	$idzamowienia = $_GET['comment'];
 	$tresc = '';
 	$tematid = '';
-				
+
 	if (isset($_POST['addcomment'])) {
 		$tresc = $_POST['content'];
 		$tematid = $_POST['selecttopic'];
@@ -42,22 +42,22 @@ function get_fb_comments() {
 			if ($tematid == $t[id]) {
 				$s = ' selected="selected"';
 			} else {
-				$s = '';			
+				$s = '';
 			}
 			$view .= '<option value="'.$t[id].'"'.$s.'>'.$t[content].'</option>';
 		endforeach;
 		$view .= '</select>';
 	}
 */
-	$view .= '<textarea name="content" id="textareacomments" rows="20" cols="10">'.$tresc.'</textarea>';
-	$view .= '<input class="but_envoyer" type="submit" value="" />';
-	$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" class="but_espace">Retour Devis</a></form></div>';
-	
-	
+	$view .= '<textarea name="content" id="textareacomments" rows="20" cols="100">'.$tresc.'</textarea>';
+	$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" class="but_espace"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour Devis</a>';
+	$view .= '<input class="but_envoyer" type="submit" value="Envoyer" /></form></div>';
+
+
 	$comments = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` WHERE order_id = '$idzamowienia' ORDER BY date DESC", ARRAY_A);
 	if ($comments) {
 	$view .= '<div class="com_list">';
-	foreach ($comments as $c) :	
+	foreach ($comments as $c) :
 		$c[content] = stripslashes($c[content]);
 		//$c[content]= htmlspecialchars($c[content]);
 		$c[topic] = stripslashes($c[topic]);
