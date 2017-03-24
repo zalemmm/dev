@@ -216,7 +216,7 @@ $view .= '
             <div class="span7">
                 <input type="checkbox" class="toggle" />
                 <span class="btn btn-success fileinput-button fuselect">
-                    <span><i class="fa fa-plus" aria-hidden="true"></i> Choisir le(s) fichier()</span>
+                    <span><i class="fa fa-plus" aria-hidden="true"></i> Choisir le(s) fichier(s)</span>
                     <input type="file" name="files[]" multiple />
                 </span>
                 <button type="submit" class="btn btn-primary start fustart">
@@ -426,7 +426,7 @@ function get_details() {
 			}
 			$idostcomment = $lastcomment->order_id;
 			$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...</a>';
-			$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">LE DERNIER COMMENTAIRE EN DATE</th><th></th><th></th></tr>';
+			$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">DERNIER COMMENTAIRE</th><th></th><th></th></tr>';
 			if ($lastcomment->author == 'France Banderole') {
 				$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2">'.$lastcomment->author.'</td><td class="lefttd3">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
 			} else {
@@ -615,17 +615,17 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		}
 
 		$produkty = $products;
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th>Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
 		$licznik = 0;
 		$kosztcalosci = 0;
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td>';
+			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			if ($writable) {
 				$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
 			} else {
-				$view .= '<td style="width:38px" class="noprint"></td>';
+				$view .= '<td class="noprint"></td>';
 			}
 			$view .= '</tr>';
 		}
@@ -670,11 +670,6 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 				$epilog_0 = $useraddress->l_name.'<br />'.$useraddress->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$useraddress->l_code.'<br />'.$useraddress->l_city;
 			}
 		$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
-		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
-		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
-		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier adresse</a></td></tr>
-		</table>';
-
 
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 		'.$cremisetd.'
@@ -682,6 +677,11 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
 		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$ttotalttc.'</b></td></tr>
+		</table>';
+
+		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
+		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
+		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier adresse</a></td></tr>
 		</table>';
 	} else {
 		$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
@@ -713,7 +713,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td><td style="width:38px" class="noprint"></td>';
+			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			$view .= '</tr>';
   		}
 // dodatkowy rabat wyswietl //

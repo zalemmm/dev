@@ -366,7 +366,7 @@ function get_inscription() {
              </li>
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
-            	        <div style="margin-left:156px">
+            	        <div class="pushButton">
             	            <button id="input_21" type="submit" class="register-button">CONTINUER</button>
             	        </div>
             	    </div>
@@ -401,7 +401,7 @@ function get_inscription() {
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	        <div class="pushButton">
-            	            <button id="input_21" type="submit" class="edit-button">CONTINUER</button>
+            	            <button id="input_21" type="submit" class="edit-button">EDITER</button>
             	        </div>
             	    </div>
             	</li>
@@ -434,13 +434,13 @@ function get_inscription() {
 
 		} else {
 		$view .= '
-			<div class="acces_tab_content2">
+			<div id="fbcart_buttons">
         	<ul class="regiform">
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
-            	        <div style="margin-left:156px">
+
             	            <button id="input_22" type="submit" class="register-button2">Modifier</button>
-            	        </div>
+
             	    </div>
             	</li>
 	        </ul>
@@ -538,7 +538,7 @@ function get_inscription2() {
 		<form action="'.$goaction.'" method="post" name="form_registerform" id="registerform" accept-charset="utf-8">
    		<input type="hidden" name="formID" value="registerform" />'.$action.'
 		<div class="acces_left">
-			<div class="acces_tab_name2">ADRESSE</div>
+			<div class="acces_tab_name2">VOTRE ADRESSE DE LIVRAISON</div>
 			<div class="acces_tab_content2" style="margin-bottom:6px">
         	<ul class="regiform2">
             	<li class="form-line" id="id_5">
@@ -571,14 +571,14 @@ function get_inscription2() {
             	</li>
 			</ul>
 			</div>
-			<div class="acces_tab_content2">
+			<div id="fbcart_buttons">
         	<ul class="regiform">
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
-            	    	<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retour2"></a>
-            	        <div style="margin-left:156px">
-            	            <button id="input_22" type="submit" class="register-button2">Modifier</button>
-            	        </div>
+            	    	<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retour2"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a></a>
+
+          	            <button id="input_22" type="submit" class="register-button2">Modifier</button>
+
             	    </div>
             	</li>
 	        </ul>

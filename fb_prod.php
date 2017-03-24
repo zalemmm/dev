@@ -1594,7 +1594,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span></td><td style="width:120px">'.$item[ilosc].'</td><td>'.$item[total].'</td><td style="width:24px"></td></tr>';
+			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span></td><td>'.$item[ilosc].'</td><td>'.$item[total].'</td><td></td></tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[transport];
@@ -1628,7 +1628,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$totalcalosci.' &euro;</b></td></tr>
+		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
 	} else {
 		$view .= 'Votre panier est vide !';
@@ -1806,7 +1806,7 @@ function print_devis($products, $prolog, $epilog) {
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td>'.$item[ilosc].'</td><td>'.$item[prix].'</td><td>'.$item[option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td><td><form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
+			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td><td><span class="disMob0">Prix unitaire : </span>'.$item[prix].'</td><td><span class="disMob0">Option : </span>'.$item[option].'</td><td><span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'</td><td><form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
 			</form></td></tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
@@ -1841,7 +1841,7 @@ function print_devis($products, $prolog, $epilog) {
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$totalcalosci.' &euro;</b></td></tr>
+		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>';
 	} else {
