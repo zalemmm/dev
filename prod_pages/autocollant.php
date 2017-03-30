@@ -33,7 +33,7 @@
 
 				<li class="form-line optionsformline2" id="id_8">
 					<label class="form-label-left label-highlight" id="label_8" for="input_8">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
+					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_8" name="q8_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur" id="input_9" name="q9_taile" size="20" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 				</li>
 
 				<li class="form-line optionsformline" id="id_10">

@@ -53,7 +53,7 @@
 
 
 			 <li class="form-line optionsformline2" id="id_13">
-                    <label class="form-label-left" id="label_13" for="input_13" style="color:#3097c0; font-weight:bold; text-transform:capitalize; margin-left:25px">quantité:</label>
+                    <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité:</label>
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
                 </li>
 
@@ -737,7 +737,7 @@ if ($('input_1').value == '4x6') {
                       var dodajkoszyk = document.getElementById("cart_form");
 
 
-                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+taille+'<br>-'+coul+'<br>-'+option+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+taille+'<br>-'+coul+'<br>-'+option+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 
 
 

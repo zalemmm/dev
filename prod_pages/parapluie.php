@@ -100,7 +100,7 @@
 
 					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
 				</span>
-
+        <div class="nothing" />
 
 <p id="production" >
 	<h5>Delai Production:</h5>
