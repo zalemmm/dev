@@ -710,12 +710,13 @@ function get_acces_client() {
 function get_pass_resend_form() {
 	$view .= '<h1>Accès Client</h1><hr />';
 	$view .= '<div class="acces_left">
+	<div class="acces_tab_name">modt de passe oublié ?</div>
 	<div class="acces_tab_content">
 	<p>'._FB_ZGUBA.'</p>
 	<form id="resendform" name="resendform" action="'.get_bloginfo('url').'/acces-client/?resend=resend" method="post">
-	<label class="loginlabel" for="resendname">votre email:</label>
-	<input type="text" name="resendaddress" class="logininput" />
-	<button id="resendbutton" class="resendbutton" type="submit">Valider</button>
+
+	<input type="text" placeholder="votre email" name="resendaddress" class="logininputOubli" />
+	<button id="resendbutton" class="resendbutton" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> envoyer</button>
 	</form>
 	</div>
 	</div>';
@@ -737,7 +738,7 @@ if ($p == 2) {
 	<input type="text" name="loginname" class="logininput" />
 	<label class="loginlabel" for="loginpass">mot de passe:</label>
 	<input type="password" name="loginpass" class="logininput" />
-	<button id="loginsubmit2" class="loginbutton2" type="submit"></button>
+	<button id="loginsubmit2" class="loginbutton2" type="submit">Se connecter</button>
 	</form>
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>
@@ -753,7 +754,7 @@ if ($p == 2) {
 	<input type="text" name="loginname" class="logininput" />
 	<label class="loginlabel" for="loginpass">mot de passe:</label>
 	<input type="password" name="loginpass" class="logininput" />
-	<button id="loginsubmit" class="loginbutton" type="submit"></button>
+	<button id="loginsubmit" class="loginbutton" type="submit">Se connecter</button>
 	</form>
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>

@@ -1,10 +1,3 @@
-<style type="text/css">
-<!--
-.pp {
-	color: #F00;
-}
--->
-</style>
 <div id="buying">
   <form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_parapluie(); return false;">
     <input type="hidden" name="formID" value="1060900217" />
@@ -88,38 +81,38 @@
 
         <li class="form-line" id="id_7">
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir la mise en page...</option>
-            <option value="fb">France banderole crée la maquette</option>
+            <option value="">choisir la mise en page... </option>
+            <option value="fb">France banderole crée la maquette </option>
             <option value="user">j’ai déjà crée la maquette </option>
           </select>
         </li>
 
         <li class="form-line" id="id_8">
-          <label class="form-label-left" id="label_8" for="input_8">quantité:</label>
+          <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité:</label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
         </li>
 
        <li id="id_16" class="form-line optionsformline">
                <span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
-				
+
 				<span class="options_single">
 					<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-									
+
 					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
-				</span>				
-                    <div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
-				
-                    
+				</span>
+
+
 <p id="production" >
-	<h5 style="float:left; width:98px">Delai Production:</h5>
+	<h5>Delai Production:</h5>
 	<button class="production" text-value="4-5" id="p1"></button>
 	<button class="production" text-value="2-3" id="p2"></button>
     <button class="production" text-value="1-1" id="p3"></button>
-	<input type="hidden" id="production-value" value=""  onClick="" /> 
+	<input type="hidden" id="production-value" value=""  onClick="" />
 </p>
 <div id="delivery-div" style='display:none;'>
+
 <p id="delivery" >
-	<h5 style="float:left; width:98px">Delai Livraison:</h5>
+	<h5>Delai Livraison:</h5>
 	<button class="delivery" text-value="3-4" id="l1"></button>
 	<button class="delivery" text-value="2-3" id="l2"></button>
     <button class="delivery" text-value="1-1" id="l3" style="display: none; float:right"></button>
@@ -131,12 +124,12 @@
 <span id="totalamt_16"></span>
 <span id='estdate_16' style="color:#d23562; text-transform: uppercase; font-weight:bold"></span>
 </p>
-</div>                                  					
+</div>
             </li>
 
 
-			
-            
+
+
             <li id="id_18" class="form-line id_18" style="top:14px">
                 <div class="form-input-wide">
                 <div id="form-button-error2"></div>
@@ -152,7 +145,7 @@
     <input type="hidden" id="simple_spc" name="simple_spc" value="1060900217" />
     <script type="text/javascript">
         document.getElementById("simple_spc").value += "-1060900217";
-    </script>   
+    </script>
 </form>
 </div>
 <div id="preview">
@@ -160,22 +153,22 @@
 </div>
 
 <div id="custom_price_unit" >
-	
+
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
 
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
 pour afficher ou non le div selon que ce soit "none" ou "block". */
- 
+
 function Afficher()
 {
 divInfo = document.getElementById('delivery-div');
- 
+
 if (divInfo.style.display == 'none')
 divInfo.style.display = 'block';
 
- 
+
 }
 </script>
 
@@ -209,15 +202,15 @@ function Masquer2()
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
 pour afficher ou non le div selon que ce soit "none" ou "block". */
- 
+
 function Masquer()
 {
 divInfo = document.getElementById('delivery-div');
- 
+
 if (divInfo.style.display == 'block')
 divInfo.style.display = 'none';
 
- 
+
 }
 </script>
 
@@ -244,15 +237,15 @@ function AddBusinessDays(weekDaysToAdd) {
       return realDaysToAdd;
 
     }
-	
+
 	jQuery(document).ready(function(){
-	
-		jQuery('.delivery , .production').click(function(){	
-		
+
+		jQuery('.delivery , .production').click(function(){
+
 var cena=0; var cena2=0;
 var rabat=0; var rabat2=0;
 var suma=0; var suma2=0;
-var transport=0;	
+var transport=0;
 var ktorytyp='';
 var cedzik='';
 var dodatkowaopcja='';
@@ -328,7 +321,7 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 	}
 	if ($('input_7').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
-	}	
+	}
 }
 
 
@@ -350,16 +343,16 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 	if ($('input_7').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
 	}*/
-	
-	
-	
+
+
+
  }
 ////
 var cenapojedyncza = cena;
-	
+
 	ilosc=$('input_8').value;
-	
-	
+
+
 if ($('input_0').value == 'Stand parapluie') {
 
 
@@ -367,63 +360,63 @@ if ($('input_0').value == 'Stand parapluie') {
 		cena = 597.6;
 		dodatkowaopcja += '<br />- 3x2-courbé recto<br />- 2225(h)x1600(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '2' ) {
 		cena = 655.7;
 		dodatkowaopcja += '<br />- 3x3-courbé recto<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '3' ) {
 		cena = 730.4;
 		dodatkowaopcja += '<br />- 3x4-courbé recto<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '4' ) {
 		cena = 796.8;
 		dodatkowaopcja += '<br />- 3x3-courbé recto verso<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '5' ) {
 		cena = 929.6;
 		dodatkowaopcja += '<br />- 3x4-courbé recto verso<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	///////
-	
+
 	if ($('input_1').value == '6' ) {
 		cena = 597.6;
 		dodatkowaopcja += '<br />- 3x2-droit recto<br />- 2225(h)x1513(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '7' ) {
 		cena = 655.7;
 		dodatkowaopcja += '<br />- 3x3-droit recto<br />- 2225(h)x2243(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '8' ) {
 		cena = 730.4;
 		dodatkowaopcja += '<br />- 3x4-droit recto<br />- 2225(h)x2973(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '9' ) {
 		cena = 796.8;
 		dodatkowaopcja += '<br />- 3x3-droit recto verso<br />- 2225(h)x2243(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
+
 	if ($('input_1').value == '10' ) {
 		cena = 929.6;
 		dodatkowaopcja += '<br />- 3x4-droit recto verso<br />- 2225(h)x2973(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
-	
-	
-}	
-	
+
+
+}
+
 if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
 if ($('input_0').value == 'Tissu') {javascript: Masquer2();}
 if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
-	
 
-	
+
+
 	var ktodaje;
 	if ($('input_7').value == 'fb') {
 		cena+=40;
@@ -432,7 +425,7 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 	if ($('input_7').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
 	}
-	
+
 						//////////
 
 						var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
@@ -446,19 +439,19 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 							transport=0;
 							cena+= 29.00;
 						}
-						
+
 						///////////
 						var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 						if (colis == true) {
 								cena += 5.00;
 								cedzik += '<br />- colis revendeur';
 						}
-	
-		
+
+
  }
-	
+
 	var cenapojedyncza = cena;
-	
+
 		ilosc=$('input_8').value;
 			if ($('input_8').value) {
 				cena=cenapojedyncza*ilosc;
@@ -648,8 +641,8 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 						cenapojedyncza=fixstr(cenapojedyncza);
 						cena2 = cenapojedyncza.replace(".", ",")
 
-						
-						
+
+
 						transport=0;
 
 						var niepokazuj = 0;
@@ -673,13 +666,13 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
                     suma2 = suma.replace(".", ",");
                     total.innerHTML=suma2+' &euro;';
 
-               
+
 
                       var rodzaj = "Stand";
 	var dodajkoszyk = document.getElementById("cart_form");
 	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
-						
+
 					}
 				});
 			});

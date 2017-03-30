@@ -15,7 +15,7 @@
                         <option value="blizzard">Kakemono Extérieur Blizzard </option>
                         <option value="x-screen">Kakemono X-Screen </option>
                         <option value="clipit">Kakemono Clip\'it </option>
-						
+
                     </select>
             </li>
             <li class="form-line" id="id_31">
@@ -32,7 +32,7 @@
                         <option value="100x200">100x200 cm </option>
                         <option value="120x200">120x200 cm </option>
                         <option value="150x200">150x200 cm </option>
-                        <option style="color:red" value="200x200">200x200 cm <strong>NOUVEAU!</strong>(Maille 260gr M1 100% Polyester)</option> 
+                        <option style="color:red" value="200x200">200x200 cm <strong>NOUVEAU!</strong>(Maille 260gr M1 100% Polyester)</option>
 						<option value="150x300">150x300 cm</option>
                         <option value="80x200double">80x200 cm RECTO VERSO </option>
                         <option value="85x200double">85x200 cm RECTO VERSO </option>
@@ -103,7 +103,7 @@
 					   <option value="100x200">100x200 cm </option>
                     </select>
 
-         
+
             <li class="form-line" id="id_51">
                 <label class="form-label-left" id="label_51" for="input_51">visuel:</label>
 				<a href="#visuel"><img style="float:right" border="0" title="Cliquez pour plus d\'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
@@ -123,7 +123,7 @@
                         <option value="440g M1 RECTO VERSO">440g M1 RECTO VERSO </option>
                     </select>
             </li>
-			
+
 			 <li class="form-line" id="id_53">
                 <label class="form-label-left" id="label_53" for="input_53">visuel:</label>
 				<a href="#visuel"><img style="float:right" border="0" title="Cliquez pour plus d\'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
@@ -142,8 +142,8 @@
                         <option value="100% écologique M1">100% écologique M1 </option>
                     </select>
             </li>
-           
-            
+
+
             <li class="form-line" id="id_11">
                 <label class="form-label-left" id="label_11" for="input_11">option:</label>
 				<a href="#option"><img style="float:right" border="0" title="Cliquez pour plus d\'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
@@ -190,7 +190,7 @@
                     </select>
             </li>
             <li class="form-line" id="id_7">
-                <label class="form-label-left" id="label_7" for="input_7">quantité:</label>
+                <label class="form-label-left" id="label_7" for="input_7">quantité :</label>
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
             </li>
             <li class="form-line optionsformline" id="id_8">
@@ -205,7 +205,7 @@
 				<span class="options_single">
 					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L\'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span></span></span>
 					<span class="optionsright"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onchange="JKakemono.relaisColischeckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-				</span>				
+				</span>
                     <div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
                     <span class="options_single" style="margin-top: 14px;">
                         <span class="optionsleft" style="border: 1px solid #9FA3A8; font-weight: bold; width: 48%;">
@@ -224,22 +224,22 @@
                             </span>
                         </span>
                     </span>
-                    </div>                				
+                    </div>
             </li>
-            
-            
-            
+
+
+
               <li class="form-line optionsformline" id="id_81">
 				<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
-			
+
 				<span class="options_single">
 					<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onchange="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-					
+
 				</span>
 				<span class="options_single">
 					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L\'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span></span></span>
-					
-				</span>				
+
+				</span>
                     <div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
                     <span class="options_single" style="margin-top: 14px;">
                         <span class="optionsleft" style="border: 1px solid #9FA3A8; font-weight: bold; width: 48%;">
@@ -258,10 +258,10 @@
                             </span>
                         </span>
                     </span>
-                    </div>                				
+                    </div>
             </li>
-            
-            
+
+
             <li class="form-line" id="id_9a">
                 <div class="form-input-wide">
                 <div id="form-button-error2"></div>

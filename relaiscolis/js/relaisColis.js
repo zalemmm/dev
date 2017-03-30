@@ -83,7 +83,7 @@ function tntRCafficheRelais(jData) {
 
 	var jMessage = $('#blocCodePostal');
 
-	var tntRCjTable = $("<table style='border:1px solid gray;' cellpadding='0' cellspacing='0' width='" + tntRCsize800  + "'></table>");
+	var tntRCjTable = $("<table cellpadding='0' cellspacing='0' width='" + tntRCsize800  + "'></table>");
 
 	// Ligne blanche de s�paration
 	tntRCjTable.append(tntRCligneBlanche6Col());
@@ -121,7 +121,7 @@ function tntRCafficheRelais(jData) {
 				"<td class='tntRCrelaisColis' width='" + tntRCsize650 + "'>" + nomRelais + " - " + adresse + " - " + codePostal + " - " + commune + "<BR>&nbsp;&nbsp;&nbsp;&nbsp;>> Ouvert jusqu'&agrave; " + heureFermeture + "</td>"+
 				"<td class='tntRCrelaisColis' width='" + tntRCsize10 + "'>&nbsp;</td>"+
 				"<td class='tntRCrelaisColis' valign='middle' align='center' width='" + tntRCsize109 + "'>"+
-					"<a href='#' onclick='tntRCafficheDetail(" + i + ");'><img src='" + pathToImages + "loupe.gif' class='tntRCBoutonLoupe'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+					"<a href='#' onclick='tntRCafficheDetail(" + i + ");'><img src='" + pathToImages + "search.png' class='tntRCBoutonLoupe'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 					"<input type='radio' style='vertical-align: middle;' name='tntRCchoixRelais' value='" + codeRelais + "'" + ( i==0 ? "checked" : "") + " onclick='tntRCSetSelectedInfo(" + i + ")'/>"+
 				"</td>"+
 				"<td class='tntRCblanc' width='" + tntRCsize6 + "'></td>"+
@@ -266,7 +266,7 @@ function tntRCafficheCommunes(jData) {
 
 	if (mapDetected) resetMap();
 
-	var tntRCjTable = $("<table style='border:1px solid gray;' cellpadding='0' cellspacing='0' width='" + tntRCsize800  + "'></table>");
+	var tntRCjTable = $("<table cellpadding='0' cellspacing='0' width='" + tntRCsize800  + "'></table>");
 
 	// Ligne blanche de s�paration
 	tntRCjTable.append(tntRCligneBlanche6Col());
@@ -404,7 +404,7 @@ function tntRCafficheDetail(i) {
 	var logo_point = "";
 	if (messages != "") logo_point = "<img src='" + pathToImages + "exception.gif' alt='Picto Informations'>";
 
-	var tntRCjTableX = $("<table  style='border:1px solid gray;' cellpadding='0' cellspacing='0' width='" + tntRCsize447 + "'>"
+	var tntRCjTableX = $("<table cellpadding='0' cellspacing='0' width='" + tntRCsize447 + "'>"
 			+ "<tr>"
 			+ 	"<td width='" + tntRCsize447  + "' valign='top'>"
 			+ 		"<table style='border:0px;' cellpadding='0' cellspacing='0' width='" + tntRCsize447 + "'>"

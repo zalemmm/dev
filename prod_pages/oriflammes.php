@@ -103,7 +103,7 @@
         </li>
 
         <li class="form-line" id="id_9">
-          <label class="form-label-left" id="label_9" for="input_9">quantité:</label>
+          <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :</label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
         </li>
 

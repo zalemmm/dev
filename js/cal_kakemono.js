@@ -8,18 +8,18 @@ czyscpola: function() {
 	if (przycisk) {
 		przycisk.style.visibility = "hidden";
 	}
-	
+
     /*if (document.getElementById("tnt").checked == false) {
         document.getElementById("fedex").checked = true;
     }*/
-	
+
 	jQuery('#etiquette').click(function() {
 		if (document.getElementById('etiquette').checked) {
 			document.getElementById('fedex').checked = false;
 			document.getElementById('tnt').checked = false;
 		}
-	});	
-	
+	});
+
 },
 rushcheckbox24: function() {
 	document.getElementById("prix_unitaire").innerHTML='-';
@@ -30,14 +30,14 @@ rushcheckbox24: function() {
 	if (przycisk) {
 		przycisk.style.visibility = "hidden";
 	}
-	
-	var rush24 = $$('#rush24').collect(function(e){ 
-		return e.checked; 
+
+	var rush24 = $$('#rush24').collect(function(e){
+		return e.checked;
 	}).any();
 	if (rush24) {
-        JKakemono.changeThis("fedex", false);	
+        JKakemono.changeThis("fedex", false);
 		document.getElementById("fedex").checked = false;
-		document.getElementById("tnt").checked = true;		
+		document.getElementById("tnt").checked = true;
 		if (document.getElementById("rush72")) {document.getElementById("rush72").checked = false;}
 		if (document.getElementById("economique")) {document.getElementById("economique").checked = false;}
 		if (document.getElementById("ducro")) {document.getElementById("ducro").checked = false;}
@@ -45,7 +45,7 @@ rushcheckbox24: function() {
 },
 
 rushcheckbox24p: function() {
-	
+
 	document.getElementById("prix_unitaire").innerHTML='-';
 	document.getElementById("option").innerHTML='-';
 	document.getElementById("remise").innerHTML='-';
@@ -54,20 +54,20 @@ rushcheckbox24p: function() {
 	if (przycisk) {
 		przycisk.style.visibility = "hidden";
 	}
-	
-	var rush24p = $$('#rush24p').collect(function(e){ 
-		return e.checked; 
+
+	var rush24p = $$('#rush24p').collect(function(e){
+		return e.checked;
 	}).any();
 	if (rush24p) {
 		JKakemono.changeThis("fedex", false);
 		document.getElementById("fedex").checked = false;
-		document.getElementById("tnt").checked = true;			
+		document.getElementById("tnt").checked = true;
 		document.getElementById("economique").checked = false;
 	}
 },
 
 rushcheckbox72: function() {
-	
+
 	document.getElementById("prix_unitaire").innerHTML='-';
 	document.getElementById("option").innerHTML='-';
 	document.getElementById("remise").innerHTML='-';
@@ -76,35 +76,35 @@ rushcheckbox72: function() {
 	if (przycisk) {
 		przycisk.style.visibility = "hidden";
 	}
-	
-	var rush72 = $$('#rush72').collect(function(e){ 
-		return e.checked; 
+
+	var rush72 = $$('#rush72').collect(function(e){
+		return e.checked;
 	}).any();
 	if (rush72) {
         JKakemono.changeThis("fedex", false);
 		document.getElementById("fedex").checked = false;
-		document.getElementById("tnt").checked = true;			
+		document.getElementById("tnt").checked = true;
 		document.getElementById("rush24").checked = false;
 		document.getElementById("ducro").checked = false;
 	}
 	},
-	
+
 	rushcheckboxducro: function() {
 		var ducro = $$('#ducro').collect(function(e){ return e.checked; }).any();
-		
+
 		if (ducro) {
 			document.getElementById("rush24").checked = false;
 			document.getElementById("rush72").checked = false;
 		}
-	},	
+	},
 	rushcheckboxeconomique: function() {
-		var economique = $$('#economique').collect(function(e){ 
-			return e.checked; 
+		var economique = $$('#economique').collect(function(e){
+			return e.checked;
 		}).any();
 		if (economique) {
 			if(document.getElementById("rush24p")) document.getElementById("rush24p").checked = false;
 			if(document.getElementById("rush24")) document.getElementById("rush24").checked = false;
-		}	
+		}
 	},
     fedexcheckbox: function () {
         if (document.getElementById("fedex").checked == true) {
@@ -126,12 +126,12 @@ rushcheckbox72: function() {
 			document.getElementById("fedex").checked = false;
 			document.getElementById("tnt").checked = true;
 		}
-			
+
     },
     colisRevendeurcheckbox: function() {
         /*if (document.getElementById("fedex").checked == true) {
             document.getElementById("fedex").checked = false;
-			document.getElementById("tnt").checked = true;			
+			document.getElementById("tnt").checked = true;
         }*/
     },
     changeThis: function(who, value) {
@@ -139,9 +139,9 @@ rushcheckbox72: function() {
             document.getElementById(who).checked = value;
         }
     },
-	
-//////CADRE/////	
-cal_cadre: function(){  
+
+//////CADRE/////
+cal_cadre: function(){
 var cena=0;
 var prixunitaire=0;
 var banderole=0;
@@ -166,11 +166,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (7<ilosc<10) {prixcadre=246;}
 		if (9<ilosc<21) {prixcadre=246;}
 		if (20<ilosc<51) {prixcadre=246;}
-		if (50<ilosc<101) {prixcadre=246;}	
+		if (50<ilosc<101) {prixcadre=246;}
 		transport=72;
 		opis += '<br />- Flexy\'Tens<br />- 60x200cm';
 	}
-	
+
 	if (($('input_01').value == 'Flexy-Tens') && ($('input_120').value == '60x250cm')) {
 		prixcadre=300;
 		transport=91;
@@ -201,8 +201,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		transport=104;
 		opis += '<br />- Flexy\'Tens<br />- 60x500cm';
 	}
-	
-	
+
+
 	if (($('input_01').value == 'Flexy-Tens') && ($('input_120').value == '80x200cm')) {
 		prixcadre=254;
 		transport=72;
@@ -237,8 +237,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		transport=111;
 		opis += '<br />- Flexy\'Tens<br />- 80x500cm';
 	}
-	
-	
+
+
 	if (($('input_01').value == 'Flexy-Tens') && ($('input_120').value == '100x200cm')) {
 		prixcadre=267;
 		transport=72;
@@ -273,8 +273,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		transport=117;
 		opis += '<br />- Flexy\'Tens<br />- 100x500cm';
 	}
-	
-	
+
+
 	if (($('input_01').value == 'Flexy-Tens') && ($('input_120').value == '120x200cm')) {
 		prixcadre=267;
 		transport=91;
@@ -309,8 +309,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		transport=117;
 		opis += '<br />- Flexy\'Tens<br />- 120x500cm';
 	}
-	
-////IX tens///	
+
+////IX tens///
 	if (($('input_01').value == 'IX-Tens') &&  ($('input_111').value == '60cm de hauteur')) {
 		ilosc = $('input_4').value;
 		if ($('input_4').value == '1') {prixcadre=768;}
@@ -321,11 +321,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (($('input_4').value > 9) && ($('input_4').value < 21)){prixcadre=560;}
 		if (($('input_4').value > 20) && ($('input_4').value < 51)){prixcadre=532;}
 		if (($('input_4').value > 50) && ($('input_4').value < 101)){prixcadre=513;}
-		
+
 		transport=72;
 		opis += '<br />- IX\'Tens<br />- 60cm de hauteur';
 	}
-	
+
 	if (($('input_01').value == 'IX-Tens') &&  ($('input_111').value == '80cm de hauteur')) {
 		ilosc = $('input_4').value;
 		if ($('input_4').value == '1') {prixcadre=816;}
@@ -336,11 +336,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (($('input_4').value > 9) && ($('input_4').value < 21)){prixcadre=580;}
 		if (($('input_4').value > 20) && ($('input_4').value < 51)){prixcadre=551;}
 		if (($('input_4').value > 50) && ($('input_4').value < 101)){prixcadre=532;}
-		
+
 		transport=72;
 		opis += '<br />- IX\'Tens<br />- 80cm de hauteur';
 	}
-	
+
 	if (($('input_01').value == 'IX-Tens') && ($('input_111').value == '100cm de hauteur')) {
 		ilosc = $('input_4').value;
 		if ($('input_4').value == '1') {prixcadre=896;}
@@ -351,11 +351,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (($('input_4').value > 9) && ($('input_4').value < 21)){prixcadre=681.50;}
 		if (($('input_4').value > 20) && ($('input_4').value < 51)){prixcadre=652.50;}
 		if (($('input_4').value > 50) && ($('input_4').value < 101)){prixcadre=630;}
-		
+
 		transport=72;
 		opis += '<br />- IX\'Tens<br />- 100cm de hauteur';
 	}
-	
+
 	if (($('input_01').value == 'IX-Tens') &&  ($('input_111').value == '120cm de hauteur')) {
 		ilosc = $('input_4').value;
 		if ($('input_4').value == '1') {prixcadre=952;}
@@ -366,11 +366,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (($('input_4').value > 9) && ($('input_4').value < 21)){prixcadre=681.50;}
 		if (($('input_4').value > 20) && ($('input_4').value < 51)){prixcadre=652.50;}
 		if (($('input_4').value > 50) && ($('input_4').value < 101)){prixcadre=630;}
-		
+
 		transport=91;
 		opis += '<br />- IX\'Tens<br />- 120cm de hauteur';
 	}
-	
+
 	if (($('input_01').value == 'IX-Tens') && ($('input_111').value == '140cm de hauteur')) {
 		ilosc = $('input_4').value;
 		if ($('input_4').value == '1') {prixcadre=1008;}
@@ -381,11 +381,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (($('input_4').value > 9) && ($('input_4').value < 21)){prixcadre=850.50;}
 		if (($('input_4').value > 20) && ($('input_4').value < 51)){prixcadre=823.50;}
 		if (($('input_4').value > 50) && ($('input_4').value < 101)){prixcadre=762.50;}
-		
+
 		transport=91;
 		opis += '<br />- IX\'Tens<br />- 140cm de hauteur';
 	}
-	
+
 	if (($('input_01').value == 'IX-Tens') && ($('input_111').value == '160cm de hauteur')) {
 		ilosc = $('input_4').value;
 		if ($('input_4').value == '1') {prixcadre=1080;}
@@ -396,13 +396,13 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		if (($('input_4').value > 9) && ($('input_4').value < 21)){prixcadre=850.50;}
 		if (($('input_4').value > 20) && ($('input_4').value < 51)){prixcadre=823.50;}
 		if (($('input_4').value > 50) && ($('input_4').value < 101)){prixcadre=793;}
-		
+
 		transport=91;
 		opis += '<br />- IX\'Tens<br />- 160cm de hauteur';
 	}
-	
-////banderole IX'tens///	
-	
+
+////banderole IX'tens///
+
 	if ($('input_21b').value == '60cm x 100cm'){
 		banderole=20;
 		opis += '<br />- Banderole 60x100cm';
@@ -427,8 +427,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=96;
 		opis += '<br />- Banderole 60x600cm';
 	}
-	
-	
+
+
 	if ($('input_22b').value == '80cm x 100cm'){
 		banderole=28;
 		opis += '<br />- Banderole 80x100cm';
@@ -453,8 +453,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=128;
 		opis += '<br />- Banderole 80x600cm';
 	}
-	
-	
+
+
 	if ($('input_23b').value == '100cm x 100cm'){
 		banderole=35;
 		opis += '<br />- Banderole 100x100cm';
@@ -479,8 +479,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=160;
 		opis += '<br />- Banderole 100x600cm';
 	}
-	
-	
+
+
 	if ($('input_24b').value == '120cm x 100cm'){
 		banderole=42;
 		opis += '<br />- Banderole 120x100cm';
@@ -505,8 +505,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=192;
 		opis += '<br />- Banderole 120x600cm';
 	}
-	
-	
+
+
 	if ($('input_25b').value == '120cm x 100cm'){
 		banderole=49;
 		opis += '<br />- Banderole 120x100cm';
@@ -531,7 +531,7 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=224;
 		opis += '<br />- Banderole 120x600cm';
 	}
-	
+
 	if ($('input_26b').value == '120cm x 100cm'){
 		banderole=56;
 		opis += '<br />- Banderole 120x100cm';
@@ -556,11 +556,11 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=256;
 		opis += '<br />- Banderole 120x600cm';
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	if ($('input_21a').value == '60cm x 100cm'){
 		opis += '<br />- Banderole 60x100cm';
 	}
@@ -579,8 +579,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	if ($('input_21a').value == '60cm x 600cm'){
 		opis += '<br />- Banderole 60x600cm';
 	}
-	
-	
+
+
 	if ($('input_22a').value == '80cm x 100cm'){
 		opis += '<br />- Banderole 80x100cm';
 	}
@@ -599,8 +599,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	if ($('input_22a').value == '80cm x 600cm'){
 		opis += '<br />- Banderole 80x600cm';
 	}
-	
-	
+
+
 	if ($('input_23a').value == '100cm x 100cm'){
 		opis += '<br />- Banderole 100x100cm';
 	}
@@ -619,8 +619,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	if ($('input_23a').value == '100cm x 600cm'){
 		opis += '<br />- Banderole 100x600cm';
 	}
-	
-	
+
+
 	if ($('input_24a').value == '120cm x 100cm'){
 		opis += '<br />- Banderole 120x100cm';
 	}
@@ -639,8 +639,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	if ($('input_24a').value == '120cm x 600cm'){
 		opis += '<br />- Banderole 120x600cm';
 	}
-	
-	
+
+
 	if ($('input_25a').value == '120cm x 100cm'){
 		opis += '<br />- Banderole 120x100cm';
 	}
@@ -659,7 +659,7 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	if ($('input_25a').value == '120cm x 600cm'){
 		opis += '<br />- Banderole 120x600cm';
 	}
-	
+
 	if ($('input_26a').value == '120cm x 100cm'){
 		opis += '<br />- Banderole 120x100cm';
 	}
@@ -678,67 +678,67 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	if ($('input_26a').value == '120cm x 600cm'){
 		opis += '<br />- Banderole 120x600cm';
 	}
-	
-	
-	
-////couleur///	
-	
+
+
+
+////couleur///
+
 	if ($('input_03').value == 'structure') {opis += '<br />- Structure';}
 	if ($('input_03').value == 'structure + banderole') {opis += '<br />- Structure + banderole';}
 	if ($('input_03').value == 'banderole') {opis += '<br />- banderole';}
-	
-	
-	
+
+
+
 	if (($('input_31').value == 'rouge') || ($('input_33').value == 'rouge') || ($('input_34').value == 'rouge')) {
-	opis += '<br />- rouge';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- rouge';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'jaune') || ($('input_33').value == 'jaune') || ($('input_34').value == 'jaune')) {
-	opis += '<br />- jaune';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- jaune';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'vert') || ($('input_33').value == 'vert') || ($('input_34').value == 'vert')) {
-	opis += '<br />- vert';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- vert';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'orange') || ($('input_33').value == 'orange') || ($('input_34').value == 'orange')) {
-	opis += '<br />- orange';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- orange';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'bleu marine') || ($('input_33').value == 'bleu marine') || ($('input_34').value == 'bleu marine')) {
-	opis += '<br />- bleu marine';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- bleu marine';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'bleu ciel') || ($('input_33').value == 'bleu ciel') || ($('input_34').value == 'bleu ciel')) {
-	opis += '<br />- bleu ciel';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- bleu ciel';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'noir') || ($('input_33').value == 'noir') || ($('input_34').value == 'noir')) {
 
 
-	opis += '<br />- noir';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- noir';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'blanc') || ($('input_33').value == 'blanc') || ($('input_34').value == 'blanc')) {
-	opis += '<br />- blanc';	
-	prixcouleur	= (prixcadre*0.25)+prixcadre	
+	opis += '<br />- blanc';
+	prixcouleur	= (prixcadre*0.25)+prixcadre
 	}
-	
+
 	if (($('input_31').value == 'aluminium') || ($('input_33').value == 'aluminium') || ($('input_34').value == 'aluminium')) {
 	opis += '<br />- aluminium';
-	prixcouleur	= prixcadre;		
+	prixcouleur	= prixcadre;
 	}
-	
-	
-	////banderole flexy'tens///	
-	
+
+
+	////banderole flexy'tens///
+
 	if (($('input_121').value == '60x200cm') || (($('input_03').value == 'structure + banderole') && ($('input_120').value == '60x200cm'))){
 		banderole=63;
 		opis += '<br />- Banderole 60x200cm';
@@ -767,8 +767,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=145;
 		opis += '<br />- Banderole 60x500cm';
 	}
-	
-	
+
+
 	if (($('input_121').value == '80x200cm') || (($('input_03').value == 'structure + banderole') && ($('input_120').value == '80x200cm'))){
 		banderole=79;
 		opis += '<br />- Banderole 80x200cm';
@@ -797,8 +797,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=190;
 		opis += '<br />- Banderole 80x500cm';
 	}
-	
-	
+
+
 	if (($('input_121').value == '100x200cm') || (($('input_03').value == 'structure + banderole') && ($('input_120').value == '100x200cm'))){
 		banderole=89;
 		opis += '<br />- Banderole 100x200cm';
@@ -827,8 +827,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=199;
 		opis += '<br />- Banderole 100x500cm';
 	}
-	
-	
+
+
 	if (($('input_121').value == '120x200cm') || (($('input_03').value == 'structure + banderole') && ($('input_120').value == '120x200cm'))){
 		banderole=108;
 		opis += '<br />- Banderole 120x200cm';
@@ -857,14 +857,14 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		banderole=259;
 		opis += '<br />- Banderole 120x500cm';
 	}
-	
+
 	////fixation ix'tens///
-	
+
 	if ($('input_5').value == 'Fixation murale'){
 		fixation=0;
 		opis += '<br />- Fixation murale';
 	}
-	
+
 	if (($('input_5').value == 'Fixation sur grillage ou clôture') && ($('input_21a').value == '60cm x 100cm')){
 		fixation=299;
 		opis += '<br />- Système fixation grillage 60cm x 100cm';
@@ -889,8 +889,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=569;
 		opis += '<br />- Système fixation grillage 60cm x 600cm';
 	}
-	
-	
+
+
 	if (($('input_5').value == 'Fixation sur grillage ou clôture') && ($('input_22a').value == '80cm x 100cm')){
 		fixation=313;
 		opis += '<br />- Système fixation grillage 80cm x 100cm';
@@ -915,8 +915,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=583;
 		opis += '<br />- Système fixation grillage 80cm x 600cm';
 	}
-	
-	
+
+
 	if (($('input_5').value == 'Fixation sur grillage ou clôture') && ($('input_23a').value == '100cm x 100cm')){
 		fixation=327;
 		opis += '<br />- Système fixation grillage 100cm x 100cm';
@@ -941,8 +941,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=597;
 		opis += '<br />- Système fixation grillage 100cm x 600cm';
 	}
-	
-	
+
+
 	if (($('input_5').value == 'Fixation sur grillage ou clôture') && ($('input_24a').value == '120cm x 100cm')){
 		fixation=365;
 		opis += '<br />- Système fixation grillage 120cm x 100cm';
@@ -967,7 +967,7 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=635;
 		opis += '<br />- Système fixation grillage 120cm x 600cm';
 	}
-	
+
 	if (($('input_5').value == 'Fixation sur grillage ou clôture') && ($('input_25a').value == '140cm x 100cm')){
 		fixation=383;
 		opis += '<br />- Système fixation grillage 140cm x 100cm';
@@ -992,8 +992,8 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=653;
 		opis += '<br />- Système fixation grillage 140cm x 600cm';
 	}
-	
-	
+
+
 	if (($('input_5').value == 'Fixation sur grillage ou clôture') && ($('input_26a').value == '160cm x 100cm')){
 		fixation=401;
 		opis += '<br />- Système fixation grillage 160cm x 100cm';
@@ -1018,23 +1018,23 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=671;
 		opis += '<br />- Système fixation grillage 160cm x 600cm';
 	}
-	
-	
+
+
 	if (($('input_5').value == 'Fixation sur poteaux aluminium') && (($('input_21a').value == '60cm x 100cm') || ($('input_22a').value == '80cm x 100cm') || ($('input_23a').value == '100cm x 100cm') || ($('input_24a').value == '120cm x 100cm') || ($('input_25a').value == '140cm x 100cm') || ($('input_26a').value == '160cm x 100cm'))){
 		fixation=529;
 		opis += '<br />- Fixation sur poteaux aluminium';
 	}
-	
+
 	if (($('input_5').value == 'Fixation sur poteaux aluminium') && (($('input_21a').value == '60cm x 200cm') || ($('input_22a').value == '80cm x 200cm') || ($('input_23a').value == '100cm x 200cm') || ($('input_24a').value == '120cm x 200cm') || ($('input_25a').value == '140cm x 200cm') || ($('input_26a').value == '160cm x 200cm'))){
 		fixation=589;
 		opis += '<br />- Fixation sur poteaux aluminium';
 	}
-	
+
 	if (($('input_5').value == 'Fixation sur poteaux aluminium') && (($('input_21a').value == '60cm x 300cm') || ($('input_22a').value == '80cm x 300cm') || ($('input_23a').value == '100cm x 300cm') || ($('input_24a').value == '120cm x 300cm') || ($('input_25a').value == '140cm x 300cm') || ($('input_26a').value == '160cm x 300cm'))){
 		fixation=649;
 		opis += '<br />- Fixation sur poteaux aluminium';
 	}
-	
+
 	if (($('input_5').value == 'Fixation sur poteaux aluminium') && (($('input_21a').value == '60cm x 400cm') || ($('input_22a').value == '80cm x 400cm') || ($('input_23a').value == '100cm x 400cm') || ($('input_24a').value == '120cm x 400cm') || ($('input_25a').value == '140cm x 400cm') || ($('input_26a').value == '160cm x 400cm'))){
 		fixation=719;
 		opis += '<br />- Fixation sur poteaux aluminium';
@@ -1043,13 +1043,13 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		fixation=779;
 		opis += '<br />- Fixation sur poteaux aluminium';
 	}
-	
+
 	if (($('input_5').value == 'Fixation sur poteaux aluminium') && (($('input_21a').value == '60cm x 600cm') || ($('input_22a').value == '80cm x 600cm') || ($('input_23a').value == '100cm x 600cm') || ($('input_24a').value == '120cm x 600cm') || ($('input_25a').value == '140cm x 600cm') || ($('input_26a').value == '160cm x 600cm'))){
 		fixation=839;
 		opis += '<br />- Fixation sur poteaux aluminium';
 	}
-	
-	
+
+
 	ilosc = $('input_4').value;
 	prixunitaire=prixcouleur+banderole+fixation+(prixcadre*0.25)
 	cena=prixunitaire*ilosc
@@ -1060,22 +1060,22 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		cena += (cena*15)/100;
 		opis += '<br />- Express 4 à 7 jours ouvrés';
 	}
-	
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 	var etiqdesc = '';
 	if (etiquette == true) {
 		transport=0;
 		opis += '<br />- retrait colis a l\'atelier';
 	}
-	
+
 	var contact = $$('#contact').collect(function(e){ return e.checked; }).any();
 	var etiqdesc = '';
 	if (contact == true) {
 		transport=0;
 		opis += '<br />- Etre contacté pour pose';
 	}
-	
-	
+
+
 	prixunitaire=fixstr(prixunitaire);
 	cena2 = prixunitaire.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
@@ -1086,7 +1086,7 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
+
 	var forfait = 19 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
@@ -1103,20 +1103,20 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML=suma2+' &euro;';
 	}
-	
-	
+
+
 
 	var rodzaj = $('input_01').value;
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 },
 //////FIN CADRE/////
 
 //////FLYER/////
-cal_flyers: function(){  
+cal_flyers: function(){
 var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
 var suma=0; var suma2=0;
 var transport=0;
@@ -1165,7 +1165,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 135g') {
 		if ($('input_22').value == '1'){ opis += '- A7';}
 		if ($('input_22').value == '2'){ opis += '- A7';}
@@ -1203,7 +1203,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 170g') {
 		if ($('input_23').value == '1'){ opis += '- A7';}
 		if ($('input_23').value == '2'){ opis += '- A7';}
@@ -1241,7 +1241,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 250g') {
 		if ($('input_24').value == '1'){ opis += '- A7';}
 		if ($('input_24').value == '2'){ opis += '- A7';}
@@ -1279,7 +1279,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 350g') {
 		if ($('input_25').value == '1'){ opis += '- A7';}
 		if ($('input_25').value == '2'){ opis += '- A7';}
@@ -1317,7 +1317,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 120µ') {
 		if ($('input_26').value == '1'){ opis += '- A7';}
 		if ($('input_26').value == '2'){ opis += '- A7';}
@@ -1355,7 +1355,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 270µ') {
 		if ($('input_27').value == '1'){ opis += '- A7';}
 		if ($('input_27').value == '2'){ opis += '- A7';}
@@ -1393,7 +1393,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Flyers 350µ') {
 		if ($('input_28').value == '1'){ opis += '- A7';}
 		if ($('input_28').value == '2'){ opis += '- A7';}
@@ -1431,7 +1431,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena*=0.75;}
 		}
 	}
-	
+
 
 	if ($('input_32').value == '1') {cena=cena1;
 	opis += '<br />- couché brillant';
@@ -1502,8 +1502,8 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 		ktodaje = 'j’ai déjà crée la maquette';
 	}
 	opis += '<br />- '+ktodaje;
-	
-	
+
+
 	var rush24p = $$('#rush24p').collect(function(e){ return e.checked; }).any();
 	if (rush24p == true) {
 		cena *= 1.5;
@@ -1514,13 +1514,13 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 		cena *= 1.5;
 		opis += '<br />- Délai rush24';
 	}
-	
+
 	var economique = $$('#economique').collect(function(e){ return e.checked; }).any();
 	if (economique == true) {
 		cena *= 0.70;
 		opis += '<br />- Délai économique';
 	}
-	
+
 	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 	if (relais == true) {
 		cena += 5.00;
@@ -1530,9 +1530,9 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 	if (colis == true) {
 		opis += '<br />- colis revendeur';
 	}
-	
-	
-	
+
+
+
 	if (ilosc == '10') {transport=7.5;}
 	if (ilosc == '25') {transport=7.5;}
 	if (ilosc == '50') {transport=7.5;}
@@ -1555,24 +1555,24 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 	if (ilosc == '50000') {transport=17.5;}
 	if (ilosc == '75000') {transport=19.5;}
 	if (ilosc == '100000') {transport=23.5;}
-	
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 		var etiqdesc = '';
 		if (etiquette == true) {
 		transport=0;
 		opis += '<br />- retrait colis a l\'atelier';
 		}
-		
+
 		 if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                 etiqdesc = etiqdesc + "<br />- Livraison gratuite avec FEDEX";
 				opis += '<br />- Livraison gratuite avec FEDEX';
                 transport = 0;
             }
-			
+
 		 if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
        }
-	
+
 	cena=fixstr(cena);
 	cena2 = cena.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
@@ -1583,8 +1583,8 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
-	
+
+
 	var forfait = 19 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
@@ -1601,26 +1601,26 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML=suma2+' &euro;';
 	}
-	
-	
-	
+
+
+
 
 	var rodzaj = $('input_1').value;
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 },
 //////FIN FLYER/////
 
 //////DEPLIANT/////
-cal_depliants: function(){  
+cal_depliants: function(){
 var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
 var suma=0; var suma2=0;
 var transport=0;
 var ilosc=0;
-var opis='';
+var opis=''
 var niepokazuj = 0;
 var option2=0;
 var eBox = document.getElementById('form-button-error2');
@@ -1651,7 +1651,7 @@ eBox.innerHTML='';
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'depliants 135g') {
 		if ($('input_22').value == '1'){ opis += '- Double DIN long plié (19,8 x 21 cm ouvert)';}
 		if ($('input_22').value == '2'){ opis += '- DIN A3 plié en Din A4';}
@@ -1675,7 +1675,7 @@ eBox.innerHTML='';
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'depliants 170g') {
 		if ($('input_23').value == '1'){ opis += '- Double DIN long plié (19,8 x 21 cm ouvert)';}
 		if ($('input_23').value == '2'){ opis += '- DIN A3 plié en Din A4';}
@@ -1699,7 +1699,7 @@ eBox.innerHTML='';
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'depliants 250g') {
 		if ($('input_24').value == '1'){ opis += '- Double DIN long plié (19,8 x 21 cm ouvert)';}
 		if ($('input_24').value == '2'){ opis += '- DIN A3 plié en Din A4';}
@@ -1723,8 +1723,8 @@ eBox.innerHTML='';
 			if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 		}
 	}
-	
-	
+
+
 	if ($('input_32').value == '1') {cena=cena1;
 	opis += '<br />- couché brillant';
 	}
@@ -1772,8 +1772,8 @@ eBox.innerHTML='';
 		ktodaje = 'j’ai déjà crée la maquette';
 	}
 	opis += '<br />- '+ktodaje;
-	
-	
+
+
 	var rush24p = $$('#rush24p').collect(function(e){ return e.checked; }).any();
 	if (rush24p == true) {
 		cena *= 1.5;
@@ -1789,7 +1789,7 @@ eBox.innerHTML='';
 		cena *= 0.70;
 		opis += '<br />- Délai économique';
 	}
-	
+
 	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 	if (relais == true) {
 		cena += 5.00;
@@ -1804,9 +1804,9 @@ eBox.innerHTML='';
 		opis += '<br />- relais colis';
 		cena += 5.00;
 	}
-	
 
-	
+
+
 	if (ilosc == '10') {transport=7.5;}
 	if (ilosc == '25') {transport=7.5;}
 	if (ilosc == '50') {transport=7.5;}
@@ -1829,7 +1829,7 @@ eBox.innerHTML='';
 	if (ilosc == '50000') {transport=17.5;}
 	if (ilosc == '75000') {transport=19.5;}
 	if (ilosc == '100000') {transport=23.5;}
-	
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 		var etiqdesc = '';
 		if (etiquette == true) {
@@ -1844,7 +1844,7 @@ eBox.innerHTML='';
 	 if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
        }
-	
+
 	cena=fixstr(cena);
 	cena2 = cena.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
@@ -1855,8 +1855,8 @@ eBox.innerHTML='';
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
-	
+
+
 	var forfait = 19 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
@@ -1873,21 +1873,21 @@ eBox.innerHTML='';
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML=suma2+' &euro;';
 	}
-	
-	
-	
+
+
+
 
 	var rodzaj = $('input_1').value;
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 },
 //////FIN DEPLIANT/////
 
 //////AFFICHES/////
-cal_affiches: function(){  
+cal_affiches: function(){
 var cena=0; var cena2=0;
 var suma=0; var suma2=0;
 var transport=0;
@@ -1906,7 +1906,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*0.25*8; transport=26.9;}
 		opis += '<br />- DIN A2 (42 x 60 cm) | Quadri';
 		}
-		
+
 		if ($('input_21').value == '2'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*0.5*18; transport=11.9;}
@@ -1917,7 +1917,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*0.5*8; transport=26.9;}
 		opis += '<br />- DIN A1 (60 x 84 cm) | Quadri';
 		}
-		
+
 		if ($('input_21').value == '3'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1*18; transport=11.9;}
@@ -1928,7 +1928,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1*8; transport=26.9;}
 		opis += '<br />- DIN A0 (84 x 120 cm) | Quadri';
 		}
-		
+
 		if ($('input_21').value == '4'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1.92*18; transport=11.9;}
@@ -1939,7 +1939,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1.92*8; transport=26.9;}
 		opis += '<br />- 120 x 160 cm | Quadri';
 		}
-		
+
 		if ($('input_21').value == '5'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*2.11*18; transport=11.9;}
@@ -1950,7 +1950,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*2.11*8; transport=26.9;}
 		opis += '<br />- 120 x 176 cm | Quadri';
 		}
-		
+
 		if ($('input_21').value == '6'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1.50*18; transport=11.9;}
@@ -1961,7 +1961,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1.50*8; transport=26.9;}
 		opis += '<br />- 100 x 150 cm | Quadri';
 		}
-		
+
 		if ($('input_21').value == '7'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*3*18; transport=11.9;}
@@ -1973,7 +1973,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		opis += '<br />- 150 x 200 cm | Quadri';
 		}
 	}
-	
+
 	if ($('input_1').value == 'Affiches 150g') {
 		if ($('input_22').value == '1'){
 		ilosc = $('input_5').value;
@@ -1985,7 +1985,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*0.25*10; transport=26.9;}
 		opis += '<br />- DIN A2 (42 x 60 cm) | Quadri';
 		}
-		
+
 		if ($('input_22').value == '2'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*0.5*20; transport=11.9;}
@@ -1996,7 +1996,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*0.5*10; transport=26.9;}
 		opis += '<br />- DIN A1 (60 x 84 cm) | Quadri';
 		}
-		
+
 		if ($('input_22').value == '3'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1*20; transport=11.9;}
@@ -2007,7 +2007,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1*10; transport=26.9;}
 		opis += '<br />- DIN A0 (84 x 120 cm) | Quadri';
 		}
-		
+
 		if ($('input_22').value == '4'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1.92*20; transport=11.9;}
@@ -2018,7 +2018,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1.92*10; transport=26.9;}
 		opis += '<br />- 120 x 160 cm | Quadri';
 		}
-		
+
 		if ($('input_22').value == '5'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*2.11*20; transport=11.9;}
@@ -2029,7 +2029,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*2.11*10; transport=26.9;}
 		opis += '<br />- 120 x 176 cm | Quadri';
 		}
-		
+
 		if ($('input_22').value == '6'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1.50*20; transport=11.9;}
@@ -2040,7 +2040,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1.50*10; transport=26.9;}
 		opis += '<br />- 100 x 150 cm | Quadri';
 		}
-		
+
 		if ($('input_22').value == '7'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*3*20; transport=11.9;}
@@ -2052,7 +2052,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		opis += '<br />- 150 x 200 cm | Quadri';
 		}
 	}
-	
+
 	if ($('input_1').value == 'Affiches 220g') {
 		if ($('input_23').value == '1'){
 		ilosc = $('input_5').value;
@@ -2064,7 +2064,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*0.25*15; transport=26.9;}
 		opis += '<br />- DIN A2 (42 x 60 cm) | Quadri';
 		}
-		
+
 		if ($('input_23').value == '2'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*0.5*25; transport=11.9;}
@@ -2075,7 +2075,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*0.5*15; transport=26.9;}
 		opis += '<br />- DIN A1 (60 x 84 cm) | Quadri';
 		}
-		
+
 		if ($('input_23').value == '3'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1*25; transport=11.9;}
@@ -2086,7 +2086,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1*15; transport=26.9;}
 		opis += '<br />- DIN A0 (84 x 120 cm) | Quadri';
 		}
-		
+
 		if ($('input_23').value == '4'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1.92*25; transport=11.9;}
@@ -2097,7 +2097,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1.92*15; transport=26.9;}
 		opis += '<br />- 120 x 160 cm | Quadri';
 		}
-		
+
 		if ($('input_23').value == '5'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*2.11*25; transport=11.9;}
@@ -2108,7 +2108,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*2.11*15; transport=26.9;}
 		opis += '<br />- 120 x 176 cm | Quadri';
 		}
-		
+
 		if ($('input_23').value == '6'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*1.50*25; transport=11.9;}
@@ -2119,7 +2119,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		if (ilosc == '100') { cena=100*1.50*15; transport=26.9;}
 		opis += '<br />- 100 x 150 cm | Quadri';
 		}
-		
+
 		if ($('input_23').value == '7'){
 		ilosc = $('input_5').value;
 		if (ilosc == '1') { cena=1*3*25; transport=11.9;}
@@ -2157,7 +2157,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		ktodaje = 'j’ai déjà crée la maquette';
 	}
 	opis += '<br />- '+ktodaje;
-	
+
 	var rush;
 	if ($('input_100').value == 'express') {
 		cena*=1.9;
@@ -2172,7 +2172,7 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 		rush = 'délai standard';
 	}
 	opis += '<br />- '+rush;
-	
+
 	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 	if (relais == true) {
 		cena += 5.00;
@@ -2182,22 +2182,22 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 	if (colis == true) {
 		opis += '<br />- colis revendeur';
 	}
-	
+
             if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                 opis += "<br />- Livraison gratuite avec FEDEX";
                 transport = 0;
             }
 			 if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-       		}   
-				
+       		}
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 		var etiqdesc = '';
 		if (etiquette == true) {
 		transport=0;
 		opis += '<br />- retrait colis a l\'atelier';
 		}
-	
+
 	cena=fixstr(cena);
 	cena2 = cena.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
@@ -2213,14 +2213,14 @@ if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 
 
 	var dodajkoszyk = document.getElementById("cart_form");
 
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 },
 //////FIN AFFICHE/////
 
 //////CARTES/////
-cal_cartes: function(){  
+cal_cartes: function(){
 var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
 var suma=0; var suma2=0;
 var transport=0;
@@ -2232,7 +2232,7 @@ var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
 
 if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270µ') || ($('input_1').value == 'Cartes 350µ')){
-	
+
 	if ($('input_1').value == 'Cartes 350g') {
 		if ($('input_21').value == '1'){ opis += '- Recto (85 mm x 54 mm)';}
 		if ($('input_21').value == '2'){ opis += '- Recto/Verso (85 mm x 54 mm)';}
@@ -2250,7 +2250,7 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 			if (ilosc == '5000'){ cena1*=0.95;}
 		}
 	}
-	
+
 	if ($('input_1').value == 'Cartes 270µ') {
 		if ($('input_22').value == '1'){ opis += '- Recto (85 mm x 54 mm)';}
 		if ($('input_22').value == '2'){ opis += '- Recto/Verso (85 mm x 54 mm)';}
@@ -2269,7 +2269,7 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 
 		}
 	}
-	
+
 	if ($('input_1').value == 'Cartes 350µ') {
 		if ($('input_23').value == '1'){ opis += '- Recto (85 mm x 54 mm)';}
 		if ($('input_23').value == '2'){ opis += '- Recto/Verso (85 mm x 54 mm)';}
@@ -2287,7 +2287,7 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 			if (ilosc == '5000'){ cena*=0.95;}
 		}
 	}
-	
+
 
 	if ($('input_3').value == '1') {cena=cena1;
 	opis += '<br />- couché brillant';
@@ -2298,30 +2298,30 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 	if ($('input_3').value == '3') {cena=cena1*1.08;
 	opis += '<br />- couché mat';
 	}
-	
+
 
 	opis += '<br />- '+ilosc+' Cartes';
 
-	
-	
+
+
 	var rush24p = $$('#rush24p').collect(function(e){ return e.checked; }).any();
 	if (rush24p == true) {
 		cena *= 1.5;
 		opis += '<br />- Délai rush24';
 	}
-	
+
 	var rush24p = $$('#rush24').collect(function(e){ return e.checked; }).any();
 	if (rush24p == true) {
 		cena *= 1.5;
 		opis += '<br />- Délai rush24';
 	}
-	
+
 	var economique = $$('#economique').collect(function(e){ return e.checked; }).any();
 	if (economique == true) {
 		cena *= 0.70;
 		opis += '<br />- Délai économique';
 	}
-	
+
 	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 	if (relais == true) {
 		cena += 5.00;
@@ -2331,25 +2331,25 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 	if (colis == true) {
 		opis += '<br />- colis revendeur';
 	}
-	
+
 	var ktodaje;
 	if ($('input_4').value == 'fb') {
 		cena+=29;
 		ktodaje = 'France banderole crée la maquette';
 		opis += '<br />- '+ktodaje;
 	}
-	
+
 	var ktodaje;
 	if ($('input_4').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
 		opis += '<br />- '+ktodaje;
 	}
-	
 
-	
-	
-	
-	
+
+
+
+
+
 	if (ilosc == '100') {transport=7.9;}
 	if (ilosc == '250') {transport=7.9;}
 	if (ilosc == '500') {transport=7.9;}
@@ -2357,22 +2357,22 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 	if (ilosc == '2500') {transport=8.9;}
 	if (ilosc == '5000') {transport=10.9;}
 
-            
+
             if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                 opis += "<br />- Livraison gratuite avec FEDEX";
                 transport = 0;
             }
 			if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-       		}  
-	
+       		}
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 		var etiqdesc = '';
 		if (etiquette == true) {
 		transport=0;
 		opis += '<br />- retrait colis a l\'atelier';
 		}
-	
+
 	cena=fixstr(cena);
 	cena2 = cena.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
@@ -2383,8 +2383,8 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
-	
+
+
 	var forfait = 15 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
@@ -2401,21 +2401,21 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML=suma2+' &euro;';
 	}
-	
-	
-	
+
+
+
 
 	var rodzaj = $('input_1').value;
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 },
 //////FIN CARTES/////
 
 //////ECLAIRAGE/////
-cal_eclairage: function(){  
+cal_eclairage: function(){
 var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
 var suma=0; var suma2=0;
 var transport=0;
@@ -2427,7 +2427,7 @@ var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
 
 if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') || ($('input_1').value == '300-399cm') || ($('input_1').value == '400-499cm') || ($('input_1').value == '500-599cm') || ($('input_1').value == '600-699cm')){
-	
+
 	if ($('input_1').value == '130-200cm') {
 		if ($('input_2').value == 'blanc'){ opis += '- blanc'; cenar=295;}
 		if ($('input_2').value == 'rouge'){ opis += '- rouge'; cenar=387;}
@@ -2438,7 +2438,7 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 		if ($('input_2').value == 'noir'){ opis += '- noir'; cenar=387;}
 
 	}
-	
+
 	if ($('input_1').value == '201-300cm') {
 		if ($('input_2').value == 'blanc'){ opis += '- blanc'; cenar=404;}
 		if ($('input_2').value == 'rouge'){ opis += '- rouge'; cenar=516;}
@@ -2449,7 +2449,7 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 		if ($('input_2').value == 'noir'){ opis += '- noir'; cenar=516;}
 
 	}
-	
+
 	if ($('input_1').value == '300-399cm') {
 		if ($('input_2').value == 'blanc'){ opis += '- blanc'; cenar=449;}
 		if ($('input_2').value == 'rouge'){ opis += '- rouge'; cenar=568;}
@@ -2460,7 +2460,7 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 		if ($('input_2').value == 'noir'){ opis += '- noir'; cenar=568;}
 
 	}
-	
+
 	if ($('input_1').value == '400-499cm') {
 		if ($('input_2').value == 'blanc'){ opis += '- blanc'; cenar=575;}
 		if ($('input_2').value == 'rouge'){ opis += '- rouge'; cenar=714;}
@@ -2481,7 +2481,7 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 		if ($('input_2').value == 'noir'){ opis += '- noir'; cenar=859;}
 
 	}
-	
+
 	if ($('input_1').value == '600-699cm') {
 		if ($('input_2').value == 'blanc'){ opis += '- blanc'; cenar=819;}
 		if ($('input_2').value == 'rouge'){ opis += '- rouge'; cenar=996;}
@@ -2492,44 +2492,44 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 		if ($('input_2').value == 'noir'){ opis += '- noir'; cenar=996;}
 
 	}
-	
+
 
 	ilosc = $('input_4').value;
 	cena = cenar*ilosc;
-	
-	
+
+
 	var rush24p = $$('#rush24p').collect(function(e){ return e.checked; }).any();
 	if (rush24p == true) {
 		cena *= 1.5;
 		opis += '<br />- Délai rush24';
 	}
 
-	
 
-	
+
+
             if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                 opis += "<br />- Livraison gratuite avec FEDEX";
                 transport = 0;
             }
 			if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-       		}  
-	
-
-	
-	
-	
-	
+       		}
 
 
-	
+
+
+
+
+
+
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 		var etiqdesc = '';
 		if (etiquette == true) {
 		transport=0;
 		opis += '<br />- retrait colis a l\'atelier';
 		}
-	
+
 	cenar=fixstr(cenar);
 	cena2 = cenar.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
@@ -2540,8 +2540,8 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
-	
+
+
 	var forfait = 15 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
@@ -2558,55 +2558,55 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML=suma2+' &euro;';
 	}
-	
-	
-	
+
+
+
 
 	var rodzaj = $('input_1').value;
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 },
 //////FIN ECLAIRAGE/////
 
 //////DEBUT BANDEROLE/////
-cal_banderoles: function(){  
+cal_banderoles: function(){
 
 },
 //////FIN BANDEROLE/////
 
 //////STICKERS/////
-cal_stickers: function(){  
+cal_stickers: function(){
 
 },
 //////FIN STICKERS/////
 //////STICKERS-predecoupé/////
-cal_sticker_predecoupe: function(){  
+cal_sticker_predecoupe: function(){
 
 },
 //////FIN STICKERS-predecoupé/////
 //////STICKERS lettrage-predecoupé/////
-cal_sticker_lettrage_predecoupe: function(){  
+cal_sticker_lettrage_predecoupe: function(){
 
 },
 //////FIN STICKERS lettrage-predecoupé/////
 
 
 //////AUTOCOLLANT/////
-cal_autocollant: function(){  
+cal_autocollant: function(){
 
 },
 //////FIN AUTOCOLLANT/////
 
 
 //////vitrophanie/////
-cal_vitrophanie: function(){  
+cal_vitrophanie: function(){
 
 },
 //////FIN vitrophanie/////
-cal_oriflamme: function(){  
+cal_oriflamme: function(){
 
 },
 //////ORIFLAMME/////
@@ -2614,11 +2614,11 @@ cal_oriflamme: function(){
 //////FIN ORIFLAMME/////
 
 //////PARAPLUIE/////
-cal_parapluie: function(){  
+cal_parapluie: function(){
 var cena=0; var cena2=0;
 var rabat=0; var rabat2=0;
 var suma=0; var suma2=0;
-var transport=0;	
+var transport=0;
 var ktorytyp='';
 var cedzik='';
 var dodatkowaopcja='';
@@ -2690,7 +2690,7 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 	}
 	if ($('input_7').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
-	}	
+	}
 }
 
 
@@ -2722,13 +2722,13 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 		}
 		cedzik = '<br />- La CEDDRE';
 	}
-	
+
  }
 ////
 var cenapojedyncza = cena;
-	
+
 	ilosc=$('input_8').value;
-	
+
 
  if ($('input_0').value == 'PLV carton') {
 	if ($('input_1').value == '1b' ) {
@@ -2763,7 +2763,7 @@ var cenapojedyncza = cena;
 		dodatkowaopcja += '<br />- Totem oval (154x50cm)';
 		}
 	}
-	
+
 	if ($('input_1').value == '2b' ) {
 		if (ilosc <= 4) {
 		cena = 155;
@@ -2796,7 +2796,7 @@ var cenapojedyncza = cena;
 		dodatkowaopcja += '<br />- Totem oval (190x63cm)';
 		}
 	}
-	
+
 	if ($('input_1').value == '3b' ) {
 		if (ilosc <= 4) {
 		cena = 145;
@@ -2861,7 +2861,7 @@ var cenapojedyncza = cena;
 		dodatkowaopcja += '<br />- Arche 2 colonnes (190x63cm) et 1 top (200x50cm)';
 		}
 	}
-	
+
 	if ($('input_1').value == '5b' ) {
 		if (ilosc <= 4) {
 		cena = 699;
@@ -2927,7 +2927,7 @@ var cenapojedyncza = cena;
 		}
 	}
 
-	
+
 	var ktodaje;
 	if ($('input_7').value == 'fb') {
 		cena+=40;
@@ -2935,20 +2935,20 @@ var cenapojedyncza = cena;
 	}
 	if ($('input_7').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
-	}	
+	}
  }
-	
+
 	var cenapojedyncza = cena;
-	
+
 	ilosc=$('input_8').value;
 	if ($('input_8').value) {
 		cena=cenapojedyncza*ilosc;
 	}
 
 	var total = document.getElementById("total");
-	var remise = document.getElementById("remise");	
+	var remise = document.getElementById("remise");
 	if (($('input_0').value == 'Stand ExpoBag') || ($('input_0').value == 'Tissu')) {
-	if (ilosc>=2) {	
+	if (ilosc>=2) {
 		if ((ilosc>=2) && (ilosc<=4)) {
 			rabat=cena*0.02;
 		}
@@ -3063,19 +3063,19 @@ var cenapojedyncza = cena;
             }
 			if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-       		}  
-			
-				
+       		}
+
+
 /////////
 
 	cenapojedyncza=fixstr(cenapojedyncza);
 	cena2 = cenapojedyncza.replace(".", ",");
 	var prix = document.getElementById("prix_unitaire");
 	prix.innerHTML=cena2+' &euro;';
-	
-/* koszty transportu */	
+
+/* koszty transportu */
 	if (ilosc>1) { transport=transport*ilosc; }
-/* /koszty transportu */	
+/* /koszty transportu */
 
 	suma=cena-rabat;
 	suma=fixstr(suma);
@@ -3083,7 +3083,7 @@ var cenapojedyncza = cena;
 	total.innerHTML=suma2+' &euro;';
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand Parapluie" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand Parapluie" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 
 }
 
@@ -3091,11 +3091,11 @@ var cenapojedyncza = cena;
 //////FIN PARAPLUIE/////
 
 //////KAKEMONO/////
-cal_kakemono: function(){  
+cal_kakemono: function(){
 var cena=0; var cena2=0; var cenapojedyncza=0;
 var rabat=0; var rabat2=0;
 var suma=0; var suma2=0;
-var transport=0;	
+var transport=0;
 var ktorytyp='';
 var cedzik='';
 var dodatkowaopcja='';
@@ -3103,21 +3103,21 @@ var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
 var ax1 = document.getElementById("id_5");
 var ax2 = document.getElementById("id_10");
-if (ax1) { 
+if (ax1) {
 	ax1.style.background="none";
 	ax1.style.border="none";
-	ax1.style.borderBottom="1px solid #9fa3a8";
+	//ax1.style.borderBottom="1px solid #9fa3a8";
 }
-if (ax2) { 
+if (ax2) {
 	ax2.style.background="none";
 	ax2.style.border="none";
-	ax2.style.borderBottom="1px solid #9fa3a8";
+	//ax2.style.borderBottom="1px solid #9fa3a8";
 }
 
 if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_36').value) || ($('input_51').value) || ($('input_52').value) || ($('input_53').value) || ($('input_54').value) && ($('input_16').value)) && ($('input_6').value || $('input_61').value) && ($('input_7').value) ) {
 	if ($('input_1').value == 'roll-up') {
 		if ($('input_31').value == '80x200') {
-			cena=55;		
+			cena=55;
 		}
 		if ($('input_31').value == '60x160') {
 			cena=49;
@@ -3126,34 +3126,34 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 			cena=54;
 		}
 		if ($('input_31').value == '85x200') {
-			cena=57;		
+			cena=57;
 		}
 		if ($('input_31').value == '100x200') {
-			cena=89;	
+			cena=89;
 		}
 		if ($('input_31').value == '120x200') {
-			cena=109;		
+			cena=109;
 		}
 		if ($('input_31').value == '150x200') {
-			cena=119;		
+			cena=119;
 		}
 		if ($('input_31').value == '200x200') {
-			cena=225;		
+			cena=225;
 		}
 		if ($('input_31').value == '150x300') {
-			cena=235;		
+			cena=235;
 		}
 		if ($('input_31').value == '80x200double') {
-			cena=139;	
+			cena=139;
 		}
 		if ($('input_31').value == '85x200double') {
-			cena=149;	
+			cena=149;
 		}
 		if ($('input_31').value == 'minia4') {
-			cena=24;	
+			cena=24;
 		}
 		if ($('input_31').value == 'minia3') {
-			cena=29;	
+			cena=29;
 		}
 		if ($('input_51').value == '100% écologique M1') {
 			cena+=20;
@@ -3329,7 +3329,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 			ktorytyp=$('input_33').value;
 		}
 		if ($('input_33').value == '100x100') {
-	
+
 			if ($('input_52').value == '470g M1') {
 				cena=56;
 			}
@@ -3344,7 +3344,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 			ktorytyp=$('input_33').value;
 		}
 		if ($('input_33').value == '100x120') {
-			
+
 			if ($('input_52').value == '470g M1') {
 				cena=61.6;
 			}
@@ -3479,7 +3479,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 			ktorytyp=$('input_33').value;
 		}
 		if ($('input_33').value == '160x200') {
-	
+
 			if ($('input_52').value == '470g M1') {
 				cena=141;
 			}
@@ -3524,7 +3524,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 			ktorytyp=$('input_33').value;
 		}
 		if ($('input_33').value == '160x350') {
-		
+
 			if ($('input_52').value == '470g M1') {
 				cena=197;
 			}
@@ -3555,14 +3555,14 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 		}
 		dodatkowaopcja='<br />- '+$('input_52').value;
 		if ($('input_111').value == 'ventouse') {
-			dodatkowaopcja+='<br />- Ventouse super adhesive 65mm';			
+			dodatkowaopcja+='<br />- Ventouse super adhesive 65mm';
 			cena+=5.7;
 		}
 	}
-	
+
 	if ($('input_1').value == 'L-Banner-Light') {
 		if ($('input_35').value == '80x200') {
-			cena=55;		
+			cena=55;
 		}
 		if ($('input_35').value == '100x200') {
 			cena=59;
@@ -3581,7 +3581,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 	}
 	if ($('input_1').value == 'L-Banner-Prestige') {
 		if ($('input_36').value == '60x200') {
-			cena=69;		
+			cena=69;
 		}
 		if ($('input_36').value == '80x200') {
 			cena=79;
@@ -3601,7 +3601,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 			dodatkowaopcja += '<br />- '+$('input_11').value;
 		}
 	}
-	
+
 	var ktodaje;
 	if ($('input_6').value == 'fb') {
 		cena+=29;
@@ -3610,7 +3610,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 	if ($('input_6').value == 'user') {
 		ktodaje = 'j’ai déjà crée la maquette';
 	}
-	
+
 	if ($('input_61').value == 'fb') {
 		cena+=29;
 		ktodaje = 'France banderole crée la maquette';
@@ -3628,8 +3628,8 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 	}
 
 	var total = document.getElementById("total");
-	var remise = document.getElementById("remise");	
-	if (ilosc>=2) {	
+	var remise = document.getElementById("remise");
+	if (ilosc>=2) {
 		if ((ilosc>=2) && (ilosc<=4)) {
 			rabat=cena*0.02;
 		}
@@ -3740,7 +3740,7 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 	prix.innerHTML=cena2+' &euro;';
 
 
-/* koszty transportu */	
+/* koszty transportu */
 	if (ilosc==1) {	transport=13.9; }
 	if ((ilosc>=2) && (ilosc<=4)) {	transport=19.5; }
 	if ((ilosc>=5) && (ilosc<=7)) {	transport=25.2; }
@@ -3755,18 +3755,18 @@ if ( ($('input_1').value) && ( ($('input_31').value) || ($('input_32').value) ||
 		transport=0;
 		etiqdesc = '<br />- retrait colis a l\'atelier';
 	}
-	
-            
+
+
             if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                 etiqdesc += '<br />- Livraison gratuite';
                 transport = 0;
             }
 			if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-       		}  
-			
-				
-/* /koszty transportu */	
+       		}
+
+
+/* /koszty transportu */
 
 	var niepokazuj = 0;
 
@@ -3782,7 +3782,7 @@ if (niepokazuj==0) {
 	total.innerHTML=suma2+' &euro;';
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Kakemono" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Kakemono" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 }
 
 }
@@ -3819,7 +3819,7 @@ cal_rollup: function(){
 
 ///////DEBUT AKILUX 3mm///////////////
 
-cal_akilux3mm: function(){  
+cal_akilux3mm: function(){
 
 },
 
@@ -3831,7 +3831,7 @@ cal_akilux3mm: function(){
 
 ///////DEBUT AKILUX 3,5mm///////////////
 
-cal_akilux3_5mm: function(){  
+cal_akilux3_5mm: function(){
 
 },
 
@@ -3842,7 +3842,7 @@ cal_akilux3_5mm: function(){
 
 ///////DEBUT AKILUX 5mm///////////////
 
-cal_akilux5mm: function(){  
+cal_akilux5mm: function(){
 
 },
 
@@ -3858,7 +3858,7 @@ cal_akilux5mm: function(){
 
 ///////DEBUT PVC 300µ///////////////
 
-cal_PVC300microns: function(){  
+cal_PVC300microns: function(){
 var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
 var suma=0; var suma2=0;
 var transport=0;
@@ -3873,20 +3873,20 @@ var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
 var ax1 = document.getElementById("id_5");
 var ax2 = document.getElementById("id_6");
-if (ax1) { 
+if (ax1) {
 	ax1.style.background="none";
 	ax1.style.border="none";
-	ax1.style.borderBottom="1px solid #9fa3a8";
+	//ax1.style.borderBottom="1px solid #9fa3a8";
 }
-if (ax2) { 
+if (ax2) {
 	ax1.style.background="none";
 	ax1.style.border="none";
-	ax1.style.borderBottom="1px solid #9fa3a8";
+	//ax1.style.borderBottom="1px solid #9fa3a8";
 }
 
 
 if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
-	
+
 	ilosc = $('input_4').value;
 	szerokosc = ($('input_6').value);
 	szerokosc = szerokosc.replace(',','.');
@@ -3896,26 +3896,26 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	wysokosc = wysokosc.replace(',','.');
 	wysokosc = fixstr(wysokosc);
 	$('input_5').value = wysokosc;
-	
+
 	////metrage/////
 	metrage = szerokosc*wysokosc*ilosc
-	
+
 	///// PVC 300µ/////
 	if ($('input_1').value == 'recto'){
-		
+
 		if (metrage<=3){p1=17*metrage;}
 		if ((metrage > 3) && (metrage <= 5)){p1=15*metrage;}
 		if ((metrage > 5) && (metrage <= 8)){p1=14*metrage;}
 		if ((metrage > 8) && (metrage <= 12)){p1=13*metrage;}
 		if ((metrage > 12) && (metrage <= 20)){p1=12*metrage;}
 		if (20<metrage){p1=11*metrage;}
-			
+
 		opis += '<br />- PVC 300µ recto';
-		
-				
+
+
 	}
 	if ($('input_1').value == 'rectoverso'){
-		
+
 		if (metrage<=3){p1=(17+(17*0.3))*metrage;}////// +30% /////
 		if ((metrage > 3) && (metrage <= 5)){p1=(15+(15*0.3))*metrage;}//// +30% /////
 		if ((metrage > 5) && (metrage <= 8)){p1=(14+(14*0.3))*metrage;}//// +30% /////
@@ -3923,32 +3923,32 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		if ((metrage > 12) && (metrage <= 20)){p1=(12+(12*0.3))*metrage;}// +30% /////
 		if(20<metrage){p1=(11+(11*0.3))*metrage;}////// +30% /////
 		opis += '<br />- PVC 300µ recto/verso';
-				
+
 	}
 
 	////fixations/////
 
-	if ($('input_2').value == '2oeillets'){fixations=1*ilosc; opis += '<br />- 2 oeillets';} 
-	if ($('input_2').value == '4oeillets'){fixations=2*ilosc; opis += '<br />- 4 oeillets';} 
-	if ($('input_2').value == 'sans'){fixations=0; opis += '<br />- sans oeillet';} 
-	
-	
-	
+	if ($('input_2').value == '2oeillets'){fixations=1*ilosc; opis += '<br />- 2 oeillets';}
+	if ($('input_2').value == '4oeillets'){fixations=2*ilosc; opis += '<br />- 4 oeillets';}
+	if ($('input_2').value == 'sans'){fixations=0; opis += '<br />- sans oeillet';}
+
+
+
 	////maquette/////
 	if ($('input_3').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
 	if ($('input_3').value == 'user') {maquette=0; opis += '<br />- j’ai déjà crée la maquette';}
-	
-	
-	
-	
-	
+
+
+
+
+
 	////tarif unitaire/////
 	puoption = p1+fixations;
 	puoption2 = (puoption+maquette)/ilosc;
 	////total/////
 	cena = puoption+maquette;
-	
-	
+
+
 	///// options/////
 	var rush24 = $$('#rush24').collect(function(e){ return e.checked; }).any();
 	if (rush24 == true) {
@@ -3957,24 +3957,24 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 			cena += rush;
 			opis += '<br />- délai express';
 	}
-	
+
 	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 	if (relais == true) {
 		puoption2 += 5.00/ilosc;
 		cena += 5.00;
 		opis += '<br />- relais colis';
 	}
-	
+
 	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 	if (colis == true) {
 		opis += '<br />- colis revendeur';
 	}
-	
-	
+
+
 	///transport///
-	
+
 	poidstotal = metrage*0.4;
-	 
+
 	 if (poidstotal <= 1) {prixtransport=4.80;}
 	 if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
 	 if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
@@ -3993,28 +3993,28 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	 if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
 	 if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
 	 if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
-     if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}		
+     if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
 	 if (poidstotal > 100) {prixtransport=69.26;}
 	 prixtransport2 = prixtransport*0.4;
 	 transport = prixtransport + prixtransport2;
-	 
-	 
+
+
 	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 	var etiqdesc = '';
 	if (etiquette == true) {
 		transport=0;
 		etiqdesc += '<br />- retrait colis a l\'atelier';
 	}
-	
+
     if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                     etiqdesc += '<br />- Livraison gratuite.';
                     transport = 0;
      }
 	 if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-                   
+
      }
-	
+
 	///fin transport///
 
 	puoption2=fixstr(puoption2);
@@ -4027,12 +4027,12 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
-	
-	
+
+
+
 	var forfait = 29 - suma;
 	if (forfait > 0){
-		
+
 		forfait = fixstr(forfait);
 		eBox.innerHTML = 'FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
@@ -4046,27 +4046,27 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		suma2 = suma.replace(".", ",");
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML=suma2+' &euro;';
-		
-		
+
+
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 
 	var rodzaj = "PVC 300 microns";
 
 	var dodajkoszyk = document.getElementById("cart_form");
- 
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'m'+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'m'+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 
 
-	
+
 	if ( (wysokosc > 1.5) && (szerokosc > 1.5) ) {
-		var blad = document.getElementById("id_5");		
-		var blad2 = document.getElementById("id_6");		
+		var blad = document.getElementById("id_5");
+		var blad2 = document.getElementById("id_6");
 		/*blad.style.background = "#FFAAAA";
 		blad.style.border = "1px solid #FFAAAA";
 		blad2.style.background = "#FFAAAA";
@@ -4076,11 +4076,11 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		dodajkoszyk.innerHTML ='';
 		eBox.innerHTML = 'Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
-	
-	
+
+
 	if ( (wysokosc > 2) || (szerokosc > 2) ) {
-		var blad = document.getElementById("id_5");		
-		var blad2 = document.getElementById("id_6");		
+		var blad = document.getElementById("id_5");
+		var blad2 = document.getElementById("id_6");
 		/*blad.style.background = "#FFAAAA";
 		blad.style.border = "1px solid #FFAAAA";
 		blad2.style.background = "#FFAAAA";
@@ -4091,8 +4091,8 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		eBox.innerHTML = 'Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 	if ( (wysokosc < 0.2) && (szerokosc < 0.3) ) {
-		var blad = document.getElementById("id_5");		
-		var blad2 = document.getElementById("id_6");		
+		var blad = document.getElementById("id_5");
+		var blad2 = document.getElementById("id_6");
 		/*blad.style.background = "#FFAAAA";
 		blad.style.border = "1px solid #FFAAAA";
 		blad2.style.background = "#FFAAAA";
@@ -4103,10 +4103,10 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		dodajkoszyk.innerHTML ='';
 		eBox.innerHTML = 'Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
-	
+
 	if ( (wysokosc < 0.3) && (szerokosc < 0.2) ) {
-		var blad = document.getElementById("id_5");		
-		var blad2 = document.getElementById("id_6");		
+		var blad = document.getElementById("id_5");
+		var blad2 = document.getElementById("id_6");
 		/*blad.style.background = "#FFAAAA";
 		blad.style.border = "1px solid #FFAAAA";
 		blad2.style.background = "#FFAAAA";
@@ -4129,7 +4129,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 
 ///////DEBUT FOREX 1MM///////////////
 
-cal_forex1mm: function(){  
+cal_forex1mm: function(){
 var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
 var suma=0; var suma2=0;
 var transport=0;
@@ -4145,7 +4145,7 @@ eBox.innerHTML='';
 
 
 if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
-	
+
 	ilosc = $('input_32').value;
 	szerokosc = ($('input_10').value);
 	szerokosc = szerokosc.replace(',','.');
@@ -4155,8 +4155,8 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 	wysokosc = wysokosc.replace(',','.');
 	wysokosc = fixstr(wysokosc);
 	$('input_9').value = wysokosc;
-	
-	
+
+
 	///// Forex 1mm recto 50x20 UV/////
 	if (($('input_0').value == 'recto') && ($('input_1').value == '50x20')){
 		opis += '<br />- Forex 1mm recto <br />- 50x20cm <br />- UV';
@@ -4182,7 +4182,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=1.20; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=1.20; opis += '<br />- 10000 exemplaires';}
 		poids = 1.6*0.10; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso 50x20 UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == '50x20')){
@@ -4209,9 +4209,9 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=1.65; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=1.65; opis += '<br />- 10000 exemplaires';}
 		poids = 1.6*0.10; ////grammage x m²///
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
-	
+
 	///// Forex 1mm recto 75x50 UV/////
 	if (($('input_0').value == 'recto') && ($('input_1').value == '75x50')){
 		opis += '<br />- Forex 1mm recto <br />- 75x50cm <br />- UV';
@@ -4237,7 +4237,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=3.60; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=3.60; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*0.37; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso 75x50 UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == '75x50')){
@@ -4265,9 +4265,9 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '10000'){pu=4.95; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*0.37; ////grammage x m²///
 
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
-	
+
 	///// Forex 1mm recto 150x50 UV/////
 	if (($('input_0').value == 'recto') && ($('input_1').value == '150x50')){
 		opis += '<br />- Forex 1mm recto <br />- 150x50cm <br />- UV';
@@ -4293,7 +4293,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=7.20; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=7.20; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*0.75; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso 150x50 UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == '150x50')){
@@ -4320,7 +4320,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=9.90; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=9.90; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*0.75; ////grammage x m²///
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
 
 	///// Forex 1mm recto 200x75 UV/////
@@ -4348,7 +4348,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=13.80; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=13.80; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*1.5; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso 200x75 UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x75')){
@@ -4375,9 +4375,9 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=18.98; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=18.98; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*1.5; ////grammage x m²///
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
-	
+
 	///// Forex 1mm recto 250x100 UV/////
 	if (($('input_0').value == 'recto') && ($('input_1').value == '250x100')){
 		opis += '<br />- Forex 1mm recto <br />- 250x100cm <br />- UV';
@@ -4403,7 +4403,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=23.00; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=23.00; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*2.5; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso 250x100 UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == '250x100')){
@@ -4430,9 +4430,9 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=31.63; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=31.63; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*2.5; ////grammage x m²///
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
-	
+
 	///// Forex 1mm recto 300x150 UV/////
 	if (($('input_0').value == 'recto') && ($('input_1').value == '300x150')){
 		opis += '<br />- Forex 1mm recto <br />- 300x150cm <br />- UV';
@@ -4458,7 +4458,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=36.00; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=36.00; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*4.5; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso 300x150 UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == '300x150')){
@@ -4485,7 +4485,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32').value == '7500'){pu=49.50; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32').value == '10000'){pu=49.50; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*4.5; ////grammage x m²///
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
 
 	///// Forex 1mm recto personnalisée UV/////
@@ -4513,7 +4513,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*0; ////grammage x m²///
-		poidstotal = poids*ilosc;			
+		poidstotal = poids*ilosc;
 	}
 	///// Forex 1mm recto/verso personnalisée UV/////
 	if (($('input_0').value == 'rectoverso') && ($('input_1').value == 'personnalisée')){
@@ -4540,12 +4540,12 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
 		if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
 		poids = 0.68*0; ////grammage x m²///
-		poidstotal = poids*ilosc;		
+		poidstotal = poids*ilosc;
 	}
-	
-	
-	
-	
+
+
+
+
 	////fixations/////
 
 	if (($('input_4').value == 'ventouse') || ($('input_4perso').value == 'ventouse')){fixationsventouse=0.2; opis += '<br />- ventouse + perçage';} ////prix 1 ventouse/////
@@ -4557,23 +4557,23 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 	if (($('input_5').value == '6') || ($('input_5perso').value == '6')){percage=1.2; nbtrou=6; opis += '<br />- 6 trous';}
 	if (($('input_5').value == '8') || ($('input_5perso').value == '8')){percage=1.6; nbtrou=8; opis += '<br />- 8 trous';}
 	if (($('input_5').value == '10') || ($('input_5perso').value == '10')){percage=2; nbtrou=10; opis += '<br />- 10 trous';}
-	
+
 	tarifventouse = (fixationsventouse*nbtrou) ////prix x ventouses/////
-	
+
 	////maquette/////
 	if ($('input_6').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
 	if ($('input_6perso').value == 'fb') {opis += '<br />- France banderole crée la maquette';}
 	if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {opis += '<br />- j’ai déjà crée la maquette';}
-	
-	
-	
+
+
+
 	////tarif unitaire/////
 	puoption = pu+fixations+percage+tarifventouse;
 	puoption2 = puoption+(maquette/ilosc);
 	////total/////
 	cena = (puoption*ilosc)+maquette;
-	
-	
+
+
 	///// options/////
 	var rush24 = $$('#rush24').collect(function(e){ return e.checked; }).any();
 	if (rush24 == true) {
@@ -4582,25 +4582,25 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 			cena += rush;
 			opis += '<br />- délai express';
 	}
-	
+
 	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 	if (relais == true) {
 		puoption2 += 5.00/ilosc;
 		cena += 5.00;
 		opis += '<br />- relais colis';
 	}
-	
+
 	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 	if (colis == true) {
 		opis += '<br />- colis revendeur';
 	}
 	////fin d'options///
-	
-	
-	///transport///
-	
 
-	 
+
+	///transport///
+
+
+
 	 if (poidstotal <= 1) {prixtransport=4.80;}
 	 if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
 	 if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
@@ -4619,27 +4619,27 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 	 if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
 	 if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
 	 if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
-     if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}		
+     if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
 	 if (poidstotal > 100) {prixtransport=69.26;}
 	 prixtransport2 = prixtransport*0.4;
 	 transport = prixtransport + prixtransport2;
 	 if($('input_1').value == 'personnalisée') {transport = 0};
-	 
+
 	 var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 	var etiqdesc = '';
 	if (etiquette == true) {
 		transport=0;
 		etiqdesc += '<br />- retrait colis a l\'atelier';
 	}
-	
+
     if (document.getElementById('fedex') && document.getElementById('fedex').checked == true) {
                     etiqdesc += '<br />- Livraison gratuite.';
                     transport = 0;
      }
 	 if (document.getElementById('tnt') && document.getElementById('tnt').checked == true) {
                     etiqdesc += '<br />- Livraison Payante';
-       		}  
-	
+       		}
+
 	///fin transport///
 
 	puoption2=fixstr(puoption2);
@@ -4652,9 +4652,9 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 	suma2 = suma.replace(".", ",");
 	var total = document.getElementById("total");
 	total.innerHTML=suma2+' &euro;';
-	
-	
-	
+
+
+
 	var forfait = 29 - suma;
 	if (forfait > 0){
 		if($('input_1').value != 'personnalisée') {
@@ -4678,27 +4678,27 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 		cena2 = puoption2.replace(".", ",");
 		var prix = document.getElementById("prix_unitaire");
 		prix.innerHTML='Tarif personnalisé';
-		
+
 		suma = 0;
 		suma=fixstr(suma);
 		suma2 = suma.replace(".", ",");
 		var newtotal = document.getElementById("total");
 		newtotal.innerHTML='Enregistrez votre Demande de devis';
-		} 		
+		}
 	}
-	
 
-	
-	
+
+
+
 
 	var rodzaj = "Forex 1mm";
 
 	var dodajkoszyk = document.getElementById("cart_form");
 	if($('input_1').value == 'personnalisée') {
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'<br />- '+szerokosc+' x '+wysokosc+' m <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'<br />- '+szerokosc+' x '+wysokosc+' m <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 	};
 	if($('input_1').value != 'personnalisée') {
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Send</button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 	};
 
 }
@@ -4709,7 +4709,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 
 ///////DEBUT FOREX 3MM///////////////
 
-cal_forex3mm: function(){  
+cal_forex3mm: function(){
 },
 
 ///////FIN FOREX 3MM///////////////
@@ -4718,7 +4718,7 @@ cal_forex3mm: function(){
 
 ///////DEBUT FOREX 5MM///////////////
 
-cal_forex5mm: function(){  
+cal_forex5mm: function(){
 
 },
 
@@ -4727,7 +4727,7 @@ cal_forex5mm: function(){
 
 ///////DEBUT Dibond///////////////
 
-cal_dibond: function(){  
+cal_dibond: function(){
 
 },
 

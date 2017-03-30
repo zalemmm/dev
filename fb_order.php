@@ -211,7 +211,7 @@ function get_filesender($products) {
 //	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
 $view .= '
 <form id="fileupload" class="noprint" action="'.get_bloginfo("url").'/uploaded/" method="post" enctype="multipart/form-data"><input type="hidden" id="cmdID" name="cmd" value="'.$idzamowienia.'" /><input type="hidden" name="usr" value="'.$user->login.'" />
-				<div class="acces_tab_name">Envoyer vos maquettes</div>
+				<div class="acces_tab_name2">Envoyer vos maquettes</div>
         <div class="row fileupload-buttonbar">
             <div class="span7">
                 <input type="checkbox" class="toggle" />
@@ -399,7 +399,7 @@ function get_details() {
 		}
 		if($bat == 1) {
 			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
-			$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"></a>';
+			$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
 		}
 
 		$prolog .= '</td></tr></table></div>';
@@ -460,7 +460,7 @@ function get_details() {
 	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				if ($x<1) {
-					$epilog .= '<a rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette">&nbsp;</a>';
+					$epilog .= '<a rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
 					$has_bat = 1;
 					$x=1;
 				} else {
@@ -936,8 +936,8 @@ function print_votre() {
 			$view .= '<tr>';
 			$view .= '<td class="lefttd">';
 			if ($o->status != 6) {
-				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
- <span class="split">Gérer la</span> commande</button></form>';
+				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">
+ <span class="split"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Gérer la</span> commande</button></form>';
 			}
 			$view .= '</td>';
 			$view .= '<td class="tddesc"><div class="kontener">';
@@ -963,7 +963,7 @@ function print_votre() {
 			if ($newcomment) {
 				$newcomment2 = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments` WHERE order_id = '$o->unique_id' AND author='France Banderole' ORDER BY date DESC LIMIT 1");
 				if ($newcomment2) {
-					$comment_new = '<br /><span class="comment_new">NOUVEAU MESSAGE !</span>';
+					$comment_new = '<br /><span class="comment_new">NOUVEAU <span class="split">MESSAGE !</span></span>';
 				}
 			}
 

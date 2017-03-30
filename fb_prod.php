@@ -54,7 +54,7 @@ if (is_page('votre-panier')){
 }
 
 
-	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
+	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('PVC-300-microns')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
 	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/roll.css?v26032013" type="text/css" media="all" />';
 }
 
@@ -487,18 +487,16 @@ echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototyp
 <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform9.js?v5" type="text/javascript"></script>
 <script type="text/javascript">
 JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "PLV carton"}], "action": {"field": "1", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "50", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}, {"field": "2", "operator": "isFilled", "value": false}, {"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}}
+{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
 ]);
 JotForm.init();
 </script>';
@@ -814,7 +812,7 @@ JotForm.setConditions([
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
@@ -847,7 +845,7 @@ JotForm.setConditions([
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
@@ -1063,7 +1061,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$formularz = get_depliants_form();
 	}
 	if ($page=='stand-parapluie') {
-		$h1name='Stand Parapluie - stands parapluie tissu - PLV carton - Presentoirs a montage rapide - Totems - Arches';
+		$h1name='Stand Parapluie - stands parapluie tissu - Stand parapluie Révolution - Presentoirs a montage rapide - Totems - Arches';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
@@ -1313,7 +1311,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f2';
-		$info_title='KAKEMONO ROLL-UP ENROULEUR ';
+		$info_title='Kakemono Roll-Up Enrouleur';
 		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_kakemonos_form();
 	}
@@ -1324,7 +1322,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='roll-up';
-		$info_title='KAKEMONO ROLL-UP ENROULEUR';
+		$info_title='Kakemono Roll-Up Enrouleur';
 		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_rollup_form();
 	}
@@ -1381,7 +1379,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
 	$wycena .= '</div></div>';}
 
-	$view .= '<h1>'.$h1name.'</h1><hr />';
+	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';
 	/* $view .= '<div id="top_images">
 	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
 	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
@@ -1541,7 +1539,7 @@ function get_verification() {
 			//echo "2///User=";print_r($user);
 			$prolog .= '<div class="address_tab_name">VOTRE COMMANDE:</div>';
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"></a>';
-			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"></a>';
+			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
 			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
 			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION:</div>';
@@ -1643,10 +1641,9 @@ function get_mode_de_livraison(){
 	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  	if($relais_colis !== false){
 		$retour = '<div class="acces_tab_name_devis noprint">MODE DE LIVRAISON : RELAIS COLIS</div>
-		<div style="position:relative; display:block;height:60px;"></div>
 			';
 		$retour .= '<div id="tntB2CRelaisColis" class="exemplePresentation"></div>
-		<div id="map_canvas" class="exemplePresentation" style="width: 250px; height: 200px; margin-left:10px;"></div>';
+		<div id="map_canvas" class="exemplePresentation"></div>';
 
 		$retour .= '
 		<form action="" method="post" name="form_adresse_relais_colis" id="form_adresse_relais_colis">
@@ -1774,7 +1771,7 @@ function get_devis() {
 		//$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  		if($relais_colis !== false){
-			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;"></a>';
+			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
 			$epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 		}
@@ -1786,7 +1783,7 @@ function get_devis() {
 }
 function contact_advert() {
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
-	$view .= '<div id="contact_advert"><img src="'.$plugin_url.'images/contact_info.jpg" alt="contact with us" /></div>';
+	$view .= '<div id="contact_advert"><a href="tel:+33442401401"><img src="'.$plugin_url.'images/contact_info.jpg" alt="contact with us" /></a></div>';
 	return $view;
 }
 

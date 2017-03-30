@@ -1,94 +1,3 @@
-<style type="text/css">
-<!--
-#1060900217 .form-section #id_9 #label_9 strong {
-	color: #F00;
-}
-#1060900217 .form-section #id_9 #label_9 strong {
-	color: #F00;
-}
-#box {
-    width: 200px;
-    height: 200px;
-    background-color: red;
-}
-	.production {
-	width: 90px;
-	height: 20px;	
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	cursor: pointer;
-	}
-	#p1 {
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal1.png);
-	background-repeat: no-repeat;"
-	}
-	#p2 {
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide1.png);
-	background-repeat: no-repeat;"
-	}
-	#p3 {
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express1.png);
-	background-repeat: no-repeat;"
-	}
-	
-	.delivery {
-	width: 90px;
-	height: 20px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 0px;
-	border-left-width: 0px;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	cursor: pointer;
-	}
-	#l1 {
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal1.png);
-	background-repeat: no-repeat;"
-	}
-	#l2 {
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide1.png);
-	background-repeat: no-repeat;"
-	}
-	#l3 {
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express1.png);
-	background-repeat: no-repeat;"
-	}
-	
-	
-
-	h5 {
-		padding: 0px 0px 0px 0px;
-		margin: 0px 0px 0px 0px;
-	}
-	#p1.active{	
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal2.png);
-	}
-	#p2.active{	
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide2.png);
-	}
-	#p3.active{	
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express2.png);
-	}
-	#l1.active{	
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal2.png);
-	}
-	#l2.active{	
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide2.png);
-	}
-	#l3.active{	
-	background-image: url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express2.png);
-	}
--->
-</style>
 <div id="buying">
     <form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_tente_exposition(); return false;">
    <input type="hidden" name="formID" value="1060900217" />
@@ -96,7 +5,7 @@
             <ul class="form-section">
               <li class="form-line" id="id_taille">
                 <a href="#">
-                    <img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">                </a>
+                    <img title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">                </a>
                 <select class="form-dropdown validate[required]" id="input_taille" name="qtaille_usage" onchange="JKakemono.czyscpola(); ">
                     <option value="">choisir la taille...</option>
                     <option value="2x2">Tente 2x2m</option>
@@ -110,7 +19,7 @@
               <!--support-->
                 <li class="form-line" id="id_option">
                     <a href="#">
-                        <img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
+                        <img title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_option" name="qoption_support1" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir une option...</option>
                         <option value="1x Demi-mur">1x Demi-mur</option>
@@ -119,7 +28,7 @@
                     </select>
                 </li>
                 <li class="form-line" id="id_couleur">
-                    <a href="#support-banderole"><img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
+                    <a href="#support-banderole"><img  title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_couleur" name="qcouleur_couleur" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir la couleur...</option>
                         <option value="Blanc">Blanc</option>
@@ -129,25 +38,25 @@
                         <option value="Personnalisé">Visuel personnalisé</option>
                     </select>
                 </li>
-               
-                
-                
+
+
+
                <!--maquette-->
                 <li class="form-line" id="id_maquette">
-                    <a href="#"><img style="float:right" border="0" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
+                    <a href="#"><img  title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_maquette" name="q6_maquette" onchange="JKakemono.czyscpola(); ">
                         <option value="">Visuel...</option>
                         <option value="fb">France banderole crée la mise en page</option>
                         <option value="user">j’ai déjà crée la maquette </option>
                     </select>
                 </li>
-                
-                
+
+
 			 <li class="form-line optionsformline2" id="id_13">
                     <label class="form-label-left" id="label_13" for="input_13" style="color:#3097c0; font-weight:bold; text-transform:capitalize; margin-left:25px">quantité:</label>
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
                 </li>
-               
+
                <li id="id_16" class="form-line optionsformline">
     <span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
 
@@ -182,8 +91,8 @@
             </li>
 
 
-			
-            
+
+
             <li id="id_18" class="form-line id_18" style="top:14px">
                 <div class="form-input-wide">
                 <div id="form-button-error2"></div>
@@ -199,7 +108,7 @@
     <input type="hidden" id="simple_spc" name="simple_spc" value="1060900217" />
     <script type="text/javascript">
         document.getElementById("simple_spc").value += "-1060900217";
-    </script>   
+    </script>
 </form>
 </div>
 <div id="preview">
@@ -207,37 +116,37 @@
 </div>
 
 <div id="custom_price_unit" >
-	
+
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
 
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
 pour afficher ou non le div selon que ce soit "none" ou "block". */
- 
+
 function Afficher()
 {
 divInfo = document.getElementById('delivery-div');
- 
+
 if (divInfo.style.display == 'none')
 divInfo.style.display = 'block';
 
- 
+
 }
 </script>
 
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
 pour afficher ou non le div selon que ce soit "none" ou "block". */
- 
+
 function Masquer()
 {
 divInfo = document.getElementById('delivery-div');
- 
+
 if (divInfo.style.display == 'block')
 divInfo.style.display = 'none';
 
- 
+
 }
 </script>
 
@@ -264,10 +173,10 @@ function AddBusinessDays(weekDaysToAdd) {
       return realDaysToAdd;
 
     }
-	
+
 	jQuery(document).ready(function(){
-	
-		jQuery('.delivery , .production').click(function(){	
+
+		jQuery('.delivery , .production').click(function(){
 
    var cena=0; var cena2=0; var cena1=0; cenapojedyncza=0;
         var suma=0; var suma2=0;
@@ -309,123 +218,123 @@ var structure4x6perso=530.00; var canopi4x6perso=1091.00; var mur4x6perso=225.00
 
 
 
-	
+
 
 ilosc=$('input_13').value;
 
 if ($('input_taille').value == '2x2') {
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure2x2+canopi2x2+mur2x2+demimurA2x2+barredmA2x2)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure2x2perso+canopi2x2perso+mur2x2perso+demimurA2x2perso+barredmA2x2perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure2x2+canopi2x2+mur2x2+demimurA2x2+barredmA2x2+demimurB2x2+barredmB2x2)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure2x2perso+canopi2x2perso+mur2x2perso+demimurA2x2perso+barredmA2x2perso+demimurB2x2perso+barredmB2x2perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == 'sans option') )
 	{cena = (structure2x2+canopi2x2+mur2x2)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == 'sans option') )
-	{cena = (structure2x2perso+canopi2x2perso+mur2x2perso)*1.5*ilosc;}		
+	{cena = (structure2x2perso+canopi2x2perso+mur2x2perso)*1.5*ilosc;}
 }
 
 
 if ($('input_taille').value == '2x3') {
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure2x3+canopi2x3+mur2x3+demimurA2x3+barredmA2x3)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure2x3perso+canopi2x3perso+mur2x3perso+demimurA2x3perso+barredmA2x3perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure2x3+canopi2x3+mur2x3+demimurA2x3+barredmA2x3+demimurB2x3+barredmB2x3)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure2x3perso+canopi2x3perso+mur2x3perso+demimurA2x3perso+barredmA2x3perso+demimurB2x3perso+barredmB2x3perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == 'sans option') )
 	{cena = (structure2x3+canopi2x3+mur2x3)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == 'sans option') )
-	{cena = (structure2x3perso+canopi2x3perso+mur2x3perso)*1.5*ilosc;}		
+	{cena = (structure2x3perso+canopi2x3perso+mur2x3perso)*1.5*ilosc;}
 }
 
 if ($('input_taille').value == '3x3') {
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x3+canopi3x3+mur3x3+demimurA3x3+barredmA3x3)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x3perso+canopi3x3perso+mur3x3perso+demimurA3x3perso+barredmA3x3perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure3x3+canopi3x3+mur3x3+demimurA3x3+barredmA3x3+demimurB3x3+barredmB3x3)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure3x3perso+canopi3x3perso+mur3x3perso+demimurA3x3perso+barredmA3x3perso+demimurB3x3perso+barredmB3x3perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == 'sans option') )
 	{cena = (structure3x3+canopi3x3+mur3x3)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == 'sans option') )
-	{cena = (structure3x3perso+canopi3x3perso+mur3x3perso)*1.5*ilosc;}		
+	{cena = (structure3x3perso+canopi3x3perso+mur3x3perso)*1.5*ilosc;}
 }
 
 
 if ($('input_taille').value == '3x4') {
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x4+canopi3x4+mur3x4+demimurA3x4+barredmA3x4)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x4perso+canopi3x4perso+mur3x4perso+demimurA3x4perso+barredmA3x4perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure3x4+canopi3x4+mur3x4+demimurA3x4+barredmA3x4+demimurB3x4+barredmB3x4)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure3x4perso+canopi3x4perso+mur3x4perso+demimurA3x4perso+barredmA3x4perso+demimurB3x4perso+barredmB3x4perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == 'sans option') )
 	{cena = (structure3x4+canopi3x4+mur3x4)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == 'sans option') )
-	{cena = (structure3x4perso+canopi3x4perso+mur3x4perso)*1.5*ilosc;}		
+	{cena = (structure3x4perso+canopi3x4perso+mur3x4perso)*1.5*ilosc;}
 }
 
-	
+
 if ($('input_taille').value == '3x6') {
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x6+canopi3x6+mur3x6+demimurA3x6+barredmA3x6)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x6perso+canopi3x6perso+mur3x6perso+demimurA3x6perso+barredmA3x6perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure3x6+canopi3x6+mur3x6+demimurA3x6+barredmA3x6+demimurB3x6+barredmB3x6)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure3x6perso+canopi3x6perso+mur3x6perso+demimurA3x6perso+barredmA3x6perso+demimurB3x6perso+barredmB3x6perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == 'sans option') )
 	{cena = (structure3x6+canopi3x6+mur3x6)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == 'sans option') )
-	{cena = (structure3x6perso+canopi3x6perso+mur3x6perso)*1.5*ilosc;}		
-}	
+	{cena = (structure3x6perso+canopi3x6perso+mur3x6perso)*1.5*ilosc;}
+}
 
 
 if ($('input_taille').value == '4x6') {
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure4x6+canopi4x6+mur4x6+demimurA4x6+barredmA4x6)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure4x6perso+canopi4x6perso+mur4x6perso+demimurA4x6perso+barredmA4x6perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure4x6+canopi4x6+mur4x6+demimurA4x6+barredmA4x6+demimurB4x6+barredmB4x6)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == '2x Demi-mur') )
 	{cena = (structure4x6perso+canopi4x6perso+mur4x6perso+demimurA4x6perso+barredmA4x6perso+demimurB4x6perso+barredmB4x6perso)*1.5*ilosc;}
-	
+
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == 'sans option') )
 	{cena = (structure4x6+canopi4x6+mur4x6)*1.6*ilosc;}
 	if ( ($('input_couleur').value == 'Personnalisé') && ($('input_option').value == 'sans option') )
-	{cena = (structure4x6perso+canopi4x6perso+mur4x6perso)*1.5*ilosc;}		
-}	
-	
-	
+	{cena = (structure4x6perso+canopi4x6perso+mur4x6perso)*1.5*ilosc;}
+}
+
+
 	///maquette///
 	if ($('input_maquette').value == 'fb') {maquette=39; cena+=maquette; opis += '<br />- France banderole crée la maquette';}
     if ($('input_maquette').value == 'user') {opis += '<br />- j’ai déjà crée la maquette';}
@@ -449,16 +358,16 @@ if ($('input_taille').value == '4x6') {
             cena-= cena*3/100;
           }
           ////fin d'options///
-		  
-		  
-		  
-		  
+
+
+
+
 ////reszta
-	
-	
+
+
 	cenapojedyncza = cena;
 
-       
+
 
 
 
@@ -809,8 +718,8 @@ if ($('input_taille').value == '4x6') {
                         newtotal.innerHTML=suma2+' &euro;';
                       }}
 
-                      
 
+											
 
 
                       var rodzaj = "Tente";
@@ -821,7 +730,7 @@ if ($('input_taille').value == '4x6') {
                       dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 
-                  
+
                   }
                 });
 

@@ -5,9 +5,9 @@
   <div class="form-all">
     <ul class="form-section">
       <li class="form-line" id="id_1">
-        <label class="form-label-left" id="label_1" for="input_1">grammage:</label>
+
         <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">choisir l'épaisseur...</option>
           <option value="Cartes 350g">350g</option>
           <option value="Cartes 270µ">Indéchirable 270µ</option>
           <option value="Cartes 350µ">Indéchirable 350µ</option>
@@ -15,36 +15,36 @@
       </li>
 
       <li class="form-line" id="id_21">
-        <label class="form-label-left" id="label_21" for="input_21">format:</label>
+
         <select class="form-dropdown validate[required]" id="input_21" name="q21_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">choisir le format...</option>
           <option value="1">Recto (85 mm x 54 mm) </option>
           <option value="2">Recto/Verso (85 mm x 54 mm) </option>
         </select>
       </li>
 
       <li class="form-line" id="id_22">
-        <label class="form-label-left" id="label_22" for="input_22">format:</label>
+
         <select class="form-dropdown validate[required]" id="input_22" name="q22_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">choisir le format...</option>
           <option value="1">Recto (85 mm x 54 mm) </option>
           <option value="2">Recto/Verso (85 mm x 54 mm) </option>
         </select>
       </li>
 
       <li class="form-line" id="id_23">
-        <label class="form-label-left" id="label_23" for="input_23">format:</label>
+
         <select class="form-dropdown validate[required]" id="input_23" name="q23_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">choisir le format...</option>
           <option value="1">Recto (85 mm x 54 mm) </option>
           <option value="2">Recto/Verso (85 mm x 54 mm) </option>
         </select>
       </li>
 
       <li class="form-line" id="id_3">
-        <label class="form-label-left" id="label_3" for="input_3">type de papier:</label>
+
         <select class="form-dropdown validate[required]" id="input_3" name="q3_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">choisir le type de papier...</option>
           <option value="1">Couché Brillant </option>
           <option value="2">Couché Satiné</option>
           <option value="3">Couché Mat</option>
@@ -52,18 +52,18 @@
       </li>
 
       <li class="form-line" id="id_4">
-        <label class="form-label-left" id="label_4" for="input_4">maquette:</label>
+
         <select class="form-dropdown validate[required]" id="input_4" name="q4_maquette4" onchange="JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">fichier d'impression...</option>
           <option value="fb">France banderole crée la maquette</option>
           <option value="user">j’ai déjà crée la maquette </option>
         </select>
       </li>
 
       <li class="form-line" id="id_5">
-        <label class="form-label-left" id="label_5" for="input_5">quantité:</label>
+
         <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
-          <option value="">choisir...</option>
+          <option value="">quantité...</option>
           <option value="100">100 </option>
           <option value="250">250 </option>
           <option value="500">500 </option>
@@ -73,7 +73,7 @@
         </select>
       </li>
 
-      <li id="id_101" class="form-line optionsformline">
+      <li id="id_101" class="form-line optionsformlineOld">
         <span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
         <span class="options_single">
           <span class="optionsright"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span></span></span>
@@ -86,23 +86,21 @@
         </span>
 
         <span class="options_single">
-          <span class="optionsleft"><label class="form-label-left" id="label_economique" for="economique">Délai économique</label><input type="checkbox" class="form-checkbox" id="economique" name="economique[]" value="" onchange="JKakemono.rushcheckboxeconomique();; JKakemono.czyscpola(); "><span class="helpButton" onmouseover="pokazt('helpTextRush72');" onmouseout="ukryjt('helpTextRush72');"><span class="helpText" id="helpTextRush72" style="visibility: hidden;">Vous n’êtes pas pressé et souhaitez économiser 30%, vos délais de livraison seront de 6 à 8 jours ouvrés.</span></span><br><span class="floatLeft">(6 à 8 jours ouvrés)</span></span>
+          <span class="optionsleft"><label class="form-label-left" id="label_economique" for="economique">Délai économique 6 à 8 jours ouvrés</label><input type="checkbox" class="form-checkbox" id="economique" name="economique[]" value="" onchange="JKakemono.rushcheckboxeconomique();; JKakemono.czyscpola(); "><span class="helpButton" onmouseover="pokazt('helpTextRush72');" onmouseout="ukryjt('helpTextRush72');"><span class="helpText" id="helpTextRush72" style="visibility: hidden;">Vous n’êtes pas pressé et souhaitez économiser 30%, vos délais de livraison seront de 6 à 8 jours ouvrés.</span></span></span>
           <span class="optionsright"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onchange="JKakemono.relaisColischeckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
         </span>
 
-        <div class="break-line"></div>
 
-        <span class="options_single marginTop">
-          <span class="optionsleft livraison-gratuite">
-            <img src="http://www.france-banderole.com/img/star2.png" alt="fedex" class="starImg" />
-            <label class="form-label-left" id="label_fedex" for="fedex">Livraison gratuite<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 à 9 jours</label>
+        <span class="options_single">
+          <span class="optionsleft">
+            <label class="form-label-left" id="label_fedex" for="fedex">Livraison gratuite 7 à 9 jours</label>
             <input type="checkbox" class="form-checkbox" id="fedex" name="fedex[]" value="" onchange=" JKakemono.czyscpola(); " />
             <span class="helpButton" onmouseover="pokazt('helpTextfedex');" onmouseout="ukryjt('helpTextfedex');">
               <span class="helpText" id="helpTextfedex" style="visibility:hidden;">Livraison gratuite en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span>
             </span>
           </span>
           <span class="optionsright">
-            <label class="form-label-left" id="label_tnt" for="tnt">Livraison payante &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br> 4 à 7 jours</label>
+            <label class="form-label-left" id="label_tnt" for="tnt">Livraison payante 4 à 7 jours</label>
             <input type="checkbox" class="form-checkbox" id="tnt" name="tnt[]" value="" onchange=" JKakemono.czyscpola(); " />
             <span class="helpButton" onmouseover="pokazt('helpTexttnt');" onmouseout="ukryjt('helpTexttnt');">
               <span class="helpText" id="helpTexttnt" style="visibility:hidden;">Livraison payante en 4 à 7 jours ouvrés (non compatible avec un colis hors-norme*)</span>
@@ -114,7 +112,7 @@
       <li class="form-line" id="id_26a" style="margin-top: 33px;">
         <div class="form-input-wide">
           <div id="form-button-error2"></div>
-          <button id="input_26" type="submit" class="form-submit-button">Submit Form</button>
+          <button id="input_26" type="submit" class="form-submit-button"><i class="fa fa-calculator" aria-hidden="true"></i> Calculer</button>
         </div>
       </li>
       <li style="display:none">

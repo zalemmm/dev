@@ -12,17 +12,17 @@
 	</head>
 
 	<body>
-		<!-- Element (obligatoire) à définir pour afficher la liste de relais -->
+		<!-- Element (obligatoire) ï¿½ dï¿½finir pour afficher la liste de relais -->
 		<div id="tntB2CRelaisColis" class="exemplePresentation"></div>
 
-		<!-- Element (optionel) à définir pour afficher une Google Map associée à la liste de relais
-			 Note: les propriétés de css "width" et "height" doivent obligatoirement être définis dans 
-			 l'attribut "style", sinon la carte ne s'affichera pas   
+		<!-- Element (optionel) ï¿½ dï¿½finir pour afficher une Google Map associï¿½e ï¿½ la liste de relais
+			 Note: les propriï¿½tï¿½s de css "width" et "height" doivent obligatoirement ï¿½tre dï¿½finis dans
+			 l'attribut "style", sinon la carte ne s'affichera pas
 		-->
-		<div id="map_canvas" class="exemplePresentation" style="width: 482px; height: 482px"></div>
-		
+		<div id="map_canvas" class="exemplePresentation"></div>
+
 <!-- 	EXEMPLE INTEGRATEUR (enlever la mise en commentaires) -->
-<!-- 
+<!--
 		<div style="text-align: justify; font-family: arial,helvetica,sans-serif; font-size: 10pt; width: 600px;">
 			<div style="height: 25px;">&nbsp;</div>
 			<a href="#" onclick="$('#exempleIntegration').slideToggle('fast');" style="text-decoration: none; vertical-align: middle; color:#b1b2b4; font-weight:bold;">
@@ -31,25 +31,25 @@
 			<div id="exempleIntegration">
 				<script type="text/javascript">
 					/**
-					 * Exemple de fonction de callback suite à la sélection d'un Relais Colis
-					 * Lorsque cette fonction est définie, un lien "Choisir ce relais" apparaît
+					 * Exemple de fonction de callback suite ï¿½ la sï¿½lection d'un Relais Colis
+					 * Lorsque cette fonction est dï¿½finie, un lien "Choisir ce relais" apparaï¿½t
 					 * en plus dans la popup d'un marqueur sur la carte Google pour l'appeler.
 					 */
 				  	function callbackSelectionRelais() {
-				  		
-				  		// Récupération des informations
+
+				  		// Rï¿½cupï¿½ration des informations
 				  		var codeRelais = $("#tntRCSelectedCode").val();
 			  			var nom = $("#tntRCSelectedNom").val();
 			  			var adresse = $("#tntRCSelectedAdresse").val();
 			  			var codePostal = $("#tntRCSelectedCodePostal").val();
 			  			var commune = $("#tntRCSelectedCommune").val();
-				  			
+
 				  		if (!codeRelais || codeRelais == "") {
-				  			alert("Aucun relais n'a été sélectionné !");
+				  			alert("Aucun relais n'a ï¿½tï¿½ sï¿½lectionnï¿½ !");
 				  		}
 				  		else {
-				  			alert("Info relais sélectionné"+
-				  				  "\nCode\t\t: " + codeRelais + 
+				  			alert("Info relais sï¿½lectionnï¿½"+
+				  				  "\nCode\t\t: " + codeRelais +
 				  				  "\nNom\t\t: " + nom +
 				  				  "\nAdresse\t\t: " + adresse +
 				  				  "\nCode postal\t: " + codePostal +
@@ -63,6 +63,6 @@
 				<script type="text/javascript">$('#exempleIntegration').hide()</script>
 			</div>
 		</div>
- --> 
+ -->
 	</body>
 </html>
