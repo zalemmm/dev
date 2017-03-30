@@ -1537,12 +1537,12 @@ function get_verification() {
 			$user = $_SESSION['loggeduser'];
 			//echo "1///Session=";print_r($_SESSION);
 			//echo "2///User=";print_r($user);
-			$prolog .= '<div class="address_tab_name">VOTRE COMMANDE:</div>';
-			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"></a>';
+			$prolog .= '<div class="acces_tab_name_devis">VOTRE COMMANDE</div>';
+			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
 			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
-			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION:</div>';
+			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION</div>';
 			$explode = explode('|', $user->f_address);
 			$f_address = $explode['0'];
 			$f_porte = $explode['1'].'<br />';

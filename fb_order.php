@@ -1059,7 +1059,7 @@ function print_status_form($status, $cmd) {
 		$formatted .= 'cloturé';
 	}
 	if ($status == 6) {
-		$formatted .= 'annulées';
+		$formatted .= 'annulé';
 	}
 	if ($status == 7) {
 		$formatted .= 'paiement en traitement';
@@ -1089,7 +1089,7 @@ function print_status($status) {
 		$formatted .= 'cloturé';
 	}
 	if ($status == 6) {
-		$formatted .= 'annulées';
+		$formatted .= 'annulé';
 	}
 	if ($status == 7) {
 		$formatted .= 'paiement en traitement';
