@@ -1774,7 +1774,12 @@ function get_devis() {
  		if($relais_colis !== false){
 			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
-			$epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+      // utiliser une de ces deux lignes pour ajouter ou supprimer l'étape de validation supplémentaire du panier: 1 pour validation rapide, 2 pour vérification panier
+
+      //1 $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+      //2 $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+
+			$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}
 	}
 	$epilog .= '</div>';
