@@ -101,8 +101,6 @@
 	</form>
 
 
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
 	<script type="text/javascript">
 	$("#preview_imag").attr("href", "http://www.web-design-weekly/");
 	$( "#preview_imag a" ).prop( "href", "allMyHrefsAreTheSameNow.html" );
@@ -511,7 +509,7 @@ jQuery(document).ready(function(){
 
 
 
-
+							
 							// Calculate Days
 							var prod_first_val  = parseInt(production[0]);
 							var prod_second_val = parseInt(production[2]);

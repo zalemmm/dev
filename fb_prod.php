@@ -53,15 +53,16 @@ if (is_page('votre-panier')){
 	}
 }
 
-
-	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('PVC-300-microns')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
+// feuilles de styles particulières à chaque page
+/*	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('PVC-300-microns')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
 	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/roll.css?v26032013" type="text/css" media="all" />';
 }
 
 Else {
 	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/style.css?v26032013" type="text/css" media="all" />';
-}
-	echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
+}*/
+
+echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
 
 if (is_page('cadre-exterieur-bache')) {
 echo '
