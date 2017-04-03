@@ -5,7 +5,9 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">
+            • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />• <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>• <u><b>Kakemono Extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />• <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.
+          </span></span>
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();  ">
             <option class="titre" value="">choisir le type...</option>
             <option class="option1"  value="blizzard">Kakemono Extérieur Blizzard </option>
@@ -16,7 +18,9 @@
         </li>
 
         <li class="form-line" id="id_32">
-          <span class="helpButton" onmouseover="pokazt('helpText32');" onmouseout="ukryjt('helpText32');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText32');" onmouseout="ukryjt('helpText32');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32" style="visibility:hidden;">
+            • <u><b>Choisissez la taille des X-screen</u>:</b><br/>Définissez la largeur et hauteur de vos X-Banner. 60x160cm ou 80x180cm
+          </span></span>
           <select class="form-dropdown validate[required]" id="input_32" name="q32_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille...</option>
             <option class="option1" value="60x160">60x160 cm </option>
@@ -25,7 +29,9 @@
         </li>
 
         <li class="form-line" id="id_33">
-          <span class="helpButton" onmouseover="pokazt('helpText33');" onmouseout="ukryjt('helpText33');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText33" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText33');" onmouseout="ukryjt('helpText33');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText33" style="visibility:hidden;">
+              • <u><b>Choisissez la taille du Clip'It</u>:</b><br/>Choisissez la largeur du clip'it suspendu puis, définissez la hauteur voulue. les clip'it sont livrés en standard avec 1 mètre de fil nylon transparent et des crochets pour réaliser vos suspensions.
+          </span></span>
           <select class="form-dropdown validate[required]" id="input_33" name="q33_dimensions" onclick="JKakemono.czyscpola(); ">
             <option class="option1" value="">choisir la taille...</option>
             <option class="option2" value="60x100">60x100 cm </option>
@@ -56,7 +62,9 @@
         </li>
 
         <li class="form-line" id="id_34">
-          <span class="helpButton" onmouseover="pokazt('helpText34');" onmouseout="ukryjt('helpText34');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText34" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText34');" onmouseout="ukryjt('helpText34');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText34" style="visibility:hidden;">
+            • <u><b>Choisissez la taille du Ext. Blizzard</u>:</b><br/>60x160cm ou 80x200cm
+          </span></span>
           <select class="form-dropdown validate[required]" id="input_34" name="q34_dimensions34" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille...</option>
             <option class="option1" value="60x160">60x160 cm </option>
@@ -316,7 +324,7 @@
           dodatkowaopcja='<br />- '+$('input_16').value;
         }
         if ($('input_1').value == 'x-screen') {
-			
+
           if ($('input_32').value == '60x160') {
             cena=34;
             ktorytyp=$('input_32').value;
@@ -340,7 +348,7 @@
           	}
           	dodatkowaopcja='<br />- '+$('input_51').value;
 		  }
-		  
+
         }
         if ($('input_1').value == 'clipit') {
           if ($('input_33').value == '60x100') {

@@ -125,7 +125,7 @@
 
       <li class="form-line" id="id_5">
         <label class="form-label-left" id="label_5" for="input_5">quantité :<br /><span class="small">(par visuel)</span></label>
-        <img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogationbis.png">
+
         <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
           <option value="">choisir...</option>
           <option value="10">10 </option>
@@ -169,7 +169,7 @@
         </span>
 
         <div class="break-line"></div>
-        
+
         <span class="options_single marginTop">
           <span class="optionsleft livraison-gratuite">
             <img src="http://www.france-banderole.com/img/star2.png" alt="fedex" class="starImg" />

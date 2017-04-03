@@ -1750,14 +1750,17 @@ function get_devis() {
 	$products = $_SESSION['fbcart'];
 	$prolog = '<h1 class="noprint">Votre devis: Inscription</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
+
 	if (is_cart_not_empty()) {
 		$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :</div>';
 	}
 	$epilog = '<div id="fbcart_buttons" class="noprint">';
+
 	if (is_cart_not_empty()) {
 		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"><i class="fa fa-times-circle" aria-hidden="true"></i>
  Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	}
+
 		if($_SESSION['isburaliste']){
 			$lien_catalogue = get_bloginfo("url") . "/buralistes";
 		}
@@ -1767,19 +1770,25 @@ function get_devis() {
 			$lien_catalogue = get_bloginfo("url") . "#tarifs";
 		}
 	/*$epilog .= '<a href="'.get_bloginfo("url").'#tarifs" id="but_ajouter"></a>';*/
+
 	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>';
+
 	if (is_cart_not_empty()) {
 		//$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  		if($relais_colis !== false){
 			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
-      // utiliser une de ces deux lignes pour ajouter ou supprimer l'étape de validation supplémentaire du panier: 1 pour validation rapide, 2 pour vérification panier
+      // soit l'utilisateur est connecté et il enregistre son panier directement(1),
+      // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2) :
+      //1 $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+      //2 $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+      if (!empty($_SESSION['loggeduser'])) {
+        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+      }else{
+        $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Se connecter et enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+      }
 
-      //1 $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
-      //2 $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
-
-			$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}
 	}
 	$epilog .= '</div>';
@@ -1952,7 +1961,7 @@ function get_plv() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_plv";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
+	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
 	/* $view .= '<div id="top_images">
 	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
 	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
@@ -2108,7 +2117,7 @@ function get_plv_int() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_plv_int";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
+	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
 	/* $view .= '<div id="top_images">
 	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
 	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>

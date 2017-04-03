@@ -125,7 +125,6 @@
 
       <li class="form-line" id="id_5">
 
-        <img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogationbis.png">
         <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
           <option value="">quantité...</option>
           <option value="10">10 </option>
