@@ -14,7 +14,7 @@ function fb_admin_init() {
 
     add_action('admin_menu', 'fbs_admin_menu');
     add_action('admin_head', 'fbs_admin_head');
-    
+
 
 $resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
 $existsaddcolumn = (mysqli_num_rows($resultaddcolumn)?true:false);
