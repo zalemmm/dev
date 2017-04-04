@@ -2616,7 +2616,7 @@ cal_oriflamme: function(){
 //////PARAPLUIE/////
 cal_parapluie: function(){
 
-	
+
 },
 //////FIN PARAPLUIE/////
 

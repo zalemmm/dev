@@ -245,7 +245,7 @@ function get_inscription() {
 			<div class="acces_tab_content2" style="margin-bottom:6px">
         	<ul class="regiform2">
             	<li class="form-line" id="id_30">
-            	    <label class="registerlabel" id="label_30" for="cl_group">vous êtes un... ?</label>
+            	    <label class="registerlabel" id="label_30" for="cl_group">vous êtes un(e)... ?</label>
             	    <select class="registerinput validate[required]" id="cl_group" name="f_group" onchange="champsReq();" />';
 		if($user_groupe->att_value == 'PART') {
 			$view .= '<option value="PART" selected>Particulier</option>';
@@ -389,9 +389,9 @@ function get_inscription() {
         	<ul class="regiform">
             <li class="form-line" id="id_20">
             	<div class="antiSpam">
-				ANTI-SPAM, merci de cocher la case ci-dessous:<br/>
-               <div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>
-                </div>
+								ANTI-SPAM, merci de cocher la case ci-dessous:<br/>
+               	<div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>
+              </div>
             </li>';
 
 

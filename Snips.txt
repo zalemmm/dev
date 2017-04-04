@@ -75,3 +75,6 @@ jQuery(document).ready(function ($) {
       });
   });
 });
+
+// iphone tooltip qui ne se ferment pas: à ajouter à un élément parent (page)
+ onclick="void(0)"
