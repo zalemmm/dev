@@ -14,7 +14,7 @@ function fb_admin_init() {
 
     add_action('admin_menu', 'fbs_admin_menu');
     add_action('admin_head', 'fbs_admin_head');
-
+    
 
 $resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
 $existsaddcolumn = (mysqli_num_rows($resultaddcolumn)?true:false);
@@ -73,7 +73,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 		<div id="rating_livre">
 			<div id="vosavis"></div>';
 
-		$view .= '<div id="rating_general" style="text-align: center; font-size: 18px;"><h2>Vos avis :</h2>';
+		$view .= '<div id="rating_general"><h2>Vos avis :</h2>';
 		$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
 		$strmoyenne1 = $notation->note;
 		// $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
@@ -2227,8 +2227,8 @@ if (isset($_POST['pokaztab'])) {
 
 
 function fbs_admin_head() {
-	echo '<link rel="stylesheet" href="//dev.france-banderole.com/wp-content/plugins/fbshop/admin.css" type="text/css" />';
-	echo '<link rel="stylesheet" type="text/css" media="print" href="//dev.france-banderole.com/wp-content/plugins/fbshop/admin_print.css" />';
+	echo '<link rel="stylesheet" href="//www.france-banderole.com/wp-content/plugins/fbshop/admin.css" type="text/css" />';
+	echo '<link rel="stylesheet" type="text/css" media="print" href="//www.france-banderole.com/wp-content/plugins/fbshop/admin_print.css" />';
 	if (isset($_GET['fbdet'])) {
 /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
 	}
@@ -2260,7 +2260,7 @@ if (isset($_POST['fb_editmail'])) {
 	$simplemail = $wpdb->get_row("SELECT * FROM `$fb_tablename_mails` WHERE id = '$ident'");
 	echo '<form name="editmail" id="editmail" action="" method="post"><input type="hidden" name="editmail" value="'.$simplemail->id.'" />';
 	echo '<p>Topic: <input type="text" name="nmail_topic" value="'.stripslashes($simplemail->topic).'" /></p>';
-	echo '<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor().panelInstance(\'incon\');
@@ -2275,7 +2275,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new:</span></h3><div class="inside">';
 	echo '<form name="newmail" id="newmail" action="" method="post"><input type="hidden" name="addmail" />';
 	echo '<p>Topic: <input type="text" name="mail_topic" /></p>';
-	echo '<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor().panelInstance(\'incon\');
@@ -2365,7 +2365,7 @@ if (isset($_POST['fb_editmail'])) {
 	$simplemail = $wpdb->get_row("SELECT * FROM `$fb_tablename_topic` WHERE id = '$ident'");
 	echo '<form name="editmail" id="editmail" action="" method="post"><input type="hidden" name="editmail" value="'.$simplemail->id.'" />';
 	echo '<p>Topic: <input type="text" name="nmail_topic" value="'.stripslashes($simplemail->topic).'" /></p>';
-	echo '<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor().panelInstance(\'incon\');
@@ -2381,7 +2381,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new:</span></h3><div class="inside">';
 	echo '<form name="newmail" id="newmail" action="" method="post"><input type="hidden" name="addmail" />';
 	echo '<p>Topic: <input type="text" name="mail_topic" /></p>';
-	echo '<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor().panelInstance(\'incon\');
@@ -3344,7 +3344,7 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
 	?>
 
 
-		<script type="text/javascript" src="//dev.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+		<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor().panelInstance('incon2');
@@ -3549,7 +3549,7 @@ if($order->status==4){
 	echo $select_pre.$select_inter.$select_post;
 	echo '</select><input type="submit" value="SAVE" class="savebutt2" /></form></div>';
 // wysylanie plikow
-	echo '<div class="statusp2">Upload <a href="//dev.france-banderole.com/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
+	echo '<div class="statusp2">Upload <a href="//www.france-banderole.com/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
 	if(file_exists($name))
