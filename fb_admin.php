@@ -9,41 +9,40 @@ include_once("class/PHPExcel.php");
 //include_once("class/html2pdf/html2pdf.class.php");
 
 function fb_admin_init() {
-    global $wpdb;
-    $prefix = $wpdb->prefix;
+  global $wpdb;
+  $prefix = $wpdb->prefix;
 
-    add_action('admin_menu', 'fbs_admin_menu');
-    add_action('admin_head', 'fbs_admin_head');
+  add_action('admin_menu', 'fbs_admin_menu');
+  add_action('admin_head', 'fbs_admin_head');
 
-
-$resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
-$existsaddcolumn = (mysqli_num_rows($resultaddcolumn)?true:false);
-if(!$existsaddcolumn) {
-	$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
-    $wpdb->query($sql);
-}
+  $resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
+  $existsaddcolumn = (mysqli_num_rows($resultaddcolumn)?true:false);
+  if(!$existsaddcolumn) {
+  	$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
+      $wpdb->query($sql);
+  }
     //$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` IF NOT EXISTS `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
-
 }
+
 function fbs_admin_menu() {
-    add_menu_page('FB Shop', 'FB Shop', 1, 'fbsh', 'fb_admin_sales');
-    add_submenu_page('fbsh', 'Sales', 'Sales', 1, 'fbsh', 'fb_admin_sales');
-    add_submenu_page('fbsh', 'Sales', 'Old Sales', 1, 'fbsho', 'fb_admin_sales_old');
-    add_submenu_page('fbsh', 'Promotions', 'Promotions', 10, 'fb-promotions', 'fb_admin_promotions');
-    add_submenu_page('fbsh', 'PLV Managemenet', 'PLV Managemenet', 1, 'fb-plv', 'fb_admin_plv');
-	add_submenu_page('fbsh', 'PLV Int', 'PLV Int', 1, 'fb-plv_int', 'fb_admin_plv_int');
+  add_menu_page('FB Shop', 'FB Shop', 1, 'fbsh', 'fb_admin_sales');
+  add_submenu_page('fbsh', 'Sales', 'Sales', 1, 'fbsh', 'fb_admin_sales');
+  add_submenu_page('fbsh', 'Sales', 'Old Sales', 1, 'fbsho', 'fb_admin_sales_old');
+  add_submenu_page('fbsh', 'Promotions', 'Promotions', 10, 'fb-promotions', 'fb_admin_promotions');
+  add_submenu_page('fbsh', 'PLV Managemenet', 'PLV Managemenet', 1, 'fb-plv', 'fb_admin_plv');
+  add_submenu_page('fbsh', 'PLV Int', 'PLV Int', 1, 'fb-plv_int', 'fb_admin_plv_int');
 	add_submenu_page('fbsh', 'Buraliste Managemenet', 'Buraliste Managemenet', 1, 'fb-buraliste', 'fb_admin_buraliste');
-    add_submenu_page('fbsh', 'Accesoires Managemenet', 'Accesoires Managemenet', 1, 'fb-acc', 'fb_admin_acc');
+  add_submenu_page('fbsh', 'Accesoires Managemenet', 'Accesoires Managemenet', 1, 'fb-acc', 'fb_admin_acc');
 	add_submenu_page('fbsh', 'MMA', 'MMA', 1, 'fb-mma', 'fb_admin_mma');
 	add_submenu_page('fbsh', 'Accesoires2', 'Accesoires2', 1, 'fb-acc2', 'fb_admin_acc2');
-    add_submenu_page('fbsh', 'Last Comments', 'Last Comments', 1, 'fb-comments', 'fb_admin_ncomments');
-    add_submenu_page('fbsh', 'Mails', 'Mails', 1, 'fb-mails', 'fb_admin_mails');
-    add_submenu_page('fbsh', 'Users', 'Users', 1, 'fb-users', 'fb_admin_users2');
-    add_submenu_page('fbsh', 'Comments Topics', 'Comments Topics', 1, 'fb-topic', 'fb_admin_topic');
-    add_submenu_page('fbsh', 'Ratings', 'Ratings', 1, 'fb-ratings', 'fb_admin_rating');
-    add_submenu_page('fbsh', 'Reponses', 'Reponses', 1, 'fb-ratings-comments', 'fb_admin_ratings_comments');
-    add_submenu_page('fbsh', 'Reports', 'Reports', 1, 'fb-reports', 'fb_admin_reports');
-    add_submenu_page('fbsh', 'User Reports', 'User Reports', 1, 'fb-reports-users', 'fb_admin_reports_users');
+  add_submenu_page('fbsh', 'Last Comments', 'Last Comments', 1, 'fb-comments', 'fb_admin_ncomments');
+  add_submenu_page('fbsh', 'Mails', 'Mails', 1, 'fb-mails', 'fb_admin_mails');
+  add_submenu_page('fbsh', 'Users', 'Users', 1, 'fb-users', 'fb_admin_users2');
+  add_submenu_page('fbsh', 'Comments Topics', 'Comments Topics', 1, 'fb-topic', 'fb_admin_topic');
+  add_submenu_page('fbsh', 'Ratings', 'Ratings', 1, 'fb-ratings', 'fb_admin_rating');
+  add_submenu_page('fbsh', 'Reponses', 'Reponses', 1, 'fb-ratings-comments', 'fb_admin_ratings_comments');
+  add_submenu_page('fbsh', 'Reports', 'Reports', 1, 'fb-reports', 'fb_admin_reports');
+  add_submenu_page('fbsh', 'User Reports', 'User Reports', 1, 'fb-reports-users', 'fb_admin_reports_users');
 	add_submenu_page('fbsh', 'adresse mail01', 'adresse mail01', 1, 'fb-adresse-mail01', 'fb_admin_adresse_mail01');
 	add_submenu_page('fbsh', 'Expédition Commandes', 'Expédition Commandes', 1, 'fb-expedition', 'fb_admin_expedition');
 	add_submenu_page('fbsh', 'Groupes clients', 'Groupes clients', 1, 'fb_manage_groupes', 'fb_groupes');
@@ -140,13 +139,11 @@ function get_ratings($type_prod, $nb_comment=2) {
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
 			$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
-	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
+	    <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 			} else {
 			$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
-	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
+	    <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 			}
-
-
 
 		endforeach;
 

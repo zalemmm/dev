@@ -43,16 +43,16 @@ function passage_paiement_recu(){
 function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){
 		global $wpdb;
 		/* Nouveau statut à 3 (traitement)*/
-        $newstat = '3';
+    $newstat = '3';
 		$nowadata = date('Y-m-d H:i:s');
 		$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
 
 
-        /* Nouveau mode de paiement */
+    /* Nouveau mode de paiement */
 		$newplat = addslashes($_POST['modpaiement']);
 		$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET payment='$newplat' WHERE unique_id='$number'");
 
-        /* ENVOI du commentaire "RECU PAIEMENT XXX*/
+    /* ENVOI du commentaire "RECU PAIEMENT XXX*/
 		$wheresql = "RECU PAIEMENT ";
         if($newplat=="cheque") $wheresql .= "CHEQUE";
         if($newplat=="carte") $wheresql .= "CB";
@@ -145,6 +145,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$type_expedition = "";
 		$wheresql = "0";
 		$adresse_relais_colis ="";
+		$unique_id_commande_tmp = $number;
 		$reqtype_expedition = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number'");
 
 			foreach ($reqtype_expedition as $single) :
@@ -191,37 +192,32 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 			$numberTNT_commande = $wpdb->get_row("SELECT tnt FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 			if($numberTNT_commande->tnt !="" && (strtolower($type_expedition) == 'tnt' || $type_expedition == 'relais') ){
 				$adresse_relais_colis .='
-
-	Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
-	http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport='.$numberTNT_commande->tnt.'&radiochoixtypeexpedition=NAT
-	';
+			Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
+			http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport='.$numberTNT_commande->tnt.'&radiochoixtypeexpedition=NAT
+			';
 			}elseif($numberTNT_commande->tnt !="" && strtolower($type_expedition) == 'fedex'){
 				$adresse_relais_colis .='
-
-	Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
-	https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$number.'
-
-	Nous vous invitons à vous rapprocher de FEDEX en cas d\'anomalie ou de problème d\'adresse en contactant directement le 0820 123 800 et en donnant le numéro de suivi suivant:
-
-'.$number.'
-
-';
+			Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
+			https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$number.'
+			Nous vous invitons à vous rapprocher de FEDEX en cas d\'anomalie ou de problème d\'adresse en contactant directement le 0820 123 800 et en donnant le numéro de suivi suivant:
+			'.$number.'
+			';
 			}
 
 		}
 
 
 		/* Nouveau statut à 4 (expedie)*/
-        $newstat = '4';
+    $newstat = '4';
 		$nowadata = date('Y-m-d H:i:s');
 		$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat ), array ( 'unique_id' => $number ) );
 
 
-        /* ENVOI du commentaire d'expedition */
+    /* ENVOI du commentaire d'expedition */
 		//$wheresql = "COLIS RELAIS COLIS";
 
-        $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
-        if ($topics) {
+    $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
+    if ($topics) {
 			foreach ($topics as $t) :
 				$cont = stripslashes($t[content]);
 				$cont= htmlspecialchars($cont);
@@ -232,14 +228,15 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$tresc = $cont;
 		/* On remplace XXXXX dans le message par l'adresse du relais colis */
 		$tresc = str_replace("XXXXX",$adresse_relais_colis,$tresc);
+
 		if(strtolower($type_expedition) == 'fedex') $tresc = str_replace("YYYYY",$number,$tresc); else $tresc = str_replace("YYYYY",$numberTNT_commande->tnt,$tresc);
 		$temat = addslashes($topt);
 		$data = date('Y-m-d H:i:s');
-		$tresc = mysql_real_escape_string($tresc);
-		$number = mysql_real_escape_string($number);
-		$temat = mysql_real_escape_string($temat);
-		$data = mysql_real_escape_string($data);
-
+		$tresc = addslashes($tresc);
+		$number = addslashes($number);
+		$temat = addslashes($temat);
+		$data = addslashes($data);
+		$number = $unique_id_commande_tmp;
 		$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')");
 
 		$dodawanie_new = $wpdb->query("INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')");
@@ -250,10 +247,19 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 			$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')");
 		}
 
+		/*mail("contact@tempopasso.com", "REQUETES COMMENTAIRES=".stripslashes($temat), "REQUETES:".
+
+			"INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')".
+			"INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')".
+			"UPDATE `$fb_tablename_cf` SET value='fb' WHERE unique_id='".$number."' AND type='lastupdate'".
+			"INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')"
 
 
-        /* ENVOI de l'email "Paiement de votre commande"*/
-        $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
+
+													. stripslashes($zawar), $header);*/
+
+    /* ENVOI de l'email "Paiement de votre commande"*/
+    $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
 		foreach ($mails as $ma) :
 			$con = stripslashes($ma[content]);
 			$con = htmlspecialchars($con);
@@ -268,6 +274,8 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$con = str_replace("XXXXX",$adresse_relais_colis,$con);
 		$con = str_replace("YYYYY",$numberTNT_commande->tnt,$con);
 
+		/* On remplace 000000 dans le message par le numéro de commande */
+		str_replace("NNNNN",$order,"Nous avons bien reçu le paiement de votre commande n° NNNNN passée");
 
 
 
@@ -333,8 +341,11 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 				$topt = htmlspecialchars($topt);
 			endforeach;
 		}
-		$tresc = mysql_real_escape_string($cont);
-		$temat = mysql_real_escape_string($topt);
+		$tresc = addslashes($cont);
+		$temat = addslashes($topt);
+		//$tresc = $cont;
+		//$temat = $topt;
+
 		$data = date('Y-m-d H:i:s');
 		$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')");
 
@@ -348,8 +359,8 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 
 
 
-        /* ENVOI de l'email "Paiement de votre commande"*/
-        $wheresql = "VOTRE AVIS SUR FRANCE BANDEROLE";
+    /* ENVOI de l'email "Paiement de votre commande"*/
+    $wheresql = "VOTRE AVIS SUR FRANCE BANDEROLE";
 		$mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
 		foreach ($mails as $ma) :
 			$con = stripslashes($ma[content]);
@@ -452,6 +463,7 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 
 		//echo "MAIL=".$uzyt->email;
 		// EN PROD:
+		//mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar), $header);
 		mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
 		// EN DEV: mail("contact@tempopasso.com", stripslashes($temat), stripslashes($zawar), $header);
 
