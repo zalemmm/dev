@@ -93,7 +93,7 @@
         </li>
 
        <li id="id_16" class="form-line optionsformline">
-               <span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
+               <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
 
 				<span class="options_single">
 					<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>

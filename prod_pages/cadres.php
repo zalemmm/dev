@@ -370,7 +370,7 @@
 			
             
             <li id="id_7" class="form-line optionsformline">
-				<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
+				<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 				<span class="options_single">
 	
                 

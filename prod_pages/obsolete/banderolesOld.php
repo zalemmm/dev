@@ -369,7 +369,7 @@ h5 {
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " style="margin-left:18px"/>
 					<span style="color:#FF0000; font-size:12px;">M</span> <span class="heusepar" style="margin-left:50px;">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " style="top:12px; left:200px;" /><span style="color:#FF0000; font-size:12px; position:absolute; top:16px; left:255px">M</span> <span class="llar" style="margin-left:45px;">[hauteur]</span><span class="lhau" style="margin-left:50px;">[largeur]</span></li>
 					<li id="id_16" class="form-line optionsformline">
-						<span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
+						<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 
 						<span class="options_single">
 							<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>

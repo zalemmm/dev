@@ -274,8 +274,8 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$con = str_replace("XXXXX",$adresse_relais_colis,$con);
 		$con = str_replace("YYYYY",$numberTNT_commande->tnt,$con);
 
-		/* On remplace 000000 dans le message par le numéro de commande */
-		str_replace("NNNNN",$order,"Nous avons bien reçu le paiement de votre commande n° NNNNN passée");
+		/* On remplace NNNNN dans le message par le numéro de commande */
+		$con = str_replace("NNNNN",$order,$con);
 
 
 

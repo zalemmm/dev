@@ -221,7 +221,7 @@
 
 
 <li id="id_7" class="form-line optionsformline">
-  <span class="title">OPTIONS COMPLEMENTAIRES <span class="splitorhide">DISPONIBLES :</span> </span>
+  <span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
   <span class="options_single">
     <span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onchange="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
     <span class="optionsright"><label class="form-label-left" id="label_rush24" for="rush24">Production express</label><input type="checkbox" class="form-checkbox" id="rush24" name="rush24[]" value="" onchange="JKakemono.rushcheckbox24(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextRush24');" onmouseout="ukryjt('helpTextRush24');"><span class="helpText" id="helpTextRush24" style="visibility:hidden;">Pour toute commande passée et réglée avant midi, le colis sera livré 4 à 7 jours ouvrés par TNT Express à l’adresse indiquée par le client.</span></span></span>
