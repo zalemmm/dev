@@ -379,9 +379,9 @@ function get_details() {
 	}
 
 	if($need_act == 0) {
-		$prolog .= '<div class="box_info"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
+		$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
 	} else {
-		$prolog .= '<div class="box_warning"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_warning.png" /></td><td><p><strong>CETTE COMMANDE ATTEND DES RETOURS DE VOTRE PART !</strong></p><p><ul>';
+		$prolog .= '<div class="box_warning noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_warning.png" /></td><td><p><strong>CETTE COMMANDE ATTEND DES RETOURS DE VOTRE PART !</strong></p><p><ul>';
 		if($to_pay == 1) {
 			$prolog .= '<li>Vous n\'avez pas <strong>réglé cette commande</strong>.</li>';
 		}
@@ -608,7 +608,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 	$view .= $prolog;
 	$view .= $epilog;
-	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" width="350" height="200" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Accès client: Devis detail (Nº '.$idzamowienia.')</td></tr></table></div>';
+	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Accès client: Devis detail (Nº '.$idzamowienia.')</td></tr></table></div>';
 	if ($products) {
 		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { //jesli moze jeszcze dodac plik
 			$view .= get_filesender($produkty);
@@ -707,7 +707,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			}
 	 		$view .= '';
 //			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;" colspan="2"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /><div style="position:absolute;right:0;top:0;width:300px;height:300px;font-size:11px;float:right;text-align:right;padding-top:35px;"><b><u>CLIENT:</u></b><br />'.$facture_add.'</div></td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:11px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;" colspan="2"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /><div class="adresseFact"><b><u>CLIENT:</u></b><br />'.$facture_add.'</div></td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:11px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
 //			$view .= '<div class="onlyprint"><table class="adresfak"><tr><td><b><u>CLIENT:</u><br />'.$facture_add.'</b></td><td><img src="'.$images_url.'logoprint.png" alt="france banderole" class="logoprint" /></td></tr><tr><td colspan="2" style="padding:20px 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
 		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 		foreach ( $products as $products => $item ) {
@@ -810,7 +810,7 @@ function print_votre() {
 	$count_files = 0;
 	$count_bat = 0;
 	$total_count = 0;
-	$alert_content = '<div class="box_info"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
+	$alert_content = '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
 
 	foreach($order_list AS $order_row) {
 		$idzamowienia = $order_row->unique_id;

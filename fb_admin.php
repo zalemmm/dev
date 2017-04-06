@@ -743,7 +743,7 @@ function fbadm_invoice_print($number) {
 			}
 
 
-			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;text-align:right;margin-top:35px;"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos salutations respectueuses.</td></tr></table></div>';
+			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td  class="adresseFact"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos salutations respectueuses.</td></tr></table></div>';
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
 			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
@@ -824,7 +824,7 @@ function fbadm_invoice_proprint($number) {
 			}
 
 
-			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;text-align:right;margin-top:35px;"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE PRO FORMA Nº - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture PRO FORMA concernant la commande<br />ref: '.$idzamowienia.'</td></tr></table></div>';
+			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td  class="adresseFact"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE PRO FORMA Nº - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture PRO FORMA concernant la commande<br />ref: '.$idzamowienia.'</td></tr></table></div>';
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
 			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
@@ -917,8 +917,8 @@ function fbadm_bon_print($number) {
 			$boucle_if = 3;
         }
 
-//			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos salutations respectueuses.</td></tr></table></div>';
-//			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sarl<br />94 rue du Gal Leclerc<br />95210 Saint Gratien<br />Pour toutes questions n\'hésitez pas à nous contacter au 0981.610.901<br />BON DE COMMANDE N°BC – '.$idzamowienia.'</td></tr></table></div>';
+//			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td  class="adresseFact"><b><u>CLIENT:</u></b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos salutations respectueuses.</td></tr></table></div>';
+//			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sarl<br />94 rue du Gal Leclerc<br />95210 Saint Gratien<br />Pour toutes questions n\'hésitez pas à nous contacter au 0981.610.901<br />BON DE COMMANDE N°BC – '.$idzamowienia.'</td></tr></table></div>';
         $coliR = EstColieRevendeur($number);
 		/*$livraison_add .= "boucle_if=". $boucle_if . "coliR=".($coliR?"VRAI":"FAUX")."relais_colis=".$existe_relais_colis. "descriptionproduits=".$descriptionproduits. print_r($us,true). "f_address=".$f_address . "l_address=".$l_address . "query=". "SELECT * FROM `$fb_tablename_users` WHERE id='$userid'";*/
         $hasPD = false;
@@ -969,7 +969,7 @@ function fbadm_bon_print($number) {
                         <table class="print_header">
                             <tr>
                                 <td style="float:left;">
-                                    <img src="' . $images_url . 'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2 onlyprint" />
+                                    <img src="' . $images_url . 'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" />
                                 </td>
                                 <td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td>
                             </tr>
@@ -3318,7 +3318,8 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
     endforeach;
     echo '</select><textarea name="selmailcontent" id="incon"></textarea><input type="submit" value="SEND" class="savebutt3" /></form>';
     echo '<div style="clear:both"></div></div></div></div>';
-    /* komentarze -dodawanie */
+
+    /* commentaires -Ajouter */
     echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new comment:</span></h3><div class="inside">';
 
     echo '<form name="newcomm" id="newcomm" action="" method="post"><input type="hidden" name="addcomment" />';
@@ -3357,7 +3358,8 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
     echo '<input type="submit" value="SAVE" class="savebutt3" />';
     echo '</form>';
     echo '<div style="clear:both"></div></div></div></div>';
-    /* wyswietlanie komentarzy */
+
+    /* Voir les commentaires */
     $comments = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y %H:%i') AS data FROM `$fb_tablename_comments` WHERE order_id = '$number' ORDER BY date DESC", ARRAY_A);
     if ($comments) {
         foreach ($comments as $c) :
@@ -3366,7 +3368,8 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
         endforeach;
     }
     echo '</div>';
-    /* wyswietlanie lewej tabeli */
+
+    /* affichage de la table de gauche */
     $explode = explode('|', $uzyt->f_address);
     $f_address = $explode['0'];
     $f_porte = $explode['1'];
