@@ -957,7 +957,7 @@ function fbadm_bon_print($number) {
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
+							<td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;" class="bigger">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
 						</tr>
 					</table>
 				</div>';
@@ -974,7 +974,7 @@ function fbadm_bon_print($number) {
                                 <td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
+                                <td colspan="2" class="bigger" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
                             </tr>
                         </table>
                     </div>';
@@ -983,20 +983,20 @@ function fbadm_bon_print($number) {
                 <div class="cheque">
                     <table class="cheque_tab" cellspacing="5px">
                         <tr>
-                            <th style="width:30%">ADRESSE DE LIVRAISON:</th>
-                            <th style="border:none"></th>
+                            <th class="bigger" style="width:30%">ADRESSE DE LIVRAISON:</th>
+                            <th class="bigger" style="border:none"></th>
                         </tr>
                         <tr>
-                            <td>' . $livraison_add . '</td>
+                            <td class="bigger">' . $livraison_add . '</td>
                             <td></td>
                         </tr>
                     </table>';
         }
 
         $products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-        $view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th></tr>';
+        $view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth bigger">Description</th><th class="bigger">Quantité</th></tr>';
         foreach ($products as $products => $item) {
-            $view .= '<tr><td class="lefttd"><span class="name">' . $item[name] . '</span><br /><span class="therest">' . $item[description] . '</span></td><td>' . $item[quantity] . '</td></tr>';
+            $view .= '<tr><td class="bigger lefttd"><span class="name">' . $item[name] . '</span><br /><span class="therest">' . $item[description] . '</span></td><td>' . $item[quantity] . '</td></tr>';
         }
         $view .= '</table>';
         if ($query->payment == 'cheque') {
