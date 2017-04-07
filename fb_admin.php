@@ -948,12 +948,11 @@ function fbadm_bon_print($number) {
 				<div class="print_nag onlyprint">
 					<table class="print_header">
 						<tr>
-							<td style="float:left;">
-								<img src="../wp-content/plugins/fbshop/barcodes_GkA32Bn09fKNxSL/' . basename(renvoiCodeBar($number)) . '" width="300" height="100" alt="code barre" class="logoprint2 onlyprint" /><br/>
+							<td style="float:left;width:49%;">
 								<p style="color: #000;">' . $livraison_add . '</p>
 							</td>
-							<td style="font-size:11px;float:right;text-align:right;margin-top:35px;">
-							&nbsp;
+							<td style="float:right;width:49%;text-align:right;">
+							<img src="../wp-content/plugins/fbshop/barcodes_GkA32Bn09fKNxSL/' . basename(renvoiCodeBar($number)) . '" width="300" height="100" alt="code barre" class="onlyprint" />
 							</td>
 						</tr>
 						<tr>

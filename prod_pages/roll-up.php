@@ -146,9 +146,40 @@
 					<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 
 					<span class="options_single">
-						<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-						<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
-						<span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+
+						<span class="optionsleft">
+							<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
+							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
+							<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+							</span>
+						</span>
+
+
+						<span class="optionsleft">
+							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis a l'Atelier</label>
+							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
+							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+							</span>
+						</span>
+
+						<span class="optionsright">
+							<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
+							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
+							<span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
+							</span>
+						</span>
+
+						<span class="optionsright">
+							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
+							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
+							<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+							</span>
+						</span>
+
 					</span>
 					<div class="break-line"></div>
 
@@ -220,17 +251,27 @@ function Afficher()
 </script>
 
 <script type="text/javascript">
-jQuery('#etiquette').click(function() {
-	if (document.getElementById('etiquette').checked) {
-		document.getElementById('relais').checked = false;
-	}
-});
+  // checkboxes livraison
+  jQuery('#adresse').click(function() {
+    if (document.getElementById('adresse').checked) {
+      document.getElementById('relais').checked = false;
+      document.getElementById('etiquette').checked = false;
+    }
+  });
 
-jQuery('#relais').click(function() {
-	if (document.getElementById('relais').checked) {
-		document.getElementById('etiquette').checked = false;
-	}
-});
+  jQuery('#etiquette').click(function() {
+    if (document.getElementById('etiquette').checked) {
+      document.getElementById('relais').checked = false;
+      document.getElementById('adresse').checked = false;
+    }
+  });
+
+  jQuery('#relais').click(function() {
+    if (document.getElementById('relais').checked) {
+      document.getElementById('etiquette').checked = false;
+      document.getElementById('adresse').checked = false;
+    }
+  });
 </script>
 
 <script type="text/javascript">
