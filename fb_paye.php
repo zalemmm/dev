@@ -174,12 +174,12 @@ if ($query) {
 			$view .= '<div class="cheque_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Cliquez sur le bouton "Imprimer le RIB" pour obtenir nos coordonnées bancaires et effectuer votre règlement. Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
 //			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td>24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />TelÂ : 0981.610.901<br />FaxÂ : 0957.045.045<br /><span class="mini">www.france-banderole.com<br />info@france-banderole.fr</span></td><td style="float:right;"><img src="'.$images_url.'logoprint.png" alt="france banderole" class="logoprint2" /></td></tr><tr><td colspan="2" class="print_header_name">Paiement par chècque Bancaire</td></tr></table></div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0 0 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401<br />BON DE COMMANDE N°'.$idzamowienia.'</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= '<div class="cheque"><table class="cheque_tab" cellspacing="5px"><tr><th>ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td>'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -190,11 +190,14 @@ if ($query) {
 			}
 /////////////
 	  		$view .= '</table>';
+
+				$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
@@ -236,12 +239,12 @@ if ($query) {
 			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. Cliquez sur le bouton "Imprimer le RIB" pour obtenir nos coordonnées bancaires et effectuer votre règlement sous 30 jours par virement bancaire. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
 //			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td>24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />TelÂ : 0981.610.901<br />FaxÂ : 0957.045.045<br /><span class="mini">www.france-banderole.com<br />info@france-banderole.fr</span></td><td style="float:right;"><img src="'.$images_url.'logoprint.png" alt="france banderole" class="logoprint2" /></td></tr><tr><td colspan="2" class="print_header_name">Paiement par chècque Bancaire</td></tr></table></div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0 0 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401<br />BON DE COMMANDE N°'.$idzamowienia.'</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= '<div class="cheque"><table class="cheque_tab" cellspacing="5px"><tr><th>ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td>'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -252,11 +255,14 @@ if ($query) {
 			}
 
 	  		$view .= '</table>';
+				$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
+
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
@@ -284,12 +290,12 @@ if ($query) {
 			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. Cliquez sur le bouton "Imprimer le RIB" pour obtenir nos coordonnées bancaires et effectuer votre règlement sous 60 jours par virement bancaire. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
 //			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td>24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />TelÂ : 0981.610.901<br />FaxÂ : 0957.045.045<br /><span class="mini">www.france-banderole.com<br />info@france-banderole.fr</span></td><td style="float:right;"><img src="'.$images_url.'logoprint.png" alt="france banderole" class="logoprint2" /></td></tr><tr><td colspan="2" class="print_header_name">Paiement par chècque Bancaire</td></tr></table></div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0 0 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401<br />BON DE COMMANDE N°'.$idzamowienia.'</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= '<div class="cheque"><table class="cheque_tab" cellspacing="5px"><tr><th>ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td>'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -300,11 +306,13 @@ if ($query) {
 			}
 
 	  		$view .= '</table>';
+				$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
@@ -333,12 +341,12 @@ if ($query) {
 		Cliquez sur le bouton "Imprimer le formulaire de commande administrative", complétez-le et envoyez votre bon de commande interne et le formulaire complété par mail à paiement@france-banderole.fr ou par fax au 0957.045.045. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
 //			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td>24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />TelÂ : 0981.610.901<br />FaxÂ : 0957.045.045<br /><span class="mini">www.france-banderole.com<br />info@france-banderole.fr</span></td><td style="float:right;"><img src="'.$images_url.'logoprint.png" alt="france banderole" class="logoprint2" /></td></tr><tr><td colspan="2" class="print_header_name">Paiement par chècque Bancaire</td></tr></table></div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0 0 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401<br />BON DE COMMANDE N°'.$idzamowienia.'</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p> <p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= '<div class="cheque"><table class="cheque_tab" cellspacing="5px"><tr><th>ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td>'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -349,11 +357,13 @@ if ($query) {
 			}
 
 	  		$view .= '</table>';
+				$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
@@ -392,12 +402,11 @@ if ($query) {
 			$view .= '<div class="cheque_tab_con">Imprimez ce Bon de Commande et envoyez votre Reglement accompagné du Bon de Commande à l\'adresse suivante:<br /><br /><span class="colblue">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</span><br /><br />Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
 //			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td>24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />TelÂ : 0981.610.901<br />FaxÂ : 0957.045.045<br /><span class="mini">www.france-banderole.com<br />info@france-banderole.fr</span></td><td style="float:right;"><img src="'.$images_url.'logoprint.png" alt="france banderole" class="logoprint2" /></td></tr><tr><td colspan="2" class="print_header_name">Paiement par chècque Bancaire</td></tr></table></div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0 0 0;font-weight:bold;font-size:12px;">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:<br />France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles<br />Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401<br />BON DE COMMANDE N°'.$idzamowienia.'</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= '<div class="cheque"><table class="cheque_tab" cellspacing="5px"><tr><th>ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td>'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -408,11 +417,14 @@ if ($query) {
 			}
 /////////////
 	  		$view .= '</table>';
+
+				$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
 	  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-	  		$view .= '<table class="cheque_tab3" cellspacing="0"><tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA (20%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le Bon de commande</a></div>';

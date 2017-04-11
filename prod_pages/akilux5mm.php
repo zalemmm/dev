@@ -23,7 +23,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_4">
+        <li class="form-line optionsformline4" id="id_4">
           <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</u>: <span class="highlight">Dès 0,1€</span></b><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
           <select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir les fixations...</option>
@@ -35,7 +35,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_oeillets">
+        <li class="form-line optionsformline5" id="id_oeillets">
           <select class="select form-dropdown validate[required]" id="input_oeillets" name="qoeillets_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">oeillet/panneau</option>
             <option class="select-alt" value="2">2 oeillets</option>
@@ -46,7 +46,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_rislans">
+        <li class="form-line optionsformline5" id="id_rislans">
           <select class="select form-dropdown validate[required]" id="input_rislans" name="qrislans_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">rislan/panneau</option>
             <option class="select-alt" value="2">2 rislans</option>
@@ -57,7 +57,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_crochets">
+        <li class="form-line optionsformline5" id="id_crochets">
           <select class="select form-dropdown validate[required]" id="input_crochets" name="qcrochets_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">crochet/panneau</option>
             <option class="select-alt" value="2">2 crochets</option>

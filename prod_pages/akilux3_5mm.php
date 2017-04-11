@@ -23,7 +23,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_4">
+        <li class="form-line optionsformline4" id="id_4">
           <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</u>: <span class="highlight">Dès 0,1€</span></b><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
           <select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir les fixations...</option>
@@ -35,7 +35,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_oeillets">
+        <li class="form-line optionsformline5" id="id_oeillets">
           <select class="select form-dropdown validate[required]" id="input_oeillets" name="qoeillets_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">oeillet/panneau</option>
             <option class="select-alt" value="2">2 oeillets</option>
@@ -46,7 +46,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_rislans">
+        <li class="form-line optionsformline5" id="id_rislans">
           <select class="select form-dropdown validate[required]" id="input_rislans" name="qrislans_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">rislan/panneau</option>
             <option class="select-alt" value="2">2 rislans</option>
@@ -57,7 +57,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_crochets">
+        <li class="form-line optionsformline5" id="id_crochets">
           <select class="select form-dropdown validate[required]" id="input_crochets" name="qcrochets_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">crochet/panneau</option>
             <option class="select-alt" value="2">2 crochets</option>
@@ -80,7 +80,7 @@
           </li>
 
           <li class="form-line" id="id_6">
-            <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+            <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
             <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
               <option class="titre" value="">fichier d'impression...</option>
               <option class="option1" value="fb">France banderole crée la mise en page</option>
@@ -189,7 +189,7 @@
     </div>
 
     <script type='text/javascript' src='gestion_checkbox_expedition.js'></script>
-    
+
     <script type="text/javascript">
       // checkboxes livraison
       jQuery('#adresse').click(function() {
@@ -661,6 +661,7 @@
 
             jQuery(document).ready(function(){
               jQuery('.jotform-form select').click(function(){
+
                 jQuery('#delivery-value').val(Masquer());
 
                 jQuery('.delivery').prop("disabled",false);

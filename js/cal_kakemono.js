@@ -3398,6 +3398,7 @@ var niepokazuj = 0;
 var option2=0;
 var szerokosc=0;
 var wysokosc=0;
+var HD=0;
 var p1=0; var p2=0; var fixations=0;  var maquette=0; var metrage=0;
 var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
@@ -3467,15 +3468,22 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	////maquette/////
 	if ($('input_3').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
 	if ($('input_3').value == 'user') {maquette=0; opis += '<br />- j’ai déjà crée la maquette';}
-
-
-
+		
+	
 
 
 	////tarif unitaire/////
-	puoption = p1+fixations;
-	puoption2 = (puoption+maquette)/ilosc;
+	puoption = p1+fixations+HD;
+	
+
+	
+	
+	////HD///
+	if ($('input_HD').value == 'HD') {HD = (puoption)*0.30; puoption+=HD; opis += '<br />- HD';}
+	if ($('input_HD').value == 'standard') {HD = 0; puoption+=HD; opis += '<br />- Standard';}
+	////FIN HD///
 	////total/////
+	puoption2 = (puoption+maquette)/ilosc;
 	cena = puoption+maquette;
 
 

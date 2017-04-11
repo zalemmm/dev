@@ -61,8 +61,32 @@
     <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
 
             <span class="options_single">
-              <span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-              <span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span></span></span>
+
+              <span class="optionsleft">
+                <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
+                <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
+                <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+                  <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+                </span>
+              </span>
+
+              <span class="optionsleft">
+                <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
+                <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
+                <span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
+                  <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+                </span>
+              </span>
+
+              <span class="optionsleft">
+                <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
+                <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
+                <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+                  <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+                </span>
+              </span>
+
+
             </span>
 
             <div class="break-line"></div>
@@ -120,6 +144,23 @@
 
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
+
+<script type="text/javascript">
+  // checkboxes livraison
+  jQuery('#adresse').click(function() {
+    if (document.getElementById('adresse').checked) {
+      document.getElementById('etiquette').checked = false;
+    }
+  });
+
+  jQuery('#etiquette').click(function() {
+    if (document.getElementById('etiquette').checked) {
+      document.getElementById('adresse').checked = false;
+    }
+  });
+
+</script>
+
 
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
@@ -737,7 +778,7 @@ if ($('input_1').value == '4x6') {
                       var dodajkoszyk = document.getElementById("cart_form");
 
 
-                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+taille+'<br>-'+coul+'<br>-'+option+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
+                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+taille+'<br>-'+coul+'<br>-'+option+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 
 

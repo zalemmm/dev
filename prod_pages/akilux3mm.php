@@ -23,8 +23,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</u>: <span class="highlight">Dès 0,1€</span></b><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
+				<li class="form-line optionsformline4" id="id_4">
+					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</u>: <span class="highlight">Dès 0,1€</span></b><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir les fixations...</option>
 						<option value="oeillets">oeillets nickels</option>
@@ -35,7 +35,7 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_oeillets">
+				<li class="form-line optionsformline5" id="id_oeillets">
 					<select class="select form-dropdown validate[required]" id="input_oeillets" name="qoeillets_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">oeillet/panneau</option>
 						<option class="select-alt" value="2">2 oeillets</option>
@@ -46,7 +46,7 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_rislans">
+				<li class="form-line optionsformline5" id="id_rislans">
 					<select class="select form-dropdown validate[required]" id="input_rislans" name="qrislans_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">rislan/panneau</option>
 						<option class="select-alt" value="2">2 rislans</option>
@@ -57,7 +57,7 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_crochets">
+				<li class="form-line optionsformline5" id="id_crochets">
 					<select class="select form-dropdown validate[required]" id="input_crochets" name="qcrochets_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">crochet/panneau</option>
 						<option class="select-alt" value="2">2 crochets</option>
@@ -106,7 +106,7 @@
 
 							<span class="optionsleft">
 								<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-								<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
+								<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" value="checked" checked="true" />
 								<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
 									<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 								</span>
@@ -181,10 +181,14 @@
 		<div id="custom_price_unit" >
 
 		</div>
-		<script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
+
 
 		<script type="text/javascript">
 			// checkboxes livraison
+		jQuery(document).ready(function(){
+
+
+
 			jQuery('#adresse').click(function() {
 				if (document.getElementById('adresse').checked) {
 					document.getElementById('etiquette').checked = false;
@@ -196,6 +200,7 @@
 					document.getElementById('adresse').checked = false;
 				}
 			});
+		});
 
 		</script>
 
@@ -704,6 +709,7 @@
 
 
 									jQuery(document).ready(function(){
+
 										jQuery('.form-checkbox').click(function(){
 											jQuery('#delivery-value').val(Masquer());
 
@@ -965,7 +971,7 @@
 											var dodajkoszyk = document.getElementById("cart_form");
 
 
-											dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
+											dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 
 										}
