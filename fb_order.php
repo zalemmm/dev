@@ -676,7 +676,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
-		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$ttotalttc.'</b></td></tr>
+		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
 		</table>';
 
 		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
@@ -739,7 +739,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
-		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$ttotalttc.'</b></td></tr>
+		<tr><td class="toleft"">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
 		</table>';
 		if ($query->payment == 'cheque') { $method = 'CHÉQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }

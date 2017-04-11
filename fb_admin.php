@@ -743,10 +743,12 @@ function fbadm_invoice_print($number) {
 			}
 
 
-			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos salutations respectueuses.</td></tr></table></div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;" colspan="2"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /><div class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</div></td></tr><tr><td class="print-no">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td class="print-title">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
+
+
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table id="fbcart_cart"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -761,7 +763,7 @@ function fbadm_invoice_print($number) {
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-		  		$cremisetd = '<tr><td class="left">REMISE ('.$exist_remise->percent.'%)</td><td>'.$wysokoscrabatu.'</td></tr>';
+		  		$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.'</td></tr>';
 			}
 //koniec//
 	  		$tfrais = str_replace('.', ',', $query->frais).'&nbsp;&euro;';
@@ -774,7 +776,7 @@ function fbadm_invoice_print($number) {
 			} else {
 				$procpod = '20.0';
 			}
-	  		$view .= '<table class="cheque_tab3" cellspacing="0">'.$cremisetd.'<tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA ('.$procpod.'%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0">'.$cremisetd.'<tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table></div>';
 
 		if ($query->payment == 'cheque') { $method = 'CHEQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
@@ -827,7 +829,7 @@ function fbadm_invoice_proprint($number) {
 			$view .= '<div class="print_nag"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td  class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</td></tr><tr><td colspan="2" style="padding:20px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">FACTURE PRO FORMA Nº - '.$idzamowienia.'</td></tr><tr><td colspan="2" style="padding:10px 0 0 0; text-align:center;font-weight:bold;font-size:13px;">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture PRO FORMA concernant la commande<br />ref: '.$idzamowienia.'</td></tr></table></div>';
 
 			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+			$view .= '<table  id="fbcart_cart"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 			foreach ( $products as $products => $item ) {
 				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
 	  		}
@@ -842,7 +844,7 @@ function fbadm_invoice_proprint($number) {
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-		  		$cremisetd = '<tr><td class="left">REMISE ('.$exist_remise->percent.'%)</td><td>'.$wysokoscrabatu.'</td></tr>';
+		  		$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.'</td></tr>';
 			}
 //koniec//
 	  		$tfrais = str_replace('.', ',', $query->frais).'&nbsp;&euro;';
@@ -855,7 +857,7 @@ function fbadm_invoice_proprint($number) {
 			} else {
 				$procpod = '20.0';
 			}
-	  		$view .= '<table class="cheque_tab3" cellspacing="0">'.$cremisetd.'<tr><td class="left">FRAIS DE PORT</td><td>'.$tfrais.'</td></tr><tr><td class="left">TOTAL HT</td><td>'.$ttotalht.'</td></tr><tr><td class="left">MONTANT TVA ('.$procpod.'%)</td><td>'.$ttva.'</td></tr><tr><td class="lefttotal">TOTAL TTC</td><td class="righttotal">'.$ttotalttc.'</td></tr></table></div>';
+	  		$view .= '<table id="fbcart_check" cellspacing="0">'.$cremisetd.'<tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table></div>';
 
 		if ($query->payment == 'cheque') { $method = 'CHEQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
@@ -954,7 +956,7 @@ function fbadm_bon_print($number) {
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;" class="bigger">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
+							<td class="print-no">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
 						</tr>
 					</table>
 				</div>';
@@ -971,27 +973,27 @@ function fbadm_bon_print($number) {
                                 <td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td>
                             </tr>
                             <tr>
-                                <td colspan="2" class="bigger" style="text-align:center;padding:20px 0;font-weight:bold;font-size:12px;">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
+                                <td class="print-no">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>
                             </tr>
                         </table>
                     </div>';
 
             $view .= '
                 <div class="cheque">
-                    <table class="cheque_tab" cellspacing="5px">
+                    <table id="fbcart_address">
                         <tr>
-                            <th class="bigger" style="width:30%">ADRESSE DE LIVRAISON:</th>
-                            <th class="bigger" style="border:none"></th>
+                            <th>ADRESSE DE LIVRAISON:</th>
+                            <th></th>
                         </tr>
                         <tr>
-                            <td class="bigger">' . $livraison_add . '</td>
+                            <td>' . $livraison_add . '</td>
                             <td></td>
                         </tr>
                     </table>';
         }
 
         $products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-        $view .= '<table class="cheque_tab2" cellspacing="0"><tr><th class="leftth bigger">Description</th><th class="bigger">Quantité</th></tr>';
+        $view .= '<table  id="fbcart_cart"><tr><th class="leftth bigger">Description</th><th class="bigger">Quantité</th></tr>';
         foreach ($products as $products => $item) {
             $view .= '<tr><td class="bigger lefttd"><span class="name">' . $item[name] . '</span><br /><span class="therest">' . $item[description] . '</span></td><td>' . $item[quantity] . '</td></tr>';
         }

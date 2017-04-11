@@ -13,6 +13,7 @@ input.edit {
   font-weight: bold;
 }
 
+
 input.delete {
   padding: 0;
   margin: 0;
@@ -307,114 +308,7 @@ span.colblue {
   color: #008ebb;
 }
 
-.cheque {
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 35px;
-  position: relative;
-  float: left;
-  display: inline;
-  text-align: center;
-  color: #555a61;
-}
 
-.cheque_tab {
-  margin-left: 0;
-  width: 90%;
-}
-
-.cheque_tab th {
-  width: 331px;
-  border-bottom: 1px solid #555a61;
-  text-align: left;
-  font-size: 11px;
-}
-
-.cheque_tab td {
-  text-align: left;
-  padding: 10px 0 20px 0;
-  vertical-align: top;
-}
-
-.cheque_tab2 {
-  margin-left: 0;
-  width: 90%;
-}
-
-.cheque_tab2 th {
-  border-bottom: 1px solid #555a61;
-  border-top: 1px solid #555a61;
-  text-align: center;
-  font-size: 12px;
-  text-transform: uppercase;
-  padding-top: 1px;
-  padding: 5px 0 5px 0;
-}
-
-.cheque_tab2 th.leftth {
-  text-align: left;
-}
-
-.cheque_tab2 td {
-  text-align: center;
-  padding: 13px 2px 21px 2px;
-  vertical-align: top;
-  border-bottom: 1px solid #555a61;
-  font-size: 12px;
-}
-
-.cheque_tab2 td.lefttd {
-  text-align: left;
-}
-
-.cheque_tab2 span.name {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.cheque_tab2 span.therest {
-  font-size: 11px;
-  line-height: 13px;
-}
-
-.cheque_tab3 {
-  float: right;
-  display: inline;
-  width: 203px;
-  margin-right: 10%;
-  margin-top: 5px;
-}
-
-.cheque_tab3 td {
-  width: 65px;
-  text-align: right;
-  font-size: 13px;
-  border-bottom: 1px solid #555a61;
-  padding: 2px 1px 2px 0;
-}
-
-.cheque_tab3 td.left {
-  text-align: left;
-  font-size: 12px;
-  border-bottom: 1px solid #555a61;
-  width: 150px;
-}
-
-.cheque_tab3 td.lefttotal {
-  text-align: left;
-  font-size: 12px;
-  padding: 15px 0 15px 0;
-  border-bottom: 1px solid #555a61;
-}
-
-.cheque_tab3 td.righttotal {
-  text-align: right;
-  font-size: 13px;
-  padding: 15px 1px 15px 0;
-  border-bottom: 1px solid #555a61;
-  font-weight: bold;
-}
 
 a#but_imprimerbon {
   position: relative;
@@ -446,4 +340,149 @@ a#but_imprimerfacture {
   background-color: #eee;
   margin-left: 12px;
   padding: 4px;
+}
+
+#fbcart_cart {
+  position: relative;
+  float: left;
+  display: inline-block;
+  width: 100%;
+  background: #f1f1f1;
+  font-size: .85rem;
+  line-height: .9rem;
+  margin-bottom: 20px;
+}
+
+#fbcart_cart span.name {
+  font-size: .85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 3px;
+}
+
+#fbcart_cart span.therest {
+  font-size: .75rem;
+}
+
+#fbcart_cart th {
+  background: #f1f1f1;
+  text-align: center;
+  padding: 3px 20px;
+  border-bottom: 1px solid #e9e9e9;
+  text-transform: uppercase;
+  color: #008ebb;
+  width: 14%;
+  padding: 1rem;
+  font-size: .8rem;
+}
+
+#fbcart_cart th.leftth {
+  text-align: left;
+  width: 40%;
+}
+
+#fbcart_cart th.nobackground {
+  background: #f6f6f6;
+  width: 10%;
+  padding: 0;
+}
+
+#fbcart_cart th.leftth2 {
+  text-align: left;
+  width: 40%;
+}
+
+#fbcart_cart td {
+  background: #f6f6f6 url("../images/bord.png") top left no-repeat;
+  text-align: center;
+  padding: 13px 2px 21px;
+  vertical-align: top;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+#fbcart_cart td.lefttd {
+  background: #f6f6f6;
+  text-align: left;
+  padding: 13px 20px 21px;
+}
+
+#fbcart_cart td.noprint {
+  width: 5%;
+}
+
+#fbcart_check {
+  position: relative;
+  float: right;
+  display: inline-block;
+  width: 36%;
+  height: auto;
+  margin: 0 0 20px;
+  padding: 0;
+  border: 1px solid #e9e9e9;
+}
+
+#fbcart_check td.toleft {
+  text-align: left;
+  text-transform: uppercase;
+  color: #008ebb;
+  padding: .7rem;
+  width: 100%;
+  height: auto;
+  border-bottom: 0;
+  border-left: 0;
+  font-size: .85rem;
+  line-height: .85rem;
+}
+
+#fbcart_check td.toright {
+  display: inline-block;
+  text-align: right;
+  padding: .7rem;
+  width: 20%;
+  min-width: 100px;
+  height: auto;
+  border-bottom: 0;
+  border-left: 0;
+  font-size: .85rem;
+  line-height: .85rem;
+}
+
+#fbcart_address {
+  position: relative;
+  float: left;
+  width: 59%;
+  margin-right: 2%;
+  height: auto;
+  margin: 0 2% 20px 0;
+  padding: 0;
+  font-size: .85rem;
+  line-height: .9rem;
+  border: 1px solid #e9e9e9;
+}
+
+#fbcart_address th {
+  padding: .7rem .7rem 0.7rem;
+  text-transform: uppercase;
+  color: #008ebb;
+  width: 50%;
+  height: 20px;
+  text-align: left;
+  font-size: .8rem;
+}
+
+#fbcart_address th.leftth {
+  border-right: 1px solid #e9e9e9;
+}
+
+#fbcart_address td {
+  padding: .7rem;
+  font-size: .8rem;
+  line-height: 12px;
+  width: 50%;
+  height: auto;
+  vertical-align: top;
+}
+
+#fbcart_address td.lefttd {
+  border-right: 1px solid #e9e9e9;
 }
