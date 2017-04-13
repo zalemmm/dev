@@ -10,7 +10,7 @@ function get_rating_home() {
 	foreach ($rates as $r) :
 		$licz = strlen($r[comment]);
 	    if ($licz>=120) {
-			$tnij = substr($r[comment],0,90); 
+			$tnij = substr($r[comment],0,90);
         	$txt = $tnij."...";
         } else {
 			$txt = $r[comment];
@@ -50,7 +50,7 @@ function get_rating_page() {
 		$licznik++;
 		$fir = $fir + $r[fir];
 		$sec = $sec + $r[sec];
-		$thi = $thi + $r[thi];	
+		$thi = $thi + $r[thi];
 	endforeach;
 	$gen = ((($fir + $sec + $thi)/$licznik)/3); $gen = (round($gen, 0)) *30;
 	$fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
@@ -90,10 +90,10 @@ function get_rating_page() {
 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
 		$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'</td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 	endforeach;
-	$view .= '</tbody></table>';	
-	
+	$view .= '</tbody></table>';
+
 	$view .= '<div id="rating_pagination">'.pagination($licznik, $perPage, "id", $subpage, 10).'</div>';
-	
+
 	return $view;
 }
 
@@ -113,21 +113,21 @@ function get_fb_rating() {
 			<div class="rating_elcol1">Evaluez le rapport<br />qualité / prix de vos achats:</div>
 			<div class="rating_elcol2">
 				<input type="hidden" name="rafir" value="0" id="ratin1" />
-				<ul id="rafir" class="star-rating"><li class="current-rating" style="width:0px;"></li><li><a href="#" class="one-star">1</a></li><li><a href="#" class="two-stars">2</a></li><li><a href="#" class="three-stars">3</a></li><li><a href="#" class="four-stars">4</a></li><li><a href="#" class="five-stars">5</a></li></ul>				
+				<ul id="rafir" class="star-rating"><li class="current-rating" style="width:0px;"></li><li><a href="#" class="one-star">1</a></li><li><a href="#" class="two-stars">2</a></li><li><a href="#" class="three-stars">3</a></li><li><a href="#" class="four-stars">4</a></li><li><a href="#" class="five-stars">5</a></li></ul>
 			</div>
 			</div>';
 		$view .= '<div class="rating_element" id="raele2">
 			<div class="rating_elcol1">Evaluez la communication<br />avec l\'équipe de France Banderole:</div>
 			<div class="rating_elcol2">
 				<input type="hidden" name="rasec" value="0" id="ratin2" />
-				<ul id="rasec" class="star-rating"><li class="current-rating" style="width:0px;"></li><li><a href="#" class="one-star">1</a></li><li><a href="#" class="two-stars">2</a></li><li><a href="#" class="three-stars">3</a></li><li><a href="#" class="four-stars">4</a></li><li><a href="#" class="five-stars">5</a></li></ul>				
+				<ul id="rasec" class="star-rating"><li class="current-rating" style="width:0px;"></li><li><a href="#" class="one-star">1</a></li><li><a href="#" class="two-stars">2</a></li><li><a href="#" class="three-stars">3</a></li><li><a href="#" class="four-stars">4</a></li><li><a href="#" class="five-stars">5</a></li></ul>
 			</div>
 			</div>';
 		$view .= '<div class="rating_element" id="raele3">
 			<div class="rating_elcol1">Evaluez le temps de traitement<br />de votre commande et sa livraison:</div>
 			<div class="rating_elcol2">
 				<input type="hidden" name="rathr" value="0" id="ratin3" />
-				<ul id="rathr" class="star-rating"><li class="current-rating" style="width:0px;"></li><li><a href="#" class="one-star">1</a></li><li><a href="#" class="two-stars">2</a></li><li><a href="#" class="three-stars">3</a></li><li><a href="#" class="four-stars">4</a></li><li><a href="#" class="five-stars">5</a></li></ul>				
+				<ul id="rathr" class="star-rating"><li class="current-rating" style="width:0px;"></li><li><a href="#" class="one-star">1</a></li><li><a href="#" class="two-stars">2</a></li><li><a href="#" class="three-stars">3</a></li><li><a href="#" class="four-stars">4</a></li><li><a href="#" class="five-stars">5</a></li></ul>
 			</div>
 			</div>';
 		$view .= '<div class="rating_element2">
@@ -155,13 +155,13 @@ function pagination($num_of_items, $items_per_page, $id, $page_num, $max_links){
 	$total_pages = ceil($num_of_items/$items_per_page);
 	$ret = '<span class="ratingpagpage">PAGES:</span>';
 	if($page_num) {
-		if($page_num >1){ 
-			$prev = '<a href="'.pagination_link($id, ($page_num -1 )).'">&laquo; Précédent</a>'; 
-//			$first = '<a href="'.pagination_link($id, 1).'">First Page &lt;&lt;</a>'; 
+		if($page_num >1){
+			$prev = '<a href="'.pagination_link($id, ($page_num -1 )).'">&laquo; Précédent</a>';
+//			$first = '<a href="'.pagination_link($id, 1).'">First Page &lt;&lt;</a>';
 		}
 	}
-	if($page_num <$total_pages){ 
-		$next = '<a href="'.pagination_link($id, ($page_num+1)).'">Suivant &raquo;</a>'; 
+	if($page_num <$total_pages){
+		$next = '<a href="'.pagination_link($id, ($page_num+1)).'">Suivant &raquo;</a>';
 //		$last = '<a href="'.pagination_link($id, $total_pages).'"> LAST PAGE &gt;&gt;</a>';
 	}
 //	$ret .= $first;
@@ -175,12 +175,12 @@ function pagination($num_of_items, $items_per_page, $id, $page_num, $max_links){
 	if($total_pages < $max_links){
 		$max_links = $total_pages;
 	}
-	do{ 
+	do{
 		if($page_counter == $page_num) {
 			$ret .= '<span>'.$page_counter.'</span>';
 		} else {
 			$ret .= '<a href="'.pagination_link($id, ($page_counter)).'">'.$page_counter.'</a>';
-		} 
+		}
 		$page_counter++; $current_page=($page_counter+1);
 		$loop++;
 	} while ($max_links > $loop);

@@ -970,7 +970,7 @@ function fbadm_bon_print($number) {
                                 <td style="float:left;">
                                     <img src="' . $images_url . 'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" />
                                 </td>
-                                <td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td>
+                                <td">&nbsp;</td>
                             </tr>
                             <tr>
                                 <td class="print-no">BON DE LIVRAISON N° BL – ' . $idzamowienia . '</td>

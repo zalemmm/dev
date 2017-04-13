@@ -133,7 +133,7 @@ function get_rating_page() {
 			$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 			$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` p, `$fb_tablename_catprods` c WHERE p.order_id='$r[unique_id]' AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
 			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-			if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/kakemonos";}
+			if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/roll-up";}
 			elseif ($prodname->name == 'Banderole'){$lienprod = "//www.france-banderole.com/banderoles";}
 			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "//www.france-banderole.com/cartes";}
 			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "//www.france-banderole.com/cartes";}
@@ -167,7 +167,7 @@ function get_rating_page() {
 			elseif ($prodname->name == 'Forex 5mm'){$lienprod = "//www.france-banderole.com/panneaux-forex-5mm";}
 			elseif ($prodname->name == 'Dibond'){$lienprod = "//www.france-banderole.com/panneaux-dibond";}
 			elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = "//www.france-banderole.com/stickers";}
-			else {$lienprod = "//www.france-banderole.com";};
+			else {$lienprod = "//www.france-banderole.com/banderoles";};
 
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
@@ -266,7 +266,7 @@ function get_rating_page() {
 		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 		$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-		if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/kakemonos";}
+		if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/roll-up";}
 		elseif ($prodname->name == 'Banderole'){$lienprod = "//www.france-banderole.com/banderoles";}
 		elseif ($prodname->name == 'Cartes 350g'){$lienprod = "//www.france-banderole.com/cartes";}
 		elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "//www.france-banderole.com/cartes";}
@@ -300,7 +300,7 @@ function get_rating_page() {
 		elseif ($prodname->name == 'Forex 5mm'){$lienprod = "//www.france-banderole.com/panneaux-forex-5mm";}
 		elseif ($prodname->name == 'Dibond'){$lienprod = "//www.france-banderole.com/panneaux-dibond";}
 		elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = "//www.france-banderole.com/stickers";}
-		else {$lienprod = "//www.france-banderole.com";};
+		else {$lienprod = "//www.france-banderole.com/banderoles";};
 
 		$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 		if($reponses) {
