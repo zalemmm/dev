@@ -672,7 +672,7 @@ function fb_mailjet() {
 			}
 		}
 
-
+    
 	} else if(isset($_POST['mj_sync_create'])) {
 		//On récupère l'ensemble des utilisateurs
 		$data = $wpdb->get_results("SELECT *, SUM(CAST(REPLACE(totalht,',','') AS DECIMAL(30,2))) AS total FROM `$fb_tablename_order` ".$where." GROUP BY user ORDER BY total");

@@ -353,9 +353,6 @@
 						</div>
 					</li>
 
-
-
-
 					<li id="id_18" class="form-line id_18" style="top:14px">
 						<div class="form-input-wide">
 							<div id="form-button-error3"></div>
@@ -381,6 +378,16 @@
 	</div>
 
 	<div id="preview">
+
+		<div id="container">
+			<div id="slides">
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-1.jpg" alt="exemple réalisation banderole" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-2.jpg" alt="exemple réalisation banderole" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
+			</div>
+		</div>
+
+
 		<div id="preview_imag"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
 	</div>
 
@@ -1885,7 +1892,7 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 		}}
 
 
-		var rodzaj = "Banderole";
+		var rodzaj = "banderole";
 		var dodajkoszyk = document.getElementById("cart_form");
 		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
