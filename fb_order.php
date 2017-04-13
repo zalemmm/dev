@@ -595,6 +595,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
 	$fb_tablename_address = $prefix."fbs_address";
 	$idzamowienia=$_GET['detail'];
+	$query = $wpdb->get_row("SELECT *, DATE_FORMAT(date_modify, '%d/%m/%Y') AS datamodyfikacji FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
 
 	$r = get_inscription2();
 
@@ -608,7 +609,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 	$view .= $prolog;
 	$view .= $epilog;
-	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Accès client: Devis detail (Nº '.$idzamowienia.')</td></tr></table></div>';
+	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
 	if ($products) {
 		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { //jesli moze jeszcze dodac plik
 			$view .= get_filesender($produkty);
@@ -629,6 +630,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			}
 			$view .= '</tr>';
 		}
+
 // dodatkowy rabat wyswietl //
 		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestrabat) {
@@ -683,6 +685,12 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
 		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier adresse</a></td></tr>
 		</table>';
+
+		$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>'; // ajout devis
+
+		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
+		$view .= $cgv; // ajout CGV
+
 	} else {
 		$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
 	}
@@ -749,6 +757,8 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		if ($query->payment == 'trente') { $method = 'PAIEMENT A 30 JOURS'; }
 		if ($query->payment == 'soixante') { $method = 'PAIEMENT A 60 JOURS'; }
 		$view .= '<div class="bottomfak onlyprint">FACTURE REGLÉE PAR '.$method.'<br /><br /><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>';
+		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
+		$view .= $cgv; // ajout CGV
 }
 $view .= contact_advert();
 return $view;
