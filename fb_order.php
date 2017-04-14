@@ -688,8 +688,9 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 
 		$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>'; // ajout devis
 
+		// ajout des conditions générales de ventes à l'impression du devis papier
 		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
-		$view .= $cgv; // ajout CGV
+		$view .= $cgv;
 
 	} else {
 		$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
@@ -757,6 +758,8 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		if ($query->payment == 'trente') { $method = 'PAIEMENT A 30 JOURS'; }
 		if ($query->payment == 'soixante') { $method = 'PAIEMENT A 60 JOURS'; }
 		$view .= '<div class="bottomfak onlyprint">FACTURE REGLÉE PAR '.$method.'<br /><br /><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>';
+
+		// ajout des conditions générales de ventes à l'impression de la facture papier
 		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
 		$view .= $cgv; // ajout CGV
 }
