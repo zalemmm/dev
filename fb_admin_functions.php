@@ -48,7 +48,7 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 		$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
 
 
-        /* Nouveau mode de paiement */
+    /* Nouveau mode de paiement */
 		$newplat = addslashes($_POST['modpaiement']);
 		$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET payment='$newplat' WHERE unique_id='$number'");
 
@@ -93,12 +93,12 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 			$top = stripslashes($ma[topic]);
 			$top = htmlspecialchars($top);
 		endforeach;
-
-		$order_list = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE user='$user->id' ");
-		$idzamowienia = $order_list->unique_id;
+		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
+		$ktoryuser = $order->user;
+		$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
 		/* On remplace NNNNN dans le message par le no de comande */
-		$con = str_replace("NNNNN",$idzamowienia,$con);
+		$con = str_replace("NNNNN",$number,$con);
 		/*
 		echo "///ORDERSQL="."SELECT * FROM ".$fb_tablename_order." WHERE unique_id = '".$number."'";
 		echo "///ORDER=".print_r($order);
@@ -115,8 +115,8 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 		//$zawar = htmlspecialchars_decode($_POST['selmailcontent']);
 		$temat = htmlspecialchars_decode($top);
 		$zawar = htmlspecialchars_decode($con);
-		$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
-        $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+		$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+        $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 
 		//echo "MAIL=".$uzyt->email;
 		// EN PROD:
@@ -258,16 +258,16 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 
 		/*mail("contact@tempopasso.com", "REQUETES COMMENTAIRES=".stripslashes($temat), "REQUETES:".
 
-			"INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')".
-			"INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')".
-			"UPDATE `$fb_tablename_cf` SET value='fb' WHERE unique_id='".$number."' AND type='lastupdate'".
-			"INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')"
+		"INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')".
+		"INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')".
+		"UPDATE `$fb_tablename_cf` SET value='fb' WHERE unique_id='".$number."' AND type='lastupdate'".
+		"INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')"
 
 
 
 													. stripslashes($zawar), $header);*/
 
-    /* ENVOI de l'email "Colis relais colis"*/
+    /* ENVOI de l'email "Colis expédié"*/
     $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
 		foreach ($mails as $ma) :
 			$con = stripslashes($ma[content]);
@@ -279,19 +279,17 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$ktoryuser = $order->user;
 		$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
-		/* On remplace XXXXX dans le message par l'adresse du relais colis */
+		/* On remplace XXXXX dans le message par l'adresse du relais colis, YYYYY par le numéro de suivi, NNNNN par le n° de commande */
 		$con = str_replace("XXXXX",$adresse_relais_colis,$con);
 		$con = str_replace("YYYYY",$numberTNT_commande->tnt,$con);
-		$con = str_replace("NNNNN",$ktoryuser,$con);
-
-
+		$con = str_replace("NNNNN",$number,$con);
 
 		//$temat = htmlspecialchars_decode($_POST['hiddentopic']);
 		//$zawar = htmlspecialchars_decode($_POST['selmailcontent']);
 		$temat = htmlspecialchars_decode($top);
 		$zawar = htmlspecialchars_decode($con);
-		$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
-        $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+		$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+        $header .= "\nContent-Type: text/html; charset=UTF-88\n" ."Content-Transfer-Encoding: 8bit\n";
 
 		//echo "MAIL=".$uzyt->email;
 		// EN PROD:
@@ -336,7 +334,7 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		$nowadata = date('Y-m-d H:i:s');
 		$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat ), array ( 'unique_id' => $number ) );
 
-        /* ENVOI du commentaire "COLIS RECU*/
+    /* ENVOI du commentaire "COLIS RECU*/
 		$wheresql = "COLIS RECU";
 
         $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
@@ -363,8 +361,6 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		} else {
 			$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')");
 		}
-
-
 
     /* ENVOI de l'email "Votre avis sur FB"*/
     $wheresql = "VOTRE AVIS SUR FRANCE BANDEROLE";
@@ -407,8 +403,8 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		//$zawar = htmlspecialchars_decode($_POST['selmailcontent']);
 		$temat = htmlspecialchars_decode($top);
 		$zawar = htmlspecialchars_decode($con);
-		$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
-        $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+		$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+        $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 
 
 		//Sync Mailjet

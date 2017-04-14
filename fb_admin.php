@@ -672,7 +672,7 @@ function fb_mailjet() {
 			}
 		}
 
-    
+
 	} else if(isset($_POST['mj_sync_create'])) {
 		//On récupère l'ensemble des utilisateurs
 		$data = $wpdb->get_results("SELECT *, SUM(CAST(REPLACE(totalht,',','') AS DECIMAL(30,2))) AS total FROM `$fb_tablename_order` ".$where." GROUP BY user ORDER BY total");
@@ -2259,7 +2259,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
-					new nicEditor().panelInstance(\'incon\');
+					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
 				});
 			</script>';
 	echo '<textarea name="nmail_content" id="incon">'.stripslashes($simplemail->content).'</textarea><input type="submit" value="SAVE" class="savebutt3" />';
@@ -2274,7 +2274,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
-					new nicEditor().panelInstance(\'incon\');
+					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
 				});
 			</script>';
 	echo '<textarea name="mail_content" id="incon"></textarea><input type="submit" value="SAVE" class="savebutt3" />';
@@ -2364,7 +2364,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
-					new nicEditor().panelInstance(\'incon\');
+					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
 				});
 			</script>';
 
@@ -2380,7 +2380,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
-					new nicEditor().panelInstance(\'incon\');
+					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
 				});
 			</script>';
 	echo '<textarea name="mail_content" id="incon"></textarea><input type="submit" value="SAVE" class="savebutt3" />';
@@ -3344,7 +3344,7 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
 		<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
-					new nicEditor().panelInstance('incon2');
+					new nicEditor({fullPanel : true}).panelInstance('incon2');
 				});
 			</script>
 
