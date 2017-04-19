@@ -1,4 +1,5 @@
 <div id="buying">
+	<h3>Votre devis en ligne :</h3>
 	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_banderoles(); return false;">
 		<input type="hidden" name="formID" value="1060900217" />
 		<div class="form-all">
@@ -378,6 +379,7 @@
 	</div>
 
 	<div id="preview">
+		<img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
 
 		<div id="container">
 			<div id="slides">
@@ -389,6 +391,11 @@
 
 
 		<div id="preview_imag"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
+
+		<div id="preview_imag2"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
+
+		<div id="preview_imag3"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
+
 	</div>
 
 	<div id="custom_price_unit" >

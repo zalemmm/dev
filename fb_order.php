@@ -470,8 +470,9 @@ function get_details() {
     	}
 	    closedir($dir);
   	}
-  	}
-  	if ($status != 5) {
+  }
+	// commande annulée ou cloturé: désactivation du bouton écrire commentaire
+  if ($status!=5 && $status!=6 ) {
 		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
 	} else {
 		$epilog .= '<span id="but_comment" class="deactive"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</span>';
@@ -948,10 +949,10 @@ function print_votre() {
 		foreach ($orders as $o) :
 			$view .= '<tr>';
 			$view .= '<td class="lefttd">';
-			if ($o->status != 6) {
+			//if ($o->status != 6) {
 				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">
- <span class="split"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Gérer la</span> commande</button></form>';
-			}
+ 				<span class="split"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Gérer la</span> commande</button></form>';
+			//}
 			$view .= '</td>';
 			$view .= '<td class="tddesc"><div class="kontener">';
 			if ($o->status != 6) {

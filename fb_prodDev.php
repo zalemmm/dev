@@ -21,35 +21,9 @@ function recursive_array_search($needle,$haystack) {
 }
 
 function fbshop_head() {
-if (is_page('flyers') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
-	echo '
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-	<script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.wmode = "transparent";
-	swfobject.embedSWF("'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/banner_pr.swf", "banner", "706", "97", "8.0.0", "'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expressInstall.swf", flashvars, params);
-	$(document).ready(function(){
-		initBanner();
-	});
-	</script>
-	';
-	echo '
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/swfobject.js" type="text/javascript"></script>
-	<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expandingbanner.js?v3" type="text/javascript"></script>
-
-	<script type="text/javascript">
-    var flashvars = {};
-    var params = {};
-    params.wmode = "transparent";
-	swfobject.embedSWF("'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/devis.swf", "banner2", "115", "28", "8.0.0", "'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/expressInstall.swf", flashvars, params);
-
-	</script>
-	';
-
+if (is_page('flyers') || is_page('tente-pliante-exposition') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
 }
+
 $user = $_SESSION['loggeduser'];
 /*
 if (isset($_GET['detail']) && $user->login != 'schizoos' && $user->login != 'pocalypse') {
@@ -79,15 +53,16 @@ if (is_page('votre-panier')){
 	}
 }
 
-
-	if ((is_page('roll-up')) || (is_page('totem')) || (is_page('banderoles')) || (is_page('oriflammes')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe'))  || (is_page('sticker-lettrage-predecoupe'))) {
+// feuilles de styles particulières à chaque page
+/*	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('PVC-300-microns')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
 	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/roll.css?v26032013" type="text/css" media="all" />';
 }
 
 Else {
 	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/style.css?v26032013" type="text/css" media="all" />';
-}
-	echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
+}*/
+
+echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
 
 if (is_page('cadre-exterieur-bache')) {
 echo '
@@ -513,18 +488,16 @@ echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototyp
 <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform9.js?v5" type="text/javascript"></script>
 <script type="text/javascript">
 JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "PLV carton"}], "action": {"field": "1", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "50", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}, {"field": "2", "operator": "isFilled", "value": false}, {"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}}
+{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
 ]);
 JotForm.init();
 </script>';
@@ -739,7 +712,8 @@ echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototyp
 <script type="text/javascript">
 JotForm.setConditions([
 
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
@@ -811,6 +785,26 @@ JotForm.init();
 }
 
 
+if (is_page('tente-pliante-exposition')) {
+echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-tente-exposition.js?v4" type="text/javascript"></script>
+<script type="text/javascript">
+JotForm.setConditions([
+
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "option", "operator": "isFilled", "value": false}], "action": {"field": "couleur", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Personnalisé"}], "action": {"field": "maquette", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Blanc"}, {"field": "couleur", "operator": "equals", "value": "Noir"}, {"field": "couleur", "operator": "equals", "value": "Rouge"}, {"field": "couleur", "operator": "equals", "value": "Bleu"}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Blanc"}, {"field": "couleur", "operator": "equals", "value": "Noir"}, {"field": "couleur", "operator": "equals", "value": "Rouge"}, {"field": "couleur", "operator": "equals", "value": "Bleu"}], "action": {"field": "16", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+
+]);
+JotForm.init();
+</script>';
+}
+
+
 if (is_page('panneaux-forex-3mm')) {
 echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
 <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-3mm.js?v4" type="text/javascript"></script>
@@ -820,7 +814,7 @@ JotForm.setConditions([
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
@@ -853,7 +847,7 @@ JotForm.setConditions([
 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
@@ -1042,13 +1036,13 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	}
 
 	if ($page=='flyers') {
-		$h1name='Flyers pas cher, impression flyer, Prospectus, tracts, imprimer flyer papier PEFC et FSC';
+		$h1name='Flyers pas cher, impression flyer meilleur prix, Prospectus, tracts, imprimer flyer rapidement papier PEFC et FSC';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f4';
 		$info_title='Impression rapide flyers pas cher et prospectus';
-		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span class="highlight"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
+		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers au prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. Nous pouvons également réaliser des dimensions de flyer personnalisées pour des carte de voeux etc... Livraison gratuite partout en France métropolitaine';
 		$formularz = get_flyers_form();
 	}
 
@@ -1059,47 +1053,47 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	}
 
 	if ($page=='depliants') {
-		$h1name='Depliant flyer publicitaire et livre personnalisés';
+		$h1name='Depliant publicitaire pas cher leaflet pli portefeuille pli roulé';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f13';
-		$info_title='Dépliant et livre personnalisés';
-		$info_info='Acheter des depliants 1 pli, 2 plis, 3 plis au meilleur tarif et en petite quantité pour ne payer que ce dont vous avez besoin. Nos impressions numériques sur presses numériques et offset vous permettent aujourd\'hui de profiter de dépliants pas cher et d\'imprimer votre propre livre personnalisé au meilleur prix.';
+		$info_title='Dépliant leaflet personnalisés 1 ou 2 plis';
+		$info_info='Acheter des depliants 1 pli, 2 plis au meilleur prix et en petite quantité pour ne payer que ce dont vous avez besoin. Nos impressions numériques sur presses numériques et offset vous permettent aujourd\'hui de profiter de dépliant pas cher et d\'imprimer votre propre publicité et prospectus publicitaire au meilleur tarif.';
 		$formularz = get_depliants_form();
 	}
 	if ($page=='stand-parapluie') {
-		$h1name='Stand Parapluie - stands parapluie tissu - PLV carton - Presentoirs a montage rapide - Totems - Arches';
+		$h1name='Stand parapluie meilleur prix - stand tissu tendu - Stand pas cher - stand a montage rapide - comptoir d\'accueil tissu ';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f11';
-		$info_title='Stand Parapluie et Présentoirs Cartons';
-		$info_info='Nos stand parapluie tissu et présentoirs à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Stand parapluie, stand tissu tendu, comptoir d\'accueil';
+		$info_info='Nos meilleurs prix stand parapluie tissu et comptoir d\'accueil à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez. Fiabilité et qualité des matériaux assurent au stand parapluie pas cher de France banderole le meilleur rapport qualité prix.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" class="notice" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_parapluie_form();
 	}
 
 
 	if ($page=='panneaux-forex-dibond') {
-		$h1name='panneau forex,  panneau dibond, enseignes publicitaires pas cher';
+		$h1name='meilleur prix panneau forex,  panneau Alu dibond, panneau enseignes publicitaires pas cher';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f12';
-		$info_title='Panneaux Forex Dibond ';
-		$info_info='Les meilleurs prix et impressions sur panneaux akilux, forex et dibond pas cher chez France Banderole sont imprimés en UV directement sur le support de 1 à 10.000 exemplaires jusqu à 300x200cm. Rendu panneaux akilux forex dibond brillant ou mat. délai de livraison rapide jusqu a 24/48h! partout en France métropolitaine';
+		$info_title='Panneaux Forex, alu Dibond, enseigne publicitaire ';
+		$info_info='Le meilleur prix sur panneaux forex et alu-dibond pas cher chez France Banderole. Impression UV standard ou UV HD directement sur le support toutes dimensions jusqu\'à 300x200cm. Option vernis de protection anti-UV sur forex et alu dibond. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine. Les panneaux forex et alu dibond sur livrés et découpées en mètre linéaire. option livraison sur palette sans découpe plein format possible.';
 
 	}
 
 
 	if ($page=='panneaux-akilux') {
-		$h1name='panneaux akilux , panneaux akylux pas cher';
+		$h1name='meilleur prix panneaux akilux, panneau akylux pas cher, panneau alvéolaire publicitaire, panneau de chantier, permis de construire';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux1';
-		$info_title='Panneaux Akilux ';
-		$info_info='Les meilleurs prix et impressions sur panneaux akilux, forex et dibond pas cher chez France Banderole sont imprimés en UV directement sur le support de 1 à 10.000 exemplaires jusqu à 300x200cm. Rendu panneaux akilux forex dibond brillant ou mat. délai de livraison rapide jusqu a 24/48h! partout en France métropolitaine';
+		$info_title='Les meilleurs prix panneaux Akilux alvéolaire';
+		$info_info='L\'impression sur panneaux akilux 3mm - 3,5mm - 5mm - 10mm, est moins cher chez France Banderole car les panneaux alvéolaires sont imprimés directement sur le support en UV standard ou UV HD  de 1 à 10.000 exemplaires jusqu\'à 300x200cm. les panneaux akilux servent à réaliser des panneaux publicitaires pas cher, panneau de chantier, panneaux permis de construire, PLV extérieur pour point de vente. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine';
 
 	}
 
@@ -1108,24 +1102,36 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 
 	if ($page=='panneaux-akilux-3mm') {
-		$h1name='panneaux akilux pas cher, panneau akylux, panneaux de chantier, Akilux 3mm ou 3,5mm, Akilux 450g';
+		$h1name='panneaux akilux 3mm pas cher, panneau akylux meilleur prix, panneaux de chantier prix en ligne, Akilux 3mm ou 3,5mm, Akilux 450g';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux';
-		$info_title='Panneaux Akilux pas cher 3mm';
-		$info_info='Les panneaux Akilux au meilleur prix sont fabriquées en Akilux 3mm ou 450g. Impression directe UV sur panneaux akilux. tailles de 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
+		$info_title='Panneaux Akilux alvéolaire pas cher 3mm - 450g/m²';
+		$info_info='Les panneaux Akilux au meilleur prix sont fabriqués en Akilux 3mm ou 450g. Impression directe UV standard ou UV HD sur panneaux akilux sur mesure personnalisés toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, 120X160cm jusqu à 300X200cm. Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de panneaux extérieur PLV, panneau de chantier, triptyque publicitaire, publicité sur panneau pas cher et fabriqués en France !';
 		$formularz = get_akilux3mm_form();
 	}
 
+	if ($page=='tente-pliante-exposition') {
+		$h1name='Tente publicitaire pliante - chapiteau personnalisé - barnum publicitaire - tente exposition personnalisée';
+		$imghead1='kakemonos1';
+		$imghead2='kakemonos2';
+		$imghead3='kakemonos3';
+		$mini='tentes';
+		$info_title='Tente publicitaire chapiteau barnum personnalisé';
+		$info_info='Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !';
+		$formularz = get_tente_exposition_form();
+	}
+
+
 	if ($page=='panneaux-akilux-3_5mm') {
-		$h1name='panneaux akilux, panneau akylux, panneaux de chantier, Akilux 3.5mm, Akilux 600g';
+		$h1name='panneaux akilux 3,5mm pas cher, panneau akylux meilleur rapport qualité prix, affiche permis de construire, Akilux 3,5mm, Akylux 600g';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux-3_5';
-		$info_title='Panneaux Akilux alvéolaire 3.5mm';
-		$info_info='Les panneaux Akilux au meilleur tarif sont fabriqués en Akilux 3.5mm. Impression directe UV sur panneaux akilux. De 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
+		$info_title='Panneaux akilux 3.5mm - 600g/m²';
+		$info_info='Panneaux akylux au meilleur rapport qualité/prix sont fabriqués en Akilux 3,5mm ou 600g. Impression directe UV standard ou UV HD sur panneaux akilux 3.5mm sur mesure toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, jusqu\'à 120X160cm. Nos panneaux akilux 3,5mm sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de PLV de rue pas cher, panneau permis de contruire, publicité sur panneau rigide pas cher et fabriqués en France !';
 		$formularz = get_akilux3_5mm_form();
 	}
 
@@ -1136,20 +1142,20 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux-5mm';
-		$info_title='Panneaux Akilux alvéolaire 5mm';
-		$info_info='Les panneaux Akilux au meilleur tarif sont fabriqués en Akilux 5mm. Impression directe UV sur panneaux akilux. De 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
+		$info_title='Panneaux akilux alvéolaire 5mm - 900g/m²';
+		$info_info='Les panneaux akilux au meilleur rapport qualité/prix/résistance sont fabriqués en akilux 5mm. nos panneaux akilux imprimés en UV standard ou UV HD sont fabriqués sur mesure avec une dimension minimum de 20x20cm pouvant aller jusqu\'à 120X160cm pour des panneaux alvéolaires personnalisés. Nos panneaux akilux au meilleur prix sont livrés au choix avec oeillet, rainage, crochets, double face... pour réaliser panneau permis de construire, panneau publicitaire rigide pas cher et fabriqués en France !';
 		$formularz = get_akilux5mm_form();
 	}
 
 
 	if ($page=='PVC-300-microns') {
-		$h1name='PVC 300µ, feuille semi rigide pvc impression PVC 300 Microns';
+		$h1name='PVC 300 microns, feuille semi rigide pvc impression PVC 300 Microns';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='PVC-300-microns';
-		$info_title='PVC 300 microns semi-rigide';
-		$info_info='Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu-Dibond au choix, avec formes rectangulaires, carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe en UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).';
+		$info_title='Feuille PVC 300 microns semi-rigide';
+		$info_info='Le PVC 300µ semi rigide imprimé par France banderole vous permet d\'acheter et de créer des PLV suspendues au meilleur prix, stop rayon, tête de gondole. Nous imprimons le PVC 300µ en impression directe UV standard (PLV suspendue) ou UV HD (tête de rayon ou PLV point de vente) en recto ou PLV recto/verso pour obtenir le meilleur rapport qualité/prix. Nous vous proposons le PVC 300 microns avec perçage ou oeillet en finition standard et livraison toujours gratuite en France métropolitaine.';
 		$formularz = get_PVC300microns_form();
 	}
 
@@ -1208,8 +1214,8 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='dibond';
-		$info_title='Panneaux Alu Didond';
-		$info_info='Les enseignes et panneaux France banderole sont fabriquées en Forex ou Dibond au choix, avec formes rectangulaires, carrées ou personnalisées au choix. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).';
+		$info_title='Panneaux Alu Dibond 3mm enseigne publicitaire';
+		$info_info='Les enseignes alu dibond et panneaux alu dibond imprimés par France banderole sont fabriqués en Alu Dibond 3mm, avec formes rectangulaires ou carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV standard ou HD, anti reflet, pour une lisibilité optimale. Nos enseignes alu dibond sont <b>livrées découpées en mètre linéaire</b>, emballées et prêtes à monter. L\'option envoi en un seul panneau est possible jusqu\'à 300x200cm ';
 		$formularz = get_dibond_form();
 	}
 
@@ -1292,34 +1298,34 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 
 	if ($page=='Oriflammes') {
-		$h1name='Oriflamme - Beachflag - Windflag - Drapeaux personnalisés manifestation - flying banner - oriflammes';
+		$h1name='Oriflamme meilleur prix - Beachflag - Windflag - Voile publicitaire pas cher - Drapeaux personnalisés manifestation - flying banner - oriflammes';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f3';
-		$info_title='Oriflammes Windflag Beachflag et drapeaux';
-		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
+		$info_title='Oriflamme Windflag Beachflag, drapeaux et voile publicitaire';
+		$info_info='Fabricant Oriflamme publicitaire aile d\'avion, BeachFlag goutte d\'eau, Windflag rectangulaire et voile publicitaire personnalisée. Produit en france, conception robuste, nos oriflammes, drapeaux et voiles publicitaires se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT (garantie anti-feu) ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions. Production et livraison express possible en 48h/72H en France métropolitaine.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank"  class="notice"  title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
 		$formularz = get_oriflammes_form();
 	}
 	if ($page=='Kakemonos') {
-		$h1name='Kakemono Roll-up - Rollup enrouleur - kakemono rolup - kakemono enrouleur -roll-up pas cher';
+		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f2';
-		$info_title='KAKEMONO ROLL-UP ENROULEUR ';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Kakemono Roll-Up Enrouleur';
+		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_kakemonos_form();
 	}
 
 	if ($page=='roll-up') {
-		$h1name='Kakemono Roll-up - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
+		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='roll-up';
-		$info_title='KAKEMONO ROLL-UP ENROULEUR';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
+		$info_info='Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_rollup_form();
 	}
 
@@ -1337,24 +1343,24 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 
 	if ($page=='totem') {
-		$h1name='Kakemono - Blizzard - clip it - X-screen';
+		$h1name='Kakemono - Totem - totem publicitaire - kakemono exterieur Blizzard - totem suspendu clip it - X-banner X-screen';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='t';
-		$info_title='Kakemono Totem ';
-		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Totem publicitaire intérieur et extérieur ';
+		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_totem_form();
 	}
 
 	if ($page=='Banderoles') {
-		$h1name='Banderole - Banderoles - Banderole Publicitaire - banderole imprimée - impression banderole';
+		$h1name='Banderole - Banderoles - Banderole Publicitaire - banderole imprimée - impression banderole - bache publicitaire - bâche imprimée';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f1';
-		$info_title='Banderole ';
-		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours<br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" title="Banderole : Tout savoir"><span class="highlight"><b>AIDE ET EXPLICATIFS</b></span></a>';
+		$info_title='Banderole publicitaire - bâche imprimée ';
+		$info_info='<span class="prezHide">France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, foire ou salon… banderole intérieur (Anti-feu M2,M1), ou banderole extérieure, la banderole se positionne facilement. Impression sur baches en qualité photo. Toutes nos banderoles sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours</span>   <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir" ><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" class="notice" title="Banderole : Tout savoir"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" class="notice" title="Banderole : Tout savoir"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_banderoles_form();
 	}
 
@@ -1375,7 +1381,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
 	$wycena .= '</div></div>';}
 
-	$view .= '<h1>'.$h1name.'</h1><hr />';
+	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';
 	/* $view .= '<div id="top_images">
 	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
 	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
@@ -1387,7 +1393,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.jpg" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br />'.$info_info.'</div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}
@@ -1533,12 +1539,12 @@ function get_verification() {
 			$user = $_SESSION['loggeduser'];
 			//echo "1///Session=";print_r($_SESSION);
 			//echo "2///User=";print_r($user);
-			$prolog .= '<div class="address_tab_name">VOTRE COMMANDE:</div>';
-			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"></a>';
-			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"></a>';
-			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit"></button></form>';
+			$prolog .= '<div class="acces_tab_name_devis">VOTRE COMMANDE</div>';
+			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
+			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
+			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
-			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION:</div>';
+			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION</div>';
 			$explode = explode('|', $user->f_address);
 			$f_address = $explode['0'];
 			$f_porte = $explode['1'].'<br />';
@@ -1561,7 +1567,7 @@ function get_verification() {
 			$lien_catalogue = get_bloginfo("url") . "#tarifs";
 		}
 		/*$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.get_bloginfo("url").'#tarifs" id="but_ajouter"></a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;*/
-		$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.$lien_catalogue.'" id="but_ajouter"></a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;
+		$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;
 		$view .= print_devis_verification($products, $prolog, $epilog);
 	} else {
 		if (!(isset($_POST['logme']))) {
@@ -1588,7 +1594,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span></td><td style="width:120px">'.$item[ilosc].'</td><td>'.$item[total].'</td><td style="width:24px"></td></tr>';
+			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span></td><td>'.$item[ilosc].'</td><td>'.$item[total].'</td><td></td></tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[transport];
@@ -1622,7 +1628,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$totalcalosci.' &euro;</b></td></tr>
+		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
 	} else {
 		$view .= 'Votre panier est vide !';
@@ -1637,10 +1643,9 @@ function get_mode_de_livraison(){
 	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  	if($relais_colis !== false){
 		$retour = '<div class="acces_tab_name_devis noprint">MODE DE LIVRAISON : RELAIS COLIS</div>
-		<div style="position:relative; display:block;height:60px;"></div>
 			';
 		$retour .= '<div id="tntB2CRelaisColis" class="exemplePresentation"></div>
-		<div id="map_canvas" class="exemplePresentation" style="width: 250px; height: 200px; margin-left:10px;"></div>';
+		<div id="map_canvas" class="exemplePresentation"></div>';
 
 		$retour .= '
 		<form action="" method="post" name="form_adresse_relais_colis" id="form_adresse_relais_colis">
@@ -1746,13 +1751,17 @@ function get_devis() {
 	$products = $_SESSION['fbcart'];
 	$prolog = '<h1 class="noprint">Votre devis: Inscription</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
+
 	if (is_cart_not_empty()) {
 		$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :</div>';
 	}
 	$epilog = '<div id="fbcart_buttons" class="noprint">';
+
 	if (is_cart_not_empty()) {
-		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"></a><a href="javascript:window.print()" id="but_imprimer"></a>';
+		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"><i class="fa fa-times-circle" aria-hidden="true"></i>
+ Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	}
+
 		if($_SESSION['isburaliste']){
 			$lien_catalogue = get_bloginfo("url") . "/buralistes";
 		}
@@ -1762,14 +1771,25 @@ function get_devis() {
 			$lien_catalogue = get_bloginfo("url") . "#tarifs";
 		}
 	/*$epilog .= '<a href="'.get_bloginfo("url").'#tarifs" id="but_ajouter"></a>';*/
-	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"></a>';
+
+	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>';
+
 	if (is_cart_not_empty()) {
 		//$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  		if($relais_colis !== false){
-			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;"></a>';
+			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
-			$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
+      // soit l'utilisateur est connecté et il enregistre son panier directement(1),
+      // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2) :
+      //1 $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+      //2 $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+      if (!empty($_SESSION['loggeduser'])) {
+        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+      }else{
+        $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Se connecter et enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+      }
+
 		}
 	}
 	$epilog .= '</div>';
@@ -1779,7 +1799,7 @@ function get_devis() {
 }
 function contact_advert() {
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
-	$view .= '<div id="contact_advert"><img src="'.$plugin_url.'images/contact_info.jpg" alt="contact with us" /></div>';
+	$view .= '<div id="contact_advert"><a href="tel:+33442401401"><img src="'.$plugin_url.'images/contact_info.jpg" alt="contact with us" /></a></div>';
 	return $view;
 }
 
@@ -1799,7 +1819,7 @@ function print_devis($products, $prolog, $epilog) {
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td>'.$item[ilosc].'</td><td>'.$item[prix].'</td><td>'.$item[option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td><td><form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
+			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td><td><span class="disMob0">Prix unitaire : </span>'.$item[prix].'</td><td><span class="disMob0">Option : </span>'.$item[option].'</td><td><span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'</td><td><form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
 			</form></td></tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
@@ -1834,7 +1854,7 @@ function print_devis($products, $prolog, $epilog) {
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft" style="height:30px">total ttc</td><td class="toright" style="height:30px"><b>'.$totalcalosci.' &euro;</b></td></tr>
+		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>';
 	} else {
@@ -1942,7 +1962,7 @@ function get_plv() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_plv";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
+	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
 	/* $view .= '<div id="top_images">
 	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
 	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
@@ -1951,7 +1971,7 @@ function get_plv() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f10.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2070,7 +2090,7 @@ function get_plv() {
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                                <span class="plvoptionsingle" style="border: 1px solid #9FA3A8; font-weight: 700;"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
+                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
                             </div>
                         </td>
@@ -2098,7 +2118,7 @@ function get_plv_int() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_plv_int";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
+	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
 	/* $view .= '<div id="top_images">
 	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
 	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
@@ -2107,7 +2127,7 @@ function get_plv_int() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f22.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2219,7 +2239,7 @@ function get_plv_int() {
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                                <span class="plvoptionsingle" style="border: 1px solid #9FA3A8; font-weight: 700;"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
+                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
 		</div>
 		</td>
@@ -2502,7 +2522,7 @@ function get_acc() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2597,7 +2617,7 @@ function get_mma() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>'; */
-	/*$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
+	/*$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
 
 	$view .= '<table id="promotions_tablemma" cellspacing="0">';
 	$view .= '
@@ -2738,7 +2758,7 @@ function get_acc2() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>';
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2834,7 +2854,7 @@ function get_acc2() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>';
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2919,7 +2939,7 @@ function get_promotions() {
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 
 	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><img class="alignleft" src="'.$plugin_url.'images/f8.jpg" alt="" /><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
 	$licznik = 0;
@@ -3146,5 +3166,9 @@ function get_oriflammes_form() {
 	return $form;
 }
 
+function get_tente_exposition_form() {
+    $form = file_get_contents(getTplPath('tente-pliante-exposition.php'));
+    return $form;
+}
 
 ?>

@@ -1036,13 +1036,13 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	}
 
 	if ($page=='flyers') {
-		$h1name='Flyers pas cher, impression flyer, Prospectus, tracts, imprimer flyer papier PEFC et FSC';
+		$h1name='Flyers pas cher, impression flyer meilleur prix, Prospectus, tracts, imprimer flyer rapidement papier PEFC et FSC';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f4';
 		$info_title='Impression rapide flyers pas cher et prospectus';
-		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers aux prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. <span class="highlight notice"><b>Délai production livraison en standard : 3/4 jours ouvrés !</b></span>';
+		$info_info='Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers au prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. Nous pouvons également réaliser des dimensions de flyer personnalisées pour des carte de voeux etc... Livraison gratuite partout en France métropolitaine';
 		$formularz = get_flyers_form();
 	}
 
@@ -1053,47 +1053,47 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	}
 
 	if ($page=='depliants') {
-		$h1name='Depliant flyer publicitaire et livre personnalisés';
+		$h1name='Depliant publicitaire pas cher leaflet pli portefeuille pli roulé';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f13';
-		$info_title='Dépliant et livre personnalisés';
-		$info_info='Acheter des depliants 1 pli, 2 plis, 3 plis au meilleur tarif et en petite quantité pour ne payer que ce dont vous avez besoin. Nos impressions numériques sur presses numériques et offset vous permettent aujourd\'hui de profiter de dépliants pas cher et d\'imprimer votre propre livre personnalisé au meilleur prix.';
+		$info_title='Dépliant leaflet personnalisés 1 ou 2 plis';
+		$info_info='Acheter des depliants 1 pli, 2 plis au meilleur prix et en petite quantité pour ne payer que ce dont vous avez besoin. Nos impressions numériques sur presses numériques et offset vous permettent aujourd\'hui de profiter de dépliant pas cher et d\'imprimer votre propre publicité et prospectus publicitaire au meilleur tarif.';
 		$formularz = get_depliants_form();
 	}
 	if ($page=='stand-parapluie') {
-		$h1name='Stand Parapluie - stands parapluie tissu - Stand parapluie Révolution - Presentoirs a montage rapide - Totems - Arches';
+		$h1name='Stand parapluie meilleur prix - stand tissu tendu - Stand pas cher - stand a montage rapide - comptoir d\'accueil tissu ';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f11';
-		$info_title='Stand Parapluie et Présentoirs Cartons';
-		$info_info='Nos stand parapluie tissu et présentoirs à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" class="notice" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Stand parapluie, stand tissu tendu, comptoir d\'accueil';
+		$info_info='Nos meilleurs prix stand parapluie tissu et comptoir d\'accueil à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez. Fiabilité et qualité des matériaux assurent au stand parapluie pas cher de France banderole le meilleur rapport qualité prix.<br/><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" class="notice" title="AIDE STAND PARAPLUIE"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_parapluie_form();
 	}
 
 
 	if ($page=='panneaux-forex-dibond') {
-		$h1name='panneau forex,  panneau dibond, enseignes publicitaires pas cher';
+		$h1name='meilleur prix panneau forex,  panneau Alu dibond, panneau enseignes publicitaires pas cher';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f12';
-		$info_title='Panneaux Forex Dibond ';
-		$info_info='Les meilleurs prix et impressions sur panneaux akilux, forex et dibond pas cher chez France Banderole sont imprimés en UV directement sur le support de 1 à 10.000 exemplaires jusqu à 300x200cm. Rendu panneaux akilux forex dibond brillant ou mat. délai de livraison rapide jusqu a 24/48h! partout en France métropolitaine';
+		$info_title='Panneaux Forex, alu Dibond, enseigne publicitaire ';
+		$info_info='Le meilleur prix sur panneaux forex et alu-dibond pas cher chez France Banderole. Impression UV standard ou UV HD directement sur le support toutes dimensions jusqu\'à 300x200cm. Option vernis de protection anti-UV sur forex et alu dibond. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine. Les panneaux forex et alu dibond sur livrés et découpées en mètre linéaire. option livraison sur palette sans découpe plein format possible.';
 
 	}
 
 
 	if ($page=='panneaux-akilux') {
-		$h1name='panneaux akilux , panneaux akylux pas cher';
+		$h1name='meilleur prix panneaux akilux, panneau akylux pas cher, panneau alvéolaire publicitaire, panneau de chantier, permis de construire';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux1';
-		$info_title='Panneaux Akilux ';
-		$info_info='Les meilleurs prix et impressions sur panneaux akilux, forex et dibond pas cher chez France Banderole sont imprimés en UV directement sur le support de 1 à 10.000 exemplaires jusqu à 300x200cm. Rendu panneaux akilux forex dibond brillant ou mat. délai de livraison rapide jusqu a 24/48h! partout en France métropolitaine';
+		$info_title='Les meilleurs prix panneaux Akilux alvéolaire';
+		$info_info='L\'impression sur panneaux akilux 3mm - 3,5mm - 5mm - 10mm, est moins cher chez France Banderole car les panneaux alvéolaires sont imprimés directement sur le support en UV standard ou UV HD  de 1 à 10.000 exemplaires jusqu\'à 300x200cm. les panneaux akilux servent à réaliser des panneaux publicitaires pas cher, panneau de chantier, panneaux permis de construire, PLV extérieur pour point de vente. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine';
 
 	}
 
@@ -1102,36 +1102,36 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 
 	if ($page=='panneaux-akilux-3mm') {
-		$h1name='panneaux akilux pas cher, panneau akylux, panneaux de chantier, Akilux 3mm ou 3,5mm, Akilux 450g';
+		$h1name='panneaux akilux 3mm pas cher, panneau akylux meilleur prix, panneaux de chantier prix en ligne, Akilux 3mm ou 3,5mm, Akilux 450g';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux';
-		$info_title='Panneaux Akilux pas cher 3mm';
-		$info_info='Les panneaux Akilux au meilleur prix sont fabriquées en Akilux 3mm ou 450g. Impression directe UV sur panneaux akilux. tailles de 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
+		$info_title='Panneaux Akilux alvéolaire pas cher 3mm - 450g/m²';
+		$info_info='Les panneaux Akilux au meilleur prix sont fabriqués en Akilux 3mm ou 450g. Impression directe UV standard ou UV HD sur panneaux akilux sur mesure personnalisés toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, 120X160cm jusqu à 300X200cm. Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de panneaux extérieur PLV, panneau de chantier, triptyque publicitaire, publicité sur panneau pas cher et fabriqués en France !';
 		$formularz = get_akilux3mm_form();
 	}
 
 	if ($page=='tente-pliante-exposition') {
-		$h1name='Tente pliante d\'Exposition';
+		$h1name='Tente publicitaire pliante - chapiteau personnalisé - barnum publicitaire - tente exposition personnalisée';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='tentes';
-		$info_title='Tente';
-		$info_info='Céer un espcace à vos évènements grâce aux tentes pliantes. France Banderole vous propose différentes options pour personnaliser vos barnums.';
+		$info_title='Tente publicitaire chapiteau barnum personnalisé';
+		$info_info='Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !';
 		$formularz = get_tente_exposition_form();
 	}
 
 
 	if ($page=='panneaux-akilux-3_5mm') {
-		$h1name='panneaux akilux, panneau akylux, panneaux de chantier, Akilux 3.5mm, Akilux 600g';
+		$h1name='panneaux akilux 3,5mm pas cher, panneau akylux meilleur rapport qualité prix, affiche permis de construire, Akilux 3,5mm, Akylux 600g';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux-3_5';
-		$info_title='Panneaux Akilux alvéolaire 3.5mm';
-		$info_info='Les panneaux Akilux au meilleur tarif sont fabriqués en Akilux 3.5mm. Impression directe UV sur panneaux akilux. De 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
+		$info_title='Panneaux akilux 3.5mm - 600g/m²';
+		$info_info='Panneaux akylux au meilleur rapport qualité/prix sont fabriqués en Akilux 3,5mm ou 600g. Impression directe UV standard ou UV HD sur panneaux akilux 3.5mm sur mesure toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, jusqu\'à 120X160cm. Nos panneaux akilux 3,5mm sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de PLV de rue pas cher, panneau permis de contruire, publicité sur panneau rigide pas cher et fabriqués en France !';
 		$formularz = get_akilux3_5mm_form();
 	}
 
@@ -1142,20 +1142,20 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='akilux-5mm';
-		$info_title='Panneaux Akilux alvéolaire 5mm';
-		$info_info='Les panneaux Akilux au meilleur tarif sont fabriqués en Akilux 5mm. Impression directe UV sur panneaux akilux. De 60X40cm, 60X80cm, 80X120cm, 120X160cm jusqu à 300X200cm et panneaux akilux personnalisés.<br />Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !';
+		$info_title='Panneaux akilux alvéolaire 5mm - 900g/m²';
+		$info_info='Les panneaux akilux au meilleur rapport qualité/prix/résistance sont fabriqués en akilux 5mm. nos panneaux akilux imprimés en UV standard ou UV HD sont fabriqués sur mesure avec une dimension minimum de 20x20cm pouvant aller jusqu\'à 120X160cm pour des panneaux alvéolaires personnalisés. Nos panneaux akilux au meilleur prix sont livrés au choix avec oeillet, rainage, crochets, double face... pour réaliser panneau permis de construire, panneau publicitaire rigide pas cher et fabriqués en France !';
 		$formularz = get_akilux5mm_form();
 	}
 
 
 	if ($page=='PVC-300-microns') {
-		$h1name='PVC 300µ, feuille semi rigide pvc impression PVC 300 Microns';
+		$h1name='PVC 300 microns, feuille semi rigide pvc impression PVC 300 Microns';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='PVC-300-microns';
-		$info_title='PVC 300 microns semi-rigide';
-		$info_info='Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu-Dibond au choix, avec formes rectangulaires, carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe en UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).';
+		$info_title='Feuille PVC 300 microns semi-rigide';
+		$info_info='Le PVC 300µ semi rigide imprimé par France banderole vous permet d\'acheter et de créer des PLV suspendues au meilleur prix, stop rayon, tête de gondole. Nous imprimons le PVC 300µ en impression directe UV standard (PLV suspendue) ou UV HD (tête de rayon ou PLV point de vente) en recto ou PLV recto/verso pour obtenir le meilleur rapport qualité/prix. Nous vous proposons le PVC 300 microns avec perçage ou oeillet en finition standard et livraison toujours gratuite en France métropolitaine.';
 		$formularz = get_PVC300microns_form();
 	}
 
@@ -1214,8 +1214,8 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='dibond';
-		$info_title='Panneaux Alu Didond';
-		$info_info='Les enseignes et panneaux France banderole sont fabriquées en Forex ou Dibond au choix, avec formes rectangulaires, carrées ou personnalisées au choix. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).';
+		$info_title='Panneaux Alu Dibond 3mm enseigne publicitaire';
+		$info_info='Les enseignes alu dibond et panneaux alu dibond imprimés par France banderole sont fabriqués en Alu Dibond 3mm, avec formes rectangulaires ou carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV standard ou HD, anti reflet, pour une lisibilité optimale. Nos enseignes alu dibond sont <b>livrées découpées en mètre linéaire</b>, emballées et prêtes à monter. L\'option envoi en un seul panneau est possible jusqu\'à 300x200cm ';
 		$formularz = get_dibond_form();
 	}
 
@@ -1298,17 +1298,17 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 
 	if ($page=='Oriflammes') {
-		$h1name='Oriflamme - Beachflag - Windflag - Drapeaux personnalisés manifestation - flying banner - oriflammes';
+		$h1name='Oriflamme meilleur prix - Beachflag - Windflag - Voile publicitaire pas cher - Drapeaux personnalisés manifestation - flying banner - oriflammes';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f3';
-		$info_title='Oriflammes Windflag Beachflag et drapeaux';
-		$info_info='Fabricant Oriflamme aile d\'avion, BeachFlag goutte d\'eau ou Windflag rectangulaire. Produit en france, conception robuste, nos oriflammes et drapeaux se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions.<br /><u>Délais de livraison en standard :</u> 7 à 9 jours ouvrés.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank"  class="notice"  title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
+		$info_title='Oriflamme Windflag Beachflag, drapeaux et voile publicitaire';
+		$info_info='Fabricant Oriflamme publicitaire aile d\'avion, BeachFlag goutte d\'eau, Windflag rectangulaire et voile publicitaire personnalisée. Produit en france, conception robuste, nos oriflammes, drapeaux et voiles publicitaires se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT (garantie anti-feu) ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions. Production et livraison express possible en 48h/72H en France métropolitaine.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank"  class="notice"  title="AIDE ORIFLAMME"><b><span class="highlight">NOTICES TECHNIQUES - GABARIT</span></b></a>';
 		$formularz = get_oriflammes_form();
 	}
 	if ($page=='Kakemonos') {
-		$h1name='Kakemono Roll-up - Rollup enrouleur - kakemono rolup - kakemono enrouleur -roll-up pas cher';
+		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
@@ -1319,13 +1319,13 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	}
 
 	if ($page=='roll-up') {
-		$h1name='Kakemono Roll-up - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
+		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='roll-up';
-		$info_title='Kakemono Roll-Up Enrouleur';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
+		$info_info='Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b><a rel="shadowbox" href="'.get_bloginfo("url").'/rollup/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_rollup_form();
 	}
 
@@ -1343,24 +1343,24 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 
 	if ($page=='totem') {
-		$h1name='Kakemono - Blizzard - clip it - X-screen';
+		$h1name='Kakemono - Totem - totem publicitaire - kakemono exterieur Blizzard - totem suspendu clip it - X-banner X-screen';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='t';
-		$info_title='Kakemono Totem ';
-		$info_info='Le kakemono, un support de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du kakemono Totem un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). Tous nos kakemonos enrouleurs sont livrés avec visuel monté, housse de protection, sac de transport et carton.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
+		$info_title='Totem publicitaire intérieur et extérieur ';
+		$info_info='Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.<a rel="shadowbox" href="'.get_bloginfo("url").'/aide-kakemono/" target="_blank" class="notice" title="AIDE KAKEMONO"><b><span class="highlight">NOTICES TECHNIQUES - AIDE</span></b></a>';
 		$formularz = get_totem_form();
 	}
 
 	if ($page=='Banderoles') {
-		$h1name='Banderole - Banderoles - Banderole Publicitaire - banderole imprimée - impression banderole';
+		$h1name='Banderole - Banderoles - Banderole Publicitaire - banderole imprimée - impression banderole - bache publicitaire - bâche imprimée';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
 		$imghead3='kakemonos3';
 		$mini='f1';
-		$info_title='Banderole ';
-		$info_info='France Banderole fabricant de banderoles publicitaires, imprimeur numérique grand format. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition… banderole intérieur (Anti-feu M2,M1) et/ou en extérieur la banderole se positionne facilement. Impression sur baches en qualité photo numérique. Toutes nos banderoles sont recyclables. Chez vous au choix en 24/48H - 72H - 6/8 jours <br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
+		$info_title='Banderole publicitaire - bâche imprimée ';
+		$info_info='France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, foire ou salon… banderole intérieur (Anti-feu M2,M1), ou banderole extérieure, la banderole se positionne facilement. Impression sur baches en qualité photo. Toutes nos banderoles sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours <br /><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir"><b><span class="highlight">AIDE ET EXPLICATIFS</span></b></a>';
 		$formularz = get_banderoles_form();
 	}
 
@@ -2090,7 +2090,7 @@ function get_plv() {
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
+                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
                             </div>
                         </td>
@@ -2239,7 +2239,7 @@ function get_plv_int() {
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
+                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
                                 <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
 		</div>
 		</td>
