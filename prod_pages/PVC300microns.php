@@ -1,4 +1,5 @@
 <div id="buying">
+  <h3>Votre devis en ligne :</h3>
   <!-- <a href="http://www.france-banderole.com/enseignes/"><<< Retour enseignes</a> -->
   <form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_PVC300microns(); return false;">
     <div class="form-all">
@@ -11,7 +12,7 @@
             <option value="rectoverso">Recto/Verso </option>
           </select>
         </li>
-        
+
         <li class="form-line" id="id_HD">
 					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression akilux Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression akilux standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression akilux pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux akilux pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés akilux pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
@@ -141,13 +142,24 @@
 
 
   <div id="preview">
-    <span id="preview_name">Forex 1 mm:</span>
-    <div id="preview_imag"></div><div id="preview_info"><div id="preview_info_title"></div><ul id="preview_info_ul"><li id="iden1"></li><li id="iden2"></li></ul></div>
-  </div>
 
-  <div id="preview2">
-    <span id="preview_name2"></span>
-    <div id="preview_imag2"></div><div id="preview_info2"><div id="preview_info_title2"></div><ul id="preview_info_ul2"><li style="display:none"></li></ul></div>
+      <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
+
+      <div id="container">
+
+        <div id="slides">
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/1.jpg" alt="commencez votre devis en ligne" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/2.jpg" alt="commencez votre devis en ligne" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/3.jpg" alt="commencez votre devis en ligne" /></li>
+        </div>
+      </div>
+
+      <div id="preview_imag"></div>
+      <div id="preview_imag2"></div>
+      <div id="preview_imag3"></div>
+      <div id="preview_imag4"></div>
+      <div id="preview_imag5"></div>
+      
   </div>
 
   <script type="text/javascript">

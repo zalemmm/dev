@@ -1203,8 +1203,8 @@ function add_to_db() {
 					$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GESTION DÉTAILLÉE dans vos devis, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\nAmicalement,\r\nL'équipe France banderole.\r\n http://www.france-banderole.com";
 					$lettert = "Fonctionnement général de votre accès client";
 				}
-				$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
-        		$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+        		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 		        //mail($user->email, $lettert, $letter, $header);
 		        wp_mail($user->email, $lettert, $letter);
 			}

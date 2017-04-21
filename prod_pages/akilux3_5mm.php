@@ -1,4 +1,5 @@
 <div id="buying">
+  <h3>Votre devis en ligne :</h3>
   <!-- <a href="http://www.france-banderole.com/enseignes/"><<< Retour enseignes</a> -->
   <form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_akilux3_5mm(); return false;">
     <input type="hidden" name="formID" value="1060900217" />
@@ -80,7 +81,7 @@
           </li>
 
           <li class="form-line" id="id_6">
-            <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+            <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
             <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
               <option class="titre" value="">fichier d'impression...</option>
               <option class="option1" value="fb">France banderole crée la mise en page</option>
@@ -181,7 +182,24 @@
     </div>
 
     <div id="preview">
-      <div id="preview_imag"></div>
+
+        <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
+
+        <div id="container">
+
+          <div id="slides">
+            <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
+  		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
+  		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
+          </div>
+        </div>
+
+        <div id="preview_imag"></div>
+        <div id="preview_imag2"></div>
+        <div id="preview_imag3"></div>
+        <div id="preview_imag4"></div>
+        <div id="preview_imag5"></div>
+
     </div>
 
     <div id="custom_price_unit" >
@@ -661,7 +679,6 @@
 
             jQuery(document).ready(function(){
               jQuery('.jotform-form select').click(function(){
-
                 jQuery('#delivery-value').val(Masquer());
 
                 jQuery('.delivery').prop("disabled",false);

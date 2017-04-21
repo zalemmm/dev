@@ -385,16 +385,17 @@
 			<div id="slides">
 				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-1.jpg" alt="exemple réalisation banderole" /></li>
 				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-2.jpg" alt="exemple réalisation banderole" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-0.jpg" alt="exemple réalisation banderole" /></li>
 				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
 			</div>
 		</div>
 
 
-		<div id="preview_imag"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
-
-		<div id="preview_imag2"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
-
-		<div id="preview_imag3"><a href="http://www.france-banderole.com/choisir-sa-bache/" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES BANDEROLES"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
+		<div id="preview_imag"></div>
+		<div id="preview_imag2"></div>
+		<div id="preview_imag3"></div>
+		<div id="preview_imag4"></div>
+		<div id="preview_imag5"></div>
 
 	</div>
 

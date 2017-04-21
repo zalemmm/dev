@@ -9,7 +9,7 @@
  * Cree la base de donnees des expedition
  * @global type $wpdb
  */
- 
+
 function createTable() {
     global $wpdb;
     $wpdb->show_errors();
@@ -64,16 +64,16 @@ function getStatMsg($status) {
         case 1 : return "<span style='font-weight: 700;'>Nombre de colis incomplet</span>";
         case 2 : return "<span style='font-weight: 700;'>Expédiée</span>";
         case 3 : return "<span style='font-weight: 700;'>Déja expédiée</span>";
-            
+
         case 101 : return "<span style='font-weight: 700;'>Etat : attente</span>";
         case 102 : return "<span style='font-weight: 700;'>Etat : attente paiement</span>";
         case 103 : return "<span style='font-weight: 700;'>Etat : payé</span>";
         case 104 : return "<span style='font-weight: 700;'>Etat : cloturé</span>";
         case 105 : return "<span style='font-weight: 700;'>Etat : annulées</span>";
-            
+
         case 106 : return "<span style='font-weight: 700;'>Nombre de colis incomplet</span>";
         case 107 : return "<span style='font-weight: 700;'>Nombre de colis non renseignée</span>";
-            
+
         case 108 : return "<span style='font-weight: 700;'>Numero de tracking manquant</span>";
     }
 }
@@ -102,7 +102,7 @@ function showTableStat() {
             </thead>
             <tbody>
                 <?php if ($rows) : ?>
-                    <?php foreach($rows as $row) : ?> 
+                    <?php foreach($rows as $row) : ?>
                     <tr style="background-color: <?php if ($row->status != 2) { ?> #FFC0CB <?php } else { ?> #90EE90 <?php } ?>;">
                         <td style="color: #000;"><?php echo $row->n_cmd; ?></td>
                         <td style="color: #000;"><?php echo $row->date_jours; ?></td>
@@ -110,7 +110,7 @@ function showTableStat() {
                         <td style="color: #000;"><?php echo $row->nb_s_colis; ?></td>
                         <td style="color: #000;"><?php echo getStatMsg($row->status); ?></td>
                     </tr>
-                    <?php endforeach; ?> 
+                    <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
                         <td colspan="4" style='text-align: center; font-weight: 700; color: red;'>Pas d'enregistrement !!</td>
@@ -136,7 +136,7 @@ function showTableStat() {
  * @param type $nCmd
  * @param type $nbTColis
  * @param type $nbSColis
- * @param type $status : 
+ * @param type $status :
  *                      1 - En attente
  *                      2 - Expédiée
  *                      3 - Déja expédiée
@@ -147,7 +147,7 @@ function archive($nCmd, $nbTColis, $nbSColis, $status, $msg = "") {
     $wpdb->show_errors();
     $sql1 = "select id from " . $wpdb->prefix . "expedition where n_cmd='" . $nCmd . "' and date_jours = DATE(now()) ";
     //echo $sql1 . "<br/>";
-	//mail("contact@tempopasso.com","archive //","nCmd=".$nCmd." // sql1=".$sql1." // number=".$number." ///// ".print_r("",true));	
+	//mail("contact@tempopasso.com","archive //","nCmd=".$nCmd." // sql1=".$sql1." // number=".$number." ///// ".print_r("",true));
     if ($id = $wpdb->get_var($sql1)) {
         $sql3 = "update " . $wpdb->prefix . "expedition set nb_t_colis = '" . $nbTColis . "', nb_s_colis = '" . $nbSColis . "', status='" . $status . "' where id='" . $id . "'";
 		//mail("contact@tempopasso.com","archive //","nCmd=".$nCmd." // sql3=".$sql3." // number=".$number." ///// ".print_r("",true));
@@ -159,7 +159,7 @@ function archive($nCmd, $nbTColis, $nbSColis, $status, $msg = "") {
         $wpdb->query($sql2);
         //echo $sql2 . "<br/>";
     }
-	
+
 }
 
 /**
@@ -187,9 +187,9 @@ function fb_admin_expedition() {
             unset($_POST);
         }
     }
-    
+
     $isFinal = false;
-    
+
     if (isset($_POST['scanbarcode'])) {
         $code = $_POST['scanbarcode'];
 		$pos = strpos($code, '000');
@@ -199,7 +199,7 @@ function fb_admin_expedition() {
 		$pos = strpos($code, '0000');
 		if ($pos !== false) {
 			$code = substr($code,2,strlen($code));
-		}		
+		}
         if ($code == $code_fin_expedition) {
             //cloture
             addMsg("Clôture : ", date('d/m/Y'));
@@ -207,9 +207,9 @@ function fb_admin_expedition() {
             $isFinal = true;
             goto fin;
         }
-        
+
         addMsg("Le code barre scanné est : ", $code, "", 2);
-		
+
 		/* On check que le colis n'a pas déjà été scanné (nb colis expédié = nb total de colis ET Message == 2 */
 		$colis_check = $wpdb->get_row("SELECT * from wp_expedition where n_cmd='" . $code . "' and date_jours=DATE(now());");
 		if(($colis_check -> nb_t_colis == $colis_check -> nb_s_colis) && ($colis_check -> status == 2) ){
@@ -218,10 +218,10 @@ function fb_admin_expedition() {
             addMsg("Nombre de colis à expédier ", " déjà ATTEINT ", "style='color: red; line-height: 20px;'", 4);
             addMsg("red_cross.png", "", " style='float: right;width:150px;'", 8);
 			goto fin;
-			
+
 		}
-		
-		
+
+
 
         //$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE CONVERT(`tnt` USING utf8) LIKE '%%$code%%'");
         $order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE `unique_id` = '$code'");
@@ -230,7 +230,7 @@ function fb_admin_expedition() {
             $stat = getStatus($order->status);
 
             addMsg('Numéro de commande: ', $order->unique_id, "", 2);
-            
+
 
             if ($order->status == 3 || $confirmation_ecrasement) {
                 if ($order->tnt == "" || strlen($order->tnt) < 1) {
@@ -262,7 +262,7 @@ function fb_admin_expedition() {
                             if ($sColis) {
                                 if (($sColis+1) == $colis) {
                                     archive($code, $colis, $sColis+1, 2);
-                                    
+
                                     /* Traitement de la commande en expédié avec les envoi de mails et ajout de commentaires */
                                     $number = stripslashes($order->unique_id);
                                     $fb_tablename_order = 'wp_fbs_order';
@@ -274,7 +274,7 @@ function fb_admin_expedition() {
                                     $fb_tablename_users = 'wp_fbs_users';
                                     $fb_tablename_address = 'wp_fbs_address';
                                     traitement_passage_expedie($number, $fb_tablename_order, $fb_tablename_topic, $fb_tablename_mails, $fb_tablename_comments, $fb_tablename_comments_new, $fb_tablename_cf, $fb_tablename_users, $fb_tablename_address);
-                                    
+
                                 } elseif ($sColis < $colis) {
                                     archive($code, $colis, $sColis+1, 1);
                                 }
@@ -320,7 +320,7 @@ function fb_admin_expedition() {
         $data = ob_get_clean();
         $form = file_get_contents(getTplPath('expedition.php'));
         $html = str_replace('$$CONTENT$$', $data, $form);
-        
+
         $page = "<html>
                     <head>
                         <meta charset='UTF-8'/>
@@ -333,11 +333,11 @@ function fb_admin_expedition() {
                     </head>";
         $page .= "  <body  style='background: #EFEFEE;'>" . $data . "</body>";
         $page .= "</html>";
-        
+
         file_put_contents( WP_PLUGIN_DIR . '/fbshop/expeditions/ST' . date('dmY') . '.html', $page);
-        
-        wp_mail('info@france-banderole.fr', 'Clôture Expéditions du ' . date('d/m/Y'), $page, array('Content-Type: text/html; charset=UTF-8'));
-        
+
+        wp_mail('information@france-banderole.com', 'Clôture Expéditions du ' . date('d/m/Y'), $page, array('Content-Type: text/html; charset=UTF-8'));
+
         echo $data;
     } else {
         $form = file_get_contents(getTplPath('expedition.php'));

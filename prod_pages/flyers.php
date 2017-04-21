@@ -1,4 +1,5 @@
 <div id="buying">
+	<h3>Votre devis en ligne :</h3>
 	<form class="jotform-form" action="" method="post" name="form_1060900223" id="1060900223" accept-charset="utf-8" onsubmit="JKakemono.cal_flyers();
 	return false;">
 	<input type="hidden" name="formID" value="1060900223" />
@@ -352,7 +353,23 @@
 </form>
 </div>
 <div id="preview">
-	<span id="preview_name">Flyers / Prospectus sélectionné :</span>
-	<div id="preview_imag"></div><div id="preview_info"><div id="preview_info_title"></div><ul id="preview_info_ul"><span id="lista1"><li style="display:none"></li></span></ul></div>
+
+	  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
+
+	  <div id="container">
+
+	    <div id="slides">
+	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/1.jpg" alt="commencez votre devis en ligne" /></li>
+	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/2.jpg" alt="commencez votre devis en ligne" /></li>
+	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/3.jpg" alt="commencez votre devis en ligne" /></li>
+	    </div>
+	  </div>
+
+	  <div id="preview_imag"></div>
+	  <div id="preview_imag2"></div>
+	  <div id="preview_imag3"></div>
+	  <div id="preview_imag4"></div>
+	  <div id="preview_imag5"></div>
+		
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>

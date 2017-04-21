@@ -635,27 +635,33 @@ JotForm = {
 
 						/////////////////////taille//////////
 
-				       	if ($('input_1').value == '2x2') {
+				    if ($('input_1').value == '2x2') {
+              $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x2m.jpg) no-repeat" ;
 						}
 							if ($('input_1').value == '2x3') {
+              $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-2x3m.jpg) no-repeat" ;
 						}
 							if ($('input_1').value == '3x3') {
+              $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x3m.jpg) no-repeat" ;
 						}
 							if ($('input_1').value == '3x4') {
+              $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x4m.jpg) no-repeat" ;
 						}
 							if ($('input_1').value == '3x6') {
+              $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-3x6m.jpg) no-repeat" ;
 						}
 							if ($('input_1').value == '4x6') {
+              $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante-4x6m.jpg) no-repeat" ;
 						}

@@ -1,4 +1,5 @@
 <div id="buying">
+	<h3>Votre devis en ligne :</h3>
 	<!-- <a href="http://www.france-banderole.com/enseignes/"><<< Retour enseignes</a> -->
 	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_akilux3mm(); return false;">
 		<input type="hidden" name="formID" value="1060900217" />
@@ -24,7 +25,7 @@
 				</li>
 
 				<li class="form-line optionsformline4" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</u>: <span class="highlight">Dès 0,1€</span></b><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</u>: <span class="highlight">Dès 0,1€</span></b><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir les fixations...</option>
 						<option value="oeillets">oeillets nickels</option>
@@ -106,7 +107,7 @@
 
 							<span class="optionsleft">
 								<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-								<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" value="checked" checked="true" />
+								<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
 								<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
 									<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 								</span>
@@ -175,7 +176,24 @@
 			</form>
 		</div>
 		<div id="preview">
-			<div id="preview_imag"></div>
+
+			  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
+
+			  <div id="container">
+
+			    <div id="slides">
+						<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
+  		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
+  		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
+			    </div>
+			  </div>
+
+			  <div id="preview_imag"></div>
+			  <div id="preview_imag2"></div>
+			  <div id="preview_imag3"></div>
+			  <div id="preview_imag4"></div>
+			  <div id="preview_imag5"></div>
+
 		</div>
 
 		<div id="custom_price_unit" >

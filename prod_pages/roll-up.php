@@ -1,5 +1,5 @@
 <div id="buying">
-
+	<h3>Votre devis en ligne :</h3>
 	<form class="jotform-form" action="" method="post" name="form_1060900214" id="1060900214" accept-charset="utf-8" onsubmit="JKakemono.cal_rollup(); return false;">
 		<div class="form-all">
 			<ul class="form-section">
@@ -228,7 +228,24 @@
 
 </div>
 <div id="preview">
-	<div id="preview_imag"><a href="http://www.france-banderole.com/rollup" rel="shadowbox" target="_blank" title="AFFICHER TOUTES LES INFORMATIONS SUR LES ROLL-UP"><img  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/trans.png"></a></div>
+
+	<img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
+
+	<div id="container">
+		<div id="slides">
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/test-0.jpg" alt="exemple réalisation roll-up" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/test-1.jpg" alt="exemple réalisation roll-up" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/test-2.jpg" alt="exemple réalisation roll-up" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
+		</div>
+	</div>
+
+	<div id="preview_imag"></div>
+	<div id="preview_imag2"></div>
+	<div id="preview_imag3"></div>
+	<div id="preview_imag4"></div>
+	<div id="preview_imag5"></div>
+
 </div>
 
 <div id="custom_price_unit" >

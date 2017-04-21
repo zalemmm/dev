@@ -1,13 +1,12 @@
 <div id="buying">
-  <h3>Votre devis en ligne :</h3>
     <form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_tente_exposition(); return false;">
    <input type="hidden" name="formID" value="1060900217" />
         <div class="form-all">
             <ul class="form-section">
-              <li class="form-line" id="id_1">
+              <li class="form-line" id="id_taille">
                 <a href="#">
-                    <img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">                </a>
-                <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
+                    <img title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">                </a>
+                <select class="form-dropdown validate[required]" id="input_taille" name="qtaille_usage" onchange="JKakemono.czyscpola(); ">
                     <option value="">choisir la taille...</option>
                     <option value="2x2">Tente 2x2m</option>
                     <option value="2x3">Tente 2x3m</option>
@@ -20,7 +19,7 @@
               <!--support-->
                 <li class="form-line" id="id_option">
                     <a href="#">
-                        <img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
+                        <img title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_option" name="qoption_support1" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir une option...</option>
                         <option value="1x Demi-mur">1x Demi-mur</option>
@@ -29,7 +28,7 @@
                     </select>
                 </li>
                 <li class="form-line" id="id_couleur">
-                    <a href="#support-banderole"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
+                    <a href="#support-banderole"><img  title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_couleur" name="qcouleur_couleur" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir la couleur...</option>
                         <option value="Blanc">Blanc</option>
@@ -44,7 +43,7 @@
 
                <!--maquette-->
                 <li class="form-line" id="id_maquette">
-                    <a href="#"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
+                    <a href="#"><img  title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
                     <select class="form-dropdown validate[required]" id="input_maquette" name="q6_maquette" onchange="JKakemono.czyscpola(); ">
                         <option value="">Visuel...</option>
                         <option value="fb">France banderole crée la mise en page</option>
@@ -54,40 +53,16 @@
 
 
 			 <li class="form-line optionsformline2" id="id_13">
-                    <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité:</label>
+                    <label class="form-label-left" id="label_13" for="input_13" style="color:#3097c0; font-weight:bold; text-transform:capitalize; margin-left:25px">quantité:</label>
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
                 </li>
 
                <li id="id_16" class="form-line optionsformline">
-    <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
+    <span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 
             <span class="options_single">
-
-              <span class="optionsleft">
-                <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-                <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-                <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
-                  <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
-                </span>
-              </span>
-
-              <span class="optionsleft">
-                <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
-                <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
-                  <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
-                </span>
-              </span>
-
-              <span class="optionsleft">
-                <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
-                <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
-                  <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
-                </span>
-              </span>
-
-
+              <span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+              <span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span></span></span>
             </span>
 
             <div class="break-line"></div>
@@ -137,48 +112,13 @@
 </form>
 </div>
 <div id="preview">
-
-  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
-
-  <div id="container">
-
-    <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/1.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/2.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/3.jpg" alt="commencez votre devis en ligne" /></li>
-    </div>
-  </div>
-
-  <div id="preview_imag"></div>
-  <div id="preview_imag2"></div>
-  <div id="preview_imag3"></div>
-  <div id="preview_imag4"></div>
-  <div id="preview_imag5"></div>
-
+<div id="preview_imag"></div>
 </div>
-
 
 <div id="custom_price_unit" >
 
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
-
-<script type="text/javascript">
-  // checkboxes livraison
-  jQuery('#adresse').click(function() {
-    if (document.getElementById('adresse').checked) {
-      document.getElementById('etiquette').checked = false;
-    }
-  });
-
-  jQuery('#etiquette').click(function() {
-    if (document.getElementById('etiquette').checked) {
-      document.getElementById('adresse').checked = false;
-    }
-  });
-
-</script>
-
 
 <script type="text/javascript">
 /* Voici la fonction javascript qui change la propriété "display"
@@ -244,9 +184,6 @@ function AddBusinessDays(weekDaysToAdd) {
         var transport=0;
         var ilosc=0;
         var opis='';
-		var coul='';
-		var taille='';
-		var option='';
         var niepokazuj = 0;
         var ktorytyp='';
         var cedzik='';
@@ -280,14 +217,12 @@ var structure4x6perso=530.00; var canopi4x6perso=1091.00; var mur4x6perso=225.00
 
 
 
-coul=$('input_couleur').value;
-taille=$('input_1').value;
-option=$('input_option').value;
+
 
 
 ilosc=$('input_13').value;
 
-if ($('input_1').value == '2x2') {
+if ($('input_taille').value == '2x2') {
 
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure2x2+canopi2x2+mur2x2+demimurA2x2+barredmA2x2)*1.6*ilosc;}
@@ -306,7 +241,7 @@ if ($('input_1').value == '2x2') {
 }
 
 
-if ($('input_1').value == '2x3') {
+if ($('input_taille').value == '2x3') {
 
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure2x3+canopi2x3+mur2x3+demimurA2x3+barredmA2x3)*1.6*ilosc;}
@@ -324,7 +259,7 @@ if ($('input_1').value == '2x3') {
 	{cena = (structure2x3perso+canopi2x3perso+mur2x3perso)*1.5*ilosc;}
 }
 
-if ($('input_1').value == '3x3') {
+if ($('input_taille').value == '3x3') {
 
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x3+canopi3x3+mur3x3+demimurA3x3+barredmA3x3)*1.6*ilosc;}
@@ -343,7 +278,7 @@ if ($('input_1').value == '3x3') {
 }
 
 
-if ($('input_1').value == '3x4') {
+if ($('input_taille').value == '3x4') {
 
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x4+canopi3x4+mur3x4+demimurA3x4+barredmA3x4)*1.6*ilosc;}
@@ -362,7 +297,7 @@ if ($('input_1').value == '3x4') {
 }
 
 
-if ($('input_1').value == '3x6') {
+if ($('input_taille').value == '3x6') {
 
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure3x6+canopi3x6+mur3x6+demimurA3x6+barredmA3x6)*1.6*ilosc;}
@@ -381,7 +316,7 @@ if ($('input_1').value == '3x6') {
 }
 
 
-if ($('input_1').value == '4x6') {
+if ($('input_taille').value == '4x6') {
 
 	if ( (($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge')) && ($('input_option').value == '1x Demi-mur') )
 	{cena = (structure4x6+canopi4x6+mur4x6+demimurA4x6+barredmA4x6)*1.6*ilosc;}
@@ -421,10 +356,6 @@ if ($('input_1').value == '4x6') {
             transport=0;
             etiqdesc = '<br />- retrait colis a l\'atelier';
             cena-= cena*3/100;
-          }
-		  if (etiquette == false) {
-            transport=0;
-            cena+= 39*ilosc;
           }
           ////fin d'options///
 
@@ -591,20 +522,20 @@ if ($('input_1').value == '4x6') {
                     var DeliveryType = jQuery('.delivery.active').attr('text-value');
                     if(PorductType == '2-3' ){
                       ProdPercent = 15;
-                      prliv += '<br />-P 2-3J';
+                      prliv += '<br />- P 2-3J';
                     }else if(PorductType =='1-1'){
-                      ProdPercent = 30;
-                      prliv += '<br />-P 1J';
+                      ProdPercent = 25;
+                      prliv += '<br />- P 1J';
                     }else{
                       ProdPercent = 0;
-                      prliv += '<br />-P 4-5J';
+                      prliv += '<br />- P 4-5J';
                     }
 
                     if(DeliveryType == '2-3'){
                       DeliPercent = 15;
                       prliv += ' / L 2-3J';
                     }else if(DeliveryType =='1-1'){
-                      DeliPercent = 30;
+                      DeliPercent = 25;
                       prliv += ' / L 1J';
                     }else{
                       DeliPercent = 0;
@@ -788,7 +719,7 @@ if ($('input_1').value == '4x6') {
                       }}
 
 
-
+											
 
 
                       var rodzaj = "Tente";
@@ -796,7 +727,7 @@ if ($('input_1').value == '4x6') {
                       var dodajkoszyk = document.getElementById("cart_form");
 
 
-                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+taille+'<br>-'+coul+'<br>-'+option+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 
 

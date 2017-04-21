@@ -670,6 +670,7 @@ JotForm = {
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache nontissé 150g')) {
 							var imag = $("preview_imag2");
 							imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png) no-repeat";
+
 						}
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 470g M1')) {
 							var imag = $("preview_imag2");
@@ -714,7 +715,7 @@ JotForm = {
 							var imag = $("preview_imag2");
 							imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/eco.png) no-repeat";
 						}
-            if (($('input_1').value == 'intérieur') && ($('input_ext').value == 'bache nontissé 150g M1')) {
+            if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache nontissé 150g M1')) {
               var imag = $("preview_imag2");
 							imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png) no-repeat";
 						}
@@ -747,16 +748,18 @@ JotForm = {
 						}
 
 
+            // option oeuillets
 
-            if (($('input_21').value == 'sans oeillets')) {
+            if (($('input_21').value == 'sans oeillets') || ($('input_81').value == 'pas de finition')) {
 							var imag = $("preview_imag3");
 							imag.style.background="none";
 						}
+
             if (($('input_21').value == 'oeillets aux coins')) {
 							var imag = $("preview_imag3");
 							imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png) no-repeat";
 						}
-            if (($('input_21').value == 'oeillets haut/bas')) {
+            if (($('input_21').value == 'oeillets haut/bas') || ($('input_81').value == 'oeillets haut/bas')) {
 							var imag = $("preview_imag3");
 							imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png) no-repeat";
 						}
@@ -769,23 +772,50 @@ JotForm = {
 							imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsp.png) no-repeat";
 						}
 
-
-            if (($('input_22').value == 'tous les 100cm') || ($('input_23').value == 'tous les 100cm') || ($('input_24').value == 'tous les 100cm')) {
+            // répartition oeuillets
+            if (($('input_22').value == 'tous les 100cm') || ($('input_23').value == 'tous les 100cm') || ($('input_24').value == 'tous les 100cm') || ($('input_91').value == 'tous les 100cm') || ($('input_92').value == 'tous les 100cm')) {
               var imag = $("preview_imag3");
               imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png) no-repeat";
             }
-            if (($('input_22').value == 'tous les 50cm') || ($('input_23').value == 'tous les 50cm') || ($('input_24').value == 'tous les 50cm'))  {
+            if (($('input_22').value == 'tous les 50cm') || ($('input_23').value == 'tous les 50cm') || ($('input_24').value == 'tous les 50cm') || ($('input_91').value == 'tous les 50cm') || ($('input_92').value == 'tous les 50cm'))  {
               var imag = $("preview_imag3");
               imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb50.png) no-repeat";
             }
-            if (($('input_22').value == 'tous les 25cm') || ($('input_23').value == 'tous les 25cm') || ($('input_24').value == 'tous les 25cm'))  {
+            if (($('input_22').value == 'tous les 25cm') || ($('input_23').value == 'tous les 25cm') || ($('input_24').value == 'tous les 25cm') || ($('input_91').value == 'tous les 25cm') || ($('input_92').value == 'tous les 25cm'))  {
               var imag = $("preview_imag3");
               imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb25.png) no-repeat";
             }
-            if (($('input_22').value == 'tous les 10cm') || ($('input_23').value == 'tous les 10cm') || ($('input_24').value == 'tous les 10cm'))  {
+            if (($('input_22').value == 'tous les 10cm') || ($('input_23').value == 'tous les 10cm') || ($('input_24').value == 'tous les 10cm') || ($('input_91').value == 'tous les 10cm') || ($('input_92').value == 'tous les 10cm'))  {
               var imag = $("preview_imag3");
               imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb10.png) no-repeat";
             }
+
+            // option ourlets
+            if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_33').value == 'ourlet de renfort haut/bas')|| ($('input_34').value == 'ourlet de renfort haut/bas'))  {
+              var imag = $("preview_imag4");
+              imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/ourletshb.png) no-repeat";
+            }
+            if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_32').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite')|| ($('input_34').value == 'ourlet de renfort gauche/droite'))  {
+              var imag = $("preview_imag4");
+              imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/ourletsgd.png) no-repeat";
+            }
+            if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_32').value == 'ourlet de renfort périmétrique') || ($('input_33').value == 'ourlet de renfort périmétrique')|| ($('input_34').value == 'ourlet de renfort périmétrique'))  {
+              var imag = $("preview_imag4");
+              imag.style.background="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/ourlets.png) no-repeat";
+            }
+
+
+            jQuery(document).ready(function ($) {
+
+              $('#input_ext option').change(function() {
+                $(this).click(function() {
+                  $('#preview_imag2').css('animation','anim 3.5s 1')
+                });
+              });
+
+            });
+
+
 
 
 				}

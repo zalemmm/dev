@@ -606,25 +606,37 @@ JotForm.init();
 
 if (is_page('totem')) {
 echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform.js?v4" type="text/javascript"></script>
+<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-totem.js?v4" type="text/javascript"></script>
 <script type="text/javascript">
 JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "blizzard"}], "action": {"field": "34", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "52", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "16", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
+
+{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+
+{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+
+{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
+
 {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+
+{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
 ]);
 JotForm.init();
 </script>';
 }
+
 
 
 if (is_page('panneaux-akilux-3mm')) {
@@ -1324,7 +1336,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='roll-up';
 		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
-		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-rollup/" target="_blank" class="notice"  title="aide rool-up"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/notice-technique-roll-up/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_rollup_form();
 	}
 

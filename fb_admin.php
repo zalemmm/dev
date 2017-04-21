@@ -2875,7 +2875,7 @@ function fb_admin_users2() {
 		        $haslo = sha1(md5($pass2)); // szyfrowanie hasła
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE id = '$passid'");
 	        		$letter = "Bonjour,\r\nVous pouvez vous connecter dans votre accès client avec les informations ci-dessous :\r\n\r\nMOT DE PASSE : ".$pass2."\r\nNOM D’UTILISATEUR : ".$userlogin->login."\r\n\r\nUne fois connecté(e), vous pourrez modifier ces données si vous le souhaitez en cliquant sur le bouton \"modifier mon compte\".\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-					$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
+					$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
         			$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($userlogin->email, "france-banderole.com", $letter, $header);
 			        wp_mail($userlogin->email, "France Banderole", $letter);
@@ -3226,12 +3226,13 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
         }
     }
 
-	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
+	  $order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
     $uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
+
     if (isset($_POST['sendmail'])) {
         $temat = htmlspecialchars_decode($_POST['hiddentopic']);
         $zawar = htmlspecialchars_decode($_POST['selmailcontent']);
-        $header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
+        $header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
         $header .= "\nContent-type: text/html; charset=UTF-8\n" . "Content-Transfer-Encoding: 8bit\n";
         //mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
         //mail("contact@tempopasso.com", "ESSAI ENVOI MAIL=".stripslashes($temat), stripslashes($zawar), $header);
@@ -3313,8 +3314,12 @@ traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_t
         $con = htmlspecialchars($con);
         $top = stripslashes($ma[topic]);
         $top = htmlspecialchars($top);
+        $order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
+        $con = str_replace("NNNNN",$number,$con);
         echo '<option value="' . $con . '">' . $top . '</option>';
     endforeach;
+
+
     echo '</select><textarea name="selmailcontent" id="incon"></textarea><input type="submit" value="SEND" class="savebutt3" /></form>';
     echo '<div style="clear:both"></div></div></div></div>';
 

@@ -1,4 +1,5 @@
 <div id="buying">
+	<h3>Votre devis en ligne :</h3>
 	<!-- <a href="http://www.france-banderole.com/enseignes/"><<< Retour enseignes</a> -->
 	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_dibond(); return false;">
 		<input type="hidden" name="formID" value="1060900217" />
@@ -257,7 +258,24 @@
 		</form>
 	</div>
 	<div id="preview">
-		<div id="preview_imag"></div>
+
+		  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
+
+		  <div id="container">
+
+		    <div id="slides">
+					<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
+		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
+		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
+		    </div>
+		  </div>
+
+		  <div id="preview_imag"></div>
+		  <div id="preview_imag2"></div>
+		  <div id="preview_imag3"></div>
+		  <div id="preview_imag4"></div>
+		  <div id="preview_imag5"></div>
+
 	</div>
 
 	<div id="custom_price_unit" >

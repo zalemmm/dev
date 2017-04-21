@@ -605,6 +605,11 @@ JotForm = {
                             all = false;
                         }
 //denisedesign
+
+          if (($('input_0').value == 'Tissu') || ($('input_0').value == 'Stand ExpoBag') || ($('input_0').value == 'Stand parapluie')) {
+            $('container').style.display="none";
+          }
+
 					if(JotForm.checkValueByOperator(term.operator, term.value, value)){
 						var preview_info_ul = $("preview_info_ul");
 						if ($('input_0').value) {
