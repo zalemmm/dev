@@ -605,7 +605,7 @@ JotForm = {
                             all = false;
                         }
 //denisedesign
-                        if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+          if(JotForm.checkValueByOperator(term.operator, term.value, value)){
 						var preview_info_ul = $("preview_info_ul");
 						var podglad = $("preview");
 						if ($('input_1').value) {
@@ -638,37 +638,45 @@ JotForm = {
 				    if ($('input_1').value == 'Extérieur') {
               $('container').style.display="none";
 							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png) no-repeat" ;
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
 						}
 						if ($('input_1').value == 'x-screen') {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen.png) no-repeat" ;
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen.png)";
 						}
 						if ($('input_1').value == 'clipit') {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/clipit.png) no-repeat" ;
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/clipit.png)";
 						}
 
 						if (($('input_1').value == 'Extérieur') && ($('input_2').value == 'Mistral')) {
 							var imag = $("preview_imag2");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral.png) no-repeat" ;
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral.png)";
 						}
 						if (($('input_1').value == 'Extérieur') && ($('input_2').value == 'Blizzard')) {
 							var imag = $("preview_imag2");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard.png) no-repeat" ;
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard.png)";
 						}
 
 
 				}
 
 //
-                }
+        }
 
             }catch(e){
             	//console.error(e);
         	}
+        });
+
+        jQuery(document).ready(function ($) {
+
+          $('#input_1 option').click(function() {
+            $('#preview_imag2').css('animation','anim 3.5s 1');
+          });
+
         });
 
         if(condition.type == 'field'){ // Field Condition
@@ -1386,7 +1394,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1401,7 +1409,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
+        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

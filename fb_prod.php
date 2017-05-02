@@ -21,7 +21,7 @@ function recursive_array_search($needle,$haystack) {
 }
 
 function fbshop_head() {
-if (is_page('flyers') || is_page('tente-pliante-exposition') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
+if (is_page('flyers') || is_page('tente-publicitaire-barnum') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
 }
 
 $user = $_SESSION['loggeduser'];
@@ -797,7 +797,7 @@ JotForm.init();
 }
 
 
-if (is_page('tente-pliante-exposition')) {
+if (is_page('tente-publicitaire-barnum')) {
 echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
 <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-tente-exposition.js?v4" type="text/javascript"></script>
 <script type="text/javascript">
@@ -1123,7 +1123,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$formularz = get_akilux3mm_form();
 	}
 
-	if ($page=='tente-pliante-exposition') {
+	if ($page=='tente-publicitaire-barnum') {
 		$h1name='Tente publicitaire pliante - chapiteau personnalisé - barnum publicitaire - tente exposition personnalisée';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
@@ -1315,7 +1315,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f3';
 		$info_title='Oriflamme Windflag Beachflag, drapeaux et voile publicitaire';
-		$info_info='<span class="prezHide">Fabricant Oriflamme publicitaire aile d\'avion, BeachFlag goutte d\'eau, Windflag rectangulaire et voile publicitaire personnalisée. Produit en france, conception robuste, nos oriflammes, drapeaux et voiles publicitaires se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT (garantie anti-feu) ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions. Production et livraison express possible en 48h/72H en France métropolitaine.</span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+		$info_info='<span class="prezHide">Fabricant Oriflamme publicitaire aile d\'avion, BeachFlag goutte d\'eau, Windflag rectangulaire et voile publicitaire personnalisée. Produit en france, conception robuste, nos oriflammes, drapeaux et voiles publicitaires se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT (garantie anti-feu) ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions. Production et livraison express possible en 48h/72H en France métropolitaine.</span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" class="notice"  title="aide-oriflamme"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title="aide oriflamme"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/gabarit-oriflamme/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_oriflammes_form();
 	}
 	if ($page=='Kakemonos') {
@@ -1336,7 +1336,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='roll-up';
 		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
-		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-rollup/" target="_blank" class="notice"  title="aide rool-up"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/notice-technique-roll-up/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-rollup/" target="_blank" class="notice"  title="aide rool-up"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/notice-technique-roll-up/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/gabarit-roll-up/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_rollup_form();
 	}
 
@@ -1371,7 +1371,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f1';
 		$info_title='Banderole publicitaire - bâche imprimée ';
-		$info_info='<span class="prezHide">France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, foire ou salon… banderole intérieur (Anti-feu M2,M1), ou banderole extérieure, la banderole se positionne facilement. Impression sur baches en qualité photo. Toutes nos banderoles sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours</span>   <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir" ><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" class="notice" title="Banderole : Tout savoir"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" class="notice" title="Banderole : Tout savoir"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+		$info_info='<span class="prezHide">France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, foire ou salon… banderole intérieur (Anti-feu M2,M1), ou banderole extérieure, la banderole se positionne facilement. Impression sur baches en qualité photo. Toutes nos banderoles sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours</span>   <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice"  title="Banderole : Tout savoir" ><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/banderole/" target="_blank" class="notice" title="Banderole : Tout savoir"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/gabarit-banderole/" target="_blank" class="notice" title="Banderole : gabarit-banderole"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_banderoles_form();
 	}
 
@@ -3178,7 +3178,7 @@ function get_oriflammes_form() {
 }
 
 function get_tente_exposition_form() {
-    $form = file_get_contents(getTplPath('tente-pliante-exposition.php'));
+    $form = file_get_contents(getTplPath('tente-publicitaire-barnum.php'));
     return $form;
 }
 

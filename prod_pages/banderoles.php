@@ -542,12 +542,12 @@
 			var ax2 = document.getElementById("id_ext");
 			var ax3 = document.getElementById("id_intext");
 			if (ax1) {
-			ax1.style.background="#FFAAAA";
+			ax1.style.background="#EA2A6A";
 			ax1.style.border="none";
 			ax1.style.borderBottom="1px solid #9fa3a8";
 		}
 		if (ax2) {
-		ax2.style.background="#FFAAAA";
+		ax2.style.background="#EA2A6A";
 		ax2.style.border="none";
 		ax2.style.border="1px solid #9fa3a8";
 	}
@@ -1452,7 +1452,7 @@ if ( ($('input_1').value) ) {
 							ProdPercent = 15;
 							prliv += '<br />- P 2-3J';
 						}else if(PorductType =='1-1'){
-							ProdPercent = 30;
+							ProdPercent = 40;
 							prliv += '<br />- P 1J';
 						}else{
 							ProdPercent = 0;
@@ -1463,7 +1463,7 @@ if ( ($('input_1').value) ) {
 							DeliPercent = 15;
 							prliv += ' / L 2-3J';
 						}else if(DeliveryType =='1-1'){
-							DeliPercent = 30;
+							DeliPercent = 40;
 							prliv += ' / L 1J';
 						}else{
 							DeliPercent = 0;
@@ -1650,20 +1650,20 @@ transport=0;
 
 if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
-	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
+	blad.style.background = "#EA2A6A";
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_ext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
-	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
+	blad.style.background = "#EA2A6A";
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
-	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
+	blad.style.background = "#EA2A6A";
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 
@@ -1673,20 +1673,20 @@ if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.
 
 if ( ($('input_int').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
-	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
+	blad.style.background = "#EA2A6A";
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_ext').value == 'bache nontissé 150g') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
-	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
+	blad.style.background = "#EA2A6A";
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_intext').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
-	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
+	blad.style.background = "#EA2A6A";
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 
 }
@@ -1694,85 +1694,85 @@ if ( ($('input_intext').value == 'bache nontissé 150g M1') && (szerokosc > 1.6)
 
 ///////
 if ( ($('input_int').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_intext').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_ext').value == 'bache 550g') && (szerokosc > 2) && (wysokosc > 2)  ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 
 if ( ($('input_int').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_ext').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_intext').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 
 if ( ($('input_int').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_ext').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_intext').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 
 }
 if ( ($('input_int').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_ext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_intext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 
 }
 if ( ($('input_int').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_ext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 }
 if ( ($('input_intext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = 'Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
 
 }
 
 if ( ($('input_int').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99) ) {
-	eBox.innerHTML = 'bache nontissé 150g M1 minimum 24m²';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
 	niepokazuj=1;
 }
 if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99)) {
-	eBox.innerHTML = 'bache nontissé 150g M1 minimum 24m²';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
 	niepokazuj=1;
 }
 if ( ($('input_intext').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99)) {
-	eBox.innerHTML = 'bache nontissé 150g M1 minimum 24m²';
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
 	niepokazuj=1;
 
 }
@@ -1833,7 +1833,7 @@ if (niepokazuj==2) {
 
 		var rodzaj = "banderole Thermo-soudure";
 		var dodajkoszyk = document.getElementById("cart_form");
-		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning" style="display:block;float:left;width:60%;">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE BANDEROLE AVEC THERMO-SOUDURE</span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE BANDEROLE AVEC THERMO-SOUDURE</span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 	}
 

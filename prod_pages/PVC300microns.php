@@ -143,6 +143,7 @@
 
   <div id="preview">
 
+
       <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
 
       <div id="container">
@@ -159,7 +160,7 @@
       <div id="preview_imag3"></div>
       <div id="preview_imag4"></div>
       <div id="preview_imag5"></div>
-      
+
   </div>
 
   <script type="text/javascript">

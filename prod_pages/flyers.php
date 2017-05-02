@@ -370,6 +370,6 @@
 	  <div id="preview_imag3"></div>
 	  <div id="preview_imag4"></div>
 	  <div id="preview_imag5"></div>
-		
+
 </div>
 <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>

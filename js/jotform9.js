@@ -606,105 +606,84 @@ JotForm = {
                         }
 //denisedesign
 
-          if (($('input_0').value == 'Tissu') || ($('input_0').value == 'Stand ExpoBag') || ($('input_0').value == 'Stand parapluie')) {
-            $('container').style.display="none";
+
+          if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+            var preview_info_ul = $("preview_info_ul");
+            var podglad = $("preview");
+            if ($('input_1').value) {
+              var preview_info_title = $("preview_info_title");
+              if (preview_info_title) {
+                preview_info_title.innerHTML='';
+                if ($('input_1').value == 'clipit') {
+                  preview_info_title.insert('Clip\'it');
+                } else {
+                  preview_info_title.insert($('input_1').value);
+                }
+              }
+              podglad.style.visibility="visible";
+            }
+
+            if (($('input_0').value == 'Tissu') || ($('input_0').value == 'Stand ExpoBag') || ($('input_0').value == 'Stand parapluie')) {
+              $('container').style.display="none";
+              var imag = $("preview_imag");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/bg.png)";
+            }
+
+            if ($('input_0').value == 'Tissu') {
+               var imag = $("preview_imag2");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand.png)";
+            }
+            if ($('input_0').value == 'Stand ExpoBag') {
+               var imag = $("preview_imag2");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standexpo.png)";
+            }
+            if ($('input_0').value == 'Stand parapluie') {
+               var imag = $("preview_imag2");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standkit.png)";
+            }
+
+/*          if ($('input_1').value == '1') {
+               var imag = $("preview_imag2");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standcourbe.png)";
+            }
+            if ($('input_1').value == '6') {
+               var imag = $("preview_imag2");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standdroit.png)";
+            }*/
+
+
+            if (($('input_2').value == '1') || ($('input_51').value == '1')) {
+               var imag = $("preview_imag3");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/spots.png)";
+            }else{
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="none";
+            }
+
+            if ($('input_6').value == '41') {
+               var imag = $("preview_imag4");
+               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valise.png)";
+            }else{
+              var imag = $("preview_imag4");
+              imag.style.backgroundImage="none";
+            }
+
+
           }
 
-					if(JotForm.checkValueByOperator(term.operator, term.value, value)){
-						var preview_info_ul = $("preview_info_ul");
-						if ($('input_0').value) {
-							var preview_info_title = $("preview_info_title");
-								var folder = 'parapluie'; var plik; var nazwa; var li1; var li2; var li3;
-                if ($('input_0').value == 'Tissu' ) { plik='quick.jpg'; nazwa='Tissu Easy quick'; }
-								if ($('input_0').value == 'Stand ExpoBag' ) { nazwa='Stand ExpoBag'; }
-								if ($('input_0').value == 'Stand ExpoBag' ) { plik='stand_expobag.jpg'; li1='<span id="lista1"><li>stand à montage rapide tout en un comprenant : </li><li>1 valise de transport transformable en bank d’accueil avec visuel et tablette en bois</li><li>un porte document 4 poches A4</li><li>2 Kakemonos Roll-up 80x200cm</li><li>1 mur d’image (photocall) 220x240cm en fond de stand.</li></span>'; }
-								if ($('input_0').value == 'Stand parapluie' ) { plik='stand-revolution.jpg'; nazwa='Stand parapluie Révolution'; }
+        }
+        jQuery(document).ready(function ($) {
 
-								if ($('input_1').value == '1' ) { plik='stand-courbe3x2.jpg'}
-								if ($('input_1').value == '2' ) { plik='stand-courbe3x3.jpg'}
-								if ($('input_1').value == '3' ) { plik='stand-courbe3x4.jpg'}
-								if ($('input_1').value == '4' ) { plik='stand-courbe3x3-rv.jpg'}
-								if ($('input_1').value == '5' ) { plik='stand-courbe3x4-rv.jpg'}
+          $('#input_0 option').click(function() {
+            $('#preview_imag2').css('animation','anim 3.5s 1');
+          });
+          $('#input_6 option').click(function() {
+            $('#preview_imag4').css('animation','anim 3.5s 1');
+          });
 
-								if ($('input_1').value == '6' ) { plik='stand-droit3x2.jpg'}
-								if ($('input_1').value == '7' ) { plik='stand-droit3x3.jpg'}
-								if ($('input_1').value == '8' ) { plik='stand-droit3x4.jpg'}
-								if ($('input_1').value == '9' ) { plik='stand-droit3x3-rv.jpg'}
-								if ($('input_1').value == '10' ) { plik='stand-droit3x4-rv.jpg'}
-
-								if ($('input_50').value == '1' ) { plik='3x1.jpg'; li1='<span id="lista1"><li>Recto Avec Retour 3x1</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 79x226cm.</li></span>'; }
-								if ($('input_50').value == '2' ) { plik='3x2.jpg'; li1='<span id="lista1"><li>Recto Avec Retour 3x2</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 152x226cm.</li></span>'; }
-								if ($('input_50').value == '3' ) { plik='3x3.jpg'; li1='<span id="lista1"><li>Recto Avec Retour 3x3</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 226x226cm.</li></span>'; }
-								if ($('input_50').value == '4' ) { plik='3x4.jpg'; li1='<span id="lista1"><li>Recto Avec Retour 3x4</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 300x226cm.</li></span>'; }
-								if ($('input_50').value == '5' ) { plik='3x5.jpg'; li1='<span id="lista1"><li>Recto Avec Retour 3x5</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 379x226cm.</li></span>'; }
-								if ($('input_50').value == '6' ) { plik='3x1rv.jpg'; li1='<span id="lista1"><li>Recto Verso 3x1</li><liVisuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 79x226cm.</li></span>'; }
-								if ($('input_50').value == '7' ) { plik='3x2rv.jpg'; li1='<span id="lista1"><li>Recto Verso 3x2</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 152x226cm.</li></span>'; }
-								if ($('input_50').value == '8' ) { plik='3x3rv.jpg'; li1='<span id="lista1"><li>Recto Verso 3x3</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 226x226cm.</li></span>'; }
-								if ($('input_50').value == '9' ) { plik='3x4rv.jpg'; li1='<span id="lista1"><li>Recto Verso 3x4</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 300x226cm.</li></span>'; }
-								if ($('input_50').value == '10' ) { plik='3x5rv.jpg'; li1='<span id="lista1"><li>Recto Verso 3x5</li><li>Visuel imprimé quadri Tissu M1 monté sur scratch.</li><li>Structure en aluminium anodisé.</li><li>Dimensions : 379x226cm.</li></span>'; }
-								if ($('input_51').value == '1' ) {li2='<span id="lista2"><li>2 spots halogène 150w noir</li></span>'; }
-								if ($('input_51').value == '0' ) {li2='<span id="lista2"></span>'; }
-								if ($('input_2').value == '1' ) {li2='<span id="lista2"><li>2 spots pinces halogène 35w aluminium</li></span>'; }
-								if ($('input_2').value == '0' ) {li2='<span id="lista2"></span>'; }
-								if ($('input_6').value == '41' ) {li3='<span id="lista3"><li>Valise de transport rotomoulée avec roulettes et poignées.</li><li>tablette en bois transformant la valise en table d’accueil pour votre stand avec un visuel PVC M2 autour de la valise</li></span>'; }
-								if ($('input_6').value == '0' ) {li2='<span id="lista3"></span>'; }
-
-
-								if (preview_info_title) {
-									preview_info_title.innerHTML='';
-									preview_info_title.insert(nazwa);
-								}
-// obrazki 1
-								var imag = $("preview_imag");
-								var podglad = $("preview");
-								podglad.style.visibility="visible";
-								if ( (term.field==0) || (term.field==1) || (term.field==3) || (term.field==50) ) {
-									imag.style.background="url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+plik+"') no-repeat";
-								}
-								var obecny1 = $("lista1");
-								if (obecny1) {
-									obecny1.replace(li1);
-								} else {
-									preview_info_ul.insert(li1);
-								}
-								var obecny2 = $("lista2");
-								if (obecny2) {
-									obecny2.replace(li2);
-								} else {
-									preview_info_ul.insert(li2);
-								}
-								var obecny3 = $("lista3");
-								if (obecny3) {
-									obecny3.replace(li3);
-								} else {
-									preview_info_ul.insert(li3);
-								}
-								var obecny4 = $("lista4");
-								if (obecny4) {
-									obecny4.replace(li4);
-								} else {
-									preview_info_ul.insert(li4);
-								}
-								var obecny5 = $("lista5");
-								if (obecny5) {
-									obecny5.replace(li5);
-								} else {
-									preview_info_ul.insert(li5);
-								}
-								if (term.field == 7) {
-									var obecny6 = $("maq");
-									if (obecny6) {
-										var mysel = $('input_'+term.field);
-										obecny6.replace('<span id="maq"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');
-									} else {
-										var mysel = $('input_'+term.field);
-										preview_info_ul.insert('<span id="maq"><li>'+mysel.options[mysel.selectedIndex].text+'</li></span>');
-									}
-								}
-						}
-					}
+        });
 //
-                }
+
 
             }catch(e){
             	//console.error(e);
@@ -1426,7 +1405,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1441,7 +1420,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
+        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

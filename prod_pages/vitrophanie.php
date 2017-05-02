@@ -99,7 +99,7 @@
 
 				<li class="form-line" id="id_9a">
 					<div class="form-input-wide">
-						<div id="form-button-error2" style="top:30px"></div>
+						<div id="form-button-error2"></div>
 						<button id="input_9a" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 					</div>
 				</li>
@@ -604,10 +604,10 @@ jQuery(document).ready(function(){
 							if ( (szerokosc > 160) && (wysokosc > 160) ) {
 								var blad = document.getElementById("id_1");
 								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
+								blad.style.background = "#EA2A6A";
+								blad.style.border = "1px solid #EA2A6A";
+								blad2.style.background = "#EA2A6A";
+								blad2.style.border = "1px solid #EA2A6A";
 								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 160cm!';
 								niepokazuj=1;
 							}
@@ -616,12 +616,12 @@ jQuery(document).ready(function(){
 								var blad = document.getElementById("id_1");
 								var blad2 = document.getElementById("id_8");
 								var blad3 = document.getElementById("id_21");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
-								blad3.style.background = "#FFAAAA";
-								blad3.style.border = "1px solid #FFAAAA";
+								blad.style.background = "#EA2A6A";
+								blad.style.border = "1px solid #EA2A6A";
+								blad2.style.background = "#EA2A6A";
+								blad2.style.border = "1px solid #EA2A6A";
+								blad3.style.background = "#EA2A6A";
+								blad3.style.border = "1px solid #EA2A6A";
 								eBox.innerHTML = 'Largeur doit être inférieure à 60cm!';
 								niepokazuj=1;
 							}
@@ -629,10 +629,10 @@ jQuery(document).ready(function(){
 							if ( ((szerokosc < 10) || (wysokosc < 10)) ) {
 								var blad = document.getElementById("id_1");
 								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#FFAAAA";
-								blad.style.border = "1px solid #FFAAAA";
-								blad2.style.background = "#FFAAAA";
-								blad2.style.border = "1px solid #FFAAAA";
+								blad.style.background = "#EA2A6A";
+								blad.style.border = "1px solid #EA2A6A";
+								blad2.style.background = "#EA2A6A";
+								blad2.style.border = "1px solid #EA2A6A";
 								eBox.innerHTML = 'Hauteur et Largeur supérieur ou égal à 10cm!';
 								niepokazuj=1;
 							}

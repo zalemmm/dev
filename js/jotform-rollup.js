@@ -632,667 +632,412 @@ JotForm = {
 							}
 						}*/
 
+            $('container').style.display="none";
+            var imag = $("preview_imag");
+            imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bg.png)";
 
 						/////////////////////firstline//////////
 
-				     if ($('input_1').value == 'first-line') {
+				    if ($('input_1').value == 'first-line') {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL.jpg) no-repeat" ;
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first.png)";
 						}
 						if ($('input_21').value == '80x200') {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first.png)";
 						}
 						if ($('input_31').value == '440g') {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first.png)";
 						}
 						if ($('input_31').value == '300µ M1') {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200-PVC.jpg) no-repeat";
-						}
-
-
-						if (($('input_4').value == 'spot') && ($('input_31').value == '300µ M1')){
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200-PVCs.jpg) no-repeat";
-						}
-
-						if (($('input_4').value == 'spot') && ($('input_31').value == '440g')){
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200-440s.jpg) no-repeat";
-						}
-						if (($('input_4').value == 'aucune') && ($('input_31').value == '440g')){
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200-440.jpg) no-repeat";
-						}
-						if (($('input_4').value == 'aucune') && ($('input_31').value == '300µ M1')){
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/firstline/roll-upFL80x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first.png)";
 						}
 
 
 					/////////////////////bestline//////////
 
 					if ($('input_1').value == 'best-line') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL.jpg) no-repeat" ;
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 
 
 						}
 						if ($('input_22').value == '60x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL60x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if ($('input_22').value == '80x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL80x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if ($('input_22').value == '85x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL85x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if ($('input_22').value == '100x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL100x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if ($('input_22').value == '120x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL120x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if ($('input_22').value == '150x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL150x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if ($('input_22').value == '200x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/roll-upBL200x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 
-										////440g bestline//
+						////440g bestline//
 						if (($('input_22').value == '60x200') && ($('input_32').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL60x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '80x200') && ($('input_32').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL80x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '85x200') && ($('input_32').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL85x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '100x200') && ($('input_32').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL100x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '120x200') && ($('input_32').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL120x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '150x200') && ($('input_32').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL150x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '200x200') && ($('input_35').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL150x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 													////300µ M1 bestline//
 						if (($('input_22').value == '60x200') && ($('input_32').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL60x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '80x200') && ($('input_32').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL80x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '85x200') && ($('input_32').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL85x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '100x200') && ($('input_32').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL100x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '120x200') && ($('input_32').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL120x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '150x200') && ($('input_32').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL150x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 
 													////470 bestline//
 						if (($('input_22').value == '60x200') && ($('input_32').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL60x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '80x200') && ($('input_32').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL80x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '85x200') && ($('input_32').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL85x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '100x200') && ($('input_32').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL100x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '120x200') && ($('input_32').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL120x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '150x200') && ($('input_32').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL150x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
 						if (($('input_22').value == '200x200') && ($('input_35').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL200x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best.png)";
 						}
-													////ecologique bestline//
+
+						////ecologique bestline//
+
 						if (($('input_22').value == '60x200') && ($('input_32').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL60x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2besteco.png)";
 						}
 						if (($('input_22').value == '80x200') && ($('input_32').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL80x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2besteco.png)";
 						}
 						if (($('input_22').value == '85x200') && ($('input_32').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL85x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2besteco.png)";
 						}
 						if (($('input_22').value == '100x200') && ($('input_32').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL100x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2besteco.png)";
 						}
 						if (($('input_22').value == '120x200') && ($('input_32').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL120x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2bestco.png)";
 						}
 						if (($('input_22').value == '150x200') && ($('input_32').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL150x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2besteco.png)";
 						}
-
-											////440g bestline spot//
-						if (($('input_22').value == '60x200') && ($('input_32').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL60x200-440s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '80x200') && ($('input_32').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL80x200-440s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '85x200') && ($('input_32').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL85x200-440s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '100x200') && ($('input_32').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL100x200-440s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '120x200') && ($('input_32').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL120x200-440s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '150x200') && ($('input_32').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL150x200-440s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '200x200') && ($('input_35').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/440/roll-upBL200x200-440s.jpg) no-repeat";
-						}
-													////300µ M1 bestline spot//
-						if (($('input_22').value == '60x200') && ($('input_32').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL60x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '80x200') && ($('input_32').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL80x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '85x200') && ($('input_32').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL85x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '100x200') && ($('input_32').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL100x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '120x200') && ($('input_32').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL120x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '150x200') && ($('input_32').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/pvc/roll-upBL150x200-PVCs.jpg) no-repeat";
-						}
-
-													////470 bestline spot//
-						if (($('input_22').value == '60x200') && ($('input_32').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL60x200-470s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '80x200') && ($('input_32').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL80x200-470s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '85x200') && ($('input_32').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL85x200-470s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '100x200') && ($('input_32').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL100x200-470s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '120x200') && ($('input_32').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL120x200-470s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '150x200') && ($('input_32').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL150x200-470s.jpg) no-repeat";
-						}
-						if (($('input_22').value == '200x200') && ($('input_35').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/470/roll-upBL200x200-470s.jpg) no-repeat";
-						}
-													////ecologique bestline spot//
-						if (($('input_22').value == '60x200') && ($('input_32').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL60x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '80x200') && ($('input_32').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL80x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '85x200') && ($('input_32').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL85x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '100x200') && ($('input_32').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL100x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '120x200') && ($('input_32').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL120x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_22').value == '150x200') && ($('input_32').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bestline/ecologique/roll-upBL150x200-ECOs.jpg) no-repeat";
-						}
-
-
-
 
 						/////////////////////luxline//////////
 
-
-
 						if ($('input_1').value == 'lux-line') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL.jpg) no-repeat" ;
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 
 						}
 						if ($('input_23').value == '60x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL60x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if ($('input_23').value == '80x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL80x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if ($('input_23').value == '85x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL85x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if ($('input_23').value == '100x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL100x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if ($('input_23').value == '120x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL120x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if ($('input_23').value == '150x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL150x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if ($('input_23').value == '200x300') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/roll-upLL200x300.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 
-										////440g luxline//
+					  ////440g luxline//
+
 						if (($('input_23').value == '60x200') && ($('input_33').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL60x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '80x200') && ($('input_33').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL80x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '85x200') && ($('input_33').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL85x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '100x200') && ($('input_33').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL100x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '120x200') && ($('input_33').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL120x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '150x200') && ($('input_33').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL150x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '200x200') && ($('input_35').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL150x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
-													////300µ M1 luxline//
+
+						////300µ M1 luxline//
 						if (($('input_23').value == '60x200') && ($('input_33').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL60x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '80x200') && ($('input_33').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL80x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '85x200') && ($('input_33').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL85x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '100x200') && ($('input_33').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL100x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '120x200') && ($('input_33').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL120x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '150x200') && ($('input_33').value == '300µ M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL150x200-PVC.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 
 													////470 luxline//
 						if (($('input_23').value == '60x200') && ($('input_33').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL60x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '80x200') && ($('input_33').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL80x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '85x200') && ($('input_33').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL85x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '100x200') && ($('input_33').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL100x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '120x200') && ($('input_33').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL120x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '150x200') && ($('input_33').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL150x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 						if (($('input_23').value == '200x300') && ($('input_35').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL200x300-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux.png)";
 						}
 													////ecologique luxline//
 						if (($('input_23').value == '60x200') && ($('input_33').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL60x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxeco.png)";
 						}
 						if (($('input_23').value == '80x200') && ($('input_33').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL80x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxeco.png)";
 						}
 						if (($('input_23').value == '85x200') && ($('input_33').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL85x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxeco.png)";
 						}
 						if (($('input_23').value == '100x200') && ($('input_33').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL100x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxeco.png)";
 						}
 						if (($('input_23').value == '120x200') && ($('input_33').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL120x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxeco.png)";
 						}
 						if (($('input_23').value == '150x200') && ($('input_33').value == '100% écologique M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL150x200-ECO.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxeco.png)";
 						}
-
-											////440g luxline spot//
-						if (($('input_23').value == '60x200') && ($('input_33').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL60x200-440s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '80x200') && ($('input_33').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL80x200-440s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '85x200') && ($('input_33').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL85x200-440s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '100x200') && ($('input_33').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL100x200-440s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '120x200') && ($('input_33').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL120x200-440s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '150x200') && ($('input_33').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL150x200-440s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '200x300') && ($('input_35').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/440/roll-upLL200x300-440s.jpg) no-repeat";
-						}
-													////300µ M1 luxline spot//
-						if (($('input_23').value == '60x200') && ($('input_33').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL60x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '80x200') && ($('input_33').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL80x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '85x200') && ($('input_33').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL85x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '100x200') && ($('input_33').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL100x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '120x200') && ($('input_33').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL120x200-PVCs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '150x200') && ($('input_33').value == '300µ M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/pvc/roll-upLL150x200-PVCs.jpg) no-repeat";
-						}
-
-													////470 luxline spot//
-						if (($('input_23').value == '60x200') && ($('input_33').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL60x200-470s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '80x200') && ($('input_33').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL80x200-470s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '85x200') && ($('input_33').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL85x200-470s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '100x200') && ($('input_33').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL100x200-470s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '120x200') && ($('input_33').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL120x200-470s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '150x200') && ($('input_33').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL150x200-470s.jpg) no-repeat";
-						}
-						if (($('input_23').value == '200x300') && ($('input_35').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/470/roll-upLL200x300-470s.jpg) no-repeat";
-						}
-													////ecologique luxline spot//
-						if (($('input_23').value == '60x200') && ($('input_33').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL60x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '80x200') && ($('input_33').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL80x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '85x200') && ($('input_33').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL85x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '100x200') && ($('input_33').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL100x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '120x200') && ($('input_33').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL120x200-ECOs.jpg) no-repeat";
-						}
-						if (($('input_23').value == '150x200') && ($('input_33').value == '100% écologique M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/luxline/ecologique/roll-upLL150x200-ECOs.jpg) no-repeat";
-						}
-
-
-
-
 
 
 						/////////////////////double//////////
 
 
-
 						if ($('input_1').value == 'double') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/roll-upRV.jpg) no-repeat" ;
-
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 
 						if ($('input_24').value == '80x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/roll-upRV80x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 						if ($('input_24').value == '85x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/roll-upRV85x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 						if ($('input_24').value == '100x200') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/roll-upRV100x200.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 
 
-										////440g double//
+						////440g double//
 
 						if (($('input_24').value == '80x200') && ($('input_34').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/440/roll-upRV80x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 						if (($('input_24').value == '85x200') && ($('input_34').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/440/roll-upRV85x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 						if (($('input_24').value == '100x200') && ($('input_34').value == '440g')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/440/roll-upRV100x200-440.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 
 
-
-													////470 double//
+						////470 double//
 
 						if (($('input_24').value == '80x200') && ($('input_34').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/470/roll-upRV80x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 						if (($('input_24').value == '85x200') && ($('input_34').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/470/roll-upRV85x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 						if (($('input_24').value == '100x200') && ($('input_34').value == '470g M1')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/470/roll-upRV100x200-470.jpg) no-repeat";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double.png)";
 						}
 
+            /////////////////////mini//////////
 
-											////440g double spot//
-
-						if (($('input_24').value == '80x200') && ($('input_34').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/440/roll-upRV80x200-440s.jpg) no-repeat";
-						}
-						if (($('input_24').value == '85x200') && ($('input_34').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/440/roll-upRV85x200-440s.jpg) no-repeat";
-						}
-						if (($('input_24').value == '100x200') && ($('input_34').value == '440g') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/440/roll-upRV100x200-440s.jpg) no-repeat";
+						if ($('input_1').value == 'mini') {
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/5mini.png)";
 						}
 
+            ///////////////////////spot/////////
 
-
-
-						if (($('input_24').value == '80x200') && ($('input_34').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/470/roll-upRV80x200-470s.jpg) no-repeat";
+						if ($('input_4').value == 'spot') {
+							var imag = $("preview_imag3");
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/spot.png)";
 						}
-						if (($('input_24').value == '85x200') && ($('input_34').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/470/roll-upRV85x200-470s.jpg) no-repeat";
+            else {
+							var imag = $("preview_imag3");
+							imag.style.backgroundImage="none";
 						}
-						if (($('input_24').value == '100x200') && ($('input_34').value == '470g M1') && ($('input_4').value == 'spot')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/double/470/roll-upRV100x200-470s.jpg) no-repeat";
-						}
-
-
-
 
 
 				}
+        jQuery(document).ready(function ($) {
 
+          $('#input_1 option').click(function() {
+            $('#preview_imag2').css('animation','anim 3.5s 1');
+          });
+
+        });
 //
                 }
 
@@ -2016,7 +1761,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -2031,7 +1776,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
+        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },
@@ -2155,7 +1900,6 @@ JotForm = {
                             }
                         }
                         if (!input.value || input.value.empty()) {
-
                             return JotForm.errored(input, "Ce champ est obligatoire.");
                         }
 

@@ -142,6 +142,7 @@
 					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité:</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
 				</li>
+
 				<li class="form-line optionsformline" id="id_8">
 					<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 

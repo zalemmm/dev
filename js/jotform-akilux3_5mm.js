@@ -22,9 +22,9 @@ JotForm = {
      * @var All JotForm forms on the page
      */
     forms: [],
-    
+
     imageFiles: ["png", "jpg", "jpeg", "ico", "tiff", "bmp", "gif", "apng", "jp2", "jfif"],
-    
+
     autoCompletes: {},
     /**
      * Find the correct server url from forms action url, if there is no form use the defaults
@@ -40,21 +40,21 @@ JotForm = {
         }
     },
 
-    
+
     /**
      * Initiates the form and all actions
      */
     init: function(callback){
         var ready = function(){
             try {
-                
+
                 this.getServerURL();
-                
+
                 callback && callback();
                 if (document.get.mode == "edit" && document.get.sid) {
                     this.editMode();
                 }
-                
+
                 this.handlePayPalProMethods();
                 this.handleFormCollapse();
                 this.handlePages();
@@ -65,43 +65,43 @@ JotForm = {
                 this.prePopulations();
                 this.handleAutoCompletes();
                 this.handleRadioButtons();
-                
+
                 $A(document.forms).each(function(form){
                     if (form.name == "form_" + form.id || form.name == "q_form_" + form.id) {
                         this.forms.push(form);
                     }
                 }.bind(this));
                 this.validator();
-            } catch (err) {                
+            } catch (err) {
                  //alert(err);
             }
         }.bind(this);
-        
+
         if(document.readyState == 'complete'){
             ready();
         }else{
-            document.ready(ready);            
+            document.ready(ready);
         }
     },
-    
+
     handleRadioButtons: function(){
-        
+
         $$('.form-radio-other-input').each(function(inp){
             inp.disable().hint('Other');
         });
-        
+
         $$('.form-radio').each(function(radio){
-            
+
             var id = radio.id.replace(/input_(\d+)_\d+/gim, '$1');
-            
+
             if(id.match('other_')){
                 id = radio.id.replace(/other_(\d+)/, '$1');
             }
-            
+
             if($('other_'+id)){
                 var other = $('other_'+id);
                 var other_input = $('input_'+id);
-                
+
                 radio.observe('click', function(){
                     if(other.checked){
                         other_input.enable();
@@ -114,7 +114,7 @@ JotForm = {
             }
         });
     },
-    
+
     /**
      * Activates all autocomplete fields
      */
@@ -145,18 +145,18 @@ JotForm = {
             // Insert list onto page
             // parent.insert(list);
             $(document.body).insert(list);
-            
+
             list.close = function(){
                 list.update();
                 list.hide();
                 selectCount = 0;
             };
-            
+
             // Hide list when field get blurred
             el.observe('blur', function(){
                 list.close();
             });
-            
+
             // Search entry in values when user presses a key
             el.observe('keyup', function(e){
                 var word = el.value;
@@ -186,9 +186,9 @@ JotForm = {
                         li.val = val;
                         try {
                             val = match.replace(new RegExp('^(' + word + ')', 'gim'), '<b>$1</b>');
-                        } 
+                        }
                         catch (e) {
-                            
+
                         }
                         li.insert(val);
                         li.onmousedown = function(){
@@ -200,7 +200,7 @@ JotForm = {
                     list.show();
                     // Get li height by adding margins and paddings for calculating 10 item long list height
                     liHeight = liHeight || $(list.firstChild).getHeight() + (parseInt($(list.firstChild).getStyle('padding'), 10) || 0) + (parseInt($(list.firstChild).getStyle('margin'), 10) || 0);
-                    // limit list to show only 10 item at once        
+                    // limit list to show only 10 item at once
                     list.setStyle({
                         height: (liHeight * ((matches.length > 9) ? 10 : matches.length) + 4) + 'px',
                         overflow: 'auto'
@@ -209,21 +209,21 @@ JotForm = {
                     list.close(); // If no match found clean the list and close
                 }
             });
-            
+
             // handle navigation through the list
             el.observe('keydown', function(e){
-                
+
                 //e = document.getEvent(e);
                 var selected; // Currently selected item
                 // If the list is not visible or list empty then don't run any key actions
                 if (!list.visible() || !list.firstChild) {
                     return;
                 }
-                
+
                 // Get the selected item
                 selected = list.select('.form-autocomplete-list-item-selected')[0];
                 selected && selected.removeClassName('form-autocomplete-list-item-selected');
-                
+
                 switch (e.keyCode) {
                     case Event.KEY_UP: // UP
                         if (selected && selected.previousSibling) {
@@ -231,7 +231,7 @@ JotForm = {
                         } else {
                             $(list.lastChild).addClassName('form-autocomplete-list-item-selected');
                         }
-                        
+
                         if (selectCount <= 1) { // selected element is at the top of the list
                             if (selected && selected.previousSibling) {
                                 $(selected.previousSibling).scrollIntoView(true);
@@ -243,7 +243,7 @@ JotForm = {
                         } else {
                             selectCount--;
                         }
-                        
+
                         break;
                     case Event.KEY_DOWN: // Down
                         if (selected && selected.nextSibling) {
@@ -251,7 +251,7 @@ JotForm = {
                         } else {
                             $(list.firstChild).addClassName('form-autocomplete-list-item-selected');
                         }
-                        
+
                         if (selectCount >= 9) { // if selected element is at the bottom of the list
                             if (selected && selected.nextSibling) {
                                 $(selected.nextSibling).scrollIntoView(false);
@@ -279,13 +279,13 @@ JotForm = {
                         } // Prevent return key to submit the form
                         break;
                     default:
-                        return;                
+                        return;
                 }
             });
         });
-        
+
     },
-    
+
     /**
      * Returns the extension of a file
      * @param {Object} filename
@@ -294,7 +294,7 @@ JotForm = {
         return (/[.]/.exec(filename)) ? (/[^.]+$/.exec(filename))[0] : undefined;
     },
 
-    
+
     /**
      * Fill fields from the get values
      */
@@ -306,17 +306,17 @@ JotForm = {
                 input.value = pair.value;
             }
             $$('.form-checkbox%s, .form-radio%s'.replace(/\%s/gim, n)).each(function(input){
-            
+
                 input.checked = $A(pair.value.split(',')).include(input.value);
             });
         });
     },
-    
+
     /**
      * Bring the form data for edit mode
      */
     editMode: function(){
-    
+
         new Ajax.Request('server.php', {
             parameters: {
                 action: 'getSubmissionResults',
@@ -371,7 +371,7 @@ JotForm = {
                                 break;
                             case "control_checkbox":
                                 var checks = $$("#id_" + qid + ' input[type="checkbox"]');
-                                
+
                                 $A(checks).each(function(chk){
                                     if (question.items.include(chk.value)) {
                                         chk.checked = true;
@@ -394,9 +394,9 @@ JotForm = {
                                 $('input_' + qid + "_from").putValue(question.items.from);
                                 $('input_' + qid + "_to").putValue(question.items.to);
                                 break;
-                                
+
                             case "control_matrix":
-                                
+
                                 $A(question.items).each(function(item, i){
                                     if (Object.isString(item)) {
                                         var els = document.getElementsByName("q" + qid + "_" + question.name + "[" + i + "]");
@@ -439,14 +439,14 @@ JotForm = {
                                 break;
                         }
                     }.bind(this));
-                    
+
                     $$('input[name="formID"]')[0].insert({
                         after: new Element('input', {
                             type: 'hidden',
                             name: 'editSubmission'
                         }).putValue(document.get.sid)
                     });
-                    
+
                 }
             }.bind(this)
         });
@@ -485,13 +485,13 @@ JotForm = {
         */
         return $('id_'+field).show();
     },
-    
+
     /**
      * Hides a field
      * @param {Object} field
      */
     hideField: function(field){
-        
+
         $('id_'+field).select('input, select, textarea').each(function(input){
             if(input.tagName == 'INPUT' && (['checkbox', 'radio'].include(input.readAttribute('type')))){
                 input.checked = false;
@@ -502,10 +502,10 @@ JotForm = {
             input.clear();
             input.run('keyup').run('change');
         });
-        
+
         return $('id_'+field).hide();
     },
-    
+
     /**
      * Checks the fieldValue by given operator string
      * @param {Object} operator
@@ -540,10 +540,10 @@ JotForm = {
         }
         return false;
     },
-    
+
     typeCache: {},   // Cahcke the check type results for performance
     /**
-     * 
+     *
      * @param {Object} id
      */
     getInputType: function(id){
@@ -560,33 +560,33 @@ JotForm = {
         return type;
     },
     /**
-     * 
+     *
      * @param {Object} condition
      */
     checkCondition: function(condition){
         var any=false, all=true;
-      
+
         $A(condition.terms).each(function(term){
             try{
                 switch(JotForm.getInputType(term.field)){
                     case "checkbox":
                     case "radio":
-                    
+
                         if (['isEmpty', 'isFilled'].include(term.operator)) {
                             var filled = $$('#id_'+term.field+' input').collect(function(e){ return e.checked; }).any();
-                            
+
                             if(JotForm.checkValueByOperator(term.operator, term.value, filled)){
                                 any = true;
                             }else{
                                 all = false;
                             }
-                            
-                            return; /* continue; */ 
+
+                            return; /* continue; */
                         }
-                    
+
                         $$('#id_'+term.field+' input').each(function(input){
                             var value = input.checked? input.value : '';
-                            
+
                             if(JotForm.checkValueByOperator(term.operator, term.value, value)){
 
                                 any = true;
@@ -605,7 +605,7 @@ JotForm = {
                             all = false;
                         }
 //denisedesign
-                        if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+          if(JotForm.checkValueByOperator(term.operator, term.value, value)){
 						var preview_info_ul = $("preview_info_ul");
 						var podglad = $("preview");
 						if ($('input_0').value) {
@@ -619,442 +619,450 @@ JotForm = {
 								}
 							}
 							podglad.style.visibility="visible";
-						}	
-						
-						
-						
+						}
+
+            $('container').style.display="none";
+            var imag = $("preview_imag");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
+
 /////////////////////sans rainage//////////
-													
+
 				    	/////////////////////sans rainage recto//////////
 						if ($('input_0').value == 'recto') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 
-										/////sans rainage recto standard////
+						/////sans rainage recto standard////
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
-					
-																/////sans rainage recto standard fixation////
+
+						/////sans rainage recto standard fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-oeillet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-rislan.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-crochet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-double.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 									/////sans rainage recto HD////
-					
+
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 																/////sans rainage recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-oeillet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-rislan.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-crochet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-double.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						/////////////////////sans rainage rectoverso//////////
 						if ($('input_0').value == 'rectoverso') {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 
 										/////sans rainage rectoverso standard////
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
-						
+
 																/////sans rainage rectoverso standard fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-oeillet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-rislan.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-crochet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-double.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 									/////sans rainage rectoverso HD////
-						
+
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 																/////sans rainage rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-oeillet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-rislan.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-crochet.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-double.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
-						
-						
-						
+
+
+
 /////////////////////1 rainage//////////
-													
+
 				    	/////////////////////1 rainage recto//////////
 										/////1 rainage recto standard////
 																/////1 rainage recto standard fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-oeillet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-rislan-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-crochet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-double-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
-									/////1 rainage recto HD////		
+									/////1 rainage recto HD////
 																/////1 rainage recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-oeillet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-rislan-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-crochet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-double-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
-						/////////////////////1 rainage rectoverso//////////					
-										/////1 rainage rectoverso standard////						
+						/////////////////////1 rainage rectoverso//////////
+										/////1 rainage rectoverso standard////
 																/////1 rainage rectoverso standard fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-oeillet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-rislan-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-crochet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-double-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 									/////1 rainage rectoverso HD////
 																/////1 rainage rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-oeillet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-rislan-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-crochet-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-double-1r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
-						
+
 /////////////////////2 rainages//////////
-													
+
 				    	/////////////////////2 rainages recto//////////
 										/////2 rainages recto standard////
 																/////2 rainages recto standard fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-oeillet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-rislan-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-crochet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-double-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
-									/////2 rainages recto HD////		
+									/////2 rainages recto HD////
 																/////2 rainages recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-oeillet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-rislan-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-crochet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-double-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
-						/////////////////////2 rainages rectoverso//////////					
-										/////2 rainages rectoverso standard////						
+						/////////////////////2 rainages rectoverso//////////
+										/////2 rainages rectoverso standard////
 																/////2 rainages rectoverso standard fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-oeillet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-rislan-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-crochet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-double-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 									/////2 rainages rectoverso HD////
 																/////2 rainages rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-oeillet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-rislan-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-crochet-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-double-2r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
-						
-						
+
+
 /////////////////////3 rainages//////////
-													
+
 				    	/////////////////////3 rainages recto//////////
 										/////3 rainages recto standard////
 																/////3 rainages recto standard fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-oeillet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-rislan-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-crochet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-s-double-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
-									/////3 rainages recto HD////		
+									/////3 rainages recto HD////
 																/////3 rainages recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-oeillet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-rislan-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-crochet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-r-hd-double-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
-						/////////////////////3 rainages rectoverso//////////					
-										/////3 rainages rectoverso standard////						
+						/////////////////////3 rainages rectoverso//////////
+										/////3 rainages rectoverso standard////
 																/////3 rainages rectoverso standard fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-oeillet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-rislan-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-crochet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-s-double-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 									/////3 rainages rectoverso HD////
 																/////3 rainages rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-oeillet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-rislan-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-crochet-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
-							var imag = $("preview_imag");
-							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/3_5mm/akilux3_5mm-rv-hd-double-3r.jpg) no-repeat";							
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
-						
-							}	
-							
-							
 
-                }
-                
-            }catch(e){ 
+						}
+
+            }
+
+            jQuery(document).ready(function ($) {
+
+              $('#input_0 option').click(function() {
+                $('#preview_imag2').css('animation','anim 3.5s 1');
+              });
+
+            });
+
+            }catch(e){
             	//console.error(e);
         	}
         });
-        
+
         if(condition.type == 'field'){ // Field Condition
             //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
             if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
@@ -1073,15 +1081,15 @@ JotForm = {
                     //console.info('Fail: Show field: '+$('label_'+condition.action.field).innerHTML);
                     JotForm.showField(condition.action.field);
                 }
-            }                
+            }
         }else{ // Page condition
-        
+
             //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
             if (JotForm.nextPage) {
                 return;
             }
             if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
-                
+
                 //console.info('Correct: Skip To: '+condition.action.skipTo);
                 var sections = $$('.form-section');
                 if(condition.action.skipTo == 'end'){
@@ -1089,21 +1097,21 @@ JotForm = {
                 }else{
                     JotForm.nextPage = sections[parseInt(condition.action.skipTo.replace('page-', ''), 10)-1];
                 }
-                
+
             }else{
-                
+
                 //console.info('Fail: Skip To: page-'+JotForm.currentPage+1);
-                
-                JotForm.nextPage = false; 
+
+                JotForm.nextPage = false;
             }
         }
-        
+
     },
     currentPage: false,
     nextPage: false,
     previousPage: false,
     fieldConditions: {},
-    
+
     setFieldConditions: function(field, event, condition){
         if(!JotForm.fieldConditions[field]){
             JotForm.fieldConditions[field] = {
@@ -1113,26 +1121,26 @@ JotForm = {
         }
         JotForm.fieldConditions[field].conditions.push(condition);
     },
-    
+
     /**
      * Sets all events and actions for form conditions
      */
     setConditionEvents: function(){
         try {
             $A(JotForm.conditions).each(function(condition){
-            
+
                 if (condition.type == 'field') {
-                
+
                     if (condition.action.visibility.toLowerCase() == 'show') {
                         $('id_' + condition.action.field).hide();
                     } else {
                         $('id_' + condition.action.field).show();
                     }
-                    
+
                     // Loop through all rules
                     $A(condition.terms).each(function(term){
                         var id = term.field;
-                        
+
                         switch (JotForm.getInputType(id)) {
                             case "select":
                                 JotForm.setFieldConditions('input_' + id, 'change', condition);
@@ -1145,7 +1153,7 @@ JotForm = {
                                JotForm.setFieldConditions('input_' + id, 'keyup', condition);
                         }
                     });
-                    
+
                 } else {
                     $A(condition.terms).each(function(term){
                         var id = term.field;
@@ -1153,7 +1161,7 @@ JotForm = {
                         if (!nextButton) {
                             return;
                         }
-                        
+
                         nextButton.observe('mousedown', function(){
                             //console.warn('Checking ' + $('label_' + id).innerHTML);
                             JotForm.checkCondition(condition);
@@ -1161,12 +1169,12 @@ JotForm = {
                     });
                 }
             });
-            
+
             $H(JotForm.fieldConditions).each(function(pair){
                 var field = pair.key;
                 var event = pair.value.event;
                 var conds = pair.value.conditions;
-                
+
                 //console.log(field);
                 $(field).observe(event, function(){
                     //console.log('Here');
@@ -1176,8 +1184,8 @@ JotForm = {
                     });
                 }).run(event);
             });
-        }catch(e){ 
-        	//console.error(e); 
+        }catch(e){
+        	//console.error(e);
     	}
     },
     /**
@@ -1185,19 +1193,19 @@ JotForm = {
      * @param {Object} prices
      */
     countTotal: function(prices){
-    
+
         var total = 0;
         $H(prices).each(function(pair){
             total = parseFloat(total);
             var price = parseFloat(pair.value.price);
-            
+
             if ($(pair.key).checked) {
                 if ($(pair.value.quantityField)) {
                     price = price * parseInt($(pair.value.quantityField).getSelected().text, 10);
                 }
                 total += price;
             }
-            
+
             if (total === 0) {
                 total = "0.00";
             }
@@ -1227,7 +1235,7 @@ JotForm = {
      * @param {Object} id
      */
     initCaptcha: function(id){
-        
+
         new Ajax.Jsonp(JotForm.server, {
             parameters: {
                 action: 'getCaptchaId'
@@ -1241,7 +1249,7 @@ JotForm = {
                 }
             }
         });
-        
+
     },
     /**
      * Relads a new image for captcha
@@ -1274,7 +1282,7 @@ JotForm = {
         var month = JotForm.addZeros(date.getMonth() + 1, 2);
         var day = JotForm.addZeros(date.getDate(), 2);
         var year = date.getYear() < 1000 ? date.getYear() + 1900 : date.getYear();
-        
+
         var hour = JotForm.addZeros(date.getHours(), 2); // May not need
         var min = JotForm.addZeros(date.getMinutes(), 2); // May not need
         var id = d.dateField.id.replace(/\w+\_/gim, '');
@@ -1294,7 +1302,7 @@ JotForm = {
                         JotForm.getCollapseBar(l).run('click');
                     }
                     l.addClassName('form-line-active');
-                    
+
                 }).observe('blur', function(){
                     l.removeClassName('form-line-active');
                 });
@@ -1335,7 +1343,7 @@ JotForm = {
         }
         return JotForm.getContainer(element.parentNode);
     },
-    
+
     /**
      * Get the containing section the element
      * @param {Object} element
@@ -1396,15 +1404,15 @@ JotForm = {
         if (!element.parentNode) {
             return false;
         }
-        
+
         if (element && element.tagName == "BODY") {
             return true;
         }
-        
+
         if (element.style.display == "none" || element.style.visibility == "hidden") {
             return false;
         }
-        
+
         return JotForm.isVisible(element.parentNode);
     },
     /**
@@ -1418,7 +1426,7 @@ JotForm = {
             });
         }, 60);
     },
-    
+
     /**
      * Sets the actions for buttons
      * * Disables the submit when clicked to prevent double submit.
@@ -1437,7 +1445,7 @@ JotForm = {
                 }, 50);
             });
         });
-      */  
+      */
         $$('.form-submit-reset').each(function(b){
             b.onclick = function(){
                 if (!confirm('Are you sure you want to clear the form')) {
@@ -1445,44 +1453,44 @@ JotForm = {
                 }
             };
         });
-        
+
         $$('.form-submit-print').each(function(print_button){
-        
+
             print_button.observe("click", function(){
                 $(print_button.parentNode).hide();
                 window.print();
                 $(print_button.parentNode).show();
             });
-            
+
         });
     },
     /**
      * Handles the functionality of control_grading tool
      */
     initGradingInputs: function(){
-    
+
         $$('.form-grading-input').each(function(item){
             item.observe('blur', function(){
                 var id = item.id.replace(/input_(\d+)_\d+/, "$1");
                 var total = 0;
-                
+
                 $("grade_error_" + id).innerHTML = "";
-                
+
                 $(item.parentNode.parentNode).select(".form-grading-input").each(function(sibling){
                     var stotal = parseInt(sibling.value, 10) || 0;
-                    
+
                     total += stotal;
                 });
-                
+
                 var allowed_total = parseInt($("grade_total_" + id).innerHTML, 10);
-                
+
                 $("grade_point_" + id).innerHTML = total;
-                
+
                 if (total > allowed_total) {
                     $("grade_error_" + id).innerHTML = 'Your score should be less than <b>' + allowed_total + '</b>.';
                 }
             });
-            
+
         });
     },
     /**
@@ -1497,44 +1505,44 @@ JotForm = {
                 section.hide();
             } // Hide other pages
             pages.push(section); // Collect pages
-            
+
             section.select('.form-pagebreak-next').invoke('observe', 'click', function(){ // When next button clicked
                 if (JotForm.validateAll(JotForm.getForm(section))) {
-                    
+
                     if(JotForm.nextPage){
                         JotForm.backStack.push(section.hide()); // Hide current
                         JotForm.nextPage.show();
-                        
+
                     }else if (section.next()) { // If there is a next page
-                    
+
                         JotForm.backStack.push(section.hide()); // Hide current
                         // This code will be replaced with condition selector
                         section.next().show(); // Show next page
                     }
-                    
+
                     JotForm.nextPage = false;
                 }
             });
-            
+
             section.select('.form-pagebreak-back').invoke('observe', 'click', function(){ // When back button clicked
                 //console.log('Back Button');
-                section.hide();            
+                section.hide();
                 JotForm.backStack.pop().show();
                 JotForm.nextPage = false;
-                
+
                 /*if (pages[i - 1]) { // If there is a previous page
                     section.hide(); // Hide current,
                     // This code will be replaced with condition selector
                     pages[i - 1].show(); // Show previous
                 }*/
             });
-            
+
         });
-        
+
         // Handle trailing page
         if (pages.length > 0) {
             var last = $$('.form-section:last-child')[0];
-            
+
             // if there is a last page
             if (last) {
                 pages.push(last); // add it with the other pages
@@ -1549,10 +1557,10 @@ JotForm = {
                     className: 'form-pagebreak-back-container'
                 });
                 var back = $$('.form-pagebreak-back-container')[0].select('button')[0];
-                
+
                 back.observe('click', function(){
                     //console.log('Back Button');
-                    last.hide();            
+                    last.hide();
                     //JotForm.backStack.pop().show();
                     JotForm.nextPage = false;
                     /*var i = pages.length - 1;
@@ -1564,14 +1572,14 @@ JotForm = {
                         last.select('.form-pagebreak-back-container').invoke('hide');
                     }*/
                 });
-                
+
                 backCont.insert(back);
                 cont.insert(backCont);
                 li.insert(cont);
                 last.insert(li);
             }
         }
-        
+
     },
     /**
      * Handles the functionality of Form Collapse tool
@@ -1582,7 +1590,7 @@ JotForm = {
         $$('.form-collapse-table').each(function(bar){
             var section = $(bar.parentNode.parentNode);
             section.setUnselectable();
-            
+
             if (section.className == "form-section-closed") {
                 section.closed = true;
             } else {
@@ -1592,12 +1600,12 @@ JotForm = {
                 }
             }
             bar.observe('click', function(){
-            
+
                 if (section.closed) {
-                
+
                     section.setStyle('overflow:visible; height:auto');
                     var h = section.getHeight();
-                    
+
                     if (openBar && openBar != section && openCount <= 1) {
                         openBar.className = "form-section-closed";
                         openBar.shift({
@@ -1616,7 +1624,7 @@ JotForm = {
                         section.scrollTop = 0;
                         section.className = "form-section";
                     }, 1);
-                    
+
                     section.shift({
                         height: h,
                         duration: 0.5,
@@ -1630,7 +1638,7 @@ JotForm = {
                     });
                     section.closed = false;
                 } else {
-                
+
                     section.scrollTop = 0;
                     section.shift({
                         height: 60,
@@ -1665,7 +1673,7 @@ JotForm = {
             });
         }
     },
-    
+
     /**
      * Creates description boxes next to input boxes
      * @param {Object} input
@@ -1674,7 +1682,7 @@ JotForm = {
     description: function(input, message){
         // v2 has bugs, v3 has stupid solutions
         if(message == "20"){ return; } // Don't remove this or some birthday pickers will start to show 20 as description
-        
+
         var lineDescription = false;
         if(!$(input)){
             var id = input.replace(/[^\d]/gim, '');
@@ -1682,9 +1690,9 @@ JotForm = {
             input = $("id_"+id);
             lineDescription = true;
         }
-        
+
         var cont = JotForm.getContainer(input);
-        
+
         var buble = new Element('div', {
             className: 'form-description'
         });
@@ -1699,9 +1707,9 @@ JotForm = {
         });
         content.insert(message);
         buble.insert(arrow).insert(arrowsmall).insert(content).hide();
-        
+
         this.getContainer(input).insert(buble);
-        
+
         if(lineDescription){
             $(input).hover(function(){
                 cont.setStyle('z-index:10000');
@@ -1710,67 +1718,67 @@ JotForm = {
                 cont.setStyle('z-index:0');
                 buble.hide();
             });
-            
+
         }else{
             $(input).observe('keyup', function(){
                 cont.setStyle('z-index:0');
                 buble.hide();
             });
-            
+
             $(input).observe('focus', function(){
                 cont.setStyle('z-index:10000');
                 buble.show();
             });
-            
+
             $(input).observe('blur', function(){
                 cont.setStyle('z-index:0');
                 buble.hide();
             });
         }
     },
-    
+
     /**
      * do all validations at once and stop on the first error
      * @param {Object} form
      */
     validateAll: function(form){
         var ret = true;
-        
+
         $$('*[class*="validate"]').each(function(input){
             if (!(!!input.validateInput && input.validateInput())) {
                 ret = false;
                 throw $break; // stop at the first error
             }
         });
-        
+
         return ret;
     },
-    
+
     /**
      * When an input is errored
      * @param {Object} input
      * @param {Object} message
      */
     errored: function(input, message){
-        
+
         input = $(input);
-        
+
         if (input.errored) {
             return false;
         }
-        
+
         if(input.runHint){
             input.runHint();
         }else{
             //input.select();
-        }  
-        
+        }
+
         if (JotForm.isCollapsed(input)) {
 
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1782,14 +1790,14 @@ JotForm = {
         input.errored = true;
         input.addClassName('form-validation-error');
         container.addClassName('form-line-error');
-        
+
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
-        
+        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+
         return false;
     },
-    
+
     /**
      * When an input is corrected
      * @param {Object} input
@@ -1813,39 +1821,39 @@ JotForm = {
         container.select('.form-error-message').invoke('remove');
         return true;
     },
-    
+
     hideButtonMessage: function(){
         $$('.form-button-error').invoke('remove');
     },
-    
+
     showButtonMessage: function(){
         this.hideButtonMessage();
-        
+
         $$('.form-submit-button').each(function(button){
             var errorBox = new Element('div', {className:'form-button-error'});
             errorBox.insert('Il y a des champs obligatoires incomplets. Merci de remplir ces informations.');
             $(button.parentNode).insert(errorBox);
         });
     },
-    
+
     /**
      * Sets all validations to forms
      */
     validator: function(){
-    
+
         var reg = {
             email: /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])/,
             alphanumeric: /^[a-zA-Z0-9]+$/,
             numeric: /^(\d+[\.\,]?)+$/,
             alphabetic: /^[a-zA-Z\s]+$/
         };
-        
-        
-        $A(JotForm.forms).each(function(form){ // for each JotForm form on the page 
+
+
+        $A(JotForm.forms).each(function(form){ // for each JotForm form on the page
             if (form.validationSet) {
                 return; /* continue; */
             }
-            
+
             form.validationSet = true;
             form.observe('submit', function(e){ // Set on submit validation
                 try {
@@ -1860,14 +1868,14 @@ JotForm = {
                     e.stop();
                 }
             });
-            
+
             // for each validation element
             $$('*[class*="validate"]').each(function(input){
-                
+
                 var validations = input.className.replace(/.*validate\[(.*)\].*/, '$1').split(/\s*,\s*/);
-                
+
                 input.validateInput = function(){
-                
+
 /*                	if ( (input.readAttribute('type') == "text") && (input.readAttribute('id')=='input_9') ){
                 		var pass1 = $('input_8');
                 		var pass2 = $('input_9');
@@ -1875,24 +1883,24 @@ JotForm = {
                 		if ( suma < 5 ) {  }
                 		else { return JotForm.errored(input, "Please retype password correctly!"+suma); }
                 	}
-*/                
+*/
                     if (!JotForm.isVisible(input)) {
                         return true; // if it's hidden then user cannot fill this field then don't validate
                     }
-                    
+
                     JotForm.corrected(input); // First clean the element
                     var vals = validations;
-                    
+
                     if(input.hinted === true){ input.clearHint(); } // Clear hint value if exists
-                    
+
                     if (vals.include("required")) {
-                        
+
                         if (input.tagName == "INPUT" && (input.readAttribute('type') == "radio" || input.readAttribute('type') == "checkbox")) {
 
                             if (!$A(document.getElementsByName(input.name)).map(function(e){
                                 return e.checked;
                             }).any()) {
-                                
+
                                 return JotForm.errored(input, "Ce champ est obligatoire.");
                             }
                         } else if (input.name && input.name.include("[")) {
@@ -1913,19 +1921,19 @@ JotForm = {
 
                             return JotForm.errored(input, "Ce champ est obligatoire.");
                         }
-                        
+
                         vals = vals.without("required");
-                        
+
                     } else if (input.value.empty()) {
-                        // if field is not required and there is no value 
+                        // if field is not required and there is no value
                         // then skip other validations
                         return true;
                     }
-                    
+
                     if (!vals[0]) {
                         return true;
                     }
-                    
+
                     switch (vals[0]) {
                         case "Email":
                             if (!reg.email.test(input.value)) {
@@ -1952,47 +1960,47 @@ JotForm = {
                     }
                     return JotForm.corrected(input);
                 };
-                
+
                 input.observe('blur', function(){
                     input.validateInput();
                 });
             });
-            
+
             $$('.form-upload').each(function(upload){
-               
+
                 try {
 
     	            var required = !!upload.validateInput;
                     var exVal = upload.validateInput || Prototype.K;
-                    
+
                     upload.validateInput = function(){
                         if (exVal() !== false) { // Make sure other validation completed
-                            
+
                             if(!upload.files){ return true; } // If files are not provied then don't do checks
-                            
+
                             var acceptString = upload.readAttribute('accept');
                             var maxsizeString = upload.readAttribute('maxsize');
                             var accept = acceptString.strip().split(/\s*\,\s*/gim);
                             var maxsize = parseInt(maxsizeString, 10) * 1024;
-                            
+
                             var file = upload.files[0];
                             if (!file) {
                                 return true;
                             } // No file was selected
                             var ext = JotForm.getFileExtension(file.fileName);
-                            
+
                             if (!accept.include(ext) && !accept.include(ext.toLowerCase())) {
                                 return JotForm.errored(upload, 'You can only upload following files: ' + acceptString);
                             }
-                            
+
                             if (file.fileSize > maxsize) {
                                 return JotForm.errored(upload, 'File size cannot be bigger than: ' + maxsizeString + 'Kb');
                             }
-                            
+
                             return JotForm.corrected(upload);
                         }
                     };
-                    
+
                     if (!required) {
                         upload.addClassName('validate[upload]');
                         upload.observe('blur', upload.validateInput);
@@ -2008,8 +2016,8 @@ JotForm = {
 
 
 
-            
+
         });
-        
+
     }
 };

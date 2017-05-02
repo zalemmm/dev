@@ -1482,17 +1482,17 @@
 
 								if ( (wysokosc > 160) || (szerokosc > 160) ) {
 									var blad = document.getElementById("id_9");
-									blad.style.background = "#FFAAAA";
-									blad.style.border = "1px solid #FFAAAA";
-									eBox.innerHTML = 'Attention nos panneaux font au maximum 160x120cm!';
+									blad.style.background = "#EA2A6A";
+									blad.style.border = "1px solid #EA2A6A";
+									eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
 									niepokazuj=1;
 								}
 
 								if ( (wysokosc > 120) && (szerokosc > 120) ) {
 									var blad = document.getElementById("id_9");
-									blad.style.background = "#FFAAAA";
-									blad.style.border = "1px solid #FFAAAA";
-									eBox.innerHTML = 'Attention nos panneaux font au maximum 160x120cm!';
+									blad.style.background = "#EA2A6A";
+									blad.style.border = "1px solid #EA2A6A";
+									eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
 									niepokazuj=1;
 								}
 

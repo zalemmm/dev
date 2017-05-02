@@ -89,7 +89,7 @@
         </li>
 
         <li class="form-line" id="id_8">
-          <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité:</label>
+          <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité :</label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
         </li>
 
@@ -177,9 +177,10 @@
   <div id="container">
 
     <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/1.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/2.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/3.jpg" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
     </div>
   </div>
 

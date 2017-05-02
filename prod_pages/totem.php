@@ -136,7 +136,7 @@
           </select>
          	</li>
         <li class="optionsformline5" id="id_15">
-          <span class="form-label-left label-highlight">Hauteur : </span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="100" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span>
+          <span class="form-label-left label-highlight special">Hauteur<br /><span class="small">personnalisée</span> : </span><input type="text" class="form-textbox2 special validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="100" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span>
         </li>
 
 

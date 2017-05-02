@@ -106,7 +106,7 @@
 
 				<li class="form-line" id="id_9a">
 					<div class="form-input-wide">
-						<div id="form-button-error2" style="top:30px"></div>
+						<div id="form-button-error2"></div>
 						<button id="input_9a" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 					</div>
 				</li>
@@ -146,7 +146,7 @@
 	  <div id="preview_imag3"></div>
 	  <div id="preview_imag4"></div>
 	  <div id="preview_imag5"></div>
-		
+
 </div>
 
 <div id="custom_price_unit" >
@@ -584,10 +584,10 @@ jQuery(document).ready(function(){
 						if ( (szerokosc > 160) && (wysokosc > 160) ) {
 							var blad = document.getElementById("id_1");
 							var blad2 = document.getElementById("id_8");
-							blad.style.background = "#FFAAAA";
-							blad.style.border = "1px solid #FFAAAA";
-							blad2.style.background = "#FFAAAA";
-							blad2.style.border = "1px solid #FFAAAA";
+							blad.style.background = "#EA2A6A";
+							blad.style.border = "1px solid #EA2A6A";
+							blad2.style.background = "#EA2A6A";
+							blad2.style.border = "1px solid #EA2A6A";
 							eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 160cm!';
 							niepokazuj=1;
 						}
@@ -595,10 +595,10 @@ jQuery(document).ready(function(){
 						if ( ($('input_1').value == 'vinyle magnètique') && (szerokosc > 60) ) {
 							var blad = document.getElementById("id_1");
 							var blad2 = document.getElementById("id_8");
-							blad.style.background = "#FFAAAA";
-							blad.style.border = "1px solid #FFAAAA";
-							blad2.style.background = "#FFAAAA";
-							blad2.style.border = "1px solid #FFAAAA";
+							blad.style.background = "#EA2A6A";
+							blad.style.border = "1px solid #EA2A6A";
+							blad2.style.background = "#EA2A6A";
+							blad2.style.border = "1px solid #EA2A6A";
 							eBox.innerHTML = 'Largeur doit être inférieure à 60cm!';
 							niepokazuj=1;
 						}

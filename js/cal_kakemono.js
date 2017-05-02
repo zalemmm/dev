@@ -3468,16 +3468,16 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	////maquette/////
 	if ($('input_3').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
 	if ($('input_3').value == 'user') {maquette=0; opis += '<br />- j’ai déjà crée la maquette';}
-		
-	
+
+
 
 
 	////tarif unitaire/////
 	puoption = p1+fixations+HD;
-	
 
-	
-	
+
+
+
 	////HD///
 	if ($('input_HD').value == 'HD') {HD = (puoption)*0.30; puoption+=HD; opis += '<br />- HD';}
 	if ($('input_HD').value == 'standard') {HD = 0; puoption+=HD; opis += '<br />- Standard';}
@@ -3605,55 +3605,55 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	if ( (wysokosc > 1.5) && (szerokosc > 1.5) ) {
 		var blad = document.getElementById("id_5");
 		var blad2 = document.getElementById("id_6");
-		/*blad.style.background = "#FFAAAA";
-		blad.style.border = "1px solid #FFAAAA";
-		blad2.style.background = "#FFAAAA";
-		blad2.style.border = "1px solid #FFAAAA";*/
+		/*blad.style.background = "#EA2A6A";
+		blad.style.border = "1px solid #EA2A6A";
+		blad2.style.background = "#EA2A6A";
+		blad2.style.border = "1px solid #EA2A6A";*/
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = 'Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 
 
 	if ( (wysokosc > 2) || (szerokosc > 2) ) {
 		var blad = document.getElementById("id_5");
 		var blad2 = document.getElementById("id_6");
-		/*blad.style.background = "#FFAAAA";
-		blad.style.border = "1px solid #FFAAAA";
-		blad2.style.background = "#FFAAAA";
-		blad2.style.border = "1px solid #FFAAAA";*/
+		/*blad.style.background = "#EA2A6A";
+		blad.style.border = "1px solid #EA2A6A";
+		blad2.style.background = "#EA2A6A";
+		blad2.style.border = "1px solid #EA2A6A";*/
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = 'Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 	if ( (wysokosc < 0.2) && (szerokosc < 0.3) ) {
 		var blad = document.getElementById("id_5");
 		var blad2 = document.getElementById("id_6");
-		/*blad.style.background = "#FFAAAA";
-		blad.style.border = "1px solid #FFAAAA";
-		blad2.style.background = "#FFAAAA";
-		blad2.style.border = "1px solid #FFAAAA";*/
+		/*blad.style.background = "#EA2A6A";
+		blad.style.border = "1px solid #EA2A6A";
+		blad2.style.background = "#EA2A6A";
+		blad2.style.border = "1px solid #EA2A6A";*/
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		option.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = 'Vos dimensions doivent être supérieures à 0,2x0,3m !';
+		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
 
 	if ( (wysokosc < 0.3) && (szerokosc < 0.2) ) {
 		var blad = document.getElementById("id_5");
 		var blad2 = document.getElementById("id_6");
-		/*blad.style.background = "#FFAAAA";
-		blad.style.border = "1px solid #FFAAAA";
-		blad2.style.background = "#FFAAAA";
-		blad2.style.border = "1px solid #FFAAAA";*/
+		/*blad.style.background = "#EA2A6A";
+		blad.style.border = "1px solid #EA2A6A";
+		blad2.style.background = "#EA2A6A";
+		blad2.style.border = "1px solid #EA2A6A";*/
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		option.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = 'Vos dimensions doivent être supérieures à 0,2x0,3m !';
+		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
 
 
