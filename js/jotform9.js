@@ -632,14 +632,17 @@ JotForm = {
             if ($('input_0').value == 'Tissu') {
                var imag = $("preview_imag2");
                imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand.png)";
+               imag.style.animation="anim .5s 1";
             }
             if ($('input_0').value == 'Stand ExpoBag') {
                var imag = $("preview_imag2");
                imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standexpo.png)";
+               imag.style.animation="anim1 .5s 1";
             }
             if ($('input_0').value == 'Stand parapluie') {
                var imag = $("preview_imag2");
                imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standkit.png)";
+               imag.style.animation="anim2 .5s 1";
             }
 
 /*          if ($('input_1').value == '1') {
@@ -655,6 +658,7 @@ JotForm = {
             if (($('input_2').value == '1') || ($('input_51').value == '1')) {
                var imag = $("preview_imag3");
                imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/spots.png)";
+               imag.style.animation="anim .5s 1";
             }else{
               var imag = $("preview_imag3");
               imag.style.backgroundImage="none";
@@ -663,6 +667,7 @@ JotForm = {
             if ($('input_6').value == '41') {
                var imag = $("preview_imag4");
                imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valise.png)";
+               imag.style.animation="anim .5s 1";
             }else{
               var imag = $("preview_imag4");
               imag.style.backgroundImage="none";
@@ -672,16 +677,6 @@ JotForm = {
           }
 
         }
-        jQuery(document).ready(function ($) {
-
-          $('#input_0 option').click(function() {
-            $('#preview_imag2').css('animation','anim 3.5s 1');
-          });
-          $('#input_6 option').click(function() {
-            $('#preview_imag4').css('animation','anim 3.5s 1');
-          });
-
-        });
 //
 
 

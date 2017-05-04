@@ -7,7 +7,7 @@
         <ul class="form-section">
           <li class="form-line" id="id_1">
             <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>Drapeau personnalisé livré avec petit mât pvc.<br />• <u><b>Oriflamme aile d’avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>voile personnalisée de forme courbée en haut, droite en bas. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br/>• <u><b>Beachflag goutte d’eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>Voile imprimée en forme de pétale ou goutte d'eau. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br />• <u><b>Windflag rectangulaire</u>: <span class="highlight">Dès 29,00€</span></b><br/>Voile imprimée rectangulaire. Ganse noire teintée masse ou Full graphic à partir de 10 ex. Vendu complet avec son pied.<br /></span></span>
-            <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
+            <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola();">
               <option value="">choisir votre produit...</option>
               <option value="drapeaux">Drapeaux à agiter </option>
               <option value="oriflamme">Oriflamme aile d’avion </option>
@@ -170,7 +170,7 @@
               <p>
                 <!--<span id="totaldays"></span>&nbsp;-->
                 <span id="totalamt_7"></span>
-                <span id='estdate_7' style="color:#d23562; text-transform: uppercase; font-weight:bold; z-index:100"></span>
+                <span id='estdate_7'></span>
               </p>
             </li>
             <li id="id_18" class="form-line id_18">

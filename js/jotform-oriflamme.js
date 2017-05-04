@@ -638,52 +638,104 @@ JotForm = {
               $('container').style.display="none";
 							var imag = $("preview_imag");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/ext.png)" ;
+              $("preview_imag3").style.backgroundImage="none";
 						}
 				    if ($('input_1').value == 'drapeaux') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux.png)" ;
+              imag.style.animation="anim .5s 1";
 						}
 							if ($('input_1').value == 'oriflamme') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
+              imag.style.animation="anim1 .5s 1";
 						}
 							if ($('input_1').value == 'beachflag') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
+              imag.style.animation="anim2 .5s 1";
 						}
 							if ($('input_1').value == 'windflag') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag.png)" ;
+              imag.style.animation="anim3 .5s 1";
 						}
 
 
-
+            ////////////////kit aile
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Kit complet'))  {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)";
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
+              $("preview_imag3").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied.png)";
             }
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Structure + Voile'))  {
               var imag = $("preview_imag2");
               imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
+              $("preview_imag3").style.backgroundImage="none";
             }
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Voile seule'))  {
               var imag = $("preview_imag2");
               imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile1.png)";
+              $("preview_imag3").style.backgroundImage="none";
             }
 
-
+            //////////////kit goutte
             if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Kit complet'))  {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)";
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
+              $("preview_imag3").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied.png)";
             }
             if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Structure + Voile'))  {
               var imag = $("preview_imag2");
               imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
+              $("preview_imag3").style.backgroundImage="none";
             }
             if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Voile seule'))  {
               var imag = $("preview_imag2");
               imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte1.png)";
+              $("preview_imag3").style.backgroundImage="none";
             }
+
+            ////////////////pied
+            if ($('input_6').value == 'Embase 8kg') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied8.png)" ;
+            imag.style.animation="anim .5s 1" ;
+            }
+            if ($('input_6').value == 'Embase carrée 13,5kg') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied13.png)" ;
+            imag.style.animation="anim1 .5s 1" ;
+            }
+            if ($('input_6').value == 'Pied 4 branches + bouée') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied4.png)" ;
+            imag.style.animation="anim2 .5s 1" ;
+            }
+            if ($('input_6').value == 'Pied piquet') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/piedPiquet.png)" ;
+            imag.style.animation="anim3 .5s 1" ;
+            }
+            if ($('input_6').value == 'Pied voiture') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/piedVoiture.png)" ;
+            imag.style.animation="anim .5s 1";
+            }
+            if ($('input_6').value == 'Pied à visser') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/piedVis.png)" ;
+            imag.style.animation="anim1 .5s 1";
+            }
+            if ($('input_6').value == 'Pied parasol 23L') {
+            var imag = $("preview_imag3");
+            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/piedPara.png)" ;
+            imag.style.animation="anim2 .5s 1";
+            }
+
+
+
+
             /*
 
 
@@ -1826,10 +1878,3 @@ JotForm = {
 
     }
 };
-jQuery(document).ready(function ($) {
-
-  $('#input_1').on('change', (function() {
-    $('#preview_imag2').css('animation','anim 1s 1');
-  }));
-
-});

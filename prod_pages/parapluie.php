@@ -145,7 +145,7 @@
 <p>
 <!--<span id="totaldays"></span>&nbsp;-->
 <span id="totalamt_16"></span>
-<span id='estdate_16' style="color:#d23562; text-transform: uppercase; font-weight:bold"></span>
+<span id='estdate_16'></span>
 </p>
 </div>
             </li>

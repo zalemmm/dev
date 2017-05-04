@@ -628,6 +628,7 @@ JotForm = {
                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/bg.png)";
                 var imag2 = $("preview_imag2");
                 imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/base.png)";
+                imag2.style.animation="anim .5s 1";
               }
 
               if (($('input_4').value == 'ventouse') || ($('input_4').value == 'perçage') || ($('input_4perso').value == 'ventouse') || ($('input_4perso').value == 'perçage')){
@@ -661,13 +662,6 @@ JotForm = {
 
             }
 
-            jQuery(document).ready(function ($) {
-
-              $('#input_0 option').click(function() {
-                $('#preview_imag2').css('animation','anim 3.5s 1');
-              });
-
-            });
 
             }catch(e){
             	//console.error(e);

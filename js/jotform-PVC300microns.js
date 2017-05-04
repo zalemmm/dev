@@ -626,6 +626,7 @@ JotForm = {
                  $("preview_imag").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
                  var imag = $("preview_imag2");
                  imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/base.png)";
+                 imag.style.animation="anim .5s 1";
    						}
 
               if ($('input_2').value == '2oeillets') {
@@ -645,14 +646,6 @@ JotForm = {
 						}
 
 					}
-
-          jQuery(document).ready(function ($) {
-            $('#input_1 option').click(function() {
-              $('#preview_imag2').css('animation','anim 3.5s 1');
-            });
-          });
-
-
 
 
             }catch(e){

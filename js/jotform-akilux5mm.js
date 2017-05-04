@@ -630,6 +630,7 @@ JotForm = {
             if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso') ) {
               var imag = $("preview_imag2");
               imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+              imag.style.animation="anim .5s 1";
             }
 
 
@@ -1076,14 +1077,6 @@ JotForm = {
 
 
           }
-
-          jQuery(document).ready(function ($) {
-
-            $('#input_0 option').click(function() {
-              $('#preview_imag2').css('animation','anim 3.5s 1');
-            });
-
-          });
 
             }catch(e){
             	//console.error(e);

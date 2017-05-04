@@ -636,48 +636,55 @@ JotForm = {
 
 						/////////////////////taille//////////
 
-				     if ($('input_1').value == '2x2') {
+				    if ($('input_1').value == '2x2') {
               $('container').style.display="none";
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante.png)";
+              imag.style.animation="anim .5s 1";
 						}
 						if ($('input_1').value == '2x3') {
               $('container').style.display="none";
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante.png)";
+              imag.style.animation="anim .5s 1";
 						}
 						if ($('input_1').value == '3x3') {
               $('container').style.display="none";
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante.png)";
+              imag.style.animation="anim .5s 1";
 						}
 						if ($('input_1').value == '3x4') {
               $('container').style.display="none";
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante.png)";
+              imag.style.animation="anim .5s 1";
 						}
 						if ($('input_1').value == '3x6') {
               $('container').style.display="none";
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante.png)";
+              imag.style.animation="anim .5s 1";
 						}
 						if ($('input_1').value == '4x6') {
               $('container').style.display="none";
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/tente-pliante.png)";
+              imag.style.animation="anim .5s 1";
 						}
-
 
 						/////////////////////option//////////
 
 				    if ($('input_option').value == '1x Demi-mur') {
 							var imag = $("preview_imag3");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/1-2mur.png)";
+              imag.style.animation="anim .5s 1";
 						}
 
 						if  ($('input_option').value == '2x Demi-mur') {
 							var imag = $("preview_imag3");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/tente/2-2mur.png)";
+              imag.style.animation="anim1 .5s 1";
 						}
 
             if  ($('input_option').value == 'sans option') {
@@ -754,13 +761,6 @@ JotForm = {
 
 				}
 
-        jQuery(document).ready(function ($) {
-          
-          $('#input_1 option').click(function() {
-            $('#preview_imag2').css('animation','anim 3.5s 1');
-          });
-
-        });
 
 
 //
