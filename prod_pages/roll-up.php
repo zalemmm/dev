@@ -3,6 +3,7 @@
 	<form class="jotform-form" action="" method="post" name="form_1060900214" id="1060900214" accept-charset="utf-8" onsubmit="JKakemono.cal_rollup(); return false;">
 		<div class="form-all">
 			<ul class="form-section">
+
 				<li class="form-line" id="id_1">
 					<span class="helpButton" onmouseover="pokazt('helpTexttype');" onmouseout="ukryjt('helpTexttype');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttype" style="visibility:hidden;">• <u><b>kakemono Roll-up FIRSTLINE</u>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />• <u><b>kakemono Roll-up BESTLINE</u>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>• <u><b>kakemono Roll-up LUXLINE</u>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />• <u><b>kakemono Roll-up RECTO/VERSO</u>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>• <u><b>kakemono Roll-up MINI</u>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3<br /> </span></span>
 
@@ -139,7 +140,7 @@
 				</li>
 
 				<li class="form-line" id="id_7">
-					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité:</label>
+					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité :</label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
 				</li>
 
@@ -221,13 +222,13 @@
 			</ul>
 		</div>
 		<input type="hidden" id="simple_spc" name="simple_spc" value="1060900214" />
+
 		<script type="text/javascript">
 		document.getElementById("simple_spc").value += "-1060900214";
 		</script>
-
 	</form>
-
 </div>
+
 <div id="preview">
 
 	<img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
@@ -351,7 +352,7 @@ jQuery(document).ready(function(){
 	jQuery('.delivery , .production').click(function(){
 
 		//alert(cena);
-		var pu=0
+		var pu=0;
 		var cena=0; var cena2=0; var cenapojedyncza=0;
 		var rabat=0; var rabat2=0;
 		var suma=0; var suma2=0;
@@ -390,16 +391,16 @@ jQuery(document).ready(function(){
 				if ((ilosc>=109) && (ilosc<=216)) {cena=25.5;}
 				if (ilosc>=217 ) {cena=25;}
 				if (($('input_21').value == '80x200') && ($('input_31').value == '440g')) {
-					cena += 0
+					cena += 0;
 				}
 
 				if (($('input_21').value == '80x200') && ($('input_31').value == '300µ M1')) {
-					cena += 3
+					cena += 3;
 				}
 
 				ktorytyp=$('input_21').value;
 				dodatkowaopcja='<br />- '+$('input_31').value;
-				if ($('input_4').value != '') {
+				if ($('input_4').value !== '') {
 					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
 			}
@@ -413,15 +414,15 @@ jQuery(document).ready(function(){
 				if ((ilosc>=49) && (ilosc<=108)) {cena=42;}
 				if ((ilosc>=109) && (ilosc<=216)) {cena=40;}
 				if (ilosc>=217 ) {cena=38;}
-				if ($('input_32').value == '440g') {cena += 0}
-				if ($('input_32').value == '300µ M1') {cena += 3}
-				if ($('input_32').value == '470g M1') {cena += 4}
-				if ($('input_32').value == '100% écologique M1') {cena += 11}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 3;}
+				if ($('input_32').value == '470g M1') {cena += 4;}
+				if ($('input_32').value == '100% écologique M1') {cena += 11;}
 
 
 				ktorytyp=$('input_22').value;
 				dodatkowaopcja='<br />- '+$('input_32').value;
-				if ($('input_4').value != '') {
+				if ($('input_4').value !== '') {
 					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
 			}
@@ -434,15 +435,15 @@ jQuery(document).ready(function(){
 				if ((ilosc>=49) && (ilosc<=108)) {cena=44;}
 				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
 				if (ilosc>=217 ) {cena=40;}
-				if ($('input_32').value == '440g') {cena += 0}
-				if ($('input_32').value == '300µ M1') {cena += 3}
-				if ($('input_32').value == '470g M1') {cena += 4}
-				if ($('input_32').value == '100% écologique M1') {cena += 11}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 3;}
+				if ($('input_32').value == '470g M1') {cena += 4;}
+				if ($('input_32').value == '100% écologique M1') {cena += 11;}
 
 
 				ktorytyp=$('input_22').value;
 				dodatkowaopcja='<br />- '+$('input_32').value;
-				if ($('input_4').value != '') {
+				if ($('input_4').value !== '') {
 					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
 			}
@@ -455,15 +456,15 @@ jQuery(document).ready(function(){
 				if ((ilosc>=49) && (ilosc<=108)) {cena=47;}
 				if ((ilosc>=109) && (ilosc<=216)) {cena=45;}
 				if (ilosc>=217 ) {cena=43;}
-				if ($('input_32').value == '440g') {cena += 0}
-				if ($('input_32').value == '300µ M1') {cena += 4}
-				if ($('input_32').value == '470g M1') {cena += 5}
-				if ($('input_32').value == '100% écologique M1') {cena += 12}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 4;}
+				if ($('input_32').value == '470g M1') {cena += 5;}
+				if ($('input_32').value == '100% écologique M1') {cena += 12;}
 
 
 				ktorytyp=$('input_22').value;
 				dodatkowaopcja='<br />- '+$('input_32').value;
-				if ($('input_4').value != '') {
+				if ($('input_4').value !== '') {
 					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
 			}
@@ -476,15 +477,15 @@ jQuery(document).ready(function(){
 				if ((ilosc>=49) && (ilosc<=108)) {cena=61;}
 				if ((ilosc>=109) && (ilosc<=216)) {cena=59;}
 				if (ilosc>=217 ) {cena=57;}
-				if ($('input_32').value == '440g') {cena += 0}
-				if ($('input_32').value == '300µ M1') {cena += 4}
-				if ($('input_32').value == '470g M1') {cena += 5}
-				if ($('input_32').value == '100% écologique M1') {cena += 12}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 4;}
+				if ($('input_32').value == '470g M1') {cena += 5;}
+				if ($('input_32').value == '100% écologique M1') {cena += 12;}
 
 
 				ktorytyp=$('input_22').value;
 				dodatkowaopcja='<br />- '+$('input_32').value;
-				if ($('input_4').value != '') {
+				if ($('input_4').value !== '') {
 					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
 			}
@@ -496,15 +497,15 @@ jQuery(document).ready(function(){
 				if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
 				if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
 				if (ilosc>=217 ) {cena=78;}
-				if ($('input_32').value == '440g') {cena += 0}
-				if ($('input_32').value == '300µ M1') {cena += 6}
-				if ($('input_32').value == '470g M1') {cena += 8}
-				if ($('input_32').value == '100% écologique M1') {cena += 16}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 6;}
+				if ($('input_32').value == '470g M1') {cena += 8;}
+				if ($('input_32').value == '100% écologique M1') {cena += 16;}
 
 
 				ktorytyp=$('input_22').value;
 				dodatkowaopcja='<br />- '+$('input_32').value;
-				if ($('input_4').value != '') {
+				if ($('input_4').value !== '') {
 					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
 			}
@@ -852,6 +853,7 @@ jQuery(document).ready(function(){
 				jQuery(this).prop("disabled",true);
 
 				jQuery(document).ready(function(){
+
 					jQuery('.jotform-form select').click(function(){
 						jQuery('#delivery-value').val(Masquer());
 
@@ -867,47 +869,49 @@ jQuery(document).ready(function(){
 						jQuery(production-value).prop("disabled",false);
 						jQuery(delivery-value).prop("disabled",true);
 
+					});
+				});
 
-					});});
+				jQuery(document).ready(function(){
 
+					jQuery('.form-textbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
 
-					jQuery(document).ready(function(){
-						jQuery('.form-textbox').click(function(){
-							jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
 
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
 
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
 
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
 
-							jQuery(production-value).prop("disabled",false);
-							jQuery(delivery-value).prop("disabled",true);
+					});
+				});
 
-						});});
+				jQuery(document).ready(function(){
 
+					jQuery('.form-checkbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
 
-						jQuery(document).ready(function(){
-							jQuery('.form-checkbox').click(function(){
-								jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
 
-								jQuery('.delivery').prop("disabled",false);
-								jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
 
-								jQuery('.production').removeClass('active');
-								jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
 
-								jQuery('.delivery').removeClass('active');
-								jQuery(this).addClass('active');
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
 
-								jQuery(production-value).prop("disabled",false);
-								jQuery(delivery-value).prop("disabled",true);
-
-							});});
-						}
+					});
+				});
+				}
 
 						var production      = jQuery('#production-value').val();
 						//alert(production);

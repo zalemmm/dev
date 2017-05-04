@@ -645,11 +645,11 @@ JotForm = {
 						}
 							if ($('input_1').value == 'oriflamme') {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion.png)" ;
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
 						}
 							if ($('input_1').value == 'beachflag') {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag.png)" ;
+							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
 						}
 							if ($('input_1').value == 'windflag') {
 							var imag = $("preview_imag2");
@@ -657,6 +657,33 @@ JotForm = {
 						}
 
 
+
+            if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Kit complet'))  {
+              var imag = $("preview_imag2");
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)";
+            }
+            if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Structure + Voile'))  {
+              var imag = $("preview_imag2");
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
+            }
+            if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Voile seule'))  {
+              var imag = $("preview_imag2");
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile1.png)";
+            }
+
+
+            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Kit complet'))  {
+              var imag = $("preview_imag2");
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)";
+            }
+            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Structure + Voile'))  {
+              var imag = $("preview_imag2");
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
+            }
+            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Voile seule'))  {
+              var imag = $("preview_imag2");
+              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte1.png)";
+            }
             /*
 
 
@@ -1725,12 +1752,12 @@ JotForm = {
                             break;
                         case "Numeric":
                             if (!reg.numeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain numeric values");
+                                return JotForm.errored(input, "Chiffres uniquement");
                             }
                             break;
                         case "AlphaNumeric":
                             if (!reg.alphanumeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters and numbers.");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres");
                             }
                             break;
                         default:

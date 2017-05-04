@@ -659,10 +659,14 @@ JotForm = {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard.png)";
 						}
-
-
 				}
+        jQuery(document).ready(function ($) {
 
+          $('#input_1 option').click(function() {
+            $('#preview_imag2').css('animation','anim 3.5s 1');
+          });
+
+        });
 //
         }
 
@@ -671,13 +675,6 @@ JotForm = {
         	}
         });
 
-        jQuery(document).ready(function ($) {
-
-          $('#input_1 option').click(function() {
-            $('#preview_imag2').css('animation','anim 3.5s 1');
-          });
-
-        });
 
         if(condition.type == 'field'){ // Field Condition
             //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
@@ -1533,7 +1530,6 @@ JotForm = {
                             }
                         }
                         if (!input.value || input.value.empty()) {
-
                             return JotForm.errored(input, "Ce champ est obligatoire.");
                         }
 
@@ -1562,12 +1558,12 @@ JotForm = {
                             break;
                         case "Numeric":
                             if (!reg.numeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain numeric values");
+                                return JotForm.errored(input, "Chiffres uniquement");
                             }
                             break;
                         case "AlphaNumeric":
                             if (!reg.alphanumeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters and numbers.");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres");
                             }
                             break;
                         default:
@@ -1627,10 +1623,6 @@ JotForm = {
                 }
 
             });
-
-
-
-
 
         });
 

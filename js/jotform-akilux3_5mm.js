@@ -1947,12 +1947,12 @@ JotForm = {
                             break;
                         case "Numeric":
                             if (!reg.numeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain numeric values");
+                                return JotForm.errored(input, "Chiffres uniquement");
                             }
                             break;
                         case "AlphaNumeric":
                             if (!reg.alphanumeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters and numbers.");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres");
                             }
                             break;
                         default:

@@ -141,16 +141,49 @@
 
 
         <li class="form-line" id="id_7">
-          <label class="form-label-left label-highlight" id="label_7" for="input_7">quantité:</label>
+          <label class="form-label-left label-highlight" id="label_7" for="input_7">quantité :</label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
         </li>
+
         <li class="form-line optionsformline" id="id_8">
           <span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
 
           <span class="options_single">
-            <span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-            <span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span></span></span>
-            <span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>				</span>
+
+            <span class="optionsleft">
+              <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
+              <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
+              <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+                <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+              </span>
+            </span>
+
+            <span class="optionsleft">
+              <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
+              <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); " />
+              <span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
+                <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span>
+              </span>
+            </span>
+
+            <span class="optionsright">
+              <label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
+              <input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
+              <span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+                <span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
+              </span>
+            </span>
+
+            <span class="optionsright">
+              <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
+              <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
+              <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+                <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+              </span>
+            </span>
+
+          </span>
+
             <div class="break-line"></div>
 
             <p id="production" >
@@ -190,6 +223,7 @@
         </ul>
       </div>
       <input type="hidden" id="simple_spc" name="simple_spc" value="1060900214" />
+
       <script type="text/javascript">
       document.getElementById("simple_spc").value += "-1060900214";
       </script>
@@ -234,8 +268,6 @@
 
     if (divliv.style.display == 'none')
     divliv.style.display = 'block';
-
-
   }
   </script>
 
@@ -322,25 +354,20 @@
 
     jQuery('.delivery , .production').click(function(){
 
-
-
-
-
-
-      //alert(cena);
-      var metrage=0;
+    //alert(cena);
+    var metrage=0;
 	  var structure=0;
 	  var fp='';
-      var pu=0;
-      var cena=0; var cena2=0; var cenapojedyncza=0;
-      var rabat=0; var rabat2=0;
-      var suma=0; var suma2=0;
-      var transport=0;
-      var ktorytyp='';
-      var cedzik='';
-      var prliv='';
-      var date_panier='';
-      var dodatkowaopcja='';
+    var pu=0;
+    var cena=0; var cena2=0; var cenapojedyncza=0;
+    var rabat=0; var rabat2=0;
+    var suma=0; var suma2=0;
+    var transport=0;
+    var ktorytyp='';
+    var cedzik='';
+    var prliv='';
+    var date_panier='';
+    var dodatkowaopcja='';
 	  var perteH=0; var perteL=0;
 	  var h1=0; var h2=0;
 	  var l1=0; var l2=0;
@@ -372,49 +399,48 @@
       }
       if (($('input_1').value == 'x-screen') || ($('input_1').value == 'Extérieur') || ($('input_1').value == 'clipit')) {
 
+  		  ////////Laize////
 
-		 ////////Laize////
-
-	if ($('input_21').value == '60x160') {szerokosc=0.6; wysokosc=1.6;};
-	if ($('input_21').value == '80x200') {szerokosc=0.8; wysokosc=2;};
-	if($('input_3').value == '60x160') {szerokosc=0.6; wysokosc=1.6;};
-	if($('input_3').value == '80x180') {szerokosc=0.8; wysokosc=1.8;};
-	if($('input_2').value == 'Mistral') {szerokosc=0.8; wysokosc=2;};
-	if($('input_1').value == 'clipit') {szerokosc=$('input_14').value/100;};
-	if($('input_1').value == 'clipit') {wysokosc=$('input_15').value/100;};
-	metraz = szerokosc * wysokosc;
-	metraz = fixstr(metraz);
-	var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
-	metrazzaokraglony = Math.round(metrazzaokraglony1);
+      	if ($('input_21').value == '60x160') {szerokosc=0.6; wysokosc=1.6;};
+      	if ($('input_21').value == '80x200') {szerokosc=0.8; wysokosc=2;};
+      	if($('input_3').value == '60x160') {szerokosc=0.6; wysokosc=1.6;};
+      	if($('input_3').value == '80x180') {szerokosc=0.8; wysokosc=1.8;};
+      	if($('input_2').value == 'Mistral') {szerokosc=0.8; wysokosc=2;};
+      	if($('input_1').value == 'clipit') {szerokosc=$('input_14').value/100;};
+      	if($('input_1').value == 'clipit') {wysokosc=$('input_15').value/100;};
+      	metraz = szerokosc * wysokosc;
+      	metraz = fixstr(metraz);
+      	var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
+      	metrazzaokraglony = Math.round(metrazzaokraglony1);
 
 
-	if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
-	if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
+      	if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
+      	if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
 
-	if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
-	if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
+      	if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
+      	if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
 
-	if (perteH < perteL){metrage = szerokosc*h1;}
-	else if (perteH > perteL){metrage = wysokosc*l1;}
-	else if(perteH == perteL){metrage = wysokosc*l1;}
+      	if (perteH < perteL){metrage = szerokosc*h1;}
+      	else if (perteH > perteL){metrage = wysokosc*l1;}
+      	else if(perteH == perteL){metrage = wysokosc*l1;}
 
-	ilosc=$('input_7').value;
-	if ($('input_7').value) {
-		metragefinal=metrage*ilosc;
-	}
+      	ilosc=$('input_7').value;
+      	if ($('input_7').value) {
+      		metragefinal=metrage*ilosc;
+  	    }
 
-	////////440gr///////
-	 if(($('input_31').value == 'bache 440g') || ($('input_4').value == 'bache 440g')){
+	    ////////440gr///////
+	   if(($('input_31').value == 'bache 440g') || ($('input_4').value == 'bache 440g')){
 
 				if (metragefinal < 1.99) {cenatotal = metragefinal*10.75;}
 				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*10.50;}
@@ -633,28 +659,26 @@
 
 		///////////////tarif x-sxcreen/////////
 
-
-
-          if (($('input_3').value == '60x160') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
+      if (($('input_3').value == '60x160') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
 				ilosc=$('input_7').value;
-			if ((ilosc > 0) && (ilosc < 30)){structure=(2.5*2.7);}
-			if ((ilosc > 29) && (ilosc < 50)){structure=(2.5*2.5);}
-			if (ilosc > 49){structure=(2.5*1.9);}
-			p2=0.7*ilosc;
+  			if ((ilosc > 0) && (ilosc < 30)){structure=(2.5*2.7);}
+  			if ((ilosc > 29) && (ilosc < 50)){structure=(2.5*2.5);}
+  			if (ilosc > 49){structure=(2.5*1.9);}
+  			p2=0.7*ilosc;
 
-			prixsupport=cenatotal/ilosc;
-            cena= structure+prixsupport;
-            ktorytyp=$('input_3').value;
-            dodatkowaopcja='<br />- '+$('input_31').value;
+  			prixsupport=cenatotal/ilosc;
+              cena= structure+prixsupport;
+              ktorytyp=$('input_3').value;
+              dodatkowaopcja='<br />- '+$('input_31').value;
 		  }
 		  ///////////
 
-          if (($('input_3').value == '80x180') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
+      if (($('input_3').value == '80x180') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
 				ilosc=$('input_7').value;
-			if ((ilosc > 0) && (ilosc < 30)){structure=(5*2.0);}
-			if ((ilosc > 29) && (ilosc < 50)){structure=(5*1.9);}
-			if (ilosc > 49){structure=(5*1.7);}
-			p2=0.8*ilosc;
+  			if ((ilosc > 0) && (ilosc < 30)){structure=(5*2.0);}
+  			if ((ilosc > 29) && (ilosc < 50)){structure=(5*1.9);}
+  			if (ilosc > 49){structure=(5*1.7);}
+  			p2=0.8*ilosc;
 
 
 			prixsupport=cenatotal/ilosc;
@@ -742,31 +766,27 @@
 
 		///////////////////
 		poids=(p1+p2);
-	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
-	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
-	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
-	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
-	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
-	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
-	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
-	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
-	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
-	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
+  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
+  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
+  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
+  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
+  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
+  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
+  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
+  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
+  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
+  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
      if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
-	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
-	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
-	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
+  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
+  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
+  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
      if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
-	 if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
-	 if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
-	 if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
+	   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
+	   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
+	   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
      if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
-	 if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
+     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
 		///////////////////
-
-
-
-
 
         cenapojedyncza = cena;
 
@@ -775,21 +795,11 @@
           cena=cenapojedyncza*ilosc;
         }
 
-
-
-
         var total = document.getElementById("total");
         var remise = document.getElementById("remise");
 
-
-
         cenapojedyncza=fixstr(cenapojedyncza);
         cena2 = cenapojedyncza.replace(".", ",");
-
-
-
-
-
 
         var myClass = jQuery(this).attr("class");
 
@@ -817,10 +827,8 @@
           jQuery(this).prop("disabled",true);
 
 
-
-
-
           jQuery(document).ready(function(){
+
             jQuery('.jotform-form select').click(function(){
               jQuery('#delivery-value').val(Masquer());
 
@@ -833,64 +841,57 @@
               jQuery('.delivery').removeClass('active');
               jQuery(this).addClass('active');
 
-              jQuery(production-value).prop("disabled",false);
-              jQuery(delivery-value).prop("disabled",true);
+              jQuery('#production-value').prop("disabled",false);
+              jQuery('#delivery-value').prop("disabled",true);
 
-            });});
+            });
+          });
 
+          jQuery(document).ready(function(){
 
-            jQuery(document).ready(function(){
-              jQuery('.form-textbox').click(function(){
-                jQuery('#delivery-value').val(Masquer());
+            jQuery('.form-textbox').click(function(){
+              jQuery('#delivery-value').val(Masquer());
 
-                jQuery('.delivery').prop("disabled",false);
-                jQuery('.production').prop("disabled",false);
+              jQuery('.delivery').prop("disabled",false);
+              jQuery('.production').prop("disabled",false);
 
-                jQuery('.production').removeClass('active');
-                jQuery(this).addClass('');
+              jQuery('.production').removeClass('active');
+              jQuery(this).addClass('');
 
-                jQuery('.delivery').removeClass('active');
-                jQuery(this).addClass('active');
+              jQuery('.delivery').removeClass('active');
+              jQuery(this).addClass('active');
 
-                jQuery(production-value).prop("disabled",false);
-                jQuery(delivery-value).prop("disabled",true);
+              jQuery('#production-value').prop("disabled",false);
+              jQuery('#delivery-value').prop("disabled",true);
 
-              });});
+            });
+          });
 
+          jQuery(document).ready(function(){
 
-              jQuery(document).ready(function(){
-                jQuery('.form-checkbox').click(function(){
-                  jQuery('#delivery-value').val(Masquer());
+            jQuery('.form-checkbox').click(function(){
+              jQuery('#delivery-value').val(Masquer());
 
-                  jQuery('.delivery').prop("disabled",false);
-                  jQuery('.production').prop("disabled",false);
+              jQuery('.delivery').prop("disabled",false);
+              jQuery('.production').prop("disabled",false);
 
-                  jQuery('.production').removeClass('active');
-                  jQuery(this).addClass('');
+              jQuery('.production').removeClass('active');
+              jQuery(this).addClass('');
 
-                  jQuery('.delivery').removeClass('active');
-                  jQuery(this).addClass('active');
+              jQuery('.delivery').removeClass('active');
+              jQuery(this).addClass('active');
 
-                  jQuery(production-value).prop("disabled",false);
-                  jQuery(delivery-value).prop("disabled",true);
+              jQuery('#production-value').prop("disabled",false);
+              jQuery('#delivery-value').prop("disabled",true);
 
-                });});
+            });
+          });
 
-
-
-
-              }
-
-
-
+        }
 
               var production      = jQuery('#production-value').val();
               //alert(production);
               var delivery        = jQuery('#delivery-value').val();
-
-
-
-
 
               if(production && delivery){
 
@@ -972,53 +973,26 @@
 
                 }
 
-
-
-
                 finalPrice1=fixstr(finalPrice);
                 finalPrice2 = finalPrice1.replace(".", ",");
-
 
                 jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
                 jQuery('#remise').html(rabat2);
 
               }
 
-
-
-
-
-
               cenapojedyncza = finalPrice1;
-
-
-
 
               ilosc=$('input_7').value;
               if ($('input_7').value) {
                 cena=cenapojedyncza*ilosc;
               }
 
-
-
-
-
-
-
               var total = document.getElementById("total");
               var remise = document.getElementById("remise");
 
-
-
-
               cenapojedyncza=fixstr(cenapojedyncza);
               cena2 = cenapojedyncza.replace(".", ",")
-
-
-
-
-
-
 
               /* koszty transportu */
 
@@ -1030,18 +1004,6 @@
                 cena-= cena*3/100;
               }
               transport=0;
-
-
-
-
-
-
-
-
-
-
-
-
 
               var niepokazuj = 0;
 
