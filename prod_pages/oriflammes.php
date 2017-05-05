@@ -1,4 +1,3 @@
-
   <div id="buying">
     <h3>Votre devis en ligne :</h3>
     <form class="jotform-form" action="" method="post" name="form_1060900215" id="1060900215" accept-charset="utf-8" onsubmit="JKakemono.cal_oriflamme(); return false;">
@@ -106,7 +105,7 @@
 
           <li class="form-line" id="id_9">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :</label>
-            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
+            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();" required >
           </li>
 
 
@@ -117,7 +116,7 @@
 
               <span class="optionsleft">
                 <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-                <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
+                <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked>
                 <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
                   <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
                 </span>
@@ -219,7 +218,7 @@
 
 
 
-  <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
+<!--  <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>-->
   <script type="text/javascript">
     // checkboxes livraison
     jQuery('#adresse').click(function() {
@@ -1066,19 +1065,8 @@ var myClass = jQuery(this).attr("class");
 
 }
 
-
-
-
-
-
 	cenapojedyncza = finalPrice1;
 	cena=cenapojedyncza*ilosc;
-
-
-
-
-
-
 
 
 	var total = document.getElementById("total");

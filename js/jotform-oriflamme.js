@@ -1293,7 +1293,7 @@ JotForm = {
      * * Handles the print button
      */
     setButtonActions: function(){
-    /* denisedesign
+    //denisedesign
         $$('.form-submit-button').each(function(b){
             b.oldText = b.innerHTML;
             b.enable(); // enable previously disabled button
@@ -1304,7 +1304,7 @@ JotForm = {
                 }, 50);
             });
         });
-      */
+
         $$('.form-submit-reset').each(function(b){
             b.onclick = function(){
                 if (!confirm('Are you sure you want to clear the form')) {
@@ -1869,10 +1869,6 @@ JotForm = {
                 }
 
             });
-
-
-
-
 
         });
 

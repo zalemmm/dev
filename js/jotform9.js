@@ -1539,7 +1539,6 @@ JotForm = {
                             }
                         }
                         if (!input.value || input.value.empty()) {
-
                             return JotForm.errored(input, "Ce champ est obligatoire.");
                         }
 

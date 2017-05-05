@@ -1393,18 +1393,11 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	$wycena .= '</div></div>';}
 
 	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
+
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}
@@ -1974,15 +1967,8 @@ function get_plv() {
 	$fb_tablename_promo = $prefix."fbs_plv";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2130,15 +2116,8 @@ function get_plv_int() {
 	$fb_tablename_promo = $prefix."fbs_plv_int";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2525,15 +2504,8 @@ function get_acc() {
 	$fb_tablename_promo = $prefix."fbs_acc";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2620,15 +2592,6 @@ function get_mma() {
 	$fb_tablename_promo = $prefix."fbs_mma";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Banderole MMA</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
-	/*$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
 
 	$view .= '<table id="promotions_tablemma" cellspacing="0">';
 	$view .= '
@@ -2769,7 +2732,7 @@ function get_acc2() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2950,7 +2913,7 @@ function get_promotions() {
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 
 	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div></div>';
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
 	$licznik = 0;
