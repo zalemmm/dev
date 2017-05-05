@@ -268,25 +268,7 @@ jQuery(document).ready(function(){
 		var niepokazuj = 0;
 		var eBox = document.getElementById('form-button-error2');
 		eBox.innerHTML='';
-		var ax1 = document.getElementById("id_1");
-		var ax2 = document.getElementById("id_8");
-		var ax3 = document.getElementById("id_14");
-		if (ax1) {
-			ax1.style.background="none";
-			ax1.style.border="none";
-			ax1.style.borderBottom="";
-		}
-		if (ax2) {
-			ax2.style.background="none";
-			ax2.style.border="none";
-			// ax2.style.borderBottom="1px solid #9fa3a8";
-		}
-		if (ax3) {
-			ax3.style.background="none";
-			ax3.style.border="none";
-			// ax3.style.borderBottom="1px solid #9fa3a8";
-		}
-
+		
 		if ( ($('input_1').value) &&   ($('input_6').value) && ($('input_7').value) && ($('input_8').value) && ($('input_9').value) ) {
 			var ktorytyp='';
 			var ktorapodstawa='';
@@ -489,7 +471,7 @@ jQuery(document).ready(function(){
 								ProdPercent = 15;
 								prliv += '<br />- P 2-3J';
 							}else if(PorductType =='1-1'){
-								ProdPercent = 30;
+								ProdPercent = 40;
 								prliv += '<br />- P 1J';
 							}else{
 								ProdPercent = 0;
@@ -500,7 +482,7 @@ jQuery(document).ready(function(){
 								DeliPercent = 15;
 								prliv += ' / L 2-3J';
 							}else if(DeliveryType =='1-1'){
-								DeliPercent = 30;
+								DeliPercent = 40;
 								prliv += ' / L 1J';
 							}else{
 								DeliPercent = 0;

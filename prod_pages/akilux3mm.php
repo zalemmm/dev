@@ -773,7 +773,7 @@
 											ProdPercent = 15;
 											prliv += '<br />- P 2-3J';
 										}else if(PorductType =='1-1'){
-											ProdPercent = 30;
+											ProdPercent = 40;
 											prliv += '<br />- P 1J';
 										}else{
 											ProdPercent = 0;
@@ -784,7 +784,7 @@
 											DeliPercent = 15;
 											prliv += ' / L 2-3J';
 										}else if(DeliveryType =='1-1'){
-											DeliPercent = 30;
+											DeliPercent = 40;
 											prliv += ' / L 1J';
 										}else{
 											DeliPercent = 0;
@@ -983,6 +983,10 @@
 												eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
 												niepokazuj=1;
 											}
+/*en cours
+											if (ilosc.empty()){
+												eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+											}*/
 
 											var rodzaj = "Akilux 3mm";
 

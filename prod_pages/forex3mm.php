@@ -1387,7 +1387,7 @@
 										ProdPercent = 15;
 										prliv += '<br />- P 2-3J';
 									}else if(PorductType =='1-1'){
-										ProdPercent = 30;
+										ProdPercent = 40;
 										prliv += '<br />- P 1J';
 									}else{
 										ProdPercent = 0;
@@ -1398,7 +1398,7 @@
 										DeliPercent = 15;
 										prliv += ' / L 2-3J';
 									}else if(DeliveryType =='1-1'){
-										DeliPercent = 30;
+										DeliPercent = 40;
 										prliv += ' / L 1J';
 									}else{
 										DeliPercent = 0;
@@ -1554,8 +1554,12 @@
 											opt.innerHTML='-';
 										}
 
-										var rodzaj = "forex 3mm";
+/*en cours
+										if (ilosc.empty()){
+											eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+										}*/
 
+										var rodzaj = "forex 3mm";
 										var dodajkoszyk = document.getElementById("cart_form");
 
 										if($('input_1').value == 'personnalisée') {
@@ -1563,6 +1567,7 @@
 										};
 										if($('input_1').value != 'personnalisée') {
 											dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+
 										};
 									}
 								}

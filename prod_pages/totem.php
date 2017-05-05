@@ -216,17 +216,22 @@
               <button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
             </div>
           </li>
+
           <li style="display:none">
             Should be Empty:
             <input type="text" name="website" value="" />
           </li>
+
         </ul>
+
       </div>
+
       <input type="hidden" id="simple_spc" name="simple_spc" value="1060900214" />
 
       <script type="text/javascript">
       document.getElementById("simple_spc").value += "-1060900214";
       </script>
+
     </form>
   </div>
 
@@ -255,8 +260,7 @@
 
   </div>
 
-  <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
-
+  <!--<script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>-->
 
   <script type="text/javascript">
   /* Voici la fonction javascript qui change la propriété "display"
@@ -295,7 +299,6 @@
     });
   </script>
 
-
   <script type="text/javascript">
   /* Voici la fonction javascript qui change la propriété "display"
   pour afficher ou non le div selon que ce soit "none" ou "block". */
@@ -306,8 +309,6 @@
 
     if (divInfo.style.display == 'none')
     divInfo.style.display = 'block';
-
-
   }
   </script>
 
@@ -321,7 +322,6 @@
 
     if (divInfo.style.display == 'block')
     divInfo.style.display = 'none';
-
 
   }
   </script>
@@ -382,21 +382,9 @@
 	  var poids='';///// poids total
 	  var p1='';////poids du support
 	  var p2='';////poids du structure
+    var eBox = document.getElementById('form-button-error2');
+    eBox.innerHTML='';
 
-      var eBox = document.getElementById('form-button-error2');
-      eBox.innerHTML='';
-      var ax1 = document.getElementById("id_5");
-      var ax2 = document.getElementById("id_10");
-      if (ax1) {
-        ax1.style.background="none";
-        ax1.style.border="none";
-        /*ax1.style.borderBottom="1px solid #9fa3a8";*/
-      }
-      if (ax2) {
-        ax2.style.background="none";
-        ax2.style.border="none";
-        // ax2.style.borderBottom="1px solid #9fa3a8";
-      }
       if (($('input_1').value == 'x-screen') || ($('input_1').value == 'Extérieur') || ($('input_1').value == 'clipit')) {
 
   		  ////////Laize////
@@ -905,7 +893,7 @@
                   ProdPercent = 15;
                   prliv += '<br />- P 2-3J';
                 }else if(PorductType =='1-1'){
-                  ProdPercent = 30;
+                  ProdPercent = 40;
                   prliv += '<br />- P 1J';
                 }else{
                   ProdPercent = 0;
@@ -916,7 +904,7 @@
                   DeliPercent = 15;
                   prliv += ' / L 2-3J';
                 }else if(DeliveryType =='1-1'){
-                  DeliPercent = 30;
+                  DeliPercent = 40;
                   prliv += ' / L 1J';
                 }else{
                   DeliPercent = 0;
@@ -1068,6 +1056,16 @@
 												var newtotal = document.getElementById("total");
 												newtotal.innerHTML=suma2+' &euro;';
 											}}
+
+
+                      if (ilosc.empty()){
+                        eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                      }
+                      hauteur=$('input_15').value;
+                      if (hauteur.empty()){
+                        eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une hauteur en cm';
+                      }
+
 
 
                 var dodajkoszyk = document.getElementById("cart_form");

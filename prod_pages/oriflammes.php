@@ -4,9 +4,11 @@
       <input type="hidden" name="formID" value="1060900215" />
       <div class="form-all">
         <ul class="form-section">
+
           <li class="form-line" id="id_1">
             <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>Drapeau personnalisé livré avec petit mât pvc.<br />• <u><b>Oriflamme aile d’avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>voile personnalisée de forme courbée en haut, droite en bas. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br/>• <u><b>Beachflag goutte d’eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>Voile imprimée en forme de pétale ou goutte d'eau. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br />• <u><b>Windflag rectangulaire</u>: <span class="highlight">Dès 29,00€</span></b><br/>Voile imprimée rectangulaire. Ganse noire teintée masse ou Full graphic à partir de 10 ex. Vendu complet avec son pied.<br /></span></span>
-            <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola();">
+
+            <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();">
               <option value="">choisir votre produit...</option>
               <option value="drapeaux">Drapeaux à agiter </option>
               <option value="oriflamme">Oriflamme aile d’avion </option>
@@ -14,6 +16,7 @@
               <option value="windflag">Windflag rectangulaire </option>
             </select>
           </li>
+
           <li class="form-line" id="id_20">
             <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>3 dimensions au choix (autre, nous consulter), les drapeaux sont livrés avec des petits mâts en plastique blanc.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_20" name="q20" onclick="JKakemono.czyscpola(); ">
@@ -23,6 +26,7 @@
               <option value="75x100">HxL 75x100cm + mât 150cm </option>
             </select>
           </li>
+
           <li class="form-line" id="id_21">
             <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText2" style="visibility:hidden;">• <u><b>oriflamme aile d'avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>4 dimensions au choix, avec les différents formats de voiles imprimées et leurs correspondance une fois montées sur leurs mâts respectifs.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_21" name="q21" onclick="JKakemono.czyscpola(); ">
@@ -33,6 +37,7 @@
               <option value="oriflamme-85x397">Voile 85x397cm - Monté 85x465cm </option>
             </select>
           </li>
+
           <li class="form-line" id="id_22">
             <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText3" style="visibility:hidden;">• <u><b>Beach Flag goutte d'eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>4 dimensions au choix, avec les différents formats de voiles imprimées et leurs correspondance une fois montées sur leurs mâts respectifs.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_22" name="q22" onclick="JKakemono.czyscpola(); ">
@@ -43,6 +48,7 @@
               <option value="beachflag-125x402">Voile 125x402cm - Monté 125x460cm </option>
             </select>
           </li>
+
           <li class="form-line" id="id_23">
             <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>WindFlag Rectangulaire</u>: <span class="highlight">Dès 91,00€</span></b><br/>3 dimensions au choix, livrés complets, prêt à poser, pied lestable inclus.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_23" name="q23" onclick="JKakemono.czyscpola(); ">
@@ -71,6 +77,7 @@
               <option value="Recto/Verso">Recto/Verso</option>
             </select>
           </li>
+
           <li class="form-line" id="id_42">
             <span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText7" style="visibility:hidden;">• <u><b>Impression <span class="highlight">recto simple</span></u>:</b><br/>l'impression recto standard avec le verso imprimé traversant par transparence (à l'envers). Impression la plus répandue.<br />• <u><b>Impression <span class="highlight">recto ET verso</span></u>:</b><br/>Votre voile sera composé de 2 voiles imprimées + un occultant au centre, qui permet d'imprimer des recto verso identiques ou différents et entièrement lisibles.<br /><b><span class="highlight">ATTENTION :</span></b> de par sa composition la voile imprimée recto/verso est lourde et doit donc être exposée à de faibles vents !<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_42" name="q42" onclick="JKakemono.czyscpola(); ">
@@ -105,9 +112,8 @@
 
           <li class="form-line" id="id_9">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :</label>
-            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();" required >
+            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();" />
           </li>
-
 
           <li id="id_10" class="form-line optionsformline">
             <span class="title">OPTIONS <span class="splitorhide">DISPONIBLES :</span> </span>
@@ -138,7 +144,6 @@
                 </span>
               </span>
 
-
               <span class="optionsleft">
                 <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
                 <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
@@ -149,7 +154,6 @@
 
             </span>
             <div class="break-line"></div>
-
 
             <p id="production" >
               <h5 class="delivery-delay">Delai Production:</h5>
@@ -184,13 +188,16 @@
             </li>
           </ul>
         </div>
+
         <input type="hidden" id="simple_spc" name="simple_spc" value="1060900215" />
+
         <script type="text/javascript">
         document.getElementById("simple_spc").value += "-1060900215";
         </script>
-      </form>
 
+      </form>
     </div>
+
     <div id="preview">
       <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
 
@@ -215,10 +222,8 @@
 
     </div>
 
-
-
-
 <!--  <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>-->
+
   <script type="text/javascript">
     // checkboxes livraison
     jQuery('#adresse').click(function() {
@@ -294,8 +299,7 @@ function AddBusinessDays(weekDaysToAdd) {
 
 		jQuery('.delivery , .production').click(function(){
 
-
-var cena=0; var cena2=0; cenapojedyncza=0;
+var cena=0; var cena2=0; var cenapojedyncza=0;
 var prixHT=0; var marge=0; var composant=0;
 var rabat=0; var rabat2=0;
 var suma=0; var suma2=0;
@@ -314,6 +318,7 @@ var dodatkowytransport = 0;
 var cedzik = '';
 var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
+
 
 if ( ($('input_1').value) ) {
 	var ktorytyp='';
@@ -856,10 +861,10 @@ if ( ($('input_1').value) ) {
 
 var myClass = jQuery(this).attr("class");
 
-				var niepokazuj = 0;
-				var n = myClass.search("production");
-				if (n != -1) {
-                    jQuery('.production').prop("disabled",false);
+		var niepokazuj = 0;
+		var n = myClass.search("production");
+		if (n != -1) {
+      jQuery('.production').prop("disabled",false);
 			jQuery('.production').removeClass('active');
 			jQuery(this).addClass('active');
 			var production = jQuery(this).attr('onClick');
@@ -868,22 +873,19 @@ var myClass = jQuery(this).attr("class");
 			jQuery('#production-value').val(production);
 			jQuery(this).prop("disabled",true);
 
-				}
+		}
 
-				var m = myClass.search("delivery");
-				if (m != -1) {
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					var delivery = jQuery(this).attr('text-value');
-					jQuery('#delivery-value').val(delivery);
-					jQuery(this).prop("disabled",true);
+		var m = myClass.search("delivery");
+		if (m != -1) {
+			jQuery('.delivery').prop("disabled",false);
+			jQuery('.delivery').removeClass('active');
+			jQuery(this).addClass('active');
+			var delivery = jQuery(this).attr('text-value');
+			jQuery('#delivery-value').val(delivery);
+			jQuery(this).prop("disabled",true);
 
+			jQuery(document).ready(function(){
 
-
-
-
-				jQuery(document).ready(function(){
 				jQuery('.jotform-form select').click(function(){
 				jQuery('#delivery-value').val(Masquer());
 
@@ -896,51 +898,55 @@ var myClass = jQuery(this).attr("class");
 				jQuery('.delivery').removeClass('active');
 				jQuery(this).addClass('active');
 
-				jQuery(production-value).prop("disabled",false);
-				jQuery(delivery-value).prop("disabled",true);
+				jQuery('#production-value').prop("disabled",false);
+				jQuery('#delivery-value').prop("disabled",true);
 
-				});});
+				});
+      });
 
+			jQuery(document).ready(function(){
 
-				jQuery(document).ready(function(){
 				jQuery('.form-textbox').click(function(){
-				jQuery('#delivery-value').val(Masquer());
+  				jQuery('#delivery-value').val(Masquer());
 
-			 	jQuery('.delivery').prop("disabled",false);
-				jQuery('.production').prop("disabled",false);
+  			 	jQuery('.delivery').prop("disabled",false);
+  				jQuery('.production').prop("disabled",false);
 
-				jQuery('.production').removeClass('active');
-				jQuery(this).addClass('');
+  				jQuery('.production').removeClass('active');
+  				jQuery(this).addClass('');
 
-				jQuery('.delivery').removeClass('active');
-				jQuery(this).addClass('active');
+  				jQuery('.delivery').removeClass('active');
+  				jQuery(this).addClass('active');
 
-				jQuery(production-value).prop("disabled",false);
-				jQuery(delivery-value).prop("disabled",true);
+  				jQuery('#production-value').prop("disabled",false);
+  				jQuery('#delivery-value').prop("disabled",true);
 
-				});});
+				});
+      });
 
 
-				jQuery(document).ready(function(){
+			jQuery(document).ready(function(){
+
 				jQuery('.form-textbox2').click(function(){
-				jQuery('#delivery-value').val(Masquer());
+  				jQuery('#delivery-value').val(Masquer());
 
-			 	jQuery('.delivery').prop("disabled",false);
-				jQuery('.production').prop("disabled",false);
+  			 	jQuery('.delivery').prop("disabled",false);
+  				jQuery('.production').prop("disabled",false);
 
-				jQuery('.production').removeClass('active');
-				jQuery(this).addClass('');
+  				jQuery('.production').removeClass('active');
+  				jQuery(this).addClass('');
 
-				jQuery('.delivery').removeClass('active');
-				jQuery(this).addClass('active');
+  				jQuery('.delivery').removeClass('active');
+  				jQuery(this).addClass('active');
 
-				jQuery(production-value).prop("disabled",false);
-				jQuery(delivery-value).prop("disabled",true);
+  				jQuery('#production-value').prop("disabled",false);
+  				jQuery('#delivery-value').prop("disabled",true);
 
-				});});
+				});
+      });
 
+      jQuery(document).ready(function(){
 
-				jQuery(document).ready(function(){
 				jQuery('.form-checkbox').click(function(){
 				jQuery('#delivery-value').val(Masquer());
 
@@ -953,117 +959,93 @@ var myClass = jQuery(this).attr("class");
 				jQuery('.delivery').removeClass('active');
 				jQuery(this).addClass('active');
 
-				jQuery(production-value).prop("disabled",false);
-				jQuery(delivery-value).prop("disabled",true);
+				jQuery('#production-value').prop("disabled",false);
+				jQuery('#delivery-value').prop("disabled",true);
 
-				});});
+				});
+      });
+    }
 
+		var production      = jQuery('#production-value').val();
+		//alert(production);
+		var delivery        = jQuery('#delivery-value').val();
 
+		if(production && delivery){
 
+			// Calculate price
+			//alert('click');
+			var ProdPercent = '';
+			var DeliPercent = '';
+			var PorductType = jQuery('.production.active').attr('text-value');
+			var DeliveryType = jQuery('.delivery.active').attr('text-value');
+			if(PorductType == '2-3' ){
+				ProdPercent = 15;
+				prliv += '- P 2-3J';
+			}else if(PorductType =='1-1'){
+				ProdPercent = 40;
+				prliv += '- P 1J';
+			}else{
+				ProdPercent = 0;
+				prliv += '- P 4-5J';
+			}
 
-				}
+			if(DeliveryType == '2-3'){
+				DeliPercent = 15;
+				prliv += ' / L 2-3J';
+			}else if(DeliveryType =='1-1'){
+				DeliPercent = 40;
+				prliv += ' / L 1J';
+			}else{
+				DeliPercent = 0;
+				prliv += ' / L 3-4J';
+			}
 
+			var price_unit = parseFloat(cenapojedyncza);
 
+			//var str = price_unit;
+			//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
+			var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+			var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+			var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
 
+			// Calculate Days
+			var prod_first_val  = parseInt(production[0]);
+			var prod_second_val = parseInt(production[2]);
+			var deli_first_val  = parseInt(delivery[0]);
+			var deli_second_val = parseInt(delivery[2]);
 
-			var production      = jQuery('#production-value').val();
-			//alert(production);
-			var delivery        = jQuery('#delivery-value').val();
+			var totalProduction = prod_first_val + deli_first_val;
+			var totalDelivery   = prod_second_val + deli_second_val;
+			if(totalProduction == totalDelivery){
+				jQuery('#totaldays').text("Total jours " + totalProduction);
+				var days = totalProduction;
+			}else{
+				jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+				var days = totalDelivery;
+			}
 
+			var curdate = new Date();
+			var daystoadd = AddBusinessDays(days);
+			curdate.setDate(curdate.getDate()+daystoadd);
+			var estdt = new Date(curdate);
+			var month = estdt.getMonth()+1;
+			var day = estdt.getDate();
+			var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+			if(jQuery('#id_7').css('display') != 'none')
+			{
+				//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
+				//jQuery('#prix_unitaire').text(finalPrice);
+				jQuery('#estdate_7').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
 
-
-
-
-			if(production && delivery){
-
-				// Calculate price
-				//alert('click');
-				var ProdPercent = '';
-				var DeliPercent = '';
-				var PorductType = jQuery('.production.active').attr('text-value');
-				var DeliveryType = jQuery('.delivery.active').attr('text-value');
-				if(PorductType == '2-3' ){
-					ProdPercent = 15;
-					prliv += '- P 2-3J';
-				}else if(PorductType =='1-1'){
-					ProdPercent = 30;
-					prliv += '- P 1J';
-				}else{
-					ProdPercent = 0;
-					prliv += '- P 4-5J';
-				}
-
-				if(DeliveryType == '2-3'){
-					DeliPercent = 15;
-					prliv += ' / L 2-3J';
-				}else if(DeliveryType =='1-1'){
-					DeliPercent = 30;
-					prliv += ' / L 1J';
-				}else{
-					DeliPercent = 0;
-					prliv += ' / L 3-4J';
-				}
-
-
-
-
-
-
-
-				var price_unit = parseFloat(cenapojedyncza);
-
-				//var str = price_unit;
-				//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-				var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-				var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-				var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
-
-
-
-
-				// Calculate Days
-				var prod_first_val  = parseInt(production[0]);
-				var prod_second_val = parseInt(production[2]);
-				var deli_first_val  = parseInt(delivery[0]);
-				var deli_second_val = parseInt(delivery[2]);
-
-				var totalProduction = prod_first_val + deli_first_val;
-				var totalDelivery   = prod_second_val + deli_second_val;
-				if(totalProduction == totalDelivery){
-					jQuery('#totaldays').text("Total jours " + totalProduction);
-					var days = totalProduction;
-				}else{
-					jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-					var days = totalDelivery;
-				}
-
-				var curdate = new Date();
-				var daystoadd = AddBusinessDays(days);
-				curdate.setDate(curdate.getDate()+daystoadd);
-				var estdt = new Date(curdate);
-				var month = estdt.getMonth()+1;
-				var day = estdt.getDate();
-				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-				if(jQuery('#id_7').css('display') != 'none')
-				{
-					//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-					//jQuery('#prix_unitaire').text(finalPrice);
-					jQuery('#estdate_7').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
-
-
-				}
-
-
-
+			}
 
 		finalPrice1=fixstr(finalPrice);
 		finalPrice2 = finalPrice1.replace(".", ",");
 
+	  jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+	  jQuery('#remise').html(rabat2);
 
-	jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-	jQuery('#remise').html(rabat2);
-
-}
+  }
 
 	cenapojedyncza = finalPrice1;
 	cena=cenapojedyncza*ilosc;
@@ -1072,55 +1054,8 @@ var myClass = jQuery(this).attr("class");
 	var total = document.getElementById("total");
 	var remise = document.getElementById("remise");
 
-
-
-
 	cenapojedyncza=fixstr(cenapojedyncza);
 	cena2 = cenapojedyncza.replace(".", ",")
-
-
-////////////
-
-
-
-///////
-
-/////////
-	/*var pu = (cena)/ilosc;
-	pu=fixstr(pu);
-	cena2 = pu.replace(".", ",");
-	var prix = document.getElementById("prix_unitaire");
-	prix.innerHTML=cena2+' &euro;';*/
-
-
-/*option = options1+options2+options3+options4;
-if (option>0) {
-		option=fixstr(option);
-		option2 = option.replace(".", ",");
-		var opt = document.getElementById("option");
-		opt.innerHTML=option2+' &euro;';
-	}
-	if (option==0) {
-		option2 = '-';
-		var opt = document.getElementById("option");
-		opt.innerHTML='-';
-	}*/
-
-/* koszty transportu */
-
-
-
-
-
-
-
-
-
-
-
-/* /koszty transportu */
-///////////if ((niepokazuj==0)
-
 
 
 if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
@@ -1129,14 +1064,16 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 	suma2 = suma.replace(".", ",");
 	total.innerHTML=suma2+' &euro;';
 
+  if (ilosc.empty()){
+    eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+  }
 
 	var dodajkoszyk = document.getElementById("cart_form");
 	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+ktorytyp+' '+ktorywymiar+'<br />- '+composant+ktorapodstawa+ktodaje+cedzik+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-}
 
-}
-
-});
+      }
+    }
+  });
 });
 
 </script>

@@ -477,7 +477,7 @@ jQuery(document).ready(function(){
 								ProdPercent = 15;
 								prliv += '<br />- P 2-3J';
 							}else if(PorductType =='1-1'){
-								ProdPercent = 30;
+								ProdPercent = 40;
 								prliv += '<br />- P 1J';
 							}else{
 								ProdPercent = 0;
@@ -488,7 +488,7 @@ jQuery(document).ready(function(){
 								DeliPercent = 15;
 								prliv += ' / L 2-3J';
 							}else if(DeliveryType =='1-1'){
-								DeliPercent = 30;
+								DeliPercent = 40;
 								prliv += ' / L 1J';
 							}else{
 								DeliPercent = 0;

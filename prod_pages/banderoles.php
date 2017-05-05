@@ -1521,8 +1521,6 @@ if ( ($('input_1').value) ) {
 						}
 
 
-
-
 						finalPrice1=fixstr(finalPrice);
 						finalPrice2 = finalPrice1.replace(".", ",");
 
@@ -1532,22 +1530,12 @@ if ( ($('input_1').value) ) {
 
 					}
 
-
-
-
-
-
 					cenapojedyncza = finalPrice1;
-
-
-
 
 					ilosc=$('input_13').value;
 					if ($('input_13').value) {
 						cena=cenapojedyncza*ilosc;
 					}
-
-
 
 
 					////remise
@@ -1618,35 +1606,18 @@ if (metrage*ilosc > 64.9) {rabat = cena*0;};
 };*/
 
 
-
-
 rabat=fixstr(rabat);
 rabat2 = rabat.replace(".", ",");
 if (rabat2 != 0) {rabat2 = rabat2+' &euro;'}
 if (rabat2 == 0) {rabat2 = '-'}
 remise.innerHTML=rabat2;
 
-
-
-
-
-
 cenapojedyncza=fixstr(cenapojedyncza);
 cena2 = cenapojedyncza.replace(".", ",")
 
-
-
-
-
-
-
 /* koszty transportu */
 
-
 transport=0;
-
-
-
 
 if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
@@ -1666,10 +1637,6 @@ if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.
 	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
-
-
-
-
 
 if ( ($('input_int').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
@@ -1760,7 +1727,6 @@ if ( ($('input_ext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)
 if ( ($('input_intext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
 	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	niepokazuj=2;
-
 }
 
 if ( ($('input_int').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99) ) {
@@ -1774,13 +1740,21 @@ if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99))
 if ( ($('input_intext').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99)) {
 	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
 	niepokazuj=1;
-
 }
 
+if ((szerokosc >= 50) || (wysokosc >= 50)) {
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, êtes vous sûr de vouloir une banderole de plus de 50m ?';
+	niepokazuj=2;
+}
 
-
-
-
+if ((szerokosc <= 0 ) || (wysokosc <= 0 )){
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité et une taille en <u>mètres</u>';
+	niepokazuj=2;
+}
+if (ilosc.empty()){
+	eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+	niepokazuj=2;
+}
 if (niepokazuj==1) {
 	jQuery('#prix_unitaire').html('-');
 	remise.innerHTML='-';
@@ -1833,7 +1807,7 @@ if (niepokazuj==2) {
 
 		var rodzaj = "banderole Thermo-soudure";
 		var dodajkoszyk = document.getElementById("cart_form");
-		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE BANDEROLE AVEC THERMO-SOUDURE</span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
 	}
 

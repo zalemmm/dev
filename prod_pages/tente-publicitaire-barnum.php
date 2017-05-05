@@ -594,7 +594,7 @@ if ($('input_1').value == '4x6') {
                       ProdPercent = 15;
                       prliv += '<br />-P 2-3J';
                     }else if(PorductType =='1-1'){
-                      ProdPercent = 30;
+                      ProdPercent = 40;
                       prliv += '<br />-P 1J';
                     }else{
                       ProdPercent = 0;
@@ -605,7 +605,7 @@ if ($('input_1').value == '4x6') {
                       DeliPercent = 15;
                       prliv += ' / L 2-3J';
                     }else if(DeliveryType =='1-1'){
-                      DeliPercent = 30;
+                      DeliPercent = 40;
                       prliv += ' / L 1J';
                     }else{
                       DeliPercent = 0;
@@ -752,6 +752,11 @@ if ($('input_1').value == '4x6') {
                     suma2 = suma.replace(".", ",");
                     total.innerHTML=suma2+' &euro;';
 
+                    var eBox = document.getElementById('form-button-error2');
+                    if (ilosc.empty()){
+                      eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                    }
+
                     if (option==0) {
                       option2 = '-';
                       var opt = document.getElementById("option");
@@ -787,9 +792,6 @@ if ($('input_1').value == '4x6') {
                         var newtotal = document.getElementById("total");
                         newtotal.innerHTML=suma2+' &euro;';
                       }}
-
-
-
 
 
                       var rodzaj = "Tente";

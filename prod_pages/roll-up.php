@@ -192,7 +192,9 @@
 						<button class="production" text-value="1-1" id="p3"></button>
 						<input type="hidden" id="production-value" value=""  onClick="" />
 					</p>
+
 					<div id="delivery-div" style='display:none;'>
+
 						<p id="delivery" >
 							<h5 class="delivery-delay">Delai Livraison:</h5>
 							<button class="delivery" text-value="3-4" id="l1"></button>
@@ -215,17 +217,22 @@
 						<button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 					</div>
 				</li>
+
 				<li style="display:none">
 					Should be Empty:
 					<input type="text" name="website" value="" />
 				</li>
+
 			</ul>
+
 		</div>
+
 		<input type="hidden" id="simple_spc" name="simple_spc" value="1060900214" />
 
 		<script type="text/javascript">
 		document.getElementById("simple_spc").value += "-1060900214";
 		</script>
+
 	</form>
 </div>
 
@@ -303,8 +310,6 @@ function Afficher()
 
 	if (divInfo.style.display == 'none')
 	divInfo.style.display = 'block';
-
-
 }
 </script>
 
@@ -364,18 +369,6 @@ jQuery(document).ready(function(){
 		var dodatkowaopcja='';
 		var eBox = document.getElementById('form-button-error2');
 		eBox.innerHTML='';
-		var ax1 = document.getElementById("id_5");
-		var ax2 = document.getElementById("id_10");
-		if (ax1) {
-			ax1.style.background="none";
-			ax1.style.border="none";
-			/*ax1.style.borderBottom="1px solid #9fa3a8";*/
-		}
-		if (ax2) {
-			ax2.style.background="none";
-			ax2.style.border="none";
-			// ax2.style.borderBottom="1px solid #9fa3a8";
-		}
 
 		if ( ($('input_1').value) && ( ($('input_21').value) || ($('input_22').value) || ($('input_23').value) || ($('input_24').value) || ($('input_25').value) || ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_4').value) && ($('input_6').value))  && ($('input_7').value) ) {
 
@@ -855,19 +848,19 @@ jQuery(document).ready(function(){
 				jQuery(document).ready(function(){
 
 					jQuery('.jotform-form select').click(function(){
-						jQuery('#delivery-value').val(Masquer());
+					jQuery('#delivery-value').val(Masquer());
 
-						jQuery('.delivery').prop("disabled",false);
-						jQuery('.production').prop("disabled",false);
+					jQuery('.delivery').prop("disabled",false);
+					jQuery('.production').prop("disabled",false);
 
-						jQuery('.production').removeClass('active');
-						jQuery(this).addClass('');
+					jQuery('.production').removeClass('active');
+					jQuery(this).addClass('');
 
-						jQuery('.delivery').removeClass('active');
-						jQuery(this).addClass('active');
+					jQuery('.delivery').removeClass('active');
+					jQuery(this).addClass('active');
 
-						jQuery(production-value).prop("disabled",false);
-						jQuery(delivery-value).prop("disabled",true);
+					jQuery('#production-value').prop("disabled",false);
+					jQuery('#delivery-value').prop("disabled",true);
 
 					});
 				});
@@ -886,8 +879,8 @@ jQuery(document).ready(function(){
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
 
-						jQuery(production-value).prop("disabled",false);
-						jQuery(delivery-value).prop("disabled",true);
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
 
 					});
 				});
@@ -906,146 +899,146 @@ jQuery(document).ready(function(){
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
 
-						jQuery(production-value).prop("disabled",false);
-						jQuery(delivery-value).prop("disabled",true);
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
 
 					});
 				});
+			}
+
+			var production      = jQuery('#production-value').val();
+			//alert(production);
+			var delivery        = jQuery('#delivery-value').val();
+
+			if(production && delivery){
+
+				// Calculate price
+				//alert('click');
+				var ProdPercent = '';
+				var DeliPercent = '';
+				var PorductType = jQuery('.production.active').attr('text-value');
+				var DeliveryType = jQuery('.delivery.active').attr('text-value');
+				if(PorductType == '2-3' ){
+					ProdPercent = 15;
+					prliv += '<br />- P 2-3J';
+				}else if(PorductType =='1-1'){
+					ProdPercent = 40;
+					prliv += '<br />- P 1J';
+				}else{
+					ProdPercent = 0;
+					prliv += '<br />- P 4-5J';
 				}
 
-						var production      = jQuery('#production-value').val();
-						//alert(production);
-						var delivery        = jQuery('#delivery-value').val();
+				if(DeliveryType == '2-3'){
+					DeliPercent = 15;
+					prliv += ' / L 2-3J';
+				}else if(DeliveryType =='1-1'){
+					DeliPercent = 40;
+					prliv += ' / L 1J';
+				}else{
+					DeliPercent = 0;
+					prliv += ' / L 3-4J';
+				}
 
-						if(production && delivery){
+				var price_unit = parseFloat(cenapojedyncza);
 
-							// Calculate price
-							//alert('click');
-							var ProdPercent = '';
-							var DeliPercent = '';
-							var PorductType = jQuery('.production.active').attr('text-value');
-							var DeliveryType = jQuery('.delivery.active').attr('text-value');
-							if(PorductType == '2-3' ){
-								ProdPercent = 15;
-								prliv += '<br />- P 2-3J';
-							}else if(PorductType =='1-1'){
-								ProdPercent = 30;
-								prliv += '<br />- P 1J';
-							}else{
-								ProdPercent = 0;
-								prliv += '<br />- P 4-5J';
-							}
+				//var str = price_unit;
+				//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
+				var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+				var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+				var finalPrice           = calculatedTotalPrice + price_unit;
 
-							if(DeliveryType == '2-3'){
-								DeliPercent = 15;
-								prliv += ' / L 2-3J';
-							}else if(DeliveryType =='1-1'){
-								DeliPercent = 30;
-								prliv += ' / L 1J';
-							}else{
-								DeliPercent = 0;
-								prliv += ' / L 3-4J';
-							}
+				// Calculate Days
+				var prod_first_val  = parseInt(production[0]);
+				var prod_second_val = parseInt(production[2]);
+				var deli_first_val  = parseInt(delivery[0]);
+				var deli_second_val = parseInt(delivery[2]);
 
-							var price_unit = parseFloat(cenapojedyncza);
+				var totalProduction = prod_first_val + deli_first_val;
+				var totalDelivery   = prod_second_val + deli_second_val;
+				if(totalProduction == totalDelivery){
+					jQuery('#totaldays').text("Total jours " + totalProduction);
+					var days = totalProduction;
+				}else{
+					jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+					var days = totalDelivery;
+				}
 
-							//var str = price_unit;
-							//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-							var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-							var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-							var finalPrice           = calculatedTotalPrice + price_unit;
+				var curdate = new Date();
+				var daystoadd = AddBusinessDays(days);
+				curdate.setDate(curdate.getDate()+daystoadd);
+				var estdt = new Date(curdate);
+				var month = estdt.getMonth()+1;
+				var day = estdt.getDate();
+				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+				//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
+				if(jQuery('#id_8').css('display') != 'none')
+				{
+					//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
+					//jQuery('#prix_unitaire').text(finalPrice);
+					jQuery('#estdate_8').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
 
-							// Calculate Days
-							var prod_first_val  = parseInt(production[0]);
-							var prod_second_val = parseInt(production[2]);
-							var deli_first_val  = parseInt(delivery[0]);
-							var deli_second_val = parseInt(delivery[2]);
+				}
 
-							var totalProduction = prod_first_val + deli_first_val;
-							var totalDelivery   = prod_second_val + deli_second_val;
-							if(totalProduction == totalDelivery){
-								jQuery('#totaldays').text("Total jours " + totalProduction);
-								var days = totalProduction;
-							}else{
-								jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-								var days = totalDelivery;
-							}
+				finalPrice1=fixstr(finalPrice);
+				finalPrice2 = finalPrice1.replace(".", ",");
 
-							var curdate = new Date();
-							var daystoadd = AddBusinessDays(days);
-							curdate.setDate(curdate.getDate()+daystoadd);
-							var estdt = new Date(curdate);
-							var month = estdt.getMonth()+1;
-							var day = estdt.getDate();
-							var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-							//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
-							if(jQuery('#id_8').css('display') != 'none')
-							{
-								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-								//jQuery('#prix_unitaire').text(finalPrice);
-								jQuery('#estdate_8').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+				jQuery('#remise').html(rabat2);
 
-							}
+			}
 
-							finalPrice1=fixstr(finalPrice);
-							finalPrice2 = finalPrice1.replace(".", ",");
+			cenapojedyncza = finalPrice1;
 
-							jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-							jQuery('#remise').html(rabat2);
+			ilosc=$('input_7').value;
+			if ($('input_7').value) {
+				cena=cenapojedyncza*ilosc;
+			}
 
-						}
+			var total = document.getElementById("total");
+			var remise = document.getElementById("remise");
 
-						cenapojedyncza = finalPrice1;
+			cenapojedyncza=fixstr(cenapojedyncza);
+			cena2 = cenapojedyncza.replace(".", ",")
 
-						ilosc=$('input_7').value;
-						if ($('input_7').value) {
-							cena=cenapojedyncza*ilosc;
-						}
+			/* koszty transportu */
 
-						var total = document.getElementById("total");
-						var remise = document.getElementById("remise");
+			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+			var etiqdesc = '';
+			if (etiquette == true) {
+				transport=0;
+				etiqdesc = '<br />- retrait colis a l\'atelier';
+				cena-= cena*3/100;
+			}
+			transport=0;
 
-						cenapojedyncza=fixstr(cenapojedyncza);
-						cena2 = cenapojedyncza.replace(".", ",")
+			var niepokazuj = 0;
 
-						/* koszty transportu */
+			if (niepokazuj==1) {
+				prix.innerHTML='-';
+				remise.innerHTML='-';
+				total.innerHTML='-';
+			}
 
-						var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-						var etiqdesc = '';
-						if (etiquette == true) {
-							transport=0;
-							etiqdesc = '<br />- retrait colis a l\'atelier';
-							cena-= cena*3/100;
-						}
-						transport=0;
+			///////////livraison le jour même////////
+			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+				livraisonrapide.style.display = 'block';
+			}
+			else {livraisonrapide.style.display = 'none';}
+			/////////////////////////////////////////
 
-						var niepokazuj = 0;
+			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+				suma=cena-rabat;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				total.innerHTML=suma2+' &euro;';
 
-						if (niepokazuj==1) {
-							prix.innerHTML='-';
-							remise.innerHTML='-';
-							total.innerHTML='-';
-						}
+				var dodajkoszyk = document.getElementById("cart_form");
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
-						///////////livraison le jour même////////
-						if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-							livraisonrapide.style.display = 'block';
-						}
-						else {livraisonrapide.style.display = 'none';}
-						/////////////////////////////////////////
+			}
+		}
+	});
+});
 
-						if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-							suma=cena-rabat;
-							suma=fixstr(suma);
-							suma2 = suma.replace(".", ",");
-							total.innerHTML=suma2+' &euro;';
-
-							var dodajkoszyk = document.getElementById("cart_form");
-							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-
-						}
-					}
-				});
-			});
-
-			</script>
+</script>
