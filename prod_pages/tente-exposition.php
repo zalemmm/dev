@@ -682,6 +682,13 @@ if ($('input_taille').value == '4x6') {
                     suma2 = suma.replace(".", ",");
                     total.innerHTML=suma2+' &euro;';
 
+
+                                                              var eBox = document.getElementById('form-button-error2');
+                                                              var ilosc=$('input_13').value;
+                                                              if (ilosc.empty()){
+                                                                eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                                                              }
+
                     if (option==0) {
                       option2 = '-';
                       var opt = document.getElementById("option");
@@ -719,7 +726,7 @@ if ($('input_taille').value == '4x6') {
                       }}
 
 
-											
+
 
 
                       var rodzaj = "Tente";

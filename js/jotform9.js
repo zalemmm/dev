@@ -1539,9 +1539,7 @@ JotForm = {
                             }
                         }
                         if (!input.value || input.value.empty()) {
-                            return JotForm.errored(input, "Ce champ est obligatoire.");
-                        }
-                        if ( ('$input_9').value.empty()) {
+
                             return JotForm.errored(input, "Ce champ est obligatoire.");
                         }
 

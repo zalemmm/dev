@@ -752,7 +752,7 @@ if ($('input_1').value == '4x6') {
                     suma2 = suma.replace(".", ",");
                     total.innerHTML=suma2+' &euro;';
 
-                    var eBox = document.getElementById('form-button-error2');
+                    // !!! ne marche pas WTF?
                     if (ilosc.empty()){
                       eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
                     }
@@ -792,6 +792,9 @@ if ($('input_1').value == '4x6') {
                         var newtotal = document.getElementById("total");
                         newtotal.innerHTML=suma2+' &euro;';
                       }}
+
+
+
 
 
                       var rodzaj = "Tente";
