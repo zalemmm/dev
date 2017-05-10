@@ -1766,8 +1766,8 @@ if ( ($('input_intext').value == 'bache nontissé 150g M1') && (metraz*ilosc < 2
 	niepokazuj=1;
 }
 
-if ((szerokosc >= 50) || (wysokosc >= 50)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, êtes vous sûr de vouloir une banderole de plus de 50m ?';
+if ((szerokosc > 50) || (wysokosc > 50)) {
+	eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, nos rouleaux font au maximum 50m !';
 	eBox.style.display="block";
 	niepokazuj=2;
 }

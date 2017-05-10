@@ -664,7 +664,7 @@ JotForm = {
 
             if (($('input_ext').value !== "") || ($('input_int').value !== "") || ($('input_intext').value !== "")) {
               var imag3 = $("preview_imag3");
-              imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png)";
+              imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png)";
               imag3.style.animation="anim .5s 1";
             }else{
               var imag3 = $("preview_imag3");
@@ -809,21 +809,64 @@ JotForm = {
 						}
 
             // répartition oeuillets
-            if (($('input_22').value == 'tous les 100cm') || ($('input_23').value == 'tous les 100cm') || ($('input_24').value == 'tous les 100cm') || ($('input_91').value == 'tous les 100cm') || ($('input_92').value == 'tous les 100cm')) {
+            var ohb = ($('input_21').value == 'oeillets haut/bas') || ($('input_81').value == 'oeillets haut/bas');
+            var ogd = ($('input_21').value == 'oeillets gauche/droite')
+            var peri = ($('input_21').value == 'oeillets périmétrique')
+
+            var cent = ($('input_22').value == 'tous les 100cm') || ($('input_23').value == 'tous les 100cm') || ($('input_24').value == 'tous les 100cm') || ($('input_91').value == 'tous les 100cm') || ($('input_92').value == 'tous les 100cm');
+            var cinquante = ($('input_22').value == 'tous les 50cm') || ($('input_23').value == 'tous les 50cm') || ($('input_24').value == 'tous les 50cm') || ($('input_91').value == 'tous les 50cm') || ($('input_92').value == 'tous les 50cm');
+            var vingtcinq = ($('input_22').value == 'tous les 25cm') || ($('input_23').value == 'tous les 25cm') || ($('input_24').value == 'tous les 25cm') || ($('input_91').value == 'tous les 25cm') || ($('input_92').value == 'tous les 25cm');
+            var dix = ($('input_22').value == 'tous les 10cm') || ($('input_23').value == 'tous les 10cm') || ($('input_24').value == 'tous les 10cm') || ($('input_91').value == 'tous les 10cm') || ($('input_92').value == 'tous les 10cm');
+
+            if (ohb && cent) {
               var imag = $("preview_imag3");
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png)";
             }
-            if (($('input_22').value == 'tous les 50cm') || ($('input_23').value == 'tous les 50cm') || ($('input_24').value == 'tous les 50cm') || ($('input_91').value == 'tous les 50cm') || ($('input_92').value == 'tous les 50cm'))  {
+            if (ohb && cinquante) {
               var imag = $("preview_imag3");
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb50.png)";
             }
-            if (($('input_22').value == 'tous les 25cm') || ($('input_23').value == 'tous les 25cm') || ($('input_24').value == 'tous les 25cm') || ($('input_91').value == 'tous les 25cm') || ($('input_92').value == 'tous les 25cm'))  {
+            if (ohb && vingtcinq) {
               var imag = $("preview_imag3");
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb25.png)";
             }
-            if (($('input_22').value == 'tous les 10cm') || ($('input_23').value == 'tous les 10cm') || ($('input_24').value == 'tous les 10cm') || ($('input_91').value == 'tous les 10cm') || ($('input_92').value == 'tous les 10cm'))  {
+            if (ohb && dix) {
               var imag = $("preview_imag3");
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb10.png)";
+            }
+
+            if (ogd && cent) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png)";
+            }
+            if (ogd && cinquante) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd.png)";
+            }
+            if (ogd && vingtcinq) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd25.png)";
+            }
+            if (ogd && dix) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd10.png)";
+            }
+
+            if (peri && cent) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png)";
+            }
+            if (peri && cinquante) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb50.png)";
+            }
+            if (peri && vingtcinq) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd25.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb25.png)";
+            }
+            if (peri && dix) {
+              var imag = $("preview_imag3");
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd10.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb10.png)";
             }
 
             // option ourlets
