@@ -636,8 +636,7 @@ JotForm = {
 
             if (($('input_1').value == 'drapeaux') || ($('input_1').value == 'oriflamme') || ($('input_1').value == 'beachflag') || ($('input_1').value == 'windflag')) {
               $('container').style.display="none";
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/ext.png)" ;
+							$("preview_imag").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/ext.png)" ;
               $("preview_imag3").style.backgroundImage="none";
 						}
 				    if ($('input_1').value == 'drapeaux') {
@@ -664,35 +663,29 @@ JotForm = {
 
             ////////////////kit aile
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Kit complet'))  {
-              var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
               $("preview_imag3").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied.png)";
             }
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Structure + Voile'))  {
-              var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
               $("preview_imag3").style.backgroundImage="none";
             }
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Voile seule'))  {
-              var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile1.png)";
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile1.png)";
               $("preview_imag3").style.backgroundImage="none";
             }
 
             //////////////kit goutte
-            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Kit complet'))  {
-              var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
+            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Kit complet')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
               $("preview_imag3").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied.png)";
             }
-            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Structure + Voile'))  {
-              var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
+            if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Structure + Voile')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
               $("preview_imag3").style.backgroundImage="none";
             }
             if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Voile seule'))  {
-              var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte1.png)";
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte1.png)";
               $("preview_imag3").style.backgroundImage="none";
             }
 

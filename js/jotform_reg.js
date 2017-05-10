@@ -1348,7 +1348,7 @@ errored: function(input, message){
   container.addClassName('form-line-error');
 
   container.insert(new Element('div', {
-    className: 'form-error-message'
+    className: 'form-error-message-reg'
   }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
   return false;
@@ -1374,7 +1374,7 @@ corrected: function(input){
   var container = JotForm.getContainer(input);
   container.select(".form-validation-error").invoke('removeClassName', 'form-validation-error');
   container.removeClassName('form-line-error');
-  container.select('.form-error-message').invoke('remove');
+  container.select('.form-error-message-reg').invoke('remove');
   return true;
 },
 

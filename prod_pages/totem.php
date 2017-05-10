@@ -1059,11 +1059,13 @@
 
 
                       if (ilosc.empty()){
-                        eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                        eBox.innerHTML = '<button type="button" class="closeButton" name="button"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                        eBox.style.display="block";
                       }
-                      hauteur=$('input_15').value;
-                      if (hauteur.empty()){
-                        eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une hauteur en cm';
+                      var hauteur=$('input_15').value;
+                      if (($('input_1').value == 'clipit') && (hauteur.empty())){
+                        eBox.innerHTML = '<button type="button" class="closeButton" name="button"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une hauteur en cm';
+                        eBox.style.display="block";
                       }
 
 

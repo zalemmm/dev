@@ -724,7 +724,8 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 
 
                     if (ilosc.empty()){
-                      eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                      eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                      eBox.style.display="block";
                     }
 
                       var rodzaj = "Stand";

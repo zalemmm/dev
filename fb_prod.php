@@ -21,7 +21,7 @@ function recursive_array_search($needle,$haystack) {
 }
 
 function fbshop_head() {
-if (is_page('flyers') || is_page('tente-publicitaire-barnum') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
+if (is_page('flyers') || is_page('-publicitaire-barnum') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
 }
 
 $user = $_SESSION['loggeduser'];
@@ -804,10 +804,18 @@ echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototyp
 JotForm.setConditions([
 
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "option", "operator": "isFilled", "value": false}], "action": {"field": "couleur", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Personnalisé"}], "action": {"field": "maquette", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Blanc"}, {"field": "couleur", "operator": "equals", "value": "Noir"}, {"field": "couleur", "operator": "equals", "value": "Rouge"}, {"field": "couleur", "operator": "equals", "value": "Bleu"}], "action": {"field": "13", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "equals", "value": "Blanc"}, {"field": "couleur", "operator": "equals", "value": "Noir"}, {"field": "couleur", "operator": "equals", "value": "Rouge"}, {"field": "couleur", "operator": "equals", "value": "Bleu"}], "action": {"field": "16", "visibility": "Show"}},
+{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans option"}], "action": {"field": "couleur-sans-option", "visibility": "Show"}},
+{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-option", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-option", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+
 {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
 
@@ -1130,7 +1138,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='tentes';
 		$info_title='Tente publicitaire chapiteau barnum personnalisé';
-		$info_info='<span class="prezHide">Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !</span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/#/" target="_blank" class="notice"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+		$info_info='<span class="prezHide">Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !</span>  <div class="helpMenu"><a rel="shadowbox" href="'.get_bloginfo("url").'/aide-tente-publicitaire/" target="_blank" class="notice"  title="tout savoir sur les tentes publicitaires personnalisées"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a rel="shadowbox" href="'.get_bloginfo("url").'/notice-technique-tente-publicitaire/" target="_blank" class="notice"  title="notice technique tente publicitaire"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a rel="shadowbox" href="'.get_bloginfo("url").'/gabarit-tente-publicitaire/" target="_blank" class="notice"  title="gabarit tente publicitaire pas cher"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 		$formularz = get_tente_exposition_form();
 	}
 
@@ -1393,11 +1401,18 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 	$wycena .= '</div></div>';}
 
 	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';
-
+	/* $view .= '<div id="top_images">
+	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
+	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
+	<div id="bannercontainer">
+		<div id="banner">
+    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    	</div>
+	</div></div>'; */
 	if ($page=='cadre-exterieur-bache') {
 	$view .= $formularz;
 	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div>';
+}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div><div id="top_slideshow">'.get_another_images($pageid).'</div>';
 	$view .= $formularz;
 	$view .= $wycena;
 	}
@@ -1967,8 +1982,15 @@ function get_plv() {
 	$fb_tablename_promo = $prefix."fbs_plv";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
+	/* $view .= '<div id="top_images">
+	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
+	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
+	<div id="bannercontainer">
+		<div id="banner">
+    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    	</div>
+	</div></div>'; */
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2116,8 +2138,15 @@ function get_plv_int() {
 	$fb_tablename_promo = $prefix."fbs_plv_int";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
+	/* $view .= '<div id="top_images">
+	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
+	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
+	<div id="bannercontainer">
+		<div id="banner">
+    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    	</div>
+	</div></div>'; */
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2504,8 +2533,15 @@ function get_acc() {
 	$fb_tablename_promo = $prefix."fbs_acc";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
+	/* $view .= '<div id="top_images">
+	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
+	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
+	<div id="bannercontainer">
+		<div id="banner">
+    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    	</div>
+	</div></div>'; */
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2592,6 +2628,15 @@ function get_mma() {
 	$fb_tablename_promo = $prefix."fbs_mma";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Banderole MMA</h1><hr />';
+	/* $view .= '<div id="top_images">
+	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
+	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
+	<div id="bannercontainer">
+		<div id="banner">
+    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    	</div>
+	</div></div>'; */
+	/*$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
 
 	$view .= '<table id="promotions_tablemma" cellspacing="0">';
 	$view .= '
@@ -2732,7 +2777,7 @@ function get_acc2() {
     	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
     	</div>
 	</div></div>';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
@@ -2913,7 +2958,7 @@ function get_promotions() {
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 
 	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div></div>';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
 	$licznik = 0;

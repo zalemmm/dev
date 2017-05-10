@@ -3612,7 +3612,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 
 
@@ -3626,7 +3626,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 	if ( (wysokosc < 0.2) && (szerokosc < 0.3) ) {
 		var blad = document.getElementById("id_5");
@@ -3639,7 +3639,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		total.innerHTML='-';
 		option.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
 
 	if ( (wysokosc < 0.3) && (szerokosc < 0.2) ) {
@@ -3653,7 +3653,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		total.innerHTML='-';
 		option.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
 
 

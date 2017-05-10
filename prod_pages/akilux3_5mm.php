@@ -625,9 +625,10 @@
             cena=cenapojedyncza*ilosc;
           }
 
-
-
-
+          if (ilosc.empty()){
+            eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité et une taille en centimètres';
+            eBox.style.display="block";
+          }
 
 
 
@@ -975,19 +976,22 @@
                       }}
 
                       if ( (wysokosc > 160) || (szerokosc > 160) ) {
-                        var blad = document.getElementById("id_9");
-                        blad.style.background = "#EA2A6A";
-                        blad.style.border = "1px solid #EA2A6A";
-                        eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+                        eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+                        eBox.style.display="block";
                         niepokazuj=1;
                       }
 
                       if ( (wysokosc > 120) && (szerokosc > 120) ) {
-                        var blad = document.getElementById("id_9");
-                        blad.style.background = "#EA2A6A";
-                        blad.style.border = "1px solid #EA2A6A";
-                        eBox.innerHTML = '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+                        eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+                        eBox.style.display="block";
                         niepokazuj=1;
+                      }
+
+
+                      if ( (szerokosc <= 0 ) || (wysokosc <= 0 ) ){
+                        eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en <u>centimètres</u>';
+                        eBox.style.display="block";
+                        niepokazuj=2;
                       }
 
 
