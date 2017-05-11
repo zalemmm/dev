@@ -272,22 +272,46 @@
   function AddBusinessDays(weekDaysToAdd) {
     //alert(weekDaysToAdd);
     var curdate = new Date();
-    var realDaysToAdd = 0;
-    for(i=0; i<weekDaysToAdd; i++){
-      curdate.setDate(curdate.getDate()+1);
-      var estdt1 = new Date(curdate);
-      //alert('date->'+estdt1);
-      var n = curdate.getDay();
-      //alert(n);
-      if (n == '6' || n == '0') {
-        weekDaysToAdd++;
-      }
-      realDaysToAdd++;
-      //check if current day is business day
-    }
-    //alert(realDaysToAdd);
+    var curhour = curdate.getHours();
 
-    return realDaysToAdd;
+    if (curhour >= 12) {
+      // après 12h on ajoute 1 jour de production
+      var realDaysToAdd = 1;
+
+      for(i=0; i<weekDaysToAdd; i++){
+        curdate.setDate(curdate.getDate()+1);
+        var estdt1 = new Date(curdate);
+        //alert('date->'+estdt1);
+        var n = curdate.getDay();
+        //alert(n);
+        if (n == '6' || n == '0') {
+          weekDaysToAdd++;
+        }
+        realDaysToAdd++;
+        //check if current day is business day
+      }
+      //alert(realDaysToAdd);
+      return realDaysToAdd;
+
+    }else{
+      // avant 12h
+      var realDaysToAdd = 0;
+
+      for(i=0; i<weekDaysToAdd; i++){
+        curdate.setDate(curdate.getDate()+1);
+        var estdt1 = new Date(curdate);
+        //alert('date->'+estdt1);
+        var n = curdate.getDay();
+        //alert(n);
+        if (n == '6' || n == '0') {
+          weekDaysToAdd++;
+        }
+        realDaysToAdd++;
+        //check if current day is business day
+      }
+      //alert(realDaysToAdd);
+      return realDaysToAdd;
+    }
 
   }
 
@@ -851,7 +875,7 @@
               {
                 //jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
                 //jQuery('#prix_unitaire').text(finalPrice);
-                jQuery('#estdate_7').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+                jQuery('#estdate_7').html('Date de livraison max : '+output+' <br /><a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">*voir conditions</a>');
 
 
               }

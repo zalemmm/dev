@@ -633,7 +633,7 @@ var total = document.getElementById("total");
 				{
 					//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 					//jQuery('#prix_unitaire').text(finalPrice);
-					jQuery('#estdate_10').html('Date de livraison : '+output+' <a style="text-transform: uppercase; text-decoration: none" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+					jQuery('#estdate_10').html('Date de livraison max : '+output+' <br /><a style="text-transform: uppercase; text-decoration: none" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
 
 
 				}

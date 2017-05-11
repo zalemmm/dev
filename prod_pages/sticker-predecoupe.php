@@ -224,24 +224,47 @@ function Masquer()
 
 function AddBusinessDays(weekDaysToAdd) {
 	//alert(weekDaysToAdd);
-	var curdate = new Date();
-	var realDaysToAdd = 0;
-	for(i=0; i<weekDaysToAdd; i++){
-		curdate.setDate(curdate.getDate()+1);
-		var estdt1 = new Date(curdate);
-		//alert('date->'+estdt1);
-		var n = curdate.getDay();
-		//alert(n);
-		if (n == '6' || n == '0') {
-			weekDaysToAdd++;
-		}
-		realDaysToAdd++;
-		//check if current day is business day
-	}
-	//alert(realDaysToAdd);
+  var curdate = new Date();
+  var curhour = curdate.getHours();
 
-	return realDaysToAdd;
+  if (curhour >= 12) {
+    // après 12h on ajoute 1 jour de production
+    var realDaysToAdd = 1;
 
+    for(i=0; i<weekDaysToAdd; i++){
+      curdate.setDate(curdate.getDate()+1);
+      var estdt1 = new Date(curdate);
+      //alert('date->'+estdt1);
+      var n = curdate.getDay();
+      //alert(n);
+      if (n == '6' || n == '0') {
+        weekDaysToAdd++;
+      }
+      realDaysToAdd++;
+      //check if current day is business day
+    }
+    //alert(realDaysToAdd);
+    return realDaysToAdd;
+
+  }else{
+    // avant 12h
+    var realDaysToAdd = 0;
+
+    for(i=0; i<weekDaysToAdd; i++){
+      curdate.setDate(curdate.getDate()+1);
+      var estdt1 = new Date(curdate);
+      //alert('date->'+estdt1);
+      var n = curdate.getDay();
+      //alert(n);
+      if (n == '6' || n == '0') {
+        weekDaysToAdd++;
+      }
+      realDaysToAdd++;
+      //check if current day is business day
+    }
+    //alert(realDaysToAdd);
+    return realDaysToAdd;
+  }
 }
 
 jQuery(document).ready(function(){
@@ -596,7 +619,7 @@ jQuery(document).ready(function(){
 							{
 								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 								//jQuery('#prix_unitaire').text(finalPrice);
-								jQuery('#estdate_10').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+								jQuery('#estdate_10').html('Date de livraison max : '+output+' <br /><a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">*voir conditions</a>');
 
 
 							}
@@ -700,7 +723,7 @@ jQuery(document).ready(function(){
 								blad.style.border = "1px solid #EA2A6A";
 								blad2.style.background = "#EA2A6A";
 								blad2.style.border = "1px solid #EA2A6A";
-								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 103cm!';
+								eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
 								niepokazuj=1;
 							}
 
@@ -711,7 +734,7 @@ jQuery(document).ready(function(){
 								blad.style.border = "1px solid #EA2A6A";
 								blad2.style.background = "#EA2A6A";
 								blad2.style.border = "1px solid #EA2A6A";
-								eBox.innerHTML = 'Hauteur et Largeur supérieur ou égal à 10cm!';
+								eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
 								niepokazuj=1;
 							}
 
@@ -723,7 +746,7 @@ jQuery(document).ready(function(){
 								blad.style.border = "1px solid #EA2A6A";
 								blad2.style.background = "#EA2A6A";
 								blad2.style.border = "1px solid #EA2A6A";
-								eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 103cm!';
+								eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
 								niepokazuj=1;
 							}
 
