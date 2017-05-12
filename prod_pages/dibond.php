@@ -230,11 +230,7 @@
 							<button class="delivery" text-value="1-1" id="l3"></button>
 							<input type="hidden" id="delivery-value" value="" />
 						</p>
-						<p>
-							<!--<span id="totaldays"></span>&nbsp;-->
-							<span id="totalamt_7"></span>
-							<span id='estdate_7' class="delivery-date"></span>
-						</p>
+					</div>
 
 					</li>
 
@@ -276,6 +272,12 @@
 		  <div id="preview_imag4"></div>
 		  <div id="preview_imag5"></div>
 
+	</div>
+
+	<div class="dateLivraison">
+		<!--<span id="totaldays"></span>&nbsp;-->
+		<span id="totalamt_7"></span>
+		<span id='estdate_7' class="delivery-date"></span>
 	</div>
 
 	<div id="custom_price_unit" >
@@ -1496,6 +1498,7 @@
 									};
 									if($('input_1').value != 'personnalisée') {
 										dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+										livraisonComp.style.display = 'block';
 									};
 
 

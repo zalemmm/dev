@@ -123,52 +123,44 @@
 
 
 				</span>
-        <div class="nothing" />
+        <div class="break-line"></div>
 
-<p id="production" >
-	<h5>Delai Production:</h5>
-	<button class="production" text-value="4-5" id="p1"></button>
-	<button class="production" text-value="2-3" id="p2"></button>
-    <button class="production" text-value="1-1" id="p3"></button>
-	<input type="hidden" id="production-value" value=""  onClick="" />
-</p>
-<div id="delivery-div" style='display:none;'>
+        <p id="production" >
+        	<h5 class="delivery-delay">Delai Production:</h5>
+        	<button class="production" text-value="4-5" id="p1"></button>
+        	<button class="production" text-value="2-3" id="p2"></button>
+          <button class="production" text-value="1-1" id="p3"></button>
+        	<input type="hidden" id="production-value" value=""  onClick="" />
+        </p>
 
-<p id="delivery" >
-	<h5>Delai Livraison:</h5>
-	<button class="delivery" text-value="3-4" id="l1"></button>
-	<button class="delivery" text-value="2-3" id="l2"></button>
-    <button class="delivery" text-value="1-1" id="l3" style="display: none; float:right"></button>
-	<input type="hidden" id="delivery-value" value="" />
-</p>
+        <div id="delivery-div" style='display:none;'>
+          <p id="delivery" >
+          	<h5 class="delivery-delay">Delai Livraison:</h5>
+          	<button class="delivery" text-value="3-4" id="l1"></button>
+          	<button class="delivery" text-value="2-3" id="l2"></button>
+            <button class="delivery" text-value="1-1" id="l3" style="display: none; float: right;"></button>
+          	<input type="hidden" id="delivery-value" value="" />
+          </p>
+        </div>
 
-<p>
-<!--<span id="totaldays"></span>&nbsp;-->
-<span id="totalamt_16"></span>
-<span id='estdate_16'></span>
-</p>
+      </li>
+
+        <li id="id_18" class="form-line id_18" style="top:14px">
+            <div class="form-input-wide">
+            <div id="form-button-error2"></div>
+                    <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
+            </div>
+        </li>
+        <li style="display:none">
+            Should be Empty:
+            <input type="text" name="website" value="" />
+        </li>
+    </ul>
 </div>
-            </li>
-
-
-
-
-            <li id="id_18" class="form-line id_18" style="top:14px">
-                <div class="form-input-wide">
-                <div id="form-button-error2"></div>
-                        <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
-                </div>
-            </li>
-            <li style="display:none">
-                Should be Empty:
-                <input type="text" name="website" value="" />
-            </li>
-        </ul>
-    </div>
-    <input type="hidden" id="simple_spc" name="simple_spc" value="1060900217" />
-    <script type="text/javascript">
-        document.getElementById("simple_spc").value += "-1060900217";
-    </script>
+<input type="hidden" id="simple_spc" name="simple_spc" value="1060900217" />
+<script type="text/javascript">
+    document.getElementById("simple_spc").value += "-1060900217";
+</script>
 </form>
 </div>
 <div id="preview">
@@ -190,6 +182,12 @@
   <div id="preview_imag4"></div>
   <div id="preview_imag5"></div>
 
+</div>
+
+<div class="dateLivraison">
+  <!--<span id="totaldays"></span>&nbsp;-->
+  <span id="totalamt_16"></span>
+  <span id='estdate_16'></span>
 </div>
 
 <div id="custom_price_unit" >
@@ -755,6 +753,7 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
                       var rodzaj = "Stand";
 	var dodajkoszyk = document.getElementById("cart_form");
 	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+  livraisonComp.style.display = 'block';
 
 
 					}

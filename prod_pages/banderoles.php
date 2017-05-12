@@ -345,8 +345,8 @@
 								<button class="delivery" text-value="1-1" id="l3"></button>
 								<input type="hidden" id="delivery-value" value="" />
 							</p>
-
 						</div>
+
 					</li>
 
 					<li id="id_18" class="form-line id_18" style="top:14px">
@@ -385,25 +385,24 @@
 			</div>
 		</div>
 
-
 		<div id="preview_imag"></div>
 		<div id="preview_imag2"></div>
 		<div id="preview_imag3"></div>
 		<div id="preview_imag4"></div>
 		<div id="preview_imag5"></div>
 
-		<div class="dateLivraison" >
-				<!--<span id="totaldays"></span>&nbsp;-->
-				<span id="totalamt_16"></span>
-				<span id='estdate_16' class="delivery-date"></span>
-		</div>
+	</div>
 
+	<div class="dateLivraison" >
+			<!--<span id="totaldays"></span>&nbsp;-->
+			<span id="totalamt_16"></span>
+			<span id='estdate_16' class="delivery-date"></span>
 	</div>
 
 	<div id="custom_price_unit" >
 
 	</div>
-	
+
 
 	<script type="text/javascript">
 	/* Voici la fonction javascript qui change la propriété "display"
@@ -1818,7 +1817,7 @@ if (niepokazuj==1) {
 	var rodzaj = "banderole";
 	var dodajkoszyk = document.getElementById("cart_form");
 	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
-
+	livraisonComp.style.display = 'block';
 }
 
 
@@ -1859,7 +1858,6 @@ if (niepokazuj==2) {
 		var rodzaj = "banderole Thermo-soudure";
 		var dodajkoszyk = document.getElementById("cart_form");
 		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-
 	}
 
 	if (ilosc==''){niepokazuj=1;}
@@ -1928,7 +1926,7 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 		var rodzaj = "banderole";
 		var dodajkoszyk = document.getElementById("cart_form");
 		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-
+		livraisonComp.style.display = 'block';
 	}
 
 
