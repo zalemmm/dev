@@ -291,7 +291,7 @@
 					<label class="form-label-left label-highlight" id="label_14" for="input_14">taille :<strong><span class="highlight small"><br />(Mètres)</span></strong></label>
 
 					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola();" />
-					<span class="mLeft highlight">M</span> <span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola(); "  /><span class="mRight highlight">M</span> <span class="llar" style="left:120px;">[hauteur]</span><span class="lhau" style="left:203px;">[largeur]</span></li>
+					<span class="mLeft highlight">m</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola();" /><span class="mRight highlight">m</span></li>
 
 					<li id="id_16" class="form-line optionsformline">
 						<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
@@ -373,6 +373,7 @@
 		</form>
 	</div>
 
+	<!--<div class="colRight">-->
 	<div id="preview">
 		<img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
 
@@ -1549,7 +1550,7 @@ if ( ($('input_1').value) ) {
 
 
 						jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-						jQuery('#remise').html(rabat2);
+						//jQuery('#remise').html(rabat2);
 
 					}
 
@@ -1633,7 +1634,7 @@ rabat=fixstr(rabat);
 rabat2 = rabat.replace(".", ",");
 if (rabat2 != 0) {rabat2 = rabat2+' &euro;'}
 if (rabat2 == 0) {rabat2 = '-'}
-remise.innerHTML=rabat2;
+//remise.innerHTML=rabat2;
 
 cenapojedyncza=fixstr(cenapojedyncza);
 cena2 = cenapojedyncza.replace(".", ",")
@@ -1807,7 +1808,7 @@ if (ilosc.empty()){
 }
 if (niepokazuj==1) {
 	jQuery('#prix_unitaire').html('-');
-	remise.innerHTML='-';
+	//remise.innerHTML='-';
 	prix.innerHTML='-';
 	opt.innerHTML='-';
 	total.innerHTML='-';
@@ -1823,7 +1824,7 @@ if (niepokazuj==1) {
 
 if (niepokazuj==2) {
 	jQuery('#prix_unitaire').html('-');
-	remise.innerHTML='-';
+	//remise.innerHTML='-';
 	if ( suma < 0 ) {
 		var forfait = 0;
 		forfait = fixstr(forfait);

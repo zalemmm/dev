@@ -1395,19 +1395,19 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
   // activation / désactivation de l'affichage des remises, commenter ou décommenter alternativement les 2 blocs ci-dessous et penser à adapter .wycena_poz 33% ou 25% dans le css
 
-  $wycena = '<div id="wycena">
+  /*$wycena = '<div id="wycena">
 	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div>
 	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span></div>
-	<div id="dodaj_koszyk">';
+	<div id="dodaj_koszyk">';*/
 
-  /*$wycena = '<div id="wycena">
+  $wycena = '<div id="wycena">
 	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">TOTAL H.T.</span></div>
 	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="total">-</span></div>
-	<div id="dodaj_koszyk">';*/
+	<div id="dodaj_koszyk">';
 
 	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
   // ajout de l'affichage livraison comprise
-  $wycena .= '<div id="livraisonComp" style="display:none">Livraison comprise</div>';
+  $wycena .= '<div id="livraisonComp" style="display:none"><i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> <i class="fa fa-caret-right" aria-hidden="true"></i> <i class="fa fa-caret-right" aria-hidden="true"></i> Livraison comprise !</div>';
 	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
 	$wycena .= '</div></div>';}
 
