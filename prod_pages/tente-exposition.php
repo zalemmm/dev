@@ -691,7 +691,7 @@ if ($('input_taille').value == '4x6') {
                     if ( suma < 29 ) {
                       var forfait = 29 - suma;
                       forfait = fixstr(forfait);
-                      eBox.innerHTML = 'FORFAIT '+forfait+' &euro;<br />';
+                      eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
                       if (option>0) {
                         var newoption = parseFloat(option) + parseFloat(forfait);
                         newoption=fixstr(newoption);
@@ -719,7 +719,7 @@ if ($('input_taille').value == '4x6') {
                       }}
 
 
-											
+
 
 
                       var rodzaj = "Tente";

@@ -331,50 +331,20 @@
   <script type="text/javascript">
 
   function AddBusinessDays(weekDaysToAdd) {
-
-    //alert(weekDaysToAdd);
-		var curdate = new Date();
-		var curhour = curdate.getHours();
-
-		if (curhour >= 12) {
-      // après 12h on ajoute 1 jour de production
-			var realDaysToAdd = 1;
-
-			for(i=0; i<weekDaysToAdd; i++){
-				curdate.setDate(curdate.getDate()+1);
-				var estdt1 = new Date(curdate);
-				//alert('date->'+estdt1);
-				var n = curdate.getDay();
-				//alert(n);
-				if (n == '6' || n == '0') {
-					weekDaysToAdd++;
-				}
-				realDaysToAdd++;
-				//check if current day is business day
-			}
-			//alert(realDaysToAdd);
-			return realDaysToAdd;
-
-		}else{
-      // avant 12h
-			var realDaysToAdd = 0;
-
-			for(i=0; i<weekDaysToAdd; i++){
-				curdate.setDate(curdate.getDate()+1);
-				var estdt1 = new Date(curdate);
-				//alert('date->'+estdt1);
-				var n = curdate.getDay();
-				//alert(n);
-				if (n == '6' || n == '0') {
-					weekDaysToAdd++;
-				}
-				realDaysToAdd++;
-				//check if current day is business day
-			}
-			//alert(realDaysToAdd);
-			return realDaysToAdd;
-		}
-
+    // fonction jours ouvrés
+    var curdate = new Date();
+    var realDaysToAdd = 0;
+    for(i=0; i<weekDaysToAdd; i++){
+      curdate.setDate(curdate.getDate()+1);
+      var estdt1 = new Date(curdate);
+      var n = curdate.getDay();
+      if (n == '6' || n == '0') {
+        weekDaysToAdd++;
+      }
+      realDaysToAdd++;
+      //check if current day is business day
+    }
+    return realDaysToAdd;
   }
 
   jQuery(document).ready(function(){
@@ -972,7 +942,14 @@
                 }
 
                 var curdate = new Date();
-                var daystoadd = AddBusinessDays(days);
+                var curhour = curdate.getHours();
+        				// ajout 1 jour ouvré de délai sur commande après 12h
+        				if (curhour >= 12) {
+        					var daystoadd = AddBusinessDays(days+1);
+        				}else{
+        					var daystoadd = AddBusinessDays(days);
+        				}
+
                 curdate.setDate(curdate.getDate()+daystoadd);
                 var estdt = new Date(curdate);
                 var month = estdt.getMonth()+1;
@@ -1056,7 +1033,7 @@
 										if ( suma < 29 ) {
 											var forfait = 29 - suma;
 											forfait = fixstr(forfait);
-											eBox.innerHTML = 'FORFAIT '+forfait+' &euro;<br />';
+											eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 											if (option>0) {
 												var newoption = parseFloat(option) + parseFloat(forfait);
 												newoption=fixstr(newoption);

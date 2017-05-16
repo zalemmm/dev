@@ -248,77 +248,49 @@ divInfo.style.display = 'none';
 <script type="text/javascript">
 
 function AddBusinessDays(weekDaysToAdd) {
-  //alert(weekDaysToAdd);
+  // fonction jours ouvrés
   var curdate = new Date();
-  var curhour = curdate.getHours();
-
-  if (curhour >= 12) {
-    // après 12h on ajoute 1 jour de production
-    var realDaysToAdd = 1;
-
-    for(i=0; i<weekDaysToAdd; i++){
-      curdate.setDate(curdate.getDate()+1);
-      var estdt1 = new Date(curdate);
-      //alert('date->'+estdt1);
-      var n = curdate.getDay();
-      //alert(n);
-      if (n == '6' || n == '0') {
-        weekDaysToAdd++;
-      }
-      realDaysToAdd++;
-      //check if current day is business day
+  var realDaysToAdd = 0;
+  for(i=0; i<weekDaysToAdd; i++){
+    curdate.setDate(curdate.getDate()+1);
+    var estdt1 = new Date(curdate);
+    var n = curdate.getDay();
+    if (n == '6' || n == '0') {
+      weekDaysToAdd++;
     }
-    //alert(realDaysToAdd);
-    return realDaysToAdd;
-
-  }else{
-    // avant 12h
-    var realDaysToAdd = 0;
-
-    for(i=0; i<weekDaysToAdd; i++){
-      curdate.setDate(curdate.getDate()+1);
-      var estdt1 = new Date(curdate);
-      //alert('date->'+estdt1);
-      var n = curdate.getDay();
-      //alert(n);
-      if (n == '6' || n == '0') {
-        weekDaysToAdd++;
-      }
-      realDaysToAdd++;
-      //check if current day is business day
-    }
-    //alert(realDaysToAdd);
-    return realDaysToAdd;
+    realDaysToAdd++;
+    //check if current day is business day
   }
+  return realDaysToAdd;
 }
 
-	jQuery(document).ready(function(){
+jQuery(document).ready(function(){
 
-		jQuery('.delivery , .production').click(function(){
+	jQuery('.delivery , .production').click(function(){
 
-   var cena=0; var cena2=0; var cena1=0; cenapojedyncza=0;
-        var suma=0; var suma2=0;
-        var rabat=0; var rabat2=0;
-        var transport=0;
-        var ilosc=0;
-        var opis='';
-		var coul='';
-		var pers='';
-		var coul2='';
-		var pers2='';
-		var taille='';
-		var option='';
-        var niepokazuj = 0;
-        var ktorytyp='';
-        var cedzik='';
-        var prliv='';
-        var date_panier='';
-        var dodatkowaopcja='';
-        var option2=0;
-        var szerokosc=0;
-        var wysokosc=0;
-        var eBox = document.getElementById('form-button-error2');
-        eBox.innerHTML='';
+    var cena=0; var cena2=0; var cena1=0; cenapojedyncza=0;
+    var suma=0; var suma2=0;
+    var rabat=0; var rabat2=0;
+    var transport=0;
+    var ilosc=0;
+    var opis='';
+  	var coul='';
+  	var pers='';
+  	var coul2='';
+  	var pers2='';
+  	var taille='';
+  	var option='';
+    var niepokazuj = 0;
+    var ktorytyp='';
+    var cedzik='';
+    var prliv='';
+    var date_panier='';
+    var dodatkowaopcja='';
+    var option2=0;
+    var szerokosc=0;
+    var wysokosc=0;
+    var eBox = document.getElementById('form-button-error2');
+    eBox.innerHTML='';
 ///2x2/////
 var structure2x2=160.00; var canopi2x2=18.75; var mur2x2=14.00;	var demimurA2x2=8; var demimurB2x2=8; var barredmA2x2=25.00; var barredmB2x2=25.00;
 var structure2x2perso=160.00; var canopi2x2perso=431.00; var mur2x2perso=110.00; var demimurA2x2perso=70.00; var demimurB2x2perso=70.00; var barredmA2x2perso=25.00; var barredmB2x2perso=25.00; var fronton2x2perso=141.00;
@@ -848,7 +820,14 @@ if ($('input_1').value == '4x6') {
                     }
 
                     var curdate = new Date();
-                    var daystoadd = AddBusinessDays(days);
+                    var curhour = curdate.getHours();
+        						// ajout 1 jour ouvré de délai sur commande après 12h
+        						if (curhour >= 12) {
+        							var daystoadd = AddBusinessDays(days+1);
+        						}else{
+        							var daystoadd = AddBusinessDays(days);
+        						}
+
                     curdate.setDate(curdate.getDate()+daystoadd);
                     var estdt = new Date(curdate);
                     var month = estdt.getMonth()+1;
@@ -970,7 +949,7 @@ if ($('input_1').value == '4x6') {
                     if ( suma < 29 ) {
                       var forfait = 29 - suma;
                       forfait = fixstr(forfait);
-                      eBox.innerHTML = 'FORFAIT '+forfait+' &euro;<br />';
+                      eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
                       if (option>0) {
                         var newoption = parseFloat(option) + parseFloat(forfait);
                         newoption=fixstr(newoption);
