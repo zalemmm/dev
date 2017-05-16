@@ -216,7 +216,7 @@
 					<div class="break-line"></div>
 
 					<p id="production" >
-						<h5 class="delivery-delay">Delai Production:</h5>
+						<h5 class="delivery-delay">Delai Production :</h5>
 						<button class="production" text-value="4-5" id="p1"></button>
 						<button class="production" text-value="2-3" id="p2"></button>
 						<button class="production" text-value="1-1" id="p3"></button>
@@ -224,7 +224,7 @@
 					</p>
 					<div id="delivery-div" style='display:none;'>
 						<p id="delivery" >
-							<h5 class="delivery-delay">Delai Livraison:</h5>
+							<h5 class="delivery-delay">Delai Livraison :</h5>
 							<button class="delivery" text-value="3-4" id="l1"></button>
 							<button class="delivery" text-value="2-3" id="l2"></button>
 							<button class="delivery" text-value="1-1" id="l3"></button>
