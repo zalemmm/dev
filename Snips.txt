@@ -84,4 +84,6 @@ $('#preview').append('<div id="preview_name">' + optionText + '</div>');
 iphone tooltip qui ne se ferment pas: à ajouter à un élément parent (page)
  onclick="void(0)"
 
- <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> <i class="fa fa-caret-right" aria-hidden="true"></i> 
+ <i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> <i class="fa fa-caret-right" aria-hidden="true"></i>
+
+ <a href="http://placehold.it"><img src="http://placehold.it/170x768"></a>

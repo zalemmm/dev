@@ -1,5 +1,5 @@
 <div id="buying">
-  <h3>Votre devis en ligne :</h3>
+  <h3>Votre devis en ligne</h3>
   <form class="jotform-form" action="" method="post" name="form_1060900222" id="1060900222" accept-charset="utf-8" onsubmit="JKakemono.cal_affiches(); return false;">
     <input type="hidden" name="formID" value="1060900222" />
     <div class="form-all">

@@ -1,5 +1,5 @@
 <div id="buying">
-	<h3>Votre devis en ligne :</h3>
+	<h3>Votre devis en ligne</h3>
 	<form class="jotform-form" action="" method="post" name="form_1060900214" id="1060900214" accept-charset="utf-8" onsubmit="JKakemono.cal_rollup(); return false;">
 		<div class="form-all">
 			<ul class="form-section">

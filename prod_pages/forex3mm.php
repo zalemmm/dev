@@ -1,5 +1,5 @@
 <div id="buying">
-	<h3>Votre devis en ligne :</h3>
+	<h3>Votre devis en ligne</h3>
 	<!-- <a href="http://www.france-banderole.com/enseignes/"><<< Retour enseignes</a> -->
 	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_forex3mm(); return false;">
 		<input type="hidden" name="formID" value="1060900217" />
