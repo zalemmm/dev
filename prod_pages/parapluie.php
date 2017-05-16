@@ -89,7 +89,7 @@
         </li>
 
         <li class="form-line" id="id_8">
-          <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité :</label>
+          <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité :<br /><span class="small">(par visuel)</span></label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
         </li>
 
@@ -694,7 +694,7 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 							{
 								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 								//jQuery('#prix_unitaire').text(finalPrice);
-								jQuery('#estdate_16').html('Date de livraison max : '+output+' <br /><a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">*voir conditions</a>');
+								jQuery('#estdate_16').html('Date de livraison max : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 
 							}
 

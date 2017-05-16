@@ -111,7 +111,7 @@
           </li>
 
           <li class="form-line" id="id_9">
-            <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :</label>
+            <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :<br /><span class="small">(par visuel)</span></label>
             <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();" />
           </li>
 
@@ -1067,7 +1067,7 @@ var myClass = jQuery(this).attr("class");
 			{
 				//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 				//jQuery('#prix_unitaire').text(finalPrice);
-				jQuery('#estdate_7').html('Date de livraison max : '+output+' <br /><a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">*voir conditions</a>');
+				jQuery('#estdate_7').html('Date de livraison max : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 
 			}
 

@@ -96,7 +96,7 @@
 
 					<li id="id_9" class="form-line optionsformline2">
 						<label class="form-label-left label-highlight" id="label_9" for="input_9">taille :<br /><strong><span class="highlight small"><span class="small">(centimètres)</span></span></strong></label>
-						<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]"  placeholder="largeur" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span>
+						<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]"  placeholder="largeur" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
 
 					</li>
 
@@ -862,7 +862,7 @@
 										{
 											//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 											//jQuery('#prix_unitaire').text(finalPrice);
-											jQuery('#estdate_7').html('Date de livraison max : '+output+' <br /><a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">*voir conditions</a>');
+											jQuery('#estdate_7').html('Date de livraison max : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 
 
 										}

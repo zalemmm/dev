@@ -364,7 +364,7 @@ function get_fb_rating() {
 				<textarea name="content" id="textarearating" rows="10" cols="10">'.$tresc.'</textarea>
 				<input class="but_ratingsubmit" type="submit" onclick="return validaterating();" value="donnez votre avis" />
 			</div>';
-		$view .= '<div class="form-error-message-rating"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Veuillez remplir tous les champs du formulaire.</div>';
+		$view .= '<div class="form-error-message-rating"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> Veuillez remplir tous les champs du formulaire.</div>';
 		$view .= '</form></div>';
 		$view .= '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/rating.js" type="text/javascript"></script>';
 	} else {

@@ -21,9 +21,9 @@ $prod_family = htmlentities(addslashes($_GET['prod']));
 $full_list = htmlentities(addslashes($_GET['list']));
 
 
-//Mise en cache des 2 premiers commentaires	
-	
-$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 5", ARRAY_A);
+//Mise en cache des 2 premiers commentaires
+
+$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 15", ARRAY_A);
 $del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_comments` WHERE code_parent = '$prod_family'");
 $i=0;
 foreach ($rates as $r) {
@@ -40,7 +40,7 @@ foreach ($rates as $r) {
 				$mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment5 = '$r[id]' WHERE code_parent = '$prod_family'");
 			}
 }
-			
+
 //Mise en cache des notations
 
 $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
@@ -49,6 +49,7 @@ $strmoyenne1 = round($moyenne->moy,2);
 $del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
 $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_notes` VALUES ('','$prod_family','$strmoyenne1','$total->nb_avis')");
 if ($full_list) {
+
 //Mise en cache de la liste des commentaires
 
 $rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC", ARRAY_A);

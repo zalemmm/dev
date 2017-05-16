@@ -1407,7 +1407,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 
 	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
   // ajout de l'affichage livraison comprise
-  $wycena .= '<div id="livraisonComp" style="display:none"><i class="fa fa-truck fa-flip-horizontal" aria-hidden="true"></i> <i class="fa fa-caret-right" aria-hidden="true"></i> <i class="fa fa-caret-right" aria-hidden="true"></i> Livraison comprise !</div>';
+  $wycena .= '<div id="livraisonComp" style="display:none">Livraison comprise</div>';
 	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
 	$wycena .= '</div></div>';}
 

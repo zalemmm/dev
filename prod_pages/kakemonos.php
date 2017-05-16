@@ -190,7 +190,7 @@
                     </select>
             </li>
             <li class="form-line" id="id_7">
-                <label class="form-label-left" id="label_7" for="input_7">quantité :</label>
+                <label class="form-label-left" id="label_7" for="input_7">quantité :<br /><span class="small">(par visuel)</span></label>
                     <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
             </li>
             <li class="form-line optionsformline" id="id_8">
