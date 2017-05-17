@@ -265,7 +265,7 @@ if ($query) {
 	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"1 - 2 ou 3 rainages</b></u><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 		if ($metoda == 'soixante') {
 			setPaiementFinProd($uid,'soixante');
@@ -315,7 +315,7 @@ if ($query) {
 	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 		if ($metoda == 'administratif') {
 			setPaiementFinProd($uid,'administratif');
@@ -366,7 +366,7 @@ if ($query) {
 	  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft">TOTAL TTC</td><td class="toright">'.$ttotalttc.'</td></tr></table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3" class="noprint" style="background:#FBCFD0;"><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"></a><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a></div>';
+	  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le formulaire</a></div>';
 		}
 	 	if ($metoda == 'carte') {
 			setPaiementFinProd($uid,'carte');
@@ -444,7 +444,7 @@ if ($query) {
 		$view .= '<h1>Accès client: Paiement de la commande</h1><hr />';
 		$view .= '<div id="paiements">';
 		$view .= '<div id="paiements_left"><div id="paiements_left_tit">acceder aux méthodes de paiement</div>
-		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv/" target="_blank" class="conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i>
+		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv/" target="_blank" rel="shadowbox" class="conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i>
 </button></form></div>
 		</div>';
 		$view .= '<div id="paiements_right"'.$styl.'><div id="paiements_right_tit">choisissez une méthode de paiement</div>
