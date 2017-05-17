@@ -588,7 +588,7 @@ if ($('input_taille').value == '4x6') {
                     {
                       //jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
                       //jQuery('#prix_unitaire').text(finalPrice);
-                      jQuery('#estdate_16').html('Date de livraison : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
+                      jQuery('#estdate_16').html('Date de livraison : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank">(*)</a>');
 
 
                     }

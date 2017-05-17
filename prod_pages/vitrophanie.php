@@ -535,7 +535,7 @@ jQuery(document).ready(function(){
 							{
 								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
 								//jQuery('#prix_unitaire').text(finalPrice);
-								jQuery('#estdate_10').html('Date de livraison max : '+output+' <a class="linkUppercase" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+								jQuery('#estdate_10').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 							}
 
 							finalPrice1=fixstr(finalPrice);
