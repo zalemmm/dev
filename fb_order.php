@@ -379,9 +379,9 @@ function get_details() {
 	}
 
 	if($need_act == 0) {
-		$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
+		$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
 	} else {
-		$prolog .= '<div class="box_warning noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_warning.png" /></td><td><p><strong>CETTE COMMANDE ATTEND DES RETOURS DE VOTRE PART !</strong></p><p><ul>';
+		$prolog .= '<div class="box_warning noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_warning.png" /></td><td><button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><p><strong>CETTE COMMANDE ATTEND DES RETOURS DE VOTRE PART !</strong></p><p><ul>';
 		if($to_pay == 1) {
 			$prolog .= '<li>Vous n\'avez pas <strong>réglé cette commande</strong>.</li>';
 		}
@@ -824,7 +824,7 @@ function print_votre() {
 	$count_files = 0;
 	$count_bat = 0;
 	$total_count = 0;
-	$alert_content = '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
+	$alert_content = '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
 
 	foreach($order_list AS $order_row) {
 		$idzamowienia = $order_row->unique_id;

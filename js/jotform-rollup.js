@@ -707,6 +707,17 @@ JotForm = {
 							var imag = $("preview_imag3");
 							imag.style.backgroundImage="none";
 						}
+
+            if ($('input_25').value == 'minia3') {
+							$("preview_imag2").style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/5minia3.png)";
+              $("preview_imag2").style.animation="anim .5s 1";
+						}
+            if ($('input_25').value == 'minia4') {
+							$("preview_imag2").style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/5minia4.png)";
+              $("preview_imag2").style.animation="anim2 .5s 1";
+						}
+
+
 				}
 
 //

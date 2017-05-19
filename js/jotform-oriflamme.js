@@ -632,7 +632,7 @@ JotForm = {
 							}
 						}*/
 
-						/////////////////////oriflamme//////////
+						// choix produit
 
             if (($('input_1').value == 'drapeaux') || ($('input_1').value == 'oriflamme') || ($('input_1').value == 'beachflag') || ($('input_1').value == 'windflag')) {
               $('container').style.display="none";
@@ -643,25 +643,118 @@ JotForm = {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux.png)" ;
               imag.style.animation="anim .5s 1";
+              $("preview_imag3").style.backgroundImage="none" ;
+              $("preview_imag4").style.backgroundImage="none" ;
 						}
-							if ($('input_1').value == 'oriflamme') {
+						if ($('input_1').value == 'oriflamme') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
               imag.style.animation="anim1 .5s 1";
+              $("preview_imag3").style.backgroundImage="none" ;
+              $("preview_imag4").style.backgroundImage="none" ;
 						}
-							if ($('input_1').value == 'beachflag') {
+						if ($('input_1').value == 'beachflag') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
               imag.style.animation="anim2 .5s 1";
+              $("preview_imag3").style.backgroundImage="none" ;
+              $("preview_imag4").style.backgroundImage="none" ;
 						}
-							if ($('input_1').value == 'windflag') {
+						if ($('input_1').value == 'windflag') {
 							var imag = $("preview_imag2");
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag.png)" ;
               imag.style.animation="anim3 .5s 1";
+              $("preview_imag3").style.backgroundImage="none" ;
+              $("preview_imag4").style.backgroundImage="none" ;
 						}
 
+            // drapeaux
+						if (($('input_1').value == 'drapeaux') && ($('input_20').value == '25x35')) {
+							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeauxsmall.png)";
+              $("preview_imag2").style.animation="anim3 .5s 1";
+						}
+						if (($('input_1').value == 'drapeaux') &&($('input_20').value == '40x50')) {
+							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeauxmedium.png)";
+              $("preview_imag2").style.animation="anim1 .5s 1";
+						}
+						if (($('input_1').value == 'drapeaux') &&($('input_20').value == '75x100')) {
+							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux.png)";
+              $("preview_imag2").style.animation="anim2 .5s 1";
+						}
 
-            ////////////////kit aile
+						// aile d'avion
+						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-54x190')) {
+  						$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
+              $("preview_imag2").style.animation="anim3 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a2.png)" ;
+              $("preview_imag2").style.animation="anim3 .5s 1";
+						}
+						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-85x245')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
+              $("preview_imag2").style.animation="anim2 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a4.png)" ;
+              $("preview_imag2").style.animation="anim2 .5s 1";
+						}
+						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-85x298')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
+              $("preview_imag2").style.animation="anim1 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a5.png)" ;
+              $("preview_imag2").style.animation="anim1 .5s 1";
+						}
+						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-85x397')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile3.png)" ;
+              $("preview_imag2").style.animation="anim .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a6.png)" ;
+              $("preview_imag2").style.animation="anim .5s 1";
+						}
+
+						// goutte d'eau
+            if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-72x156')) {
+  						$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
+              $("preview_imag2").style.animation="anim3 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a2.png)" ;
+              $("preview_imag2").style.animation="anim3 .5s 1";
+						}
+						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-75x213')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
+              $("preview_imag2").style.animation="anim2 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a4.png)" ;
+              $("preview_imag2").style.animation="anim2 .5s 1";
+						}
+						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-106x257')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
+              $("preview_imag2").style.animation="anim1 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a5.png)" ;
+              $("preview_imag2").style.animation="anim1 .5s 1";
+						}
+						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-125x402')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte3.png)" ;
+              $("preview_imag2").style.animation="anim .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a6.png)" ;
+              $("preview_imag2").style.animation="anim .5s 1";
+						}
+
+            // rectangulaire
+            if (($('input_1').value == 'windflag') && ($('input_23').value == 'windflag-59x180')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag.png)" ;
+              $("preview_imag2").style.animation="anim2 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a2.png)" ;
+              $("preview_imag2").style.animation="anim2 .5s 1";
+						}
+						if (($('input_1').value == 'windflag') && ($('input_23').value == 'windflag-80x280')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag.png)" ;
+              $("preview_imag2").style.animation="anim1 .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a5.png)" ;
+              $("preview_imag2").style.animation="anim1 .5s 1";
+						}
+						if (($('input_1').value == 'windflag') && ($('input_23').value == 'windflag-100x350')) {
+              $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag.png)" ;
+              $("preview_imag2").style.animation="anim .5s 1";
+              $("preview_imag4").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/a6.png)" ;
+              $("preview_imag2").style.animation="anim .5s 1";
+						}
+
+            // kit aile
             if (($('input_1').value == 'oriflamme') && ($('input_3').value == 'Kit complet'))  {
               $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/aile2.png)";
               $("preview_imag3").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied.png)";
@@ -675,7 +768,7 @@ JotForm = {
               $("preview_imag3").style.backgroundImage="none";
             }
 
-            //////////////kit goutte
+            // /kit goutte
             if (($('input_1').value == 'beachflag') && ($('input_3').value == 'Kit complet')) {
               $("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/goutte2.png)";
               $("preview_imag3").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied.png)";
@@ -689,7 +782,7 @@ JotForm = {
               $("preview_imag3").style.backgroundImage="none";
             }
 
-            ////////////////pied
+            //pied
             if ($('input_6').value == 'Embase 8kg') {
             var imag = $("preview_imag3");
             imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/pied8.png)" ;
@@ -725,183 +818,6 @@ JotForm = {
             imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/piedPara.png)" ;
             imag.style.animation="anim2 .5s 1";
             }
-
-
-
-
-            /*
-
-
-						if (($('input_1').value == 'drapeaux') && ($('input_20').value == '25x35')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux-1.jpg)";
-						}
-						if (($('input_1').value == 'drapeaux') &&($('input_20').value == '40x50')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux-2.jpg)";
-						}
-						if (($('input_1').value == 'drapeaux') &&($('input_20').value == '75x100')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux-3.jpg)";
-						}
-
-						///// aile d'avion///
-
-						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-54x190')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-1.jpg)";
-						}
-						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-85x245')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-2.jpg)";
-						}
-						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-85x298')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-3.jpg)";
-						}
-						if (($('input_1').value == 'oriflamme') && ($('input_21').value == 'oriflamme-85x397')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-4.jpg)";
-						}
-						/////
-
-						if (($('input_21').value == 'oriflamme-54x190') && ($('input_3').value == 'Kit complet'))  {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-1-kc.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-54x190') && ($('input_3').value == 'Structure + Voile'))  {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-1-sv.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-54x190') && ($('input_3').value == 'Voile seule'))  {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-1-v.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x245') && ($('input_3').value == 'Kit complet')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-2-kc.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x245') && ($('input_3').value == 'Structure + Voile')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-2-sv.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x245') && ($('input_3').value == 'Voile seule')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-2-v.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x298') && ($('input_3').value == 'Kit complet')){
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-3-kc.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x298') && ($('input_3').value == 'Structure + Voile')){
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-3-sv.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x298') && ($('input_3').value == 'Voile seule')){
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-3-v.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x397') && ($('input_3').value == 'Kit complet')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-4-kc.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x397') && ($('input_3').value == 'Structure + Voile')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-4-sv.jpg)";
-						}
-						if (($('input_21').value == 'oriflamme-85x397') && ($('input_3').value == 'Voile seule')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-aile-d-avion-4-v.jpg)";
-						}
-
-
-						///// beachflag///
-
-
-						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-72x156')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-1.jpg)";
-						}
-						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-75x213')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-2.jpg)";
-						}
-						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-106x257')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-3.jpg)";
-						}
-						if (($('input_1').value == 'beachflag') && ($('input_22').value == 'beachflag-125x402')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-4.jpg)";
-						}
-						/////
-
-						if (($('input_22').value == 'beachflag-72x156') && ($('input_3').value == 'Kit complet'))  {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-1-kc.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-72x156') && ($('input_3').value == 'Structure + Voile'))  {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-1-sv.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-72x156') && ($('input_3').value == 'Voile seule'))  {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-1-v.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-75x213') && ($('input_3').value == 'Kit complet')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-2-kc.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-75x213') && ($('input_3').value == 'Structure + Voile')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-2-sv.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-75x213') && ($('input_3').value == 'Voile seule')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-2-v.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-106x257') && ($('input_3').value == 'Kit complet')){
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-3-kc.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-106x257') && ($('input_3').value == 'Structure + Voile')){
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-3-sv.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-106x257') && ($('input_3').value == 'Voile seule')){
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-3-v.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-125x402') && ($('input_3').value == 'Kit complet')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-4-kc.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-125x402') && ($('input_3').value == 'Structure + Voile')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-4-sv.jpg)";
-						}
-						if (($('input_22').value == 'beachflag-125x402') && ($('input_3').value == 'Voile seule')) {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-beachflag-4-v.jpg)";
-						}
-
-
-						/////windflag///
-
-
-						if ($('input_23').value == 'windflag-59x180') {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag-1.jpg)";
-						}
-						if ($('input_23').value == 'windflag-80x280') {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag-2.jpg)";
-						}
-						if ($('input_23').value == 'windflag-100x350') {
-							var imag = $("preview_imag");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/oriflamme-windflag-3.jpg)";
-						}
-*/
 						/////
 
 				}

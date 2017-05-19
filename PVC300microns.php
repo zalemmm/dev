@@ -65,7 +65,7 @@
             </span>
 
             <span class="optionsleft">
-              <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis a L'atelier</label>
+              <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
               <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
               <span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
                 <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span>

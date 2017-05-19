@@ -8,7 +8,7 @@
         <li class="form-line" id="id_0">
           <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Stand tissu EasyQuick</u>: <span class="highlight">Dès 468€</span></b><br/>LE meilleur stand parapluie textile 260g robuste et facile à monter. Traité retardement feu. livré avec sac de transport à roulettes<br />• <u><b>Stand ExpoBag</u>: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>• <u><b>Stand parapluie révolution</u>: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br /></span>
+            <span class="helpText" id="helpText0" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
@@ -22,7 +22,7 @@
         <li class="form-line" id="id_01">
           <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Stand tissu droit</u>: <span class="highlight">Dès 468€</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />• <u><b>Stand tissu courbé</u>: <span class="highlight">Dès 688€</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/></span>
+            <span class="helpText" id="helpText1" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_01" name="q01_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
@@ -35,18 +35,24 @@
         <li class="form-line" id="id_1">
           <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText2" style="visibility:hidden;">• <u><b>stand parapluie 3x3 droit</u>: <span class="highlight">Dès 685€</span></b><br/>225x225cm le stand traditionnel complet polyvalent<br />• <u><b>stand parapluie 3x4 droit</u>: <span class="highlight">Dès 760€</span></b><br/>225x300cm stand parapluie de 3 mètres à monter avec ses lés imprimés.<br/>• <u><b>stand parapluie 3x3 courbé</u>: <span class="highlight">Dès 685€</span></b><br/>225x209cm le stand croubé traditionnel complet <br />• <u><b>stand parapluie 3x4 courbé</u>: <span class="highlight">Dès 760€</span></b><br/>225x280cm stand parapluie courbé de 2,80 mètres à monter avec ses lés imprimés et ses retours.<br/></span>
+            <span class="helpText" id="helpText2" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_1" name="q1_option" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
            <option value="">choisir les dimensions... </option>
             <optgroup label="Courbé avec kit complet*">
+              <option value="1">Recto 3x2 </option>
               <option value="2">Recto 3x3 </option>
               <option value="3">Recto 3x4 </option>
+              <option value="4">Recto Verso 3x3 </option>
+              <option value="5">Recto Verso 3x4 </option>
             </optgroup>
             <optgroup label="Droit avec kit complet*">
+              <option value="6">Recto 3x2 </option>
               <option value="7">Recto 3x3 </option>
               <option value="8">Recto 3x4 </option>
+              <option value="9">Recto Verso 3x3 </option>
+              <option value="10">Recto Verso 3x4 </option>
             </optgroup>
             <optgroup label="*(Valise comptoir imprimée et tablette + 2 spots)">
             </optgroup>
@@ -56,7 +62,7 @@
         <li class="form-line" id="id_2">
           <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText3" style="visibility:hidden;">• <u><b>2 Spots halogène 35w</u>: <span class="highlight">Dès 80,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/></span>
+            <span class="helpText" id="helpText3" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_2" name="q2_option" onchange="JKakemono.czyscpola(); ">
@@ -69,7 +75,7 @@
         <li class="form-line" id="id_50">
           <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Stand tissu droit recto </u>: <span class="highlight">Dès 468€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />• <u><b>Stand tissu droit recto verso</u>: <span class="highlight">Dès 638€</span></b><br/>le stand tissu meilleur prix en ligne. Disponible de 3x3 (226x226cm) à 3x5 (226x375cm). le verso est également imprimé sur de la maille extensible 260g<br/></span>
+            <span class="helpText" id="helpText4" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_50" name="q50_option" onChange="JKakemono.czyscpola(); ">
@@ -94,7 +100,7 @@
         <li class="form-line" id="id_500">
           <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>Stand tissu courbé recto </u>: <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />• <u><b>Stand tissu courbé recto verso</u>: <span class="highlight">Dès 1106€</span></b><br/>le meilleur prix stand tissu en ligne. Disponible de 3x3 (226x208cm) à 3x4 (226x280cm). le verso est également imprimé sur de la maille extensible 260g<br/></span>
+            <span class="helpText" id="helpText5" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_500" name="q500_option" onChange="JKakemono.czyscpola(); ">
@@ -113,7 +119,7 @@
         <li class="form-line" id="id_51">
           <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>2 spots halogènes 150w</u>: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br /></span>
+            <span class="helpText" id="helpText6" style="visibility:hidden;"><br /><br /><br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_51" name="q51_option" onchange="JKakemono.czyscpola(); ">
