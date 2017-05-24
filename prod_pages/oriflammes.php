@@ -204,10 +204,10 @@
 
       <div id="container">
         <div id="slides">
-          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/test-1.jpg" alt="exemple réalisation oriflamme" /></li>
-          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/test-2.jpg" alt="exemple réalisation oriflamme" /></li>
-          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/test-3.jpg" alt="exemple réalisation oriflamme" /></li>
-          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-1.jpg" alt="oriflamme pas cher" title="beachflag pas cher" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-2.jpg" alt="beachflag personnalisé" title="devis oriflamme" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-3.jpg" alt="windflag pas cher" title="oriflamme devis en ligne" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
         </div>
       </div>
 
@@ -405,13 +405,13 @@ if ( ($('input_1').value) ) {
 
 		if ($('input_21').value == 'oriflamme-54x190' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
-			impression = 34;}
+			impression = 31;}
 			if ($('input_9').value == '2' || $('input_9').value == '3' || $('input_9').value == '4' || $('input_9').value== '5') {
-			impression = 29;}
+			impression = 28;}
 			if ($('input_9').value == '6' || $('input_9').value == '7' || $('input_9').value == '8' || $('input_9').value == '9')
-			{impression = 25.76;}
+			{impression = 25.75;}
 			if ($('input_9').value >= 10) {
-			impression = 23.18;}
+			impression = 23.15;}
 			ktorywymiar = '54x240 recto';
 			p1=0.25;
 		}
@@ -696,7 +696,7 @@ if ( ($('input_1').value) ) {
 			ktorapodstawa='Pied 4 branches + bouée';
 		}
 	if ($('input_6').value == 'Pied piquet') {
-			pied=16;
+			pied=12;
 			ktorapodstawa='Pied piquet';
 			p3=1.3;
 		}
@@ -706,7 +706,7 @@ if ( ($('input_1').value) ) {
 			ktorapodstawa='Pied voiture';
 		}
 	if ($('input_6').value == 'Pied à visser') {
-			pied=12;
+			pied=10;
 			p3=0.75;
 			ktorapodstawa='Pied à visser';
 		}
@@ -742,7 +742,7 @@ if ( ($('input_1').value) ) {
 
 	/* marge*/
 	if ($('input_9').value =='1') {
-		marge = (prixHT*58)/100;}
+		marge = (prixHT*53)/100;}
 	if ($('input_9').value == '2' || $('input_9').value == '3' || $('input_9').value == '4' || $('input_9').value == '5') {
 		marge = (prixHT*52)/100;}
 	if ($('input_9').value == '6' || $('input_9').value == '7' || $('input_9').value == '8' || $('input_9').value == '9') {

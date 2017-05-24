@@ -104,7 +104,7 @@
                       • <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
                     </span>
                   </span>
-                  
+
                   <select class="form-dropdown validate[required]" id="input_maquette" name="q6_maquette" onchange="JKakemono.czyscpola(); ">
                       <option value="">Visuel...</option>
                       <option value="fb">France banderole crée la mise en page</option>
@@ -198,12 +198,11 @@
   <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
 
   <div id="container">
-
     <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-1.jpg" alt="tente publicitaire pas cher" title="tente pub économique" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-3.jpg" alt="tente barnum pas cher" title="barnum bas prix" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-2.jpg" alt="barnum tente plublicitaire pas cher" title="tente publicitaire discount" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
     </div>
   </div>
 
@@ -212,6 +211,8 @@
   <div id="preview_imag3"></div>
   <div id="preview_imag4"></div>
   <div id="preview_imag5"></div>
+  <div id="preview_imag6"></div>
+  <div id="preview_imag7"></div>
 
 </div>
 
@@ -354,42 +355,46 @@ ilosc=$('input_13').value;
 if ($('input_1').value == '2x2') {
 
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
-	{cena = (structure2x2+canopi2x2+mur2x2)*1.5*ilosc;}
+	{cena = (structure2x2+canopi2x2+mur2x2)*1.40*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
-	{cena+= (demimurA2x2+barredmA2x2)*1.5*ilosc;}
+	{cena+= (demimurA2x2+barredmA2x2)*1.40*ilosc;}
 	if ($('input_option').value == '2x Demi-mur')
-	{cena+= (demimurA2x2+barredmA2x2+demimurB2x2+barredmB2x2)*1.5*ilosc;}
+	{cena+= (demimurA2x2+barredmA2x2+demimurB2x2+barredmB2x2)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire')
-	{cena+= (mur2x2)*1.5*ilosc;}
+	{cena+= (mur2x2)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur')
-	{cena+= (mur2x2+demimurA2x2+barredmA2x2)*1.5*ilosc;}
+	{cena+= (mur2x2+demimurA2x2+barredmA2x2)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
-	{cena+= (mur2x2+demimurA2x2+barredmA2x2+demimurB2x2+barredmB2x2)*1.5*ilosc;}
+	{cena+= (mur2x2+demimurA2x2+barredmA2x2+demimurB2x2+barredmB2x2)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
-	{cena+= (mur2x2perso)*1.4*ilosc;}
+	{cena+= (mur2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') && (($('input_option').value == 'Mur supplémentaire') || ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur') || ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur') ))
-	{cena+= (mur2x2perso+mur2x2perso)*1.4*ilosc;}
+	{cena+= (mur2x2perso+mur2x2perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (mur2x2perso+demimurA2x2perso)*1.4*ilosc;}
+	{cena+= (mur2x2perso+demimurA2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.4*ilosc;}
+	{cena+= (mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (mur2x2perso+mur2x2perso+demimurA2x2perso)*1.4*ilosc;}
+	{cena+= (mur2x2perso+mur2x2perso+demimurA2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (mur2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.4*ilosc;}
+	{cena+= (mur2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.32*ilosc;}
+
+
 
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
-	{cena+= (fronton2x2perso+mur2x2perso)*1.4*ilosc;}
+	{cena+= (fronton2x2perso+mur2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (fronton2x2perso+mur2x2perso+demimurA2x2perso)*1.4*ilosc;}
+	{cena+= (fronton2x2perso+mur2x2perso+demimurA2x2perso)*1.32*ilosc;}
+	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
+	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (fronton2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.4*ilosc;}
+	{cena+= (fronton2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso+demimurA2x2perso)*1.4*ilosc;}
+	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso+demimurA2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.4*ilosc;}
+	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.32*ilosc;}
 
 }
 
@@ -397,209 +402,219 @@ if ($('input_1').value == '2x2') {
 if ($('input_1').value == '2x3') {
 
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
-	{cena = (structure2x3+canopi2x3+mur2x3)*1.5*ilosc;}
+	{cena = (structure2x3+canopi2x3+mur2x3)*1.40*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
-	{cena+= (demimurA2x3+barredmA2x3)*1.5*ilosc;}
+	{cena+= (demimurA2x3+barredmA2x3)*1.40*ilosc;}
 	if ($('input_option').value == '2x Demi-mur')
-	{cena+= (demimurA2x3+barredmA2x3+demimurB2x3+barredmB2x3)*1.5*ilosc;}
+	{cena+= (demimurA2x3+barredmA2x3+demimurB2x3+barredmB2x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire')
-	{cena+= (mur2x3)*1.5*ilosc;}
+	{cena+= (mur2x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur')
-	{cena+= (mur2x3+demimurA2x3+barredmA2x3)*1.5*ilosc;}
+	{cena+= (mur2x3+demimurA2x3+barredmA2x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
-	{cena+= (mur2x3+demimurA2x3+barredmA2x3+demimurB2x3+barredmB2x3)*1.5*ilosc;}
+	{cena+= (mur2x3+demimurA2x3+barredmA2x3+demimurB2x3+barredmB2x3)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
-	{cena+= (mur2x3perso)*1.4*ilosc;}
+	{cena+= (mur2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') && (($('input_option').value == 'Mur supplémentaire') || ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur') || ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur') ))
-	{cena+= (mur2x3perso+mur2x3perso)*1.4*ilosc;}
+	{cena+= (mur2x3perso+mur2x3perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (mur2x3perso+demimurA2x3perso)*1.4*ilosc;}
+	{cena+= (mur2x3perso+demimurA2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.4*ilosc;}
+	{cena+= (mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (mur2x3perso+mur2x3perso+demimurA2x3perso)*1.4*ilosc;}
+	{cena+= (mur2x3perso+mur2x3perso+demimurA2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (mur2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.4*ilosc;}
+	{cena+= (mur2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
-	{cena+= (fronton2x3perso+mur2x3perso)*1.4*ilosc;}
+	{cena+= (fronton2x3perso+mur2x3perso)*1.32*ilosc;}
+	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
+	{cena+= (fronton2x3perso+mur2x3perso+mur2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (fronton2x3perso+mur2x3perso+demimurA2x3perso)*1.4*ilosc;}
+	{cena+= (fronton2x3perso+mur2x3perso+demimurA2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (fronton2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.4*ilosc;}
+	{cena+= (fronton2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (fronton2x3perso+mur2x3perso+mur2x3perso+demimurA2x3perso)*1.4*ilosc;}
+	{cena+= (fronton2x3perso+mur2x3perso+mur2x3perso+demimurA2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (fronton2x3perso+mur2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.4*ilosc;}
+	{cena+= (fronton2x3perso+mur2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.32*ilosc;}
 }
 
 if ($('input_1').value == '3x3') {
 
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
-	{cena = (structure3x3+canopi3x3+mur3x3)*1.5*ilosc;}
+	{cena = (structure3x3+canopi3x3+mur3x3)*1.40*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
-	{cena+= (demimurA3x3+barredmA3x3)*1.5*ilosc;}
+	{cena+= (demimurA3x3+barredmA3x3)*1.40*ilosc;}
 	if ($('input_option').value == '2x Demi-mur')
-	{cena+= (demimurA3x3+barredmA3x3+demimurB3x3+barredmB3x3)*1.5*ilosc;}
+	{cena+= (demimurA3x3+barredmA3x3+demimurB3x3+barredmB3x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire')
-	{cena+= (mur3x3)*1.5*ilosc;}
+	{cena+= (mur3x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur')
-	{cena+= (mur3x3+demimurA3x3+barredmA3x3)*1.5*ilosc;}
+	{cena+= (mur3x3+demimurA3x3+barredmA3x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
-	{cena+= (mur3x3+demimurA3x3+barredmA3x3+demimurB3x3+barredmB3x3)*1.5*ilosc;}
+	{cena+= (mur3x3+demimurA3x3+barredmA3x3+demimurB3x3+barredmB3x3)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
-	{cena+= (mur3x3perso)*1.4*ilosc;}
+	{cena+= (mur3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') && (($('input_option').value == 'Mur supplémentaire') || ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur') || ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur') ))
-	{cena+= (mur3x3perso+mur3x3perso)*1.4*ilosc;}
+	{cena+= (mur3x3perso+mur3x3perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (mur3x3perso+demimurA3x3perso)*1.4*ilosc;}
+	{cena+= (mur3x3perso+demimurA3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.4*ilosc;}
+	{cena+= (mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (mur3x3perso+mur3x3perso+demimurA3x3perso)*1.4*ilosc;}
+	{cena+= (mur3x3perso+mur3x3perso+demimurA3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (mur3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.4*ilosc;}
+	{cena+= (mur3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
-	{cena+= (fronton3x3perso+mur3x3perso)*1.4*ilosc;}
+	{cena+= (fronton3x3perso+mur3x3perso)*1.32*ilosc;}
+	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
+	{cena+= (fronton3x3perso+mur3x3perso+mur3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (fronton3x3perso+mur3x3perso+demimurA3x3perso)*1.4*ilosc;}
+	{cena+= (fronton3x3perso+mur3x3perso+demimurA3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (fronton3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.4*ilosc;}
+	{cena+= (fronton3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (fronton3x3perso+mur3x3perso+mur3x3perso+demimurA3x3perso)*1.4*ilosc;}
+	{cena+= (fronton3x3perso+mur3x3perso+mur3x3perso+demimurA3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (fronton3x3perso+mur3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.4*ilosc;}
+	{cena+= (fronton3x3perso+mur3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.32*ilosc;}
 }
 
 
 if ($('input_1').value == '3x4') {
 
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
-	{cena = (structure3x4+canopi3x4+mur3x4)*1.5*ilosc;}
+	{cena = (structure3x4+canopi3x4+mur3x4)*1.40*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
-	{cena+= (demimurA3x4+barredmA3x4)*1.5*ilosc;}
+	{cena+= (demimurA3x4+barredmA3x4)*1.40*ilosc;}
 	if ($('input_option').value == '2x Demi-mur')
-	{cena+= (demimurA3x4+barredmA3x4+demimurB3x4+barredmB3x4)*1.5*ilosc;}
+	{cena+= (demimurA3x4+barredmA3x4+demimurB3x4+barredmB3x4)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire')
-	{cena+= (mur3x4)*1.5*ilosc;}
+	{cena+= (mur3x4)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur')
-	{cena+= (mur3x4+demimurA3x4+barredmA3x4)*1.5*ilosc;}
+	{cena+= (mur3x4+demimurA3x4+barredmA3x4)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
-	{cena+= (mur3x4+demimurA3x4+barredmA3x4+demimurB3x4+barredmB3x4)*1.5*ilosc;}
+	{cena+= (mur3x4+demimurA3x4+barredmA3x4+demimurB3x4+barredmB3x4)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
-	{cena+= (mur3x4perso)*1.4*ilosc;}
+	{cena+= (mur3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') && (($('input_option').value == 'Mur supplémentaire') || ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur') || ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur') ))
-	{cena+= (mur3x4perso+mur3x4perso)*1.4*ilosc;}
+	{cena+= (mur3x4perso+mur3x4perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (mur3x4perso+demimurA3x4perso)*1.4*ilosc;}
+	{cena+= (mur3x4perso+demimurA3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.4*ilosc;}
+	{cena+= (mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (mur3x4perso+mur3x4perso+demimurA3x4perso)*1.4*ilosc;}
+	{cena+= (mur3x4perso+mur3x4perso+demimurA3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (mur3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.4*ilosc;}
+	{cena+= (mur3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
-	{cena+= (fronton3x4perso+mur3x4perso)*1.4*ilosc;}
+	{cena+= (fronton3x4perso+mur3x4perso)*1.32*ilosc;}
+	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
+	{cena+= (fronton3x4perso+mur3x4perso+mur3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (fronton3x4perso+mur3x4perso+demimurA3x4perso)*1.4*ilosc;}
+	{cena+= (fronton3x4perso+mur3x4perso+demimurA3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (fronton3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.4*ilosc;}
+	{cena+= (fronton3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (fronton3x4perso+mur3x4perso+mur3x4perso+demimurA3x4perso)*1.4*ilosc;}
+	{cena+= (fronton3x4perso+mur3x4perso+mur3x4perso+demimurA3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (fronton3x4perso+mur3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.4*ilosc;}
+	{cena+= (fronton3x4perso+mur3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.32*ilosc;}
 }
 
 
 if ($('input_1').value == '3x6') {
 
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
-	{cena = (structure3x6+canopi3x6+mur3x6)*1.5*ilosc;}
+	{cena = (structure3x6+canopi3x6+mur3x6)*1.40*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
-	{cena+= (demimurA3x6+barredmA3x6)*1.5*ilosc;}
+	{cena+= (demimurA3x6+barredmA3x6)*1.40*ilosc;}
 	if ($('input_option').value == '2x Demi-mur')
-	{cena+= (demimurA3x6+barredmA3x6+demimurB3x6+barredmB3x6)*1.5*ilosc;}
+	{cena+= (demimurA3x6+barredmA3x6+demimurB3x6+barredmB3x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire')
-	{cena+= (mur3x6)*1.5*ilosc;}
+	{cena+= (mur3x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur')
-	{cena+= (mur3x6+demimurA3x6+barredmA3x6)*1.5*ilosc;}
+	{cena+= (mur3x6+demimurA3x6+barredmA3x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
-	{cena+= (mur3x6+demimurA3x6+barredmA3x6+demimurB3x6+barredmB3x6)*1.5*ilosc;}
+	{cena+= (mur3x6+demimurA3x6+barredmA3x6+demimurB3x6+barredmB3x6)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
-	{cena+= (mur3x6perso)*1.4*ilosc;}
+	{cena+= (mur3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') && (($('input_option').value == 'Mur supplémentaire') || ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur') || ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur') ))
-	{cena+= (mur3x6perso+mur3x6perso)*1.4*ilosc;}
+	{cena+= (mur3x6perso+mur3x6perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (mur3x6perso+demimurA3x6perso)*1.4*ilosc;}
+	{cena+= (mur3x6perso+demimurA3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.4*ilosc;}
+	{cena+= (mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (mur3x6perso+mur3x6perso+demimurA3x6perso)*1.4*ilosc;}
+	{cena+= (mur3x6perso+mur3x6perso+demimurA3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (mur3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.4*ilosc;}
+	{cena+= (mur3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
-	{cena+= (fronton3x6perso+mur3x6perso)*1.4*ilosc;}
+	{cena+= (fronton3x6perso+mur3x6perso)*1.32*ilosc;}
+	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
+	{cena+= (fronton3x6perso+mur3x6perso+mur3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (fronton3x6perso+mur3x6perso+demimurA3x6perso)*1.4*ilosc;}
+	{cena+= (fronton3x6perso+mur3x6perso+demimurA3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (fronton3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.4*ilosc;}
+	{cena+= (fronton3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (fronton3x6perso+mur3x6perso+mur3x6perso+demimurA3x6perso)*1.4*ilosc;}
+	{cena+= (fronton3x6perso+mur3x6perso+mur3x6perso+demimurA3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (fronton3x6perso+mur3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.4*ilosc;}
+	{cena+= (fronton3x6perso+mur3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.32*ilosc;}
 }
 
 
 if ($('input_1').value == '4x6') {
 
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
-	{cena = (structure4x6+canopi4x6+mur4x6)*1.5*ilosc;}
+	{cena = (structure4x6+canopi4x6+mur4x6)*1.40*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
-	{cena+= (demimurA4x6+barredmA4x6)*1.5*ilosc;}
+	{cena+= (demimurA4x6+barredmA4x6)*1.40*ilosc;}
 	if ($('input_option').value == '2x Demi-mur')
-	{cena+= (demimurA4x6+barredmA4x6+demimurB4x6+barredmB4x6)*1.5*ilosc;}
+	{cena+= (demimurA4x6+barredmA4x6+demimurB4x6+barredmB4x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire')
-	{cena+= (mur4x6)*1.5*ilosc;}
+	{cena+= (mur4x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur')
-	{cena+= (mur4x6+demimurA4x6+barredmA4x6)*1.5*ilosc;}
+	{cena+= (mur4x6+demimurA4x6+barredmA4x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
-	{cena+= (mur4x6+demimurA4x6+barredmA4x6+demimurB4x6+barredmB4x6)*1.5*ilosc;}
+	{cena+= (mur4x6+demimurA4x6+barredmA4x6+demimurB4x6+barredmB4x6)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
-	{cena+= (mur4x6perso)*1.4*ilosc;}
+	{cena+= (mur4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') && (($('input_option').value == 'Mur supplémentaire') || ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur') || ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur') ))
-	{cena+= (mur4x6perso+mur4x6perso)*1.4*ilosc;}
+	{cena+= (mur4x6perso+mur4x6perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (mur4x6perso+demimurA4x6perso)*1.4*ilosc;}
+	{cena+= (mur4x6perso+demimurA4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.4*ilosc;}
+	{cena+= (mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (mur4x6perso+mur4x6perso+demimurA4x6perso)*1.4*ilosc;}
+	{cena+= (mur4x6perso+mur4x6perso+demimurA4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (mur4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.4*ilosc;}
+	{cena+= (mur4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.32*ilosc;}
 
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
-	{cena+= (fronton4x6perso+mur4x6perso)*1.4*ilosc;}
+	{cena+= (fronton4x6perso+mur4x6perso)*1.32*ilosc;}
+	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
+	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
-	{cena+= (fronton4x6perso+mur4x6perso+demimurA4x6perso)*1.4*ilosc;}
+	{cena+= (fronton4x6perso+mur4x6perso+demimurA4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '2x Demi-mur'))
-	{cena+= (fronton4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.4*ilosc;}
+	{cena+= (fronton4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 1x Demi-mur'))
-	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso+demimurA4x6perso)*1.4*ilosc;}
+	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso+demimurA4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
-	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.4*ilosc;}
+	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.32*ilosc;}
 }
 
 

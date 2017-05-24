@@ -75,18 +75,21 @@
           <select class="form-dropdown validate[required]" id="input_50" name="q50_option" onChange="JKakemono.czyscpola(); ">
             <option value="">choisir les dimensions... </option>
             <optgroup label="Recto Avec Retour">
-              <option value="1">Recto Avec Retour 3x1 </option>
-              <option value="2">Recto Avec Retour 3x2 </option>
-              <option value="3">Recto Avec Retour 3x3 </option>
-              <option value="4">Recto Avec Retour 3x4 </option>
-              <option value="5">Recto Avec Retour 3x5 </option>
+              <option value="3x1 R">Recto Avec Retour 3x1 </option>
+              <option value="3x2 R">Recto Avec Retour 3x2 </option>
+              <option value="3x3 R">Recto Avec Retour 3x3 </option>
+              <option value="3x4 R">Recto Avec Retour 3x4 </option>
+              <option value="3x5 R">Recto Avec Retour 3x5 </option>
+              <option value="3x6 R">Recto Avec Retour 3x6 </option>
+              <option value="3x7 R">Recto Avec Retour 3x7 </option>
+              <option value="3x8 R">Recto Avec Retour 3x8 </option>
             </optgroup>
             <optgroup label="Recto Verso">
-              <option value="6">Recto Verso 3x1 </option>
-              <option value="7">Recto Verso 3x2 </option>
-              <option value="8">Recto Verso 3x3 </option>
-              <option value="9">Recto Verso 3x4 </option>
-              <option value="10">Recto Verso 3x5 </option>
+              <option value="3x1 RV">Recto Verso 3x1 </option>
+              <option value="3x2 RV">Recto Verso 3x2 </option>
+              <option value="3x3 RV">Recto Verso 3x3 </option>
+              <option value="3x4 RV">Recto Verso 3x4 </option>
+              <option value="3x5 RV">Recto Verso 3x5 </option>
             </optgroup>
           </select>
         </li>
@@ -102,10 +105,6 @@
             <optgroup label="Recto Avec Retour">
               <option value="3">Recto Avec Retour 3x3 </option>
               <option value="4">Recto Avec Retour 3x4 </option>
-            </optgroup>
-            <optgroup label="Recto Verso">
-              <option value="8">Recto Verso 3x3 </option>
-              <option value="9">Recto Verso 3x4 </option>
             </optgroup>
           </select>
         </li>
@@ -233,10 +232,10 @@
   <div id="container">
 
     <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-1.jpg" alt="stand exposition meilleur prix" title="stand expo pas cher" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-2.jpg" alt="devis en ligne stand expo" title="stand parapluie devis" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-3.jpg" alt="stand parapluie pas cher" title="stand exposition personnalisé" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
     </div>
   </div>
 
@@ -362,75 +361,104 @@ var transport=0;
 var ktorytyp='';
 var cedzik='';
 var dodatkowaopcja='';
+var tissu='';
+var structure='';
+var pack='';
+var trans='';
 var prliv='';
 var date_panier='';
 var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
 
 if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_1').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_50').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_500').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value))) ) {
+
+ ////////////////tissu droit/////
   if ($('input_0').value == 'Tissu') {
-	transport = 49;
-	if ($('input_50').value == '1' ) {
-		cena = 439;
+	trans = 45.145;
+	if ($('input_50').value == '3x1 R' ) {
+		tissu = 170;
+		structure = 105.30;
 		dodatkowaopcja += '<br />- Recto simple 3x1 Droit';
 	}
-	if ($('input_50').value == '2' ) {
-		cena = 529;
+	if ($('input_50').value == '3x2 R' ) {
+		tissu = 210;
+		structure = 120.90;
 		dodatkowaopcja += '<br />- Recto simple 3x2 Droit';
 	}
-	if ($('input_50').value == '3' ) {
-		cena = 599;
+	if ($('input_50').value == '3x3 R' ) {
+		tissu = 219;
+		structure = 128;
 		dodatkowaopcja += '<br />- Recto simple 3x3 Droit';
 	}
-	if ($('input_50').value == '4' ) {
-		cena = 774;
+	if ($('input_50').value == '3x4 R' ) {
+		tissu = 273;
+		structure = 165.60;
 		dodatkowaopcja += '<br />- Recto simple 3x4 Droit';
 	}
-	if ($('input_50').value == '5' ) {
-		cena = 969;
+	if ($('input_50').value == '3x5 R' ) {
+		tissu = 355;
+		structure = 201.60;
 		dodatkowaopcja += '<br />- Dimensions 3x5 Droit';
 	}
-	if ($('input_50').value == '6' ) {
-		cena = 609;
+	if ($('input_50').value == '3x6 R' ) {
+		tissu = 487;
+		structure = 300;
+		dodatkowaopcja += '<br />- Dimensions 3x6 Droit';
+	}
+	if ($('input_50').value == '3x7 R' ) {
+		tissu = 583;
+		structure = 345;
+		dodatkowaopcja += '<br />- Dimensions 3x7 Droit';
+	}
+	if ($('input_50').value == '3x8 R' ) {
+		tissu = 596;
+		structure = 390;
+		dodatkowaopcja += '<br />- Dimensions 3x8 Droit';
+	}
+
+	if ($('input_50').value == '3x1 RV' ) {
+		tissu = 292;
+		structure = 117;
 		dodatkowaopcja += '<br />- Recto Verso 3x1 Droit';
 	}
-	if ($('input_50').value == '7' ) {
-		cena = 794;
+	if ($('input_50').value == '3x2 RV' ) {
+		tissu = 400;
+		structure = 144.30;
 		dodatkowaopcja += '<br />- Recto Verso 3x2 Droit';
 	}
-	if ($('input_50').value == '8' ) {
-		cena = 979;
+	if ($('input_50').value == '3x3 RV' ) {
+		tissu = 453;
+		structure = 175.50;
 		dodatkowaopcja += '<br />- Recto Verso 3x3 Droit';
 	}
-	if ($('input_50').value == '9' ) {
-		cena = 1224;
+	if ($('input_50').value == '3x4 RV' ) {
+		tissu = 555;
+		structure = 226.2;
 		dodatkowaopcja += '<br />- Recto Verso 3x4 Droit';
 	}
-	if ($('input_50').value == '10' ) {
-		cena = 1504;
+	if ($('input_50').value == '3x5 RV' ) {
+		tissu = 719;
+		structure = 276.90;
 		dodatkowaopcja += '<br />- Recto Verso 3x5 Droit';
 	}
-
+/////////////tissu courbé
 
 	if ($('input_500').value == '3' ) {
-		cena = 599*1.1;
+		tissu = 129.60;
+		structure = 219;
 		dodatkowaopcja += '<br />- Recto simple 3x3 Courbé';
 	}
 	if ($('input_500').value == '4' ) {
-		cena = 774*1.1;
+		tissu = 273;
+		structure = 165.60;
 		dodatkowaopcja += '<br />- Recto simple 3x4 Courbé';
 	}
-	if ($('input_500').value == '8' ) {
-		cena = 979*1.1;
-		dodatkowaopcja += '<br />- Recto Verso 3x3 Courbé';
-	}
-	if ($('input_500').value == '9' ) {
-		cena = 1224*1.1;
-		dodatkowaopcja += '<br />- Recto Verso 3x4 Courbé';
-	}
 
 
+	/////////////prix stand tissu
+	cena= (tissu+structure+trans)*1.40;
 	///////////////
+
 	if ($('input_51').value == '1' ) {
 		cena += 66;
 		dodatkowaopcja += '<br />- 2 spots hallogène 150w';
@@ -448,14 +476,6 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 		dodatkowaopcja += '<br />- non merci';
 	}
 
-	var ktodaje;
-	if ($('input_7').value == 'fb') {
-		cena+=40;
-		ktodaje = 'France banderole crée la maquette';
-	}
-	if ($('input_7').value == 'user') {
-		ktodaje = 'j’ai déjà crée la maquette';
-	}
 
 
 }
@@ -465,8 +485,9 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 
 ////
  if ($('input_0').value == 'Stand ExpoBag') {
-	cena = 649;
-	transport = 29;
+	pack = 649;
+	trans = 29;
+	cena = pack+trans;
 	if ($('input_2').value == '1' ) {
 		cena = cena+80;
 		dodatkowaopcja += '<br />- 2 spots hallogene 35w aluminium';
@@ -484,65 +505,68 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 
  }
 ////
-var cenapojedyncza = cena;
 
 	ilosc=$('input_8').value;
 
 
 if ($('input_0').value == 'Stand parapluie') {
-
-
+trans = 49;
+	/////// stand parrapluie courbé
 	if ($('input_1').value == '1' ) {
-		cena = 597.6;
+		pack = 233;
 		dodatkowaopcja += '<br />- 3x2-courbé recto<br />- 2225(h)x1600(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '2' ) {
-		cena = 655.7;
+		pack = 245;
 		dodatkowaopcja += '<br />- 3x3-courbé recto<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '3' ) {
-		cena = 730.4;
+		pack = 280;
 		dodatkowaopcja += '<br />- 3x4-courbé recto<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '4' ) {
-		cena = 796.8;
+		pack = 269;
 		dodatkowaopcja += '<br />- 3x3-courbé recto verso<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '5' ) {
-		cena = 929.6;
+		pack = 328;
 		dodatkowaopcja += '<br />- 3x4-courbé recto verso<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
-	///////
+	/////// stand parrapluie droit
 
 	if ($('input_1').value == '6' ) {
-		cena = 597.6;
+		pack = 233;
 		dodatkowaopcja += '<br />- 3x2-droit recto<br />- 2225(h)x1513(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '7' ) {
-		cena = 655.7;
+		pack = 245;
 		dodatkowaopcja += '<br />- 3x3-droit recto<br />- 2225(h)x2243(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '8' ) {
-		cena = 730.4;
+		pack = 280;
 		dodatkowaopcja += '<br />- 3x4-droit recto<br />- 2225(h)x2973(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '9' ) {
-		cena = 796.8;
+		pack = 269;
 		dodatkowaopcja += '<br />- 3x3-droit recto verso<br />- 2225(h)x2243(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
 
 	if ($('input_1').value == '10' ) {
-		cena = 929.6;
+		pack = 328;
 		dodatkowaopcja += '<br />- 3x4-droit recto verso<br />- 2225(h)x2973(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
 	}
+
+	/////////////prix stand tissu
+	cena= (pack+trans)*2.35;
+	///////////////
 
 
 }
@@ -573,7 +597,7 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 						}
 						if (etiquette == false) {
 							transport=0;
-							cena+= 29.00;
+
 						}
 
 						///////////

@@ -203,7 +203,7 @@
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/test-3.jpg" alt="commencez votre devis en ligne" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
     </div>
   </div>
 

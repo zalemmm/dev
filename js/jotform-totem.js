@@ -631,37 +631,72 @@ JotForm = {
 								preview_info_ul.insert('<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>');
 							}
 						}*/
+            
+            var imag  = $("preview_imag");
+            var imag1 = $("preview_imag1");
+            var imag2 = $("preview_imag2");
+            var imag3 = $("preview_imag3");
+            var imag4 = $("preview_imag4");
+            var imag5 = $("preview_imag5");
 
 						/////////////////////taille//////////
 
 				    if ($('input_1').value == 'Extérieur') {
               $('container').style.display="none";
-              $("preview_imag2").style.backgroundImage="none";
-							$("preview_imag").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
+              imag2.style.backgroundImage="none";
+							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
 						}
 						if ($('input_1').value == 'x-screen') {
               $('container').style.display="none";
-              $("preview_imag").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
-							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen.png)";
-              $("preview_imag2").style.animation="anim .5s 1";
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen180.png)";
+              imag2.style.animation="anim .5s 1";
 						}
 						if ($('input_1').value == 'clipit') {
               $('container').style.display="none";
-              $("preview_imag").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
-							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/clipit.png)";
-              $("preview_imag2").style.animation="anim1 .5s 1";
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/clipit1.png)";
+              imag2.style.animation="anim1 .5s 1";
 						}
 
 						if (($('input_1').value == 'Extérieur') && ($('input_2').value == 'Mistral')) {
-							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral.png)";
-              $("preview_imag2").style.animation="anim .5s 1";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral200.png)";
+              imag2.style.animation="anim .5s 1";
 						}
 						if (($('input_1').value == 'Extérieur') && ($('input_2').value == 'Blizzard')) {
-							$("preview_imag2").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard.png)";
-              $("preview_imag2").style.animation="anim1 .5s 1";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard200.png)";
+              imag2.style.animation="anim1 .5s 1";
 						}
-				}
 
+            //taille blizzard
+            if (($('input_21').value == '60x160')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard160.png)";
+              imag2.style.animation="anim .5s 1";
+						}
+            if (($('input_21').value == '80x200')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/blizzard200.png)";
+              imag2.style.animation="anim1 .5s 1";
+						}
+
+            //taille x-screen
+            if (($('input_3').value == '60x160')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen160.png)";
+              imag2.style.animation="anim2 .5s 1";
+						}
+            if (($('input_3').value == '60x180')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen180.png)";
+              imag2.style.animation="anim3 .5s 1";
+						}
+
+            // sac
+            //if (($('input_23').value == 'sac')) {
+							//imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/bag.png)";
+              //imag3.style.animation="anim1 .5s 1";
+						//}else{
+              //imag3.style.backgroundImage="none";
+            //}
+
+				  }
 //
         }
 

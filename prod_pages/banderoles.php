@@ -378,10 +378,10 @@
 
 		<div id="container">
 			<div id="slides">
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-1.jpg" alt="exemple réalisation banderole" /></li>
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-2.jpg" alt="exemple réalisation banderole" /></li>
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-0.jpg" alt="exemple réalisation banderole" /></li>
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/banderole-1.jpg" alt="banderole pas cher" title="bâche imprimée meilleur prix" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/banderole-2.jpg" alt="banderole sur mesure"  title="impression grand format pas cher"/></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/banderole-0.jpg" alt="bâche imprimée" title="banderoles évènements"/></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
 			</div>
 		</div>
 

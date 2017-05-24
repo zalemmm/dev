@@ -5,7 +5,16 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTexttype');" onmouseout="ukryjt('helpTexttype');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttype" style="visibility:hidden;">• <u><b>kakemono Roll-up FIRSTLINE</u>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />• <u><b>kakemono Roll-up BESTLINE</u>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>• <u><b>kakemono Roll-up LUXLINE</u>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />• <u><b>kakemono Roll-up RECTO/VERSO</u>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>• <u><b>kakemono Roll-up MINI</u>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3<br /> </span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTexttype');" onmouseout="ukryjt('helpTexttype');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTexttype" style="visibility:hidden;">
+							• <u><b>kakemono Roll-up FIRSTLINE</u>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
+							• <u><b>kakemono Roll-up BESTLINE</u>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
+							• <u><b>kakemono Roll-up LUXLINE</u>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />
+							• <u><b>kakemono Roll-up RECTO/VERSO</u>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>
+							• <u><b>kakemono Roll-up MINI</u>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3
+						</span>
+					</span>
 
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le type...</option>
@@ -14,11 +23,16 @@
 						<option class="option1" value="lux-line">Roll-Up Lux Line </option>
 						<option class="option2" value="double">Roll-Up Recto/Verso</option>
 						<option class="option1" value="mini">Roll-Up Mini</option>
+            <option class="option2" value="Mistral">Roll-Up Extérieur "MISTRAL" Recto/Verso</option>
 					</select>
 				</li>
 
 				<li class="form-line" id="id_21">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille1');" onmouseout="ukryjt('helpTexttaille1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille1" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTexttaille1');" onmouseout="ukryjt('helpTexttaille1');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille1" style="visibility:hidden;">
+							• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_21" name="q21_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="80x200">80x200 cm </option>
@@ -26,7 +40,11 @@
 				</li>
 
 				<li class="form-line" id="id_22">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille2');" onmouseout="ukryjt('helpTexttaille2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille2" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTexttaille2');" onmouseout="ukryjt('helpTexttaille2');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTexttaille2" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b>
+							<br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+						</span>
 					<select class="form-dropdown validate[required]" id="input_22" name="q22_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="60x200">60x200 cm </option>
@@ -40,7 +58,10 @@
 				</li>
 
 				<li class="form-line" id="id_23">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille3');" onmouseout="ukryjt('helpTexttaille3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille3" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTexttaille3');" onmouseout="ukryjt('helpTexttaille3');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille3" style="visibility:hidden;">
+						• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_23" name="q23_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="60x200">60x200 cm </option>
@@ -54,7 +75,10 @@
 				</li>
 
 				<li class="form-line" id="id_24">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille4');" onmouseout="ukryjt('helpTexttaille4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille4" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTexttaille4');" onmouseout="ukryjt('helpTexttaille4');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTexttaille4" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_24" name="q24_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="80x200">80x200 cm </option>
@@ -64,7 +88,10 @@
 				</li>
 
 				<li class="form-line" id="id_25">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille5');" onmouseout="ukryjt('helpTexttaille5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille5" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTexttaille5');" onmouseout="ukryjt('helpTexttaille5');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTexttaille5" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_25" name="q25_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="minia4">Mini roll-up A4 (21x29cm) </option>
@@ -72,8 +99,27 @@
 					</select>
 				</li>
 
+        <li class="form-line" id="id_26">
+          <span class="helpButton" onmouseover="pokazt('helpText26');" onmouseout="ukryjt('helpText26');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText26" style="visibility:hidden;">infos</span>
+					</span>
+          <select class="form-dropdown validate[required]" id="input_26" name="q26_dimensions4" onclick="JKakemono.czyscpola(); ">
+            <option class="titre" value="">choisir la taille du mistral...</option>
+            <option class="option1" value="80x200 1 visuel">80x200 cm (Recto/verso 1 visuel)</option>
+            <option class="option2" value="80x200 2 visuels">80x200 cm (Recto/verso 2 visuels)</option>
+          </select>
+        </li>
+
 				<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport1');" onmouseout="ukryjt('helpTextsupport1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport1" style="visibility:hidden;">• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport1');" onmouseout="ukryjt('helpTextsupport1');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsupport1" style="visibility:hidden;">
+							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
+							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
+							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+						</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
@@ -82,7 +128,14 @@
 				</li>
 
 				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport2');" onmouseout="ukryjt('helpTextsupport2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport2" style="visibility:hidden;">• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport2');" onmouseout="ukryjt('helpTextsupport2');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsupport2" style="visibility:hidden;">
+							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
+							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
+							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+						</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
@@ -93,7 +146,14 @@
 				</li>
 
 				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport3');" onmouseout="ukryjt('helpTextsupport3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport3" style="visibility:hidden;">• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport3');" onmouseout="ukryjt('helpTextsupport3');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsupport3" style="visibility:hidden;">
+							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
+							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
+							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+						</span>
 					<select class="form-dropdown validate[required]" id="input_33" name="q33_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
@@ -104,7 +164,13 @@
 				</li>
 
 				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport4');" onmouseout="ukryjt('helpTextsupport4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport4" style="visibility:hidden;">• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport4');" onmouseout="ukryjt('helpTextsupport4');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
+							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
+							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
+							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+						</span>
 					<select class="form-dropdown validate[required]" id="input_34" name="q34_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
@@ -113,7 +179,14 @@
 				</li>
 
 				<li class="form-line" id="id_35">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport5');" onmouseout="ukryjt('helpTextsupport5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport5" style="visibility:hidden;">• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextsupport5');" onmouseout="ukryjt('helpTextsupport5');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsupport5" style="visibility:hidden;">
+							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
+							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
+							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+						</span>
 					<select class="form-dropdown validate[required]" id="input_35" name="q35_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
@@ -122,7 +195,13 @@
 				</li>
 
 				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpTextspot');" onmouseout="ukryjt('helpTextspot');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextspot" style="visibility:hidden;">• <u><b>Option Eclairage</u>:</b><br/>Mini Spot pince halogène 35w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>• <u><b>Aucune option:</b></u><br/>... :) Aucune option.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextspot');" onmouseout="ukryjt('helpTextspot');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextspot" style="visibility:hidden;">
+							• <u><b>Option Eclairage</u>:</b><br/>Mini Spot pince halogène 35w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>
+							• <u><b>Aucune option:</b></u><br/>... :) Aucune option.<br/>
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_maquette4" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir une option...</option>
 						<option class="option1" value="aucune">aucune</option>
@@ -131,7 +210,13 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+							• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">fichier d'impression...</option>
 						<option class="option1" value="fb">France banderole crée la mise en page</option>
@@ -236,10 +321,10 @@
 
 	<div id="container">
 		<div id="slides">
-			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/test-0.jpg" alt="exemple réalisation roll-up" /></li>
-			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/test-1.jpg" alt="exemple réalisation roll-up" /></li>
-			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/test-2.jpg" alt="exemple réalisation roll-up" /></li>
-			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/rollup-0.jpg" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/rollup-1.jpg" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/slide/rollup-2.jpg" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
+			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
 		</div>
 	</div>
 
@@ -352,7 +437,27 @@ jQuery(document).ready(function(){
 	jQuery('.delivery , .production').click(function(){
 
 		//alert(cena);
-		var pu=0;
+
+		 var perteH=0; var perteL=0;
+	  var h1=0; var h2=0;
+	  var l1=0; var l2=0;
+	  var metragefinal=0;
+	  var cenatotal='';
+	  var metraz=0;
+	  var metrazzaokraglony=0;
+	  var metrazzaokraglony1=0;
+	  var szerokosc=0;
+	  var wysokosc=0;
+	  var prixsupport=0;
+	  var poids='';///// poids total
+	  var p1='';////poids du support
+	  var p2='';////poids du structure
+	  var metrage=0;
+	  var structure=0;
+	  var fp='';
+    	var pu=0;
+
+
 		var cena=0; var cena2=0; var cenapojedyncza=0;
 		var rabat=0; var rabat2=0;
 		var suma=0; var suma2=0;
@@ -365,7 +470,7 @@ jQuery(document).ready(function(){
 		var eBox = document.getElementById('form-button-error2');
 		eBox.innerHTML='';
 
-		if ( ($('input_1').value) && ( ($('input_21').value) || ($('input_22').value) || ($('input_23').value) || ($('input_24').value) || ($('input_25').value) || ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_4').value) && ($('input_6').value))  && ($('input_7').value) ) {
+		if ( ($('input_1').value) && ( ($('input_21').value) || ($('input_22').value) || ($('input_23').value) || ($('input_24').value) || ($('input_25').value) || ($('input_26').value) || ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_4').value) && ($('input_6').value))  && ($('input_7').value) ) {
 
 			ilosc=$('input_7').value;
 
@@ -763,6 +868,119 @@ jQuery(document).ready(function(){
 				dodatkowaopcja='<br />- '+$('input_25').value;
 
 			}
+
+
+
+
+
+			////////mistral////
+		if ($('input_1').value == 'Mistral'){
+			////////Laize////
+      	szerokosc=0.8; wysokosc=2;
+      	metraz = szerokosc * wysokosc;
+      	metraz = fixstr(metraz);
+      	var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
+      	metrazzaokraglony = Math.round(metrazzaokraglony1);
+
+
+      	if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
+      	if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
+      	if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
+
+      	if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
+      	if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
+      	if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
+
+      	if (perteH < perteL){metrage = szerokosc*h1;}
+      	else if (perteH > perteL){metrage = wysokosc*l1;}
+      	else if(perteH == perteL){metrage = wysokosc*l1;}
+
+      	ilosc=$('input_7').value;
+      	if ($('input_7').value) {
+      		metragefinal=metrage*ilosc;
+  	    }
+
+
+		if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
+			p1=(metraz*0.55)*ilosc;
+
+
+
+
+          if ($('input_26').value == '80x200 1 visuel') {
+			 structure=86.4*1.8;
+            cena=structure+(cenatotal/ilosc);
+            ktorytyp=$('input_26').value;
+
+			p2=3*ilosc;
+          }
+          if ($('input_26').value == '80x200 2 visuels') {
+			structure=86.4*1.8;
+            cena=structure+((cenatotal*1.5)/ilosc);
+            ktorytyp=$('input_26').value;
+
+			p2=3*ilosc;
+          }
+
+
+		///////////////////poids mistral
+		poids=(p1+p2);
+  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
+  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
+  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
+  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
+  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
+  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
+  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
+  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
+  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
+  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
+     if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
+  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
+  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
+  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
+     if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
+	   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
+	   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
+	   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
+     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
+     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
+		///////////////////
+
+
+		}
+
+
 
 
 			//// spot

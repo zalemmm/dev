@@ -6,9 +6,15 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">
-            • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />• <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>• <u><b>Kakemono Extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />• <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.
-          </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+              <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+              <span class="helpText" id="helpText1" style="visibility:hidden;">
+              • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
+              • <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>
+              • <u><b>Kakemono Extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />
+              • <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.
+            </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();  ">
             <option class="titre" value="">choisir le type...</option>
             <option class="option1"  value="Extérieur">Kakemono Extérieur</option>
@@ -19,7 +25,15 @@
         </li>
 
          <li class="form-line" id="id_2">
-          <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />• <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>• <u><b>Kakemono Extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />• <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.</span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText2" style="visibility:hidden;">
+              • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
+              • <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>
+              • <u><b>Kakemono Extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />
+              • <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.
+            </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_2" name="q2_usage" onclick="JKakemono.czyscpola();  ">
             <option class="titre" value="">choisir le type...</option>
             <option class="option1"  value="Blizzard">Le Blizzard</option>
@@ -28,7 +42,10 @@
         </li>
 
         <li class="form-line" id="id_21">
-          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText21');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText21" style="visibility:hidden;">infos</span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText21');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText21" style="visibility:hidden;">infos</span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_21" name="q21_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille du blizzard...</option>
             <option class="option1" value="60x160">60x160 cm </option>
@@ -36,7 +53,10 @@
           </select>
         </li>
         <li class="form-line" id="id_22">
-          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText22');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText22" style="visibility:hidden;">infos</span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText22');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText22" style="visibility:hidden;">infos</span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_22" name="q22_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille du mistral...</option>
             <option class="option1" value="80x200 1 visuel">80x200 cm (Recto/verso 1 visuel)</option>
@@ -45,7 +65,10 @@
         </li>
 
          <li class="form-line" id="id_23">
-          <span class="helpButton" onmouseover="pokazt('helpText23');" onmouseout="ukryjt('helpText23');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText23" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText23');" onmouseout="ukryjt('helpText23');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText23" style="visibility:hidden;">infos </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_23" name="q23_maquette23" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir une option...</option>
             <option class="option1" value="aucune">aucune</option>
@@ -53,11 +76,13 @@
           </select>
         </li>
 
-
         <li class="form-line" id="id_3">
-          <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText3" style="visibility:hidden;">
+          <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText3" style="visibility:hidden;">
             • <u><b>Choisissez la taille des X-screen</u>:</b><br/>Définissez la largeur et hauteur de vos X-Banner. 60x160cm ou 80x180cm
-          </span></span>
+            </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_3" name="q3_dimensions3" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille...</option>
             <option class="option1" value="60x160">60x160 cm </option>
@@ -65,32 +90,40 @@
           </select>
         </li>
 
-
         <li class="form-line" id="id_31">
-          <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText51');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText31" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText51');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText31" style="visibility:hidden;">infos </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_31" name="q31_visuel">
             <option class="titre" value="">choisir le support...</option>
             <option class="option1" value="bache 440g">bache 440g </option>
-			<option class="option2" value="bache 470g M1">bache 470g M1</option>
-			<option class="option1" value="bache 100% écologique M1">bache 100% écologique M1 </option>
+			      <option class="option2" value="bache 470g M1">bache 470g M1</option>
+			      <option class="option1" value="bache 100% écologique M1">bache 100% écologique M1 </option>
             <option class="option2" value="PVC 300 mircons">PVC 300 microns</option>
           </select>
         </li>
 
         <li class="form-line" id="id_4">
-          <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText4" style="visibility:hidden;">infos </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_4" name="q4_visuel">
             <option class="titre" value="">choisir le support...</option>
             <option class="option1" value="bache 440g">bache 440g </option>
-			<option class="option2" value="bache 470g M1">bache 470g M1</option>
-			<option class="option1" value="bache 100% écologique M1">bache 100% écologique M1 </option>
+			      <option class="option2" value="bache 470g M1">bache 470g M1</option>
+			      <option class="option1" value="bache 100% écologique M1">bache 100% écologique M1 </option>
             <option class="option2" value="PVC 300 mircons">PVC 300 microns</option>
             <option class="option1" value="Recto/verso PVC 300µ">RECTO/ VERSO PVC 300 microns</option>
           </select>
         </li>
 
         <li class="form-line" id="id_11">
-          <span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText11" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText11" style="visibility:hidden;">infos </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_11" name="q11_maquette11" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir une option...</option>
             <option class="option1" value="ventouse">Ventouse super adhesive 65mm</option>
@@ -98,10 +131,11 @@
           </select>
         </li>
 
-
-
         <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText6" style="visibility:hidden;">infos </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
@@ -110,7 +144,10 @@
         </li>
 
          <li class="form-line" id="id_61">
-          <span class="helpButton" onmouseover="pokazt('helpText61');" onmouseout="ukryjt('helpText61');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText61" style="visibility:hidden;">infos </span></span>
+          <span class="helpButton" onmouseover="pokazt('helpText61');" onmouseout="ukryjt('helpText61');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+            <span class="helpText" id="helpText61" style="visibility:hidden;">infos </span>
+          </span>
           <select class="form-dropdown validate[required]" id="input_61" name="q61_maquette61" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
@@ -118,7 +155,7 @@
           </select>
         </li>
 
-   		    <li class="optionsformline4" id="id_14">
+   		  <li class="optionsformline4" id="id_14">
           <select class="form-dropdown validate[required] option4" id="input_14" name="q14_dimensions" onclick="JKakemono.czyscpola(); ">
             <option class="option1" value="">choisir la largeur du Clip'it...</option>
             <option class="option2" value="30">Largeur 30 cm </option>
@@ -134,11 +171,11 @@
             <option class="option2" value="180">Largeur 180 cm</option>
             <option class="option1" value="200">Largeur 200 cm</option>
           </select>
-         	</li>
+        </li>
+
         <li class="optionsformline5" id="id_15">
           <span class="form-label-left label-highlight special">Hauteur<br /><span class="small">personnalisée</span> : </span><input type="text" class="form-textbox2 special validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="100" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span>
         </li>
-
 
         <li class="form-line" id="id_7">
           <label class="form-label-left label-highlight" id="label_7" for="input_7">quantité :<br /><span class="small">(par visuel)</span></label>
@@ -237,10 +274,10 @@
 
     <div id="container">
       <div id="slides">
-        <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/slide/test-1.jpg" alt="exemple réalisation roll-up" /></li>
-  			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/slide/test-0.jpg" alt="exemple réalisation roll-up" /></li>
-  			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/slide/test-2.jpg" alt="exemple réalisation roll-up" /></li>
-  			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
+        <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/slide/totem-1.jpg" alt="kakemono totem pas cher" title="totem publicitaire impression" /></li>
+  			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/slide/totem-0.jpg" alt="plv kakemono" title="totem kakemono meilleur prix"  /></li>
+  			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/slide/totem-2.jpg" alt="totem plv imprimé" title="totem publicitaire pas cher"  /></li>
+  			<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
       </div>
     </div>
 
