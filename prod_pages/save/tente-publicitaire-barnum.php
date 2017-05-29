@@ -901,7 +901,7 @@ if ($('input_1').value == '4x6') {
 
 
                   if (ilosc.empty()){
-                    eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+                    eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
                   }
 
 
@@ -977,7 +977,7 @@ if ($('input_1').value == '4x6') {
                     if ( suma < 29 ) {
                       var forfait = 29 - suma;
                       forfait = fixstr(forfait);
-                      eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+                      eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
                       if (option>0) {
                         var newoption = parseFloat(option) + parseFloat(forfait);
                         newoption=fixstr(newoption);

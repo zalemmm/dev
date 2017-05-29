@@ -574,7 +574,7 @@ jQuery(document).ready(function(){
 							blad.style.border = "1px solid #EA2A6A";
 							blad2.style.background = "#EA2A6A";
 							blad2.style.border = "1px solid #EA2A6A";
-							eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 160cm!';
+							eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 160cm!';
 							niepokazuj=1;
 						}
 
@@ -585,13 +585,13 @@ jQuery(document).ready(function(){
 							blad.style.border = "1px solid #EA2A6A";
 							blad2.style.background = "#EA2A6A";
 							blad2.style.border = "1px solid #EA2A6A";
-							eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Largeur doit être inférieure à 60cm!';
+							eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Largeur doit être inférieure à 60cm!';
 							niepokazuj=1;
 						}
 
 						if ( ((szerokosc < 10) || (wysokosc < 10)) ) {
 
-							eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
+							eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
 							niepokazuj=1;
 						}
 
@@ -611,7 +611,7 @@ jQuery(document).ready(function(){
 							var forfait = 29 - suma;
 							if (forfait > 0) {
 								forfait = fixstr(forfait);
-								eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+								eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 								var newoption = parseFloat(forfait);
 								newoption=fixstr(newoption);
 								newoption2 = newoption.replace(".", ",");

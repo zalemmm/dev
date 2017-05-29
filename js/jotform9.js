@@ -630,10 +630,8 @@ JotForm = {
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
 
-            if (($('input_0').value == 'Tissu') || ($('input_0').value == 'Stand ExpoBag') || ($('input_0').value == 'Stand parapluie')) {
-              $('container').style.display="none";
-              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/bg.png)";
-            }
+            $('container').style.display="none";
+            imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/bg.png)";
 
             // choix du type de stand
             if ($('input_0').value == 'Tissu') {
@@ -648,6 +646,11 @@ JotForm = {
                imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standkit.png)";
                imag2.style.animation="anim2 .5s 1";
             }
+            if ($('input_0').value == 'Comptoir Easy Quick') {
+               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/compteasy.png)";
+               imag2.style.animation="anim3 .5s 1";
+            }
+
 
             // stand tissu droit ou courbé
             var droit = $('input_01').value == 'Droit';
@@ -710,15 +713,21 @@ JotForm = {
             if (($('input_2').value == '1') || ($('input_51').value == '1')) {
                imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/spots.png)";
                imag3.style.animation="anim .5s 1";
-            }else{
+            }
+            else{
               imag3.style.backgroundImage="none";
             }
 
             // valise
             if ($('input_6').value == '41') {
                imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valise.png)";
-               imag4.style.animation="anim .5s 1";
-            }else{
+               imag4.style.animation="anim1 .5s 1";
+            }
+            else if ($('input_6').value == 'Comptoir Easy Quick') {
+               imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/comptoir.png)";
+               imag4.style.animation="anim2 .5s 1";
+            }
+            else{
                imag4.style.backgroundImage="none";
             }
 

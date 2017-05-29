@@ -1090,7 +1090,7 @@ if (($('input_01').value == 'Flexy-Tens') || ($('input_01').value == 'IX-Tens'))
 	var forfait = 19 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");
@@ -1588,7 +1588,7 @@ if (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g'
 	var forfait = 19 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");
@@ -1860,7 +1860,7 @@ eBox.innerHTML='';
 	var forfait = 19 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");
@@ -2388,7 +2388,7 @@ if (($('input_1').value == 'Cartes 350g') || ($('input_1').value == 'Cartes 270�
 	var forfait = 15 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");
@@ -2545,7 +2545,7 @@ if (($('input_1').value == '130-200cm') || ($('input_1').value == '201-300cm') |
 	var forfait = 15 - suma;
 	if (forfait > 0) {
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");
@@ -3572,7 +3572,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 	if (forfait > 0){
 
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");
@@ -3612,7 +3612,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 
 
@@ -3626,7 +3626,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		prix.innerHTML='-';
 		total.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
 	}
 	if ( (wysokosc < 0.2) && (szerokosc < 0.3) ) {
 		var blad = document.getElementById("id_5");
@@ -3639,7 +3639,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		total.innerHTML='-';
 		option.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
 
 	if ( (wysokosc < 0.3) && (szerokosc < 0.2) ) {
@@ -3653,7 +3653,7 @@ if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
 		total.innerHTML='-';
 		option.innerHTML='-';
 		dodajkoszyk.innerHTML ='';
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
 	}
 
 
@@ -4197,7 +4197,7 @@ if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 	if (forfait > 0){
 		if($('input_1').value != 'personnalisée') {
 		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
 		var newoption = parseFloat(forfait);
 		newoption=fixstr(newoption);
 		newoption2 = newoption.replace(".", ",");

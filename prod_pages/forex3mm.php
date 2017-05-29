@@ -1486,13 +1486,13 @@
 								transport=0;
 
 								if ( (wysokosc > 160) || (szerokosc > 160) ) {
-									eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+									eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
 									eBox.style.display="block";
 									niepokazuj=1;
 								}
 
 								if ( (wysokosc > 120) && (szerokosc > 120) ) {
-									eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+									eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
 									eBox.style.display="block";
 									niepokazuj=1;
 								}
@@ -1522,7 +1522,7 @@
 									if ( suma < 29 ) {
 										var forfait = 29 - suma;
 										forfait = fixstr(forfait);
-										eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button> FORFAIT '+forfait+' &euro;<br />';
+										eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button> FORFAIT '+forfait+' &euro;<br />';
 										if (option>0) {
 											var newoption = parseFloat(option) + parseFloat(forfait);
 											newoption=fixstr(newoption);
@@ -1557,7 +1557,7 @@
 
 /*en cours
 										if (ilosc.empty()){
-											eBox.innerHTML = '<button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+											eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
 										}*/
 
 										var rodzaj = "forex 3mm";
