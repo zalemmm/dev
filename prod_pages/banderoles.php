@@ -390,6 +390,8 @@
 		<div id="preview_imag3"></div>
 		<div id="preview_imag4"></div>
 		<div id="preview_imag5"></div>
+		<div id="preview_imag6"></div>
+		<div id="preview_imag7"></div>
 
 	</div>
 
