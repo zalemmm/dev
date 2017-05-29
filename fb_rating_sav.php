@@ -82,7 +82,7 @@ function get_rating_page() {
 	$start = ($subpage - 1) * $perPage;
 
 	$rates = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` WHERE exist = 'true' ORDER BY date DESC LIMIT $start, $perPage", ARRAY_A);
-	$view .= '<h1>Vos commentaires :</h1><hr />';
+	$view .= '<h1>Vos commentaires:</h1><hr />';
 	$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 	foreach ($rates as $r) :
 		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 20;

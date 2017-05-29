@@ -16,6 +16,7 @@
             <option value="Tissu">Stand Tissu Easy Quick</option>
             <option value="Stand ExpoBag">Stand Expo’Bag</option>
             <option value="Stand parapluie">Stand Parapluie Révolution avec Kit (valise + tablette + spot)</option>
+            <option value="Comptoir Easy Quick">Comptoir Easy Quick</option>
           </select>
         </li>
 
@@ -131,6 +132,7 @@
           <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir l'option... </option>
             <option value="41">Valise de transport / Comptoir accueil </option>
+            <option value="Comptoir Easy Quick">Comptoir Easy Quick</option>
             <option value="0">non merci </option>
           </select>
         </li>
@@ -146,7 +148,7 @@
 
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir la mise en page... </option>
-            <option value="fb">France banderole crée la maquette </option>
+            <option value="fb">France banderole crée la mise en page</option>
             <option value="user">j’ai déjà crée la maquette </option>
           </select>
         </li>
@@ -370,7 +372,7 @@ var date_panier='';
 var eBox = document.getElementById('form-button-error2');
 eBox.innerHTML='';
 
-if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_1').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_50').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_500').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value))) ) {
+if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_7').value) && ($('input_8').value)) || (($('input_1').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_50').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_500').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value))) ) {
 
  ////////////////tissu droit/////
   if ($('input_0').value == 'Tissu') {
@@ -468,18 +470,35 @@ if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && (
 	}
 
  	if ($('input_6').value == '41' ) {
-		cena += 299;
-		transport += 18;
+		cena += 299+18; ////////// PV + transport
 		dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
 	}
+	
+	if ($('input_6').value == 'Comptoir Easy Quick' ) {
+		cena += ((120+99)*1.4)+10 /////struture+impression X coef + transport;
+		dodatkowaopcja += '<br />- Comptoir Easy Quick';
+	}
+	
 	if ($('input_6').value == '0' ) {
 		dodatkowaopcja += '<br />- non merci';
 	}
-
+	
 
 
 }
+///////////////// Comptoir Easy Quick seul
 
+	
+	 if ($('input_0').value == 'Comptoir Easy Quick') {
+		tissu = 99;
+		structure = 120;
+		trans = 10;
+		cena = (tissu+structure)*1.40 + trans;
+
+		dodatkowaopcja += '<br />- Comptoir Easy Quick';
+		
+	
+	}
 
 
 
@@ -574,6 +593,7 @@ trans = 49;
 if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
 if ($('input_0').value == 'Tissu') {javascript: Masquer2();}
 if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
+if ($('input_0').value == 'Comptoir Easy Quick') {javascript: Masquer2();}
 
 
 
@@ -841,7 +861,7 @@ if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
 
                       var rodzaj = "Stand";
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
   livraisonComp.style.display = 'block';
 
 

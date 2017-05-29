@@ -97,6 +97,7 @@
               <option value="Pied piquet">Pied piquet </option>              <option value="Pied voiture">Pied voiture </option>
               <option value="Pied à visser">Pied à visser </option>
               <option value="Pied parasol 23L">Pied parasol 23L </option>
+              <option value="Embase ciment 22kg">Embase ciment 22kg</option>
             </select>
           </li>
 
@@ -682,41 +683,45 @@ if ( ($('input_1').value) ) {
 	if ($('input_6').value == 'Embase 8kg') {
 			pied=27;
 			p3=8;
-			ktorapodstawa='Embase 8kg';
+			ktorapodstawa='<br />- Embase 8kg';
 		}
 	if ($('input_6').value == 'Embase carrée 13,5kg') {
 			pied=37;
 			p3=13.5;
-			ktorapodstawa='Embase carrée 13,5kg';
+			ktorapodstawa='<br />- Embase carrée 13,5kg';
 
 		}
 	if ($('input_6').value == 'Pied 4 branches + bouée') {
 			pied=18;
 			p3=0.2;
-			ktorapodstawa='Pied 4 branches + bouée';
+			ktorapodstawa='<br />- Pied 4 branches + bouée';
 		}
 	if ($('input_6').value == 'Pied piquet') {
 			pied=12;
-			ktorapodstawa='Pied piquet';
+			ktorapodstawa='<br />- Pied piquet';
 			p3=1.3;
 		}
 	if ($('input_6').value == 'Pied voiture') {
 			pied=16;
 			p3=1.65;
-			ktorapodstawa='Pied voiture';
+			ktorapodstawa='<br />- Pied voiture';
 		}
 	if ($('input_6').value == 'Pied à visser') {
 			pied=10;
 			p3=0.75;
-			ktorapodstawa='Pied à visser';
+			ktorapodstawa='<br />- Pied à visser';
 		}
 
 	if ($('input_6').value == 'Pied parasol 23L') {
 			pied=14;
 			p3=1.2;
-			ktorapodstawa='Pied parasol 23L';
+			ktorapodstawa='<br />- Pied parasol 23L';
 		}
-
+	if ($('input_6').value == 'Embase ciment 22kg') {
+			pied=52;
+			p3=22;
+			ktorapodstawa='<br />- Embase ciment 22kg';
+		}
 
 
 	if ($('input_3').value == 'Kit complet') {

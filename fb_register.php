@@ -14,7 +14,7 @@ function get_inscription() {
 			if ($czynieistnieje) {
 				$kod = $czynieistnieje->confirm_link;
         		$letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+				$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
         		$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 		        //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
 		        wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
@@ -134,7 +134,7 @@ function get_inscription() {
 					}
 
         		//	$letter = ""._FB_THANK.", ".$login."!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-		       //     mail($email, "france-banderole.com Inscription", $letter, "From: FRANCE BANDEROLE <information@france-banderole.com>");
+		       //     mail($email, "france-banderole.com Inscription", $letter, "From: FRANCE BANDEROLE <info@france-banderole.fr>");
     	    	//	$view .= '<p>'._FB_TREG.'</p>';
     	    		$view .= get_acces_panel(2);
 				    unset($_SESSION['fbreguser']);
@@ -621,7 +621,7 @@ function get_acces_client() {
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
 	        		$letter = ""._FB_WELCOME.", votre nom d utilisateur est : ".$adresemail->login."\r\n\r\n"._FB_NPASS1." ".$hasloodszyfrowane."\r\n"._FB_NPASS2."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-					$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+					$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
         			$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($adresemail->email, "nouveau mot de passe et nom d utilisateur", $letter, $header);
 			        wp_mail($adresemail->email, "Nouveau mot de passe et nom d utilisateur", $letter);

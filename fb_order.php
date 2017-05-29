@@ -539,7 +539,7 @@ function reorganize_votre($idzamowienia) {
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[frais];
 		}
-//dodatkowy rabat
+//réduction supplémentaire
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
@@ -548,8 +548,8 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci + $dodatkowyrabat;
 			}
 		}
-//dodatkowy rabat
-//sprawdzanie czy jest rabat dla uzytkownika//
+//réduction supplémentaire
+//vérifier s'il y a un rabais pour l'utilisateur//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 				$newrabat = $exist_remise->percent / 100;
@@ -557,9 +557,9 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $wysokoscrabatu), array ( 'sku' => $idzamowienia ) );
 			}
-//koniec//
+//fin//
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
-//zmiana podatku TVA
+//changement fiscal TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
 			if ($czyjesttva->remis == 0) {
@@ -573,7 +573,7 @@ function reorganize_votre($idzamowienia) {
 		} else {
 		  	$podatekcalosci = $kosztcalosci*0.200;
 		}
-//zmiana podatku TVA
+//changement fiscal TVA
 	  	$totalcalosci = $kosztcalosci+$podatekcalosci;
 	  	$kosztcalosci = number_format($kosztcalosci, 2);
 		$transportcalosci = number_format($transportcalosci, 2);
@@ -600,7 +600,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 	$r = get_inscription2();
 
-/* nowy komentarz, jesli tak ustawiamy jako przeczytany */
+/* un commentaire, le cas échéant mis en lecture */
 	$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$idzamowienia'");
 	if ($newcomment) {
 		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");
@@ -612,7 +612,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 	$view .= $epilog;
 	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
 	if ($products) {
-		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { //jesli moze jeszcze dodac plik
+		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { //si vous pouvez toujours ajouter le fichier
 			$view .= get_filesender($produkty);
 		}
 
@@ -632,21 +632,21 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			$view .= '</tr>';
 		}
 
-// dodatkowy rabat wyswietl //
+// Afficher réduction supplémentaire //
 		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestrabat) {
 			$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 		}
-// dodatkowy rabat wyswietl //
+// Afficher réduction supplémentaire //
   		$view .= '</table>';
 		$kosztorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-//sprawdzanie czy jest rabat dla uzytkownika//
+//vérifier s'il y a un rabais pour l'utilisateur//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
 				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
 			}
-//koniec//
+//fin//
 
  	  	$tfrais = str_replace('.', ',', $kosztorder->frais).' &euro;';
 	  	$ttotalht = str_replace('.', ',', $kosztorder->totalht).' &euro;';
@@ -697,7 +697,7 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
 	}
 //	$view .= $epilog;
-//		$view .= '<div style="position:relative;float:left;display:inline;width:960px;">'.get_fb_comments().'</div>';
+//	$view .= '<div style="position:relative;float:left;display:inline;width:960px;">'.get_fb_comments().'</div>';
 } else {
 	$view .= '<div class="noprint">'.$prolog.'</div>';
 	$view .= '<div class="noprint">'.$epilog.'</div>';
@@ -726,20 +726,20 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			$view .= '</tr>';
   		}
-// dodatkowy rabat wyswietl //
+// Afficher réduction supplémentaire //
 		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestrabat) {
 			$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 		}
-// dodatkowy rabat wyswietl //
+// Afficher réduction supplémentaire //
   		$view .= '</table>';
-//sprawdzanie czy jest rabat dla uzytkownika//
+//vérifier s'il y a un rabais pour l'utilisateur//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
 				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
 			}
-//koniec//
+//fin//
 	  	$tfrais = str_replace('.', ',', $query->frais).' &euro;';
 	  	$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
 	  	$ttva = str_replace('.', ',', $query->tva).' &euro;';
@@ -1143,7 +1143,7 @@ function add_to_db() {
 				$kosztcalosci = $kosztcalosci + $koszttotal;
 				$transportcalosci = $transportcalosci + $item[transport];
 			}
-//sprawdzanie czy jest rabat dla uzytkownika//
+			//vérifier s'il y a un rabais pour l'utilisateur//
 			$uid = $user->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
 			if ($exist_remise) {
@@ -1154,7 +1154,7 @@ function add_to_db() {
 					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				}
 			}
-//koniec//
+			//fin//
 			$kosztcalosci = $kosztcalosci + $transportcalosci;
 	  		$podatekcalosci = $kosztcalosci*0.200;
 	  		$totalcalosci = $kosztcalosci+$podatekcalosci;
@@ -1165,13 +1165,12 @@ function add_to_db() {
 	  		$unique_id = random_string();
 			$data = date('Y-m-d H:i:s');
 			$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','')");
+
 			//ICI PLACER L'AJOUT A MAILJET
 			createContact($user->email);
 			$mj_list = getListId('Tous clients');
 			$mj_user = getIdFromEmail($user->email);
 			abonnerListe($mj_user,$mj_list);
-
-
 
 			if ($dodaj_zamowienie) {
 				if (!empty($client_remise) && ($client_remise != '0')) {
@@ -1219,7 +1218,6 @@ function add_to_db() {
 					$requeteretrait_atelier2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'retrait atelier', 'yes')");
 				}
 			}
-
 
 			/* Ajout de l'indicateur "revendeur" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
 			if($colis_revendeur !== false){
@@ -1286,11 +1284,11 @@ function add_to_db() {
 			/* On efface les données de session relatives à la livraison */
 			unset($_SESSION['loggeduser']->code_client_dest);
 			unset($_SESSION['loggeduser']->l_name);
-            unset($_SESSION['loggeduser']->l_address);
+      unset($_SESSION['loggeduser']->l_address);
 			unset($_SESSION['loggeduser']->l_comp);
-            unset($_SESSION['loggeduser']->l_code);
-            unset($_SESSION['loggeduser']->l_phone);
-            unset($_SESSION['loggeduser']->l_city);
+      unset($_SESSION['loggeduser']->l_code);
+      unset($_SESSION['loggeduser']->l_phone);
+      unset($_SESSION['loggeduser']->l_city);
 			unset($_SESSION['loggeduser']->l_country);
 			unset($_SESSION['loggeduser']->changement_relais_colis);
 			unset($_SESSION['loggeduser']->relais_colis);

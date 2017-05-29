@@ -156,11 +156,11 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 				$valeur = $single->value;
 				if($type == 'shipping' && $valeur == 'tnt'){
 					$type_expedition = 'tnt';
-					$wheresql = "COLIS EXPEDIÉ TNT + SUIVI";
+					$wheresql = "COLIS EXPEDIE TNT + SUIVI";
 					break;
 				}elseif($type == 'shipping' && strtolower($valeur) == 'fedex'){
 					$type_expedition = 'fedex';
-					$wheresql = "COLIS EXPEDIÉ FEDEX + SUIVI";
+					$wheresql = "COLIS EXPEDIE FEDEX + SUIVI";
 					break;
 				}elseif($type == 'relais' && $valeur != ''){
 					$type_expedition = 'relais';
@@ -172,7 +172,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 					break;
 				}elseif($type == 'shipping' && $valeur == 'autre') {
 					$type_expedition = 'autre';
-					$wheresql = "COLIS EXPEDIÉ AUTRE";
+					$wheresql = "COLIS EXPEDIE AUTRE";
 				}else{
 					$type_expedition = 'autre';
 				}
@@ -205,9 +205,6 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
 	https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$number.'
 
-	Nous vous invitons à vous rapprocher de FEDEX en cas d\'anomalie ou de problème d\'adresse en contactant directement le 0820 123 800 et en donnant le numéro de suivi suivant:
-
-'.$number.'
 
 ';
 			}
