@@ -13,12 +13,12 @@ function get_inscription() {
 			$czynieistnieje = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE login='$user' AND status=0");
 			if ($czynieistnieje) {
 				$kod = $czynieistnieje->confirm_link;
-        		$letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
+        $letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
 				$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
-        		$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
-		        //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
-		        wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
-    	    	$view .= '<p>'._FB_PRZESLANY.'</p>';
+        $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+		    //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
+		    wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
+    	  $view .= '<p>'._FB_PRZESLANY.'</p>';
 			}
 		}
 	} elseif ( $_GET['verify'] == 'confirm' ) {
@@ -576,31 +576,14 @@ function get_inscription2() {
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	    	<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retour2"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a></a>
-
-          	            <button id="input_22" type="submit" class="register-button2">Modifier</button>
-
+										<button id="input_22" type="submit" class="register-button2">Modifier</button>
             	    </div>
             	</li>
 	        </ul>
 			</div>
 
 		</div>';
-		$epilog_0 = $useraddress->l_name.'<br />'.$useraddress->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$useraddress->l_code.'<br />'.$useraddress->l_city;
-		$view .= '
-		<div class="acces_right">
-			<div class="acces_tab_name2">Vos adresses enregistrées</div>
-			<div class="acces_tab_content2">
 
-					'.stripslashes($user->l_name).' <br />
-					'.stripslashes($user->l_comp).' <br /> <br />
-					'.stripslashes($l_address).' <br />
-					'.stripslashes($l_porte).' <br />
-					'.stripslashes($user->l_code).' <br />
-					'.stripslashes($user->l_city).' <br />
-					'.stripslashes($user->l_phone).'
-
-			</div>
-		</div>';
 
 	} else {
 		$view .= 'You don\'t have permission to access this page!';
@@ -727,7 +710,7 @@ function get_acces_client() {
 function get_pass_resend_form() {
 	$view .= '<h1>Accès Client</h1><hr />';
 	$view .= '<div class="acces_left">
-	<div class="acces_tab_name">modt de passe oublié ?</div>
+	<div class="acces_tab_name">mot de passe oublié ?</div>
 	<div class="acces_tab_content">
 	<p>'._FB_ZGUBA.'</p>
 	<form id="resendform" name="resendform" action="'.get_bloginfo('url').'/acces-client/?resend=resend" method="post">
