@@ -22,12 +22,13 @@
 						<option value="">choisir le support...</option>
 						<option value="bache 440g">bache 440g </option>
 						<option value="bache 550g">bache 550g B1 </option>
+						<option value="bache dickson" class="fr">bache Dickson Jet 550 </option>
 						<option value="bache nontissé 150g">bache nontissé 150g</option>
 						<option value="bache 470g M1">bache 470g M1</option>
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 100% écologique M1" class="ecofr">bache 100% écologique M1 </option>
 					</select>
 				</li>
 

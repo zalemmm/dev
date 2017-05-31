@@ -14,7 +14,7 @@ function get_inscription() {
 			if ($czynieistnieje) {
 				$kod = $czynieistnieje->confirm_link;
         $letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-				$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
+				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
         $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 		    //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
 		    wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
@@ -63,9 +63,8 @@ function get_inscription() {
 			if (isset($_POST['loggeduserid']) && $_POST['akcja'] == 'edit') {
 
 				// if($_POST['email'] != "") {
-					// $test_mail = $wpdb->get_results()
+				// $test_mail = $wpdb->get_results()
 				// }
-
 				//kolejka=file
 				if (!empty($f_porte)) {
 					$f_address = $f_address.'| '.$f_porte;
@@ -507,12 +506,12 @@ function get_inscription2() {
 	if (fb_is_logged() && ($isOwner->user == $_SESSION['loggeduser']->id)) {
 		$user = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$goback'");
 
-		if ($_POST['akcja'] == 'edit') { //akcja=action
+		if ($_POST['akcja'] == 'edit') {
 			if (!empty($_POST['f_porte'])) {
 				$_POST['f_address'] = $_POST['f_address'].'|'.$_POST['f_porte'];
 			}
 			if ($user) {
-				$kolejka = $wpdb->update($fb_tablename_address, array (
+				$kolejka = $wpdb->update($fb_tablename_address, array ( //kolejka=file
 				  'l_name' => addslashes($_POST['f_name']),
 				  'l_comp' => addslashes($_POST['f_comp']),
 				  'l_address' => addslashes($_POST['f_address']),
@@ -583,7 +582,6 @@ function get_inscription2() {
 			</div>
 
 		</div>';
-
 
 	} else {
 		$view .= 'You don\'t have permission to access this page!';
@@ -776,10 +774,33 @@ function get_inscription3() {
 	$tb_nlet = $prefix."nlet_users";
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
 
-		if (fb_is_logged()) {
-			$view .= '<h1>Accès Client: Edition adresses de livraison</h1><hr />';
-			$user = $_SESSION['loggeduser'];
-		} 
+	if (fb_is_logged()) {
+		$user = $_SESSION['loggeduser'];
+
+		$view .= '<h1>Accès Client: Adresse de livraison</h1><hr />
+		<div class="acces_left">
+			<div class="acces_tab_name2">Adresse de livraison enregistrée :</div>
+			<div class="acces_tab_content2">
+				'.stripslashes($user->l_name).' <br />
+				'.stripslashes($user->l_comp).' <br />
+				'.stripslashes($user->l_address).' <br />
+				'.stripslashes($user->l_code).' <br />
+			</div>
+		</div>
+
+		<div class="acces_right">
+			<div class="acces_tab_name2">Adresse de facturation enregistrée :</div>
+			<div class="acces_tab_content2">
+				'.stripslashes($user->f_name).' <br />
+				'.stripslashes($user->f_comp).' <br />
+				'.stripslashes($user->f_address).' <br />
+				'.stripslashes($user->f_code).' <br />
+			</div>
+		</div>';
+
+
+	}
+
 
 	return $view;
 
