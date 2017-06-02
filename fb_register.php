@@ -1,3 +1,4 @@
+
 <?php
 
 function get_inscription() {
@@ -785,6 +786,8 @@ function get_inscription3() {
 				'.stripslashes($user->l_comp).' <br />
 				'.stripslashes($user->l_address).' <br />
 				'.stripslashes($user->l_code).' <br />
+				<button id="loginsubmit2" class="loginbutton2" type="submit">utiliser cette adresse</button>
+
 			</div>
 		</div>
 
@@ -795,8 +798,10 @@ function get_inscription3() {
 				'.stripslashes($user->f_comp).' <br />
 				'.stripslashes($user->f_address).' <br />
 				'.stripslashes($user->f_code).' <br />
+				<button id="loginsubmit2" class="loginbutton2" type="submit">utiliser cette adresse</button>
 			</div>
 		</div>';
+
 
 
 	}

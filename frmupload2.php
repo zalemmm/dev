@@ -18,10 +18,11 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 		<link href="default.css" rel="stylesheet" type="text/css" media="screen" />
 		<script language="JavaScript" type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/Scripts/swfobject.js"></script>
 		<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/thickbox/js/mootogetols-1.2-core-nc.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 		<script type="text/javascript">
-		window.addEvent('load', function() {
-			$('demo-close').addEvent('click', function() {
+		$(document).ready(function () {
+			$('#demo-close').on('click', function() {
 				window.parent.location.reload();
 				self.parent.tb_remove();
 				return false;

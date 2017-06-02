@@ -22,13 +22,13 @@
 						<option value="">choisir le support...</option>
 						<option value="bache 440g">bache 440g </option>
 						<option value="bache 550g">bache 550g B1 </option>
-						<option value="bache dickson" class="fr">bache Dickson Jet 550 </option>
+						<option value="bache dickson" class="fr" data-imagesrc="http://dl.dropbox.com/u/40036711/Images/facebook-icon-32.png">bache Dickson Jet 550 <sup>|PRODUIT FRANÇAIS|</sup></option>
 						<option value="bache nontissé 150g">bache nontissé 150g</option>
 						<option value="bache 470g M1">bache 470g M1</option>
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1" class="ecofr">bache 100% écologique M1 </option>
+						<option value="bache 100% écologique M1" class="ecofr">bache 100% écologique M1 <sup>|FRANÇAIS ET &#xC9;COLOGIQUE|</sup></option>
 					</select>
 				</li>
 
@@ -473,7 +473,6 @@
 			}
 		});
 
-
 	</script>
 
 	<script type="text/javascript">
@@ -496,6 +495,7 @@
 	}
 
 	jQuery(document).ready(function(){
+
 
 		jQuery('.delivery , .production').click(function(){
 
@@ -1908,6 +1908,7 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 
 
 });
+
 
 
 });

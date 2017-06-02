@@ -216,7 +216,7 @@ $view .= '
             <div class="span7">
                 <input type="checkbox" class="toggle" />
                 <span class="btn btn-success fileinput-button fuselect">
-                    <span><i class="fa fa-plus" aria-hidden="true"></i> Choisir le(s) fichier(s)</span>
+                    <span><i class="fa fa-plus" aria-hidden="true"></i> sélectionner le(s) fichier(s)</span>
                     <input type="file" name="files[]" multiple />
                 </span>
                 <button type="submit" class="btn btn-primary start fustart">
