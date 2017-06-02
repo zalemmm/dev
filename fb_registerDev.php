@@ -1,3 +1,4 @@
+
 <?php
 
 function get_inscription() {
@@ -14,7 +15,7 @@ function get_inscription() {
 			if ($czynieistnieje) {
 				$kod = $czynieistnieje->confirm_link;
         $letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-				$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
+				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
         $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 		    //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
 		    wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
@@ -130,11 +131,11 @@ function get_inscription() {
 						$setup_epub = $wpdb->query("INSERT INTO `$fb_tablename_users_cf` VALUES ('','".$new_user->id."','client_epub','".$f_epub."')");
 					}
 
-        		//	$letter = ""._FB_THANK.", ".$login."!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-		        //  mail($email, "france-banderole.com Inscription", $letter, "From: FRANCE BANDEROLE <info@france-banderole.fr>");
-    	    	//	$view .= '<p>'._FB_TREG.'</p>';
-    	    		$view .= get_acces_panel(2);
-				    unset($_SESSION['fbreguser']);
+        	//	$letter = ""._FB_THANK.", ".$login."!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
+		      //  mail($email, "france-banderole.com Inscription", $letter, "From: FRANCE BANDEROLE <info@france-banderole.fr>");
+    	    //	$view .= '<p>'._FB_TREG.'</p>';
+    	    $view .= get_acces_panel(2);
+				   unset($_SESSION['fbreguser']);
 				}
 			}
 		}
@@ -477,7 +478,7 @@ function get_inscription() {
             	    <label class="registerlabel" id="label_17" for="input_17">tel. de contact:</label>
             	    <input type="text" class="registerinput" id="input_17" name="l_phone" value="'.stripslashes($user->l_phone).'" />
             	</li>
-			</ul>
+					</ul>
 			</div>
 		</div>';
 
@@ -511,14 +512,14 @@ function get_inscription2() {
 				$_POST['f_address'] = $_POST['f_address'].'|'.$_POST['f_porte'];
 			}
 			if ($user) {
-				$kolejka = $wpdb->update($fb_tablename_address, array (
-																	   'l_name' => addslashes($_POST['f_name']),
-																	   'l_comp' => addslashes($_POST['f_comp']),
-																	   'l_address' => addslashes($_POST['f_address']),
-																	   'l_code' => addslashes($_POST['f_code']),
-																	   'l_city' => addslashes($_POST['f_city']),
-																	   'l_phone' => addslashes($_POST['f_phone'])),
-										 array ('unique_id' => addslashes($_POST['orderid'])) );
+				$kolejka = $wpdb->update($fb_tablename_address, array ( //kolejka=file
+				  'l_name' => addslashes($_POST['f_name']),
+				  'l_comp' => addslashes($_POST['f_comp']),
+				  'l_address' => addslashes($_POST['f_address']),
+				  'l_code' => addslashes($_POST['f_code']),
+				  'l_city' => addslashes($_POST['f_city']),
+				  'l_phone' => addslashes($_POST['f_phone'])),
+				array ('unique_id' => addslashes($_POST['orderid'])) );
 			} else {
 				$dodaj = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".addslashes($_SESSION['loggeduser']->id)."', '".addslashes($_POST[orderid])."', '".addslashes($_POST[f_name])."', '".addslashes($_POST[f_comp])."', '".addslashes($_POST[f_address])."', '".addslashes($_POST[f_code])."', '".addslashes($_POST[f_city])."', '".addslashes($_POST[f_phone])."')");
 			}
@@ -538,36 +539,36 @@ function get_inscription2() {
 		<div class="acces_left">
 			<div class="acces_tab_name2">MODIFIER VOTRE ADRESSE DE LIVRAISON</div>
 			<div class="acces_tab_content2">
-        	<ul class="regiform2">
-            	<li class="form-line" id="id_5">
-            	    <label class="registerlabel" id="label_5" for="input_5">prénom et nom:</label>
-            	    <input type="text" class="registerinput validate[required]" id="input_5" name="f_name" value="'.stripslashes($user->l_name).'" />
-            	</li>
-            	<li class="form-line" id="id_6">
-            	    <label class="registerlabel" id="label_6" for="input_6">société:</label>
-            	    <input type="text" class="registerinput" id="input_6" name="f_comp" value="'.stripslashes($user->l_comp).'" />
-            	</li>
-            	<li class="form-line" id="id_7">
-            	    <label class="registerlabel" id="label_7" for="input_7">adresse <br />de livraison:</label>
-            	    <input type="text" class="registerinput validate[required]" id="input_7" name="f_address" value="'.stripslashes($l_address).'" />
-            	</li>
-            	<li class="form-line" id="id_7a">
-            	    <label class="registerlabel" id="label_7a" for="input_7a">code <br />porte/esc./etc:</label>
-            	    <input type="text" class="registerinput validate[required]" id="input_7a" name="f_porte" value="'.stripslashes($l_porte).'" />
-            	</li>
-            	<li class="form-line" id="id_8">
-            	    <label class="registerlabel" id="label_8" for="input_8">code postal:</label>
-            	    <input type="text" class="registerinput validate[required]" id="input_8" name="f_code" value="'.stripslashes($user->l_code).'" />
-            	</li>
-            	<li class="form-line" id="id_9">
-            	    <label class="registerlabel" id="label_9" for="input_9">ville:</label>
-            	    <input type="text" class="registerinput validate[required]" id="input_9" name="f_city" value="'.stripslashes($user->l_city).'" />
-            	</li>
-            	<li class="form-line" id="id_10">
-            	    <label class="registerlabel" id="label_10" for="input_10">tel. de contact:</label>
-            	    <input type="text" class="registerinput" id="input_10" name="f_phone" value="'.stripslashes($user->l_phone).'" />
-            	</li>
-			</ul>
+      	<ul class="regiform2">
+          	<li class="form-line" id="id_5">
+          	    <label class="registerlabel" id="label_5" for="input_5">prénom et nom:</label>
+          	    <input type="text" class="registerinput validate[required]" id="input_5" name="f_name" value="'.stripslashes($user->l_name).'" />
+          	</li>
+          	<li class="form-line" id="id_6">
+          	    <label class="registerlabel" id="label_6" for="input_6">société:</label>
+          	    <input type="text" class="registerinput" id="input_6" name="f_comp" value="'.stripslashes($user->l_comp).'" />
+          	</li>
+          	<li class="form-line" id="id_7">
+          	    <label class="registerlabel" id="label_7" for="input_7">adresse <br />de livraison:</label>
+          	    <input type="text" class="registerinput validate[required]" id="input_7" name="f_address" value="'.stripslashes($l_address).'" />
+          	</li>
+          	<li class="form-line" id="id_7a">
+          	    <label class="registerlabel" id="label_7a" for="input_7a">code <br />porte/esc./etc:</label>
+          	    <input type="text" class="registerinput validate[required]" id="input_7a" name="f_porte" value="'.stripslashes($l_porte).'" />
+          	</li>
+          	<li class="form-line" id="id_8">
+          	    <label class="registerlabel" id="label_8" for="input_8">code postal:</label>
+          	    <input type="text" class="registerinput validate[required]" id="input_8" name="f_code" value="'.stripslashes($user->l_code).'" />
+          	</li>
+          	<li class="form-line" id="id_9">
+          	    <label class="registerlabel" id="label_9" for="input_9">ville:</label>
+          	    <input type="text" class="registerinput validate[required]" id="input_9" name="f_city" value="'.stripslashes($user->l_city).'" />
+          	</li>
+          	<li class="form-line" id="id_10">
+          	    <label class="registerlabel" id="label_10" for="input_10">tel. de contact:</label>
+          	    <input type="text" class="registerinput" id="input_10" name="f_phone" value="'.stripslashes($user->l_phone).'" />
+          	</li>
+				</ul>
 			</div>
 
 			<div id="fbcart_buttons">
@@ -575,7 +576,7 @@ function get_inscription2() {
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	    	<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retour2"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a></a>
-          	            <button id="input_22" type="submit" class="register-button2">Modifier</button>
+										<button id="input_22" type="submit" class="register-button2">Modifier</button>
             	    </div>
             	</li>
 	        </ul>
@@ -725,7 +726,7 @@ function get_acces_panel($p) {
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
 	if ($p == 1) { $path=get_bloginfo("url").'/vos-devis/'; } else { $path=''; }
 	if ($p == 2) { $path=get_bloginfo("url").'/verification/'; } else { $path=''; }
-if ($p == 2) {
+	if ($p == 2) {
 	$view .= '<h1>Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">VERIFICATION DE VOS IDENTIFIANTS</div>
@@ -764,4 +765,46 @@ if ($p == 2) {
 }
 
 	return $view;
+}
+
+
+function get_inscription3() {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_users = $prefix."fbs_users";
+	$tb_nlet = $prefix."nlet_users";
+	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+
+	if (fb_is_logged()) {
+		$user = $_SESSION['loggeduser'];
+
+		$view .= '<h1>Accès Client: Adresse de livraison</h1><hr />
+		<div class="acces_left">
+			<div class="acces_tab_name2">Adresse de livraison enregistrée :</div>
+			<div class="acces_tab_content2">
+				'.stripslashes($user->l_name).' <br />
+				'.stripslashes($user->l_comp).' <br />
+				'.stripslashes($user->l_address).' <br />
+				'.stripslashes($user->l_code).' <br />
+				<button id="loginsubmit2" class="loginbutton2" type="submit">utiliser cette adresse</button>
+
+			</div>
+		</div>
+
+		<div class="acces_right">
+			<div class="acces_tab_name2">Adresse de facturation enregistrée :</div>
+			<div class="acces_tab_content2">
+				'.stripslashes($user->f_name).' <br />
+				'.stripslashes($user->f_comp).' <br />
+				'.stripslashes($user->f_address).' <br />
+				'.stripslashes($user->f_code).' <br />
+				<button id="loginsubmit2" class="loginbutton2" type="submit">utiliser cette adresse</button>
+			</div>
+		</div>';
+
+	}
+
+
+	return $view;
+
 }
