@@ -68,7 +68,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 	$prod_name = $wpdb->get_row("SELECT * FROM `$fb_tablename_catprods` WHERE code_parent = '$prod_family'");
 	$display_name = $prod_name->prod_parent;
 
-	$view = '<div style="clear: both;">
+	$view = '<div style="clear: both;"></div>
 		<div id="rating_livre">
 			<div id="vosavis"></div>';
 
@@ -86,11 +86,11 @@ function get_ratings($type_prod, $nb_comment=2) {
 		$view .= '<span class="client_reviews_1">'. $strmoyenne1 . '</span>'. $strmoyenne2 . $strmoyenne3 . $strmoyenne4. '<br />';
 		$view .= '<span class="star-note"><img src="'.get_bloginfo("url").'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
 		$view .= 'pour les produits de type '.$display_name;
-		$view .= '</div></div></div>';
+		$view .= '</div>';
 
 		//$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 2", ARRAY_A);
 		$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_cache_comments` c WHERE r.exist = 'true' AND c.code_parent = '$prod_family' AND (r.id = c.comment1 OR r.id = c.comment2 OR r.id = c.comment3 OR r.id = c.comment4 OR r.id = c.comment5) ORDER BY r.date DESC LIMIT 2", ARRAY_A);
-		$view .= '<h1 class="comTitre">Vos commentaires :</h1><hr />';
+
 		$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 		$i = 0;
 
@@ -148,7 +148,10 @@ function get_ratings($type_prod, $nb_comment=2) {
 		endforeach;
 
 		$view .= '</tbody></table>';
-		$view .= '<p class="comVoir"><a href="'.get_bloginfo("url").'/avis?prod_type='.$prod_family.'">Voir les autres avis sur cette famille de produits</a></p>';
+    $view .= '<a  class="comVoir" href="'.get_bloginfo("url").'/avis?prod_type='.$prod_family.'"><i class="fa fa-plus" aria-hidden="true"></i> <span class="textHide"> d\'avis sur ce type de produit</span></a>';
+    $view .= '<div class="clear"></div></div>';
+
+
 
 	return $view;
 }
@@ -3553,7 +3556,7 @@ if($order->status==4){
 	echo $select_pre.$select_inter.$select_post;
 	echo '</select><input type="submit" value="SAVE" class="savebutt2" /></form></div>';
 
-// envoi de fichiers ///////////////////////////////////////////////////////////  
+// envoi de fichiers ///////////////////////////////////////////////////////////
 
 	echo '<div class="statusp2">Upload <a href="//www.france-banderole.com/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
