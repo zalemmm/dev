@@ -67,7 +67,6 @@ function get_rating_page() {
 		// $fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
 		// $sec = ($sec / $licznik); $sec = (round($sec, 0)) *20;
 		// $thi = ($thi / $licznik); $thi = (round($thi, 0)) *20;
-		$view .= '<h1 style="visibility:hidden;">Avis clients</h1><hr />';
 
 		//Select pour la famille
 		$view .= '<p><form method="get" action="">Voir les avis pour une famille de produits : <select name="prod_type">';
@@ -217,7 +216,6 @@ function get_rating_page() {
 	$fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
 	$sec = ($sec / $licznik); $sec = (round($sec, 0)) *20;
 	$thi = ($thi / $licznik); $thi = (round($thi, 0)) *20;
-	$view .= '<h1 style="visibility:hidden;">Avis clients</h1><hr />';
 
 	//Select pour la famille
 	$view .= '<p><form method="get" action="">Voir les avis pour une famille de produits : <select name="prod_type">';

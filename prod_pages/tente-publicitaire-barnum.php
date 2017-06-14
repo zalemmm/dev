@@ -7,7 +7,12 @@
               <li class="form-line" id="id_1">
                 <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-                  <span class="helpText" id="helpText0" style="visibility:hidden;"></span>
+                  <span class="helpText" id="helpText0" style="visibility:hidden;">
+                    • <u><b>Tente publicitaire personnalisable</u>: </b><br/>
+                    livrée complète : structure + toit + 4 frontons + 1 mur de fond + sac de transport à roulette. Professionnelle, légère, solide et facile à installer.<br />
+                    <b>Au choix de 2x2m au 4x6m :</b> <span class="highlight">Dès 308,00€</span><br />
+                    impression + livraison comprises !  <br />
+                  </span>
                 </span>
 
                 <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
@@ -25,7 +30,11 @@
                 <li class="form-line" id="id_option">
                     <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-                      <span class="helpText" id="helpText1" style="visibility:hidden;"><br /><br /><br /></span>
+                      <span class="helpText" id="helpText1" style="visibility:hidden;">
+                        • <u><b>Demi-mur supplémentaire</u>: </b><span class="highlight">Dès 47,00€</span><br/>1/2 mur latéral personnalisable fourni avec barre de suspension.<br />
+                        • <u><b>Mur entier supplémentaire</u>: </b><span class="highlight">Dès 29,00€</span><br/>mur complet supplémentaire latéral personnalisable.<br />
+                        • <u><b>1 mur et 1 demi-mur en plus</u>: </b><span class="highlight">Dès 66,00€</span><br/>1 mur complet + 1 demi-mur supplémentaires latéraux personnalisables fourni avec barre de suspension.<br />
+                      </span>
                     </span>
 
                     <select class="form-dropdown validate[required]" id="input_option" name="qoption_support1" onchange="JKakemono.czyscpola(); ">
@@ -34,13 +43,19 @@
                         <option value="2x Demi-mur">2x Demi-mur</option>
                         <option value="Mur supplémentaire">Mur supplémentaire</option>
                         <option value="Mur supplémentaire + 1x Demi-mur">Mur supplémentaire + 1x Demi-mur</option>
+                        <option value="sans mur">Sans mur de fond</option>
                         <option value="sans option">Sans option</option>
                     </select>
                 </li>
 
                 <li class="form-line" id="id_couleur">
                     <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
-                      <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText2" style="visibility:hidden;"></span>
+                      <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+                      <span class="helpText" id="helpText2" style="visibility:hidden;">
+                        • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>Blanc, noir, rouge ou bleu.<br />
+                        Le barnum publicitaire sera teinté dans la couleur de base choisie : le toit, le frontons, les murs et demi-murs.<br />
+                        Couleur bleue : proche pantone 286C, couleur rouge proche pantone 485C<br />
+                      </span>
                     </span>
 
                     <select class="form-dropdown validate[required]" id="input_couleur" name="qcouleur_couleur" onchange="JKakemono.czyscpola(); ">
@@ -54,7 +69,13 @@
 
                  <li class="form-line" id="id_couleur-sans-option">
                     <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
-                      <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText3" style="visibility:hidden;"></span>
+                      <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+                      <span class="helpText" id="helpText3" style="visibility:hidden;">
+                        • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>
+                        Blanc, noir, rouge ou bleu.<br />
+                        Le barnum publicitaire sera teinté dans la couleur de base choisie : le toit, le frontons, les murs et demi-murs.<br />
+                        Couleur bleue : proche pantone 286C, couleur rouge proche pantone 485C<br />
+                      </span>
                     </span>
 
                     <select class="form-dropdown validate[required]" id="input_couleur-sans-option" name="qcouleur_couleur-sans-option" onchange="JKakemono.czyscpola(); ">
@@ -66,10 +87,36 @@
                     </select>
                 </li>
 
+
+                 <li class="form-line" id="id_couleur-sans-mur">
+                    <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText31');">
+                      <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+                      <span class="helpText" id="helpText31" style="visibility:hidden;">
+                        • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>
+                        Blanc, noir, rouge ou bleu.<br />
+                        Le barnum publicitaire sera teinté dans la couleur de base choisie : le toit, le frontons, les murs et demi-murs.<br />
+                        Couleur bleue : proche pantone 286C, couleur rouge proche pantone 485C<br />
+                      </span>
+                    </span>
+
+                    <select class="form-dropdown validate[required]" id="input_couleur-sans-mur" name="qcouleur_couleur-sans-mur" onchange="JKakemono.czyscpola(); ">
+                        <option value="">choisir la couleur...</option>
+                        <option value="Blanc">Blanc</option>
+                        <option value="Noir">Noir</option>
+                        <option value="Rouge">Rouge</option>
+                        <option value="Bleu">Bleu</option>
+                    </select>
+                </li>
+
                  <li class="form-line" id="id_personnalisation">
                     <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-                      <span class="helpText" id="helpText4" style="visibility:hidden;"></span>
+                      <span class="helpText" id="helpText4" style="visibility:hidden;">
+                        • <u><b>mur de fond personnalisé</u>: </b><span class="highlight">Dès 147,00€</span><br/>mur entier ou mur de fond imprimé en plus de la couleur de base.<br />
+                        • <u><b>murs et demi-murs personnalisés</u>: </b><span class="highlight">Dès 237,00€</span><br/>
+                        Tous les murs et 1/2 murs seront imprimés en plus de la couleur de base.<br />
+                        • <u><b>tente publicitaire full graphic</u>: </b><span class="highlight">Dès 332,00€</span><br/>
+                      </span>
                     </span>
 
                     <select class="form-dropdown validate[required]" id="input_personnalisation" name="qcouleur_personnalisation" onchange="JKakemono.czyscpola(); ">
@@ -91,6 +138,19 @@
                         <option value="">choisir une personnalisation...</option>
                         <option value="Personnalisation Mur">Personnalisation Mur</option>
                         <option value="Full Graphic">Personnalisation Full Graphic</option>
+                        <option value="Pas de personnalisation">Pas de personnalisation</option>
+                    </select>
+                </li>
+
+                <li class="form-line" id="id_personnalisation-sans-mur">
+                    <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+                      <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+                      <span class="helpText" id="helpText6" style="visibility:hidden;"></span>
+                    </span>
+
+                    <select class="form-dropdown validate[required]" id="input_personnalisation-sans-mur" name="qcouleur_personnalisation-sans-mur" onchange="JKakemono.czyscpola(); ">
+                        <option value="">choisir une personnalisation...</option>
+                        <option value="Full Graphic">Personnalisation Fronton</option>
                         <option value="Pas de personnalisation">Pas de personnalisation</option>
                     </select>
                 </li>
@@ -119,7 +179,7 @@
                 </li>
 
                <li id="id_16" class="form-line optionsformline">
-    <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
+            <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
 
             <span class="options_single">
 
@@ -207,6 +267,7 @@
   </div>
 
   <div id="preview_imag"></div>
+  <div id="preview_imag1"></div>
   <div id="preview_imag2"></div>
   <div id="preview_imag3"></div>
   <div id="preview_imag4"></div>
@@ -366,6 +427,8 @@ if ($('input_1').value == '2x2') {
 	{cena+= (mur2x2+demimurA2x2+barredmA2x2)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
 	{cena+= (mur2x2+demimurA2x2+barredmA2x2+demimurB2x2+barredmB2x2)*1.40*ilosc;}
+  if ($('input_option').value == 'sans mur')
+	{cena = (structure2x2+canopi2x2)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
 	{cena+= (mur2x2perso)*1.32*ilosc;}
@@ -382,7 +445,8 @@ if ($('input_1').value == '2x2') {
 	{cena+= (mur2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.32*ilosc;}
 
 
-
+  if ( ($('input_personnalisation-sans-mur').value == 'Full Graphic'))
+  {cena+= (fronton2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
 	{cena+= (fronton2x2perso+mur2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == '1x Demi-mur'))
@@ -395,6 +459,7 @@ if ($('input_1').value == '2x2') {
 	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso+demimurA2x2perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
 	{cena+= (fronton2x2perso+mur2x2perso+mur2x2perso+demimurA2x2perso+demimurB2x2perso)*1.32*ilosc;}
+
 
 }
 
@@ -413,6 +478,8 @@ if ($('input_1').value == '2x3') {
 	{cena+= (mur2x3+demimurA2x3+barredmA2x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
 	{cena+= (mur2x3+demimurA2x3+barredmA2x3+demimurB2x3+barredmB2x3)*1.40*ilosc;}
+  if ($('input_option').value == 'sans mur')
+	{cena = (structure2x3+canopi2x3)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
 	{cena+= (mur2x3perso)*1.32*ilosc;}
@@ -428,6 +495,8 @@ if ($('input_1').value == '2x3') {
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
 	{cena+= (mur2x3perso+mur2x3perso+demimurA2x3perso+demimurB2x3perso)*1.32*ilosc;}
 
+  if ( ($('input_personnalisation-sans-mur').value == 'Full Graphic'))
+  {cena+= (fronton2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
 	{cena+= (fronton2x3perso+mur2x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
@@ -456,6 +525,8 @@ if ($('input_1').value == '3x3') {
 	{cena+= (mur3x3+demimurA3x3+barredmA3x3)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
 	{cena+= (mur3x3+demimurA3x3+barredmA3x3+demimurB3x3+barredmB3x3)*1.40*ilosc;}
+  if ($('input_option').value == 'sans mur')
+	{cena = (structure3x3+canopi3x3)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
 	{cena+= (mur3x3perso)*1.32*ilosc;}
@@ -471,6 +542,8 @@ if ($('input_1').value == '3x3') {
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
 	{cena+= (mur3x3perso+mur3x3perso+demimurA3x3perso+demimurB3x3perso)*1.32*ilosc;}
 
+  if ( ($('input_personnalisation-sans-mur').value == 'Full Graphic'))
+  {cena+= (fronton3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
 	{cena+= (fronton3x3perso+mur3x3perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
@@ -500,6 +573,8 @@ if ($('input_1').value == '3x4') {
 	{cena+= (mur3x4+demimurA3x4+barredmA3x4)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
 	{cena+= (mur3x4+demimurA3x4+barredmA3x4+demimurB3x4+barredmB3x4)*1.40*ilosc;}
+  if ($('input_option').value == 'sans mur')
+	{cena = (structure3x4+canopi3x4)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
 	{cena+= (mur3x4perso)*1.32*ilosc;}
@@ -515,6 +590,8 @@ if ($('input_1').value == '3x4') {
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
 	{cena+= (mur3x4perso+mur3x4perso+demimurA3x4perso+demimurB3x4perso)*1.32*ilosc;}
 
+  if ( ($('input_personnalisation-sans-mur').value == 'Full Graphic'))
+  {cena+= (fronton3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
 	{cena+= (fronton3x4perso+mur3x4perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
@@ -544,6 +621,8 @@ if ($('input_1').value == '3x6') {
 	{cena+= (mur3x6+demimurA3x6+barredmA3x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
 	{cena+= (mur3x6+demimurA3x6+barredmA3x6+demimurB3x6+barredmB3x6)*1.40*ilosc;}
+  if ($('input_option').value == 'sans mur')
+	{cena = (structure3x6+canopi3x6)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
 	{cena+= (mur3x6perso)*1.32*ilosc;}
@@ -559,6 +638,8 @@ if ($('input_1').value == '3x6') {
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
 	{cena+= (mur3x6perso+mur3x6perso+demimurA3x6perso+demimurB3x6perso)*1.32*ilosc;}
 
+  if ( ($('input_personnalisation-sans-mur').value == 'Full Graphic'))
+  {cena+= (fronton3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
 	{cena+= (fronton3x6perso+mur3x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))
@@ -588,6 +669,8 @@ if ($('input_1').value == '4x6') {
 	{cena+= (mur4x6+demimurA4x6+barredmA4x6)*1.40*ilosc;}
 	if ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur')
 	{cena+= (mur4x6+demimurA4x6+barredmA4x6+demimurB4x6+barredmB4x6)*1.40*ilosc;}
+  if ($('input_option').value == 'sans mur')
+	{cena = (structure4x6+canopi4x6)*1.40*ilosc;}
 
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur'))
 	{cena+= (mur4x6perso)*1.32*ilosc;}
@@ -603,6 +686,8 @@ if ($('input_1').value == '4x6') {
 	if ( ($('input_personnalisation').value == 'Personnalisation Mur et demi-mur') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
 	{cena+= (mur4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*1.32*ilosc;}
 
+  if ( ($('input_personnalisation-sans-mur').value == 'Full Graphic'))
+  {cena+= (fronton4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation-sans-option').value == 'Full Graphic'))
 	{cena+= (fronton4x6perso+mur4x6perso)*1.32*ilosc;}
 	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire'))

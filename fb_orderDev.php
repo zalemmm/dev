@@ -239,8 +239,6 @@ $view .= '
                     <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
                 </button>
 
-
-
             </div>
             <div class="span5 fileupload-progress fade">
                 <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100">
@@ -255,7 +253,7 @@ $view .= '
         <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
 </form>
     ';
-// BOUTON MAQUETTE ^
+
 $view .= '
 <script id="template-upload" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -416,7 +414,7 @@ function get_details() {
 		}
 		if($bat == 1) {
 			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
-			$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
+			$prolog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
 		}
 
 		$prolog .= '</td></tr></table></div>';
@@ -479,11 +477,11 @@ function get_details() {
 	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				if ($x<1) {
-					$epilog .= '<a rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
+					$epilog .= '<a data-lity href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
 					$has_bat = 1;
 					$x=1;
 				} else {
-					$epilog .= '<a style="display: none;" rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
+					$epilog .= '<a style="display: none;" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" data-lity >asd</a>';
 				}
 			}
     	}
@@ -647,11 +645,11 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		$kosztcalosci = 0;
 		foreach ( $products as $products => $item ) {
 			////////////////////////////////////////////////////////////////////////// ajout du bouton créér la maquette ds le tableau:
-			//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" rel="shadowbox"><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a> -- à insérer après 1ère balise td
+			//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" rel="shadowbox"><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a>
 			$licznik++;
 			$view .= '
 			<tr>
-			<td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" rel="shadowbox"><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td>
+			<td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td>
 			<td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			if ($writable) {
 				$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';

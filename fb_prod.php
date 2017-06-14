@@ -810,10 +810,17 @@ echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototyp
 JotForm.setConditions([
 
 {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
+
 {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans option"}], "action": {"field": "couleur-sans-option", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
+{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans mur"}], "action": {"field": "couleur-sans-mur", "visibility": "Show"}},
+
+{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": "sans mur"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
+
+
 {"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-option", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-option", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-mur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-mur", "visibility": "Show"}},
+
 {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
@@ -821,6 +828,10 @@ JotForm.setConditions([
 {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
 
 {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
 {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
@@ -968,10 +979,6 @@ if ($page=='inscription') {
 }
 if ($page=='inscription2') {
 	$view = get_inscription2();
-	return $view;
-}
-if ($page=='inscription3') {
-	$view = get_inscription3();
 	return $view;
 }
 if ($page=='accesclient') {
@@ -1276,7 +1283,7 @@ if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Sti
 		$imghead3='kakemonos3';
 		$mini='f7';
 		$info_title='Autocollants & Stickers';
-		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+		$info_info='<span class="prezHide">Les vinyles adhésifs (autocollant) sont imprimés en quadri numérique haute définition et sont livrés prédécoupés en planche.<br />Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
 
 	}
 

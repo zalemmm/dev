@@ -153,6 +153,8 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	fclose ($fp);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// vérifier présence BAT
 function has_bat($cmd) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd.'-projects';
 	$has_bat=0;
@@ -173,6 +175,8 @@ function has_bat($cmd) {
 	return $has_bat;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// vérifier BAT validé
 function is_bat_validated($cmd) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -186,7 +190,8 @@ function is_bat_validated($cmd) {
 	}
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
+// vérifier fichiers uploadés
 function has_uploaded_files($cmd, $userid) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd;
 	$fichiers="";
@@ -201,6 +206,10 @@ function has_uploaded_files($cmd, $userid) {
   	}
 	return $fichiers;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+//                           module upload de fichiers
+////////////////////////////////////////////////////////////////////////////////
 
 function get_filesender($products) {
 	$idzamowienia = $_GET['detail'];
@@ -228,6 +237,7 @@ $view .= '
                 <button type="button" class="btn btn-danger delete fudelete">
                     <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
                 </button>
+
             </div>
             <div class="span5 fileupload-progress fade">
                 <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100">
@@ -329,6 +339,10 @@ $view .= '
 	return $view;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// 											Afficher les détails de la commande
+////////////////////////////////////////////////////////////////////////////////
+
 function get_details() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -399,7 +413,7 @@ function get_details() {
 		}
 		if($bat == 1) {
 			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
-			$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
+			$prolog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
 		}
 
 		$prolog .= '</td></tr></table></div>';
@@ -410,9 +424,10 @@ function get_details() {
 	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :<span>ETAT : '.print_status($zamowienie->status).'</span></div>';
 
 
-// tylko komentarze od france banderole
+// affiche seuls les commentaires de france banderole
 //		$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
-// wszystkie ostatnie komentarze
+
+// affiche tous les commentaires récents
 		$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' ORDER BY c.date DESC LIMIT 1");
 		if ($lastcomment) {
 			if (strlen($lastcomment->content) > 250) {
@@ -449,7 +464,8 @@ function get_details() {
 	} else {
 		$epilog .= '<span id="but_imprimer" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</span>';
 	}
-// wyswietlanie przycisku podgladu projektów
+
+// affichage bouton aperçu des projets
 //$epilog .= '<a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-5.jpg"></a><a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-6.jpg"></a><a rel="shadowbox[kakemonosgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/exkak3.jpg"></a>';
 	$has_bat = 0;
 	if (($zamowienie->status) > 0) {
@@ -460,17 +476,18 @@ function get_details() {
 	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				if ($x<1) {
-					$epilog .= '<a rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
+					$epilog .= '<a data-lity href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
 					$has_bat = 1;
 					$x=1;
 				} else {
-					$epilog .= '<a style="display: none;" rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
+					$epilog .= '<a style="display: none;" data-lity href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
 				}
 			}
     	}
 	    closedir($dir);
   	}
   }
+
 	// commande annulée ou cloturé: désactivation du bouton écrire commentaire
   if ($status!=5 && $status!=6 ) {
 		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
@@ -516,7 +533,7 @@ function get_details() {
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
 	//}
-
+	
 
 	$epilog .= '</div>';
 
@@ -524,6 +541,7 @@ function get_details() {
 	return $view;
 }
 
+////////////////////////////////////////////////////////////////////////////////
 function reorganize_votre($idzamowienia) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -539,7 +557,7 @@ function reorganize_votre($idzamowienia) {
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[frais];
 		}
-//dodatkowy rabat
+//réduction supplémentaire
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
@@ -548,8 +566,8 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci + $dodatkowyrabat;
 			}
 		}
-//dodatkowy rabat
-//sprawdzanie czy jest rabat dla uzytkownika//
+		//réduction supplémentaire
+		//vérifier s'il y a un rabais pour l'utilisateur//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 				$newrabat = $exist_remise->percent / 100;

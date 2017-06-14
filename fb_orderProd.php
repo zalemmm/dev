@@ -5,7 +5,6 @@ $fb_tablename_order = $prefix."fbs_order";
 $fb_tablename_prods = $prefix."fbs_prods";
 $fb_tablename_comments = $prefix."fbs_comments";
 $fb_tablename_comments_new = $prefix."fbs_comments_new";
-
 if (isset($_GET['paid'])) {
 	$logfile="/home/frbanderolecom/www/sherlock/log/logfile.log";
 	// Ouverture du fichier de log en append
@@ -107,7 +106,7 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 		fwrite( $fp, "test_order_id: $order_id\n");
 		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
  	} else {
-		// OK, Sauvegarde des champs de la réponse
+		// OK, Sauvegarde des champs de la rÈponse
 		fwrite( $fp, "test_order_id: $order_id\n");
 		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
 		fwrite( $fp, "merchant_id : $merchant_id\n");
@@ -154,8 +153,6 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	fclose ($fp);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// vérifier présence BAT
 function has_bat($cmd) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd.'-projects';
 	$has_bat=0;
@@ -176,8 +173,6 @@ function has_bat($cmd) {
 	return $has_bat;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// vérifier BAT validé
 function is_bat_validated($cmd) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -191,8 +186,7 @@ function is_bat_validated($cmd) {
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// vérifier fichiers uploadés
+
 function has_uploaded_files($cmd, $userid) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd;
 	$fichiers="";
@@ -207,10 +201,6 @@ function has_uploaded_files($cmd, $userid) {
   	}
 	return $fichiers;
 }
-
-////////////////////////////////////////////////////////////////////////////////
-//                           module upload de fichiers
-////////////////////////////////////////////////////////////////////////////////
 
 function get_filesender($products) {
 	$idzamowienia = $_GET['detail'];
@@ -238,9 +228,6 @@ $view .= '
                 <button type="button" class="btn btn-danger delete fudelete">
                     <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
                 </button>
-
-
-
             </div>
             <div class="span5 fileupload-progress fade">
                 <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100">
@@ -255,7 +242,7 @@ $view .= '
         <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
 </form>
     ';
-// BOUTON MAQUETTE ^
+
 $view .= '
 <script id="template-upload" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
@@ -342,10 +329,6 @@ $view .= '
 	return $view;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// 											Afficher les détails de la commande
-////////////////////////////////////////////////////////////////////////////////
-
 function get_details() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -416,7 +399,7 @@ function get_details() {
 		}
 		if($bat == 1) {
 			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
-			$prolog .= '<a rel="lightbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
+			$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
 		}
 
 		$prolog .= '</td></tr></table></div>';
@@ -427,10 +410,9 @@ function get_details() {
 	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :<span>ETAT : '.print_status($zamowienie->status).'</span></div>';
 
 
-// affiche seuls les commentaires de france banderole
+// tylko komentarze od france banderole
 //		$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
-
-// affiche tous les commentaires récents
+// wszystkie ostatnie komentarze
 		$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' ORDER BY c.date DESC LIMIT 1");
 		if ($lastcomment) {
 			if (strlen($lastcomment->content) > 250) {
@@ -467,8 +449,7 @@ function get_details() {
 	} else {
 		$epilog .= '<span id="but_imprimer" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</span>';
 	}
-
-// affichage bouton aperçu des projets
+// wyswietlanie przycisku podgladu projektów
 //$epilog .= '<a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-5.jpg"></a><a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-6.jpg"></a><a rel="shadowbox[kakemonosgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/exkak3.jpg"></a>';
 	$has_bat = 0;
 	if (($zamowienie->status) > 0) {
@@ -479,19 +460,18 @@ function get_details() {
 	    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				if ($x<1) {
-					$epilog .= '<a rel="lightbox" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
+					$epilog .= '<a rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
 					$has_bat = 1;
 					$x=1;
 				} else {
-					$epilog .= '<a style="display: none;" rel="lightbox" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
+					$epilog .= '<a style="display: none;" rel="shadowbox[projectsgallery]" href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
 				}
 			}
     	}
 	    closedir($dir);
   	}
   }
-
-	// commande annulée ou cloturée: désactivation du bouton écrire commentaire
+	// commande annulée ou cloturé: désactivation du bouton écrire commentaire
   if ($status!=5 && $status!=6 ) {
 		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
 	} else {
@@ -544,8 +524,6 @@ function get_details() {
 	return $view;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-
 function reorganize_votre($idzamowienia) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -561,7 +539,7 @@ function reorganize_votre($idzamowienia) {
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[frais];
 		}
-//réduction supplémentaire
+//dodatkowy rabat
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
@@ -570,8 +548,8 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci + $dodatkowyrabat;
 			}
 		}
-//réduction supplémentaire
-//vérifier s'il y a un rabais pour l'utilisateur//
+//dodatkowy rabat
+//sprawdzanie czy jest rabat dla uzytkownika//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 				$newrabat = $exist_remise->percent / 100;
@@ -579,9 +557,9 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $wysokoscrabatu), array ( 'sku' => $idzamowienia ) );
 			}
-// fin//
+//koniec//
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
-// TVA
+//zmiana podatku TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
 			if ($czyjesttva->remis == 0) {
@@ -595,12 +573,12 @@ function reorganize_votre($idzamowienia) {
 		} else {
 		  	$podatekcalosci = $kosztcalosci*0.200;
 		}
-// TVA
-	  $totalcalosci = $kosztcalosci+$podatekcalosci;
-	  $kosztcalosci = number_format($kosztcalosci, 2);
+//zmiana podatku TVA
+	  	$totalcalosci = $kosztcalosci+$podatekcalosci;
+	  	$kosztcalosci = number_format($kosztcalosci, 2);
 		$transportcalosci = number_format($transportcalosci, 2);
 		$podatekcalosci = number_format($podatekcalosci, 2);
-	  $totalcalosci = number_format($totalcalosci, 2);
+	  	$totalcalosci = number_format($totalcalosci, 2);
 		//$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $transportcalosci, 'totalht' => $kosztcalosci, 'tva' => $podatekcalosci, 'totalttc' => $totalcalosci), array ( 'unique_id' => $idzamowienia ) );
 	} else {
@@ -608,8 +586,6 @@ function reorganize_votre($idzamowienia) {
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
 	}
 }
-
-///////////////////// détails produit
 
 function print_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia) {
 	global $wpdb;
@@ -624,7 +600,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 	$r = get_inscription2();
 
-/* un commentaire, le cas échéant mis en lecture */
+/* nowy komentarz, jesli tak ustawiamy jako przeczytany */
 	$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$idzamowienia'");
 	if ($newcomment) {
 		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");
@@ -632,27 +608,22 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) {
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
-
 	$view .= $prolog;
 	$view .= $epilog;
 	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
 	if ($products) {
-		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { // si vous pouvez toujours ajouter le fichier
+		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { //jesli moze jeszcze dodac plik
 			$view .= get_filesender($produkty);
 		}
 
 		$produkty = $products;
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="thqte">Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th>Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
 		$licznik = 0;
 		$kosztcalosci = 0;
 		foreach ( $products as $products => $item ) {
-			////////////////////////////////////////////////////////////////////////// ajout du bouton créér la maquette ds le tableau:
-			//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" rel="shadowbox"><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a>
 			$licznik++;
 			$view .= '
-			<tr>
-			<td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" rel="lightbox"><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td>
-			<td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
+			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			if ($writable) {
 				$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
 			} else {
@@ -661,21 +632,21 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			$view .= '</tr>';
 		}
 
-// Afficher réduction supplémentaire //
+// dodatkowy rabat wyswietl //
 		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestrabat) {
 			$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 		}
-// Afficher réduction supplémentaire  //
+// dodatkowy rabat wyswietl //
   		$view .= '</table>';
 		$kosztorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-//vérifier s'il y a un rabais pour l'utilisateur//
+//sprawdzanie czy jest rabat dla uzytkownika//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
 				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
 			}
-//fin//
+//koniec//
 
  	  	$tfrais = str_replace('.', ',', $kosztorder->frais).' &euro;';
 	  	$ttotalht = str_replace('.', ',', $kosztorder->totalht).' &euro;';
@@ -755,7 +726,6 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			$view .= '</tr>';
   		}
-
 // dodatkowy rabat wyswietl //
 		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestrabat) {
@@ -798,7 +768,6 @@ $view .= contact_advert();
 return $view;
 }
 
-/////////////////////////////////////////////// nombre d'articles dans le panier
 function getCartCount() {
 	$ret = '0';
 	if(!empty($_SESSION['fbcart'])) {
@@ -807,7 +776,6 @@ function getCartCount() {
 	return $ret;
 }
 
-/////////////////////////////////////////////////////////
 function print_votre() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -1084,7 +1052,6 @@ function print_votre() {
   return $view;
 }
 
-////////////////////////////////////////////////////////////////////////////////
 function print_status_form($status, $cmd) {
 	$formatted .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$cmd.'" /><button class="stat'.$status.'" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">';
 	if ($status == 0) {
@@ -1115,7 +1082,6 @@ function print_status_form($status, $cmd) {
 	return $formatted;
 }
 
-////////////////////////////////////////////////////////////////////////////////
 function print_status($status) {
 	$formatted .= '<span class="stat'.$status.'">';
 	if ($status == 0) {
@@ -1146,7 +1112,6 @@ function print_status($status) {
 	return $formatted;
 }
 
-////////////////////////////////////////////////////////////////////////////////
 function add_to_db() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -1178,7 +1143,7 @@ function add_to_db() {
 				$kosztcalosci = $kosztcalosci + $koszttotal;
 				$transportcalosci = $transportcalosci + $item[transport];
 			}
-//vérifier s'il y a un rabais pour l'utilisateur//
+//sprawdzanie czy jest rabat dla uzytkownika//
 			$uid = $user->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
 			if ($exist_remise) {
@@ -1189,7 +1154,7 @@ function add_to_db() {
 					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				}
 			}
-//fin//
+//koniec//
 			$kosztcalosci = $kosztcalosci + $transportcalosci;
 	  		$podatekcalosci = $kosztcalosci*0.200;
 	  		$totalcalosci = $kosztcalosci+$podatekcalosci;
@@ -1254,6 +1219,7 @@ function add_to_db() {
 					$requeteretrait_atelier2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'retrait atelier', 'yes')");
 				}
 			}
+
 
 			/* Ajout de l'indicateur "revendeur" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
 			if($colis_revendeur !== false){
@@ -1334,7 +1300,6 @@ function add_to_db() {
 		}
 }
 
-////////////////////////////////////////////////////////////////////////////////
 function random_string() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;

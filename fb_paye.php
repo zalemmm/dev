@@ -444,7 +444,7 @@ if ($query) {
 		$view .= '<h1>Accès client: Paiement de la commande</h1><hr />';
 		$view .= '<div id="paiements">';
 		$view .= '<div id="paiements_left"><div id="paiements_left_tit">acceder aux méthodes de paiement</div>
-		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv/" target="_blank" rel="shadowbox" class="conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i>
+		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv-s/" class="modal-link conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i>
 </button></form></div>
 		</div>';
 		$view .= '<div id="paiements_right"'.$styl.'><div id="paiements_right_tit">choisissez une méthode de paiement</div>
