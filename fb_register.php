@@ -141,10 +141,10 @@ function get_inscription() {
 
 	} else {
 		if (fb_is_logged()) {
-			$view .= '<h1>Accès Client: Edition profil</h1><hr />';
+			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Edition profil</h1><hr />';
 			//$view .= '<p>Note : La modification de votre adresse e-mail est impossible. En cas de changement de cette dernière, merci de contacter un administrateur.</p>';
 		} else {
-			$view .= '<h1>Accès Client: Inscription</h1><hr />';
+			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Inscription</h1><hr />';
 		}
 		if (fb_is_logged()) {
 			$user = $_SESSION['loggeduser'];
@@ -524,7 +524,7 @@ function get_inscription2() {
 			}
 		}
 
-		$view .= '<h1>Accès Client: Livraison Nº '.$goback.'</h1><hr />';
+		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Livraison Nº '.$goback.'</h1><hr />';
 		$action = '<input type="hidden" name="akcja" value="edit" /><input type="hidden" name="orderid" value="'.$goback.'" />';
 		$goaction = get_bloginfo('url').'/vos-devis/?detail='.$_GET['goback'];
 

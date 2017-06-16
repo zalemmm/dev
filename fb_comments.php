@@ -30,7 +30,7 @@ function get_fb_comments() {
 	}
 
 	$topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` ORDER BY content ASC", ARRAY_A);
-	$view .= '<h1>Accès client: Ecrire un Commentaire</h1><hr />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i>  Accès client: Ecrire un Commentaire</h1><hr />';
 	$view .= '<div id="comments">';
 	$view .= '<div id="comment_left">
 	<span class="comm_title">Ecrivez votre nouveau commentaire ou demande ci-dessous:</span>

@@ -169,7 +169,7 @@ if ($query) {
 			}
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
-	 		$view .= '<h1>Accès client: Paiement</h1><hr />';
+	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
 			$view .= '<div class="cheque_tab_name">Paiement comptant par virement bancaire</div>';
 			$view .= '<div class="cheque_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Cliquez sur le bouton "Imprimer le RIB" pour obtenir nos coordonnées bancaires et effectuer votre règlement. Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
@@ -234,7 +234,7 @@ if ($query) {
 			}
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
-	 		$view .= '<h1>Accès client: Paiement</h1><hr />';
+	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
 			$view .= '<div class="paydiff_tab_name">Paiement différé à 30 jours net</div>';
 			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. Cliquez sur le bouton "Imprimer le RIB" pour obtenir nos coordonnées bancaires et effectuer votre règlement sous 30 jours par virement bancaire. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
@@ -285,7 +285,7 @@ if ($query) {
 			}
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
-	 		$view .= '<h1>Accès client: Paiement</h1><hr />';
+	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
 			$view .= '<div class="paydiff_tab_name">Paiement différé à 60 jours net</div>';
 			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. Cliquez sur le bouton "Imprimer le RIB" pour obtenir nos coordonnées bancaires et effectuer votre règlement sous 60 jours par virement bancaire. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
@@ -335,7 +335,7 @@ if ($query) {
 			}
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
-	 		$view .= '<h1>Accès client: Paiement</h1><hr />';
+	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
 			$view .= '<div class="paydiff_tab_name">Paiement différé par mandat administratif</div>';
 			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. <br />
 		Cliquez sur le bouton "Imprimer le formulaire de commande administrative", complétez-le et envoyez votre bon de commande interne et le formulaire complété par mail à paiement@france-banderole.fr ou par fax au 0957.045.045. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
@@ -397,7 +397,7 @@ if ($query) {
 			}
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
-	 		$view .= '<h1>Accès client: Paiement</h1><hr />';
+	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
 			$view .= '<div class="cheque_tab_name">Paiement comptant par chèque Bancaire</div>';
 			$view .= '<div class="cheque_tab_con">Imprimez ce Bon de Commande et envoyez votre Reglement accompagné du Bon de Commande à l\'adresse suivante:<br /><br /><span class="colblue">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</span><br /><br />Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
 			$view .= '</div>';
@@ -441,7 +441,7 @@ if ($query) {
 			$styl = ' style="visibility:visible"';
 			$view .= '<p>'._FB_RPLAT.'</p>';
 		}
-		$view .= '<h1>Accès client: Paiement de la commande</h1><hr />';
+		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement de la commande</h1><hr />';
 		$view .= '<div id="paiements">';
 		$view .= '<div id="paiements_left"><div id="paiements_left_tit">acceder aux méthodes de paiement</div>
 		<div id="paiements_left_con"><form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><input type="checkbox" name="accepte" id="reg_confirm" value="prawda"'.$chec.' /><label for="accepte" class="checkbox2"> En cochant cette case, je reconnais avoir lu et <a href="'.get_bloginfo("url").'/cgv-s/" class="modal-link conditio">accepter les conditions</a> générales de vente.</label><button id="suivant_reg" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i>

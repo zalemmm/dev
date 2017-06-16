@@ -420,7 +420,7 @@ function get_details() {
 
 	}
 
-	$prolog .= '<h1 class="noprint">Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
+	$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
 	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :<span>ETAT : '.print_status($zamowienie->status).'</span></div>';
 
 
@@ -533,7 +533,7 @@ function get_details() {
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
 	//}
-	
+
 
 	$epilog .= '</div>';
 
@@ -881,7 +881,7 @@ function print_votre() {
 		$view .= $alert_content;
 	}
 
-	$view .= '<h1>Accès client: Votre compte et devis</h1><hr />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Votre compte et devis</h1><hr />';
 	$user = $_SESSION['loggeduser'];
 
 	//Récupération des variables

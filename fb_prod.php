@@ -1678,7 +1678,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
 	} else {
-		$view .= 'Votre panier est vide !';
+		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
 	$view .= $epilog;
 	return $view;
@@ -1905,7 +1905,7 @@ function print_devis($products, $prolog, $epilog) {
 		</table>';
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>';
 	} else {
-		$view .= 'Votre panier est vide !';
+		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
 	$view .= $epilog;
 	return $view;

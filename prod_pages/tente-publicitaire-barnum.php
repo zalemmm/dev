@@ -9,8 +9,8 @@
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                   <span class="helpText" id="helpText0" style="visibility:hidden;">
                     • <u><b>Tente publicitaire personnalisable</u>: </b><br/>
-                    livrée complète : structure + toit + 4 frontons + 1 mur de fond + sac de transport à roulette. Professionnelle, légère, solide et facile à installer.<br />
-                    <b>Au choix de 2x2m au 4x6m :</b> <span class="highlight">Dès 308,00€</span><br />
+                    livrée complète : structure + toit + 4 frontons + sac de transport à roulette et tous les mur(s) et demi-mur(s) au choix. Professionnelle, légère, solide et facile à installer.<br />
+                    <b>Au choix de 2x2m au 4x6m :</b> <span class="highlight">Dès 289,00€</span><br />
                     impression + livraison comprises !  <br />
                   </span>
                 </span>
@@ -34,16 +34,18 @@
                         • <u><b>Demi-mur supplémentaire</u>: </b><span class="highlight">Dès 47,00€</span><br/>1/2 mur latéral personnalisable fourni avec barre de suspension.<br />
                         • <u><b>Mur entier supplémentaire</u>: </b><span class="highlight">Dès 29,00€</span><br/>mur complet supplémentaire latéral personnalisable.<br />
                         • <u><b>1 mur et 1 demi-mur en plus</u>: </b><span class="highlight">Dès 66,00€</span><br/>1 mur complet + 1 demi-mur supplémentaires latéraux personnalisables fourni avec barre de suspension.<br />
+                        • <u><b>Supprimer le mur de fond de base</u>: </b><br/>vous ne souhaitez que la structure, le toit, les frontons, et le sac de transport, sans mur.<br />
+                        • <u><b>Sans option</u>: </b><br/>vous souhaitez la structure, le toit, les frontons, le mur de fond et le sac de transport sans mur supplémentaire.<br />
                       </span>
                     </span>
 
                     <select class="form-dropdown validate[required]" id="input_option" name="qoption_support1" onchange="JKakemono.czyscpola(); ">
                         <option value="">choisir une option...</option>
-                        <option value="1x Demi-mur">1x Demi-mur</option>
-                        <option value="2x Demi-mur">2x Demi-mur</option>
-                        <option value="Mur supplémentaire">Mur supplémentaire</option>
-                        <option value="Mur supplémentaire + 1x Demi-mur">Mur supplémentaire + 1x Demi-mur</option>
-                        <option value="sans mur">Sans mur de fond</option>
+                        <option value="1x Demi-mur">1x Demi-mur supplémentaire</option>
+                        <option value="2x Demi-mur">2x Demi-mur supplémentaires</option>
+                        <option value="Mur supplémentaire">1x Mur supplémentaire</option>
+                        <option value="Mur supplémentaire + 1x Demi-mur">1x Mur + 1x Demi-mur supplémentaires</option>
+                        <option value="sans mur">Supprimer le mur de fond</option>
                         <option value="sans option">Sans option</option>
                     </select>
                 </li>
@@ -116,6 +118,7 @@
                         • <u><b>murs et demi-murs personnalisés</u>: </b><span class="highlight">Dès 237,00€</span><br/>
                         Tous les murs et 1/2 murs seront imprimés en plus de la couleur de base.<br />
                         • <u><b>tente publicitaire full graphic</u>: </b><span class="highlight">Dès 332,00€</span><br/>
+                        Toute la tente publicitaire est personnalisable y compris les 4 frontons
                       </span>
                     </span>
 
@@ -131,7 +134,11 @@
                 <li class="form-line" id="id_personnalisation-sans-option">
                     <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-                      <span class="helpText" id="helpText5" style="visibility:hidden;"></span>
+                      <span class="helpText" id="helpText5" style="visibility:hidden;">
+                      • <u><b>mur de fond personnalisé</u>: </b><span class="highlight">Dès 147,00€</span><br/>mur entier ou mur de fond imprimé en plus de la couleur de base.<br />
+                      • <u><b>tente imprimée full graphic</u>: </b><span class="highlight">Dès 332,00€</span><br/>
+                      Toute la tente publicitaire est personnalisable y compris les 4 frontons
+                      </span>
                     </span>
 
                     <select class="form-dropdown validate[required]" id="input_personnalisation-sans-option" name="qcouleur_personnalisation-sans-option" onchange="JKakemono.czyscpola(); ">
