@@ -18,10 +18,10 @@ if ($dir = @opendir($name)) {
 			if($cur_img != 0) {
 				$x++;
 				if ($x == $cur_img) {
-					$img .= '<img src="https://www.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
+					$img .= '<img src="https://dev.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
 				}
 			} else if ($x<1) {
-				$img .= '<img src="https://www.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
+				$img .= '<img src="https://dev.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
 				$x++;
 			}
 		}
@@ -35,7 +35,7 @@ if($total > 1) {
 		}
 		$precedent = '<a class="bt-prev" href="val_bat.php?uid='.$id.'&img='. ($cur_img-1) .'"><i class="fa fa-caret-left" aria-hidden="true"></i> <span class="dis0">Précédent</span></a> ';
 	} else {
-		$suivant = '<a class="bt-suiv" href="val_bat.php?uid='.$id.'&img=2"><span class="dis0">Suivant</span>  <i class="fa fa-caret-right" aria-hidden="true"></i></a><p class="helptext"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> votre commande comprend plusieurs maquettes, cliquez sur<br />suivant pour vérifier chaque fichier avant de valider votre BAT <i class="fa fa-caret-right" aria-hidden="true"></i></p>';
+		$suivant = '<a class="bt-suiv" href="val_bat.php?uid='.$id.'&img=2"><span class="dis0">Suivant</span>  <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 	}
 }
 
@@ -63,18 +63,6 @@ if($total > 1) {
 			padding-top: 15px;
 			padding-bottom: 15px;
 			text-align: left;
-		}
-
-		.helptext {
-			margin: 0;
-			color: #fff;
-			font-family: "Source Sans Pro", sans-serif;
-			font-size: .75rem;
-			line-height: 1rem;
-			text-transform: uppercase;
-			text-align: right;
-			margin-right: 15px;
-			float: left;
 		}
 
 		.prevnext {
@@ -133,7 +121,7 @@ if($total > 1) {
 			z-index: 20;
 		}
 
-		@media(max-width: 780px) {
+		@media(max-width: 650px) {
 			.dis0 {
 				display: none;
 			}
@@ -143,20 +131,12 @@ if($total > 1) {
 			}
 		}
 
-		@media(max-width: 640px) {
-			.helptext {
-				display: none;
-			}
-		}
-
 	</style>
 </head>
 <body>
 	<div class="btnbar">
-
 		<div class="prevnext"><?php echo $precedent; ?>	<?php echo $suivant; ?></div>
-		<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
-
+		<a href="https://dev.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
 	</div>
 
 	<div class="main">
