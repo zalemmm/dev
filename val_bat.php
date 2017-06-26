@@ -31,29 +31,85 @@ if ($dir = @opendir($name)) {
 if($total > 1) {
 	if($cur_img > 1) {
 		if($cur_img != $total) {
-			$suivant = ' - <a style="margin-left:14px;margin-bottom:10px;width:142px;height:19px;background:url(images/but_suiv.png) no-repeat;overflow:hidden;border:none;display:inline-block;margin: auto;" href="val_bat.php?uid='.$id.'&img='. ($cur_img+1) .'"></a>';
+			$suivant = '<a class="bt-suiv" href="val_bat.php?uid='.$id.'&img='. ($cur_img+1) .'">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}
-		$precedent = '<a style="margin-right:14px;margin-bottom:10px;width:142px;height:19px;background:url(images/but_prec.png) no-repeat;overflow:hidden;border:none;display:inline-block;margin: auto;" href="val_bat.php?uid='.$id.'&img='. ($cur_img-1) .'"></a> - ';
+		$precedent = '<a class="bt-prev" href="val_bat.php?uid='.$id.'&img='. ($cur_img-1) .'"><i class="fa fa-caret-left" aria-hidden="true"></i> Précédent</a> ';
 	} else {
-		$suivant = ' - <a style="margin-left:14px;margin-bottom:10px;width:142px;height:19px;background:url(images/but_suiv.png) no-repeat;overflow:hidden;border:none;display:inline-block;margin: auto;" href="val_bat.php?uid='.$id.'&img=2"></a>';
+		$suivant = '<a class="bt-prev" href="val_bat.php?uid='.$id.'&img=2">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 	}
 }
 
 
 ?>
 
-<html><head></head>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--librairie d'icones css-->
+	<style>
+	  a {
+	  	text-decoration: none;
+	  }
+
+		.bt-suiv,
+		.bt-prev,
+		.bt-validBAT {
+			box-sizing: border-box;
+			position: relative;
+			width: 150px;
+			height: 40px;
+			margin: 0 0 10px 0;
+			padding: .7rem .5rem .5rem;
+			display: inline-block;
+			cursor: pointer;
+			box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+			background: #32A1CC;
+			border: 1px solid #2b8aaf;
+			border-radius: 3px;
+			color: #fff;
+			font-family: "Source Sans Pro", sans-serif;
+			font-size: .8rem;
+			line-height: .8rem;
+			font-weight: normal;
+			text-align: center;
+			text-transform: uppercase;
+			vertical-align: middle;
+		}
+
+		.bt-validBAT {
+			background: #74c012;
+			border: 1px solid #609f0f;
+		}
+
+		.bt-suiv:hover,
+		.bt-prev:hover,
+		.bt-validBAT:hover {
+			background-color: #EA2A6A;
+		  border: 1px solid #db1657;
+		  transition: .2s;
+		}
+
+		.btnbar {
+			border-bottom: 1px solid rgba(246, 246, 246, .2);
+			padding-top: 10px;
+			padding-bottom: 5px;
+			text-align: center;
+		}
+
+	</style>
+</head>
 <body>
+	<div class="btnbar">
+		<?php echo $precedent; ?>
+		<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
+		<?php echo $suivant; ?>
+	</div>
+
+
 	<p style="text-align: center;">
 		<?php
 		echo $img;
-
-
 		?>
 	</p>
-	<p style="text-align: center;"><?php echo $precedent; ?>
-		<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" style="margin-left:14px;margin-bottom:10px;width:142px;height:19px;background:url(images/but_bat.png) no-repeat;overflow:hidden;border:none;display:inline-block;margin: auto;"></a>
-		<?php echo $suivant; ?>
-	</p>
+
 </body>
 </html>

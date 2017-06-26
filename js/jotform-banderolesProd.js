@@ -22,22 +22,10 @@ JotForm = {
      * @var All JotForm forms on the page
      */
     forms: [],
-    /**
-     * @var Array of extensions
-     */
+    
     imageFiles: ["png", "jpg", "jpeg", "ico", "tiff", "bmp", "gif", "apng", "jp2", "jfif"],
-    /**
-     * @var array of autocomplete elements
-     */
+    
     autoCompletes: {},
-    /**
-     * @var Array of default values associated with element IDs
-     */
-    defaultValues: {},
-    /**
-     * Debug mode
-     */
-    debug: false,
     /**
      * Find the correct server url from forms action url, if there is no form use the defaults
      */
@@ -51,38 +39,22 @@ JotForm = {
             }
         }
     },
-    /**
-     * Creates the console arguments
-     */
-    createConsole: function(){
-        var consoleFunc = ['log', 'info', 'warn', 'error'];
-        $A(consoleFunc).each(function(c){
-            this[c] = function(){
-                if(JotForm.debug){
-                    if('console' in window){
-                        console[c].apply(this, arguments);
-                    }
-                }
-            };
-        }.bind(this));
-    },
+
+    
     /**
      * Initiates the form and all actions
      */
     init: function(callback){
         var ready = function(){
             try {
-                this.createConsole();
                 
                 this.getServerURL();
                 
-                (callback && callback());
-                
+                callback && callback();
                 if (document.get.mode == "edit" && document.get.sid) {
                     this.editMode();
                 }
                 
-                this.getDefaults();
                 this.handlePayPalProMethods();
                 this.handleFormCollapse();
                 this.handlePages();
@@ -100,8 +72,8 @@ JotForm = {
                     }
                 }.bind(this));
                 this.validator();
-            } catch (err) {
-                 JotForm.error(err);
+            } catch (err) {                
+                 //alert(err);
             }
         }.bind(this);
         
@@ -112,20 +84,6 @@ JotForm = {
         }
     },
     
-    /**
-     * Collects all inital values of the fields and saves them as default values
-     * to be restored later
-     */
-    getDefaults: function(){
-        $$('.form-textbox, .form-dropdown, .form-textarea').each(function(input){
-            if(input.hinted || input.value === ""){ return; /* continue; */ }
-            
-            JotForm.defaultValues[input.id] = input.value;
-        });
-    },
-    /**
-     * Enables or disables the Other option on radiobuttons
-     */
     handleRadioButtons: function(){
         
         $$('.form-radio-other-input').each(function(inp){
@@ -230,7 +188,7 @@ JotForm = {
                             val = match.replace(new RegExp('^(' + word + ')', 'gim'), '<b>$1</b>');
                         } 
                         catch (e) {
-                            JotForm.error(e);
+                            
                         }
                         li.insert(val);
                         li.onmousedown = function(){
@@ -264,7 +222,7 @@ JotForm = {
                 
                 // Get the selected item
                 selected = list.select('.form-autocomplete-list-item-selected')[0];
-                (selected && selected.removeClassName('form-autocomplete-list-item-selected'));
+                selected && selected.removeClassName('form-autocomplete-list-item-selected');
                 
                 switch (e.keyCode) {
                     case Event.KEY_UP: // UP
@@ -335,6 +293,7 @@ JotForm = {
     getFileExtension: function(filename){
         return (/[.]/.exec(filename)) ? (/[^.]+$/.exec(filename))[0] : undefined;
     },
+
     
     /**
      * Fill fields from the get values
@@ -420,7 +379,7 @@ JotForm = {
                                 });
                                 break;
                             case "control_rating":
-                                ($('input_' + qid) && ($('input_' + qid).setRating(question.value)));
+                                $('input_' + qid) && ($('input_' + qid).setRating(question.value));
                                 break;
                             case "control_grading":
                                 var boxes = document.getElementsByName("q" + qid + "_" + qid + "[]");
@@ -465,18 +424,18 @@ JotForm = {
                             case "control_datetime":
                             case "control_fullname":
                                 $H(question.items).each(function(item){
-                                    ($(item.key + "_" + qid) && ($(item.key + "_" + qid).value = item.value));
+                                    $(item.key + "_" + qid) && ($(item.key + "_" + qid).value = item.value);
                                 });
                                 break;
                             case "control_phone":
                             case "control_birthdate":
                             case "control_address":
                                 $H(question.items).each(function(item){
-                                    ($('input_' + qid + "_" + item.key) && ($('input_' + qid + "_" + item.key).putValue(item.value)));
+                                    $('input_' + qid + "_" + item.key) && ($('input_' + qid + "_" + item.key).putValue(item.value));
                                 });
                                 break;
                             default:
-                                ($('input_' + qid) && ($('input_' + qid).putValue(question.value)));
+                                $('input_' + qid) && ($('input_' + qid).putValue(question.value));
                                 break;
                         }
                     }.bind(this));
@@ -524,11 +483,6 @@ JotForm = {
             }
         });
         */
-        
-        if('input_'+field in JotForm.defaultValues){
-            $('input_'+field).value = JotForm.defaultValues['input_'+field];
-        }
-        
         return $('id_'+field).show();
     },
     
@@ -546,7 +500,6 @@ JotForm = {
             }
 
             input.clear();
-            
             input.run('keyup').run('change');
         });
         
@@ -560,7 +513,7 @@ JotForm = {
      * @param {Object} fieldValue
      */
     checkValueByOperator: function(operator, condValue, fieldValue){
-        JotForm.log('if "%s" %s "%s"', fieldValue, operator, condValue);
+        //console.log('if "%s" %s "%s"', fieldValue, operator, condValue);
         switch (operator) {
             case "equals":
                 return fieldValue == condValue;
@@ -651,41 +604,182 @@ JotForm = {
                         }else{
                             all = false;
                         }
+//denisedesign
+                        if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+						var preview_info_ul = $("preview_info_ul");
+						var podglad = $("preview");
+						if ($('input_1').value) {
+							var preview_info_title = $("preview_info_title");
+							if (preview_info_title) {
+								preview_info_title.innerHTML='';
+								if ($('input_1').value == 'clipit') {
+									preview_info_title.insert('Clip\'it');
+								} else {
+									preview_info_title.insert($('input_1').value);
+								}
+							}
+							podglad.style.visibility="visible";
+						}	
+						/*if (term.field>1) {
+							var obecny = $("lista"+term.field);
+							if (obecny) { 
+								var mysel = $('input_'+term.field);
+								var rep='<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>';
+								$('lista'+term.field).replace(rep);
+							} else {
+								var mysel = $('input_'+term.field);
+								preview_info_ul.insert('<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>');
+							}
+						}*/
+						
+						
+						/////////////////////firstline//////////
+						
+				       	if ($('input_1').value == 'extérieur') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext.jpg) no-repeat" ;
+						}
+						if ($('input_1').value == 'intérieur') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int.jpg) no-repeat";							
+						}
+						if ($('input_1').value == 'int/ext') {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext.jpg) no-repeat";							
+						}
+						
+						
+					
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 440g')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-440g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 550g')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-550g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache nontissé 150g')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-150g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 470g M1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-470g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 750g M2/B1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-750g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 750g M2/B1 recto verso')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-750g-rv.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache micro perforée M1/B1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-micro.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 100% écologique M1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext-eco.jpg) no-repeat" ;
+						}
+						
+						
+						
+						
+						
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache nontissé 150g')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-150g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 470g M1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-470g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 750g M2/B1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-750g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 750g M2/B1 recto verso')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-750g-rv.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache micro perforée M1/B1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-micro.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 100% écologique M1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-eco.jpg) no-repeat" ;
+						}
+						
+					
+					
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache nontissé 150g')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext-150g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache 470g M1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext-470g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache 750g M2/B1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext-750g.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache 750g M2/B1 recto verso')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext-750g-rv.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache micro perforée M1/B1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext-micro.jpg) no-repeat" ;
+						}
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache 100% écologique M1')) {
+							var imag = $("preview_imag");
+							imag.style.background="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext-eco.jpg) no-repeat" ;
+						}
+						
+						
+						
+																									
+				}							
+										
+//							
                 }
                 
             }catch(e){ 
-            	JotForm.error(e);
+            	//console.error(e);
         	}
         });
         
         if(condition.type == 'field'){ // Field Condition
-            JotForm.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
+            //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
             if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
                 if(condition.action.visibility.toLowerCase() == 'show'){
-                    JotForm.info('Correct: Show field: '+($('label_'+condition.action.field) && $('label_'+condition.action.field).innerHTML));
+                    //console.info('Correct: Show field: '+$('label_'+condition.action.field).innerHTML);
                     JotForm.showField(condition.action.field);
                 }else{
-                    JotForm.info('Correct: Hide field: '+($('label_'+condition.action.field) && $('label_'+condition.action.field).innerHTML));
+                    //console.info('Correct: Hide field: '+$('label_'+condition.action.field).innerHTML);
                     JotForm.hideField(condition.action.field);
                 }
             }else{
                 if(condition.action.visibility.toLowerCase() == 'show'){
-                    JotForm.info('Fail: Hide field: '+($('label_'+condition.action.field) && $('label_'+condition.action.field).innerHTML));
+                    //console.info('Fail: Hide field: '+$('label_'+condition.action.field).innerHTML);
                     JotForm.hideField(condition.action.field);
                 }else{
-                    JotForm.info('Fail: Show field: '+($('label_'+condition.action.field) && $('label_'+condition.action.field).innerHTML));
+                    //console.info('Fail: Show field: '+$('label_'+condition.action.field).innerHTML);
                     JotForm.showField(condition.action.field);
                 }
             }                
         }else{ // Page condition
         
-            JotForm.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
+            //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
             if (JotForm.nextPage) {
                 return;
             }
             if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
                 
-                JotForm.info('Correct: Skip To: '+condition.action.skipTo);
+                //console.info('Correct: Skip To: '+condition.action.skipTo);
                 var sections = $$('.form-section');
                 if(condition.action.skipTo == 'end'){
                     JotForm.nextPage = sections[sections.length - 1];
@@ -695,7 +789,7 @@ JotForm = {
                 
             }else{
                 
-                JotForm.info('Fail: Skip To: page-'+JotForm.currentPage+1);
+                //console.info('Fail: Skip To: page-'+JotForm.currentPage+1);
                 
                 JotForm.nextPage = false; 
             }
@@ -727,9 +821,9 @@ JotForm = {
                 if (condition.type == 'field') {
                 
                     if (condition.action.visibility.toLowerCase() == 'show') {
-                        ($('id_' + condition.action.field) && $('id_' + condition.action.field).hide());
+                        $('id_' + condition.action.field).hide();
                     } else {
-                        ($('id_' + condition.action.field) && $('id_' + condition.action.field).show());
+                        $('id_' + condition.action.field).show();
                     }
                     
                     // Loop through all rules
@@ -758,7 +852,7 @@ JotForm = {
                         }
                         
                         nextButton.observe('mousedown', function(){
-                            JotForm.warn('Checking ' + $('label_' + id).innerHTML);
+                            //console.warn('Checking ' + $('label_' + id).innerHTML);
                             JotForm.checkCondition(condition);
                         });
                     });
@@ -770,17 +864,17 @@ JotForm = {
                 var event = pair.value.event;
                 var conds = pair.value.conditions;
                 
-                JotForm.log(field);
+                //console.log(field);
                 $(field).observe(event, function(){
-                    JotForm.log('Here');
+                    //console.log('Here');
                     $A(conds).each(function(cond){
-                        JotForm.warn('Checking ' + $('label_' + field.replace(/.*_(\d+)/gim, '$1')).innerHTML);
+                        // console.warn('Checking ' + $('label_' + field.replace(/.*_(\d+)/gim, '$1')).innerHTML);
                         JotForm.checkCondition(cond);
                     });
                 }).run(event);
             });
         }catch(e){ 
-        	JotForm.error(e); 
+        	//console.error(e); 
     	}
     },
     /**
@@ -1029,7 +1123,7 @@ JotForm = {
      * * Handles the print button
      */
     setButtonActions: function(){
-    
+    /* denisedesign
         $$('.form-submit-button').each(function(b){
             b.oldText = b.innerHTML;
             b.enable(); // enable previously disabled button
@@ -1040,7 +1134,7 @@ JotForm = {
                 }, 50);
             });
         });
-        
+      */  
         $$('.form-submit-reset').each(function(b){
             b.onclick = function(){
                 if (!confirm('Are you sure you want to clear the form')) {
@@ -1120,7 +1214,7 @@ JotForm = {
             });
             
             section.select('.form-pagebreak-back').invoke('observe', 'click', function(){ // When back button clicked
-                JotForm.log('Back Button');
+                //console.log('Back Button');
                 section.hide();            
                 JotForm.backStack.pop().show();
                 JotForm.nextPage = false;
@@ -1154,7 +1248,7 @@ JotForm = {
                 var back = $$('.form-pagebreak-back-container')[0].select('button')[0];
                 
                 back.observe('click', function(){
-                    JotForm.log('Back Button');
+                    //console.log('Back Button');
                     last.hide();            
                     //JotForm.backStack.pop().show();
                     JotForm.nextPage = false;
@@ -1281,21 +1375,13 @@ JotForm = {
         var lineDescription = false;
         if(!$(input)){
             var id = input.replace(/[^\d]/gim, '');
-            if($("id_"+id)){
-            	input = $("id_"+id);
-                lineDescription = true;
-            }else if($('section_'+id)){
-            	input = $('section_'+id);
-                lineDescription = true;
-            }else{
-            	return; /* no element found to display a description */            	
-            }
+            if(!$("id_"+id)){ return; /* no element found to display a description */ }
+            input = $("id_"+id);
+            lineDescription = true;
         }
         
         var cont = JotForm.getContainer(input);
-        if(!cont){
-        	return;
-        }
+        
         var buble = new Element('div', {
             className: 'form-description'
         });
@@ -1311,7 +1397,7 @@ JotForm = {
         content.insert(message);
         buble.insert(arrow).insert(arrowsmall).insert(content).hide();
         
-        cont.insert(buble);
+        this.getContainer(input).insert(buble);
         
         if(lineDescription){
             $(input).hover(function(){
@@ -1350,7 +1436,7 @@ JotForm = {
         $$('*[class*="validate"]').each(function(input){
             if (!(!!input.validateInput && input.validateInput())) {
                 ret = false;
-                //throw $break; // stop at the first error
+                throw $break; // stop at the first error
             }
         });
         
@@ -1381,7 +1467,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
+                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1393,21 +1479,10 @@ JotForm = {
         input.errored = true;
         input.addClassName('form-validation-error');
         container.addClassName('form-line-error');
-        var insertEl = container;
         
-        if(JotForm.debug){
-            insertEl = container.select('.form-input')[0];
-            if (!insertEl) {
-                insertEl = container.select('.form-input-wide')[0];
-            }
-            if(!insertEl){
-                insertEl = container;
-            }
-        }
-        
-        insertEl.insert(new Element('div', {
+        container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
+        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
         
         return false;
     },
@@ -1454,13 +1529,14 @@ JotForm = {
      * Sets all validations to forms
      */
     validator: function(){
-        
+    
         var reg = {
             email: /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])/,
             alphanumeric: /^[a-zA-Z0-9]+$/,
             numeric: /^(\d+[\.\,]?)+$/,
             alphabetic: /^[a-zA-Z\s]+$/
         };
+        
         
         $A(JotForm.forms).each(function(form){ // for each JotForm form on the page 
             if (form.validationSet) {
@@ -1476,7 +1552,8 @@ JotForm = {
                         e.stop();
                     }
                 } catch (err) {
-                    JotForm.error(err);
+                    //console.error(err);
+                    //alert(err);
                     e.stop();
                 }
             });
@@ -1488,12 +1565,18 @@ JotForm = {
                 
                 input.validateInput = function(){
                 
+                	if ( (input.readAttribute('type') == "password") && (input.readAttribute('id')=='input_4') ){
+                		var pass1 = $('input_3');
+                		var pass2 = $('input_4');
+                		if ($(pass1).value == $(pass2).value) {  }
+                		else { return JotForm.errored(input, "Please retype password correctly!"); }
+                	}
+                
                     if (!JotForm.isVisible(input)) {
                         return true; // if it's hidden then user cannot fill this field then don't validate
                     }
                     
                     JotForm.corrected(input); // First clean the element
-                    
                     var vals = validations;
                     
                     if(input.hinted === true){ input.clearHint(); } // Clear hint value if exists
@@ -1502,12 +1585,12 @@ JotForm = {
                         
                         if (input.tagName == "INPUT" && (input.readAttribute('type') == "radio" || input.readAttribute('type') == "checkbox")) {
 
-                            if ( ! $A(document.getElementsByName(input.name)).map(function(e){ return e.checked; }).any()) {
-                                                                
-                                return JotForm.errored(input, "Ce champ est obligatoire.");
+                            if (!$A(document.getElementsByName(input.name)).map(function(e){
+                                return e.checked;
+                            }).any()) {
                                 
+                                return JotForm.errored(input, "Ce champ est obligatoire.");
                             }
-                            
                         } else if (input.name && input.name.include("[")) {
 
                             try{
@@ -1519,11 +1602,10 @@ JotForm = {
                                 }
                             }catch(e){
                                 // This can throw errors on internet explorer
-                                JotForm.error(e);
                                 return true;
                             }
                         }
-                        if (!input.value || input.value.empty() || input.value == 'Please Select') {
+                        if (!input.value || input.value.empty()) {
 
                             return JotForm.errored(input, "Ce champ est obligatoire.");
                         }
@@ -1548,17 +1630,17 @@ JotForm = {
                             break;
                         case "Alphabetic":
                             if (!reg.alphabetic.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres sans accent sans espace");
                             }
                             break;
                         case "Numeric":
                             if (!reg.numeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain numeric values");
+                                return JotForm.errored(input, "Chiffres uniquement");
                             }
                             break;
                         case "AlphaNumeric":
                             if (!reg.alphanumeric.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters and numbers.");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres");
                             }
                             break;
                         default:
@@ -1568,9 +1650,7 @@ JotForm = {
                 };
                 
                 input.observe('blur', function(){
-                    //if(input.errored){
-                        input.validateInput();
-                    //}
+                    input.validateInput();
                 });
             });
             
@@ -1597,7 +1677,7 @@ JotForm = {
                             } // No file was selected
                             var ext = JotForm.getFileExtension(file.fileName);
                             
-                            if (acceptString != "*" && !accept.include(ext) && !accept.include(ext.toLowerCase())) {
+                            if (!accept.include(ext) && !accept.include(ext.toLowerCase())) {
                                 return JotForm.errored(upload, 'You can only upload following files: ' + acceptString);
                             }
                             
@@ -1615,11 +1695,17 @@ JotForm = {
                     }
                 } catch (e) {
 
-                	JotForm.error(e);
+                	//alert(e);
 
                 }
 
-            }); 
+            });
+
+
+
+
+            
         });
+        
     }
 };

@@ -18,17 +18,16 @@
 				<!--support-->
 				<li class="form-line" id="id_ext">
 					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />• <u><b>Bâche 550g B1</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Toutes les banderoles jusqu'à 3 ans en Ext.<br />• <u><b>Bâche nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
-					<select class="form-dropdown select7 validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
+					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="bache 440g">bache 440g </option>
 						<option value="bache 550g">bache 550g B1 </option>
-						<option value="bache dickson" class="fr" data-imagesrc="http://dl.dropbox.com/u/40036711/Images/facebook-icon-32.png">bache Dickson Jet 550 <sup>|PRODUIT FRANÇAIS|</sup></option>
 						<option value="bache nontissé 150g">bache nontissé 150g</option>
 						<option value="bache 470g M1">bache 470g M1</option>
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1" class="ecofr">bache 100% écologique M1 <sup>|FRANÇAIS ET &#xC9;COLOGIQUE|</sup></option>
+						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
 					</select>
 				</li>
 
@@ -471,8 +470,8 @@
 				document.getElementById('etiquette').checked = false;
 				document.getElementById('adresse').checked = false;
 			}
-
 		});
+
 
 	</script>
 
@@ -1908,7 +1907,6 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
 
 
 });
-
 
 
 });

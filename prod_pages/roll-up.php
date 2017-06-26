@@ -123,7 +123,7 @@
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<option class="option2" value="300µ M1">PVC 300µ M1</option>
+						<!--<option class="option2" value="300µ M1">PVC 300µ M1</option>-->
 					</select>
 				</li>
 
@@ -139,7 +139,7 @@
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<option class="option2" value="300µ M1">PVC 300µ M1</option>
+						<!--<option class="option2" value="300µ M1">PVC 300µ M1</option>-->
 						<option class="option1" value="470g M1">bâche 470g M1</option>
 						<option class="option2" value="100% écologique M1">toile 100% écologique M1</option>
 					</select>
@@ -157,7 +157,7 @@
 					<select class="form-dropdown validate[required]" id="input_33" name="q33_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<option class="option2" value="300µ M1">PVC 300µ M1</option>
+						<!--<option class="option2" value="300µ M1">PVC 300µ M1</option>-->
 						<option class="option1" value="470g M1">bâche 470g M1</option>
 						<option class="option2" value="100% écologique M1">toile 100% écologique M1</option>
 					</select>

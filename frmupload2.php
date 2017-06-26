@@ -40,7 +40,7 @@ if(isset($_GET['usr']) && isset($_GET['cmd']) && !empty($_GET['usr']) && !empty(
 					<div id="mon_flash">
 						Pour utiliser notre module de téléchargement, vous devez télécharger <a href="https://www.adobe.com/go/getflashplayer_fr" target="_blank" onClick="window.open(this.href); return false;"><strong>Adobe Flash Player</strong></a>	</div>
 						<script type="text/javascript">
-						// <![CDATA[ ---------------------ICI PENSER A CHANGER LE LIEN SUIVANT POUR BASCULER EN DEV OU EN PROD DEV/WWW !!
+						// <![CDATA[
 						var so = new SWFObject("//www.france-banderole.com/applications/NasUploader15.swf", "nasuploader", "456", "350", "8");
 						so.addParam ('FlashVars','varget=cmd%3D<?php echo $IdOrder;?>%26usr%3D<?php echo $IdCustomer;?>%26isproject%3D<?php echo $IsProject;?>%26isemail%3D<?php echo $IsEmail;?>');
 						so.write("mon_flash");

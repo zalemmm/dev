@@ -1412,7 +1412,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
+                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="bottom" style="margin-right:5px;"> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1438,7 +1438,7 @@ JotForm = {
         
         insertEl.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> ' + message));
         
         return false;
     },
@@ -1589,12 +1589,12 @@ JotForm = {
                             break;
                         case "Numeric":
                             if (!reg.numeric.test(input.value)) {
-                                return JotForm.errored(input, "Chiffres uniquement");
+                                return JotForm.errored(input, "This field can only contain numeric values");
                             }
                             break;
                         case "AlphaNumeric":
                             if (!reg.alphanumeric.test(input.value)) {
-                                return JotForm.errored(input, "Uniquement chiffres et lettres");
+                                return JotForm.errored(input, "This field can only contain letters and numbers.");
                             }
                             break;
                         default:

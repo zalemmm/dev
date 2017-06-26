@@ -706,7 +706,7 @@ function get_acces_client() {
 }
 
 function get_pass_resend_form() {
-	$view .= '<h1>Accès Client</h1><hr />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">mot de passe oublié ?</div>
 	<div class="acces_tab_content">
@@ -726,7 +726,7 @@ function get_acces_panel($p) {
 	if ($p == 1) { $path=get_bloginfo("url").'/vos-devis/'; } else { $path=''; }
 	if ($p == 2) { $path=get_bloginfo("url").'/verification/'; } else { $path=''; }
 if ($p == 2) {
-	$view .= '<h1>Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">VERIFICATION DE VOS IDENTIFIANTS</div>
 	<div class="acces_tab_content">
@@ -742,7 +742,7 @@ if ($p == 2) {
 	</div>
 	</div>';
 } else {
-	$view .= '<h1>Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">DEJA INSCRIT?</div>
 	<div class="acces_tab_content">
