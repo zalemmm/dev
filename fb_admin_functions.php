@@ -327,15 +327,15 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		global $wpdb;
 
 		/* Nouveau statut à 5 (cloturé)*/
-        $newstat = '5';
+    $newstat = '5';
 		$nowadata = date('Y-m-d H:i:s');
 		$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat ), array ( 'unique_id' => $number ) );
 
     /* ENVOI du commentaire "COLIS RECU*/
 		$wheresql = "COLIS RECU";
 
-        $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
-        if ($topics) {
+    $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
+    if ($topics) {
 			foreach ($topics as $t) :
 				$cont = stripslashes($t[content]);
 				$cont= htmlspecialchars($cont);
@@ -372,6 +372,8 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		$ktoryuser = $order->user;
 		$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
+		$con = str_replace("NNNNN",$number,$con);
+
 		/*echo "///ORDERSQL="."SELECT * FROM ".$fb_tablename_order." WHERE unique_id = '".$number."'";
 		echo "///ORDER=".print_r($order);
 		echo "///order->user=".print_r($order->user);
@@ -401,7 +403,7 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		$temat = htmlspecialchars_decode($top);
 		$zawar = htmlspecialchars_decode($con);
 		$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
-        $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+    $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 
 
 		//Sync Mailjet
