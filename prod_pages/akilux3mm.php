@@ -222,46 +222,25 @@
 			});
 		});
 
-		</script>
-
-		<script type="text/javascript">
-		/* Voici la fonction javascript qui change la propriété "display"
-		livraison le jour même */
-
-		function Afficher()
-		{
+		/* change la propriété "display"	livraison le jour même */
+		function Afficher()	{
 			divliv = document.getElementById('livraisonrapide');
-
 			if (divliv.style.display == 'none')
 			divliv.style.display = 'block';
-
-
 		}
-		</script>
 
-		<script type="text/javascript">
-		/* Voici la fonction javascript qui change la propriété "display"
-		pour afficher ou non le div selon que ce soit "none" ou "block". */
+		/* change la propriété "display" pour afficher ou non le div selon que ce soit "none" ou "block". */
 
-		function Afficher()
-		{
+		function Afficher()	{
 			divInfo = document.getElementById('delivery-div');
-
 			if (divInfo.style.display == 'none')
 			divInfo.style.display = 'block';
-
-
 		}
-		</script>
 
-		<script type="text/javascript">
-		/* Voici la fonction javascript qui change la propriété "display"
-		pour afficher ou non le div selon que ce soit "none" ou "block". */
+		/* change la propriété "display" pour afficher ou non le div selon que ce soit "none" ou "block". */
 
-		function Masquer()
-		{
+		function Masquer() {
 			divInfo = document.getElementById('delivery-div');
-
 			if (divInfo.style.display == 'block')
 			divInfo.style.display = 'none';
 

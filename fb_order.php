@@ -1227,6 +1227,7 @@ function add_to_db() {
 		        wp_mail($user->email, $lettert, $letter);
 			}
 
+			//ajout header mail <a href=\'http://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
 
 			/* Ajout de l'indicateur "retrait atelier" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
 			if($retrait_atelier !== false){
