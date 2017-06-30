@@ -1035,9 +1035,9 @@ function print_votre() {
 		}
 
 		if ($archive) {
-			$view .= '<div style="float: left;"><p>Vous n\'avez aucune commande archivée.</p></div>';
+			$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true" style="visibility:hidden;"></i> Vous n\'avez aucune commande archivée.</p>';
 		} else {
-			$view .= '<div style="float: left;"><p>Vous n\'avez aucune commande en cours.</p></div>';
+			$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true" style="visibility:hidden;"></i> Vous n\'avez aucune commande en cours.</p>';
 		}
 
 		$view .= '</div>';

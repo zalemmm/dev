@@ -1161,7 +1161,7 @@ function fb_admin_reports_users() {
 	$users_ids = implode(',', $users_ids);
 
 	echo '<p><form name="reportusers" id="report"  class="noprint" action="" method="post">';
-	echo 'Chercher selon nom, prénom, e-mail, société, login : <input type="text" name="generic_search" /><br />';
+	echo 'Chercher selon nom, prénom, e-mail, société, login, code postal : <input type="text" name="generic_search" /><br />';
 	echo 'Chercher selon numéro de commande : <input type="text" name="search_by_order" /><br />';
 
 	echo '
@@ -1225,6 +1225,9 @@ $liczbezmak = 0;
 	if (isset($_POST['user_company']) && $_POST['user_company']!='') {
 		$where = $_POST['user_company'];
 	}
+  if (isset($_POST['user_code']) && $_POST['user_code']!='') {
+    $where = $_POST['user_code'];
+  }
 	if (isset($_POST['user_mail']) && $_POST['user_mail']!='') {
 		$where = $_POST['user_mail'];
 	}
@@ -1441,19 +1444,19 @@ function fb_admin_adresse_mail01() {
 	echo '<p><form name="reportusers" id="report"  class="noprint" action="" method="post">
 	<select name="users_sales">
 	<option value="">Select by sales</option>';
-		echo '<option value="10">1 - 99</option>';
-		echo '<option value="100">100 - 499</option>';
-		echo '<option value="500">500 - 799</option>';
-		echo '<option value="800">800 - 1500</option>';
-		echo '<option value="1500">1500 - 2500</option>';
-		echo '<option value="2500">2500 - 4000</option>';
-		echo '<option value="4000">4000 - 6500</option>';
-		echo '<option value="6500">6500 - more</option>';
+	echo '<option value="10">1 - 99</option>';
+	echo '<option value="100">100 - 499</option>';
+	echo '<option value="500">500 - 799</option>';
+	echo '<option value="800">800 - 1500</option>';
+	echo '<option value="1500">1500 - 2500</option>';
+	echo '<option value="2500">2500 - 4000</option>';
+	echo '<option value="4000">4000 - 6500</option>';
+	echo '<option value="6500">6500 - more</option>';
 	echo '</select>';
 	echo '<br /><input type="hidden" name="pokaztab" /><input type="submit" style="margin-top:10px;" value="Filter" /></form></p>';
-$licznik = 0;
-$liczmak = 0;
-$liczbezmak = 0;
+  $licznik = 0;
+  $liczmak = 0;
+  $liczbezmak = 0;
  if (isset($_POST['pokaztab']) && ($_POST['users_sales'] == '')) {
 	if (isset($_POST['user_name']) && $_POST['user_name']!='') {
 		$where = $_POST['user_name'];
@@ -1836,7 +1839,7 @@ function fb_getUsersBySearch($search) {
 
 	//$search_query("SELECT id, login, email, f_name, f_comp, f_phone FROM `$fb_tablename_users` WHERE login LIKE '%".$search."%' OR email LIKE '%".$search."%' OR f_name LIKE '%".$search."%' OR f_comp LIKE '%".$search."%' OR id IN (SELECT user FROM `$fb_tablename_order` WHERE unique_id = '".$search."')");
 
-	$search_query = $wpdb->get_results("SELECT id, login, email, f_name, f_comp, f_phone FROM `$fb_tablename_users` WHERE login LIKE '%".$search."%' OR email LIKE '%".$search."%' OR f_name LIKE '%".$search."%' OR f_comp LIKE '%".$search."%'");
+	$search_query = $wpdb->get_results("SELECT id, login, email, f_name, f_comp, f_code, f_phone FROM `$fb_tablename_users` WHERE login LIKE '%".$search."%' OR email LIKE '%".$search."%' OR f_name LIKE '%".$search."%' OR f_comp LIKE '%".$search."%' OR f_code LIKE '%".$search."%'");
 
 	$licznik = 0;
 
@@ -2606,6 +2609,7 @@ function fb_admin_sales() {
 					}
 				}
 			}
+
 			// VERIFICATION OU DESCRIPTION CONTIENT RUSH24
 		  endforeach;
 			$maktype = 'impression';
