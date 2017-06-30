@@ -21,21 +21,8 @@ function recursive_array_search($needle,$haystack) {
 }
 
 function fbshop_head() {
-if (is_page('flyers') || is_page('-publicitaire-barnum') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
+  if (is_page('flyers') || is_page('-publicitaire-barnum') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
 }
-
-$user = $_SESSION['loggeduser'];
-/*
-if (isset($_GET['detail']) && $user->login != 'schizoos' && $user->login != 'pocalypse') {
-	$detailp = $_GET['detail'];
-	echo '
-	<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" />
-	<script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script>
-	<script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>
-	';
-}
-*/
-
 
 /* Si page "votre-panier" alors on affiche si necessaire le formulaire Relais Colis, donc les coodes sources dans le head */
 if (is_page('votre-panier')){
@@ -52,15 +39,6 @@ if (is_page('votre-panier')){
 	';
 	}
 }
-
-// feuilles de styles particulières à chaque page
-/*	if ((is_page('roll-up')) || (is_page('tente-pliante-exposition')) || (is_page('PVC-300-microns')) || (is_page('totem')) || (is_page('stand-parapluie')) || (is_page('oriflammes')) || (is_page('banderoles')) || (is_page('panneaux-akilux-3mm')) || (is_page('autocollant')) || (is_page('vitrophanie')) || (is_page('panneaux-akilux-3_5mm')) || (is_page('panneaux-akilux-5mm')) || (is_page('panneaux-forex-3mm')) || (is_page('panneaux-forex-5mm')) || (is_page('panneaux-dibond')) || (is_page('stickers')) || (is_page('sticker-predecoupe')) || (is_page('sticker-lettrage-predecoupe')) ) {
-	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/roll.css?v26032013" type="text/css" media="all" />';
-}
-
-Else {
-	echo '<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/style.css?v26032013" type="text/css" media="all" />';
-}*/
 
 echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
 
@@ -3020,6 +2998,8 @@ function get_promotions() {
 	return $view;
 }
 
+///////////////////////////////////////////////// validation BAT (obsolète ?) //
+
 function get_valider_bat() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -3032,46 +3012,37 @@ function get_valider_bat() {
 
 	$order_id = $_GET['uid'];
 
-
-
 	if(isset($_GET['accepte'])) {
-	//On enregistre le message
+	// On enregistre le message
+  	$mess_obj = $wpdb->get_row("SELECT * FROM `$fb_tablename_topic` WHERE id = 56");
+  	$sujet = $mess_obj->topic;
+  	$message = $mess_obj->content;
+  	$date = date('Y-m-d H:i:s');
+  	$user = $_SESSION['loggeduser'];
+  	$user_name = $user->f_name;
 
-	$mess_obj = $wpdb->get_row("SELECT * FROM `$fb_tablename_topic` WHERE id = 56");
-	$sujet = $mess_obj->topic;
-	$message = $mess_obj->content;
-	$date = date('Y-m-d H:i:s');
-	$user = $_SESSION['loggeduser'];
-	$user_name = $user->f_name;
+  	$order_data = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$order_id'");
+  	$user_type = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$user->id."' AND att_name = 'client_type' AND att_value = 'grand compte'");
 
-	$order_data = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$order_id'");
-	$user_type = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$user->id."' AND att_name = 'client_type' AND att_value = 'grand compte'");
+  	$wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$order_id."', '".$sujet."', '".$date."', '".$user_name."', '".$message."')");
 
-	$wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$order_id."', '".$sujet."', '".$date."', '".$user_name."', '".$message."')");
-
-	//Selon le statut de la commande ou le type d'utilisateur, on redirige soit sur la page de paiement, soit sur la page de récapitulatif de commande
-	if (($user_type) OR ($order_data->status == 2) OR ($order_data->status == 7)) {
-		echo '<script type="text/javascript">
-				window.location.replace("'.get_bloginfo("url").'/vos-devis/?detail='.$order_id.'");
-			</script>';
-	} else {
-		echo '<script type="text/javascript">
-				window.location.replace("'.get_bloginfo("url").'/paiement/?pay='.$order_id.'");
-			</script>';
+  	// Selon le statut de la commande ou le type d'utilisateur, on redirige soit sur la page de paiement, soit sur la page de récapitulatif de commande
+  	if (($user_type) OR ($order_data->status == 2) OR ($order_data->status == 7)) {
+  		echo '<script type="text/javascript">
+  				window.location.replace("'.get_bloginfo("url").'/vos-devis/?detail='.$order_id.'");
+  			</script>';
+  	} else {
+  		echo '<script type="text/javascript">
+  				window.location.replace("'.get_bloginfo("url").'/paiement/?pay='.$order_id.'");
+  			</script>';
+  	}
 	}
-
-
-
-	}
-
-
 
 	$view .= '<h1>Validation de mon BAT - Commande n°'.$order_id.'</h1>';
 	$view .= '<div id="valid_bat">';
 	$view .= '<div id="valid_bat_left"><div id="valid_bat_left_tit">Valider mon BAT</div>
 	<div id="valid_bat_left_con"><form method="post"><input type="checkbox" name="accepte" id="bat_confirm" /><label for="accepte" class="checkbox2">En cochant cette case, je reconnais avoir visualisé mon ou mes BAT et demande le lancement de la production</label><button id="suivant_reg" type="submit">Suivant</button></form></div>
 	</div></div>';
-
 }
 
 function get_affiches_form() {

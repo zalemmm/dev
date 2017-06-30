@@ -91,7 +91,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 		$strmoyenne4 = " avis";
 
 		$view .= '<span class="client_reviews_1">'. $strmoyenne1 . '</span>'. $strmoyenne2 . $strmoyenne3 . $strmoyenne4. '<br />';
-		$view .= '<span class="star-note"><img src="'.get_bloginfo("url").'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
+		$view .= '<span class="star-note"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
 		$view .= 'pour les produits de type '.$display_name;
 		$view .= '</div>';
 
@@ -114,33 +114,33 @@ function get_ratings($type_prod, $nb_comment=2) {
 			$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 			$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
 			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-			if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/kakemonos";}
-			elseif ($prodname->name == 'Banderole'){$lienprod = "//www.france-banderole.com/banderoles";}
-			elseif ($prodname->name == 'Adhésif / Sticker'){$lienprod = "//www.france-banderole.com/stickers";}
-			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "//www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "//www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "//www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Oriflamme'){$lienprod = "//www.france-banderole.com/oriflammes";}
-			elseif ($prodname->name == 'depliants 80g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 135g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 170g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 250g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'Enseigne'){$lienprod = "//www.france-banderole.com/enseignes";}
-			elseif ($prodname->name == 'Flyers 80g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 135g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 170g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 250g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 350g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Affiches 135g'){$lienprod = "//www.france-banderole.com/affiches";}
-			elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			else {$lienprod = "//www.france-banderole.com";};
+			if ($prodname->name == 'Kakemono'){$lienprod = "'.get_bloginfo('url').'/kakemonos";}
+			elseif ($prodname->name == 'Banderole'){$lienprod = "'.get_bloginfo('url').'/banderoles";}
+			elseif ($prodname->name == 'Adhésif / Sticker'){$lienprod = "'.get_bloginfo('url').'/stickers";}
+			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "'.get_bloginfo('url').'/cartes";}
+			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "'.get_bloginfo('url').'/cartes";}
+			elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "'.get_bloginfo('url').'/cartes";}
+			elseif ($prodname->name == 'Oriflamme'){$lienprod = "'.get_bloginfo('url').'/oriflammes";}
+			elseif ($prodname->name == 'depliants 80g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
+			elseif ($prodname->name == 'depliants 135g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
+			elseif ($prodname->name == 'depliants 170g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
+			elseif ($prodname->name == 'depliants 250g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
+			elseif ($prodname->name == 'Enseigne'){$lienprod = "'.get_bloginfo('url').'/enseignes";}
+			elseif ($prodname->name == 'Flyers 80g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 135g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 170g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 250g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 350g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "'.get_bloginfo('url').'/flyers";}
+			elseif ($prodname->name == 'Affiches 135g'){$lienprod = "'.get_bloginfo('url').'/affiches";}
+			elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
+			elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
+			elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
+			elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
+			elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
+			else {$lienprod = "'.get_bloginfo('url').'";};
 
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
@@ -154,7 +154,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 		endforeach;
 
 		$view .= '</tbody></table>';
-    $view .= '<a  class="comVoir" href="'.get_bloginfo("url").'/avis?prod_type='.$prod_family.'"><i class="fa fa-plus" aria-hidden="true"></i> <span class="textHide"> d\'avis sur ce type de produit</span></a>';
+    $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis?prod_type='.$prod_family.'"><i class="fa fa-plus" aria-hidden="true"></i> <span class="textHide"> d\'avis sur ce type de produit</span></a>';
     $view .= '<div class="clear"></div></div>';
 
 
@@ -222,7 +222,7 @@ function fb_admin_rating() {
 			} else {
 				$comment = '0 réponse';
 			}
-			echo '<tr><td><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbdet='.$r[unique_id].'" target="_blank">'.$r[unique_id].'</a></td><td>'.$r[data].'</td><td>'.$user.'</td><td style="text-align:center">'.$r[fir].'</td><td style="text-align:center">'.$r[sec].'</td><td style="text-align:center">'.$r[thi].'</td><td style="text-align:center">'.$general.'</td><td>'.$text.'</td><td>'.$exist.'</td><td>'.$act.'</td><td><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fb-ratings-comments&r_id='.$r[id].'">'.$comment.'</a></td><td>'.$del.'</tr>';
+			echo '<tr><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbdet='.$r[unique_id].'" target="_blank">'.$r[unique_id].'</a></td><td>'.$r[data].'</td><td>'.$user.'</td><td style="text-align:center">'.$r[fir].'</td><td style="text-align:center">'.$r[sec].'</td><td style="text-align:center">'.$r[thi].'</td><td style="text-align:center">'.$general.'</td><td>'.$text.'</td><td>'.$exist.'</td><td>'.$act.'</td><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-ratings-comments&r_id='.$r[id].'">'.$comment.'</a></td><td>'.$del.'</tr>';
 		endforeach;
 		echo '</table>';
 	}
@@ -292,7 +292,7 @@ function fb_admin_ratings_comments() {
 
 
 	} else {
-		echo '<p>Bienvenue sur l\'administration des réponses aux clients. Pour rédiger une réponse, rendez-vous sur la page <a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fb-ratings">Ratings</a>.</p>';
+		echo '<p>Bienvenue sur l\'administration des réponses aux clients. Pour rédiger une réponse, rendez-vous sur la page <a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-ratings">Ratings</a>.</p>';
 	}
 
 }
@@ -1266,10 +1266,10 @@ $liczbezmak = 0;
 		$l_address = $explode2['0'];
 		$l_porte = $explode2['1'];
 		$exist_type = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_type' AND uid = ".$where."");
-            $t1 = '';
-            $t2 = '';
-            $t3 = '';
-            $t4 = '';
+    $t1 = '';
+    $t2 = '';
+    $t3 = '';
+    $t4 = '';
 		if (!empty($exist_type->att_value)) {
 			if ($exist_type->att_value == '')
 				$t1 = ' selected="selected"';
@@ -1392,7 +1392,7 @@ $liczbezmak = 0;
 			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
 
 
-			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td'.$stylstatusu.'>'.print_status($o->status).'</td><td class="noprint"><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
+			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td'.$stylstatusu.'>'.print_status($o->status).'</td><td class="noprint"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
 			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
 			$sumtotalht = $sumtotalht+str_replace(',', '', $o->totalht);
 			$sumtva = $sumtva+str_replace(',', '', $o->tva);
@@ -1614,7 +1614,7 @@ $liczbezmak = 0;
 			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
 
 
-			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td'.$stylstatusu.'>'.print_status($o->status).'</td><td class="noprint"><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
+			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td'.$stylstatusu.'>'.print_status($o->status).'</td><td class="noprint"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
 			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
 			$sumtotalht = $sumtotalht+str_replace(',', '', $o->totalht);
 			$sumtva = $sumtva+str_replace(',', '', $o->tva);
@@ -2041,182 +2041,184 @@ function fb_admin_reports() {
 	echo '</select></span>
 	<br /><input type="hidden" name="pokaztab" /><input type="submit" style="margin-top:10px;" value="Filter" />
 	</form></p>';
-$licznik = 0;
-$liczmak = 0;
-$liczbezmak = 0;
-if (isset($_POST['pokaztab'])) {
-  if ($_POST['type'] == 'sales') {
-	if ($_POST['time'] == 'monthly') {
-		$filter = date('m')-1;
-		$filterdate = date('Y-'.$filter.'-d 00:00:00');
-		$where = ' AND date_modify >= \''.$filterdate.'\'';
-	}
-	if ($_POST['time'] == 'daily') {
-		$filterdate = date('Y-m-d 00:00:00');
-		$where = ' AND date_modify >= \''.$filterdate.'\'';
-	}
-	if ($_POST['time'] == 'annualy') {
-		$fromdate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth'], $_POST['annualday'], $_POST['annualyear']));
-		$todate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth2'], $_POST['annualday2'], $_POST['annualyear2']));
-		$where = ' AND date_modify >= \''.$fromdate.'\' AND date_modify <= \''.$todate.'\'';
-	}
-	$sumfrais = 0;
-	$sumtotalht = 0;
-	$sumtva = 0;
-	$sumtotalttc = 0;
-	$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date_modify, '%d/%m/%Y') AS datamodyfikacji FROM `$fb_tablename_order` WHERE status>=3 AND status<6".$where." ORDER BY date DESC");
-	if ($orders) {
-		echo '<p><form name="pdf_print_form" action="'.$pdfpath.'pdfer.php" method="post" target="_blank"><input type="hidden" name="e" value="'.$where.'" /><input type="hidden" name="a" value="'.DB_NAME.'" /><input type="hidden" name="b" value="'.DB_USER.'" /><input type="hidden" name="c" value="'.DB_PASSWORD.'" /><input type="hidden" name="d" value="'.DB_HOST.'" /><input type="submit" value="PRINT PDF" /></form></p>';
-		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-		<table>
-		<thead>
-		<tr>
-		<th></th>
-		<th>N° DE COMMANDE</th>
-		<th>DESCRIPTION</th>
-		<th>DATE</th>
-		<th>CLIENT</th>
-		<th>FRAIS</th>
-		<th>TOTAL HT</th>
-		<th>TVA</th>
-		<th>TOTAL TTC</th>
-		<th>PRINT</th>
-		</tr>
-		</thead>
-		<tbody>';
-		//echo '<table class="widefat"><tr><th></th><th>N° DE COMMANDE</th><th>DESCRIPTION</th><th>DATE</th><th>CLIENT</th><th>FRAIS</th><th>TOTAL HT</th><th>TVA</th><th>TOTAL TTC</th><th class="noprint">PRINT</th></tr>';
-		foreach ($orders as $o) :
-			$licznik++;
-			echo '<tr><td>'.$licznik.'</td><td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="'.$o->unique_id.'"></form></td><td>';
-			$status = print_status($o->status);
-			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' AND status=1 ORDER BY name ASC");
-			foreach ($prods as $p) :
-				echo $p->name.' ('.$p->quantity.')<br />';
-				$wzorzec = '/ai déjà crée la maquette/';
-				$wzorzec2 = '/France banderole crée la maquette/';
-				$czymak = preg_match_all($wzorzec, $p->description, $wynik);
-				$czymak2 = preg_match_all($wzorzec2, $p->description, $wynik2);
-				$ktomak = count($wynik[0]);
-				$ktomak2 = count($wynik2[0]);
-				if ($ktomak >= 1) {
-					$liczbezmak++;
-				}
-				if ($ktomak2 >= 1) {
-					$liczmak++;
-				}
-			endforeach;
-			$client = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$o->user'");
-			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td class="noprint"><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
-			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
-			$sumtotalht = $sumtotalht+str_replace(',', '', $o->totalht);
-			$sumtva = $sumtva+str_replace(',', '', $o->tva);
-			$sumtotalttc = $sumtotalttc+str_replace(',', '', $o->totalttc);
-		endforeach;
-		echo '<tr><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
-		echo '</tbody></table>';
-		echo '<script type="text/javascript">
-			jQuery(function() {
-			jQuery("#example-1").beautify({
-			pageSize : 100000,
-				pagerSize : 7
-			});
-			jQuery("#txt_search").keyup(function() {
-				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-			});
-			});
-	</script>';
-		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
-	}
-	}
-	if ($_POST['type'] == 'orders') {
-	if ($_POST['time'] == 'monthly') {
-		$filter = date('m')-1;
-		$filterdate = date('Y-'.$filter.'-d 00:00:00');
-		$where = ' WHERE date >= \''.$filterdate.'\'';
-	}
-	if ($_POST['time'] == 'daily') {
-		$filterdate = date('Y-m-d 00:00:00');
-		$where = ' WHERE date >= \''.$filterdate.'\'';
-	}
-	if ($_POST['time'] == 'annualy') {
-		$fromdate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth'], $_POST['annualday'], $_POST['annualyear']));
-		$todate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth2'], $_POST['annualday2'], $_POST['annualyear2']));
-		$where = ' WHERE date >= \''.$fromdate.'\' AND date_modify <= \''.$todate.'\'';
-	}
-	$sumfrais = 0;
-	$sumtotalht = 0;
-	$sumtva = 0;
-	$sumtotalttc = 0;
-	$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order`".$where." ORDER BY date DESC");
-	if ($orders) {
-		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-		<table>
-		<thead>
-		<tr>
-		<th></th>
-		<th>N° DE COMMANDE</th>
-		<th>DESCRIPTION</th>
-		<th>DATE CREATE</th>
-		<th>ETAT</th>
-		<th>CLIENT</th>
-		<th>FRAIS</th>
-		<th>TOTAL HT</th>
-		<th>TVA</th>
-		<th>TOTAL TTC</th>
-		<th>PRINT</th>
-		</tr>
-		</thead>
-		<tbody>';
-		//echo '<table class="widefat"><tr><th></th><th>N° DE COMMANDE</th><th>DESCRIPTION</th><th>DATE CREATE</th><th>ETAT</th><th>CLIENT</th><th>FRAIS</th><th>TOTAL HT</th><th>TVA</th><th>TOTAL TTC</th><th class="noprint">PRiNT</th></tr>';
-		foreach ($orders as $o) :
-			$licznik++;
-			echo '<tr><td>'.$licznik.'</td><td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="'.$o->unique_id.'"></form></td><td>';
-			$status = print_status($o->status);
-			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' AND status=1 ORDER BY name ASC");
-			foreach ($prods as $p) :
-				echo $p->name.' ('.$p->quantity.')<br />';
-				$wzorzec = '/ai déjà crée la maquette/';
-				$wzorzec2 = '/France banderole crée la maquette/';
-				$czymak = preg_match_all($wzorzec, $p->description, $wynik);
-				$czymak2 = preg_match_all($wzorzec2, $p->description, $wynik2);
-				$ktomak = count($wynik[0]);
-				$ktomak2 = count($wynik2[0]);
-				if ($ktomak >= 1) {
-					$liczbezmak++;
-				}
-				if ($ktomak2 >= 1) {
-					$liczmak++;
-				}
-			endforeach;
-			$client = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$o->user'");
-			echo '</td><td>'.$o->data.'</td><td>'.$status.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td class="noprint"><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
-			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
-			$sumtotalht = $sumtotalht+str_replace(',', '', $o->totalht);
-			$sumtva = $sumtva+str_replace(',', '', $o->tva);
-			$sumtotalttc = $sumtotalttc+str_replace(',', '', $o->totalttc);
-		endforeach;
-		$mediumfrais = round($sumfrais/$licznik, 2);
-		$mediumtotalht = round($sumtotalht/$licznik, 2);
-		$mediumtva = round($sumtva/$licznik, 2);
-		$mediumtotalttc = round($sumtotalttc/$licznik, 2);
-		echo '<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
-		echo '<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">Medium amount of an order:</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtotalttc.' &euro;</td></tr>';
-		echo '</tbody></table>';
-		echo '<script type="text/javascript">
-			jQuery(function() {
-			jQuery("#example-1").beautify({
-			pageSize : 100000,
-				pagerSize : 7
-			});
-			jQuery("#txt_search").keyup(function() {
-				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-			});
-			});
-	</script>';
-		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
-	}
-	}
-}
+  $licznik = 0;
+  $liczmak = 0;
+  $liczbezmak = 0;
+
+  if (isset($_POST['pokaztab'])) {
+
+    if ($_POST['type'] == 'sales') {
+  	if ($_POST['time'] == 'monthly') {
+  		$filter = date('m')-1;
+  		$filterdate = date('Y-'.$filter.'-d 00:00:00');
+  		$where = ' AND date_modify >= \''.$filterdate.'\'';
+  	}
+  	if ($_POST['time'] == 'daily') {
+  		$filterdate = date('Y-m-d 00:00:00');
+  		$where = ' AND date_modify >= \''.$filterdate.'\'';
+  	}
+  	if ($_POST['time'] == 'annualy') {
+  		$fromdate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth'], $_POST['annualday'], $_POST['annualyear']));
+  		$todate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth2'], $_POST['annualday2'], $_POST['annualyear2']));
+  		$where = ' AND date_modify >= \''.$fromdate.'\' AND date_modify <= \''.$todate.'\'';
+  	}
+  	$sumfrais = 0;
+  	$sumtotalht = 0;
+  	$sumtva = 0;
+  	$sumtotalttc = 0;
+  	$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date_modify, '%d/%m/%Y') AS datamodyfikacji FROM `$fb_tablename_order` WHERE status>=3 AND status<6".$where." ORDER BY date DESC");
+  	if ($orders) {
+  		echo '<p><form name="pdf_print_form" action="'.$pdfpath.'pdfer.php" method="post" target="_blank"><input type="hidden" name="e" value="'.$where.'" /><input type="hidden" name="a" value="'.DB_NAME.'" /><input type="hidden" name="b" value="'.DB_USER.'" /><input type="hidden" name="c" value="'.DB_PASSWORD.'" /><input type="hidden" name="d" value="'.DB_HOST.'" /><input type="submit" value="PRINT PDF" /></form></p>';
+  		echo '<div id="example-1" class="beautifulData" style="clear: both;">
+  		<table>
+  		<thead>
+  		<tr>
+  		<th></th>
+  		<th>N° DE COMMANDE</th>
+  		<th>DESCRIPTION</th>
+  		<th>DATE</th>
+  		<th>CLIENT</th>
+  		<th>FRAIS</th>
+  		<th>TOTAL HT</th>
+  		<th>TVA</th>
+  		<th>TOTAL TTC</th>
+  		<th>PRINT</th>
+  		</tr>
+  		</thead>
+  		<tbody>';
+  		//echo '<table class="widefat"><tr><th></th><th>N° DE COMMANDE</th><th>DESCRIPTION</th><th>DATE</th><th>CLIENT</th><th>FRAIS</th><th>TOTAL HT</th><th>TVA</th><th>TOTAL TTC</th><th class="noprint">PRINT</th></tr>';
+  		foreach ($orders as $o) :
+  			$licznik++;
+  			echo '<tr><td>'.$licznik.'</td><td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="'.$o->unique_id.'"></form></td><td>';
+  			$status = print_status($o->status);
+  			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' AND status=1 ORDER BY name ASC");
+  			foreach ($prods as $p) :
+  				echo $p->name.' ('.$p->quantity.')<br />';
+  				$wzorzec = '/ai déjà crée la maquette/';
+  				$wzorzec2 = '/France banderole crée la maquette/';
+  				$czymak = preg_match_all($wzorzec, $p->description, $wynik);
+  				$czymak2 = preg_match_all($wzorzec2, $p->description, $wynik2);
+  				$ktomak = count($wynik[0]);
+  				$ktomak2 = count($wynik2[0]);
+  				if ($ktomak >= 1) {
+  					$liczbezmak++;
+  				}
+  				if ($ktomak2 >= 1) {
+  					$liczmak++;
+  				}
+  			endforeach;
+  			$client = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$o->user'");
+  			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td class="noprint"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
+  			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
+  			$sumtotalht = $sumtotalht+str_replace(',', '', $o->totalht);
+  			$sumtva = $sumtva+str_replace(',', '', $o->tva);
+  			$sumtotalttc = $sumtotalttc+str_replace(',', '', $o->totalttc);
+  		endforeach;
+  		echo '<tr><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
+  		echo '</tbody></table>';
+  		echo '<script type="text/javascript">
+  			jQuery(function() {
+  			jQuery("#example-1").beautify({
+  			pageSize : 100000,
+  				pagerSize : 7
+  			});
+  			jQuery("#txt_search").keyup(function() {
+  				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
+  			});
+  			});
+  	</script>';
+  		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
+  	}
+  	}
+  	if ($_POST['type'] == 'orders') {
+  	if ($_POST['time'] == 'monthly') {
+  		$filter = date('m')-1;
+  		$filterdate = date('Y-'.$filter.'-d 00:00:00');
+  		$where = ' WHERE date >= \''.$filterdate.'\'';
+  	}
+  	if ($_POST['time'] == 'daily') {
+  		$filterdate = date('Y-m-d 00:00:00');
+  		$where = ' WHERE date >= \''.$filterdate.'\'';
+  	}
+  	if ($_POST['time'] == 'annualy') {
+  		$fromdate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth'], $_POST['annualday'], $_POST['annualyear']));
+  		$todate = date("Y-m-d", mktime(0, 0, 0, $_POST['annualmonth2'], $_POST['annualday2'], $_POST['annualyear2']));
+  		$where = ' WHERE date >= \''.$fromdate.'\' AND date_modify <= \''.$todate.'\'';
+  	}
+  	$sumfrais = 0;
+  	$sumtotalht = 0;
+  	$sumtva = 0;
+  	$sumtotalttc = 0;
+  	$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order`".$where." ORDER BY date DESC");
+  	if ($orders) {
+  		echo '<div id="example-1" class="beautifulData" style="clear: both;">
+  		<table>
+  		<thead>
+  		<tr>
+  		<th></th>
+  		<th>N° DE COMMANDE</th>
+  		<th>DESCRIPTION</th>
+  		<th>DATE CREATE</th>
+  		<th>ETAT</th>
+  		<th>CLIENT</th>
+  		<th>FRAIS</th>
+  		<th>TOTAL HT</th>
+  		<th>TVA</th>
+  		<th>TOTAL TTC</th>
+  		<th>PRINT</th>
+  		</tr>
+  		</thead>
+  		<tbody>';
+  		//echo '<table class="widefat"><tr><th></th><th>N° DE COMMANDE</th><th>DESCRIPTION</th><th>DATE CREATE</th><th>ETAT</th><th>CLIENT</th><th>FRAIS</th><th>TOTAL HT</th><th>TVA</th><th>TOTAL TTC</th><th class="noprint">PRiNT</th></tr>';
+  		foreach ($orders as $o) :
+  			$licznik++;
+  			echo '<tr><td>'.$licznik.'</td><td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="'.$o->unique_id.'"></form></td><td>';
+  			$status = print_status($o->status);
+  			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' AND status=1 ORDER BY name ASC");
+  			foreach ($prods as $p) :
+  				echo $p->name.' ('.$p->quantity.')<br />';
+  				$wzorzec = '/ai déjà crée la maquette/';
+  				$wzorzec2 = '/France banderole crée la maquette/';
+  				$czymak = preg_match_all($wzorzec, $p->description, $wynik);
+  				$czymak2 = preg_match_all($wzorzec2, $p->description, $wynik2);
+  				$ktomak = count($wynik[0]);
+  				$ktomak2 = count($wynik2[0]);
+  				if ($ktomak >= 1) {
+  					$liczbezmak++;
+  				}
+  				if ($ktomak2 >= 1) {
+  					$liczmak++;
+  				}
+  			endforeach;
+  			$client = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$o->user'");
+  			echo '</td><td>'.$o->data.'</td><td>'.$status.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td class="noprint"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
+  			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
+  			$sumtotalht = $sumtotalht+str_replace(',', '', $o->totalht);
+  			$sumtva = $sumtva+str_replace(',', '', $o->tva);
+  			$sumtotalttc = $sumtotalttc+str_replace(',', '', $o->totalttc);
+    		endforeach;
+    		$mediumfrais = round($sumfrais/$licznik, 2);
+    		$mediumtotalht = round($sumtotalht/$licznik, 2);
+    		$mediumtva = round($sumtva/$licznik, 2);
+    		$mediumtotalttc = round($sumtotalttc/$licznik, 2);
+    		echo '<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
+    		echo '<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">Medium amount of an order:</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtotalttc.' &euro;</td></tr>';
+    		echo '</tbody></table>';
+    		echo '<script type="text/javascript">
+    			jQuery(function() {
+    			jQuery("#example-1").beautify({
+    			pageSize : 100000,
+    				pagerSize : 7
+    			});
+    			jQuery("#txt_search").keyup(function() {
+    				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
+    			});
+    			});
+    	</script>';
+    		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
+    	}
+  	}
+  }
 }
 
 // fin admin reports ///////////////////////////////////////////////////////////
@@ -2224,10 +2226,10 @@ if (isset($_POST['pokaztab'])) {
 //////////////////////////////////////////////////////////////// admin header //
 
 function fbs_admin_head() {
-	echo '<link rel="stylesheet" href="//www.france-banderole.com/wp-content/plugins/fbshop/admin.css" type="text/css" />';
-	echo '<link rel="stylesheet" type="text/css" media="print" href="//www.france-banderole.com/wp-content/plugins/fbshop/admin_print.css" />';
+	echo '<link rel="stylesheet" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
+	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
 	if (isset($_GET['fbdet'])) {
-  /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
+  /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
 	}
 }
 
@@ -2261,7 +2263,7 @@ if (isset($_POST['fb_editmail'])) {
 	$simplemail = $wpdb->get_row("SELECT * FROM `$fb_tablename_mails` WHERE id = '$ident'");
 	echo '<form name="editmail" id="editmail" action="" method="post"><input type="hidden" name="editmail" value="'.$simplemail->id.'" />';
 	echo '<p>Topic: <input type="text" name="nmail_topic" value="'.stripslashes($simplemail->topic).'" /></p>';
-	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	echo '<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
@@ -2276,7 +2278,7 @@ if (isset($_POST['fb_editmail'])) {
 	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new:</span></h3><div class="inside">';
 	echo '<form name="newmail" id="newmail" action="" method="post"><input type="hidden" name="addmail" />';
 	echo '<p>Topic: <input type="text" name="mail_topic" /></p>';
-	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	echo '<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
@@ -2367,7 +2369,7 @@ function fb_admin_topic() {
   	$simplemail = $wpdb->get_row("SELECT * FROM `$fb_tablename_topic` WHERE id = '$ident'");
   	echo '<form name="editmail" id="editmail" action="" method="post"><input type="hidden" name="editmail" value="'.$simplemail->id.'" />';
   	echo '<p>Topic: <input type="text" name="nmail_topic" value="'.stripslashes($simplemail->topic).'" /></p>';
-  	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+  	echo '<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
@@ -2383,7 +2385,7 @@ function fb_admin_topic() {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new:</span></h3><div class="inside">';
   	echo '<form name="newmail" id="newmail" action="" method="post"><input type="hidden" name="addmail" />';
   	echo '<p>Topic: <input type="text" name="mail_topic" /></p>';
-  	echo '<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+  	echo '<script type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 			<script type="text/javascript">
 				bkLib.onDomLoaded(function() {
 					new nicEditor({fullPanel : true}).panelInstance(\'incon\');
@@ -2440,7 +2442,9 @@ function deleteDirectory($dirPath) {
 
 // fin effacer dossier /////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////// Sales - ventes //
+////////////////////////////////////////////////////////////////////////////////
+//                                                             Sales - ventes //
+////////////////////////////////////////////////////////////////////////////////
 
 function fb_admin_sales() {
 	global $wpdb;
@@ -2454,7 +2458,7 @@ function fb_admin_sales() {
 	$fb_tablename_cf = $prefix."fbs_cf";
 	$imagespath = get_bloginfo("url").'/wp-content/plugins/fbshop/images/';
 
-/* suprression */
+  /* suprression */
 	if (isset($_POST['delete_item'])) {
 		$num = $_POST['delete_item'];
 		$deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE order_id='".$num."'");
@@ -2464,21 +2468,21 @@ function fb_admin_sales() {
 		deleteDirectory($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$num.'-projects/');
 	}
 
-/* détails */
-if (isset($_GET['fbdet'])) {
-	$number = $_GET['fbdet'];
-	fbadm_print_details($number);
-} else if(isset($_GET['fbbonprint'])) {
-	$number = $_GET['fbbonprint'];
-	fbadm_bon_print($number);
-} else if(isset($_GET['fbinvoiceprint'])) {
-	$number = $_GET['fbinvoiceprint'];
-	fbadm_invoice_print($number);
-} else if(isset($_GET['fbinvoiceproprint'])) {
-	$number = $_GET['fbinvoiceproprint'];
-	fbadm_invoice_proprint($number);
-} else {
-/* affichage */
+  /* détails */
+  if (isset($_GET['fbdet'])) {
+  	$number = $_GET['fbdet'];
+  	fbadm_print_details($number);
+  } else if(isset($_GET['fbbonprint'])) {
+  	$number = $_GET['fbbonprint'];
+  	fbadm_bon_print($number);
+  } else if(isset($_GET['fbinvoiceprint'])) {
+  	$number = $_GET['fbinvoiceprint'];
+  	fbadm_invoice_print($number);
+  } else if(isset($_GET['fbinvoiceproprint'])) {
+  	$number = $_GET['fbinvoiceproprint'];
+  	fbadm_invoice_proprint($number);
+  } else {
+  /* affichage */
 	if (isset($_GET['sort'])) {
 		if ($_GET['sort'] == 'number') {
 	 		$sortby = 'ORDER BY unique_id';
@@ -2509,14 +2513,14 @@ if (isset($_GET['fbdet'])) {
 	} else {
  		$sortby = 'ORDER BY status ASC';
  	}
+
 	if ($_GET['sort'] == 'client') {
 		$orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, CAST(REPLACE(o.totalttc,',','') AS DECIMAL(30,2)) AS sumorder, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H:%i') AS datamodyfikacji FROM `$fb_tablename_order` o, `$fb_tablename_users` us WHERE us.id = o.user && (o.status < 5 OR o.status > 6) ORDER BY us.f_name");
 	} else {
-
-        $orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, CAST(REPLACE(o.totalttc,',','') AS DECIMAL(30,2)) AS sumorder, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H+2:%i') AS datamodyfikacji FROM `$fb_tablename_order` o WHERE o.status < 5 OR o.status > 6 ".$sortby."");
-
+    $orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, CAST(REPLACE(o.totalttc,',','') AS DECIMAL(30,2)) AS sumorder, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H+2:%i') AS datamodyfikacji FROM `$fb_tablename_order` o WHERE o.status < 5 OR o.status > 6 ".$sortby."");
 		/* , CAST(totalttc AS DECIMAL(30,2)) AS sumorder*/
 	}
+
 	if ($orders) {
 		//echo '<table class="widefat"><tr><th><a href="admin.php?page=fbsh&sort=number">N° DE COMMANDE</a></th><th><a href="admin.php?page=fbsh&sort=client">CLIENT</a></th><th>DESCRIPTION</th><th><a href="admin.php?page=fbsh&sort=totalttc">PRIX</a></th><th><a href="admin.php?page=fbsh&sort=datec">DATE CREATE</a></th><th><a href="admin.php?page=fbsh&sort=etat">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th></tr>';
 		$order_link = 'admin.php?page=fbsh&sort=number';
@@ -2563,50 +2567,50 @@ if (isset($_GET['fbdet'])) {
 			echo '<tr'.$style.'><td>'.$o->unique_id.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>';
 			$status = print_status($o->status);
 			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' ORDER BY name ASC");
-				$ktomakiete = 0;
-				$czyfbrobimakiete = 0;
-				$kolorujstatus = 0;
+			$ktomakiete = 0;
+			$czyfbrobimakiete = 0;
+			$kolorujstatus = 0;
 			foreach ($prods as $p) :
 				if ($p->status == 0) {
 					echo '<s style="color:red;">'.$p->name.' ('.$p->quantity.')</s><br />';
 				} else {
 					echo $p->name.' ('.$p->quantity.')<br />';
 				}
-			//sprawdzanie dla kolumny type // vérifie le type de colonne
-				$wzorzec = '/j’ai déjà crée la maquette/';
-				$ktomak = preg_match_all($wzorzec, $p->description, $wynik);
-				$ktomak = count($wynik[0]);
-				if ($ktomak >= 1) {
-					$ktomakiete = 0;
-				} else {
-					$ktomakiete = 1;
-				}
-				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
+			// vérifie le type de colonne
+			$wzorzec = '/j’ai déjà crée la maquette/';
+			$ktomak = preg_match_all($wzorzec, $p->description, $wynik);
+			$ktomak = count($wynik[0]);
+			if ($ktomak >= 1) {
+				$ktomakiete = 0;
+			} else {
+				$ktomakiete = 1;
+			}
+			if ($ktomakiete == 1) $czyfbrobimakiete = 1;
 			//sprawdzanie dla kolumny type // vérifie le type de colonne
 
-			// SPRAWDZANIE CZY OPIS ZAWIERA RUSH24 // VERIFICATION OU DESCRIPTION CONTIENT RUSH24
-				if ($p->status == 1) {
-					if ($kolorujstatus<1) {
-						$wzorzec2 = '/1J/';
-						$wzorzec = '/rush/';
-						$czyrush = preg_match_all($wzorzec, $p->description, $wynikrush);
-						$czyrush2 = preg_match_all($wzorzec2, $p->description, $wynikrush2);
-						$czyrush2 = count($wynikrush2[0]);
-						$czyrush = count($wynikrush[0]);
-						if ($czyrush >= 1) {
-							$kolorujstatus = 1;
-						}
-						if ($czyrush2 >= 1) {
-							$kolorujstatus = 1;
+			// VERIFICATION OU DESCRIPTION CONTIENT RUSH24
+			if ($p->status == 1) {
+				if ($kolorujstatus<1) {
+					$wzorzec2 = '/1J/';
+					$wzorzec = '/rush/';
+					$czyrush = preg_match_all($wzorzec, $p->description, $wynikrush);
+					$czyrush2 = preg_match_all($wzorzec2, $p->description, $wynikrush2);
+					$czyrush2 = count($wynikrush2[0]);
+					$czyrush = count($wynikrush[0]);
+					if ($czyrush >= 1) {
+						$kolorujstatus = 1;
+					}
+					if ($czyrush2 >= 1) {
+						$kolorujstatus = 1;
 
-						}
 					}
 				}
-			// SPRAWDZANIE CZY OPIS ZAWIERA RUSH24 // VERIFICATION OU DESCRIPTION CONTIENT RUSH24
-			endforeach;
+			}
+			// VERIFICATION OU DESCRIPTION CONTIENT RUSH24
+		  endforeach;
 			$maktype = 'impression';
 			if ($czyfbrobimakiete == 1) $maktype = 'creation';
-///
+      ///
 			$filepath='';
 			$pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$o->unique_id.'/';
 			if(file_exists($pathfiles)) {
@@ -2643,6 +2647,7 @@ if (isset($_GET['fbdet'])) {
 			if ($o->status == 6) $stylstatusu = ' style="background:#c4c4c4;"';
 			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
 
+      // cause le ralentissement après clôture commande ////////////////////////
 			$czyjostatnikomentarz = '';
 			$lastcomment = $wpdb->get_row("SELECT c.* FROM `$fb_tablename_comments` as c WHERE c.order_id = '$o->unique_id' AND topic != 'Fichier(s)' ORDER BY c.date DESC");
 			if ($lastcomment) {
@@ -2652,6 +2657,7 @@ if (isset($_GET['fbdet'])) {
 					$czyjostatnikomentarz = '<img src="'.$imagespath.'wykrzyknik.png" alt="" />';
 				}
 			}
+      //////////////////////////////////////////////////////////////////////////
 
 			$czyjostatniruch = '';
 			$lastaction = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '$o->unique_id'");
@@ -2703,57 +2709,59 @@ function fb_admin_sales_old() {
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
 	$fb_tablename_comments = $prefix."fbs_comments";
+  $fb_tablename_mails = $prefix."fbs_mails";
 	$imagespath = get_bloginfo("url").'/wp-content/plugins/fbshop/images/';
 
-  /* suprression */
+  /* suppression item */
 	if (isset($_POST['delete_item'])) {
 		$num = $_POST['delete_item'];
 		$deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE order_id='".$num."'");
 		$deleting = $wpdb->query("DELETE FROM `$fb_tablename_comments` WHERE order_id='".$num."'");
 		$deleting = $wpdb->query("DELETE FROM `$fb_tablename_order` WHERE unique_id='".$num."'");
 	}
-  /* annulation suprression */
+  /* suppression des commandes annulées */
 	if (isset($_POST['del_cancel'])) {
 		$todel = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE status = 6");
 		foreach ($todel as $td) :
 			$deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE order_id='".$td->unique_id."'");
 			$deleting = $wpdb->query("DELETE FROM `$fb_tablename_order` WHERE unique_id='".$td->unique_id."'");
+      $deleting = $wpdb->query("DELETE FROM `$fb_tablename_comments` WHERE unique_id='".$td->unique_id."'");
 		endforeach;
-//		$deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE status='6'");
+  // $deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE status='6'");
 	}
 
-/* détails */
-if (isset($_GET['fbdet'])) {
-	$number = $_GET['fbdet'];
-	fbadm_print_details($number);
-} else if(isset($_GET['fbbonprint'])) {
-	$number = $_GET['fbbonprint'];
-	fbadm_bon_print($number);
-} else if(isset($_GET['fbinvoiceprint'])) {
-	$number = $_GET['fbinvoiceprint'];
-	fbadm_invoice_print($number);
-} else if(isset($_GET['fbinvoiceproprint'])) {
-	$number = $_GET['fbinvoiceproprint'];
-	fbadm_invoice_proprint($number);
-} else {
-/* affichage */
-	if (isset($_GET['sort'])) {
-		if ($_GET['sort'] == 'number') {
-	 		$sortby = 'ORDER BY unique_id ASC';
-		}
-		if ($_GET['sort'] == 'datec') {
-	 		$sortby = 'ORDER BY o.date ASC';
-		}
-		if ($_GET['sort'] == 'datem') {
-	 		$sortby = 'ORDER BY o.date_modify ASC';
-		}
-		if ($_GET['sort'] == 'etat') {
-	 		$sortby = 'ORDER BY status ASC';
-		}
-		if ($_GET['sort'] == 'type') {
-    //$sortby = 'LEFT JOIN '.$fb_tablename_prods.' AS prod ON (unique_id = prod.order_id) WHERE (prod.description LIKE "%j’ai déjà crée la maquette%")';
-    //AND prod.description LIKE "%j’ai déjà crée la maquette%"
-    //WHERE unique_id = prod.order_id
+  /* détails */
+  if (isset($_GET['fbdet'])) {
+  	$number = $_GET['fbdet'];
+  	fbadm_print_details($number);
+  } else if(isset($_GET['fbbonprint'])) {
+  	$number = $_GET['fbbonprint'];
+  	fbadm_bon_print($number);
+  } else if(isset($_GET['fbinvoiceprint'])) {
+  	$number = $_GET['fbinvoiceprint'];
+  	fbadm_invoice_print($number);
+  } else if(isset($_GET['fbinvoiceproprint'])) {
+  	$number = $_GET['fbinvoiceproprint'];
+  	fbadm_invoice_proprint($number);
+  } else {
+  /* affichage */
+  	if (isset($_GET['sort'])) {
+  		if ($_GET['sort'] == 'number') {
+  	 		$sortby = 'ORDER BY unique_id ASC';
+  		}
+  		if ($_GET['sort'] == 'datec') {
+  	 		$sortby = 'ORDER BY o.date ASC';
+  		}
+  		if ($_GET['sort'] == 'datem') {
+  	 		$sortby = 'ORDER BY o.date_modify ASC';
+  		}
+  		if ($_GET['sort'] == 'etat') {
+  	 		$sortby = 'ORDER BY status ASC';
+  		}
+  		if ($_GET['sort'] == 'type') {
+      //$sortby = 'LEFT JOIN '.$fb_tablename_prods.' AS prod ON (unique_id = prod.order_id) WHERE (prod.description LIKE "%j’ai déjà crée la maquette%")';
+      //AND prod.description LIKE "%j’ai déjà crée la maquette%"
+      //WHERE unique_id = prod.order_id
 		}
 	} else {
  		$sortby = 'ORDER BY data DESC';
@@ -2854,7 +2862,7 @@ if (isset($_GET['fbdet'])) {
 			}
 
 			echo '</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td>'.$o->datamodyfikacji.'</td><td'.$stylstatusu.'>'.$status.'</td><td>'.$maktype.'</td><td>'.$filepath.'</td>
-			<td><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td><td>'.$czyjostatnikomentarz.'</td>
+			<td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td><td>'.$czyjostatnikomentarz.'</td>
 			<td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="DETAILS"></form><br />
 			<form id="delitem" name="delitem" action="" method="post"><input type="hidden" name="delete_item" value="'.$o->unique_id.'" /><input class="delete" type="submit" value="delete" onclick=\'if (confirm("'.esc_js( "Are you sure? You will delete this order, all products and all comments!" ).'")) {return true;} return false;\' /></form></td></tr>';
 		endforeach;
@@ -2950,9 +2958,9 @@ function fb_admin_users2() {
 			</table>
 			</form>';
 
-			echo '<p><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fb-users">Go back</a></p>';
+			echo '<p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-users">Go back</a></p>';
 		} else {
-			echo 'Error.<p><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fb-users">Go back</a></p>';
+			echo 'Error.<p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-users">Go back</a></p>';
 		}
 	} else {
 		if ($_POST['action'] == 'fb_del_user') {
@@ -3021,7 +3029,9 @@ function fb_admin_users2() {
 
 // fin compte client ///////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////// détails commande //
+////////////////////////////////////////////////////////////////////////////////
+//                                                           détails commande //
+////////////////////////////////////////////////////////////////////////////////
 
 function fbadm_print_details($number) {
 	global $wpdb;
@@ -3342,7 +3352,7 @@ function fbadm_print_details($number) {
     }
 	?>
 
-		<script type="text/javascript" src="//www.france-banderole.com/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
 		<script type="text/javascript">
 			bkLib.onDomLoaded(function() {
 				new nicEditor({fullPanel : true}).panelInstance('incon2');
@@ -3404,7 +3414,7 @@ function fbadm_print_details($number) {
 	if($user_epub != '') {
 		echo 'Trésor public payeur : <br />'.$user_epub.'<br />';
 	}
-  
+
 	echo $uzyt->email . '<br />' . $uzyt->f_name . '<br />' . $uzyt->f_comp . '<br />' . $f_address . '<br />' . $f_porte . '<br />' . $uzyt->f_code . '<br />' . $uzyt->f_city . '<br />' . $uzyt->f_phone . '</div>';
     echo '<h3>N° DE COMMANDE: ' . $order->unique_id . '</h3>';
     echo '<p style="margin-bottom:20px"><b>Date created: </b>' . $order->date . '<br />';
@@ -3539,7 +3549,7 @@ function fbadm_print_details($number) {
 
   // envoi de fichiers /////////////////////////////////////////////////////////
 
-	echo '<div class="statusp2">Upload <a href="//www.france-banderole.com/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
+	echo '<div class="statusp2">Upload <a href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
 	if(file_exists($name))
@@ -3580,7 +3590,7 @@ function fbadm_print_details($number) {
 		echo '<div class="statusp"><b>Moyen de paiement choisi: </b><br />'.$pay_name->pay_designation.'</div>';
 	}
 
-	echo '<div class="statusp"><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbbonprint='.$number.'" target="_blank" class="but_par">Imprimer BL</a><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$number.'" target="_blank" class="but_par">Imprimer facture</a><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbinvoiceproprint='.$number.'" target="_blank" class="but_par">PRO</a></div>';
+	echo '<div class="statusp"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbbonprint='.$number.'" target="_blank" class="but_par">Imprimer BL</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$number.'" target="_blank" class="but_par">Imprimer facture</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceproprint='.$number.'" target="_blank" class="but_par">PRO</a></div>';
 
   // méthodes de paiement
 
@@ -3598,7 +3608,7 @@ function fbadm_print_details($number) {
 		if ($dir = @opendir($pathfiles)) {
 		    while(($file = readdir($dir))) {
 				if(!is_dir($file) && !in_array($file, array(".",".."))) {
-					$filepath .= '<a href="'.get_bloginfo("url").'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
+					$filepath .= '<a href="'.get_bloginfo('url').'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
 				}
     		}
 	    	closedir($dir);
@@ -3648,7 +3658,7 @@ function fbadm_print_details($number) {
 	echo '</table>';
 	echo '<input type="submit" value="SAVE" class="savebutt" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form>';
 	echo '</div>';
-	echo '</div><p><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh">Go back</a></p>';
+	echo '</div><p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh">Go back</a></p>';
 }
 
 // fin détails commande ////////////////////////////////////////////////////////
@@ -3777,7 +3787,7 @@ function fb_admin_promotions() {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/promotions/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/promotions/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '<tr><td>'.$p[name].'</td><td>'.$p[subname].'<br /><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_ceddre.'</td><td><form name="delpromotion" action="" method="post"><input type="hidden" name="delpromo" value="'.$p[id].'" /><input type="submit" class="delete" value="Delete" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form></td></tr>';
 	endforeach;
@@ -3979,7 +3989,7 @@ function fb_admin_plv() {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/plv/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '
       <tr><td>'.$p[name].'</td><td>'.$p[subname].'<br/><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_frais.'</td><td>'.$n_ceddre.'</td><td>'.$p[order].'</td><td>
@@ -4185,7 +4195,7 @@ if (isset($_POST[editplv])) {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/plv/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '<tr><td>'.$p[name].'</td><td>'.$p[subname].'<br /><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_frais.'</td><td>'.$n_ceddre.'</td><td>'.$p[order].'</td><td><form name="delpromotion" action="" method="post"><input type="hidden" name="delpromo" value="'.$p[id].'" /><input type="submit" class="delete" value="Delete" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form><br /><br />
     <form name="editpromotion" action="" method="post"><input type="hidden" name="editplv" value="'.$p[id].'" /><input type="submit" class="delete" value="Edit" /></form>
@@ -4442,7 +4452,7 @@ if (isset($_POST[editburaliste])) {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/buraliste/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '<tr><td>'.$p[name].'</td><td>'.$p[subname].'<br /><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_frais.'</td><td>'.$n_ceddre.'</td><td>'.$p[order].'</td><td><form name="delpromotion" action="" method="post"><input type="hidden" name="delpromo" value="'.$p[id].'" /><input type="submit" class="delete" value="Delete" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form><br /><br />
     <form name="editpromotion" action="" method="post"><input type="hidden" name="editburaliste" value="'.$p[id].'" /><input type="submit" class="delete" value="Edit" /></form>
@@ -4647,7 +4657,7 @@ function fb_admin_acc() {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '<tr><td>'.$p[name].'</td><td>'.$p[subname].'<br /><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_frais.'</td><td>'.$n_ceddre.'</td><td>'.$p[order].'</td><td><form name="delpromotion" action="" method="post"><input type="hidden" name="delpromo" value="'.$p[id].'" /><input type="submit" class="delete" value="Delete" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form><br /><br />
     <form name="editpromotion" action="" method="post"><input type="hidden" name="editacc" value="'.$p[id].'" /><input type="submit" class="delete" value="Edit" /></form>
@@ -4853,7 +4863,7 @@ function fb_admin_mma() {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/mma/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '<tr><td>'.$p[name].'</td><td>'.$p[subname].'<br /><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_frais.'</td><td>'.$n_ceddre.'</td><td>'.$p[order].'</td><td><form name="delpromotion" action="" method="post"><input type="hidden" name="delpromo" value="'.$p[id].'" /><input type="submit" class="delete" value="Delete" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form><br /><br />
     <form name="editpromotion" action="" method="post"><input type="hidden" name="editmma" value="'.$p[id].'" /><input type="submit" class="delete" value="Edit" /></form>
@@ -5058,7 +5068,7 @@ function fb_admin_acc2() {
 		}
 		$viewmini ='';
 		if ($p[photo]) {
-			$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/mini/'.$p[photo_mini].'" alt="" />';
+			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/shopfiles/acc2/mini/'.$p[photo_mini].'" alt="" />';
 		}
 		echo '<tr><td>'.$p[name].'</td><td>'.$p[subname].'<br /><small>'.$p[description].'</small></td><td>'.$viewmini.'</td><td>'.$n_price.'</td><td>'.$n_frais.'</td><td>'.$n_ceddre.'</td><td>'.$p[order].'</td><td><form name="delpromotion" action="" method="post"><input type="hidden" name="delpromo" value="'.$p[id].'" /><input type="submit" class="delete" value="Delete" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form><br /><br />
     <form name="editpromotion" action="" method="post"><input type="hidden" name="editacc2" value="'.$p[id].'" /><input type="submit" class="delete" value="Edit" /></form>
@@ -5092,7 +5102,7 @@ function fb_admin_ncomments() {
 		} else {
 			$txt = $c[content];
 		}
-		echo '<tr><td>'.$c[topic].'</td><td>'.$txt.'</td><td>'.$c[data].'</td><td>'.$c[author].'</td><td><a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbdet='.$c[order_id].'">'.$c[order_id].'</a></td></tr>';
+		echo '<tr><td>'.$c[topic].'</td><td>'.$txt.'</td><td>'.$c[data].'</td><td>'.$c[author].'</td><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbdet='.$c[order_id].'">'.$c[order_id].'</a></td></tr>';
 	endforeach;
 	echo '</table>';
 	echo '</div>';
@@ -5412,8 +5422,8 @@ $myFile2 = 'tnt/'.$id.".tem";
 $fh2 = fopen($myFile2, 'w') or die("2can't open file");
 //fwrite($fh2, $sum);
 fclose($fh2);
-//echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-//echo '<a target="_blank" href="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+//echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
+//echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
 
 $BLXLSFile = il_y_a_fichier_BLXLS($id);
 if ($BLXLSFile != false) {
@@ -5463,7 +5473,7 @@ setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'D
 
 function startDownload() {
 alert();
-var url="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem";
+var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
 window.open(url,"Download");
 setTimeout("startDownload()",500);
 }
@@ -5746,8 +5756,8 @@ $fh2 = fopen($myFile2, 'w') or die("2can't open file");
 //fwrite($fh2, $sum);
 fclose($fh2);
 $zip_tem->addFile($myFile2);
-//echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-//echo '<a target="_blank" href="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+//echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
+//echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
 
 
 			}
@@ -5808,7 +5818,7 @@ setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'D
 
 function startDownload() {
 alert();
-var url="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem";
+var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
 window.open(url,"Download");
 setTimeout("startDownload()",500);
 }
@@ -6060,8 +6070,8 @@ function getFedex($id, $user) {
     //$fh2 = fopen($myFile2, 'w') or die("2can't open file");
     //fwrite($fh2, $sum);
     //fclose($fh2);
-    //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-    //echo '<a target="_blank" href="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+    //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
+    //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
     echo '<div id="downFiles">
 <a href="download.php?filename=tedip_' . $id . '.csv" id="downTXT">Download txt</a><br />';
 
@@ -6097,7 +6107,7 @@ function getFedex($id, $user) {
 
       function startDownload() {
       alert();
-      var url="'.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem";
+      var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
 
       window.open(url,"Download");
       setTimeout("startDownload()",500);

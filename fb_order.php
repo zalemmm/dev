@@ -19,19 +19,19 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	$message="message=".$_POST[DATA];
 
 	// Initialisation du chemin du fichier de log (‡ modifier)
-    //   ex :
-    //    -> Windows : $logfile="c:\\repertoire\\log\\logfile.txt";
-    //    -> Unix    : $logfile="/home/repertoire/log/logfile.txt";
-    //
+  //   ex :
+  //    -> Windows : $logfile="c:\\repertoire\\log\\logfile.txt";
+  //    -> Unix    : $logfile="/home/repertoire/log/logfile.txt";
+  //
 	$logfile="/home/frbanderolecom/www/sherlock/log/logfile.log";
 	// Ouverture du fichier de log en append
 	$fp=fopen($logfile, "a");
 	fwrite( $fp, "test_point_1: true\n");
 
 	// Initialisation du chemin du fichier pathfile (‡ modifier)
-	    //   ex :
-	    //    -> Windows : $pathfile="pathfile=c:\\repertoire\\pathfile"
-	    //    -> Unix    : $pathfile="pathfile=/home/repertoire/pathfile"
+  //   ex :
+  //    -> Windows : $pathfile="pathfile=c:\\repertoire\\pathfile"
+  //    -> Unix    : $pathfile="pathfile=/home/repertoire/pathfile"
 
 	$pathfile="pathfile=/home/frbanderolecom/www/sherlock/param/pathfile";
 	fwrite( $fp, "test_point_2: true\n");
@@ -46,7 +46,6 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	fwrite( $fp, "test_point_3: true\n");
 
 	// Appel du binaire response
-
 	$result=exec("$path_bin $pathfile $message");
 	fwrite( $fp, "test_point_4: true\n");
 
@@ -55,9 +54,7 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	//				: Ces variables sont dÈcrites dans le GUIDE DU PROGRAMMEUR
 	//		- code=-1 	: La fonction retourne un message d'erreur dans la variable error
 
-
 	//	on separe les differents champs et on les met dans une variable tableau
-
 	$tableau = explode ("!", $result);
 	fwrite( $fp, "test_point_5: true\n");
 
@@ -106,7 +103,7 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 		fwrite( $fp, "test_order_id: $order_id\n");
 		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
  	} else {
-		// OK, Sauvegarde des champs de la rÈponse
+		// OK, Sauvegarde des champs de la réponse
 		fwrite( $fp, "test_order_id: $order_id\n");
 		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
 		fwrite( $fp, "merchant_id : $merchant_id\n");
@@ -335,7 +332,6 @@ $view .= '
 	}
 }
 */
-
 	return $view;
 }
 
@@ -392,6 +388,7 @@ function get_details() {
 		$need_act = 1;
 	}
 
+	// warnings retour commande  /////////////////////////////////////////////////
 	if($need_act == 0) {
 		$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
 	} else {
@@ -405,14 +402,14 @@ function get_details() {
 		if($bat == 1) {
 			$prolog .= '<li>Vous n\'avez pas <strong>validé votre BAT</strong>.</li>';
 		}
-
 		$prolog .= '</ul></p>';
 
+		// bouton warning payer
 		if($to_pay == 1) {
 			$prolog .= '<form name="paye" id="payeTop" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payerTop" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
 		}
+		// bouton warning BAT
 		if($bat == 1) {
-			//$prolog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
 			$prolog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
 		}
 
@@ -423,50 +420,54 @@ function get_details() {
 	$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
 	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :<span>ETAT : '.print_status($zamowienie->status).'</span></div>';
 
+	// affiche seuls les commentaires de france banderole
+	// $lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
 
-// affiche seuls les commentaires de france banderole
-//		$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
-
-// affiche tous les commentaires récents
-		$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' ORDER BY c.date DESC LIMIT 1");
-		if ($lastcomment) {
-			if (strlen($lastcomment->content) > 250) {
-				$ostcomment = substr($lastcomment->content, 0, 250).'...';
-			} else {
-				$ostcomment = $lastcomment->content;
-			}
-			$ostcomment = stripslashes($ostcomment);
-			if ($lastcomment->author != 'France Banderole') {
-				$ostcomment = htmlspecialchars($ostcomment);
-			}
-			$idostcomment = $lastcomment->order_id;
-			$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...</a>';
-			$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">DERNIER COMMENTAIRE</th><th></th><th></th></tr>';
-			if ($lastcomment->author == 'France Banderole') {
-				$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2">'.$lastcomment->author.'</td><td class="lefttd3">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
-			} else {
-				$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2a">'.$lastcomment->author.'</td><td class="lefttd3a">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
-			}
-			$epilog .= '</table></div>';
+	// affiche tous les commentaires récents ////////////////////////////////////
+	$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' ORDER BY c.date DESC LIMIT 1");
+	if ($lastcomment) {
+		if (strlen($lastcomment->content) > 250) {
+			$ostcomment = substr($lastcomment->content, 0, 250).'...';
 		} else {
-			$epilog .= '<div id="fbcart_lastcomment"></div>';
+			$ostcomment = $lastcomment->content;
 		}
+		$ostcomment = stripslashes($ostcomment);
+		if ($lastcomment->author != 'France Banderole') {
+			$ostcomment = htmlspecialchars($ostcomment);
+		}
+		$idostcomment = $lastcomment->order_id;
+		$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...</a>';
+		$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">DERNIER COMMENTAIRE</th><th></th><th></th></tr>';
+		if ($lastcomment->author == 'France Banderole') {
+			$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2">'.$lastcomment->author.'</td><td class="lefttd3">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
+		} else {
+			$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2a">'.$lastcomment->author.'</td><td class="lefttd3a">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
+		}
+		$epilog .= '</table></div>';
+	} else {
+		$epilog .= '<div id="fbcart_lastcomment"></div>';
+	}
 
+	// bouton retour à vos devis /////////////////////////////////////////////////
 	$epilog .= '<div id="fbcart_buttons" class="noprint">';
 	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a>';
+
+	// bouton annuler ////////////////////////////////////////////////////////////
 	if ($status<2) {
 		$epilog .= '<form name="delfromvosdevis" id="delfromvosdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="annulervosdevis" value="'.$idzamowienia.'" /><button id="but_annulercommande" type="submit"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</button></form>';
+	// status 1 attente paeiment bouton annuler
 	} elseif ($status>1) {
 		$epilog .= '<span id="but_annulercommande" class="deactive"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</span>';
 	}
+
+	//  bouton imprimer //////////////////////////////////////////////////////////
 	if ($status!=3 && $status!=4 && $status!=5) {
 		$epilog .= '<a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	} else {
 		$epilog .= '<span id="but_imprimer" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</span>';
 	}
 
-// affichage bouton aperçu des projets
-//$epilog .= '<a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-5.jpg"></a><a style="display: none;" rel="shadowbox[banderolesgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/banderole-6.jpg"></a><a rel="shadowbox[kakemonosgallery]" href="http://localhost:8888/wp-content/uploads/2010/04/exkak3.jpg"></a>';
+	// bouton voir BAT ///////////////////////////////////////////////////////////
 	$has_bat = 0;
 	if (($zamowienie->status) > 0) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$idzamowienia.'-projects';
@@ -488,17 +489,21 @@ function get_details() {
   	}
   }
 
-	// commande annulée ou cloturé: désactivation du bouton écrire commentaire
+	// bouton écrire commentaire ////////////////////////////////////////////////
   if ($status!=5 && $status!=6 ) {
 		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
 	} else {
 		$epilog .= '<span id="but_comment" class="deactive"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</span>';
 	}
+
+	// bouton payer la commande //////////////////////////////////////////////////
 	if ($status<2) {
 		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
 	} else {
 		$epilog .= '<span id="but_payer" class="deactive"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</span>';
 	}
+
+	// bouton suivre le colis ////////////////////////////////////////////////////
 	if ($status>=4) {
 		$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$idzamowienia'");
 		if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
@@ -516,11 +521,15 @@ function get_details() {
 	} else {
 		$epilog .= '<span id="but_suivre" class="deactive"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</span>';
 	}
+
+	// bouton imprimer la facture ////////////////////////////////////////////////
 	if ($status==3 || $status==4 || $status==5) {
 		$epilog .= '<a href="javascript:window.print()" id="but_imprimerfacture"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</a>';
 	} else {
 		$epilog .= '<span id="but_imprimerfacture" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</span>';
 	}
+
+	// bouton noter france banderole /////////////////////////////////////////////
 	if ($status==4 || $status==5) {
 		$czyoceniony = $wpdb->get_row("SELECT * FROM `$fb_tablename_rating` WHERE unique_id = '$idzamowienia' AND exist = 'true'");
 		if (!$czyoceniony) {
@@ -529,11 +538,11 @@ function get_details() {
 	} else {
 		$epilog .= '<span id="but_rating" class="deactive"><i class="fa fa-star" aria-hidden="true"></i> Noter France Banderole</span>';
 	}
-	//if((($status == 1) or ($status == 2) or ($status == 7)) and ((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))))) {
-		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
-		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
-	//}
 
+	if((($status == 1) or ($status == 2) or ($status == 7)) and ((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))))) {
+		$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
+		$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
+	}
 
 	$epilog .= '</div>';
 
@@ -557,7 +566,7 @@ function reorganize_votre($idzamowienia) {
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[frais];
 		}
-//réduction supplémentaire
+	//réduction supplémentaire
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
@@ -575,9 +584,9 @@ function reorganize_votre($idzamowienia) {
 				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
 				$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $wysokoscrabatu), array ( 'sku' => $idzamowienia ) );
 			}
-//koniec//
+	//fin//
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
-//zmiana podatku TVA
+	//changement TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
 			if ($czyjesttva->remis == 0) {
@@ -591,9 +600,9 @@ function reorganize_votre($idzamowienia) {
 		} else {
 		  	$podatekcalosci = $kosztcalosci*0.200;
 		}
-//zmiana podatku TVA
-	  	$totalcalosci = $kosztcalosci+$podatekcalosci;
-	  	$kosztcalosci = number_format($kosztcalosci, 2);
+	//changement TVA
+	  $totalcalosci = $kosztcalosci+$podatekcalosci;
+	  $kosztcalosci = number_format($kosztcalosci, 2);
 		$transportcalosci = number_format($transportcalosci, 2);
 		$podatekcalosci = number_format($podatekcalosci, 2);
 	  	$totalcalosci = number_format($totalcalosci, 2);
@@ -604,6 +613,8 @@ function reorganize_votre($idzamowienia) {
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
 	}
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 function print_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia) {
 	global $wpdb;
@@ -618,53 +629,55 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 	$r = get_inscription2();
 
-/* nowy komentarz, jesli tak ustawiamy jako przeczytany */
+	/* un commentaire, le cas échéant mis en lecture */
 	$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$idzamowienia'");
 	if ($newcomment) {
 		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");
 	}
 
-if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) {
-	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
-	$view .= $prolog;
-	$view .= $epilog;
-	$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
-	if ($products) {
-		if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { //jesli moze jeszcze dodac plik
-			$view .= get_filesender($produkty);
-		}
-
-		$produkty = $products;
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th>Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
-		$licznik = 0;
-		$kosztcalosci = 0;
-		foreach ( $products as $products => $item ) {
-			$licznik++;
-			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
-			if ($writable) {
-				$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
-			} else {
-				$view .= '<td class="noprint"></td>';
+	if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) {
+		$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
+		$view .= $prolog;
+		$view .= $epilog;
+		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
+		if ($products) {
+			if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { // si vous pouvez toujours ajouter le fichier
+				$view .= get_filesender($produkty);
 			}
-			$view .= '</tr>';
-		}
 
-// dodatkowy rabat wyswietl //
-		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
-		if ($czyjestrabat) {
-			$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
-		}
-// dodatkowy rabat wyswietl //
-  		$view .= '</table>';
-		$kosztorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-//sprawdzanie czy jest rabat dla uzytkownika//
+			$produkty = $products;
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th>Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
+			$licznik = 0;
+			$kosztcalosci = 0;
+			foreach ( $products as $products => $item ) {
+				////////////////////////////////////////////////////////////////////////// ajout du bouton créér la maquette ds le tableau juste après <tr><td class="lefttd">:
+				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity ><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a>
+				$licznik++;
+				$view .= '
+				<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
+				if ($writable) {
+					$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
+				} else {
+					$view .= '<td class="noprint"></td>';
+				}
+				$view .= '</tr>';
+			}
+
+			// Afficher réduction supplémentaire //
+			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
+			if ($czyjestrabat) {
+				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
+			}
+			// Afficher réduction supplémentaire //
+	  	$view .= '</table>';
+			$kosztorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+			//vérifier s'il y a un rabais pour l'utilisateur//
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
 				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
 			}
-//koniec//
+			// fin //
 
  	  	$tfrais = str_replace('.', ',', $kosztorder->frais).' &euro;';
 	  	$ttotalht = str_replace('.', ',', $kosztorder->totalht).' &euro;';
@@ -690,35 +703,35 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 				$l_porte = $explode2['1'].'<br />';
 				$epilog_0 = $useraddress->l_name.'<br />'.$useraddress->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$useraddress->l_code.'<br />'.$useraddress->l_city;
 			}
-		$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
+			$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
 
-		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
-		'.$cremisetd.'
-		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
-		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
-		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
-		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
-		</table>';
+			$view .= '<table id="fbcart_check" border="0" cellspacing="0">
+			'.$cremisetd.'
+			<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
+			<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
+			<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
+			<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
+			</table>';
 
-		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
-		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
-		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier</a></td></tr>
-		</table>';
+			$view .= '<table id="fbcart_address" border="0" cellspacing="0">
+			<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
+			<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier</a></td></tr>
+			</table>';
 
-		$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>'; // ajout devis
+			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>'; // ajout devis
 
-		// ajout des conditions générales de ventes à l'impression du devis papier
-		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
-		$view .= $cgv;
+			// ajout des conditions générales de ventes à l'impression du devis papier
+			$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
+			$view .= $cgv;
 
+		} else {
+			$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
+		}
+		//	$view .= $epilog;
+		//		$view .= '<div style="position:relative;float:left;display:inline;width:960px;">'.get_fb_comments().'</div>';
 	} else {
-		$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
-	}
-//	$view .= $epilog;
-//		$view .= '<div style="position:relative;float:left;display:inline;width:960px;">'.get_fb_comments().'</div>';
-} else {
-	$view .= '<div class="noprint">'.$prolog.'</div>';
-	$view .= '<div class="noprint">'.$epilog.'</div>';
+		$view .= '<div class="noprint">'.$prolog.'</div>';
+		$view .= '<div class="noprint">'.$epilog.'</div>';
 		global $wpdb;
 		$prefix = $wpdb->prefix;
 		$fb_tablename_order = $prefix."fbs_order";
@@ -726,16 +739,16 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 		$query = $wpdb->get_row("SELECT *, DATE_FORMAT(date_modify, '%d/%m/%Y') AS datamodyfikacji FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
 		$produkty = $products;
-			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$query->user'");
-			$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$us->f_address.'<br />'.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-			if ( ( ($us->l_address != "") && ($us->f_address != $us->l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-				$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$us->l_address.'<br />'.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
-			} else {
-				$livraison_add = $facture_add;
-			}
-	 		$view .= '';
+		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$query->user'");
+		$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$us->f_address.'<br />'.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
+		if ( ( ($us->l_address != "") && ($us->f_address != $us->l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
+			$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$us->l_address.'<br />'.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
+		} else {
+			$livraison_add = $facture_add;
+		}
+ 		$view .= '';
 
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;" colspan="2"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /><div class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</div></td></tr><tr><td class="print-no">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td class="print-title">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
+		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;" colspan="2"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /><div class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</div></td></tr><tr><td class="print-no">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td class="print-title">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
 
 		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 		foreach ( $products as $products => $item ) {
@@ -743,25 +756,25 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 			$view .= '
 			<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 			$view .= '</tr>';
-  		}
-// dodatkowy rabat wyswietl //
+			}
+		// Afficher réduction supplémentaire //
 		$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestrabat) {
 			$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 		}
-// dodatkowy rabat wyswietl //
-  		$view .= '</table>';
-//sprawdzanie czy jest rabat dla uzytkownika//
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-		  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
-			}
-//koniec//
-	  	$tfrais = str_replace('.', ',', $query->frais).' &euro;';
-	  	$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-	  	$ttva = str_replace('.', ',', $query->tva).' &euro;';
-	  	$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
+		// Afficher réduction supplémentaire //
+		$view .= '</table>';
+		//vérifier s'il y a un rabais pour l'utilisateur//
+		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
+		if ($exist_remise) {
+	  		$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
+			$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+		}
+		// fin //
+	  $tfrais = str_replace('.', ',', $query->frais).' &euro;';
+	  $ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
+	  $ttva = str_replace('.', ',', $query->tva).' &euro;';
+	  $ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 		'.$cremisetd.'
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
@@ -781,10 +794,13 @@ if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) 
 		// ajout des conditions générales de ventes à l'impression de la facture papier
 		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
 		$view .= $cgv; // ajout CGV
+	}
+	$view .= contact_advert();
+	return $view;
 }
-$view .= contact_advert();
-return $view;
-}
+
+////////////////////////////////////////////////////////////////////////////////
+// compter nombre d'items dans le panier ///////////////////////////////////////
 
 function getCartCount() {
 	$ret = '0';
@@ -794,6 +810,10 @@ function getCartCount() {
 	return $ret;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//                       affiche la liste des commandes                       //
+////////////////////////////////////////////////////////////////////////////////
+
 function print_votre() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -801,50 +821,50 @@ function print_votre() {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_comments = $prefix."fbs_comments";
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
- if (isset($_POST['annulervosdevis'])) {
-	$ident = $_POST['annulervosdevis'];
-	$anulowany = $wpdb->query("UPDATE `$fb_tablename_order` SET status='6' WHERE unique_id='$ident'");
- }
- if (isset($_GET['detail'])) {
- 	$idz = $_GET['detail'];
-	$user = $_SESSION['loggeduser'];
-	$userid = $user->id;
-	$existing = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idz' AND user='$userid'");
-	if ($existing) {
-		$view .= get_details();
-	} else {
-		$view .= '<p>'._FB_404.'</p>';
-	}
- } elseif (isset($_GET['comment'])) {
- 	$idz = $_GET['comment'];
-	$user = $_SESSION['loggeduser'];
-	$userid = $user->id;
-	$existing = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idz' AND user='$userid'");
-	if ($existing) {
-	 	$view .= get_fb_comments();
-	} else {
-		$view .= '<p>'._FB_404.'</p>';
-	}
- } elseif (isset($_GET['rating'])) {
- 	$idz = $_GET['rating'];
-	$user = $_SESSION['loggeduser'];
-	$userid = $user->id;
-	$existing = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idz' AND user='$userid'");
-	if ($existing) {
-	 	$view .= get_fb_rating();
-	} else {
-		$view .= '<p>'._FB_404.'</p>';
-	}
- } else {
-	$user = $_SESSION['loggeduser'];
-	$order_list = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5");
-	$count_pay = 0;
-	$count_files = 0;
-	$count_bat = 0;
-	$total_count = 0;
-	$alert_content = '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
+  if (isset($_POST['annulervosdevis'])) {
+		$ident = $_POST['annulervosdevis'];
+		$anulowany = $wpdb->query("UPDATE `$fb_tablename_order` SET status='6' WHERE unique_id='$ident'");
+  }
+  if (isset($_GET['detail'])) {
+	 	$idz = $_GET['detail'];
+		$user = $_SESSION['loggeduser'];
+		$userid = $user->id;
+		$existing = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idz' AND user='$userid'");
+		if ($existing) {
+			$view .= get_details();
+		} else {
+			$view .= '<p>'._FB_404.'</p>';
+		}
+  } elseif (isset($_GET['comment'])) {
+	 	$idz = $_GET['comment'];
+		$user = $_SESSION['loggeduser'];
+		$userid = $user->id;
+		$existing = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idz' AND user='$userid'");
+		if ($existing) {
+		 	$view .= get_fb_comments();
+		} else {
+			$view .= '<p>'._FB_404.'</p>';
+		}
+  } elseif (isset($_GET['rating'])) {
+	 	$idz = $_GET['rating'];
+		$user = $_SESSION['loggeduser'];
+		$userid = $user->id;
+		$existing = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idz' AND user='$userid'");
+		if ($existing) {
+		 	$view .= get_fb_rating();
+		} else {
+			$view .= '<p>'._FB_404.'</p>';
+		}
+  } else {
+		$user = $_SESSION['loggeduser'];
+		$order_list = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5");
+		$count_pay = 0;
+		$count_files = 0;
+		$count_bat = 0;
+		$total_count = 0;
+		$alert_content = '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
 
-	foreach($order_list AS $order_row) {
+		foreach($order_list AS $order_row) {
 		$idzamowienia = $order_row->unique_id;
 		$zamowienie = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
 		//$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
@@ -873,7 +893,6 @@ function print_votre() {
 			$alert_content .= '<li><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'">Commande n°'.$idzamowienia.'</a></li>';
 			$total_count++;
 		}
-
 	}
 
 	if($total_count != 0) {
@@ -915,16 +934,11 @@ function print_votre() {
 
 	if ($orders) {
 		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
-					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte
-</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>
- Se deconnecter </a></div>';
-
-
-		// $view .= '<div class="votre_tab_name2">MES DEVIS ET COMMANDES :</div>
-				  // </div>';
+			<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a>
+			<a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>
+ 			Se deconnecter </a></div>';
 
 		$view .= '</div>';
-
 		$view .= '<div class="votre_tab_head">';
 
 		if ($archive) {
@@ -932,32 +946,6 @@ function print_votre() {
 		} else {
 			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
 		}
-
-
-
-//		$view .= '<div class="votre_detail_text"><b>CLIQUEZ pour voir les détails</b></div>';
-/*		$lastcomment = $wpdb->get_row("SELECT c.* FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = o.unique_id AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
-		if ($lastcomment) {
-			if (strlen($lastcomment->content) > 250) {
-				$ostcomment = substr($lastcomment->content, 0, 250).'...';
-			} else {
-				$ostcomment = $lastcomment->content;
-			}
-			$idostcomment = $lastcomment->order_id;
-			$linkcomment = '<br /><a class="lastcommentlink" href="'.get_bloginfo("url").'/vos-devis/?comment='.$lastcomment->order_id.'">Lire la suite...</a>';
-			$view .= '<div id="votre2"><div class="votre_tab_name">DEMIER COMMENTAIRE:</div>
-						<div class="votre_tab_content">'.$ostcomment.$linkcomment.'</div>
-					  </div>';
-		}
-*/
-
-		//Switch Archive/Non Archive
-
-		// if ($archive) {
-			// $view .= '<p style="clear: both;"><a href="vos-devis?archive=0">Vos commandes en cours</a> | <strong>&middot; <a href="vos-devis?archive=1">Commandes archivées</a> &middot;</strong></p>';
-		// } else {
-			// $view .= '<p style="clear: both;"><strong>&middot; <a href="vos-devis?archive=0">Vos commandes en cours</a> &middot;</strong> | <a href="vos-devis?archive=1">Commandes archivées</a></p>';
-		// }
 
 		$view .= '<table id="fbcart_votre" cellspacing="0">';
 
@@ -986,9 +974,9 @@ function print_votre() {
 					$view .= $p->name.'<br />';
 				}
 			endforeach;
-//			if (($o->unique_id == $idostcomment)) {
-//				$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idostcomment.'" class="lcomment"></a>';
-//			}
+			//			if (($o->unique_id == $idostcomment)) {
+			//				$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idostcomment.'" class="lcomment"></a>';
+			//			}
 
 			$comment_new = '';
 			$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$o->unique_id'");
@@ -1004,7 +992,7 @@ function print_votre() {
 		endforeach;
 		$view .= '</table>';
 
-		//Pagination au besoin
+		// Pagination si besoin ////////////////////////////////////////////////////
 
 		if(($archive == 0) AND($count_curr > 50)) {
 
@@ -1036,10 +1024,6 @@ function print_votre() {
 		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
 					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i>Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>Se deconnecter</a></div>';
 
-
-		// $view .= '<div class="votre_tab_name2">MES DEVIS ET COMMANDES :</div>
-				  // </div>';
-
 		$view .= '</div>';
 
 		$view .= '<div class="votre_tab_head">';
@@ -1058,9 +1042,6 @@ function print_votre() {
 
 		$view .= '</div>';
 
-
-
-
 	} else {
 		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.$user->f_name.'!</div>
 					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i> Se deconnecter</a></div>
@@ -1069,6 +1050,8 @@ function print_votre() {
   }
   return $view;
 }
+
+/// boutons status /////////////////////////////////////////////////////////////
 
 function print_status_form($status, $cmd) {
 	$formatted .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$cmd.'" /><button class="stat'.$status.'" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">';
@@ -1100,6 +1083,8 @@ function print_status_form($status, $cmd) {
 	return $formatted;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 function print_status($status) {
 	$formatted .= '<span class="stat'.$status.'">';
 	if ($status == 0) {
@@ -1130,6 +1115,9 @@ function print_status($status) {
 	return $formatted;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// fonction ajouter à la base de données ///////////////////////////////////////
+
 function add_to_db() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -1141,183 +1129,174 @@ function add_to_db() {
 	$fb_tablename_cf = $prefix."fbs_cf";
 	$fb_tablename_address = $prefix."fbs_address";
 
-		if (is_cart_not_empty() && fb_is_logged()) {
-			$products = $_SESSION['fbcart'];
+	if (is_cart_not_empty() && fb_is_logged()) {
+		$products = $_SESSION['fbcart'];
 
-			/* On teste que le cart contienne un produit colis revendeur*/
-			$retrait_atelier = recursive_array_search("retrait colis a l", $_SESSION['fbcart']);
+		/* On teste que le cart contienne un retrait à l'atelier */
+		$retrait_atelier = recursive_array_search("retrait colis a l", $_SESSION['fbcart']);
 
+		/* On teste que le cart contienne un produit colis revendeur */
+		$colis_revendeur = recursive_array_search("colis revendeur", $_SESSION['fbcart']);
 
-			/* On teste que le cart contienne un produit colis revendeur*/
-			$colis_revendeur = recursive_array_search("colis revendeur", $_SESSION['fbcart']);
+		/* On teste que le cart contienne un produit en relais colis */
+		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
 
-
-			/* On teste que le cart contienne bien un produit en relais colis*/
-			$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
-
-			$user = $_SESSION['loggeduser'];
-			foreach ( $products as $products => $item ) {
-				$koszttotal = str_replace(',', '.', $item[total]);
-				$kosztcalosci = $kosztcalosci + $koszttotal;
-				$transportcalosci = $transportcalosci + $item[transport];
-			}
-//sprawdzanie czy jest rabat dla uzytkownika//
-			$uid = $user->id;
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
-			if ($exist_remise) {
-				$client_remise = $exist_remise->att_value;
-				if (!empty($client_remise) && $client_remise != '0') {
-					$newrabat = $client_remise / 100;
-					$wysokoscrabatu = $kosztcalosci * $newrabat;
-					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
-				}
-			}
-//koniec//
-			$kosztcalosci = $kosztcalosci + $transportcalosci;
-	  		$podatekcalosci = $kosztcalosci*0.200;
-	  		$totalcalosci = $kosztcalosci+$podatekcalosci;
-	  		$kosztcalosci = number_format($kosztcalosci, 2);
-	  		$transportcalosci = number_format($transportcalosci, 2);
-	  		$podatekcalosci = number_format($podatekcalosci, 2);
-	  		$totalcalosci = number_format($totalcalosci, 2);
-	  		$unique_id = random_string();
-			$data = date('Y-m-d H:i:s');
-			$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','')");
-			//ICI PLACER L'AJOUT A MAILJET
-			createContact($user->email);
-			$mj_list = getListId('Tous clients');
-			$mj_user = getIdFromEmail($user->email);
-			abonnerListe($mj_user,$mj_list);
-
-
-
-			if ($dodaj_zamowienie) {
-				if (!empty($client_remise) && ($client_remise != '0')) {
-					$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$wysokoscrabatu."')");
-					if ($dodaj_nowyrabat) { }
-				}
-				$ktomakiete = 0;
-				$czyfbrobimakiete = 0;
-				$products = $_SESSION['fbcart'];
-				foreach ( $products as $products => $item ) {
-					$wzorzec = '/j’ai déjà crée la maquette/';
-					$ktomak = preg_match_all($wzorzec, $item[description], $wynik);
-					$ktomak = count($wynik[0]);
-					if ($ktomak >= 1) {
-						$ktomakiete = 0;
-					} else {
-						$ktomakiete = 1;
-					}
-					if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-					$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$item[prix]."', '".$item[option]."', '".$item[remise]."', '".$item[total]."', '".$item[transport]."', '', '1')");
-				}
-				if ($dodaj_produkt) {
-					unset($_SESSION['fbcart']);
-				}
-				if ($czyfbrobimakiete == 0) {
-					$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttp://www.france-banderole.com";
-					$lettert = "Fonctionnement général de votre accès client";
-				} else {
-					$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttp://www.france-banderole.com";
-					$lettert = "Fonctionnement général de votre accès client";
-				}
-				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
-        		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
-		        //mail($user->email, $lettert, $letter, $header);
-		        wp_mail($user->email, $lettert, $letter);
-			}
-
-			//ajout header mail <a href=\'http://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
-
-			/* Ajout de l'indicateur "retrait atelier" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
-			if($retrait_atelier !== false){
-				$requeteretrait_atelier = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='retrait atelier' AND unique_id = '$unique_id'");
-				if ($requeteretrait_atelier) {
-					$requeteretrait_atelier1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='retrait atelier'");
-				} else {
-					$requeteretrait_atelier2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'retrait atelier', 'yes')");
-				}
-			}
-
-
-			/* Ajout de l'indicateur "revendeur" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
-			if($colis_revendeur !== false){
-				$requetecolis_revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='revendeur' AND unique_id = '$unique_id'");
-				if ($requetecolis_revendeur) {
-					$requetecolis_revendeur1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='revendeur'");
-				} else {
-					$requetecolis_revendeur2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'revendeur', 'yes')");
-				}
-			}
-
-			/* Ajout de l'indicateur "relais" dans le champ "type" et numéro de relais dans le champ "Value" la table "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address"
-			et ajout de l'adresse de livraison dans la table "fbs_users */
-			/*mail("contact@tempopasso.com","Session_Loggedusers dans add_to_db function",print_r($_SESSION,true)."REQ=".
-								"SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$unique_id' AND user = '$uid'");
-			*/
-
-			if(!($relais_colis !== false)) $_SESSION['loggeduser']->relais_colis == "no!";
-
-			if($_SESSION['loggeduser']->relais_colis == "yes" && $_SESSION['loggeduser']->code_relais_colis != ""){
-				$code_relais_colis = $_SESSION['loggeduser']->code_relais_colis;
-				$selectrelaiscolis = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='relais' AND unique_id = '$unique_id'");
-				if ($selectrelaiscolis) {
-					$requeterelais1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='relais'");
-				} else {
-					$requeterelais2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'relais', '".$code_relais_colis."')");
-				}
-
-				$userZZ = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$unique_id' AND user = '$uid'");
-				if ($userZZ) {
-					$kolejka = $wpdb->update($fb_tablename_address, array (
-								'l_name' => addslashes($_SESSION['loggeduser']->l_name),
-								'l_comp' => addslashes($_SESSION['loggeduser']->l_comp),
-								'l_address' => addslashes($_SESSION['loggeduser']->l_address),
-								'l_code' => addslashes($_SESSION['loggeduser']->l_code),
-								'l_city' => addslashes($_SESSION['loggeduser']->l_city),
-								'l_phone' => addslashes($_SESSION['loggeduser']->f_phone)),
-								array ('unique_id' => $unique_id) );
-				}else{
-					$dodaj = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".
-								$uid."', '".
-								$unique_id."', '".
-								addslashes($_SESSION['loggeduser']->l_name)."', '".
-								addslashes($_SESSION['loggeduser']->l_comp)."', '".
-								addslashes($_SESSION['loggeduser']->l_address)."', '".
-								addslashes($_SESSION['loggeduser']->l_code)."', '".
-								addslashes($_SESSION['loggeduser']->l_city)."', '".
-								addslashes($_SESSION['loggeduser']->l_phone)."')");
-				}
-				/* Enregistrement de l'adresse du relais colis dans l'adresse de livraison utilisateur*/
-				/*$updateuserZZ = $wpdb->query("UPDATE `$fb_tablename_users` SET
-								l_name = '".$_SESSION['loggeduser']->l_name."',
-								l_comp = '".$_SESSION['loggeduser']->l_comp."',
-								l_address = '".$_SESSION['loggeduser']->l_address."',
-								l_code = '".$_SESSION['loggeduser']->l_code."',
-								l_city = '".$_SESSION['loggeduser']->l_city."',
-								l_phone = '".$_SESSION['loggeduser']->f_phone."'
-									   WHERE id = '$uid'");
-				*/
-
-			}
-			/* FIN Ajout de l'indicateur "relaiscolis" dans la table  "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address" */
-
-			/* On efface les données de session relatives à la livraison */
-			unset($_SESSION['loggeduser']->code_client_dest);
-			unset($_SESSION['loggeduser']->l_name);
-            unset($_SESSION['loggeduser']->l_address);
-			unset($_SESSION['loggeduser']->l_comp);
-            unset($_SESSION['loggeduser']->l_code);
-            unset($_SESSION['loggeduser']->l_phone);
-            unset($_SESSION['loggeduser']->l_city);
-			unset($_SESSION['loggeduser']->l_country);
-			unset($_SESSION['loggeduser']->changement_relais_colis);
-			unset($_SESSION['loggeduser']->relais_colis);
-			unset($_SESSION['loggeduser']->code_relais_colis);
-			/* FIN effacement données session */
-
+		$user = $_SESSION['loggeduser'];
+		foreach ( $products as $products => $item ) {
+			$koszttotal = str_replace(',', '.', $item[total]);
+			$kosztcalosci = $kosztcalosci + $koszttotal;
+			$transportcalosci = $transportcalosci + $item[transport];
 		}
+		// vérifier s'il y a un rabais pour l'utilisateur //
+		$uid = $user->id;
+		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
+		if ($exist_remise) {
+			$client_remise = $exist_remise->att_value;
+			if (!empty($client_remise) && $client_remise != '0') {
+				$newrabat = $client_remise / 100;
+				$wysokoscrabatu = $kosztcalosci * $newrabat;
+				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
+			}
+		}
+		// fin //
+		$kosztcalosci = $kosztcalosci + $transportcalosci;
+		$podatekcalosci = $kosztcalosci*0.200;
+		$totalcalosci = $kosztcalosci+$podatekcalosci;
+		$kosztcalosci = number_format($kosztcalosci, 2);
+		$transportcalosci = number_format($transportcalosci, 2);
+		$podatekcalosci = number_format($podatekcalosci, 2);
+		$totalcalosci = number_format($totalcalosci, 2);
+		$unique_id = random_string();
+		$data = date('Y-m-d H:i:s');
+		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','')");
+		//ICI PLACER L'AJOUT A MAILJET
+		createContact($user->email);
+		$mj_list = getListId('Tous clients');
+		$mj_user = getIdFromEmail($user->email);
+		abonnerListe($mj_user,$mj_list);
+
+		if ($dodaj_zamowienie) {
+			if (!empty($client_remise) && ($client_remise != '0')) {
+				$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$wysokoscrabatu."')");
+				if ($dodaj_nowyrabat) { }
+			}
+			$ktomakiete = 0;
+			$czyfbrobimakiete = 0;
+			$products = $_SESSION['fbcart'];
+			foreach ( $products as $products => $item ) {
+				$wzorzec = '/j’ai déjà crée la maquette/';
+				$ktomak = preg_match_all($wzorzec, $item[description], $wynik);
+				$ktomak = count($wynik[0]);
+				if ($ktomak >= 1) {
+					$ktomakiete = 0;
+				} else {
+					$ktomakiete = 1;
+				}
+				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
+				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$item[prix]."', '".$item[option]."', '".$item[remise]."', '".$item[total]."', '".$item[transport]."', '', '1')");
+			}
+			if ($dodaj_produkt) {
+				unset($_SESSION['fbcart']);
+			}
+			if ($czyfbrobimakiete == 0) {
+				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttp://www.france-banderole.com";
+				$lettert = "Fonctionnement général de votre accès client";
+			} else {
+				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttp://www.france-banderole.com";
+				$lettert = "Fonctionnement général de votre accès client";
+			}
+			$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+      		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+	        //mail($user->email, $lettert, $letter, $header);
+	        wp_mail($user->email, $lettert, $letter);
+		}
+
+		//ajout header mail <a href=\'http://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
+
+		/* Ajout de l'indicateur "retrait atelier" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
+		if($retrait_atelier !== false){
+			$requeteretrait_atelier = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='retrait atelier' AND unique_id = '$unique_id'");
+			if ($requeteretrait_atelier) {
+				$requeteretrait_atelier1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='retrait atelier'");
+			} else {
+				$requeteretrait_atelier2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'retrait atelier', 'yes')");
+			}
+		}
+
+		/* Ajout de l'indicateur "revendeur" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
+		if($colis_revendeur !== false){
+			$requetecolis_revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='revendeur' AND unique_id = '$unique_id'");
+			if ($requetecolis_revendeur) {
+				$requetecolis_revendeur1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='revendeur'");
+			} else {
+				$requetecolis_revendeur2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'revendeur', 'yes')");
+			}
+		}
+
+		/* Ajout de l'indicateur "relais" dans le champ "type" et numéro de relais dans le champ "Value" la table "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address"
+		et ajout de l'adresse de livraison dans la table "fbs_users */
+		if(!($relais_colis !== false)) $_SESSION['loggeduser']->relais_colis == "no!";
+
+		if($_SESSION['loggeduser']->relais_colis == "yes" && $_SESSION['loggeduser']->code_relais_colis != ""){
+			$code_relais_colis = $_SESSION['loggeduser']->code_relais_colis;
+			$selectrelaiscolis = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='relais' AND unique_id = '$unique_id'");
+			if ($selectrelaiscolis) {
+				$requeterelais1 = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='".$code_relais_colis."' WHERE unique_id='".$unique_id."' AND type='relais'");
+			} else {
+				$requeterelais2 = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$unique_id."', 'relais', '".$code_relais_colis."')");
+			}
+
+			$userZZ = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$unique_id' AND user = '$uid'");
+			if ($userZZ) {
+				$kolejka = $wpdb->update($fb_tablename_address, array (
+							'l_name' => addslashes($_SESSION['loggeduser']->l_name),
+							'l_comp' => addslashes($_SESSION['loggeduser']->l_comp),
+							'l_address' => addslashes($_SESSION['loggeduser']->l_address),
+							'l_code' => addslashes($_SESSION['loggeduser']->l_code),
+							'l_city' => addslashes($_SESSION['loggeduser']->l_city),
+							'l_phone' => addslashes($_SESSION['loggeduser']->f_phone)),
+							array ('unique_id' => $unique_id) );
+			}else{
+				$dodaj = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".
+							$uid."', '".
+							$unique_id."', '".
+							addslashes($_SESSION['loggeduser']->l_name)."', '".
+							addslashes($_SESSION['loggeduser']->l_comp)."', '".
+							addslashes($_SESSION['loggeduser']->l_address)."', '".
+							addslashes($_SESSION['loggeduser']->l_code)."', '".
+							addslashes($_SESSION['loggeduser']->l_city)."', '".
+							addslashes($_SESSION['loggeduser']->l_phone)."')");
+			}
+			/* Enregistrement de l'adresse du relais colis dans l'adresse de livraison utilisateur*/
+			/*$updateuserZZ = $wpdb->query("UPDATE `$fb_tablename_users` SET
+							l_name = '".$_SESSION['loggeduser']->l_name."',
+							l_comp = '".$_SESSION['loggeduser']->l_comp."',
+							l_address = '".$_SESSION['loggeduser']->l_address."',
+							l_code = '".$_SESSION['loggeduser']->l_code."',
+							l_city = '".$_SESSION['loggeduser']->l_city."',
+							l_phone = '".$_SESSION['loggeduser']->f_phone."'
+								   WHERE id = '$uid'");
+			*/
+		}
+		/* FIN Ajout de l'indicateur "relaiscolis" dans la table  "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address" */
+
+		/* On efface les données de session relatives à la livraison */
+		unset($_SESSION['loggeduser']->code_client_dest);
+		unset($_SESSION['loggeduser']->l_name);
+          unset($_SESSION['loggeduser']->l_address);
+		unset($_SESSION['loggeduser']->l_comp);
+          unset($_SESSION['loggeduser']->l_code);
+          unset($_SESSION['loggeduser']->l_phone);
+          unset($_SESSION['loggeduser']->l_city);
+		unset($_SESSION['loggeduser']->l_country);
+		unset($_SESSION['loggeduser']->changement_relais_colis);
+		unset($_SESSION['loggeduser']->relais_colis);
+		unset($_SESSION['loggeduser']->code_relais_colis);
+		/* FIN effacement données session */
+	}
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 function random_string() {
 	global $wpdb;
