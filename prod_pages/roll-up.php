@@ -70,7 +70,7 @@
 						<option class="option2" value="100x200">100x200 cm </option>
 						<option class="option1" value="120x200">120x200 cm </option>
 						<option class="option2" value="150x200">150x200 cm </option>
-						<option class="option1" value="200x300">GIANT 200x300 cm </option>
+						<!--<option class="option1" value="200x300">GIANT 200x300 cm </option>-->
 					</select>
 				</li>
 

@@ -9,11 +9,11 @@ function get_rating_home() {
 	$rates = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` WHERE exist = 'true' ORDER BY date DESC LIMIT 2", ARRAY_A);
 	foreach ($rates as $r) :
 		$licz = strlen($r[comment]);
-	    if ($licz>=120) {
-			$tnij = substr($r[comment],0,90);
-        	$txt = $tnij."...";
-        } else {
-			$txt = $r[comment];
+    if ($licz>=120) {
+		$tnij = substr($r[comment],0,90);
+      	$txt = $tnij."...";
+      } else {
+		$txt = $r[comment];
 		}
 		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 12;
 		echo '<div class="singlerate">
@@ -58,10 +58,10 @@ function get_rating_page() {
 		// $sec = 0;
 		// $thi = 0;
 		// foreach ($rates as $r) :
-			// $licznik++;
-			// $fir = $fir + $r[fir];
-			// $sec = $sec + $r[sec];
-			// $thi = $thi + $r[thi];
+		// $licznik++;
+		// $fir = $fir + $r[fir];
+		// $sec = $sec + $r[sec];
+		// $thi = $thi + $r[thi];
 		// endforeach;
 		// $gen = ((($fir + $sec + $thi)/$licznik)/3); $gen = (round($gen, 0)) *30;
 		// $fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
@@ -95,7 +95,7 @@ function get_rating_page() {
 		// $prod_name = $wpdb->get_row("SELECT * FROM `$fb_tablename_catprods` WHERE code_parent = '$prod_family'");
 		// $display_name = $prod_name->prod_parent;
 
-		$view .= '<div id="rating_general" style="text-align: center; font-size: 18px;"><h2>Vos avis :</h2>';
+		$view .= '<div id="rating_general"><h2>Vos avis :</h2>';
 		$prod_name = $wpdb->get_row("SELECT * FROM `$fb_tablename_catprods` WHERE code_parent = '$prod_family'");
 		$display_name = $prod_name->prod_parent;
 		$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
@@ -125,8 +125,6 @@ function get_rating_page() {
 		$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 
 		foreach ($rates as $r) :
-
-
 
 			$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 20;
 			$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
@@ -177,18 +175,10 @@ function get_rating_page() {
 	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 			}
 
-
-
 		endforeach;
 
 		$view .= '</tbody></table>';
-
 		$view .= '<div id="rating_pagination">'.pagination($licznik, $perPage, "id", $subpage, 10,$prod_family).'</div>';
-
-
-
-
-
 
 	} else {
 
@@ -230,7 +220,7 @@ function get_rating_page() {
 	<div id="rating_livre">
 		<div id="vosavis"></div>';
 
-	$view .= '<div id="rating_general" style="text-align: center; font-size: 18px;"><h2>Vos avis :</h2>';
+	$view .= '<div id="rating_general"><h2>Vos avis :</h2>';
 	$moyenne = $wpdb->get_row("SELECT AVG((fir+sec+thi)/3) AS moy FROM `$fb_tablename_rating`");
 	$strmoyenne1 = round($moyenne->moy,2);
 	$strmoyenne2 = "/5 - ";
@@ -257,8 +247,6 @@ function get_rating_page() {
 	$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 
 	foreach ($rates as $r) :
-
-
 
 		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 20;
 		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");

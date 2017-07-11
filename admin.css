@@ -2,26 +2,259 @@
   display: none !important;
 }
 
+#col-right {
+  width: 27%;
+  margin-top: 30px;
+}
+
+#col-left {
+  width: 72%;
+}
+
+p {
+  text-decoration: none!important;
+  color:#404040!important;
+  font-style: normal!important;
+}
+
+input[type="submit"],
+.gobackBtn {
+  box-sizing: border-box;
+  width: auto;
+  display: inline-block;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);
+  background: #32a1cc;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  height: 25px;
+  padding: 5px 10px;
+}
+
+input[type="submit"]:hover,
+.gobackBtn:hover,
+.but_par:hover {
+  background-color: #ea2a6a;
+
+  color: #fff;
+  transition: .2s;
+}
+
+.btnImpEtq {
+  text-align: center;
+  display: block;
+  margin: 15px 0 0 40px;
+}
+
+.btnSavePoids {
+  float: right;
+}
+
 input.edit {
-  padding: 0;
+  padding: 0 5px;
   margin: 0;
   border: none;
-  background-color: #fff;
+  background-color: #14b61c;
   font-size: 11px;
   cursor: pointer;
-  color: #006505;
+  color: #fff;
   font-weight: bold;
+  width: auto;
+  padding: 0 10px;
+  text-transform: none;
+}
+
+input.delete {
+  padding: 0 5px;
+  margin: 0;
+  border: none;
+  background-color: #f6f6f6;
+  font-size: 11px;
+  cursor: pointer;
+  color: #7d7c7c;
+  width: 62px;
+  height: 20px;
+  box-shadow: none;
+}
+input.delete:hover {
+  background-color: #d4cfcf;
+}
+
+#add_1 a{
+  width: auto;
+  padding: 5px;
+  border-radius: 3px;
+  background: #32a1cc;
+  color: #fff;
+  margin-left: 20px;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+#add_1 a:hover{
+  background: #ea2a6a;
+
 }
 
 
-input.delete {
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: #fff;
+.gobackBtn {
+  position: absolute;
+  top: 10px;
+  left: 245px;
+  text-decoration: none;
+  font-style: normal;
+  float: right;
+  vertical-align: middle;
+  padding: .4rem;
+  background: #fff;
+  color: #414141;
+}
+
+#poststuff {
+  min-width: 0;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+  box-sizing: border-box;
+  width: 98%;
+}
+
+.postbox {}
+
+.adresses {
+  width: 60%;
+  margin-top: 40px;
+  float: right;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 900!important;
+  font-size: 14px!important;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 16px!important;
+}
+
+.adsLivraison {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  float: right;
+  width: 49%;
+  padding: 1rem;
+  height: 250px;
+  border: 1px solid #E5E5E5;
   font-size: 11px;
-  cursor: pointer;
-  color: #bc0b0b;
+  line-height: 14px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+.adsFact {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  float: left;
+  width: 49%;
+  padding: 1rem;
+  height: 250px;
+  border: 1px solid #E5E5E5;
+  font-size: 11px;
+  line-height: 14px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+
+.adss {
+  float: left;
+  background: #fff;
+  display: inline;
+  width: 28%;
+  padding: 1rem;
+  height: 170px;
+  border: 1px solid #E5E5E5;
+  margin: 10px 1% 20px 0;
+  font-size: 11px;
+  line-height: 14px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+
+select.urs {
+  width: 10%;
+}
+
+.infosClient {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  width: 100%;
+  padding: 1rem;
+  height: 220px;
+  border: 1px solid #E5E5E5;
+  margin-top: 20px;
+  font-size: 11px;
+  line-height: 14px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+
+.infosClient p {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: black;
+}
+
+.hl {
+  font-weight: 900;
+  color: #32a1cc;
+}
+
+.form-wrap label {
+  display: block;
+  padding: 4px 0!important;
+  height: 50px;
+  font-style: normal!important;
+}
+
+.blocLeft {
+  position: relative;
+  width: 39%;
+  height: 185px;
+  float: left;
+}
+
+.tableau {
+  background: #f6f6f6;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.blocRight {
+  position: relative;
+  width: 59%;
+  float: right;
+  height: 185px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.widefat.over{
+  width: 100%;
+
 }
 
 #mywidefat th {
@@ -38,75 +271,110 @@ input.delete {
   font-size: 9px;
 }
 
+input#poids_commende {
+  margin-left: 16px;
+}
+
+
+
+.btnGroup {
+  float: right;
+}
+
 .but_par {
   float: right;
-  margin-right: 10px;
+  box-sizing: border-box;
+  margin-left: 10px;
   padding: 3px;
   background-color: #fff;
   font-size: 12px;
   cursor: pointer;
   color: #000;
-  height: 14px;
-  text-decoration: none
+  text-transform: uppercase;
+  text-decoration: none;
+  font-style: normal;
+  height: 20px;
+  text-decoration: none;
+  border-radius: 3px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+  padding: 1px 10px 0;
 }
 
+.checkSt {
+  height: 20px;
+  float: none;
+  text-align: center;
+  margin-left: 40px;
+  margin-right: 0;
+  padding: 0 10px 1px;
+}
+#nbcolis{
+  margin-top: 4px;
+}
 .singlefile {
   font-size: 10px;
   font-weight: bold;
-  float: left;
-  display: inline;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .deleteproject {
-  float: left;
-  display: inline;
+  display: inline-block;
   margin-left: 10px;
+  vertical-align: middle;
 }
 
 .deleteprojectfile {
-  width: 16px;
-  height: 16px;
+  border: none!important;
+  width: 16px!important;
+  height: 16px!important;
   display: block;
-  background: url(images/del.png) no-repeat;
+  background: transparent url(images/del.png) no-repeat!important;
   cursor: pointer;
+  box-shadow: none!important;
 }
 
 .statuspaction {
-  border: 1px solid #999;
+  border: 1px solid #E5E5E5;
   position: relative;
-  width: 280px;
+  width: 300px;
   padding-top: 5px;
-  background: #F2F2F2;
+  background: #E5E5E5;
   margin-bottom: 10px;
   padding-left: 10px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
 .statusp {
-  border: 1px solid #999;
+  border: 1px solid #E5E5E5;
   position: relative;
-  width: 280px;
+  width: 300px;
   height: 30px;
   padding: 5px;
-  background: #dab0c4;
+  background: #E5E5E5;
   margin-bottom: 10px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
 .statusp2 {
-  border: 1px solid #999;
+  border: 1px solid #E5E5E5;
   position: relative;
-  width: 280px;
+  width: 300px;
   padding: 10px 5px;
-  background: #dab0c4;
+  background: #E5E5E5;
   margin-bottom: 10px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
 .statusp4 {
-  border: 1px solid #999;
+  border: 1px solid #E5E5E5;
   position: relative;
-  width: 280px;
+  width: 300px;
+  height: 200px;
   padding: 5px;
-  background: #dab0c4;
+  background: #E5E5E5;
   margin-bottom: 10px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
 .statusp4 p {
@@ -132,7 +400,7 @@ input.delete {
 #shippingcompany {
   position: absolute;
   top: 0px;
-  left: 140px;
+  left: 138px;
   width: 80px;
   font-size: 9px;
 }
@@ -140,8 +408,8 @@ input.delete {
 #tntn {
   position: absolute;
   top: 5px;
-  left: 60px;
-  width: 150px;
+  left: 63px;
+  width: 155px;
   font-size: 14px;
 }
 
@@ -162,8 +430,8 @@ input.delete {
 
 .savebutt2 {
   position: absolute;
-  right: 0px;
-  top: 0;
+  right: 5px;
+  top: -2px;
   width: 50px;
   height: 28px;
   float: right;
@@ -174,7 +442,7 @@ input.delete {
   width: 50px;
   height: 40px;
   margin-top: 8px;
-  float: left;
+  float: right;
   clear: left
 }
 
@@ -195,7 +463,7 @@ input.delete {
 
 #incon,
 #incon2 {
-  width: 400px;
+  width: 100%;
   height: 70px;
   margin-top: 12px;
   float: left;
@@ -203,10 +471,11 @@ input.delete {
 }
 
 .comment_right {
-  width: 100%;
-  padding: 2px 2px 2px 2px;
-  background: #e1e8f2;
-  border-bottom: 5px solid #f9f9f9;
+  box-sizing: border-box;
+  width: 98%;
+  padding: 1rem;
+  background: #E5E5E5;
+  margin-bottom: 7px;
 }
 
 span.comm_title {
@@ -307,8 +576,6 @@ td.print_header_name {
 span.colblue {
   color: #008ebb;
 }
-
-
 
 a#but_imprimerbon {
   position: relative;

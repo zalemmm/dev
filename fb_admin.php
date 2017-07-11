@@ -1,5 +1,4 @@
 <?php
-
 /////////////////////////////////////////////////////// intégration WORDPRESS //
 
 include_once(ABSPATH . 'wp-content/plugins/fbshop/fb_admin_functions.php');
@@ -56,7 +55,6 @@ function fbs_admin_menu() {
 }
 
 // fin intégration WORDPRESS ///////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////// Ratings - avis //
 
 add_shortcode('FBRATINGS', 'get_ratings');
@@ -75,89 +73,124 @@ function get_ratings($type_prod, $nb_comment=2) {
 	$prod_name = $wpdb->get_row("SELECT * FROM `$fb_tablename_catprods` WHERE code_parent = '$prod_family'");
 	$display_name = $prod_name->prod_parent;
 
-	$view = '<div style="clear: both;"></div>
-		<div id="rating_livre">
-			<div id="vosavis"></div>';
+  // Mise en cache des notes /////////////////////////////////////////////////
+  $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
+  $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
+  $strmoyenne1 = round($moyenne->moy,2);
+  $del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
+  $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_notes` VALUES ('','$prod_family','$strmoyenne1','$total->nb_avis')");
+  if ($full_list) {
+    //Mise en cache de la liste des commentaires
+    $rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC", ARRAY_A);
+    $cache_list = '';
+    foreach ($rates as $r) {
+    	$cache_list .= $r[id].';';
+    }
+    $del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_ratings` WHERE code_parent = '$prod_family'");
+    $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_ratings` VALUES('','$prod_family','$cache_list')");
 
-		$view .= '<div id="rating_general"><h2>Vos avis :</h2>';
-		$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
-		$strmoyenne1 = $notation->note;
-		// $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
-		// $strmoyenne1 = round($moyenne->moy,2);
-		$strmoyenne2 = "/5 - ";
-		// $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
-		// $strmoyenne3 = $total->nb_avis;
-		$strmoyenne3 = $notation->nb_avis;
-		$strmoyenne4 = " avis";
+  }
+  // fin mise en cache notes /////////////////////////////////////////////////
 
-		$view .= '<span class="client_reviews_1">'. $strmoyenne1 . '</span>'. $strmoyenne2 . $strmoyenne3 . $strmoyenne4. '<br />';
-		$view .= '<span class="star-note"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
-		$view .= 'pour les produits de type '.$display_name;
-		$view .= '</div>';
+  ///////////////////////////////////////////////////////// affichage notes //
+  $view = '<div style="clear: both;"></div>
+    <div id="rating_livre">
+      <div id="vosavis"></div>';
+	$view .= '<div id="rating_general"><h2>Vos avis :</h2>';
+	$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
+	$strmoyenne1 = $notation->note;
+	// $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
+	// $strmoyenne1 = round($moyenne->moy,2);
+	$strmoyenne2 = "/5 - ";
+	// $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
+	// $strmoyenne3 = $total->nb_avis;
+	$strmoyenne3 = $notation->nb_avis;
+	$strmoyenne4 = " avis";
 
-		//$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 2", ARRAY_A);
-		$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_cache_comments` c WHERE r.exist = 'true' AND c.code_parent = '$prod_family' AND (r.id = c.comment1 OR r.id = c.comment2 OR r.id = c.comment3 OR r.id = c.comment4 OR r.id = c.comment5) ORDER BY r.date DESC LIMIT 2", ARRAY_A);
+	$view .= '<span class="client_reviews_1">'. $strmoyenne1 . '</span>'. $strmoyenne2 . $strmoyenne3 . $strmoyenne4. '<br />';
+	$view .= '<span class="star-note"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
+	$view .= 'pour les produits de type '.$display_name;
+	$view .= '</div>';
 
-		$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
-		$i = 0;
+  //////////////////////////// affichage des 2 derniers avis pages produits //
+	$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 2", ARRAY_A);
+  // commenter ci dessous si précédente activée : ////////////////////////////
+	//$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_cache_comments` c WHERE r.exist = 'true' AND c.code_parent = '$prod_family' AND (r.id = c.comment1 OR r.id = c.comment2 OR r.id = c.comment3 OR r.id = c.comment4 OR r.id = c.comment5) ORDER BY r.date DESC LIMIT 2", ARRAY_A);
+  // vider le cache //////////////////////////////////////////////////////////
+  //$del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_comments` WHERE code_parent = '$prod_family'");
+  //echo "<pre>";  echo print_r($rates);  echo "</pre>";
+	$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 
-		foreach ($rates as $r) :
+	$i = 0;
+	foreach ($rates as $r) :
+  $i++;
+		if($i == 1) {
+		  $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_comments` VALUES ('','$prod_family','$r[id]',0,0,0,0)");
+		} else if($i == 2) {
+			$mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment2 = '$r[id]' WHERE code_parent = '$prod_family'");
+    } else if($i == 3) {
+      $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment3 = '$r[id]' WHERE code_parent = '$prod_family'");
+    } else if($i == 4) {
+      $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment4 = '$r[id]' WHERE code_parent = '$prod_family'");
+    } else if($i == 5) {
+      $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment5 = '$r[id]' WHERE code_parent = '$prod_family'");
+		}
 
-			// $i++;
-			// if($i == 1) {
-				// $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_comments` VALUES ('','$prod_family','$r[id]',0)");
-			// } else if($i == 2) {
-				// $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment2 = '$r[id]' WHERE code_parent = '$prod_family'");
-			// }
+		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 20;
+		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
+		$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
+		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
+    if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
+    elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
+    elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
+    elseif ($prodname->name == 'depliants 80g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'depliants 135g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'depliants 170g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'depliants 250g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
+    elseif ($prodname->name == 'Flyers 80g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 135g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 170g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 250g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 350g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 120µ'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 270µ'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 350µ'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Affiches 135g'){$lienprod = get_bloginfo('url').'/affiches';}
+    elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Roll-up'){$lienprod = get_bloginfo('url').'/roll-up';}
+    elseif ($prodname->name == 'Totem'){$lienprod = get_bloginfo('url').'/totem';}
+    elseif ($prodname->name == 'Akilux 3mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-3mm';}
+    elseif ($prodname->name == 'Akilux 3,5mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-3_5mm';}
+    elseif ($prodname->name == 'Akilux 5mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-5mm';}
+    elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
+    elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
+    elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
+    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+    else {$lienprod = get_bloginfo('url').'/banderoles';};
 
-			$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 20;
-			$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
-			$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
-			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-			if ($prodname->name == 'Kakemono'){$lienprod = "'.get_bloginfo('url').'/kakemonos";}
-			elseif ($prodname->name == 'Banderole'){$lienprod = "'.get_bloginfo('url').'/banderoles";}
-			elseif ($prodname->name == 'Adhésif / Sticker'){$lienprod = "'.get_bloginfo('url').'/stickers";}
-			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "'.get_bloginfo('url').'/cartes";}
-			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "'.get_bloginfo('url').'/cartes";}
-			elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "'.get_bloginfo('url').'/cartes";}
-			elseif ($prodname->name == 'Oriflamme'){$lienprod = "'.get_bloginfo('url').'/oriflammes";}
-			elseif ($prodname->name == 'depliants 80g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
-			elseif ($prodname->name == 'depliants 135g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
-			elseif ($prodname->name == 'depliants 170g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
-			elseif ($prodname->name == 'depliants 250g'){$lienprod = "'.get_bloginfo('url').'/depliants";}
-			elseif ($prodname->name == 'Enseigne'){$lienprod = "'.get_bloginfo('url').'/enseignes";}
-			elseif ($prodname->name == 'Flyers 80g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 135g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 170g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 250g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 350g'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "'.get_bloginfo('url').'/flyers";}
-			elseif ($prodname->name == 'Affiches 135g'){$lienprod = "'.get_bloginfo('url').'/affiches";}
-			elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
-			elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
-			elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "'.get_bloginfo('url').'/plv-exterieur";}
-			else {$lienprod = "'.get_bloginfo('url').'";};
+		$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
+		if($reponses) {
+		$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
+    <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
+		} else {
+		$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
+    <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
+		}
 
-			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
-			if($reponses) {
-			$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
-	    <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
-			} else {
-			$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
-	    <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
-			}
+	endforeach;
 
-		endforeach;
-
-		$view .= '</tbody></table>';
-    $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis?prod_type='.$prod_family.'"><i class="fa fa-plus" aria-hidden="true"></i> <span class="textHide"> d\'avis sur ce type de produit</span></a>';
-    $view .= '<div class="clear"></div></div>';
-
-
+	$view .= '</tbody></table>';
+  $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis?prod_type='.$prod_family.'"><i class="fa fa-plus" aria-hidden="true"></i> <span class="textHide"> d\'avis sur ce type de produit</span></a>';
+  $view .= '<div class="clear"></div></div>';
 
 	return $view;
 }
@@ -222,7 +255,8 @@ function fb_admin_rating() {
 			} else {
 				$comment = '0 réponse';
 			}
-			echo '<tr><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbdet='.$r[unique_id].'" target="_blank">'.$r[unique_id].'</a></td><td>'.$r[data].'</td><td>'.$user.'</td><td style="text-align:center">'.$r[fir].'</td><td style="text-align:center">'.$r[sec].'</td><td style="text-align:center">'.$r[thi].'</td><td style="text-align:center">'.$general.'</td><td>'.$text.'</td><td>'.$exist.'</td><td>'.$act.'</td><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-ratings-comments&r_id='.$r[id].'">'.$comment.'</a></td><td>'.$del.'</tr>';
+			echo '<tr><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbdet='.$r[unique_id].'" target="_blank">'.$r[unique_id].'</a></td><td>'.$r[data].'</td><td>'.$user.'</td><td style="text-align:center">'.$r[fir].'</td><td style="text-align:center">'.$r[sec].'</td><td style="text-align:center">'.$r[thi].'</td><td style="text-align:center">'.$general.'</td><td>'.$text.'</td>
+      <td>'.$exist.'</td><td>'.$act.'</td><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-ratings-comments&r_id='.$r[id].'">'.$comment.'</a></td><td>'.$del.'</tr>';
 		endforeach;
 		echo '</table>';
 	}
@@ -289,8 +323,6 @@ function fb_admin_ratings_comments() {
 			echo 'Erreur ! Aucun avis ne correspond à l\'identifiant renseigné.';
 		}
 
-
-
 	} else {
 		echo '<p>Bienvenue sur l\'administration des réponses aux clients. Pour rédiger une réponse, rendez-vous sur la page <a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-ratings">Ratings</a>.</p>';
 	}
@@ -298,7 +330,6 @@ function fb_admin_ratings_comments() {
 }
 
 // fin avis ////////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////////////// groupes //
 
 function fb_groupes() {
@@ -406,7 +437,6 @@ function fb_groupes() {
 }
 
 // fin groupes /////////////////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////////////////////// Paiement //
 
 function fb_payment() {
@@ -457,7 +487,6 @@ function fb_payment() {
 	}
 }
 // fin paiements ///////////////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////////////////////// relances //
 
 function fb_relances() {
@@ -612,7 +641,6 @@ function fb_relances() {
 }
 
 // fin relances ////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////////////// mailjet //
 
 function fb_mailjet() {
@@ -723,7 +751,6 @@ function fb_mailjet() {
 }
 
 // fin Mailjet /////////////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////// print factures //
 
 function fbadm_invoice_print($number) {
@@ -803,7 +830,6 @@ function fbadm_invoice_print($number) {
 }
 
 // fin print factures //////////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////// print factures pro forma //
 
 function fbadm_invoice_proprint($number) {
@@ -883,7 +909,6 @@ function fbadm_invoice_proprint($number) {
 }
 
 // fin print factures pro forma ////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////// print bon de livraison //
 
 function fbadm_bon_print($number) {
@@ -1103,46 +1128,43 @@ function fbadm_bon_print($number) {
       </script>
       ';
     }
-
 		if ($hasBLXLS != false) {
       echo '
-              <script>
-                  jQuery("#but_imprimerbon_clientxls").click(function() {
-                      window.open("/wp-content/plugins/fbshop/fb_print_BL_XLS.php?name=BL_' . $number . '&number=' . $number . '&barcode=barcodes_GkA32Bn09fKNxSL/' . basename(renvoiCodeBar($number)) . '");
-                      return false;
-                  });
+      <script>
+          jQuery("#but_imprimerbon_clientxls").click(function() {
+              window.open("/wp-content/plugins/fbshop/fb_print_BL_XLS.php?name=BL_' . $number . '&number=' . $number . '&barcode=barcodes_GkA32Bn09fKNxSL/' . basename(renvoiCodeBar($number)) . '");
+              return false;
+          });
 
-                  jQuery("#but_imprimerbon").click(function() {
-                      document.getElementById("barImg2").style.visibility = "hidden";
-                      jQuery("#barSPLImg").hide();
-                      window.print();
-                      document.getElementById("barImg2").style.visibility = "visible";
-                      jQuery("#barSPLImg").show();
-                      return false;
-                  });
-              </script>
-
-        ';
+          jQuery("#but_imprimerbon").click(function() {
+              document.getElementById("barImg2").style.visibility = "hidden";
+              jQuery("#barSPLImg").hide();
+              window.print();
+              document.getElementById("barImg2").style.visibility = "visible";
+              jQuery("#barSPLImg").show();
+              return false;
+          });
+      </script>
+      ';
       } else {
 			//echo "Dans ELSE 2 //";
         echo '
-                <script>
-                    jQuery("#but_imprimerbon").click(function() {
-                        document.getElementById("barImg2").style.visibility = "hidden";
-                        jQuery("#barSPLImg").hide();
-                        window.print();
-                        document.getElementById("barImg2").style.visibility = "visible";
-                        jQuery("#barSPLImg").show();
-                        return false;
-                    });
-                </script>
+        <script>
+            jQuery("#but_imprimerbon").click(function() {
+                document.getElementById("barImg2").style.visibility = "hidden";
+                jQuery("#barSPLImg").hide();
+                window.print();
+                document.getElementById("barImg2").style.visibility = "visible";
+                jQuery("#barSPLImg").show();
+                return false;
+            });
+        </script>
         ';
       }
     }
 }
 
 // fin print bon de livraison //////////////////////////////////////////////////
-
 //////////////////////////////////////////////////////////////// user reports //
 
 function fb_admin_reports_users() {
@@ -1160,12 +1182,14 @@ function fb_admin_reports_users() {
 	$users_ids = $wpdb->get_col("SELECT DISTINCT user FROM `$fb_tablename_order` ORDER BY id ASC");
 	$users_ids = implode(',', $users_ids);
 
+  ///////////////////////////////////////////////////////////////// recherche //
 	echo '<p><form name="reportusers" id="report"  class="noprint" action="" method="post">';
-	echo 'Chercher selon nom, prénom, e-mail, société, login, code postal : <input type="text" name="generic_search" /><br />';
-	echo 'Chercher selon numéro de commande : <input type="text" name="search_by_order" /><br />';
+	echo '<input type="text" name="generic_search" placeholder="nom, e-mail, société, etc." /> Recherche par nom, prénom, e-mail, société, login, code postal<br />';
+	echo '<input type="text" name="search_by_order" placeholder="n° de commande "/> Recherche par numéro de commande <br /><br />';
 
+  ///////////////////////////////////////////////////////////////// sélection //
 	echo '
-	<select name="user_name">
+	<select class="urs" name="user_name">
 	<option value="">Select name</option>';
 	$users_name = $wpdb->get_results("SELECT id, f_name FROM `$fb_tablename_users` WHERE id IN ($users_ids) ORDER BY f_name ASC");
 	$l = 0;
@@ -1173,21 +1197,21 @@ function fb_admin_reports_users() {
 		if ($un->f_name == '') continue;
 		echo '<option value="'.$un->id.'">'.$un->f_name.'</option>';
 	endforeach;
-	echo '</select> OR <select name="user_login">
+	echo '</select> OR <select class="urs" name="user_login">
 	<option value="">Select login</option>';
 	$users_login = $wpdb->get_results("SELECT id, login FROM `$fb_tablename_users` WHERE id IN ($users_ids) ORDER BY login ASC");
 	foreach ($users_login as $ul) :
 		if ($ul->login == '') continue;
 		echo '<option value="'.$ul->id.'">'.$ul->login.'</option>';
 	endforeach;
-	echo '</select> OR <select name="user_company">
+	echo '</select> OR <select class="urs" name="user_company">
 	<option value="">Select company</option>';
 	$users_login = $wpdb->get_results("SELECT id, f_comp FROM `$fb_tablename_users` WHERE id IN ($users_ids) ORDER BY f_comp ASC");
 	foreach ($users_login as $ul) :
 		if ($ul->f_comp == '') continue;
 		echo '<option value="'.$ul->id.'">'.$ul->f_comp.'</option>';
 	endforeach;
-	echo '</select> OR <select name="user_mail">
+	echo '</select> OR <select class="urs" name="user_mail">
 	<option value="">Select email</option>';
 	$users_login = $wpdb->get_results("SELECT id, email FROM `$fb_tablename_users` WHERE id IN ($users_ids) ORDER BY email ASC");
 	foreach ($users_login as $ul) :
@@ -1196,20 +1220,20 @@ function fb_admin_reports_users() {
 	endforeach;
 	echo '</select> OR <select name="users_sales">
 	<option value="">Select by sales</option>';
-		echo '<option value="10">1 - 99</option>';
-		echo '<option value="100">100 - 499</option>';
-		echo '<option value="500">500 - 799</option>';
-		echo '<option value="800">800 - 1500</option>';
-		echo '<option value="1500">1500 - 2500</option>';
-		echo '<option value="2500">2500 - 4000</option>';
-		echo '<option value="4000">4000 - 6500</option>';
-		echo '<option value="6500">6500 - more</option>';
+	echo '<option value="10">1 - 99</option>';
+	echo '<option value="100">100 - 499</option>';
+	echo '<option value="500">500 - 799</option>';
+	echo '<option value="800">800 - 1500</option>';
+	echo '<option value="1500">1500 - 2500</option>';
+	echo '<option value="2500">2500 - 4000</option>';
+	echo '<option value="4000">4000 - 6500</option>';
+	echo '<option value="6500">6500 - more</option>';
 	echo '</select>';
 	echo '<br /><input type="hidden" name="pokaztab" /><input type="submit" style="margin-top:10px;" value="Filter" /></form></p>';
-$licznik = 0;
-$liczmak = 0;
-$liczbezmak = 0;
- if (isset($_POST['pokaztab']) && ($_POST['users_sales'] == '')) {
+  $licznik = 0;
+  $liczmak = 0;
+  $liczbezmak = 0;
+  if (isset($_POST['pokaztab']) && ($_POST['users_sales'] == '')) {
 
 	if($_POST['generic_search'] != "") {
 		fb_getUsersBySearch($_POST['generic_search']);
@@ -1303,9 +1327,11 @@ $liczbezmak = 0;
 			if ($exist_color->att_value == 'e1ceb0') $c10 = ' checked="checked"';
 			if ($exist_color->att_value == '929395') $c11 = ' checked="checked"';
 		}
-		echo '<div style="float:left;display:inline;width:30%;padding:5px;height:150px;border:1px solid #ccc;margin:10px 0 10px 0;font-size:11px;line-height:14px;"><b>Adresse de facturation:</b><br /><form name="fb_view_user" method="post" action="admin.php?page=fb-users"><input type="hidden" name="action" value="fb_view_user" /><input type="hidden" name="fb_view_user_id" value="'.$userinfo->id.'" /><input type="submit" name="fb_user_view" class="edit" value="'.$userinfo->login.'"></form>'.$userinfo->email.'<br />'.$userinfo->f_name.'<br />'.$userinfo->f_comp.'<br />'.$f_address.'<br />'.$f_porte.'<br />'.$userinfo->f_code.'<br />'.$userinfo->f_city.'<br />'.$userinfo->f_phone.'</div>';
-		echo '<div style="float:left;display:inline;padding:5px;width:30%;height:150px;border:1px solid #ccc;margin:10px 0 10px 10px;font-size:11px;line-height:14px;"><b>Adresse de livraison:</b><br />'.$userinfo->l_name.'<br />'.$userinfo->l_comp.'<br />'.$l_address.'<br />'.$l_porte.'<br />'.$userinfo->l_code.'<br />'.$userinfo->l_city.'<br />'.$userinfo->l_phone.'</div>';
-		echo '<div style="float:left;display:inline;padding:5px;width:30%;height:150px;border:1px solid #ccc;margin:10px 0 10px 10px;font-size:11px;line-height:14px;">
+
+    /////////////////////////////////// blocs adresses et code couleur client //
+		echo '<div class="adss"><b>Adresse de facturation:</b><br /><form name="fb_view_user" method="post" action="admin.php?page=fb-users"><input type="hidden" name="action" value="fb_view_user" /><input type="hidden" name="fb_view_user_id" value="'.$userinfo->id.'" /><input type="submit" name="fb_user_view" class="edit" value="'.$userinfo->login.'"></form>'.$userinfo->email.'<br />'.$userinfo->f_name.'<br />'.$userinfo->f_comp.'<br />'.$f_address.'<br />'.$f_porte.'<br />'.$userinfo->f_code.'<br />'.$userinfo->f_city.'<br />'.$userinfo->f_phone.'</div>';
+		echo '<div class="adss"><b>Adresse de livraison:</b><br />'.$userinfo->l_name.'<br />'.$userinfo->l_comp.'<br />'.$l_address.'<br />'.$l_porte.'<br />'.$userinfo->l_code.'<br />'.$userinfo->l_city.'<br />'.$userinfo->l_phone.'</div>';
+		echo '<div class="adss">
 		<form name="client_remise_options" id="client_remise_options" method="post" action="" />
 		<b>type client:</b> <select name="client_type" style="margin:0 15px 0 0;">
 		<option value=""'.$t1.'>select</option>
@@ -1402,22 +1428,22 @@ $liczbezmak = 0;
 			$sumtotalttc = $sumtotalttc+str_replace(',', '', $o->totalttc);
 
 		endforeach;
-		echo '<tr><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
-		echo '</tbody></table>';
-		echo '<script type="text/javascript">
-			jQuery(function() {
-			jQuery("#example-1").beautify({
-			pageSize : 100000,
-				pagerSize : 7
-			});
-			jQuery("#txt_search").keyup(function() {
-				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-			});
-			});
-	</script>';
-		//END MODIF
-		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
-	}
+  		echo '<tr><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
+  		echo '</tbody></table>';
+  		echo '<script type="text/javascript">
+  			jQuery(function() {
+  			jQuery("#example-1").beautify({
+  			pageSize : 100000,
+  				pagerSize : 7
+  			});
+  			jQuery("#txt_search").keyup(function() {
+  				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
+  			});
+  			});
+  	  </script>';
+  		//END MODIF
+  		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
+  	}
 	}
  }
  if ($_POST['users_sales'] != '') {
@@ -1960,7 +1986,6 @@ function fb_getUsersBySearchOrder($search) {
 }
 
 // fin user reports ////////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////// admin reports //
 
 function fb_admin_reports() {
@@ -2225,19 +2250,18 @@ function fb_admin_reports() {
 }
 
 // fin admin reports ///////////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////////////////// admin header //
 
 function fbs_admin_head() {
 	echo '<link rel="stylesheet" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
+  echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
 	if (isset($_GET['fbdet'])) {
   /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.js"></script>';*/
 	}
 }
 
 // fin admin header ////////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////////////// mails //
 
 function fb_admin_mails() {
@@ -2427,7 +2451,6 @@ function fb_admin_topic() {
 }
 
 // fin mails ///////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////// effacer dossier //
 
 function deleteDirectory($dirPath) {
@@ -2444,9 +2467,7 @@ function deleteDirectory($dirPath) {
 }
 
 // fin effacer dossier /////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-//                                                             Sales - ventes //
+////////////////////////////////////////////////////////////   Sales - ventes //
 ////////////////////////////////////////////////////////////////////////////////
 
 function fb_admin_sales() {
@@ -2702,7 +2723,6 @@ function fb_admin_sales() {
 }
 
 // fin sales - ventes //////////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////////////// ventes clôturées //
 
 function fb_admin_sales_old() {
@@ -2888,7 +2908,6 @@ function fb_admin_sales_old() {
 }
 
 // fin ventes clôturées ////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////// compte client //
 
 function fb_admin_users2() {
@@ -3032,9 +3051,7 @@ function fb_admin_users2() {
 }
 
 // fin compte client ///////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-//                                                           détails commande //
+//////////////////////////////////////////////////////////// détails commande //
 ////////////////////////////////////////////////////////////////////////////////
 
 function fbadm_print_details($number) {
@@ -3147,7 +3164,7 @@ function fbadm_print_details($number) {
 		unlink($_POST['projectfile']);
 	}
 
-  //usuwanie projektow
+  // suppression
   if (isset($_POST['gettnt'])) {
     /* Nombre de colis */
     $nbcolis = $_POST['nbcolis'];
@@ -3249,15 +3266,15 @@ function fbadm_print_details($number) {
     $uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
     if (isset($_POST['sendmail'])) {
-        $temat = htmlspecialchars_decode($_POST['hiddentopic']);
-        $zawar = htmlspecialchars_decode($_POST['selmailcontent']);
-        $header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
-        $header .= "\nContent-type: text/html; charset=UTF-8\n" . "Content-Transfer-Encoding: 8bit\n";
-        //mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
-        //mail("contact@tempopasso.com", "ESSAI ENVOI MAIL=".stripslashes($temat), stripslashes($zawar), $header);
-        //wp_mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
-        mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
-        //mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar),$header);
+      $temat = htmlspecialchars_decode($_POST['hiddentopic']);
+      $zawar = htmlspecialchars_decode($_POST['selmailcontent']);
+      $header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+      $header .= "\nContent-type: text/html; charset=UTF-8\n" . "Content-Transfer-Encoding: 8bit\n";
+      //mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
+      //mail("contact@tempopasso.com", "ESSAI ENVOI MAIL=".stripslashes($temat), stripslashes($zawar), $header);
+      //wp_mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
+      mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
+      //mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar),$header);
     }
 
 	//Traitement du changement de groupe
@@ -3283,12 +3300,12 @@ function fbadm_print_details($number) {
   $prod = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$number'", ARRAY_A);
   $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails`", ARRAY_A);
   echo '<div class="form-wrap"><div id="col-container">';
-  echo '<div id="col-right" style="width:29%;margin-top:30px;">';
+  echo '<div id="col-right">';
 
-	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Définir le groupe utilisateur:</span></h3><div class="inside">';
-    //Traitement des données de groupe
+  /////////////////////////////////////////////////////gestion groupes client //
+  echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Définir le groupe utilisateur:</span></h3><div class="inside">';
 
-
+  //Traitement des données de groupe
 	$user_group = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_groupe'");
 	if (isset($group_ret)) {
 		echo $group_ret;
@@ -3317,11 +3334,13 @@ function fbadm_print_details($number) {
 		}
 
 	echo '</select>';
-	echo '<br /><input type="submit" value="Sauvegarder" />';
+	echo '<br /><input type="submit" class="btnGroup" value="Sauvegarder" />';
   echo '</form>';
   echo '<div style="clear:both"></div></div></div></div>';
+
+  /////////////////////////////////////////////////////////// envoyer un mail //
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Send mail for user:</span></h3><div class="inside">';
-  echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" style="float:left"><option value="">choisir...</option>';
+  echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" style="float:left;width:100%;"><option value="">choisir...</option>';
   foreach ($mails as $ma) :
     $con = stripslashes($ma[content]);
     $con = htmlspecialchars($con);
@@ -3335,12 +3354,12 @@ function fbadm_print_details($number) {
   echo '</select><textarea name="selmailcontent" id="incon"></textarea><input type="submit" value="SEND" class="savebutt3" /></form>';
   echo '<div style="clear:both"></div></div></div></div>';
 
-  /* commentaires -Ajouter */
+  //////////////////////////////////////////////////// ajouter un commentaire //
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new comment:</span></h3><div class="inside">';
 
   echo '<form name="newcomm" id="newcomm" action="" method="post"><input type="hidden" name="addcomment" />';
   if ($topics) {
-    echo '<select name="selecttopic" id="seltopic" onchange="nicEditors.findEditor(\'incon2\').setContent(this.value); this.form.addcomment.value = this.options[selectedIndex].text;"><option value="">choisir...</option>';
+    echo '<select name="selecttopic" id="seltopic" style="width:100%;" onchange="nicEditors.findEditor(\'incon2\').setContent(this.value); this.form.addcomment.value = this.options[selectedIndex].text;"><option value="">choisir...</option>';
     foreach ($topics as $t) :
         $cont = stripslashes($t[content]);
 		$cont = htmlspecialchars($cont);
@@ -3353,80 +3372,168 @@ function fbadm_print_details($number) {
     endforeach;
     echo '</select>';
 		echo '<br /><br />';
-    }
-	?>
+  }
+?>
 
-		<script type="text/javascript" src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
-		<script type="text/javascript">
-			bkLib.onDomLoaded(function() {
-				new nicEditor({fullPanel : true}).panelInstance('incon2');
-			});
-		</script>
+	<script type="text/javascript" src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/js/nicEdit-latest.js"></script>
+	<script type="text/javascript">
+		bkLib.onDomLoaded(function() {
+			new nicEditor({fullPanel : true}).panelInstance('incon2');
+		});
+	</script>
 
-	<?php
-    echo '<textarea name="content" id="incon2"></textarea>';
-    echo '<input type="submit" value="SAVE" class="savebutt3" />';
-    echo '</form>';
-    echo '<div style="clear:both"></div></div></div></div>';
+<?php
+  echo '<textarea name="content" id="incon2"></textarea>';
+  echo '<input type="submit" value="SAVE" class="savebutt3" />';
+  echo '</form>';
+  echo '<div style="clear:both"></div></div></div></div>';
 
-    /* Voir les commentaires */
-    $comments = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y %H:%i') AS data FROM `$fb_tablename_comments` WHERE order_id = '$number' ORDER BY date DESC", ARRAY_A);
-    if ($comments) {
-      foreach ($comments as $c) :
-        echo '<div class="comment_right"><span class="comm_title2">Date:</span>&nbsp;' . $c[data] . '<span class="comm_title3">Expediteur:</span>&nbsp;' . $c[author] . '<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;' . $c[topic] . '</p>' . nl2br($c[content]) . '';
-        echo '<form name="delco" action="" method="post" style="text-align:right;margin-right:5px;"><input type="hidden" name="delcomment" value="' . $c[id] . '" /><input type="submit" value="delete" onclick=\'if (confirm("' . esc_js("Are you sure?") . '")) {return true;} return false;\' /></form></div>';
-      endforeach;
-    }
-    echo '</div>';
+  ///////////////////////////////////////// afficher les commentaires publiés //
+  $comments = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y %H:%i') AS data FROM `$fb_tablename_comments` WHERE order_id = '$number' ORDER BY date DESC", ARRAY_A);
+  if ($comments) {
+    foreach ($comments as $c) :
+      echo '<div class="comment_right"><span class="comm_title2">Date:</span>&nbsp;' . $c[data] . '<span class="comm_title3">Expediteur:</span>&nbsp;' . $c[author] . '<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;' . $c[topic] . '</p>' . nl2br($c[content]) . '';
+      echo '<form name="delco" action="" method="post" style="text-align:right;margin-right:5px;"><input type="hidden" name="delcomment" value="' . $c[id] . '" /><input type="submit" value="delete" onclick=\'if (confirm("' . esc_js("Are you sure?") . '")) {return true;} return false;\' /></form></div>';
+    endforeach;
+  }
+  echo '</div>';
 
-    /* affichage de la table de gauche */
-    $explode = explode('|', $uzyt->f_address);
-    $f_address = $explode['0'];
-    $f_porte = $explode['1'];
-    $explode2 = explode('|', $uzyt->l_address);
+  /* affichage de la table de gauche */
+  $explode = explode('|', $uzyt->f_address);
+  $f_address = $explode['0'];
+  $f_porte = $explode['1'];
+  $explode2 = explode('|', $uzyt->l_address);
+  $l_address = $explode2['0'];
+  $l_porte = $explode2['1'];
+  $adresdostawy = $uzyt->l_name . '<br />' . $uzyt->l_comp . '<br />' . $l_address . '<br />' . $l_porte . '<br />' . $uzyt->l_code . '<br />' . $uzyt->l_city . '<br />' . $uzyt->l_phone;
+  $useraddress = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$number'");
+  if ($useraddress) {
+    $explode2 = explode('|', $useraddress->l_address);
     $l_address = $explode2['0'];
-    $l_porte = $explode2['1'];
-    $adresdostawy = $uzyt->l_name . '<br />' . $uzyt->l_comp . '<br />' . $l_address . '<br />' . $l_porte . '<br />' . $uzyt->l_code . '<br />' . $uzyt->l_city . '<br />' . $uzyt->l_phone;
-    $useraddress = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$number'");
-    if ($useraddress) {
-        $explode2 = explode('|', $useraddress->l_address);
-        $l_address = $explode2['0'];
-        $l_porte = $explode2['1'] . '<br />';
-        $adresdostawy = $useraddress->l_name . '<br />' . $useraddress->l_comp . '<br />' . $l_address . '<br />' . $l_porte . $useraddress->l_code . '<br />' . $useraddress->l_city . '<br />' . $useraddress->l_phone;
-    }
-    /* mail("contact@tempopasso.com","TEST fb_admin adresse LIV","SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$number'".print_r($useraddress,true)."///adresdostawy=".$adresdostawy); */
-    //Rajouter le bon formulaire pour lien vers fb-user-report
+    $l_porte = $explode2['1'] . '<br />';
+    $adresdostawy = $useraddress->l_name . '<br />' . $useraddress->l_comp . '<br />' . $l_address . '<br />' . $l_porte . $useraddress->l_code . '<br />' . $useraddress->l_city . '<br />' . $useraddress->l_phone;
+  }
+  /* mail("contact@tempopasso.com","TEST fb_admin adresse LIV","SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$number'".print_r($useraddress,true)."///adresdostawy=".$adresdostawy); */
+  //Rajouter le bon formulaire pour lien vers fb-user-report
 
-	echo '<div id="col-left" style="width:70%;"><div style="float:right;display:inline;margin-left:20px;padding:5px;width:30%;height:180px;border:1px solid #ccc;margin-top:60px;font-size:11px;line-height:14px;"><b>Adresse de livraison:</b><br />' . $adresdostawy . '</div>';
-	$user_siret = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_siret'");
-	$user_epub = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_epub'");
-	if(!($user_siret)) {
-		$user_siret = '';
-	} else {
-		$user_siret = $user_siret->att_value.'<br />';
-	}
-	if(!($user_epub)) {
-		$user_epub = '';
-	} else {
-		$user_epub = $user_epub->att_value.'<br />';
-	}
-
-	echo '<div style="float:right;display:inline;width:30%;padding:5px;height:180px;border:1px solid #ccc;margin-top:60px;font-size:11px;line-height:14px;"><b>Adresse de facturation:</b><br /><form method="post" action="admin.php?page=fb-reports-users" target="_blank"><input type="hidden" name="user_login" value="'.$ktoryuser.'" /><input type="hidden" name="pokaztab" /><input type="submit" class="edit" value="'.$uzyt->login.'"></form>';
+  /////////////////////////////////////////////////////// adresse facturation //
+	echo '<div id="col-left"><div class="adresses"><div class="adsFact"><h2>Adresse de facturation:</h2><br /><form method="post" action="admin.php?page=fb-reports-users" target="_blank"><input type="hidden" name="user_login" value="'.$ktoryuser.'" /><input type="hidden" name="pokaztab" /><input type="submit" class="edit" value="'.$uzyt->login.'"></form>';
 	if($user_siret != '') {
-		echo 'SIRET : '.$user_siret.'<br />';
+		echo '<br />SIRET : '.$user_siret;
 	}
 	if($user_epub != '') {
-		echo 'Trésor public payeur : <br />'.$user_epub.'<br />';
+		echo 'Trésor public payeur : <br />'.$user_epub;
 	}
 
-	echo $uzyt->email . '<br />' . $uzyt->f_name . '<br />' . $uzyt->f_comp . '<br />' . $f_address . '<br />' . $f_porte . '<br />' . $uzyt->f_code . '<br />' . $uzyt->f_city . '<br />' . $uzyt->f_phone . '</div>';
-    echo '<h3>N° DE COMMANDE: ' . $order->unique_id . '</h3>';
-    echo '<p style="margin-bottom:20px"><b>Date created: </b>' . $order->date . '<br />';
-    if (($order->status > 2) AND ($order->status < 7)) {
-        echo '<b>Date on invoice: </b>' . $order->date_modify . '</p>';
+	echo '<br />' . $uzyt->email . '<br />' . $uzyt->f_name . '<br />' . $uzyt->f_comp . '<br />' . $f_address . '<br />' . $f_porte . '<br />' . $uzyt->f_code . '<br />' . $uzyt->f_city .
+  '<br />' .$uzyt->f_phone. '<br /></div>';
+
+  ///////////////////////////////////////////////////////// adresse livraison //
+  echo '<div class="adsLivraison"><h2>Adresse de livraison:</h2><br />' . $adresdostawy . '</div>';
+  $user_siret = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_siret'");
+  $user_epub = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_epub'");
+  if(!($user_siret)) {
+    $user_siret = '';
+  } else {
+    $user_siret = $user_siret->att_value.'<br />';
+  }
+  if(!($user_epub)) {
+    $user_epub = '';
+  } else {
+    $user_epub = $user_epub->att_value.'<br /></div>';
+  }
+
+  //////////////////////////////////////////////////////// Bloc résumé client //
+  echo '<div class="infosClient">';
+
+	$ktoryuser = $order->user;
+  // récupère la liste des commandes finalisées de l'utilisateur :
+  $closedorders = $wpdb->get_results("SELECT unique_id, user, date, totalht FROM `$fb_tablename_order` WHERE user = '$ktoryuser' AND status = '5' ORDER BY date ASC");
+
+  // affiche la date de la première commande
+  $first = $closedorders[0]->date;
+  if($first != NULL) {
+    $firstc = date('d-m-Y',strtotime($first));
+  }else{
+    $firstc = 'n/a';
+  }
+
+  // affiche la date de la dernière commande
+  $last = $closedorders[count($closedorders) - 1]->date;
+  if($last != NULL) {
+    $lastc = date('d-m-Y',strtotime($last));
+  }else{
+    $lastc = 'n/a';
+  }
+
+  // calcule le total ht des ventes :
+  foreach ($closedorders as $o) {
+    $total = $o->totalht;
+    // formate le prix avant calcul de manière à supprimer la virgule entre les milliers :
+    $total = str_replace(',', '', $total);
+    $total = number_format($total, 2, '.', '');
+    // additionne les prix de toutes les commandes
+    $sum+= $total;
+    // reformate le résultat après calcul pour ajouter un espace entre les milliers :
+    $formattedSum = number_format($sum, 2, '.', ' ');
+    //echo "<pre>";  echo print_r($total);  echo "</pre>";
+  }
+
+  // affiche le total ht
+  if ($sum != NULL) {
+    $formattedSum = $formattedSum;
+  }else{
+    $formattedSum = '0';
+  }
+
+  echo '<div class="blocLeft">
+    <h2>Résumé client:</h2><br />
+    <p>Commandes finalisées: <span class="hl">' .count($closedorders). '</span></p>
+    <p>Première commande: <span class="hl">' .$firstc. '</span></p>
+    <p>Dernière commande: <span class="hl">' .$lastc. '</span></p>
+    <p>Total commandes HT: <span class="hl">' .$formattedSum. ' €</span></p>
+    <div class="tableau">Derniers produits commandés <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+  </div>
+
+  <div class="blocRight">
+  <table class="widefat over" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Produit</th>
+      <th>quantité</th>
+      <th>total</th>
+    </tr>
+  </thead>';
+  // affiche le tableau des derniers produits commandés
+  $orderuser = $wpdb->get_results("SELECT date, unique_id FROM `$fb_tablename_order` WHERE user = '$ktoryuser'  AND status = '5' ORDER BY date DESC LIMIT 10" );
+  foreach ($orderuser as $o) {
+    $produits = $wpdb->get_results("SELECT name, quantity, total FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id'");
+    foreach ($produits as $p){
+      echo '
+        <tr>
+          <td>'.$p->name.'</td>
+          <td>'.$p->quantity.'</td>
+          <td>'.$p->total.'</td>
+        </tr>
+      ';
     }
-    //$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number'");
-    $ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number' AND type='shipping'");
+  }
+  //TEST affichage arrays :
+  //echo "<pre>";  echo print_r($total);  echo "</pre>";
+  echo  '</table></div>
+  </div></div>';
+  // ^ fermeture des divs .adresses et .infosClient
+
+  // fin bloc résumé client ////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////// Bloc gestion commande //
+
+  echo '<h1>N° DE COMMANDE: ' . $order->unique_id . '</h1>';
+  echo '<p style="margin-bottom:20px"><b>Date created: </b>' . $order->date . '<br />';
+  if (($order->status > 2) AND ($order->status < 7)) {
+      echo '<b>Date on invoice: </b>' . $order->date_modify . '</p>';
+  }
+  //$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number'");
+  $ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number' AND type='shipping'");
 	//mail("contact@tempopasso.com","Record Shipping Company // ","requete="."SELECT * FROM ".$fb_tablename_cf." WHERE unique_id = ".$number."  ");
 
   if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
@@ -3458,8 +3565,8 @@ function fbadm_print_details($number) {
       $ship2 = '';
       $ship3 = '';
 			$ship4 = ' selected="selected" ';
-          $lien_check_status = $order->tnt;
-          $texte_check_status = "AUTRE";
+      $lien_check_status = $order->tnt;
+      $texte_check_status = "AUTRE";
     }
   }
 
@@ -3498,6 +3605,7 @@ function fbadm_print_details($number) {
     $code_tnt_bon = substr(($useraddress->l_code == "" ? $uzyt->f_code : $useraddress->l_code), 0, 2) . "48904205";
   }
 
+  // select options livraison //////////////////////////////////////////////////
 	echo '<div class="statusp4">
   <form name="numertnt" id="numertnt" action="" method="post"><input type="hidden" name="changingtnt" />
     <p><label for="shippingcompany"><b>Shipping company: </b></label>
@@ -3515,16 +3623,22 @@ function fbadm_print_details($number) {
     </p>
   </form>
   <form name="gettntform" id="gettntform" action="" method="post"><input type="hidden" name="gettnt" value="'.$order->unique_id.'" /><input type="hidden" name="tntuser" value="'.$tntuser.'" />
-    <p><label for="nbcolis"><b>NB COLIS: </b><input type="text" name="nbcolis" id="nbcolis" value="'.$nbcolis.'" maxlength="4" size="4" /></label></p>
-    <p style="width:100%;display:block;text-align:center;"><a href="'.$lien_check_status.'" target="_blank" style="margin:0 auto;padding:1px 3px;background-color: white;font-size: 12px;color: black;height: 14px;font-style:normal;text-decoration:none;">CHECK '.$texte_check_status.' STATUS</a></p>
+    <p>
+      <label for="nbcolis">
+        <b>NB COLIS: </b>
+        <input type="text" name="nbcolis" id="nbcolis" value="'.$nbcolis.'" maxlength="6" size="6" />
+      </label>
+    </p>
+
     <p style="margin: 5px auto; display: block;">
       <label for="poids_commende">
         <b>POIDS : </b>
-        <input style="width: 124px;" type="text" id="poids_commende" name="poids_commende" value="' . $pdColis . '" />
-        <input type="submit" name="btnSavePoids" value="Save" />
+        <input type="text" id="poids_commende" name="poids_commende" value="' . $pdColis . '"  maxlength="6" size="6"/>
+        <input type="submit" class="btnSavePoids" name="btnSavePoids" value="Save" />
       </label>
     </p>
-    <p><input type="submit" value="IMPRIMER ETIQUETTE TRANSPORT" style="margin:5px 0 0 8px;" /></p>
+    <p style="text-align:center;"><a href="'.$lien_check_status.'" target="_blank" class="but_par checkSt">CHECK '.$texte_check_status.' STATUS</a></p>
+    <p><input type="submit" value="IMPRIMER ETIQUETTE TRANSPORT" class="btnImpEtq" /></p>
   </form>
   </div>';
 
@@ -3552,30 +3666,28 @@ function fbadm_print_details($number) {
 	echo '</select><input type="submit" value="SAVE" class="savebutt2" /></form></div>';
 
   // envoi de fichiers /////////////////////////////////////////////////////////
-
 	echo '<div class="statusp2">Upload <a href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
 	if(file_exists($name))
 	if ($dir = @opendir($name)) {
-	    while(($file = readdir($dir))) {
+    while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				$fichiers.='<span class="singlefile">'.$file.'</span><form name="deleteproject" class="deleteproject" action="" method="post"><input type="hidden" name="projectfile" value="'.$name.'/'.$file.'" /><input type="submit" class="deleteprojectfile" value=""  onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form><br />';
 			}
-    	}
-	    closedir($dir);
   	}
+    closedir($dir);
+  }
 	echo $fichiers;
 	echo '</div>';
-
-  // envoi de fichiers
+  // fin envoi de fichiers /////////////////////////////////////////////////////
 
   // Commande en traitement puis passage en expédié
   if($order->status==3 ){
   	passage_expedie();
   }
 
-  // méthodes de paiement
+  // méthodes de paiement //////////////////////////////////////////////////////
 	echo '<div class="statusp"><form name="formaplatnosci" id="formaplatnosci" action="" method="post"><input type="hidden" name="zmianaplatnosci" /><label for="changeplatnosc"><b>Paied: </b></label><select name="changeplatnosc" id="changeplatnosc">';
 	$fplatnosci = array('carte'=>'Carte bleue', 'cheque'=>'Chèque', 'bancaire'=>'Vire bancaire', 'administratif'=>'Vire administratif', 'espece'=>'Espèce', 'trente'=>'Paiement à 30 jours', 'soixante'=>'Paiement à 60 jours');
 		echo '<option value="">CHOIX</option>';
@@ -3595,9 +3707,9 @@ function fbadm_print_details($number) {
 	}
 
 	echo '<div class="statusp"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbbonprint='.$number.'" target="_blank" class="but_par">Imprimer BL</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$number.'" target="_blank" class="but_par">Imprimer facture</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceproprint='.$number.'" target="_blank" class="but_par">PRO</a></div>';
+  // fin méthodes de paiement //////////////////////////////////////////////////
 
-  // méthodes de paiement
-
+  // liste les fichiers envoyés par l'utilisateur //////////////////////////////
 	echo '<form name="editdetails" id="editdetails" action="" method="post"><input type="hidden" name="editdet" value="'.$number.'" />';
 	echo '<p><small>Please note that:<br />Description lines should contain break lines marker &lt;br /&gt;<br />Total sum couldn\'t contain Frais de port cost.</small></p>';
 	echo '<table class="widefat fixed" id="mywidefat" cellspacing="0"><thead><tr><th>ITEM</th><th style="width:150px;">DESCRIPTION</th><th>QUANTITÉ</th><th>PRIX U.</th><th>OPTION</th><th>REMISE</th><th>TOTAL</th><th>FRAIS DE PORT</th><th>FILE(S)</th></tr></thead>';
@@ -3609,11 +3721,11 @@ function fbadm_print_details($number) {
 		$filepath='';
 		$pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
 		if(file_exists($pathfiles))
-		if ($dir = @opendir($pathfiles)) {
+	    if ($dir = @opendir($pathfiles)) {
 		    while(($file = readdir($dir))) {
-				if(!is_dir($file) && !in_array($file, array(".",".."))) {
-					$filepath .= '<a href="'.get_bloginfo('url').'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
-				}
+  				if(!is_dir($file) && !in_array($file, array(".",".."))) {
+  					$filepath .= '<a href="'.get_bloginfo('url').'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
+  				}
     		}
 	    	closedir($dir);
   		}
@@ -3622,20 +3734,26 @@ function fbadm_print_details($number) {
 			$p[name] = '<s style="color:red;">'.$p[name].'</s><br /><small><b>deleted by user!</b></small>';
 			$isdeleted = ' style="background:#ccc;"';
 		}
-		echo '<tr'.$isdeleted.'><td><input type="text" name="e_name'.$p[id].'" value="'.$p[name].'" /></td><td><textarea cols="18" rows="7" name="e_description'.$p[id].'" style="font-size:10px">'.$p[description].'</textarea></td><td><input type="text" name="e_quantity'.$p[id].'" value="'.$p[quantity].'" /></td><td><input type="text" name="e_prix'.$p[id].'" value="'.$p[prix].'" /></td><td><input type="text" name="e_option'.$p[id].'" value="'.$p[prix_option].'" /></td><td><input type="text" name="e_remise'.$p[id].'" value="'.$p[remise].'" /></td><td><input type="text" name="e_total'.$p[id].'" value="'.$p[total].'" /></td><td><input type="text" name="e_frais'.$p[id].'" value="'.$frais.'" /></td><td>'.$filepath.'</td></tr>';
+		echo '<tr'.$isdeleted.'><td><input type="text" name="e_name'.$p[id].'" value="'.$p[name].'" /></td>
+    <td><textarea cols="18" rows="7" name="e_description'.$p[id].'" style="font-size:10px">'.$p[description].'</textarea></td>
+    <td><input type="text" name="e_quantity'.$p[id].'" value="'.$p[quantity].'" /></td>
+    <td><input type="text" name="e_prix'.$p[id].'" value="'.$p[prix].'" /></td>
+    <td><input type="text" name="e_option'.$p[id].'" value="'.$p[prix_option].'" /></td>
+    <td><input type="text" name="e_remise'.$p[id].'" value="'.$p[remise].'" /></td>
+    <td><input type="text" name="e_total'.$p[id].'" value="'.$p[total].'" /></td>
+    <td><input type="text" name="e_frais'.$p[id].'" value="'.$frais.'" /></td><td>'.$filepath.'</td></tr>';
+
+
+
 	endforeach;
 
-	// Début du formulaire d'ajout de produit
+  ////////////////////////////////////////////////////////////////////////////////
 
+  // fin fichiers utilisateur //////////////////////////////////////////////////
+
+	// ajouter un produit à la commande //////////////////////////////////////////
 	echo '<tr><td colspan="9" style="text-align: left;"><span id="add_1"><a onClick=\'jQuery("#new_1").toggle("slow");jQuery("#add_1").toggle("slow");\' style="cursor: pointer;">Ajouter un produit à la commande</a></span></td></tr>';
 	echo '<tr id="new_1" style="display: none;"><td><input type="text" name="e_name_new1" /></td><td><textarea cols="18" rows="7" name="e_description_new1" style="font-size:10px;" placeholder="Décrivez votre produit"></textarea></td><td><input type="text" name="e_quantity_new1" /></td><td><input type="text" name="e_prix_new1" /></td><td><input type="text" name="e_option_new1" /></td><td><input type="text" name="e_remise_new1"></td><td><input type="text" name="e_total_new1" /></td><td><input type="text" name="e_frais_new1" /></td><td><a onClick=\'jQuery("#new_1").toggle("slow");jQuery("#add_1").toggle("slow");\' style="cursor: pointer;">Supprimer</a></td></tr>';
-
-	// echo '<tr><td colspan="9" style="text-align: left;"><span id="add_1"><a onClick=\'jQuery("#new_1").toggle("slow");jQuery("#add_1").toggle("slow");jQuery("#add_2").toggle("slow");\'>Ajouter un produit à la commande</a></span></td></tr>';
-	// echo '<tr id="new_1" style="display: none;"><td><input type="text" name="e_name_new1" /></td><td><textarea cols="18" rows="7" name="e_description_new1" style="font-size:10px;" placeholder="Décrivez votre produit"></textarea></td><td><input type="text" name="e_quantity_new1" /></td><td><input type="text" name="e_prix_new1" /></td><td><input type="text" name="e_option_new1" /></td><td><input type="text" name="e_remise_new1"></td><td><input type="text" name="e_total_new1" /></td><td><input type="text" name="e_frais_new1" /></td><td></td></tr>';
-	// echo '<tr><td colspan="9" style="text-align: left;"><span id="add_2" style="display: none;"><a onClick=\'jQuery("#new_2").toggle("slow");jQuery("#add_2").toggle("slow");jQuery("#add_3").toggle("slow");\'>Ajouter un produit à la commande</a></span></td></tr>';
-	// echo '<tr id="new_2" style="display: none;"><td><input type="text" name="e_name_new2" /></td><td><textarea cols="18" rows="7" name="e_description_new2" style="font-size:10px;" placeholder="Décrivez votre produit"></textarea></td><td><input type="text" name="e_quantity_new2" /></td><td><input type="text" name="e_prix_new2" /></td><td><input type="text" name="e_option_new2" /></td><td><input type="text" name="e_remise_new2"></td><td><input type="text" name="e_total_new2" /></td><td><input type="text" name="e_frais_new2" /></td><td></td></tr>';
-	// echo '<tr><td colspan="9" style="text-align: left;"><span id="add_3" style="display: none;"><a onClick=\'jQuery("#new_3").toggle("slow");jQuery("#add_3").toggle("slow");\'>Ajouter un produit à la commande</a></span></td></tr>';
-	// echo '<tr id="new_3" style="display: none;"><td><input type="text" name="e_name_new3" /></td><td><textarea cols="18" rows="7" name="e_description_new3" style="font-size:10px;" placeholder="Décrivez votre produit"></textarea></td><td><input type="text" name="e_quantity_new3" /></td><td><input type="text" name="e_prix_new3" /></td><td><input type="text" name="e_option_new3" /></td><td><input type="text" name="e_remise_new3"></td><td><input type="text" name="e_total_new3" /></td><td><input type="text" name="e_frais_new3" /></td><td></td></tr>';
 
   //vérifier s'il y a un rabais pour l'utilisateur//
 	$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$number'");
@@ -3662,11 +3780,10 @@ function fbadm_print_details($number) {
 	echo '</table>';
 	echo '<input type="submit" value="SAVE" class="savebutt" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form>';
 	echo '</div>';
-	echo '</div><p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh">Go back</a></p>';
+	echo '</div><p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh" class="gobackBtn">Go back</a></p>';
 }
 
 // fin détails commande ////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////// promotions //
 
 function fb_admin_promotions() {
@@ -3800,7 +3917,6 @@ function fb_admin_promotions() {
 }
 
 // fin promotions //////////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////// plv extérieur //
 
 function fb_admin_plv() {
@@ -4006,7 +4122,6 @@ function fb_admin_plv() {
 }
 
 // fin plv extérieur ///////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////// plv intérieur //
 
 function fb_admin_plv_int() {
@@ -4150,42 +4265,40 @@ function fb_admin_plv_int() {
 	echo '<div class="form-wrap"><div id="col-container">';
 	echo '<div id="col-right" style="width:29%;margin-top:30px;">';
 
-if (isset($_POST[editplv])) {
-	$editid = $_POST[editplv];
-	$ed = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE id='$editid'");
-	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Edit plv:</span></h3><div class="inside">';
-	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="editpromotion" value="'.$editid.'" />';
-	echo '<p>Name: <input type="text" name="prom_name" value="'.$ed->name.'" /></p>';
-//	echo '<p>Subtitle: <input type="text" name="prom_subname" value="'.$ed->subname.'" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
-	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon">'.stripslashes($ed->description).'</textarea></p>';
-	echo '<p>Price: <input type="text" size="10" name="prom_price" value="'.$ed->price.'" />&euro;</p>';
-	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="'.$ed->frais.'" />&euro;</p>';
-//	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" value="'.$ed->ceddre.'" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
-	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
-	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
-	echo '<p>Order: <input type="text" size="5" name="prom_order" value="'.$ed->order.'" /></p>';
-	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
-	echo '</div></div></div>';
+  if (isset($_POST[editplv])) {
+  	$editid = $_POST[editplv];
+  	$ed = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE id='$editid'");
+  	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Edit plv:</span></h3><div class="inside">';
+  	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="editpromotion" value="'.$editid.'" />';
+  	echo '<p>Name: <input type="text" name="prom_name" value="'.$ed->name.'" /></p>';
+  //	echo '<p>Subtitle: <input type="text" name="prom_subname" value="'.$ed->subname.'" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+  	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon">'.stripslashes($ed->description).'</textarea></p>';
+  	echo '<p>Price: <input type="text" size="10" name="prom_price" value="'.$ed->price.'" />&euro;</p>';
+  	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="'.$ed->frais.'" />&euro;</p>';
+  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" value="'.$ed->ceddre.'" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+  	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
+  	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
+  	echo '<p>Order: <input type="text" size="5" name="prom_order" value="'.$ed->order.'" /></p>';
+  	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
+  	echo '</div></div></div>';
 
-/* promocje -dodawanie */
-} else {
-	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new plv:</span></h3><div class="inside">';
-	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
-	echo '<p>Name: <input type="text" name="prom_name" /></p>';
-//	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
-	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon"></textarea></p>';
-	echo '<p>Price: <input type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
-	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
-//	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
-	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
-	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
-	echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
-	echo '<input type="submit" value="SAVE" class="savebutt3" /></form>';
-	echo '</div></div></div>';
-}
-
+  /* promocje -dodawanie */
+  } else {
+  	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new plv:</span></h3><div class="inside">';
+  	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
+  	echo '<p>Name: <input type="text" name="prom_name" /></p>';
+  //	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+  	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="closedorders"></textarea></p>';
+  	echo '<p>Price: <input type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
+  	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
+  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+  	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
+  	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
+  	echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
+  	echo '<input type="submit" value="SAVE" class="savebutt3" /></form>';
+  	echo '</div></div></div>';
+  }
 	echo '</div>';
-
 	echo '<div id="col-left" style="width:70%;margin-top:40px;">';
 	echo '<table class="widefat fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -4210,7 +4323,6 @@ if (isset($_POST[editplv])) {
 }
 
 // fin plv intérieur ///////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////////// buraliste //
 
 
@@ -4381,7 +4493,7 @@ if (isset($_POST[editburaliste])) {
     ';
 	echo '<p>Name: <input type="text" name="prom_name" value="'.$ed->name.'" /></p>';
 //	echo '<p>Subtitle: <input type="text" name="prom_subname" value="'.$ed->subname.'" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
-	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon">'.stripslashes($ed->description).'</textarea></p>';
+	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="closedorders">'.stripslashes($ed->description).'</textarea></p>';
 	echo '<p>Price: <input type="text" size="10" name="prom_price" value="'.$ed->price.'" />&euro;</p>';
 	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="'.$ed->frais.'" />&euro;</p>';
 //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" value="'.$ed->ceddre.'" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
@@ -4407,42 +4519,39 @@ if (isset($_POST[editburaliste])) {
 	echo '<p>Order: <input type="text" size="5" name="prom_order" value="'.$ed->order.'" /></p>';
 	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
 	echo '</div></div></div>';
-
-/* promocje -dodawanie */
-} else {
-	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new buraliste:</span></h3><div class="inside">';
-	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
-	echo '<p>Name: <input type="text" name="prom_name" /></p>';
-//	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
-	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon"></textarea></p>';
-	echo '<p>Price: <input type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
-	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
-//	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
-	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
-	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
-	echo '<p>Réduction: <input type="text" size="10" name="prom_reduc" value="" />&euro; (laisser vide si non utilisé)</p>';
-	echo '<p>Ruban: <select name="prom_ruban_couleur">
-    					<option value="" selected="selected" >Aucun ruban</option>
-    					<option value="ribbon-yellow">Jaune</option>
-    					<option value="ribbon-green">Vert</option>
-    					<option value="ribbon-orange">Orange</option>
-    					<option value="ribbon-red">Rouge</option>
-    					<option value="ribbon-blue-light">Bleu ciel</option>
-    					<option value="ribbon-blue">Bleu</option>
-    					<option value="ribbon-blue-mms">Bleu foncé</option>
-    					<option value="ribbon-purple">Violet</option>
-    					<option value="ribbon-pink">Rose</option>
-    					<option value="ribbon-black">Noir</option>
-                    </select>
-    ';
-    echo '<p>Texte du ruban: <input type="text" name="prom_ruban_texte" value="1" /></p>';
-    echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
-	echo '<input type="submit" value="SAVE" class="savebutt3" /></form>';
-	echo '</div></div></div>';
-}
-
+  /* promocje -dodawanie */
+  } else {
+  	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new buraliste:</span></h3><div class="inside">';
+  	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
+  	echo '<p>Name: <input type="text" name="prom_name" /></p>';
+  //	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+  	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="closedorders"></textarea></p>';
+  	echo '<p>Price: <input type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
+  	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
+  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+  	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
+  	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
+  	echo '<p>Réduction: <input type="text" size="10" name="prom_reduc" value="" />&euro; (laisser vide si non utilisé)</p>';
+  	echo '<p>Ruban: <select name="prom_ruban_couleur">
+      					<option value="" selected="selected" >Aucun ruban</option>
+      					<option value="ribbon-yellow">Jaune</option>
+      					<option value="ribbon-green">Vert</option>
+      					<option value="ribbon-orange">Orange</option>
+      					<option value="ribbon-red">Rouge</option>
+      					<option value="ribbon-blue-light">Bleu ciel</option>
+      					<option value="ribbon-blue">Bleu</option>
+      					<option value="ribbon-blue-mms">Bleu foncé</option>
+      					<option value="ribbon-purple">Violet</option>
+      					<option value="ribbon-pink">Rose</option>
+      					<option value="ribbon-black">Noir</option>
+                      </select>
+      ';
+      echo '<p>Texte du ruban: <input type="text" name="prom_ruban_texte" value="1" /></p>';
+      echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
+  	echo '<input type="submit" value="SAVE" class="savebutt3" /></form>';
+  	echo '</div></div></div>';
+  }
 	echo '</div>';
-
 	echo '<div id="col-left" style="width:70%;margin-top:40px;">';
 	echo '<table class="widefat fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -4467,7 +4576,6 @@ if (isset($_POST[editburaliste])) {
 }
 
 // fin buraliste ///////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////////// accessoires //
 
 function fb_admin_acc() {
@@ -4672,7 +4780,6 @@ function fb_admin_acc() {
 }
 
 // fin accessoires /////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////////////////////// MMA //
 
 function fb_admin_mma() {
@@ -4878,7 +4985,6 @@ function fb_admin_mma() {
 }
 
 // fin MMA /////////////////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////// accessoires 2 //
 
 function fb_admin_acc2() {
@@ -5056,9 +5162,7 @@ function fb_admin_acc2() {
   	echo '<input type="submit" value="SAVE" class="savebutt3" /></form>';
   	echo '</div></div></div>';
   }
-
 	echo '</div>';
-
 	echo '<div id="col-left" style="width:70%;margin-top:40px;">';
 	echo '<table class="widefat fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -5083,7 +5187,6 @@ function fb_admin_acc2() {
 }
 
 // fin accessoires 2 ///////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////////////////////
 
 function fb_admin_ncomments() {
@@ -5415,74 +5518,72 @@ function getTnt($id, $user) {
 	//$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
 	$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
 	$sum = str_ireplace('cedex', '     ', $sum);
-//	echo $sum;
+  //	echo $sum;
 
-$myFile = 'tnt/'.$id.".txt";
-//echo 'myFile='.$myFile;
-$fh = fopen($myFile, 'w') or die("1can't open file");
-fwrite($fh, $sum);
-fclose($fh);
-$myFile2 = 'tnt/'.$id.".tem";
-$fh2 = fopen($myFile2, 'w') or die("2can't open file");
-//fwrite($fh2, $sum);
-fclose($fh2);
-//echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-//echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+  $myFile = 'tnt/'.$id.".txt";
+  //echo 'myFile='.$myFile;
+  $fh = fopen($myFile, 'w') or die("1can't open file");
+  fwrite($fh, $sum);
+  fclose($fh);
+  $myFile2 = 'tnt/'.$id.".tem";
+  $fh2 = fopen($myFile2, 'w') or die("2can't open file");
+  //fwrite($fh2, $sum);
+  fclose($fh2);
+  //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
+  //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
 
-$BLXLSFile = il_y_a_fichier_BLXLS($id);
-if ($BLXLSFile != false) {
-   $hasBLXLS = $BLXLSFile;
-} else {
-	$hasBLXLS = false;
-}
-if($hasBLXLS != false) {
-echo '<div id="downFiles">
-<a href="download.php?filename='.$id.'" id="downZIPTXT">Download ZIP TXT</a><br />
-<a href="download2.php?filename='.$id.'" id="downZIPTEM">Download ZIP TEM</a></div>';
-} else {
-echo '<div id="downFiles">
-<a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />
-<a href="download2.php?filename='.$id.'" id="downTEM">Download tem</a></div>';
-}
+  $BLXLSFile = il_y_a_fichier_BLXLS($id);
+  if ($BLXLSFile != false) {
+     $hasBLXLS = $BLXLSFile;
+  } else {
+  	$hasBLXLS = false;
+  }
+  if($hasBLXLS != false) {
+  echo '<div id="downFiles">
+  <a href="download.php?filename='.$id.'" id="downZIPTXT">Download ZIP TXT</a><br />
+  <a href="download2.php?filename='.$id.'" id="downZIPTEM">Download ZIP TEM</a></div>';
+  } else {
+  echo '<div id="downFiles">
+  <a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />
+  <a href="download2.php?filename='.$id.'" id="downTEM">Download tem</a></div>';
+  }
+  //echo '<a href="download.php?filename='.$id.'">Download</a>';
 
-//echo '<a href="download.php?filename='.$id.'">Download</a>';
+  ?>
+  <script type="text/javascript">
+  /*		$(document).ready(function(){
 
-?>
-<script type="text/javascript">
-/*		$(document).ready(function(){
+          	$.ajax({
+  			    type: "GET",
+  			    url: "http://"+document.location.host+"/wp-admin/download2.php",
+  			    data: "filename=".$id,
+                  success:function(response){
+                      alert('ok-'+response);
+                      alert("Details saved successfully!!!");
+                  },
+                  error: function (request, status, error) {
+                      alert(request.responseText);
+                  }
+  			});
+  //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.txt','Download')",100);
+  // 			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Downloadtem')",200);
+  //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Download')",1010);
+          });
+  */
+  </script>
+  <?php
 
-        	$.ajax({
-			    type: "GET",
-			    url: "http://"+document.location.host+"/wp-admin/download2.php",
-			    data: "filename=".$id,
-                success:function(response){
-                    alert('ok-'+response);
-                    alert("Details saved successfully!!!");
-                },
-                error: function (request, status, error) {
-                    alert(request.responseText);
-                }
-			});
-//			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.txt','Download')",100);
-// 			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Downloadtem')",200);
-//			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Download')",1010);
-        });
-*/
-</script>
-<?php
+  /*
+  <script type="text/javascipt">
+  setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'Download\')",500);
 
-/*
-<script type="text/javascipt">
-setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'Download\')",500);
-
-function startDownload() {
-alert();
-var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
-window.open(url,"Download");
-setTimeout("startDownload()",500);
-}
-*/
-
+  function startDownload() {
+  alert();
+  var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
+  window.open(url,"Download");
+  setTimeout("startDownload()",500);
+  }
+  */
 }
 
 //fin TNT //////////////////////////////////////////////////////////////////////
@@ -5501,13 +5602,11 @@ function getTnt_ZIP($id, $user, $liste) {
 	if ($exuser) {
 		$exadd = true;
 	}
-    //echo "///USER=";print_r($suser);
-    //echo "///EXUSER=";print_r($exuser);
-
-
-    $relais_colis = false;
-    $relais_number = "";
-    $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
+  //echo "///USER=";print_r($suser);
+  //echo "///EXUSER=";print_r($exuser);
+  $relais_colis = false;
+  $relais_number = "";
+  $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
 	foreach ($commande_relais as $UN_commande_relais) :
 		$relais = $UN_commande_relais->type;
 		if ($relais == "relais") {
@@ -5517,8 +5616,8 @@ function getTnt_ZIP($id, $user, $liste) {
 		}
 	endforeach;
 
-    $colis_revendeur = false;
-    $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
+  $colis_revendeur = false;
+  $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
 	foreach ($commande_relais as $UN_commande_relais) :
 		$relais = $UN_commande_relais->type;
 		if ($relais == "revendeur" && $UN_commande_relais->value == "yes") {
@@ -5527,311 +5626,291 @@ function getTnt_ZIP($id, $user, $liste) {
 		}
 	endforeach;
 
-     /* Nombre de colis */
+  /* Nombre de colis */
 	$sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='nbcolis' AND unique_id = '$id'");
-		if ($sprawdzshipping) {
-			$nbcolis = $sprawdzshipping->value;
-		}else {
-			$nbcolis = "1";
-        }
+	if ($sprawdzshipping) {
+		$nbcolis = $sprawdzshipping->value;
+	}else {
+		$nbcolis = "1";
+  }
 
 	$zip_txt = new ZipArchive();
 	$zip_tem = new ZipArchive();
 
-	 if($zip_txt->open('tnt/'.$id.'.txt.zip', ZipArchive::CREATE) == FALSE) {
-			die;
-       }
-
-	 if($zip_tem->open('tnt/'.$id.'.tem.zip', ZipArchive::CREATE) == FALSE) {
-			die;
-       }
+	if($zip_txt->open('tnt/'.$id.'.txt.zip', ZipArchive::CREATE) == FALSE) {
+		die;
+  }
+	if($zip_tem->open('tnt/'.$id.'.tem.zip', ZipArchive::CREATE) == FALSE) {
+		die;
+  }
 
 	$incr_id = 0;
+  foreach ($liste AS $code) {
+  	$incr_id++;
+    if($code != 0) {
+  		if($donnees_client = $wpdb->get_row("SELECT * FROM wp_retail WHERE retail_code = '" . $code . "'")) {
+      	$v340 = "";
+      	$v1 = convertSA('08904205', 9);
+      	$v10 = convertSA($id, 18);
+      	$v28 = convertSA('', 9);
 
-foreach ($liste AS $code) {
+        if($relais_colis && $relais_number != ""){
+        	$v37 = convertSA('JD', 3);
+          $v70 = convertSA('0', 11);
+          $v340 = convertSA($relais_number, 10);
+        }else{
+        	$v37 = convertSA('J', 3);
+        	$v70 = convertSA('', 11);
+        	$v340 = convertSA('', 10);
+        }
 
-	$incr_id++;
+        /* Pas sur de ce champ: je le mets à 0*/
+        $v70 = '';
+      	$v40 = convertSA('', 16);
+      	$v56 = convertSA('0.0', 11);
+      	$v67 = convertSA('', 17);
+      	$v84 = convertSA($nbcolis, 2);
+      	$v86 = convertSA('0001.000', 8);
+      	$v94 = convertSA('', 7);
+      	$v101 = convertSA(date('Ymd'), 8);
+      	$v109 = convertSA('', 30);
+        //	$v139 = convertSA('APPELER CLIENT SI BESOIN MERCI', 30); // ???
 
-	if($code != 0) {
-		if($donnees_client = $wpdb->get_row("SELECT * FROM wp_retail WHERE retail_code = '" . $code . "'")) {
+      	if ($donnees_client->retail_tel != '') {
+      		$v169 = convertSA(convertToNumber($donnees_client->retail_tel), 30); // phone
+      	} else {
+      		if ($exadd == true) {
+      			$v169 = convertSA(convertToNumber($exuser->l_phone), 30); // phone
+      		} else {
+      			if (!empty($suser->l_phone)) {
+      				$v169 = convertSA(convertToNumber($suser->l_phone), 30); // phone
+      			} else {
+      				$v169 = convertSA(convertToNumber($suser->f_phone), 30); // phone
+      			}
+      		}
+        }
 
+        if($relais_colis && $relais_number != ""){
+        	$v169 = convertSA(convertToNumber($suser->f_phone), 30); // phone
+        	//$v169 = convertSA('1234567890123456789012345678901234567890', 30); // phone
+        }
 
-	$v340 = "";
+      	$v199 = convertSA('', 85);
+      	$v284 = convertSA('C', 1);
+      	/* Vu que l'on rajoute le champ v340 de 10 char, on enlève 10 à v285:
+          $v285 = convertSA('', 65);*/
+      	$v285 = convertSA('', 55);
 
-	$v1 = convertSA('08904205', 9);
-	$v10 = convertSA($id, 18);
-	$v28 = convertSA('', 9);
+      	if ($donnees_client->retail_contact != '') {
+      		$v139 = convertSA(convertToClean($donnees_client->retail_contact), 30);
+      	} else {
+      		if ($exadd == true) {
+      			$v139 = convertSA(convertToClean($exuser->l_name), 30);
+      		} else {
+      			if (!empty($suser->l_name)) {
+      				$v139 = convertSA(convertToClean($suser->l_name), 30);
+      			} elseif (!empty($suser->f_name)) {
+      				$v139 = convertSA(convertToClean($suser->f_name), 30);
+      			} else {
+      				$v139 = convertSA(convertToClean('Name'), 30);
+      			}
+      		}
+        }
 
+        if($relais_colis && $relais_number != ""){
+            $v139 = convertSA(convertToClean($suser->f_name), 30);
+        }
 
-    if($relais_colis && $relais_number != ""){
-    	$v37 = convertSA('JD', 3);
-        $v70 = convertSA('0', 11);
-        $v340 = convertSA($relais_number, 10);
-    }else{
-		$v37 = convertSA('J', 3);
-		$v70 = convertSA('', 11);
-		$v340 = convertSA('', 10);
-    }
+      	if ($exadd == true) {
+      		$v350 = convertSA(convertToClean($exuser->l_comp), 30);
+      	} else {
+      		if (!empty($suser->l_phone)) {
+      			$v350 = convertSA(convertToClean($suser->l_comp), 30);
+      		} else {
+      			$v350 = convertSA(convertToClean($suser->f_comp), 30);
+      		}
+      	}
 
-    /* Pas sur de ce champ: je le mets à 0*/
-    $v70 = '';
+        if($relais_colis && $relais_number != ""){
+            $v350 = convertSA('RELAIS COLIS', 30);
+        }
 
-	$v40 = convertSA('', 16);
-	$v56 = convertSA('0.0', 11);
-	$v67 = convertSA('', 17);
-	$v84 = convertSA($nbcolis, 2);
-	$v86 = convertSA('0001.000', 8);
-	$v94 = convertSA('', 7);
-	$v101 = convertSA(date('Ymd'), 8);
-	$v109 = convertSA('', 30);
-//	$v139 = convertSA('APPELER CLIENT SI BESOIN MERCI', 30); // ???
+      	if ($donnees_client->retail_adresse != '') {
+      		$v380 = convertSA(convertToClean($donnees_client->retail_enseigne), 30);
+      		$v410 = convertSA(convertToClean($donnees_client->retail_adresse),30);
+      		$v350 = $v380;
+      	}
 
+      	else {
+        	if ($exadd == true) {
+        		$explode = explode('|', $exuser->l_address);
+        		$v380line = convertSAAddress(convertToClean($explode[0]), 30);
+        		$v380 = convertSA($v380line[0], 30);
+        		$v410 = convertSA($v380line[1].convertToClean($explode[1]), 30);
 
-	if ($donnees_client->retail_tel != '') {
-		$v169 = convertSA(convertToNumber($donnees_client->retail_tel), 30); // phone
-	} else {
-		if ($exadd == true) {
-			$v169 = convertSA(convertToNumber($exuser->l_phone), 30); // phone
-		} else {
-			if (!empty($suser->l_phone)) {
-				$v169 = convertSA(convertToNumber($suser->l_phone), 30); // phone
-			} else {
-				$v169 = convertSA(convertToNumber($suser->f_phone), 30); // phone
-			}
-		}
-    }
+        	} else {
+        		if (!empty($suser->l_phone)) {
+        			$explode = explode('|', $suser->l_address);
+        			$v380line = convertSAAddress(convertToClean($explode[0]), 30);
+        			$v380 = convertSA($v380line[0], 30);
+        			$v410 = convertSA($v380line[1].convertToClean($explode[1]), 30);
+        		} else {
+        			$explode = explode('|', $suser->f_address);
+        			$v380line = convertSAAddress(convertToClean($explode[0]), 30);
+        			$v380 = convertSA($v380line[0], 30);
 
-    if($relais_colis && $relais_number != ""){
-    	$v169 = convertSA(convertToNumber($suser->f_phone), 30); // phone
-    	//$v169 = convertSA('1234567890123456789012345678901234567890', 30); // phone
-    }
+        			$v410 = convertSA($v380line[1].convertToClean($explode[1]), 30);
+        		}
+        	}
+        }
 
-	$v199 = convertSA('', 85);
-	$v284 = convertSA('C', 1);
-	/* Vu que l'on rajoute le champ v340 de 10 char, on enlève 10 à v285:
-    $v285 = convertSA('', 65);*/
-	$v285 = convertSA('', 55);
+      	$v440 = convertSA('', 30);
+      	if ($donnees_client->retail_cp != '') {
+      		$v470 = convertSA(convertToNumber($donnees_client->retail_cp), 9);
+      	} else {
+        	if ($exadd == true) {
+        		$v470 = convertSA(convertToNumber($exuser->l_code), 9);
+        	} else {
+        		if (!empty($suser->l_phone)) {
+        			$v470 = convertSA(convertToNumber($suser->l_code), 9);
+        		} else {
+        			$v470 = convertSA(convertToNumber($suser->f_code), 9);
+        		}
+        	}
+      	}
 
-	if ($donnees_client->retail_contact != '') {
-		$v139 = convertSA(convertToClean($donnees_client->retail_contact), 30);
-	} else {
-		if ($exadd == true) {
-			$v139 = convertSA(convertToClean($exuser->l_name), 30);
-		} else {
-			if (!empty($suser->l_name)) {
-				$v139 = convertSA(convertToClean($suser->l_name), 30);
-			} elseif (!empty($suser->f_name)) {
-				$v139 = convertSA(convertToClean($suser->f_name), 30);
-			} else {
-				$v139 = convertSA(convertToClean('Name'), 30);
-			}
-		}
-    }
+    	if ($donnees_client->retail_ville != '') {
+    		$v479 = convertSA(convertToClean($donnees_client->retail_ville), 30);
+    	} else {
 
-    if($relais_colis && $relais_number != ""){
-        $v139 = convertSA(convertToClean($suser->f_name), 30);
-    }
+      	if ($exadd == true) {
+        		$v479 = convertSA(convertToClean($exuser->l_city), 30);
+        } else {
+      		if (!empty($suser->l_phone)) {
+      			$v479 = convertSA(convertToClean($suser->l_city), 30);
+      		} else {
+      			$v479 = convertSA(convertToClean($suser->f_city), 30);
+      		}
+      	}
+    	}
 
-
-	if ($exadd == true) {
-		$v350 = convertSA(convertToClean($exuser->l_comp), 30);
-	} else {
-		if (!empty($suser->l_phone)) {
-			$v350 = convertSA(convertToClean($suser->l_comp), 30);
-		} else {
-			$v350 = convertSA(convertToClean($suser->f_comp), 30);
-		}
-	}
-
-    if($relais_colis && $relais_number != ""){
-        $v350 = convertSA('RELAIS COLIS', 30);
-    }
-
-	if ($donnees_client->retail_adresse != '') {
-		$v380 = convertSA(convertToClean($donnees_client->retail_enseigne), 30);
-		$v410 = convertSA(convertToClean($donnees_client->retail_adresse),30);
-		$v350 = $v380;
-	}
-
-	else {
-
-	if ($exadd == true) {
-		$explode = explode('|', $exuser->l_address);
-		$v380line = convertSAAddress(convertToClean($explode[0]), 30);
-		$v380 = convertSA($v380line[0], 30);
-
-		$v410 = convertSA($v380line[1].convertToClean($explode[1]), 30);
-	} else {
-		if (!empty($suser->l_phone)) {
-			$explode = explode('|', $suser->l_address);
-			$v380line = convertSAAddress(convertToClean($explode[0]), 30);
-			$v380 = convertSA($v380line[0], 30);
-			$v410 = convertSA($v380line[1].convertToClean($explode[1]), 30);
-		} else {
-			$explode = explode('|', $suser->f_address);
-			$v380line = convertSAAddress(convertToClean($explode[0]), 30);
-			$v380 = convertSA($v380line[0], 30);
-
-			$v410 = convertSA($v380line[1].convertToClean($explode[1]), 30);
-		}
-	}
-    }
-
-
-	$v440 = convertSA('', 30);
-
-	if ($donnees_client->retail_cp != '') {
-		$v470 = convertSA(convertToNumber($donnees_client->retail_cp), 9);
-	} else {
-
-	if ($exadd == true) {
-		$v470 = convertSA(convertToNumber($exuser->l_code), 9);
-	} else {
-		if (!empty($suser->l_phone)) {
-			$v470 = convertSA(convertToNumber($suser->l_code), 9);
-		} else {
-			$v470 = convertSA(convertToNumber($suser->f_code), 9);
-		}
-	}
-	}
-
-	if ($donnees_client->retail_ville != '') {
-		$v479 = convertSA(convertToClean($donnees_client->retail_ville), 30);
-	} else {
-
-	if ($exadd == true) {
-		$v479 = convertSA(convertToClean($exuser->l_city), 30);
-	} else {
-		if (!empty($suser->l_phone)) {
-			$v479 = convertSA(convertToClean($suser->l_city), 30);
-		} else {
-			$v479 = convertSA(convertToClean($suser->f_city), 30);
-		}
-	}
-	}
-
-    if($relais_colis && $relais_number != ""){
+      if($relais_colis && $relais_number != ""){
         $v380 = convertSA(convertToClean(strtoupper($exuser->l_address)), 30);
         $v410 = convertSA(convertToClean($exuser->l_comp), 30);
-		$v470 = convertSA(convertToNumber($exuser->l_code), 9);
+  	    $v470 = convertSA(convertToNumber($exuser->l_code), 9);
         $v479 = convertSA(convertToClean($exuser->l_city), 30);
-    }
+      }
 
-	$v509 = convertSA('', 30);
-	$v539 = convertSA('FR', 3);
-    if($colis_revendeur){
-    	/* Saisie de l'adresse de facturation du client dans les champs expéditeur pour les envois en colis revendeur */
-		$v542 = convertSA('', 53);
-		$v595 = convertSA(convertToClean($suser->f_name), 30);
-        if(trim($suser->f_comp) == ""){
-				$v625 = convertSA(convertToClean($suser->f_address), 60);
-				$v655 = "";
+      	$v509 = convertSA('', 30);
+      	$v539 = convertSA('FR', 3);
+        if($colis_revendeur){
+        	/* Saisie de l'adresse de facturation du client dans les champs expéditeur pour les envois en colis revendeur */
+      		$v542 = convertSA('', 53);
+      		$v595 = convertSA(convertToClean($suser->f_name), 30);
+          if(trim($suser->f_comp) == ""){
+    			$v625 = convertSA(convertToClean($suser->f_address), 60);
+    			$v655 = "";
+          }else{
+    			$v625 = convertSA(convertToClean($suser->f_comp), 30);
+    			$v655 = convertSA(convertToClean($suser->f_address), 30);
+          }
+          $v685 = convertSA('', 30);
+      		$v715 = convertSA(convertToNumber($suser->f_code), 9);
+      		$v724 = convertSA(convertToClean($suser->f_city), 30);
+      		$v754 = convertSA('', 30);
+      		$v784 = convertSA('FR', 3);
+      		$v787 = convertSA('', 22);
+      		$v809 = convertSA(convertToClean($suser->f_phone), 16);
+          $v825 = convertSA('',386);
+
+          $v542 = $v542 . $v595 . $v625 . $v655 . $v685 . $v715 . $v724 . $v754 . $v784 . $v787 . $v809 . $v825;
         }else{
-				$v625 = convertSA(convertToClean($suser->f_comp), 30);
-				$v655 = convertSA(convertToClean($suser->f_address), 30);
+          $v542 = convertSA('', 669);
         }
-        $v685 = convertSA('', 30);
-		$v715 = convertSA(convertToNumber($suser->f_code), 9);
-		$v724 = convertSA(convertToClean($suser->f_city), 30);
-		$v754 = convertSA('', 30);
-		$v784 = convertSA('FR', 3);
-		$v787 = convertSA('', 22);
-		$v809 = convertSA(convertToClean($suser->f_phone), 16);
-        $v825 = convertSA('',386);
 
-        $v542 = $v542 . $v595 . $v625 . $v655 . $v685 . $v715 . $v724 . $v754 . $v784 . $v787 . $v809 . $v825;
-    }else{
-        $v542 = convertSA('', 669);
-    }
+      	//$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
+      	$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
+      	$sum = str_ireplace('cedex', '     ', $sum);
+        //	echo $sum;
 
-	//$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
-	$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
-	$sum = str_ireplace('cedex', '     ', $sum);
-//	echo $sum;
+        $myFile = "tnt/".substr($id,2).str_pad($incr_id, 2, '0', STR_PAD_LEFT).".txt";
+        //echo 'myFile='.$myFile;
+        $fh = fopen($myFile, 'w') or die("1can't open file");
+        fwrite($fh, $sum);
+        fclose($fh);
+        $zip_txt->addFile($myFile);
+        $myFile2 = "tnt/".substr($id,2).str_pad($incr_id, 2, '0', STR_PAD_LEFT).".tem";
+        $fh2 = fopen($myFile2, 'w') or die("2can't open file");
+        //fwrite($fh2, $sum);
+        fclose($fh2);
+        $zip_tem->addFile($myFile2);
+        //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />'
+        //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+  		}
+  	}
+  }
 
-$myFile = "tnt/".substr($id,2).str_pad($incr_id, 2, '0', STR_PAD_LEFT).".txt";
-//echo 'myFile='.$myFile;
-$fh = fopen($myFile, 'w') or die("1can't open file");
-fwrite($fh, $sum);
-fclose($fh);
-$zip_txt->addFile($myFile);
-$myFile2 = "tnt/".substr($id,2).str_pad($incr_id, 2, '0', STR_PAD_LEFT).".tem";
-$fh2 = fopen($myFile2, 'w') or die("2can't open file");
-//fwrite($fh2, $sum);
-fclose($fh2);
-$zip_tem->addFile($myFile2);
-//echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-//echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+  $zip_txt->close();
+  $zip_tem->close();
 
+  $BLXLSFile = il_y_a_fichier_BLXLS($id);
+  if ($BLXLSFile != false) {
+     $hasBLXLS = $BLXLSFile;
+  } else {
+  	$hasBLXLS = false;
+  }
+  if($hasBLXLS != false) {
+  echo '<div id="downFiles">
+  <a href="download.php?filename='.$id.'&zip=1" id="downZIPTXT">Download ZIP TXT</a><br />
+  <a href="download2.php?filename='.$id.'&zip=1" id="downZIPTEM">Download ZIP TEM</a></div>';
+  } else {
+  echo '<div id="downFiles">
+  <a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />
+  <a href="download2.php?filename='.$id.'" id="downTEM">Download tem</a></div>';
+  }
 
-			}
-		}
+  //echo '<a href="download.php?filename='.$id.'">Download</a>';
 
-}
+  ?>
+  <script type="text/javascript">
+  /*		$(document).ready(function(){
 
-$zip_txt->close();
-$zip_tem->close();
+          	$.ajax({
+  			    type: "GET",
+  			    url: "http://"+document.location.host+"/wp-admin/download2.php",
+  			    data: "filename=".$id,
+                  success:function(response){
+                      alert('ok-'+response);
+                      alert("Details saved successfully!!!");
+                  },
+                  error: function (request, status, error) {
+                      alert(request.responseText);
+                  }
+  			});
+   //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.txt','Download')",100);
+  // 			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Downloadtem')",200);
+  //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Download')",1010);
+          });
+  */
+  </script>
+  <?php
 
-
-$BLXLSFile = il_y_a_fichier_BLXLS($id);
-if ($BLXLSFile != false) {
-   $hasBLXLS = $BLXLSFile;
-} else {
-	$hasBLXLS = false;
-}
-if($hasBLXLS != false) {
-echo '<div id="downFiles">
-<a href="download.php?filename='.$id.'&zip=1" id="downZIPTXT">Download ZIP TXT</a><br />
-<a href="download2.php?filename='.$id.'&zip=1" id="downZIPTEM">Download ZIP TEM</a></div>';
-} else {
-echo '<div id="downFiles">
-<a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />
-<a href="download2.php?filename='.$id.'" id="downTEM">Download tem</a></div>';
-}
-
-//echo '<a href="download.php?filename='.$id.'">Download</a>';
-
-?>
-<script type="text/javascript">
-/*		$(document).ready(function(){
-
-        	$.ajax({
-			    type: "GET",
-			    url: "http://"+document.location.host+"/wp-admin/download2.php",
-			    data: "filename=".$id,
-                success:function(response){
-                    alert('ok-'+response);
-                    alert("Details saved successfully!!!");
-                },
-                error: function (request, status, error) {
-                    alert(request.responseText);
-                }
-			});
- //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.txt','Download')",100);
-// 			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Downloadtem')",200);
-//			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Download')",1010);
-        });
-*/
-</script>
-<?php
-
-/*
-<script type="text/javascipt">
-setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'Download\')",500);
+  /*
+  <script type="text/javascipt">
+  setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'Download\')",500);
 
 
-function startDownload() {
-alert();
-var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
-window.open(url,"Download");
-setTimeout("startDownload()",500);
-}
-*/
+  function startDownload() {
+  alert();
+  var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
+  window.open(url,"Download");
+  setTimeout("startDownload()",500);
+  }
+  */
 
 }
 
 // fin TNT zip /////////////////////////////////////////////////////////////////
-
 /////////////////////////////////////////////////////////////////////// FEDEX //
 
 function getFedex($id, $user) {
@@ -6120,8 +6199,8 @@ function getFedex($id, $user) {
 }
 
 // fin FEDEX ///////////////////////////////////////////////////////////////////
-
 //////////////////////////////////////////////////// check si colis revendeur //
+
 /**
  * Cette fonction retourne TRUE si il y a un enregistrement si non FALSE
  * @global type $wpdb
@@ -6147,8 +6226,8 @@ function EstColieRevendeur($idorder) {
 }
 
 // fin check colis revendeur ///////////////////////////////////////////////////
-
 ///////////////////////////////////////////////////////// check si BL présent //
+
 /**
  * Verifier si un fichier BL.PDF exits et renvoit le chemin, sinon FALSE
  * @param type $idorder
@@ -6194,8 +6273,8 @@ function il_y_a_fichier_BLXLS($idorder) {
 }
 
 // fin check BL ////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////////// générer code barre commande //
+
 /**
  * Genere un code barre en contenant le numero de la commande
  * et renvoi le lien de l'image qui contient le code a barre

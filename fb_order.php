@@ -245,7 +245,7 @@ $view .= '
         </div>
         <br />
         <table id="fbcart_fileupload3" class="table table-striped" cellpadding="0" cellspacing="0">
-		<thead><tr><th class="lefttd"></th><th class="tabname">FICHER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
+		<thead><tr><th class="lefttd"></th><th class="tabname">FICHIER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
         <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
 </form>
     ';
@@ -410,11 +410,9 @@ function get_details() {
 		}
 		// bouton warning BAT
 		if($bat == 1) {
-			$prolog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
-		}
+			$prolog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';		}
 
 		$prolog .= '</td></tr></table></div>';
-
 	}
 
 	$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
@@ -551,6 +549,8 @@ function get_details() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////// calcul remises / TVA //
+
 function reorganize_votre($idzamowienia) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -614,7 +614,8 @@ function reorganize_votre($idzamowienia) {
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////
+//fin calcul ///////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// afficher détail devis //
 
 function print_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia) {
 	global $wpdb;
@@ -635,6 +636,8 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");
 	}
 
+	// affichage du devis pour tous les status sauf traitement / expédié / clôturé
+	//////////////////////////////////////////////////////////////////////////////
 	if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) {
 		$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 		$view .= $prolog;
@@ -651,7 +654,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			$kosztcalosci = 0;
 			foreach ( $products as $products => $item ) {
 				////////////////////////////////////////////////////////////////////////// ajout du bouton créér la maquette ds le tableau juste après <tr><td class="lefttd">:
-				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity ><i class="fa fa-paint-brush" aria-hidden="true"></i> Créér la maquette</a>
+				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créér la maquette</a>
 				$licznik++;
 				$view .= '
 				<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
@@ -729,6 +732,9 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		}
 		//	$view .= $epilog;
 		//		$view .= '<div style="position:relative;float:left;display:inline;width:960px;">'.get_fb_comments().'</div>';
+
+	// affichage du devis pour les status traitement / expédié / clôturé /////////
+	//////////////////////////////////////////////////////////////////////////////
 	} else {
 		$view .= '<div class="noprint">'.$prolog.'</div>';
 		$view .= '<div class="noprint">'.$epilog.'</div>';
@@ -782,6 +788,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
 		<tr><td class="toleft"">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
 		</table>';
+
 		if ($query->payment == 'cheque') { $method = 'CHÉQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
 		if ($query->payment == 'carte') { $method = 'CARTE BLEUE'; }
@@ -791,6 +798,33 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		if ($query->payment == 'soixante') { $method = 'PAIEMENT A 60 JOURS'; }
 		$view .= '<div class="bottomfak onlyprint">FACTURE REGLÉE PAR '.$method.'<br /><br /><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>';
 
+		// ajout des adresse facturation et livraison, mais sans le bouton modifier
+		$user = $_SESSION['loggeduser'];
+		$explode = explode('|', $user->f_address);
+		$f_address = $explode['0'];
+		$f_porte = $explode['1'].'<br />';
+		$explode2 = explode('|', $user->l_address);
+		$l_address = $explode2['0'];
+		$l_porte = $explode2['1'].'<br />';
+		if ( ($l_name == '') && ($l_address == '') ) {
+			$epilog_0 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
+		} else {
+			$epilog_0 .= $user->l_name.'<br />'.$user->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$user->l_code.'<br />'.$user->l_city;
+		}
+		$useraddress = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$idzamowienia'");
+		if ($useraddress) {
+			$explode2 = explode('|', $useraddress->l_address);
+			$l_address = $explode2['0'];
+			$l_porte = $explode2['1'].'<br />';
+			$epilog_0 = $useraddress->l_name.'<br />'.$useraddress->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$useraddress->l_code.'<br />'.$useraddress->l_city;
+		}
+		$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
+
+		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
+		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
+		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'</td></tr>
+		</table>';
+
 		// ajout des conditions générales de ventes à l'impression de la facture papier
 		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
 		$view .= $cgv; // ajout CGV
@@ -799,15 +833,14 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	return $view;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// compter nombre d'items dans le panier ///////////////////////////////////////
+// fin affichage détails ///////////////////////////////////////////////////////
+/////////////////////////////////////// compter nombre d'items dans le panier //
 
 function getCartCount() {
 	$ret = '0';
 	if(!empty($_SESSION['fbcart'])) {
 		$ret = count($_SESSION['fbcart']);
 	}
-	return $ret;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -987,7 +1020,7 @@ function print_votre() {
 				}
 			}
 
-			$view .= '</div></td><td>'.$o->unique_id.'</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td>'.$status.$comment_new.'</td>';
+			$view .= '</div></td><td><span class="bolder">'.$o->unique_id.'</span></td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td>'.$status.$comment_new.'</td>';
 			$view .= '</tr>';
 		endforeach;
 		$view .= '</table>';
@@ -1283,11 +1316,11 @@ function add_to_db() {
 		/* On efface les données de session relatives à la livraison */
 		unset($_SESSION['loggeduser']->code_client_dest);
 		unset($_SESSION['loggeduser']->l_name);
-          unset($_SESSION['loggeduser']->l_address);
+    unset($_SESSION['loggeduser']->l_address);
 		unset($_SESSION['loggeduser']->l_comp);
-          unset($_SESSION['loggeduser']->l_code);
-          unset($_SESSION['loggeduser']->l_phone);
-          unset($_SESSION['loggeduser']->l_city);
+    unset($_SESSION['loggeduser']->l_code);
+    unset($_SESSION['loggeduser']->l_phone);
+    unset($_SESSION['loggeduser']->l_city);
 		unset($_SESSION['loggeduser']->l_country);
 		unset($_SESSION['loggeduser']->changement_relais_colis);
 		unset($_SESSION['loggeduser']->relais_colis);

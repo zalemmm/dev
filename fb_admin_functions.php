@@ -45,7 +45,7 @@ function passage_paiement_recu(){
 function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){
 	global $wpdb;
 	/* Nouveau statut à 3 (traitement)*/
-      $newstat = '3';
+  $newstat = '3';
 	$nowadata = date('Y-m-d H:i:s');
 	$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
 
@@ -268,7 +268,7 @@ function passage_cloture(){
 	<form name="frm_cloture" id="frm_cloture" action="" method="post">
 	<input type="hidden" name="mode_cloture">
 	<h3>CLOTURER la commande</h3>
-		<p><input type="submit" value="CLOTURER COMMANDE" style="margin:5px 0 0 8px;"></p>
+		<p><input type="submit" value="CLOTURER COMMANDE" style="margin:5px auto 0;text-align:center;"></p>
 	</form>
 	</div>
 	';

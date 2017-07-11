@@ -1,4 +1,5 @@
 <?php
+
 function getTplPath($page = false) {
     if ($page) {
         return ABSPATH . 'wp-content/plugins/fbshop/prod_pages/' . $page;
@@ -20,1412 +21,1306 @@ function recursive_array_search($needle,$haystack) {
     return false;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////// HEADER DES PAGES PRODUITS //
+
 function fbshop_head() {
-  if (is_page('flyers') || is_page('-publicitaire-barnum') || is_page('affiches') || is_page('roll-up') || is_page('cartes') || is_page('banderoles') || is_page('vitrophanie')  || is_page('stickers')|| is_page('sticker-lettrage-predecoupe')|| is_page('autocollant')|| is_page('sticker-predecoupe') || is_page('oriflammes') || is_page('stand-parapluie') || is_page('kakemonos') || is_page('totem') || is_page('enseignes') || is_page('plv-exterieur')|| is_page('plv-interieur') || is_page('rampe-eclairage-led') || is_page('buraliste') || is_page('accessoires') || is_page('cadre-exterieur-bache') || is_page('mma') || is_page('depliants') || is_page('cadre-exterieur-bache') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-10mm') || is_page('panneaux-forex-1mm') || is_page('panneaux-forex-3mm')|| is_page('panneaux-forex-5mm')|| is_page('panneaux-dibond') || is_page('PVC-300-microns') || is_page('panneaux-akilux-5mm')) {
-}
 
-/* Si page "votre-panier" alors on affiche si necessaire le formulaire Relais Colis, donc les coodes sources dans le head */
-if (is_page('votre-panier')){
-	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
- 	if($relais_colis !== false){
-		echo '
-<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery.js"></script>
-<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery-ui.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/relaisColis.js"></script>
-<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/css/ui.tabs.css" type="text/css" />
-<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/css/ui.dialog.css" type="text/css" />
-<link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/css/tntB2CRelaisColis.css" type="text/css" />
-	';
-	}
-}
-
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
-
-if (is_page('cadre-exterieur-bache')) {
-echo '
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-cadre.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Flexy-Tens"}], "action": {"field": "03", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "IX-Tens"}], "action": {"field": "02", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "02", "operator": "equals", "value": "structure + banderole"}], "action": {"field": "111", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "02", "operator": "equals", "value": "renouvelle banderole"}], "action": {"field": "112", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "03", "operator": "equals", "value": "structure"}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "03", "operator": "equals", "value": "structure + banderole"}], "action": {"field": "34", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "03", "operator": "equals", "value": "banderole"}], "action": {"field": "121", "visibility": "Show"}},
-
-
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "120", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "120", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "60cm de hauteur"}], "action": {"field": "21a", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "80cm de hauteur"}], "action": {"field": "22a", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "100cm de hauteur"}], "action": {"field": "23a", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "120cm de hauteur"}], "action": {"field": "24a", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "140cm de hauteur"}], "action": {"field": "25a", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "160cm de hauteur"}], "action": {"field": "26a", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "60cm de hauteur"}], "action": {"field": "21b", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "80cm de hauteur"}], "action": {"field": "22b", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "100cm de hauteur"}], "action": {"field": "23b", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "120cm de hauteur"}], "action": {"field": "24b", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "140cm de hauteur"}], "action": {"field": "25b", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "160cm de hauteur"}], "action": {"field": "26b", "visibility": "Show"}},
-
-
-
-{"type": "field", "link": "All", "terms": [{"field": "120", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "121", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-
-{"type": "field", "link": "All", "terms": [{"field": "21b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "22b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "23b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "24b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "25b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "26b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "21b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "22b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "23b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "24b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "25b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "26b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "21a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "22a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "23a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "24a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "25a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "26a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "120", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "121", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('imprimerie-papier')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-papier.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}], "action": {"field": "2", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}], "action": {"field": "3", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes"}], "action": {"field": "001", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches"}], "action": {"field": "221", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "9"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "10"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "11"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "12"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "13"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "17", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "14"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "18", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "15"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "19", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "16"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "20", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "17"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "18"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "19"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "24", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "25", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "26", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "27", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "28", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "29", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "30", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "001", "operator": "isFilled", "value": false}], "action": {"field": "002", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "1"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "003", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "2"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "004", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "3"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "005", "visibility": "Show"}},{"type": "field", "link": "Any", "terms": [{"field": "221", "operator": "isFilled", "value": false}], "action": {"field": "222", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "1"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "223", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "2"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "224", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "3"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "225", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "4"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "226", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "5"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "227", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "6"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "228", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "7"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "229", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "8"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "2210", "visibility": "Show"}}]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('flyers')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-flyer.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}], "action": {"field": "24", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}], "action": {"field": "25", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}], "action": {"field": "26", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}], "action": {"field": "27", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}], "action": {"field": "28", "visibility": "Show"}},
-
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "27", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "28", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
-
-
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
-
-]);
-
-
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('cartes')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformcartes.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('rampe-eclairage-led')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformeclairage.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('depliants')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformdepliants.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}], "action": {"field": "24", "visibility": "Show"}},
-
-
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-if (is_page('affiches')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformaffiches.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "100", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('banderoles')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-banderoles.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "extérieur"}], "action": {"field": "ext", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "intérieur"}], "action": {"field": "int", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "int/ext"}], "action": {"field": "intext", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "int", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "int", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "int", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "ext", "operator": "equals", "value": "bache nontissé 150g"}], "action": {"field": "81", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "bache nontissé 150g"}, {"field": "ext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "intext", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "intext", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "intext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "44", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort périmétrique"}], "action": {"field": "51", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "tendeurs"}], "action": {"field": "52", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "rislans"}], "action": {"field": "53", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "51", "operator": "notEquals", "value": "rislans"}, {"field": "51", "operator": "notEquals", "value": "tendeurs"}, {"field": "51", "operator": "notEquals", "value": ""}], "action": {"field": "12", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "91", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "nouettes haut/bas"}], "action": {"field": "92", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "fourreaux gauche/droite"}, {"field": "81", "operator": "equals", "value": "pas de finition"}], "action": {"field": "101", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "91", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "92", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
-
-{"type": "field", "link": "All", "terms": [{"field": "101", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('stickers')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Formes"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "predecoupe"}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-blanc"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-couleur"}], "action": {"field": "24", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "covering"}], "action": {"field": "25", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-
-if (is_page('sticker-predecoupe')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-
-if (is_page('sticker-lettrage-predecoupe')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('autocollant')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('vitrophanie')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('oriflammes')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-oriflamme.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "drapeaux"}], "action": {"field": "20", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "oriflamme"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "beachflag"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "windflag"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "20", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Kit complet"}], "action": {"field": "41", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure + Voile"}, {"field": "3", "operator": "equals", "value": "Voile seule"}], "action": {"field": "42", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "10", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}]);
-JotForm.init();
-</script>';
-}
-if (is_page('stand-parapluie')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform9.js?v5" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "01", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Droit"}], "action": {"field": "50", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Courbé"}], "action": {"field": "500", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "500", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-if (is_page('kakemonos')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"}], "action": {"field": "31", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "blizzard"}], "action": {"field": "34", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Light"}], "action": {"field": "35", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Prestige"}], "action": {"field": "36", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"},{"field": "31", "operator": "notEquals", "value": "minia3"}, {"field": "31", "operator": "notEquals", "value": "minia4"}, {"field": "31", "operator": "notEquals", "value": "200x200"}, {"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "55", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "minia3"}, {"field": "31", "operator": "equals", "value": "minia4"}, {"field": "31", "operator": "equals", "value": "200x200"}], "action": {"field": "61", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "52", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "36", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "16", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "111", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "55", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "81", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('roll-up')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-rollup.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "first-line"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "best-line"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "double"}], "action": {"field": "24", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "mini"}], "action": {"field": "25", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Mistral"}], "action": {"field": "26", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "best-line"},{"field": "22", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "60x200"},{"field": "22", "operator": "equals", "value": "80x200"},{"field": "22", "operator": "equals", "value": "85x200"},{"field": "22", "operator": "equals", "value": "100x200"},{"field": "22", "operator": "equals", "value": "120x200"},{"field": "22", "operator": "equals", "value": "150x200"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x300"}], "action": {"field": "35", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "equals", "value": "60x200"},{"field": "23", "operator": "equals", "value": "80x200"},{"field": "23", "operator": "equals", "value": "85x200"},{"field": "23", "operator": "equals", "value": "100x200"},{"field": "23", "operator": "equals", "value": "120x200"},{"field": "23", "operator": "equals", "value": "150x200"}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-
-if (is_page('construction')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"}], "action": {"field": "31", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "33", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "blizzard"}], "action": {"field": "34", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Light"}], "action": {"field": "35", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Prestige"}], "action": {"field": "36", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"},{"field": "31", "operator": "notEquals", "value": "minia3"}, {"field": "31", "operator": "notEquals", "value": "minia4"}, {"field": "31", "operator": "notEquals", "value": "200x200"}, {"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "55", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "minia3"}, {"field": "31", "operator": "equals", "value": "minia4"}, {"field": "31", "operator": "equals", "value": "200x200"}], "action": {"field": "61", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "52", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "36", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "16", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "111", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "55", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "81", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('totem')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-totem.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
-]);
-JotForm.init();
-</script>';
-}
-
-
-
-if (is_page('panneaux-akilux-3mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-if (is_page('panneaux-akilux-3_5mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux3_5mm.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('panneaux-akilux-5mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux5mm.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('PVC-300-microns')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-PVC300microns.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('panneaux-akilux-10mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux10mm.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "60x80"}, {"field": "1", "operator": "equals", "value": "120x40"}, {"field": "1", "operator": "equals", "value": "120x80"}, {"field": "1", "operator": "equals", "value": "160x60"}, {"field": "1", "operator": "equals", "value": "160x120"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "isFilled", "value": false}], "action": {"field": "5perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-
-if (is_page('panneaux-forex-1mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-1mm.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "50x20"}, {"field": "1", "operator": "equals", "value": "75x50"}, {"field": "1", "operator": "equals", "value": "150x50"}, {"field": "1", "operator": "equals", "value": "200x75"}, {"field": "1", "operator": "equals", "value": "250x100"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "crochets"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "crochets"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('tente-publicitaire-barnum')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-tente-exposition.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
-
-{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans option"}], "action": {"field": "couleur-sans-option", "visibility": "Show"}},
-{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans mur"}], "action": {"field": "couleur-sans-mur", "visibility": "Show"}},
-
-{"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": "sans mur"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-option", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-option", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-mur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-mur", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('panneaux-forex-3mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-3mm.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-
-if (is_page('panneaux-forex-5mm')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-5mm.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('panneaux-dibond')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-dibond.js?v4" type="text/javascript"></script>
-<script type="text/javascript">
-JotForm.setConditions([
-
-{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
-
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-
-{"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
-
-]);
-JotForm.init();
-</script>';
-}
-
-
-if (is_page('inscription') || is_page('order-inscription')) {
-echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
-<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform_reg.js?v3" type="text/javascript"></script>';
-if (isset($_GET['goback'])) {
-echo '<script type="text/javascript">JotForm.init();</script>';
-} else {
-/*echo '<script type="text/javascript">JotForm.init(function(){ JotForm.initCaptcha(\'input_20\'); $(\'input_20\').hint(\' \'); });</script>
-<script src=\'https://www.google.com/recaptcha/api.js\'></script>
-';*/
-echo '<script type="text/javascript">JotForm.init();</script>
-<script src=\'https://www.google.com/recaptcha/api.js\'></script>
-';
-}
-}
+  /* Si page "votre-panier" alors on affiche si necessaire le formulaire Relais Colis, donc les codes sources dans le head */
+  if (is_page('votre-panier')){
+  	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
+   	if($relais_colis !== false){
+  		echo '
+      <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery.js"></script>
+      <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/jquery-ui.js"></script>
+      <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+      <script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/js/relaisColis.js"></script>
+      <link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/css/ui.tabs.css" type="text/css" />
+      <link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/css/ui.dialog.css" type="text/css" />
+      <link rel="stylesheet" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/relaiscolis/css/tntB2CRelaisColis.css" type="text/css" />
+  	';
+  	}
+  }
+
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/others.js" type="text/javascript"></script>';
+
+  // ////////////////////////////////////////////////////////////////////////////////////////////////////////// FORMULAIRES PRODUITS //
+  // cette partie affiche les champs de formulaire pour chaque page produit au fur et à mesure des options sélectionnées côté client //
+
+  if (is_page('cadre-exterieur-bache')) {
+  echo '
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-cadre.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Flexy-Tens"}], "action": {"field": "03", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "IX-Tens"}], "action": {"field": "02", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "02", "operator": "equals", "value": "structure + banderole"}], "action": {"field": "111", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "02", "operator": "equals", "value": "renouvelle banderole"}], "action": {"field": "112", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "03", "operator": "equals", "value": "structure"}], "action": {"field": "33", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "03", "operator": "equals", "value": "structure + banderole"}], "action": {"field": "34", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "03", "operator": "equals", "value": "banderole"}], "action": {"field": "121", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "120", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "120", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "60cm de hauteur"}], "action": {"field": "21a", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "80cm de hauteur"}], "action": {"field": "22a", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "100cm de hauteur"}], "action": {"field": "23a", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "120cm de hauteur"}], "action": {"field": "24a", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "140cm de hauteur"}], "action": {"field": "25a", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "equals", "value": "160cm de hauteur"}], "action": {"field": "26a", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "60cm de hauteur"}], "action": {"field": "21b", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "80cm de hauteur"}], "action": {"field": "22b", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "100cm de hauteur"}], "action": {"field": "23b", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "120cm de hauteur"}], "action": {"field": "24b", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "140cm de hauteur"}], "action": {"field": "25b", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "112", "operator": "equals", "value": "160cm de hauteur"}], "action": {"field": "26b", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "120", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "121", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "21b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "22b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "23b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "24b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "25b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "26b", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "21b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "22b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "23b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "24b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "25b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "26b", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "21a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "22a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "23a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "24a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "25a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "26a", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "120", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "121", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('imprimerie-papier')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-papier.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}], "action": {"field": "2", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}], "action": {"field": "3", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes"}], "action": {"field": "001", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches"}], "action": {"field": "221", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "9"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "10"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "11"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "12"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "13"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "17", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "14"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "18", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "15"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "19", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "16"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "20", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "17"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "18"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "19"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "24", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "25", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "26", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "27", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "28", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "29", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "30", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "001", "operator": "isFilled", "value": false}], "action": {"field": "002", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "1"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "003", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "2"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "004", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "3"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "005", "visibility": "Show"}},{"type": "field", "link": "Any", "terms": [{"field": "221", "operator": "isFilled", "value": false}], "action": {"field": "222", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "1"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "223", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "2"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "224", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "3"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "225", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "4"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "226", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "5"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "227", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "6"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "228", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "7"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "229", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "8"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "2210", "visibility": "Show"}}]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('flyers')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-flyer.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}], "action": {"field": "24", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}], "action": {"field": "25", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}], "action": {"field": "26", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}], "action": {"field": "27", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}], "action": {"field": "28", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "27", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "28", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('cartes')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformcartes.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('rampe-eclairage-led')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformeclairage.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('depliants')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformdepliants.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}], "action": {"field": "24", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('affiches')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformaffiches.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "100", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('banderoles')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-banderoles.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "extérieur"}], "action": {"field": "ext", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "intérieur"}], "action": {"field": "int", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "int/ext"}], "action": {"field": "intext", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "int", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "int", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "int", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "ext", "operator": "equals", "value": "bache nontissé 150g"}], "action": {"field": "81", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "bache nontissé 150g"}, {"field": "ext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "intext", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "intext", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "intext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "44", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort périmétrique"}], "action": {"field": "51", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "tendeurs"}], "action": {"field": "52", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "rislans"}], "action": {"field": "53", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "51", "operator": "notEquals", "value": "rislans"}, {"field": "51", "operator": "notEquals", "value": "tendeurs"}, {"field": "51", "operator": "notEquals", "value": ""}], "action": {"field": "12", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "91", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "nouettes haut/bas"}], "action": {"field": "92", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "fourreaux gauche/droite"}, {"field": "81", "operator": "equals", "value": "pas de finition"}], "action": {"field": "101", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "91", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "92", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "101", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('stickers')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Formes"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "predecoupe"}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-blanc"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-couleur"}], "action": {"field": "24", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "covering"}], "action": {"field": "25", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('sticker-predecoupe')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('sticker-lettrage-predecoupe')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('autocollant')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+
+  if (is_page('vitrophanie')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('oriflammes')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-oriflamme.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "drapeaux"}], "action": {"field": "20", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "oriflamme"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "beachflag"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "windflag"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "20", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Kit complet"}], "action": {"field": "41", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure + Voile"}, {"field": "3", "operator": "equals", "value": "Voile seule"}], "action": {"field": "42", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "10", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('stand-parapluie')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform9.js?v5" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "01", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Droit"}], "action": {"field": "50", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Courbé"}], "action": {"field": "500", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "500", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  //////////////////////////////////////////////////// pages rollup et kakemonos identiques
+  if (is_page('roll-up') || is_page('kakemonos')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-rollup.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "first-line"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "best-line"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "double"}], "action": {"field": "24", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "mini"}], "action": {"field": "25", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Mistral"}], "action": {"field": "26", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "best-line"},{"field": "22", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "60x200"},{"field": "22", "operator": "equals", "value": "80x200"},{"field": "22", "operator": "equals", "value": "85x200"},{"field": "22", "operator": "equals", "value": "100x200"},{"field": "22", "operator": "equals", "value": "120x200"},{"field": "22", "operator": "equals", "value": "150x200"}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x300"}], "action": {"field": "35", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "equals", "value": "60x200"},{"field": "23", "operator": "equals", "value": "80x200"},{"field": "23", "operator": "equals", "value": "85x200"},{"field": "23", "operator": "equals", "value": "100x200"},{"field": "23", "operator": "equals", "value": "120x200"},{"field": "23", "operator": "equals", "value": "150x200"}], "action": {"field": "33", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('construction')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"}], "action": {"field": "31", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "33", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "blizzard"}], "action": {"field": "34", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Light"}], "action": {"field": "35", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Prestige"}], "action": {"field": "36", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"},{"field": "31", "operator": "notEquals", "value": "minia3"}, {"field": "31", "operator": "notEquals", "value": "minia4"}, {"field": "31", "operator": "notEquals", "value": "200x200"}, {"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "55", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "minia3"}, {"field": "31", "operator": "equals", "value": "minia4"}, {"field": "31", "operator": "equals", "value": "200x200"}], "action": {"field": "61", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "52", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "36", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "16", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "111", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "55", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "81", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('totem')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-totem.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-akilux-3mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-akilux-3_5mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux3_5mm.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-akilux-5mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux5mm.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('PVC-300-microns')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-PVC300microns.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-akilux-10mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux10mm.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "60x80"}, {"field": "1", "operator": "equals", "value": "120x40"}, {"field": "1", "operator": "equals", "value": "120x80"}, {"field": "1", "operator": "equals", "value": "160x60"}, {"field": "1", "operator": "equals", "value": "160x120"}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "isFilled", "value": false}], "action": {"field": "5perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-forex-1mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-1mm.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "50x20"}, {"field": "1", "operator": "equals", "value": "75x50"}, {"field": "1", "operator": "equals", "value": "150x50"}, {"field": "1", "operator": "equals", "value": "200x75"}, {"field": "1", "operator": "equals", "value": "250x100"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "crochets"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "crochets"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('tente-publicitaire-barnum')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-tente-exposition.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans option"}], "action": {"field": "couleur-sans-option", "visibility": "Show"}},
+  {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans mur"}], "action": {"field": "couleur-sans-mur", "visibility": "Show"}},
+
+  {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": "sans mur"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-option", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-option", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-mur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-mur", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-forex-3mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-3mm.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-forex-5mm')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-5mm.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
+
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  if (is_page('panneaux-dibond')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-dibond.js?v4" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
+
+  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
+  // fin formulaires produits //////////////////////////////////////////////////
+
+  if (is_page('inscription') || is_page('order-inscription')) {
+    echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
+    <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform_reg.js?v3" type="text/javascript"></script>';
+  if (isset($_GET['goback'])) {
+    echo '<script type="text/javascript">JotForm.init();</script>';
+  } else {
+    /*echo '<script type="text/javascript">JotForm.init(function(){ JotForm.initCaptcha(\'input_20\'); $(\'input_20\').hint(\' \'); });</script>
+    <script src=\'https://www.google.com/recaptcha/api.js\'></script>
+    ';*/
+    echo '<script type="text/javascript">JotForm.init();</script>
+    <script src=\'https://www.google.com/recaptcha/api.js\'></script>
+  ';
+  }
+  }
 
 }
+// fin header pages produits ///////////////////////////////////////////////////
 
-function is_cart_not_empty()
-{
-        $count = 0;
-        if (isset($_SESSION['fbcart']) && is_array($_SESSION['fbcart']))
-        {
-            foreach ($_SESSION['fbcart'] as $item)
-                $count++;
-            return $count;
-        }
-        else
-            return 0;
+function is_cart_not_empty() {
+  $count = 0;
+  if (isset($_SESSION['fbcart']) && is_array($_SESSION['fbcart']))
+  {
+    foreach ($_SESSION['fbcart'] as $item)
+        $count++;
+    return $count;
+  }
+  else
+    return 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////// GENERER PAGES FBSHOP //
+// cette partie génère le contenu des pages fbshop en fonction du shortcode placé dans les pages wordpress correspondantes //
 
 function generate_page ($page, $pageid) {
-$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
-$view .= get_acces_client();
-if ($page=='inscription') {
-	$view = get_inscription();
-	return $view;
+  $plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
+  $view .= get_acces_client();
+  if ($page=='inscription') {
+  	$view = get_inscription();
+  	return $view;
+  }
+  if ($page=='inscription2') {
+  	$view = get_inscription2();
+  	return $view;
+  }
+  if ($page=='accesclient') {
+  	if (fb_is_logged()) {
+  		if ( !(isset($_POST['logme'])) && !(isset($_GET['resend'])) ) {
+  			$view .= 'Jesteś zalogowany!';
+  		}
+  	} else {
+  		if ( !(isset($_GET['resend'])) ) {
+  			$p = 1;
+  			$view .= get_acces_panel($p);
+  		}
+  	}
+  	return $view;
+  }
+  if ($page=='votre') {
+  	$view .= get_votre();
+  	return $view;
+  }
+  if ($page=='livredor') {
+  	$view .= get_rating_page();
+  	return $view;
+  }
+  if ($page=='Devis') {
+  	$view .= get_devis();
+  	return $view;
+  }
+  if ($page=='verification') {
+  	//mail("contact@tempopasso.com","TEST Functin get_verification()","AVANT appel de la fonction// POST=".print_r($_POST,true)."///Session=".print_r($_SESSION,true));
+  	$view .= get_verification();
+  	return $view;
+  }
+
+  if ($page=='paiement') {
+  	$view .= get_payement();
+  	return $view;
+  }
+
+  if ($page=='promotions') {
+  	$view .= get_promotions();
+  	return $view;
+  }
+
+  if ($page=='plv') {
+  	$view .= get_plv();
+  	return $view;
+  }
+
+  if ($page=='plv_int') {
+  	$view .= get_plv_int();
+  	return $view;
+  }
+
+  if ($page=='buraliste') {
+  	//$view .= get_buraliste();
+  	$view .= get_buralistes();
+  	return $view;
+  }
+
+  if ($page=='acc') {
+  	$view .= get_acc();
+  	return $view;
+  }
+
+  if ($page=='mma') {
+  	$view .= get_mma();
+  	return $view;
+  }
+
+  if ($page=='acc2') {
+  	$view .= get_acc2();
+  	return $view;
+  }
+
+  if ($page=='newslett') {
+  	$view .= get_newsletter_un();
+  	return $view;
+  }
+
+  if ($page=="valider_BAT") {
+  	$view .= get_valider_bat();
+  	return $view;
+  }
+
+  if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Stickers' || $page=='Banderoles' || $page=='cartes' || $page=='affiches' || $page=='cadre-exterieur-bache' || $page=='flyers' || $page=='depliants' || $page=='stand-parapluie' || 'enseignes' || $page=='cadre-exterieur-bache' || $page=='rampe-eclairage-led' || $page=='panneaux-akilux-3mm' || $page=='panneaux-akilux-3_5mm' || $page=='panneaux-akilux-10mm' || $page=='panneaux-forex-1mm' || $page=='panneaux-forex-3mm' || $page=='panneaux-forex-5mm' || $page=='panneaux-dibond' || $page=='PVC-300-microns') {
+
+  	if ($page=='cadre-exterieur-bache') {
+  		$h1name='cadre-exterieur-bache';
+  		$formularz = get_cadre_form();
+  	}
+
+  	if ($page=='flyers') {
+  		$h1name='Flyers pas cher, impression flyer meilleur prix, Prospectus, tracts, imprimer flyer rapidement papier PEFC et FSC';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f4';
+  		$info_title='Impression rapide flyers pas cher et prospectus';
+  		$info_info='<span class="prezHide">Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers au prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. Nous pouvons également réaliser des dimensions de flyer personnalisées pour des carte de voeux etc... Livraison gratuite partout en France métropolitaine</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link" title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_flyers_form();
+  	}
+
+  	if ($page=='rampe-eclairage-led') {
+  		$h1name=' RAMPE ECLAIRAGE LED';
+  		$mini='f21';
+  		$formularz = get_eclairage_form();
+  	}
+
+  	if ($page=='depliants') {
+  		$h1name='Depliant publicitaire pas cher leaflet pli portefeuille pli roulé';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f13';
+  		$info_title='Dépliant leaflet personnalisés 1 ou 2 plis';
+  		$info_info='<span class="prezHide">Acheter des depliants 1 pli, 2 plis au meilleur prix et en petite quantité pour ne payer que ce dont vous avez besoin. Nos impressions numériques sur presses numériques et offset vous permettent aujourd\'hui de profiter de dépliant pas cher et d\'imprimer votre propre publicité et prospectus publicitaire au meilleur tarif.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link" title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_depliants_form();
+  	}
+
+  	if ($page=='stand-parapluie') {
+  		$h1name='Stand parapluie meilleur prix - stand tissu tendu - Stand pas cher - stand a montage rapide - comptoir d\'accueil tissu ';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f11';
+  		$info_title='Stand parapluie, stand tissu tendu, comptoir d\'accueil';
+  		$info_info='<span class="prezHide">Nos meilleurs prix stand parapluie tissu et comptoir d\'accueil à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez. Fiabilité et qualité des matériaux assurent au stand parapluie pas cher de France banderole le meilleur rapport qualité prix.</span> <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-stand-parapluie-tissu-expo/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-stand-parapluie-tissu/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_parapluie_form();
+  	}
+
+  	if ($page=='panneaux-forex-dibond') {
+  		$h1name='meilleur prix panneau forex,  panneau Alu dibond, panneau enseignes publicitaires pas cher';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f12';
+  		$info_title='Panneaux Forex, alu Dibond, enseigne publicitaire ';
+  		$info_info='<span class="prezHide">Le meilleur prix sur panneaux forex et alu-dibond pas cher chez France Banderole. Impression UV standard ou UV HD directement sur le support toutes dimensions jusqu\'à 300x200cm. Option vernis de protection anti-UV sur forex et alu dibond. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine. Les panneaux forex et alu dibond sur livrés et découpées en mètre linéaire. option livraison sur palette sans découpe plein format possible.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  	}
+
+  	if ($page=='panneaux-akilux') {
+  		$h1name='meilleur prix panneaux akilux, panneau akylux pas cher, panneau alvéolaire publicitaire, panneau de chantier, permis de construire';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='akilux1';
+  		$info_title='Les meilleurs prix panneaux Akilux alvéolaire';
+  		$info_info='<span class="prezHide">L\'impression sur panneaux akilux 3mm - 3,5mm - 5mm - 10mm, est moins cher chez France Banderole car les panneaux alvéolaires sont imprimés directement sur le support en UV standard ou UV HD  de 1 à 10.000 exemplaires jusqu\'à 300x200cm. les panneaux akilux servent à réaliser des panneaux publicitaires pas cher, panneau de chantier, panneaux permis de construire, PLV extérieur pour point de vente. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  	}
+
+  	if ($page=='panneaux-akilux-3mm') {
+  		$h1name='panneaux akilux 3mm pas cher, panneau akylux meilleur prix, panneaux de chantier prix en ligne, Akilux 3mm ou 3,5mm, Akilux 450g';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='akilux';
+  		$info_title='Panneaux Akilux alvéolaire pas cher 3mm - 450g/m²';
+  		$info_info='<span class="prezHide">Les panneaux Akilux au meilleur prix sont fabriqués en Akilux 3mm ou 450g. Impression directe UV standard ou UV HD sur panneaux akilux sur mesure personnalisés toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, 120X160cm jusqu à 300X200cm. Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de panneaux extérieur PLV, panneau de chantier, triptyque publicitaire, publicité sur panneau pas cher et fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_akilux3mm_form();
+  	}
+
+  	if ($page=='tente-publicitaire-barnum') {
+  		$h1name='Tente publicitaire pliante - chapiteau personnalisé - barnum publicitaire - tente exposition personnalisée';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='tentes';
+  		$info_title='Tente publicitaire chapiteau barnum personnalisé';
+  		$info_info='<span class="prezHide">Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-tente-publicitaire/" target="_blank" class="notice modal-link"  title="tout savoir sur les tentes publicitaires personnalisées"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-tente-publicitaire/" target="_blank" class="notice modal-link"  title="notice technique tente publicitaire"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-tente-publicitaire/" target="_blank" class="notice modal-link"  title="gabarit tente publicitaire pas cher"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_tente_exposition_form();
+  	}
+
+  	if ($page=='panneaux-akilux-3_5mm') {
+  		$h1name='panneaux akilux 3,5mm pas cher, panneau akylux meilleur rapport qualité prix, affiche permis de construire, Akilux 3,5mm, Akylux 600g';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='akilux-3_5';
+  		$info_title='Panneaux akilux 3.5mm - 600g/m²';
+  		$info_info='<span class="prezHide">Panneaux akylux au meilleur rapport qualité/prix sont fabriqués en Akilux 3,5mm ou 600g. Impression directe UV standard ou UV HD sur panneaux akilux 3.5mm sur mesure toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, jusqu\'à 120X160cm. Nos panneaux akilux 3,5mm sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de PLV de rue pas cher, panneau permis de contruire, publicité sur panneau rigide pas cher et fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_akilux3_5mm_form();
+  	}
+
+  	if ($page=='panneaux-akilux-5mm') {
+  		$h1name='panneaux akilux, panneau akylux, panneaux de chantier, Akilux 5mm, Akilux 900g';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='akilux-5mm';
+  		$info_title='Panneaux akilux alvéolaire 5mm - 900g/m²';
+  		$info_info='<span class="prezHide">Les panneaux akilux au meilleur rapport qualité/prix/résistance sont fabriqués en akilux 5mm. nos panneaux akilux imprimés en UV standard ou UV HD sont fabriqués sur mesure avec une dimension minimum de 20x20cm pouvant aller jusqu\'à 120X160cm pour des panneaux alvéolaires personnalisés. Nos panneaux akilux au meilleur prix sont livrés au choix avec oeillet, rainage, crochets, double face... pour réaliser panneau permis de construire, panneau publicitaire rigide pas cher et fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_akilux5mm_form();
+  	}
+
+  	if ($page=='PVC-300-microns') {
+  		$h1name='PVC 300 microns, feuille semi rigide pvc impression PVC 300 Microns';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='PVC-300-microns';
+  		$info_title='Feuille PVC 300 microns semi-rigide';
+  		$info_info='<span class="prezHide">Le PVC 300µ semi rigide imprimé par France banderole vous permet d\'acheter et de créer des PLV suspendues au meilleur prix, stop rayon, tête de gondole. Nous imprimons le PVC 300µ en impression directe UV standard (PLV suspendue) ou UV HD (tête de rayon ou PLV point de vente) en recto ou PLV recto/verso pour obtenir le meilleur rapport qualité/prix. Nous vous proposons le PVC 300 microns avec perçage ou oeillet en finition standard et livraison toujours gratuite en France métropolitaine.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_PVC300microns_form();
+  	}
+
+  	if ($page=='panneaux-akilux-10mm') {
+  		$h1name='panneaux akilux rigide, panneau akylux, panneaux de chantier, Akilux 10mm, akylux 1800g';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='akilux-10mm';
+  		$info_title='Panneaux Akilux alvéolaire 10mm';
+  		$info_info='<span class="prezHide">Les panneaux Akilux en Akilux 10mm. Impression directe UV sur panneaux akilux. tailles de 60X40cm, 60X80cm, 80X120cm, 120X160cm et panneaux akilux personnalisés.<br />Nos panneaux akilux sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_akilux10mm_form();
+  	}
+
+  	if ($page=='panneaux-forex-1mm') {
+  		$h1name='Forex 1mm, feuille semi rigide pvc impression forex';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='forex-1mm';
+  		$info_title='Forex 1mm semi-rigide';
+  		$info_info='<span class="prezHide">Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu-Dibond au choix, avec formes rectangulaires, carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe en UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_forex1mm_form();
+  	}
+
+  	if ($page=='panneaux-forex-3mm') {
+  		$h1name='Forex 3mm pour publicité intérieure tête de gondole, Plv suspendue';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='forex-3mm';
+  		$info_title='Forex 3mm semi-rigide pour ILV PLV';
+  		$info_info='<span class="prezHide">Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu-Dibond au choix, avec formes rectangulaires, carrées ou personnalisées au choix. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_forex3mm_form();
+  	}
+
+  	if ($page=='panneaux-forex-5mm') {
+  		$h1name='Forex 5mm décor interieur plv suspendue rigide';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='forex-5mm';
+  		$info_title='Forex 5mm rigide';
+  		$info_info='<span class="prezHide">Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu Dibond au choix, avec formes rectangulaires, carrées ou personnalisées au choix. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_forex5mm_form();
+  	}
+
+  	if ($page=='panneaux-dibond') {
+  		$h1name='Impression sur panneaux Alu Dibond, panneaux rigide dibond 3mm';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='dibond';
+  		$info_title='Panneaux Alu Dibond 3mm enseigne publicitaire';
+  		$info_info='<span class="prezHide">Les enseignes alu dibond et panneaux alu dibond imprimés par France banderole sont fabriqués en Alu Dibond 3mm, avec formes rectangulaires ou carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV standard ou HD, anti reflet, pour une lisibilité optimale. Nos enseignes alu dibond sont <b>livrées découpées en mètre linéaire</b>, emballées et prêtes à monter. L\'option envoi en un seul panneau est possible jusqu\'à 300x200cm</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_dibond_form();
+  	}
+
+  	if ($page=='affiches') {
+  		$h1name='Affiches, affiche publicitaire, affiche grand format, Poster, poster XXL';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f5';
+  		$info_title='Imprimer Affiches Posters petit & grand format';
+  		$info_info='<span class="prezHide">Imprimer rapidement 10 affiches A1 devient possible avec France Banderole. Nos presses numériques et offset vous permettent d\'acheter 1, 10 ou 10000 affiches ou posters grand format sur papier couché pour un résultat d\'impression avec des couleurs éclatantes. Acheter un poster personnalisé ou une affiche grand format unique pour vous assurer le meilleur prix.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_affiches_form();
+  	}
+
+  	if ($page=='cartes') {
+  		$h1name='Cartes de visite pas cher haut de gamme indechirables - Carte restaurant - Sets de table indéchirable';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f6';
+  		$info_title='Cartes de Visite & cartes restaurant indéchirables';
+  		$info_info='<span class="prezHide">La carte de visite pas cher la plus vendue est au format cartes de visite 5,5x8,5cm. c\'est également la plus pratique à ranger dans les portefeuilles. Nous imprimons tous les formats de cartes de restaurant et set de table indéchirables. Les cartes de visite, cartes restaurant et sets de table sont disponibles en petite série dès 100 cartes de visites et 50 sets de table indéchirables. Acheter en petite quantité pour ne plus gâcher !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_cartes_form();
+  	}
+
+  	if ($page=='Stickers') {
+  		$h1name='Autocollants - Stickers adhesifs - Magnets - Vitrophanie - Covering voiture - lettrage prédécoupé';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f7';
+  		$info_title='Autocollants & Stickers';
+  		$info_info='<span class="prezHide">Les vinyles adhésifs (autocollant) sont imprimés en quadri numérique haute définition et sont livrés prédécoupés en planche.<br />Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  	}
+
+  	if ($page=='Sticker-predecoupe') {
+  		$h1name='Stickers adhesifs prédécoupés - lettrage prédécoupé';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='sticker-predecoupe';
+  		$info_title='Stickers prédécoupés';
+  		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_sticker_predecoupe_form();
+  	}
+
+  	if ($page=='Sticker-lettrage-predecoupe') {
+  		$h1name='Stickers adhesifs prédécoupés - lettrage prédécoupé';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='sticker-lettrage';
+  		$info_title='Stickers lettrages prédécoupés';
+  		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_sticker_lettrage_predecoupe_form();
+  	}
+
+  	if ($page=='autocollant') {
+  		$h1name='Autocollants - Stickers adhesifs - Magnets';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='autocollant';
+  		$info_title='Autocollants';
+  		$info_info='<span  class="prezHide">Les vinyles adhésifs (autocollant) sont imprimés en quadri numérique haute définition et sont livrés prédécoupés en planche.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_autocollant_form();
+  	}
+
+  	if ($page=='vitrophanie') {
+  		$h1name='Vitrophanie - Sticker transparent - Vinyle micro-perforé';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='vitrophanie';
+  		$info_title='Vitrophanie';
+  		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_vitrophanie_form();
+  	}
+
+  	if ($page=='Oriflammes') {
+  		$h1name='Oriflamme meilleur prix - Beachflag - Windflag - Voile publicitaire pas cher - Drapeaux personnalisés manifestation - flying banner - oriflammes';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f3';
+  		$info_title='Oriflamme Windflag Beachflag, drapeaux et voile publicitaire';
+  		$info_info='<span class="prezHide">Fabricant Oriflamme publicitaire aile d\'avion, BeachFlag goutte d\'eau, Windflag rectangulaire et voile publicitaire personnalisée. Produit en france, conception robuste, nos oriflammes, drapeaux et voiles publicitaires se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT (garantie anti-feu) ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions. Production et livraison express possible en 48h/72H en France métropolitaine.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" class="notice modal-link"  title="aide-oriflamme"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-oriflamme/" target="_blank" class="notice modal-link" title="aide oriflamme"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-oriflamme/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_oriflammes_form();
+  	}
+
+  	if ($page=='Kakemonos') {
+  		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f2';
+  		$info_title='Kakemono Roll-Up Enrouleur';
+  		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link" title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_kakemonos_form();
+  	}
+
+  	if ($page=='roll-up') {
+  		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='roll-up';
+  		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
+  		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-rollup/" target="_blank" class="notice modal-link"  title="aide rool-up"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-roll-up/" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-roll-up/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_rollup_form();
+  	}
+
+  	if ($page=='construction') {
+  		$h1name='construction';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='totem';
+  		$info_title='construction ';
+  		$info_info='construction';
+  		$formularz = get_construction_form();
+  	}
+
+  	if ($page=='totem') {
+  		$h1name='Kakemono - Totem - totem publicitaire - kakemono exterieur Blizzard - totem suspendu clip it - X-banner X-screen';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='t';
+  		$info_title='Totem publicitaire intérieur et extérieur ';
+  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_totem_form();
+  	}
+
+  	if ($page=='Banderoles') {
+  		$h1name='Banderole - Banderoles - Banderole Publicitaire - banderole imprimée - impression banderole - bache publicitaire - bâche imprimée';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='f1';
+  		$info_title='Banderole publicitaire - bâche imprimée ';
+  		$info_info='<span class="prezHide">France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, foire ou salon… banderole intérieur (Anti-feu M2,M1), ou banderole extérieure, la banderole se positionne facilement. Impression sur baches en qualité photo. Toutes nos banderoles sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours</span>   <div class="helpMenu"><a href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice modal-link"  title="Banderole : Tout savoir" ><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link" title="Banderole : Tout savoir"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-banderole/" target="_blank" class="notice modal-link" title="Banderole : gabarit-banderole"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_banderoles_form();
+  	}
+
+  	if ($page=='cadre-exterieur-bache') {
+  	$wycena = '<div id="wycena-cadre">
+  	<div id="wycena-cadre_nag"><span class="wycena-cadre_poz">PRIX UNITAIRE</span><span class="wycena-cadre_poz">TOTAL H.T.</span></div>
+  	<div id="wycena-cadre_suma"><span class="wycena-cadre_poz" id="prix_unitaire">-</span><span class="wycena-cadre_poz" id="total">-</span></div>
+  	<div id="dodaj_koszyk-cadre">';
+  	}
+  	else if (($page=='panneaux-forex-dibond') || ($page=='panneaux-akilux') || ($page=='Stickers')) {
+  	$wycena = '';
+  	} else {
+
+    // activation / désactivation de l'affichage des remises, commenter ou décommenter alternativement les 2 blocs ci-dessous et penser à adapter .wycena_poz 33% ou 25% dans le css
+
+    /*$wycena = '<div id="wycena">
+  	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div>
+  	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span></div>
+  	<div id="dodaj_koszyk">';*/
+
+    $wycena = '<div id="wycena">
+  	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">TOTAL H.T.</span></div>
+  	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="total">-</span></div>
+  	<div id="dodaj_koszyk">';
+
+  	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
+    // ajout de l'affichage livraison comprise
+    $wycena .= '<div id="livraisonComp" style="display:none">Livraison comprise</div>';
+  	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
+  	$wycena .= '</div></div>';}
+
+  	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';
+  	/* $view .= '<div id="top_images">
+  	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
+  	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
+  	<div id="bannercontainer">
+  	<div id="banner">
+      <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+    </div>
+  	</div></div>'; */
+  	if ($page=='cadre-exterieur-bache') {
+  	$view .= $formularz;
+  	$view .= $wycena;
+
+  }else {
+    $view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div>';
+  	$view .= $formularz;
+  	$view .= $wycena;
+  	}
+
+  	return $view;
+  }
 }
-if ($page=='inscription2') {
-	$view = get_inscription2();
-	return $view;
-}
-if ($page=='accesclient') {
-	if (fb_is_logged()) {
-		if ( !(isset($_POST['logme'])) && !(isset($_GET['resend'])) ) {
-			$view .= 'Jesteś zalogowany!';
-		}
-	} else {
-		if ( !(isset($_GET['resend'])) ) {
-			$p = 1;
-			$view .= get_acces_panel($p);
-		}
-	}
-	return $view;
-}
-if ($page=='votre') {
-	$view .= get_votre();
-	return $view;
-}
-if ($page=='livredor') {
-	$view .= get_rating_page();
-	return $view;
-}
-if ($page=='Devis') {
-	$view .= get_devis();
-	return $view;
-}
-if ($page=='verification') {
-	//mail("contact@tempopasso.com","TEST Functin get_verification()","AVANT appel de la fonction// POST=".print_r($_POST,true)."///Session=".print_r($_SESSION,true));
-	$view .= get_verification();
-	return $view;
-}
 
-if ($page=='paiement') {
-	$view .= get_payement();
-	return $view;
-}
-
-if ($page=='promotions') {
-	$view .= get_promotions();
-	return $view;
-}
-
-if ($page=='plv') {
-	$view .= get_plv();
-	return $view;
-}
-
-if ($page=='plv_int') {
-	$view .= get_plv_int();
-	return $view;
-}
-
-if ($page=='buraliste') {
-	//$view .= get_buraliste();
-	$view .= get_buralistes();
-	return $view;
-}
-
-if ($page=='acc') {
-	$view .= get_acc();
-	return $view;
-}
-
-if ($page=='mma') {
-	$view .= get_mma();
-	return $view;
-}
-
-if ($page=='acc2') {
-	$view .= get_acc2();
-	return $view;
-}
-
-if ($page=='newslett') {
-	$view .= get_newsletter_un();
-	return $view;
-}
-
-if ($page=="valider_BAT") {
-	$view .= get_valider_bat();
-	return $view;
-}
-
-
-if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Stickers' || $page=='Banderoles' || $page=='cartes' || $page=='affiches' || $page=='cadre-exterieur-bache' || $page=='flyers' || $page=='depliants' || $page=='stand-parapluie' || 'enseignes' || $page=='cadre-exterieur-bache' || $page=='rampe-eclairage-led' || $page=='panneaux-akilux-3mm' || $page=='panneaux-akilux-3_5mm' || $page=='panneaux-akilux-10mm' || $page=='panneaux-forex-1mm' || $page=='panneaux-forex-3mm' || $page=='panneaux-forex-5mm' || $page=='panneaux-dibond' || $page=='PVC-300-microns') {
-
-
-	if ($page=='cadre-exterieur-bache') {
-		$h1name='cadre-exterieur-bache';
-		$formularz = get_cadre_form();
-	}
-
-	if ($page=='flyers') {
-		$h1name='Flyers pas cher, impression flyer meilleur prix, Prospectus, tracts, imprimer flyer rapidement papier PEFC et FSC';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f4';
-		$info_title='Impression rapide flyers pas cher et prospectus';
-		$info_info='<span class="prezHide">Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers au prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. Nous pouvons également réaliser des dimensions de flyer personnalisées pour des carte de voeux etc... Livraison gratuite partout en France métropolitaine</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link" title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_flyers_form();
-	}
-
-	if ($page=='rampe-eclairage-led') {
-		$h1name=' RAMPE ECLAIRAGE LED';
-		$mini='f21';
-		$formularz = get_eclairage_form();
-	}
-
-	if ($page=='depliants') {
-		$h1name='Depliant publicitaire pas cher leaflet pli portefeuille pli roulé';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f13';
-		$info_title='Dépliant leaflet personnalisés 1 ou 2 plis';
-		$info_info='<span class="prezHide">Acheter des depliants 1 pli, 2 plis au meilleur prix et en petite quantité pour ne payer que ce dont vous avez besoin. Nos impressions numériques sur presses numériques et offset vous permettent aujourd\'hui de profiter de dépliant pas cher et d\'imprimer votre propre publicité et prospectus publicitaire au meilleur tarif.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link" title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_depliants_form();
-	}
-	if ($page=='stand-parapluie') {
-		$h1name='Stand parapluie meilleur prix - stand tissu tendu - Stand pas cher - stand a montage rapide - comptoir d\'accueil tissu ';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f11';
-		$info_title='Stand parapluie, stand tissu tendu, comptoir d\'accueil';
-		$info_info='<span class="prezHide">Nos meilleurs prix stand parapluie tissu et comptoir d\'accueil à montage rapide ont été étudiés pour répondre aux besoins de chaque exposant en fonction de son budget.<br />La structure du stand parapluie tissu easy quick est en aluminium ce qui lui confèrent robustesse et légèreté pour assurer un montage rapide et accessible à tous, aussi souvent que vous le souhaitez. Fiabilité et qualité des matériaux assurent au stand parapluie pas cher de France banderole le meilleur rapport qualité prix.</span> <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-stand-parapluie/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-stand-parapluie-tissu-expo/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-stand-parapluie-tissu/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_parapluie_form();
-	}
-
-
-	if ($page=='panneaux-forex-dibond') {
-		$h1name='meilleur prix panneau forex,  panneau Alu dibond, panneau enseignes publicitaires pas cher';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f12';
-		$info_title='Panneaux Forex, alu Dibond, enseigne publicitaire ';
-		$info_info='<span class="prezHide">Le meilleur prix sur panneaux forex et alu-dibond pas cher chez France Banderole. Impression UV standard ou UV HD directement sur le support toutes dimensions jusqu\'à 300x200cm. Option vernis de protection anti-UV sur forex et alu dibond. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine. Les panneaux forex et alu dibond sur livrés et découpées en mètre linéaire. option livraison sur palette sans découpe plein format possible.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-
-	}
-
-
-	if ($page=='panneaux-akilux') {
-		$h1name='meilleur prix panneaux akilux, panneau akylux pas cher, panneau alvéolaire publicitaire, panneau de chantier, permis de construire';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='akilux1';
-		$info_title='Les meilleurs prix panneaux Akilux alvéolaire';
-		$info_info='<span class="prezHide">L\'impression sur panneaux akilux 3mm - 3,5mm - 5mm - 10mm, est moins cher chez France Banderole car les panneaux alvéolaires sont imprimés directement sur le support en UV standard ou UV HD  de 1 à 10.000 exemplaires jusqu\'à 300x200cm. les panneaux akilux servent à réaliser des panneaux publicitaires pas cher, panneau de chantier, panneaux permis de construire, PLV extérieur pour point de vente. délai de livraison rapide jusqu\'à 24/48h partout en France métropolitaine</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-	}
-
-
-
-
-
-	if ($page=='panneaux-akilux-3mm') {
-		$h1name='panneaux akilux 3mm pas cher, panneau akylux meilleur prix, panneaux de chantier prix en ligne, Akilux 3mm ou 3,5mm, Akilux 450g';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='akilux';
-		$info_title='Panneaux Akilux alvéolaire pas cher 3mm - 450g/m²';
-		$info_info='<span class="prezHide">Les panneaux Akilux au meilleur prix sont fabriqués en Akilux 3mm ou 450g. Impression directe UV standard ou UV HD sur panneaux akilux sur mesure personnalisés toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, 120X160cm jusqu à 300X200cm. Nos panneaux akilux pas cher sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de panneaux extérieur PLV, panneau de chantier, triptyque publicitaire, publicité sur panneau pas cher et fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_akilux3mm_form();
-	}
-
-	if ($page=='tente-publicitaire-barnum') {
-		$h1name='Tente publicitaire pliante - chapiteau personnalisé - barnum publicitaire - tente exposition personnalisée';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='tentes';
-		$info_title='Tente publicitaire chapiteau barnum personnalisé';
-		$info_info='<span class="prezHide">Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-tente-publicitaire/" target="_blank" class="notice modal-link"  title="tout savoir sur les tentes publicitaires personnalisées"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-tente-publicitaire/" target="_blank" class="notice modal-link"  title="notice technique tente publicitaire"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-tente-publicitaire/" target="_blank" class="notice modal-link"  title="gabarit tente publicitaire pas cher"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_tente_exposition_form();
-	}
-
-
-	if ($page=='panneaux-akilux-3_5mm') {
-		$h1name='panneaux akilux 3,5mm pas cher, panneau akylux meilleur rapport qualité prix, affiche permis de construire, Akilux 3,5mm, Akylux 600g';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='akilux-3_5';
-		$info_title='Panneaux akilux 3.5mm - 600g/m²';
-		$info_info='<span class="prezHide">Panneaux akylux au meilleur rapport qualité/prix sont fabriqués en Akilux 3,5mm ou 600g. Impression directe UV standard ou UV HD sur panneaux akilux 3.5mm sur mesure toutes tailles de 20x20cm minimum, akylux 60X80cm ou 80X120cm, jusqu\'à 120X160cm. Nos panneaux akilux 3,5mm sont livrés au choix avec oeillet, rainage, crochets, double face, pour réalisation de PLV de rue pas cher, panneau permis de contruire, publicité sur panneau rigide pas cher et fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_akilux3_5mm_form();
-	}
-
-
-	if ($page=='panneaux-akilux-5mm') {
-		$h1name='panneaux akilux, panneau akylux, panneaux de chantier, Akilux 5mm, Akilux 900g';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='akilux-5mm';
-		$info_title='Panneaux akilux alvéolaire 5mm - 900g/m²';
-		$info_info='<span class="prezHide">Les panneaux akilux au meilleur rapport qualité/prix/résistance sont fabriqués en akilux 5mm. nos panneaux akilux imprimés en UV standard ou UV HD sont fabriqués sur mesure avec une dimension minimum de 20x20cm pouvant aller jusqu\'à 120X160cm pour des panneaux alvéolaires personnalisés. Nos panneaux akilux au meilleur prix sont livrés au choix avec oeillet, rainage, crochets, double face... pour réaliser panneau permis de construire, panneau publicitaire rigide pas cher et fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_akilux5mm_form();
-	}
-
-
-	if ($page=='PVC-300-microns') {
-		$h1name='PVC 300 microns, feuille semi rigide pvc impression PVC 300 Microns';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='PVC-300-microns';
-		$info_title='Feuille PVC 300 microns semi-rigide';
-		$info_info='<span class="prezHide">Le PVC 300µ semi rigide imprimé par France banderole vous permet d\'acheter et de créer des PLV suspendues au meilleur prix, stop rayon, tête de gondole. Nous imprimons le PVC 300µ en impression directe UV standard (PLV suspendue) ou UV HD (tête de rayon ou PLV point de vente) en recto ou PLV recto/verso pour obtenir le meilleur rapport qualité/prix. Nous vous proposons le PVC 300 microns avec perçage ou oeillet en finition standard et livraison toujours gratuite en France métropolitaine.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_PVC300microns_form();
-	}
-
-
-	if ($page=='panneaux-akilux-10mm') {
-		$h1name='panneaux akilux rigide, panneau akylux, panneaux de chantier, Akilux 10mm, akylux 1800g';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='akilux-10mm';
-		$info_title='Panneaux Akilux alvéolaire 10mm';
-		$info_info='<span class="prezHide">Les panneaux Akilux en Akilux 10mm. Impression directe UV sur panneaux akilux. tailles de 60X40cm, 60X80cm, 80X120cm, 120X160cm et panneaux akilux personnalisés.<br />Nos panneaux akilux sont livrés au choix avec oeillet, rainage, crochets, double face... de 1 à 10.000 exemplaires fabriqués en France !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_akilux10mm_form();
-	}
-
-	if ($page=='panneaux-forex-1mm') {
-		$h1name='Forex 1mm, feuille semi rigide pvc impression forex';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='forex-1mm';
-		$info_title='Forex 1mm semi-rigide';
-		$info_info='<span class="prezHide">Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu-Dibond au choix, avec formes rectangulaires, carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe en UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_forex1mm_form();
-	}
-
-
-	if ($page=='panneaux-forex-3mm') {
-		$h1name='Forex 3mm pour publicité intérieure tête de gondole, Plv suspendue';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='forex-3mm';
-		$info_title='Forex 3mm semi-rigide pour ILV PLV';
-		$info_info='<span class="prezHide">Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu-Dibond au choix, avec formes rectangulaires, carrées ou personnalisées au choix. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_forex3mm_form();
-	}
-
-
-
-	if ($page=='panneaux-forex-5mm') {
-		$h1name='Forex 5mm décor interieur plv suspendue rigide';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='forex-5mm';
-		$info_title='Forex 5mm rigide';
-		$info_info='<span class="prezHide">Les enseignes et panneaux France banderole sont fabriquées en Forex ou Alu Dibond au choix, avec formes rectangulaires, carrées ou personnalisées au choix. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV, anti reflet, anti rayures pour une protection optimale.<br />Nos enseignes sont livrées en mètre linéaire, emballées et prêtes à monter (hors perçage).</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_forex5mm_form();
-	}
-
-
-	if ($page=='panneaux-dibond') {
-		$h1name='Impression sur panneaux Alu Dibond, panneaux rigide dibond 3mm';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='dibond';
-		$info_title='Panneaux Alu Dibond 3mm enseigne publicitaire';
-		$info_info='<span class="prezHide">Les enseignes alu dibond et panneaux alu dibond imprimés par France banderole sont fabriqués en Alu Dibond 3mm, avec formes rectangulaires ou carrées. la durabilité est assurée par un choix de matériau de base résistant ainsi qu\'une impression directe UV standard ou HD, anti reflet, pour une lisibilité optimale. Nos enseignes alu dibond sont <b>livrées découpées en mètre linéaire</b>, emballées et prêtes à monter. L\'option envoi en un seul panneau est possible jusqu\'à 300x200cm</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_dibond_form();
-	}
-
-
-	if ($page=='affiches') {
-		$h1name='Affiches, affiche publicitaire, affiche grand format, Poster, poster XXL';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f5';
-		$info_title='Imprimer Affiches Posters petit & grand format';
-		$info_info='<span class="prezHide">Imprimer rapidement 10 affiches A1 devient possible avec France Banderole. Nos presses numériques et offset vous permettent d\'acheter 1, 10 ou 10000 affiches ou posters grand format sur papier couché pour un résultat d\'impression avec des couleurs éclatantes. Acheter un poster personnalisé ou une affiche grand format unique pour vous assurer le meilleur prix.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_affiches_form();
-	}
-	if ($page=='cartes') {
-		$h1name='Cartes de visite pas cher haut de gamme indechirables - Carte restaurant - Sets de table indéchirable';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f6';
-		$info_title='Cartes de Visite & cartes restaurant indéchirables';
-		$info_info='<span class="prezHide">La carte de visite pas cher la plus vendue est au format cartes de visite 5,5x8,5cm. c\'est également la plus pratique à ranger dans les portefeuilles. Nous imprimons tous les formats de cartes de restaurant et set de table indéchirables. Les cartes de visite, cartes restaurant et sets de table sont disponibles en petite série dès 100 cartes de visites et 50 sets de table indéchirables. Acheter en petite quantité pour ne plus gâcher !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_cartes_form();
-	}
-	if ($page=='Stickers') {
-		$h1name='Autocollants - Stickers adhesifs - Magnets - Vitrophanie - Covering voiture - lettrage prédécoupé';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f7';
-		$info_title='Autocollants & Stickers';
-		$info_info='<span class="prezHide">Les vinyles adhésifs (autocollant) sont imprimés en quadri numérique haute définition et sont livrés prédécoupés en planche.<br />Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-
-	}
-
-	if ($page=='Sticker-predecoupe') {
-		$h1name='Stickers adhesifs prédécoupés - lettrage prédécoupé';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='sticker-predecoupe';
-		$info_title='Stickers prédécoupés';
-		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_sticker_predecoupe_form();
-	}
-
-	if ($page=='Sticker-lettrage-predecoupe') {
-		$h1name='Stickers adhesifs prédécoupés - lettrage prédécoupé';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='sticker-lettrage';
-		$info_title='Stickers lettrages prédécoupés';
-		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_sticker_lettrage_predecoupe_form();
-	}
-
-
-	if ($page=='autocollant') {
-		$h1name='Autocollants - Stickers adhesifs - Magnets';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='autocollant';
-		$info_title='Autocollants';
-		$info_info='<span  class="prezHide">Les vinyles adhésifs (autocollant) sont imprimés en quadri numérique haute définition et sont livrés prédécoupés en planche.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_autocollant_form();
-	}
-
-	if ($page=='vitrophanie') {
-		$h1name='Vitrophanie - Sticker transparent - Vinyle micro-perforé';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='vitrophanie';
-		$info_title='Vitrophanie';
-		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_vitrophanie_form();
-	}
-
-
-	if ($page=='Oriflammes') {
-		$h1name='Oriflamme meilleur prix - Beachflag - Windflag - Voile publicitaire pas cher - Drapeaux personnalisés manifestation - flying banner - oriflammes';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f3';
-		$info_title='Oriflamme Windflag Beachflag, drapeaux et voile publicitaire';
-		$info_info='<span class="prezHide">Fabricant Oriflamme publicitaire aile d\'avion, BeachFlag goutte d\'eau, Windflag rectangulaire et voile publicitaire personnalisée. Produit en france, conception robuste, nos oriflammes, drapeaux et voiles publicitaires se distinguent par une finition haut de gamme. Toujours au meilleur prix, les oriflammes s\'utilisent en INT (garantie anti-feu) ou EXT et sont un atout majeur pour vos manifestations, salons ou expositions. Production et livraison express possible en 48h/72H en France métropolitaine.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-oriflamme/" target="_blank" class="notice modal-link"  title="aide-oriflamme"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-oriflamme/" target="_blank" class="notice modal-link" title="aide oriflamme"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-oriflamme/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_oriflammes_form();
-	}
-	if ($page=='Kakemonos') {
-		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f2';
-		$info_title='Kakemono Roll-Up Enrouleur';
-		$info_info='Le kakemono roll-up ou rollup, un support vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos manifestations, salons, expositions, communication interne (accueil, séminaires…). <b>Tous nos roll-up enrouleurs sont livrés GRATUITEMENT avec visuel monté, housse de protection, sac de transport et carton.</b>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link" title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_kakemonos_form();
-	}
-
-	if ($page=='roll-up') {
-		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='roll-up';
-		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
-		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-rollup/" target="_blank" class="notice modal-link"  title="aide rool-up"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-roll-up/" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-roll-up/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_rollup_form();
-	}
-
-
-	if ($page=='construction') {
-		$h1name='construction';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='totem';
-		$info_title='construction ';
-		$info_info='construction';
-		$formularz = get_construction_form();
-	}
-
-
-	if ($page=='totem') {
-		$h1name='Kakemono - Totem - totem publicitaire - kakemono exterieur Blizzard - totem suspendu clip it - X-banner X-screen';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='t';
-		$info_title='Totem publicitaire intérieur et extérieur ';
-		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_totem_form();
-	}
-
-	if ($page=='Banderoles') {
-		$h1name='Banderole - Banderoles - Banderole Publicitaire - banderole imprimée - impression banderole - bache publicitaire - bâche imprimée';
-		$imghead1='kakemonos1';
-		$imghead2='kakemonos2';
-		$imghead3='kakemonos3';
-		$mini='f1';
-		$info_title='Banderole publicitaire - bâche imprimée ';
-		$info_info='<span class="prezHide">France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les bâches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, foire ou salon… banderole intérieur (Anti-feu M2,M1), ou banderole extérieure, la banderole se positionne facilement. Impression sur baches en qualité photo. Toutes nos banderoles sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours</span>   <div class="helpMenu"><a href="'.get_bloginfo("url").'/banderole/" target="_blank"  class="notice modal-link"  title="Banderole : Tout savoir" ><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link" title="Banderole : Tout savoir"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-banderole/" target="_blank" class="notice modal-link" title="Banderole : gabarit-banderole"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-		$formularz = get_banderoles_form();
-	}
-
-	if ($page=='cadre-exterieur-bache') {
-	$wycena = '<div id="wycena-cadre">
-	<div id="wycena-cadre_nag"><span class="wycena-cadre_poz">PRIX UNITAIRE</span><span class="wycena-cadre_poz">TOTAL H.T.</span></div>
-	<div id="wycena-cadre_suma"><span class="wycena-cadre_poz" id="prix_unitaire">-</span><span class="wycena-cadre_poz" id="total">-</span></div>
-	<div id="dodaj_koszyk-cadre">';
-	}
-	else if (($page=='panneaux-forex-dibond') || ($page=='panneaux-akilux') || ($page=='Stickers')) {
-	$wycena = '';
-	} else {
-
-  // activation / désactivation de l'affichage des remises, commenter ou décommenter alternativement les 2 blocs ci-dessous et penser à adapter .wycena_poz 33% ou 25% dans le css
-
-  /*$wycena = '<div id="wycena">
-	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div>
-	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span></div>
-	<div id="dodaj_koszyk">';*/
-
-  $wycena = '<div id="wycena">
-	<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">TOTAL H.T.</span></div>
-	<div id="wycena_suma"><span class="wycena_poz" id="prix_unitaire">-</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="total">-</span></div>
-	<div id="dodaj_koszyk">';
-
-	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
-  // ajout de l'affichage livraison comprise
-  $wycena .= '<div id="livraisonComp" style="display:none">Livraison comprise</div>';
-	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
-	$wycena .= '</div></div>';}
-
-	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
-	if ($page=='cadre-exterieur-bache') {
-	$view .= $formularz;
-	$view .= $wycena;
-}else {$view .= '<div id="top_info"><div class="front"><img class="alignleft size-full" src="'.$plugin_url.'images/'.$mini.'.png" alt="" /></div><div id="top_info_info" class="back"><span class="info_nag">'.$info_title.'</span><br /><span class="prod-desc">'.$info_info.'</span></div></div>';
-	$view .= $formularz;
-	$view .= $wycena;
-	}
-
-	return $view;
-}
-}
+// fin générer pages fbshop ////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function get_votre() {
 	global $wpdb;
@@ -1433,8 +1328,6 @@ function get_votre() {
 	$fb_tablename_order = $prefix."fbs_order";
 
 	/* TEST envoi données */
-
-
 
 	if (fb_is_logged()) {
 		if (isset($_POST['votrecompte']) && isset($_SESSION['fbcart'])) {
@@ -1447,8 +1340,8 @@ function get_votre() {
 		}
 	} else {
 		if (!(isset($_POST['logme']))) {
-////////////////////////////////////////////////////////
-//jesli user dokonal platnosci i wylogowal sie w trakcie
+  ////////////////////////////////////////////////////////
+  //si vous avez fait des paiements et l'utilisateur connecté hors cours
 	if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	// RÈcupÈration de la variable cryptÈe DATA
 	$message="message=".$_POST[DATA];
@@ -1547,13 +1440,14 @@ function get_votre() {
 		}
 
 	}
-////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////
 			$view .= get_acces_panel(0);
 		}
 	}
 	return $view;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function get_verification() {
 	if (fb_is_logged()) {
@@ -1606,6 +1500,9 @@ function get_verification() {
 	return $view;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 function print_devis_verification($products, $prolog, $epilog) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -1625,7 +1522,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 			$transportcalosci = $transportcalosci + $item[transport];
   		}
   		$view .= '</table>';
-//sprawdzanie czy jest rabat dla uzytkownika//
+    //vérifier s'il y a un rabais pour l'utilisateur//
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
@@ -1640,14 +1537,14 @@ function print_devis_verification($products, $prolog, $epilog) {
 				}
 			}
 		}
-//koniec//
+    //fin//
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
-  		$podatekcalosci = $kosztcalosci*0.200;
-  		$totalcalosci = $kosztcalosci+$podatekcalosci;
-  		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
-  		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
-  		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
-  		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
+		$podatekcalosci = $kosztcalosci*0.200;
+		$totalcalosci = $kosztcalosci+$podatekcalosci;
+		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
+		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
+		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
+		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 		'.$cremisetd.'
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
@@ -1662,7 +1559,8 @@ function print_devis_verification($products, $prolog, $epilog) {
 	return $view;
 }
 
-
+//////////////////////////////////////////////////////////////// Relais colis //
+////////////////////////////////////////////////////////////////////////////////
 
 function get_mode_de_livraison(){
 	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
@@ -1674,21 +1572,15 @@ function get_mode_de_livraison(){
 
 		$retour .= '
 		<form action="" method="post" name="form_adresse_relais_colis" id="form_adresse_relais_colis">
-
-<input type="hidden" id="tntRCSelectedCode" value=""/>
-<input type="hidden" id="tntRCSelectedNom" value=""/>
-<input type="hidden" id="tntRCSelectedAdresse" value=""/>
-<input type="hidden" id="tntRCSelectedCodePostal" value=""/>
-<input type="hidden" id="tntRCSelectedCommune" value=""/>
-
-
+      <input type="hidden" id="tntRCSelectedCode" value=""/>
+      <input type="hidden" id="tntRCSelectedNom" value=""/>
+      <input type="hidden" id="tntRCSelectedAdresse" value=""/>
+      <input type="hidden" id="tntRCSelectedCodePostal" value=""/>
+      <input type="hidden" id="tntRCSelectedCommune" value=""/>
 		</form>
-<div style="text-align: justify; font-family: arial,helvetica,sans-serif; font-size: 10pt; width: 600px;">
 
-
+    <div style="text-align: justify; font-family: arial,helvetica,sans-serif; font-size: 10pt; width: 600px;">
 			<div id="exempleIntegration">
-
-
 				<script type="text/javascript">
 				  	function callbackSelectionRelais() {
 
@@ -1710,13 +1602,13 @@ function get_mode_de_livraison(){
 				  			//	  "\nCode postal\t: " + codePostal +
 				  			//	  "\nCommune\t\t: " + commune);
 
-							var formData = {
-								  codeRelais : codeRelais,
-								  nom : nom,
-								  adresse : adresse,
-								  codePostal : codePostal,
-								  commune : commune
-							}
+  							var formData = {
+  								  codeRelais : codeRelais,
+  								  nom : nom,
+  								  adresse : adresse,
+  								  codePostal : codePostal,
+  								  commune : commune
+  							}
 
 						  	var request = $.ajax({
 								  url: "/wp-content/plugins/fbshop/relais_colis_ajax.php",
@@ -1725,8 +1617,6 @@ function get_mode_de_livraison(){
 					  		});
 							return true;
 				  		}
-
-
 				  	}
 
 				  	function callbackSelectionRelaisClick() {
@@ -1752,25 +1642,19 @@ function get_mode_de_livraison(){
 							//alert("211Aucun relais n\'a été sélectionné !");
 							return false;
 						}
-
-
-
-						}
+					}
 				</script>
-
-
 			</div>
 		</div>
-
-
 		';
-
 	}
 	//else $retour = "Pas de relais colis";
 	//$retour .= print_r($_SESSION,true);
 	return $retour ;
 }
 
+// fin relais colis ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function get_devis() {
 	$products = $_SESSION['fbcart'];
@@ -1822,11 +1706,15 @@ function get_devis() {
 	$view .= print_devis($products, $prolog, $epilog);
 	return $view;
 }
+
 function contact_advert() {
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
 	$view .= '<div id="contact_advert"><a href="tel:+33442401401"><img src="'.$plugin_url.'images/contact_info.jpg" alt="contact with us" /></a></div>';
 	return $view;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function print_devis($products, $prolog, $epilog) {
 	/* fonction de validation du devis */
@@ -1844,14 +1732,16 @@ function print_devis($products, $prolog, $epilog) {
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td><td><span class="disMob0">Prix unitaire : </span>'.$item[prix].'</td><td><span class="disMob0">Option : </span>'.$item[option].'</td><td><span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'</td><td><form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
+			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td><td><span class="disMob0">Prix unitaire : </span>'.$item[prix].'</td><td><span class="disMob0">Option : </span>'.$item[option].'</td><td><span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'</td><td>
+      <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
 			</form></td></tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[transport];
-  		}
-  		$view .= '</table>';
-//vérifier si il ya un rabais pour l'utilisateur//
+  	}
+  	$view .= '</table>';
+
+    //vérifier si il ya un rabais pour l'utilisateur//
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
@@ -1866,14 +1756,15 @@ function print_devis($products, $prolog, $epilog) {
 				}
 			}
 		}
-//fin//
+    //fin//
+
 		$kosztcalosci = $kosztcalosci + $transportcalosci;
-  		$podatekcalosci = $kosztcalosci*0.200;
-  		$totalcalosci = $kosztcalosci+$podatekcalosci;
-  		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
-  		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
-  		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
-  		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
+		$podatekcalosci = $kosztcalosci*0.200;
+		$totalcalosci = $kosztcalosci+$podatekcalosci;
+		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
+		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
+		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
+		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 		'.$cremisetd.'
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
@@ -1889,98 +1780,8 @@ function print_devis($products, $prolog, $epilog) {
 	return $view;
 }
 
-
-
-
-/*
-function get_stickers_form_old() {
-	$form = '
-<div id="buying">
-<form class="jotform-form" action="" method="post" name="form_1060900216" id="1060900216" accept-charset="utf-8" onsubmit="JKakemono.cal_stickers(); return false;">
-    <input type="hidden" name="formID" value="1060900216" />
-    <div class="form-all">
-        <ul class="form-section">
-            <li class="form-line" id="id_1">
-                <label class="form-label-left" id="label_1" for="input_1">type de stickers:</label>
-                    <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
-                        <option value="">choisir...</option>
-                        <option value="Stickers">Stickers prédécoupés </option>
-                        <option value="Lettrages">Lettrages prédécoupés </option>
-                        <option value="Formes">Formes simples </option>
-                    </select>
-            </li>
-            <li class="form-line" id="id_2">
-                <label class="form-label-left" id="label_2" for="input_2">support: </label>
-                    <select class="form-dropdown validate[required]" id="input_2" name="q2_support2" onchange="JKakemono.czyscpola(); ">
-						<option value="">choisir... </option>
-                        <option value="vinyle blanc monomère 95μ">vinyle blanc monomère 95μ</option>
-                        <option value="vinyle transparent monomère 95μ">vinyle transparent monomère 95μ</option>
-                        <option value="vinyle blanc polymère M1 repositionnable 80μ">vinyle blanc polymère M1 repositionnable 80μ</option>
-                    </select>
-            </li>
-            <li class="form-line" id="id_3">
-                <label class="form-label-left" id="label_3" for="input_3">support: </label>
-                    <select class="form-dropdown validate[required]" id="input_3" name="q3_support3" onchange="JKakemono.czyscpola(); ">
-						<option value="">choisir... </option>
-                        <option value="vinyle blanc monomère 95μ">vinyle blanc monomère 95μ</option>
-                        <option value="vinyle blanc polymère M1 repositionnable 80μ">vinyle blanc polymère M1 repositionnable 80μ</option>
-                    </select>
-            </li>
-            <li class="form-line" id="id_4">
-                <label class="form-label-left" id="label_4" for="input_4">support: </label>
-                    <select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onchange="JKakemono.czyscpola(); ">
-						<option value="">choisir... </option>
-                        <option value="vinyle blanc monomère 95μ">vinyle blanc monomère 95μ</option>
-                        <option value="vinyle transparent monomère 95μ">vinyle transparent monomère 95μ</option>
-                        <option value="vinyle micro-perforè M1 dos noir">vinyle micro-perforé M1 dos noir</option>
-                        <option value="vinyle blanc polymère M1 repositionnable 80μ">vinyle blanc polymère M1 repositionnable 80μ</option>
-                    </select>
-            </li>
-            <li class="form-line" id="id_6">
-                <label class="form-label-left" id="label_6" for="input_6">maquette:</label>
-                    <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onchange="JKakemono.czyscpola(); ">
-                        <option value="">choisir...</option>
-                        <option value="fb">France banderole crée la maquette</option>
-                        <option value="user">j’ai déjà crée la maquette </option>
-                    </select>
-            </li>
-            <li class="form-line" id="id_7">
-                <label class="form-label-left" id="label_7" for="input_7">quantité:</label>
-                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
-            </li>
-            <li class="form-line sizehigher" id="id_8">
-                <label class="form-label-left" id="label_8" for="input_8">taille (en metre):</label>
-                    <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_9" name="q9_taile" size="20" onchange="JKakemono.czyscpola(); " /><span class="llar">[largeur]</span><span class="lhau">[hauteur]</span>
-            </li>
-            <li class="form-line" id="id_9a">
-                <div class="form-input-wide">
-                <div id="form-button-error2"></div>
-                        <button id="input_10" type="submit" class="form-submit-button">Submit Form</button>
-                </div>
-            </li>
-            <li style="display:none">
-                Should be Empty:
-                <input type="text" name="website" value="" />
-            </li>
-        </ul>
-    </div>
-    <input type="hidden" id="simple_spc" name="simple_spc" value="1060900216" />
-    <script type="text/javascript">
-        document.getElementById("simple_spc").value += "-1060900216";
-    </script>
-</form>
-</div>
-<div id="preview">
-<span id="preview_name">Adhésifs / Stickers sélectionné:</span>
-<div id="preview_imag"></div><div id="preview_info"><div id="preview_info_title"></div><ul id="preview_info_ul"><li style="display:none"></li></ul></div>
-</div>
-';
-	return $form;
-}
-*/
-
-
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function get_plv() {
 	global $wpdb;
@@ -1988,89 +1789,86 @@ function get_plv() {
 	$fb_tablename_promo = $prefix."fbs_plv";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
 	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
-<script type="text/javascript">
+  <script type="text/javascript">
+
 		function rushcheckbox24($type) {
-                    var rush24 = document.getElementById("rush24"+$type);
-                    var rush72 = document.getElementById("rush72"+$type);
-                    var fedex0 = document.getElementById("fedex"+$type);
-                    var tnt0 = document.getElementById("tnt"+$type);
-                    if (rush72.checked == true) {
-                        document.getElementById("rush72"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (rush24.checked == true) {
-						document.getElementById("rush72"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (fedex0.checked) {
-                        document.getElementById("fedex"+$type).checked = false;
-						document.getElementById("tnt"+$type).checked = true;
-					}
+        var rush24 = document.getElementById("rush24"+$type);
+        var rush72 = document.getElementById("rush72"+$type);
+        var fedex0 = document.getElementById("fedex"+$type);
+        var tnt0 = document.getElementById("tnt"+$type);
+        if (rush72.checked == true) {
+            document.getElementById("rush72"+$type).checked = false;
+            document.getElementById("fedex"+$type).checked = false;
+            document.getElementById("tnt"+$type).checked = true;
+        }
+        if (rush24.checked == true) {
+				document.getElementById("rush72"+$type).checked = false;
+              document.getElementById("fedex"+$type).checked = false;
+              document.getElementById("tnt"+$type).checked = true;
+        }
+        if (fedex0.checked) {
+              document.getElementById("fedex"+$type).checked = false;
+				document.getElementById("tnt"+$type).checked = true;
+			}
 		}
+
 		function rushcheckbox72($type) {
-                    var rush24 = document.getElementById("rush24"+$type);
-                    var rush72 = document.getElementById("rush72"+$type);
-                    var fedex0 = document.getElementById("fedex"+$type);
-                    var tnt0 = document.getElementById("tnt"+$type);
-                    if (rush24.checked == true) {
-                        document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (rush72.checked == true) {
-						document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (fedex0.checked) {
-                        document.getElementById("fedex"+$type).checked = false;
-						document.getElementById("tnt"+$type).checked = true;
-					}
+        var rush24 = document.getElementById("rush24"+$type);
+        var rush72 = document.getElementById("rush72"+$type);
+        var fedex0 = document.getElementById("fedex"+$type);
+        var tnt0 = document.getElementById("tnt"+$type);
+        if (rush24.checked == true) {
+            document.getElementById("rush24"+$type).checked = false;
+            document.getElementById("fedex"+$type).checked = false;
+            document.getElementById("tnt"+$type).checked = true;
+        }
+        if (rush72.checked == true) {
+            document.getElementById("rush24"+$type).checked = false;
+            document.getElementById("fedex"+$type).checked = false;
+            document.getElementById("tnt"+$type).checked = true;
+        }
+        if (fedex0.checked) {
+            document.getElementById("fedex"+$type).checked = false;
+            document.getElementById("tnt"+$type).checked = true;
+			}
 		}
 
-                function TNTClick($type) {
-                    if (document.getElementById("tnt"+$type).checked) {
-                        document.getElementById("fedex"+$type).checked = false;
-                    }else{
-						document.getElementById("fedex"+$type).checked = true;
-					}
-                }
-                function FEDClick($type) {
-                    if (document.getElementById("fedex"+$type).checked) {
-                        document.getElementById("colis"+$type).checked = false;
-                        document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("rush72"+$type).checked = false;
-                        document.getElementById("relais"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = false;
-                    }else{
-						document.getElementById("tnt"+$type).checked = true;
-					}
-                }
-				function colisrevendeurclick($type){
-					 /*if (document.getElementById("colis"+$type).checked) {
-					 	document.getElementById("tnt"+$type).checked = true;
-						document.getElementById("fedex"+$type).checked = false;
-					 }*/
-				}
-				function refreshBoxs($type){
+    function TNTClick($type) {
+        if (document.getElementById("tnt"+$type).checked) {
+            document.getElementById("fedex"+$type).checked = false;
+        }else{
+			      document.getElementById("fedex"+$type).checked = true;
+		  }
+    }
 
-				}
+    function FEDClick($type) {
+        if (document.getElementById("fedex"+$type).checked) {
+            document.getElementById("colis"+$type).checked = false;
+            document.getElementById("rush24"+$type).checked = false;
+            document.getElementById("rush72"+$type).checked = false;
+            document.getElementById("relais"+$type).checked = false;
+            document.getElementById("tnt"+$type).checked = false;
+        }else{
+						document.getElementById("tnt"+$type).checked = true;
+			}
+    }
+
+		function colisrevendeurclick($type){
+  		 /*if (document.getElementById("colis"+$type).checked) {
+  		 	document.getElementById("tnt"+$type).checked = true;
+  			document.getElementById("fedex"+$type).checked = false;
+  		 }*/
+		}
+
+		function refreshBoxs($type){
+		}
 		</script>
 	';
+
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	$licznik = 0;
 	foreach ($promotions as $p) :
@@ -2099,44 +1897,44 @@ function get_plv() {
 		}
 
 		$view .=
-                '<form name="cart_form' . $licznik . '" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
-                    <tr>
-                        <td class="lefttd"><span class="prom_title"><b>' . $p[name] . '</b></span><br /><span id="desc' . $licznik . '" class="prom_therest">' . stripslashes($subtitle . $p[description]) . '</span></td>
-                        <td class="imgtd">' . $viewmini . '<span class="prom_price">a partir de ' . $n_price . '</span></td>
-                        <td class="optionstd">
-                            <span>OPTIONS:</span>
-                            <input type="hidden" name="addtocart2" value="addtocart2" />
-                            <input type="hidden" name="rodzaj" value="' . $p[name] . '" />
+      '<form name="cart_form' . $licznik . '" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
+          <tr>
+              <td class="lefttd"><span class="prom_title"><b>' . $p[name] . '</b></span><br /><span id="desc' . $licznik . '" class="prom_therest">' . stripslashes($subtitle . $p[description]) . '</span></td>
+              <td class="imgtd">' . $viewmini . '<span class="prom_price">a partir de ' . $n_price . '</span></td>
+              <td class="optionstd">
+                  <span>OPTIONS:</span>
+                  <input type="hidden" name="addtocart2" value="addtocart2" />
+                  <input type="hidden" name="rodzaj" value="' . $p[name] . '" />
 
-                            <div class="">
-                            </div>
-                            <div class="plvoptions">
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
-                            </div>
-                        </td>
-                        <td class="righttd">
-                            <div class="plvmakcon"><div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div><div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div></div>
-                            <div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" /></div>
-                            <input type="hidden" name="isplv" value="true" />
-                            <input type="hidden" name="opis1" value="' . $p[subname] . '" /><input type="hidden" name="opis2" value="' . $p[description] . '" />
-                            <input type="hidden" name="prix" value="' . $p[price] . '" />' . $cedd . '<input type="hidden" name="transport" value="' . $p[frais] . ' &euro;" />
-                            <button type="submit" class="prom_sub">Ajouter</button>
-                        </td>
-                    </tr>
-                </form>';
+                  <div class="">
+                  </div>
+                  <div class="plvoptions">
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
+                  </div>
+              </td>
+              <td class="righttd">
+                  <div class="plvmakcon"><div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div><div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div></div>
+                  <div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" /></div>
+                  <input type="hidden" name="isplv" value="true" />
+                  <input type="hidden" name="opis1" value="' . $p[subname] . '" /><input type="hidden" name="opis2" value="' . $p[description] . '" />
+                  <input type="hidden" name="prix" value="' . $p[price] . '" />' . $cedd . '<input type="hidden" name="transport" value="' . $p[frais] . ' &euro;" />
+                  <button type="submit" class="prom_sub">Ajouter</button>
+              </td>
+          </tr>
+      </form>';
 
 	endforeach;
-
 	$view .= '</table>';
-
 	return $view;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 function get_plv_int() {
 	global $wpdb;
@@ -2144,89 +1942,83 @@ function get_plv_int() {
 	$fb_tablename_promo = $prefix."fbs_plv_int";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
 	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
-
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
-<script type="text/javascript">
+  <script type="text/javascript">
 		function rushcheckbox24($type) {
-                    var rush24 = document.getElementById("rush24"+$type);
-                    var rush72 = document.getElementById("rush72"+$type);
-                    var fedex0 = document.getElementById("fedex"+$type);
-                    var tnt0 = document.getElementById("tnt"+$type);
-                    if (rush72.checked == true) {
-                        document.getElementById("rush72"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (rush24.checked == true) {
+            var rush24 = document.getElementById("rush24"+$type);
+            var rush72 = document.getElementById("rush72"+$type);
+            var fedex0 = document.getElementById("fedex"+$type);
+            var tnt0 = document.getElementById("tnt"+$type);
+            if (rush72.checked == true) {
+                document.getElementById("rush72"+$type).checked = false;
+                document.getElementById("fedex"+$type).checked = false;
+                document.getElementById("tnt"+$type).checked = true;
+            }
+            if (rush24.checked == true) {
 						document.getElementById("rush72"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (fedex0.checked) {
-                        document.getElementById("fedex"+$type).checked = false;
+                document.getElementById("fedex"+$type).checked = false;
+                document.getElementById("tnt"+$type).checked = true;
+            }
+            if (fedex0.checked) {
+                document.getElementById("fedex"+$type).checked = false;
 						document.getElementById("tnt"+$type).checked = true;
 					}
 		}
+
 		function rushcheckbox72($type) {
-                    var rush24 = document.getElementById("rush24"+$type);
-                    var rush72 = document.getElementById("rush72"+$type);
-                    var fedex0 = document.getElementById("fedex"+$type);
-                    var tnt0 = document.getElementById("tnt"+$type);
-                    if (rush24.checked == true) {
-                        document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (rush72.checked == true) {
+            var rush24 = document.getElementById("rush24"+$type);
+            var rush72 = document.getElementById("rush72"+$type);
+            var fedex0 = document.getElementById("fedex"+$type);
+            var tnt0 = document.getElementById("tnt"+$type);
+            if (rush24.checked == true) {
+                document.getElementById("rush24"+$type).checked = false;
+                document.getElementById("fedex"+$type).checked = false;
+                document.getElementById("tnt"+$type).checked = true;
+            }
+            if (rush72.checked == true) {
 						document.getElementById("rush24"+$type).checked = false;
                         document.getElementById("fedex"+$type).checked = false;
                         document.getElementById("tnt"+$type).checked = true;
-                    }
-                    if (fedex0.checked) {
-                        document.getElementById("fedex"+$type).checked = false;
+            }
+            if (fedex0.checked) {
+                document.getElementById("fedex"+$type).checked = false;
 						document.getElementById("tnt"+$type).checked = true;
-					}
+					  }
 		}
 
-                function TNTClick($type) {
-                    if (document.getElementById("tnt"+$type).checked) {
-                        document.getElementById("fedex"+$type).checked = false;
-                    }else{
-						document.getElementById("fedex"+$type).checked = true;
-					}
-                }
-                function FEDClick($type) {
-                    if (document.getElementById("fedex"+$type).checked) {
-                        document.getElementById("colis"+$type).checked = false;
-                        document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("rush72"+$type).checked = false;
-                        document.getElementById("relais"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = false;
-                    }else{
+    function TNTClick($type) {
+        if (document.getElementById("tnt"+$type).checked) {
+            document.getElementById("fedex"+$type).checked = false;
+        }else{
+	          document.getElementById("fedex"+$type).checked = true;
+		  }
+    }
+
+    function FEDClick($type) {
+      if (document.getElementById("fedex"+$type).checked) {
+            document.getElementById("colis"+$type).checked = false;
+            document.getElementById("rush24"+$type).checked = false;
+            document.getElementById("rush72"+$type).checked = false;
+            document.getElementById("relais"+$type).checked = false;
+            document.getElementById("tnt"+$type).checked = false;
+      }else{
 						document.getElementById("tnt"+$type).checked = true;
-					}
-                }
-				function colisrevendeurclick($type){
+			}
+    }
+
+		function colisrevendeurclick($type){
 					/* if (document.getElementById("colis"+$type).checked) {
 					 	document.getElementById("tnt"+$type).checked = true;
 						document.getElementById("fedex"+$type).checked = false;
-					 }*/
-				}
-				function refreshBoxs($type){
-
-				}
+			}*/
+		}
+		function refreshBoxs($type){
+		}
 		</script>
 	';
+
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	$licznik = 0;
 	foreach ($promotions as $p) :
@@ -2260,12 +2052,12 @@ function get_plv_int() {
 		<input type="hidden" name="addtocart2" value="addtocart2" />
 		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
 		<div class="plvoptions">
-			                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
-                                <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
+      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
+      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
 		</div>
 		</td>
 		<td class="righttd">
@@ -2279,38 +2071,28 @@ function get_plv_int() {
 		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
 		<button type="submit" class="prom_sub">Ajouter</button>
 		</td></tr></form>';
+
 	endforeach;
-
 	$view .= '</table>';
-
 	return $view;
 }
 
-
 function Change() {
-				if (document.getElementById("fb").checked) {
-				'document.getElementById("madiv").style.display="block"';
-				}
-				else {
-				'document.getElementById("madiv").style.display="none"';
-				}
-				if (document.getElementById("us").checked) {
-				'document.getElementById("madiv").style.display="none"';
-				}
-			}
-
+	if (document.getElementById("fb").checked) {
+	'document.getElementById("madiv").style.display="block"';
+	}
+	else {
+	'document.getElementById("madiv").style.display="none"';
+	}
+	if (document.getElementById("us").checked) {
+	'document.getElementById("madiv").style.display="none"';
+	}
+}
 
 function get_buralistes() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_buraliste";
-
-	//$view .= '<h1>Buraliste</h1><hr />';
-	//$view .= '<img src="http://www.france-banderole.com/wp-content/uploads/shopfiles/buraliste/slide.jpg"/>';
-
-
-	//$view .= '<table id="promotions_table" cellspacing="0">';
-
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC LIMIT 50", ARRAY_A);
 	$licznik = 0;
 
@@ -2324,9 +2106,6 @@ function get_buralistes() {
 		$sname = '';
 		$change ='';
 
-		//print_r($p[photo]);
-
-		//print_r($p);
 		if($p[ruban_couleur]!="" && $p[ruban_texte]!=""){
 			$ruban_decla = '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/ruban/css/3d-corner-ribbons.css" />';
 			$ruban = '
@@ -2340,9 +2119,6 @@ function get_buralistes() {
 			$ruban_decla = '';
 			$ruban = "";
 		}
-
-
-
 
 		if ($p[photo]) {
 			$viewmini1 = '<a rel="shadowbox" width="100%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" alt="'.$p[name].'" width="309px" height="225px;" /></a>';
@@ -2365,7 +2141,6 @@ function get_buralistes() {
 		$view .= '
 
 				'.$ruban_decla.'
-
 
 		<div class="m-row">
 
@@ -2402,7 +2177,6 @@ function get_buralistes() {
 
 				</div>
 
-
 				<div class="pilosc"><b>Quantité :</b>
 					<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc">
 						<option value="1">1</option>
@@ -2426,15 +2200,6 @@ function get_buralistes() {
 
 				</form><div class="cb"></div>';
 
-				/*$view .= '<form action="'.get_bloginfo("url").'/votre-panier/" method="post">
-				<div class="final">
-				<p><a href="/votre-panier/" title="Finaliser votre commande" style="color: #be1700;font-size: 14px;" /><img src="'.get_template_directory_uri().'/img/play.png">Finaliser la commande</a></p>
-				</div>
-
-			</div>
-		</div>
-		<div class="cb"></div></div>';*/
-
 				$view .= '<div class="final">
 				<p><a href="/votre-panier/" title="Finaliser votre commande" style="color: #be1700;font-size: 14px;" /><img src="'.get_template_directory_uri().'/img/play.png">Finaliser la commande</a></p>
 				</div>
@@ -2443,19 +2208,12 @@ function get_buralistes() {
 		</div>
 		<div class="cb"></div></div>';
 
-
-
-
-
 	endforeach;
 
 	//$view .= '</table>';
 
 	return $view;
 }
-
-
-
 
 function get_buraliste() {
 	global $wpdb;
@@ -2530,23 +2288,12 @@ Change()
 	return $view;
 }
 
-
-
-
 function get_acc() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_promo = $prefix."fbs_acc";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
 	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
 
 	$view .= '<table id="promotions_table" cellspacing="0">';
@@ -2634,16 +2381,6 @@ function get_mma() {
 	$fb_tablename_promo = $prefix."fbs_mma";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Banderole MMA</h1><hr />';
-	/* $view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>'; */
-	/*$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';*/
-
 	$view .= '<table id="promotions_tablemma" cellspacing="0">';
 	$view .= '
 		<script type="text/javascript">
@@ -2711,8 +2448,8 @@ function get_mma() {
 		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
 		<div class="piloscmma"><b>Quantite:</b>
 		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-  <option value="1">1</option>
-</select>
+      <option value="1">1</option>
+    </select>
 		</div>
 		<input type="hidden" name="isplv" value="true" />
 		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
@@ -2721,7 +2458,6 @@ function get_mma() {
 		<div><a href="/votre-panier/" title="Finaliser votre commande" class="prom_submma2" /></a></p>
 		</form></td>
 		</tr>
-
 		';
 		}
 
@@ -2734,16 +2470,16 @@ function get_mma() {
 		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
 		<div class="piloscmma"><b>Quantite:</b>
 		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
 		</div>
 		<input type="hidden" name="mma" value="true" />
 		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
@@ -2756,16 +2492,9 @@ function get_mma() {
 		</form></td></tr>';
 		}
 
-
-		endforeach;
-
-
+  endforeach;
 	$view .= '</table>';
-
-
-
 	return $view;
-
 }
 
 
@@ -2998,7 +2727,8 @@ function get_promotions() {
 	return $view;
 }
 
-///////////////////////////////////////////////// validation BAT (obsolète ?) //
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////// validation BAT //
 
 function get_valider_bat() {
 	global $wpdb;
@@ -3027,7 +2757,7 @@ function get_valider_bat() {
   	$wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$order_id."', '".$sujet."', '".$date."', '".$user_name."', '".$message."')");
 
   	// Selon le statut de la commande ou le type d'utilisateur, on redirige soit sur la page de paiement, soit sur la page de récapitulatif de commande
-  	if (($user_type) OR ($order_data->status == 2) OR ($order_data->status == 7)) {
+  	if (($user_type) OR ($order_data->status == 2) OR ($order_data->status == 3) OR ($order_data->status == 7)) {
   		echo '<script type="text/javascript">
   				window.location.replace("'.get_bloginfo("url").'/vos-devis/?detail='.$order_id.'");
   			</script>';

@@ -390,112 +390,26 @@ jQuery(document).ready(function(){
     var wysokosc=0;
     var eBox = document.getElementById('form-button-error2');
     eBox.innerHTML='';
+///2x2/////
+var structure2x2=160.00; var canopi2x2=18.75; var mur2x2=14.00;	var demimurA2x2=8; var demimurB2x2=8; var barredmA2x2=25.00; var barredmB2x2=25.00;
+var structure2x2perso=160.00; var canopi2x2perso=431.00; var mur2x2perso=110.00; var demimurA2x2perso=70.00; var demimurB2x2perso=70.00; var barredmA2x2perso=25.00; var barredmB2x2perso=25.00; var fronton2x2perso=101.00;
+///2x3/////
+var structure2x3=208.00; var canopi2x3=24.00; var mur2x3=21.00;	var demimurA2x3=12; var demimurB2x3=8; var barredmA2x3=25.00; var barredmB2x3=25.00;
+var structure2x3perso=208.00; var canopi2x3perso=498.00; var mur2x3perso=142.00; var demimurA2x3perso=82.00; var demimurB2x3perso=70.00; var barredmA2x3perso=25.00; var barredmB2x3perso=25.00; var fronton2x3perso=141.00;
+///3x3/////
+var structure3x3=220.00; var canopi3x3=29.50; var mur3x3=21.00;	var demimurA3x3=12; var demimurB3x3=12; var barredmA3x3=25.00; var barredmB3x3=25.00;
+var structure3x3perso=195.00; var canopi3x3perso=595.00; var mur3x3perso=142.00; var demimurA3x3perso=82.00; var demimurB3x3perso=82.00; var barredmA3x3perso=25.00; var barredmB3x3perso=25.00; var fronton3x3perso=137.00;
+///3x4,5/////
+var structure3x4=253.00; var canopi3x4=55.00; var mur3x4=49.00;	var demimurA3x4=18.75; var demimurB3x4=12; var barredmA3x4=28.00; var barredmB3x4=25.00;
+var structure3x4perso=253.00; var canopi3x4perso=759.00; var mur3x4perso=188.00; var demimurA3x4perso=105.00; var demimurB3x4perso=82.00; var barredmA3x4perso=28.00; var barredmB3x4perso=25.00; var fronton3x4perso=181.00;
+///3x6/////
+var structure3x6=341.00; var canopi3x6=70.00; var mur3x6=42.00;	var demimurA3x6=24.00; var demimurB3x6=12; var barredmA3x6=50.00; var barredmB3x6=25.00;
+var structure3x6perso=341.00; var canopi3x6perso=938.00; var mur3x6perso=284.00; var demimurA3x6perso=164.00; var demimurB3x6perso=82.00; var barredmA3x6perso=50.00; var barredmB3x6perso=25.00; var fronton3x6perso=212.00;
+///4x6/////
+var structure4x6=530.00; var canopi4x6=155.00; var mur4x6=61.00; var demimurA4x6=24.00; var demimurB4x6=12; var barredmA4x6=50.00; var barredmB4x6=25.00;
+var structure4x6perso=530.00; var canopi4x6perso=1091.00; var mur4x6perso=225.00; var demimurA4x6perso=164.00; var demimurB4x6perso=82.00; var barredmA4x6perso=50.00; var barredmB4x6perso=25.00; var fronton4x6perso=220.00;
 
-//PRIX//////////////////////////////////////////////////////////////////////////
 
-///2x2//////////////////////////////////////////////////////////////////////////
-var structure2x2=160.00;       var canopi2x2=18.75;
-var mur2x2=14.00;              var demimurA2x2=8;
-var demimurB2x2=8;             var barredmA2x2=25.00;
-var barredmB2x2=25.00;         var structure2x2perso=160.00;
-
-//var canopi2x2perso=431.00;   //var mur2x2perso=110.00;
-var canopi2x2perso=391.00;     var mur2x2perso=86.00;
-
-//var demimurA2x2perso=70.00;  //var demimurB2x2perso=70.00;
-var demimurA2x2perso=47.00;    var demimurB2x2perso=44.00;
-
-var barredmA2x2perso=25.00;    var barredmB2x2perso=25.00;
-
-//var fronton2x2perso=101.00; !!
-var fronton2x2perso=111.00;
-
-///2x3//////////////////////////////////////////////////////////////////////////
-var structure2x3=208.00;       var canopi2x3=24.00;
-var mur2x3=21.00;              var demimurA2x3=12;
-var demimurB2x3=8;             var barredmA2x3=25.00;
-var barredmB2x3=25.00;         var structure2x3perso=208.00;
-
-//var canopi2x3perso=498.00;   //var mur2x3perso=142.00;
-var canopi2x3perso=431.00;     var mur2x3perso=119.00;
-
-//var demimurA2x3perso=82.00;  //var demimurB2x3perso=70.00;
-var demimurA2x3perso=59.00;    var demimurB2x3perso=54.00;
-
-var barredmA2x3perso=25.00;    var barredmB2x3perso=25.00;
-
-//var fronton2x3perso=141.00;
-var fronton2x3perso=132.00;
-
-///3x3//////////////////////////////////////////////////////////////////////////
-var structure3x3=220.00;       var canopi3x3=29.50;
-var mur3x3=21.00;              var demimurA3x3=12;
-var demimurB3x3=12;            var barredmA3x3=25.00;
-var barredmB3x3=25.00;         var structure3x3perso=195.00;
-
-//var canopi3x3perso=595.00;   //var mur3x3perso=142.00;
-var canopi3x3perso=575.00;     var mur3x3perso=119.00;
-
-//var demimurA3x3perso=82.00;  //var demimurB3x3perso=82.00;
-var demimurA3x3perso=59.00;    var demimurB3x3perso=54.00;
-
-var barredmA3x3perso=25.00;    var barredmB3x3perso=25.00;
-
-//var fronton3x3perso=137.00; !!
-var fronton3x3perso=147.00;
-
-///3x4,5////////////////////////////////////////////////////////////////////////
-var structure3x4=253.00;       var canopi3x4=55.00;
-var mur3x4=49.00;              var demimurA3x4=18.75;
-var demimurB3x4=12;            var barredmA3x4=28.00;
-var barredmB3x4=25.00;         var structure3x4perso=253.00;
-
-//var canopi3x4perso=759.00;   //var mur3x4perso=188.00;
-var canopi3x4perso=744.00;     var mur3x4perso=164.00;
-
-//var demimurA3x4perso=105.00; //var demimurB3x4perso=82.00;
-var demimurA3x4perso=81.00;    var demimurB3x4perso=76.00;
-
-var barredmA3x4perso=28.00;    var barredmB3x4perso=25.00;
-
-//var fronton3x4perso=181.00;
-var fronton3x4perso=169.00;
-
-///3x6//////////////////////////////////////////////////////////////////////////
-var structure3x6=341.00;       var canopi3x6=70.00;
-var mur3x6=42.00;              var demimurA3x6=24.00;
-var demimurB3x6=12;            var barredmA3x6=50.00;
-var barredmB3x6=25.00;         var structure3x6perso=341.00;
-
-//var canopi3x6perso=938.00;   //var mur3x6perso=284.00;
-var canopi3x6perso=908.00;     var mur3x6perso=201.00;
-
-//var demimurA3x6perso=164.00; //var demimurB3x6perso=82.00;  ---
-var demimurA3x6perso=113.00;   var demimurB3x6perso=59.00;
-
-var barredmA3x6perso=50.00;    var barredmB3x6perso=25.00;
-
-//var fronton3x6perso=212.00;
-var fronton3x6perso=199.00;
-
-///4x6//////////////////////////////////////////////////////////////////////////
-var structure4x6=530.00;       var canopi4x6=155.00;
-var mur4x6=61.00;              var demimurA4x6=24.00;
-var demimurB4x6=12;            var barredmA4x6=50.00;
-var barredmB4x6=25.00;         var structure4x6perso=530.00;
-
-//var canopi4x6perso=1091.00;  //var mur4x6perso=225.00;
-var canopi4x6perso=1036.00;    var mur4x6perso=201.00;
-
-//var demimurA4x6perso=164.00; //var demimurB4x6perso=82.00;  ---
-var demimurA4x6perso=113.00;   var demimurB4x6perso=82.00;
-
-var barredmA4x6perso=50.00;    var barredmB4x6perso=25.00;
-
-//var fronton4x6perso=220.00;
-var fronton4x6perso=216.00;
-
-////////////////////////////////////////////////////////////////////////////////
 
 
 coul=$('input_couleur').value;
@@ -1063,6 +977,7 @@ if ($('input_1').value == '4x6') {
                       //jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
                       //jQuery('#prix_unitaire').text(finalPrice);
                       jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+
 
                     }
 
