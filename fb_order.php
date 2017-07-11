@@ -841,6 +841,7 @@ function getCartCount() {
 	if(!empty($_SESSION['fbcart'])) {
 		$ret = count($_SESSION['fbcart']);
 	}
+	return $ret;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

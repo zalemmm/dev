@@ -1658,7 +1658,7 @@ function get_mode_de_livraison(){
 
 function get_devis() {
 	$products = $_SESSION['fbcart'];
-	$prolog = '<h1 class="noprint">Votre devis: Inscription</h1><hr class="noprint" />';
+	$prolog = '<h1 class="noprint">Votre panier / devis</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
 
 	if (is_cart_not_empty()) {
