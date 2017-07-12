@@ -121,7 +121,8 @@ function fbshop_head() {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-papier.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
-  JotForm.setConditions([{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}], "action": {"field": "2", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}], "action": {"field": "3", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes"}], "action": {"field": "001", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches"}], "action": {"field": "221", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "9"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "10"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "11"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "12"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "13"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "17", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "14"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "18", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "15"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "19", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "16"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "20", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "17"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "18"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "19"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "24", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "25", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "26", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "27", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "28", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "29", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "30", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "001", "operator": "isFilled", "value": false}], "action": {"field": "002", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "1"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "003", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "2"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "004", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "3"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "005", "visibility": "Show"}},{"type": "field", "link": "Any", "terms": [{"field": "221", "operator": "isFilled", "value": false}], "action": {"field": "222", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "1"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "223", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "2"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "224", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "3"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "225", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "4"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "226", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "5"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "227", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "6"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "228", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "7"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "229", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "8"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "2210", "visibility": "Show"}}]);
+  JotForm.setConditions([{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}], "action": {"field": "2", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}], "action": {"field": "3", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes"}], "action": {"field": "001", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches"}], "action": {"field": "221", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "9"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "10"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "11"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "12"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "13"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "17", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "14"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "18", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "15"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "19", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "16"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "20", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "17"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "18"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers"}, {"field": "2", "operator": "equals", "value": "19"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "1"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "24", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "2"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "25", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "3"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "26", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "4"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "27", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "5"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "28", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "6"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "29", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "7"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "30", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Dépliants"}, {"field": "3", "operator": "equals", "value": "8"}, {"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "001", "operator": "isFilled", "value": false}], "action": {"field": "002", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "1"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "003", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "2"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "004", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "001", "operator": "equals", "value": "3"}, {"field": "002", "operator": "isFilled", "value": false}], "action": {"field": "005", "visibility": "Show"}},{"type": "field", "link": "Any", "terms": [{"field": "221", "operator": "isFilled", "value": false}], "action": {"field": "222", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "1"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "223", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "2"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "224", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "3"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "225", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "4"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "226", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "5"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "227", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "6"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "228", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "7"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "229", "visibility": "Show"}}, {"type": "field", "link": "All", "terms": [{"field": "221", "operator": "equals", "value": "8"}, {"field": "222", "operator": "isFilled", "value": false}], "action": {"field": "2210", "visibility": "Show"}}
+  ]);
   JotForm.init();
   </script>';
   }
@@ -132,33 +133,33 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-flyer.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}], "action": {"field": "24", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}], "action": {"field": "25", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}], "action": {"field": "26", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}], "action": {"field": "27", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}], "action": {"field": "28", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}], "action": {"field": "24", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}], "action": {"field": "25", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}], "action": {"field": "26", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}], "action": {"field": "27", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}], "action": {"field": "28", "visibility": "Show"}},
 
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "27", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "28", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "27", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "28", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -170,15 +171,15 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformcartes.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 270µ"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Cartes 350µ"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -190,9 +191,9 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformeclairage.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -204,23 +205,23 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformdepliants.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}], "action": {"field": "24", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}], "action": {"field": "24", "visibility": "Show"}},
 
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}, {"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -232,19 +233,19 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformaffiches.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 130g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 150g"}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 220g"}, {"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "100", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "100", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "100", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -257,63 +258,63 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-banderoles.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "extérieur"}], "action": {"field": "ext", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "intérieur"}], "action": {"field": "int", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "int/ext"}], "action": {"field": "intext", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "extérieur"}], "action": {"field": "ext", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "intérieur"}], "action": {"field": "int", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "int/ext"}], "action": {"field": "intext", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "int", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "int", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "int", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "int", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "int", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "int", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "ext", "operator": "equals", "value": "bache nontissé 150g"}], "action": {"field": "81", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "bache nontissé 150g"}, {"field": "ext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "ext", "operator": "equals", "value": "bache nontissé 150g"}], "action": {"field": "81", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "bache nontissé 150g"}, {"field": "ext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "intext", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "intext", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "intext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "intext", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "intext", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "intext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "44", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort périmétrique"}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort périmétrique"}], "action": {"field": "51", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "tendeurs"}], "action": {"field": "52", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "rislans"}], "action": {"field": "53", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "51", "operator": "notEquals", "value": "rislans"}, {"field": "51", "operator": "notEquals", "value": "tendeurs"}, {"field": "51", "operator": "notEquals", "value": ""}], "action": {"field": "12", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "tendeurs"}], "action": {"field": "52", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "rislans"}], "action": {"field": "53", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "51", "operator": "notEquals", "value": "rislans"}, {"field": "51", "operator": "notEquals", "value": "tendeurs"}, {"field": "51", "operator": "notEquals", "value": ""}], "action": {"field": "12", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "91", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "nouettes haut/bas"}], "action": {"field": "92", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "fourreaux gauche/droite"}, {"field": "81", "operator": "equals", "value": "pas de finition"}], "action": {"field": "101", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "91", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "92", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "91", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "nouettes haut/bas"}], "action": {"field": "92", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "fourreaux gauche/droite"}, {"field": "81", "operator": "equals", "value": "pas de finition"}], "action": {"field": "101", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "91", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "92", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}},
 
-  {"type": "field", "link": "All", "terms": [{"field": "101", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "101", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "12", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
   ]);
   JotForm.init();
   </script>';
@@ -324,19 +325,19 @@ function fbshop_head() {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Formes"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "predecoupe"}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-blanc"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-couleur"}], "action": {"field": "24", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "covering"}], "action": {"field": "25", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Formes"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "predecoupe"}], "action": {"field": "22", "visibility": "Show"}}, {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-blanc"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lettrage-couleur"}], "action": {"field": "24", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "covering"}], "action": {"field": "25", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -347,12 +348,11 @@ function fbshop_head() {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -363,13 +363,12 @@ function fbshop_head() {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -380,11 +379,10 @@ function fbshop_head() {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -396,11 +394,10 @@ function fbshop_head() {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -412,23 +409,24 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-oriflamme.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "drapeaux"}], "action": {"field": "20", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "oriflamme"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "beachflag"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "windflag"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "20", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Kit complet"}], "action": {"field": "41", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure + Voile"}, {"field": "3", "operator": "equals", "value": "Voile seule"}], "action": {"field": "42", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "10", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}]);
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "drapeaux"}], "action": {"field": "20", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "oriflamme"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "beachflag"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "windflag"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "20", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Kit complet"}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure + Voile"}, {"field": "3", "operator": "equals", "value": "Voile seule"}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "10", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+  ]);
   JotForm.init();
   </script>';
   }
@@ -438,20 +436,22 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform9.js?v5" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "01", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Droit"}], "action": {"field": "50", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Courbé"}], "action": {"field": "500", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "500", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "01", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}, {"field": "0", "operator": "equals", "value": "valise"}], "action": {"field": "7", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Droit"}], "action": {"field": "50", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Courbé"}], "action": {"field": "500", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "500", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -463,28 +463,28 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-rollup.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "first-line"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "best-line"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "double"}], "action": {"field": "24", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "mini"}], "action": {"field": "25", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Mistral"}], "action": {"field": "26", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "best-line"},{"field": "22", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "60x200"},{"field": "22", "operator": "equals", "value": "80x200"},{"field": "22", "operator": "equals", "value": "85x200"},{"field": "22", "operator": "equals", "value": "100x200"},{"field": "22", "operator": "equals", "value": "120x200"},{"field": "22", "operator": "equals", "value": "150x200"}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x300"}], "action": {"field": "35", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "equals", "value": "60x200"},{"field": "23", "operator": "equals", "value": "80x200"},{"field": "23", "operator": "equals", "value": "85x200"},{"field": "23", "operator": "equals", "value": "100x200"},{"field": "23", "operator": "equals", "value": "120x200"},{"field": "23", "operator": "equals", "value": "150x200"}], "action": {"field": "33", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "first-line"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "best-line"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "double"}], "action": {"field": "24", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "mini"}], "action": {"field": "25", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Mistral"}], "action": {"field": "26", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "best-line"},{"field": "22", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "60x200"},{"field": "22", "operator": "equals", "value": "80x200"},{"field": "22", "operator": "equals", "value": "85x200"},{"field": "22", "operator": "equals", "value": "100x200"},{"field": "22", "operator": "equals", "value": "120x200"},{"field": "22", "operator": "equals", "value": "150x200"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x300"}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "equals", "value": "60x200"},{"field": "23", "operator": "equals", "value": "80x200"},{"field": "23", "operator": "equals", "value": "85x200"},{"field": "23", "operator": "equals", "value": "100x200"},{"field": "23", "operator": "equals", "value": "120x200"},{"field": "23", "operator": "equals", "value": "150x200"}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -495,30 +495,30 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"}], "action": {"field": "31", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "33", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "blizzard"}], "action": {"field": "34", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Light"}], "action": {"field": "35", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Prestige"}], "action": {"field": "36", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"},{"field": "31", "operator": "notEquals", "value": "minia3"}, {"field": "31", "operator": "notEquals", "value": "minia4"}, {"field": "31", "operator": "notEquals", "value": "200x200"}, {"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "55", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "minia3"}, {"field": "31", "operator": "equals", "value": "minia4"}, {"field": "31", "operator": "equals", "value": "200x200"}], "action": {"field": "61", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "52", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "36", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "16", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "111", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "55", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "81", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "blizzard"}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Light"}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "L-Banner-Prestige"}], "action": {"field": "36", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "roll-up"},{"field": "31", "operator": "notEquals", "value": "minia3"}, {"field": "31", "operator": "notEquals", "value": "minia4"}, {"field": "31", "operator": "notEquals", "value": "200x200"}, {"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "55", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "minia3"}, {"field": "31", "operator": "equals", "value": "minia4"}, {"field": "31", "operator": "equals", "value": "200x200"}], "action": {"field": "61", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "52", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "36", "operator": "isFilled", "value": false}], "action": {"field": "53", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "16", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "52", "operator": "isFilled", "value": false}], "action": {"field": "111", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "53", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "111", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "55", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "81", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -529,29 +529,29 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-totem.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -562,20 +562,19 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -586,20 +585,19 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux3_5mm.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -610,20 +608,19 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux5mm.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "crochets"}], "action": {"field": "crochets", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"}, {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "oeillets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -634,14 +631,12 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-PVC300microns.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
-
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -652,19 +647,18 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux10mm.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "60x80"}, {"field": "1", "operator": "equals", "value": "120x40"}, {"field": "1", "operator": "equals", "value": "120x80"}, {"field": "1", "operator": "equals", "value": "160x60"}, {"field": "1", "operator": "equals", "value": "160x120"}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "isFilled", "value": false}], "action": {"field": "5perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "60x80"}, {"field": "1", "operator": "equals", "value": "120x40"}, {"field": "1", "operator": "equals", "value": "120x80"}, {"field": "1", "operator": "equals", "value": "160x60"}, {"field": "1", "operator": "equals", "value": "160x120"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "isFilled", "value": false}], "action": {"field": "5perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -675,26 +669,25 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-1mm.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "50x20"}, {"field": "1", "operator": "equals", "value": "75x50"}, {"field": "1", "operator": "equals", "value": "150x50"}, {"field": "1", "operator": "equals", "value": "200x75"}, {"field": "1", "operator": "equals", "value": "250x100"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "50x20"}, {"field": "1", "operator": "equals", "value": "75x50"}, {"field": "1", "operator": "equals", "value": "150x50"}, {"field": "1", "operator": "equals", "value": "200x75"}, {"field": "1", "operator": "equals", "value": "250x100"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "crochets"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "crochets"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "crochets"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "crochets"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -705,32 +698,31 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-tente-exposition.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "option", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans option"}], "action": {"field": "couleur-sans-option", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans mur"}], "action": {"field": "couleur-sans-mur", "visibility": "Show"}},
 
-  {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans option"}], "action": {"field": "couleur-sans-option", "visibility": "Show"}},
-  {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "equals", "value": "sans mur"}], "action": {"field": "couleur-sans-mur", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": "sans mur"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
 
-  {"type": "field", "link": "All", "terms": [{"field": "option", "operator": "notEquals", "value": "sans option"}, {"field": "option", "operator": "notEquals", "value": "sans mur"}, {"field": "option", "operator": "notEquals", "value": ""}], "action": {"field": "couleur", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-option", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-option", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-mur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-mur", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "couleur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-option", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-option", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "couleur-sans-mur", "operator": "isFilled", "value": false}], "action": {"field": "personnalisation-sans-mur", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Personnalisation Mur et demi-mur"}, {"field": "personnalisation-sans-option", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-option", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Full Graphic"}], "action": {"field": "maquette", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "13", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "personnalisation-sans-mur", "operator": "equals", "value": "Pas de personnalisation"}], "action": {"field": "16", "visibility": "Show"}},
-
-  {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "maquette", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -741,24 +733,23 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-3mm.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -769,25 +760,23 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-forex-5mm.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "60x78"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -798,25 +787,24 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-dibond.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "1", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "personnalisée"}], "action": {"field": "32perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "60x40"}, {"field": "1", "operator": "equals", "value": "100x50"}, {"field": "1", "operator": "equals", "value": "150x75"}, {"field": "1", "operator": "equals", "value": "200x100"}, {"field": "1", "operator": "equals", "value": "200x150"}, {"field": "1", "operator": "equals", "value": "300x150"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "32perso", "operator": "isFilled", "value": false}], "action": {"field": "4perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "perçage"} , {"field": "4", "operator": "equals", "value": "ventouse"}], "action": {"field": "5", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "double face"} , {"field": "4", "operator": "equals", "value": "sans"}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "perçage"} , {"field": "4perso", "operator": "equals", "value": "ventouse"}], "action": {"field": "5perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
-
-  {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-  {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';

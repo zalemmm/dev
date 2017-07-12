@@ -650,6 +650,10 @@ JotForm = {
                imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/compteasy.png)";
                imag2.style.animation="anim3 .5s 1";
             }
+            if ($('input_0').value == 'valise') {
+               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valiseSeule.png)";
+               imag2.style.animation="anim4 .5s 1";
+            }
 
 
             // stand tissu droit ou courbé
