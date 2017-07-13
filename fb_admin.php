@@ -55,7 +55,7 @@ function fbs_admin_menu() {
 }
 
 // fin intégration WORDPRESS ///////////////////////////////////////////////////
-////////////////////////////////////////////////////////////// Ratings - avis //
+/////////////////////////////////////////////////// Avis et notes côté client //
 
 add_shortcode('FBRATINGS', 'get_ratings');
 function get_ratings($type_prod, $nb_comment=2) {
@@ -73,14 +73,15 @@ function get_ratings($type_prod, $nb_comment=2) {
 	$prod_name = $wpdb->get_row("SELECT * FROM `$fb_tablename_catprods` WHERE code_parent = '$prod_family'");
 	$display_name = $prod_name->prod_parent;
 
-  // Mise en cache des notes /////////////////////////////////////////////////
+  // Mise en cache des notes ///////////////////////////////////////////////////
+  // (script récupéré depuis la page mise_cache.php) ///////////////////////////
   $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
   $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
   $strmoyenne1 = round($moyenne->moy,2);
   $del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
   $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_notes` VALUES ('','$prod_family','$strmoyenne1','$total->nb_avis')");
   if ($full_list) {
-    //Mise en cache de la liste des commentaires
+    //Mise en cache de la liste des avis
     $rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC", ARRAY_A);
     $cache_list = '';
     foreach ($rates as $r) {
@@ -88,11 +89,9 @@ function get_ratings($type_prod, $nb_comment=2) {
     }
     $del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_ratings` WHERE code_parent = '$prod_family'");
     $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_ratings` VALUES('','$prod_family','$cache_list')");
-
   }
-  // fin mise en cache notes /////////////////////////////////////////////////
 
-  ///////////////////////////////////////////////////////// affichage notes //
+  /////////////////////////////////////////////////////////// affichage notes //
   $view = '<div style="clear: both;"></div>
     <div id="rating_livre">
       <div id="vosavis"></div>';
@@ -112,29 +111,29 @@ function get_ratings($type_prod, $nb_comment=2) {
 	$view .= 'pour les produits de type '.$display_name;
 	$view .= '</div>';
 
-  //////////////////////////// affichage des 2 derniers avis pages produits //
+  ////////////////////////////// affichage des 2 derniers avis pages produits //
 	$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 2", ARRAY_A);
-  // commenter ci dessous si précédente activée : ////////////////////////////
+
+  // ancienne requête qui va chercher les commentaires en cache : //////////////
+  // ! à conserver /////////////////////////////////////////////////////////////
 	//$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_cache_comments` c WHERE r.exist = 'true' AND c.code_parent = '$prod_family' AND (r.id = c.comment1 OR r.id = c.comment2 OR r.id = c.comment3 OR r.id = c.comment4 OR r.id = c.comment5) ORDER BY r.date DESC LIMIT 2", ARRAY_A);
-  // vider le cache //////////////////////////////////////////////////////////
+
+  // vider le cache ////////////////////////////////////////////////////////////
   //$del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_comments` WHERE code_parent = '$prod_family'");
+  //////////////////////////////////////////////////////////////////////////////
   //echo "<pre>";  echo print_r($rates);  echo "</pre>";
+
 	$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 
-	$i = 0;
+	//$i = 0;
 	foreach ($rates as $r) :
-  $i++;
+  /*$i++;
 		if($i == 1) {
 		  $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_comments` VALUES ('','$prod_family','$r[id]',0,0,0,0)");
 		} else if($i == 2) {
 			$mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment2 = '$r[id]' WHERE code_parent = '$prod_family'");
-    } else if($i == 3) {
-      $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment3 = '$r[id]' WHERE code_parent = '$prod_family'");
-    } else if($i == 4) {
-      $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment4 = '$r[id]' WHERE code_parent = '$prod_family'");
-    } else if($i == 5) {
-      $mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment5 = '$r[id]' WHERE code_parent = '$prod_family'");
-		}
+    }
+		}*/
 
 		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 20;
 		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
@@ -189,11 +188,14 @@ function get_ratings($type_prod, $nb_comment=2) {
 	endforeach;
 
 	$view .= '</tbody></table>';
-  $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis?prod_type='.$prod_family.'"><i class="fa fa-plus" aria-hidden="true"></i> <span class="textHide"> d\'avis sur ce type de produit</span></a>';
+  $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis?prod_type='.$prod_family.'"><span class="comVoirContent"><i class="fa fa-plus" aria-hidden="true"></i> d\'avis sur ce type de produit</span></a>';
   $view .= '<div class="clear"></div></div>';
 
 	return $view;
 }
+
+// fin avis côté client ////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// avis côté admin //
 
 function fb_admin_rating() {
 	global $wpdb;
@@ -262,6 +264,8 @@ function fb_admin_rating() {
 	}
 }
 
+///////////////////////////////////////////////////// réponse aux avis client //
+
 function fb_admin_ratings_comments() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -329,7 +333,7 @@ function fb_admin_ratings_comments() {
 
 }
 
-// fin avis ////////////////////////////////////////////////////////////////////
+// fin avis côté admin /////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////// groupes //
 
 function fb_groupes() {
@@ -3743,12 +3747,49 @@ function fbadm_print_details($number) {
     <td><input type="text" name="e_total'.$p[id].'" value="'.$p[total].'" /></td>
     <td><input type="text" name="e_frais'.$p[id].'" value="'.$frais.'" /></td><td>'.$filepath.'</td></tr>';
 
-
-
 	endforeach;
 
-  ////////////////////////////////////////////////////////////////////////////////
-
+  ///////////////////////////////////////////// zip des fichiers utilisateurs //
+  $pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
+  // Returns array of files
+  $files = scandir($pathfiles);
+  // Count number of files and store them to variable..
+  $num_files = count($files)-2;
+  // s'il y a plus de 2 fichiers dans le dossier client, crée une archive zip
+  if(file_exists($pathfiles) && $num_files >=2) {
+    ini_set('max_execution_time', 600);
+    ini_set('memory_limit','1024M');
+    // Start the backup!
+    function zipData($source, $destination) {
+      if (extension_loaded('zip')) {
+        if (file_exists($source)) {
+          $zip = new ZipArchive();
+          if ($zip->open($destination, ZIPARCHIVE::CREATE)) {
+            $source = realpath($source);
+            if (is_dir($source)) {
+              $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+              foreach ($files as $file) {
+                $file = realpath($file);
+                if (is_dir($file)) {
+                  $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+                } else if (is_file($file)) {
+                  $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+                }
+              }
+            } else if (is_file($source)) {
+              $zip->addFromString(basename($source), file_get_contents($source));
+            }
+          }
+          return $zip->close();
+        }
+      }
+      return false;
+    }
+    // create archive
+    zipData($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/', $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip');
+    echo '<div class="zipMessage">Plusieurs fichiers client trouvés, une archive a été générée: <a href="'.get_bloginfo('url').'/zip/'.$number.'.archive.zip" class="zipDownload"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Download Zip</a></div>';
+  }
+  // fin zip des fichiers utilisateur //////////////////////////////////////////
   // fin fichiers utilisateur //////////////////////////////////////////////////
 
 	// ajouter un produit à la commande //////////////////////////////////////////

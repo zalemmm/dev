@@ -1439,7 +1439,7 @@ function get_votre() {
 
 function get_verification() {
 	if (fb_is_logged()) {
-		$prolog = '<h1>Votre devis: Verification de la commande</h1><hr />';
+		$prolog = '<h1><i class="fa fa-lock" aria-hidden="true"></i> Votre devis: Verification de la commande</h1><hr />';
 		if (is_cart_not_empty()) {
 			//echo "///Session=";print_r($_SESSION);
 			$products = $_SESSION['fbcart'];
@@ -1646,7 +1646,7 @@ function get_mode_de_livraison(){
 
 function get_devis() {
 	$products = $_SESSION['fbcart'];
-	$prolog = '<h1 class="noprint">Votre panier / devis</h1><hr class="noprint" />';
+	$prolog = '<h1 class="noprint"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier / devis</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
 
 	if (is_cart_not_empty()) {

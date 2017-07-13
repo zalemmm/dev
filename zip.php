@@ -156,8 +156,86 @@ if(isset($_POST['download'])){
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+  $the_folder = get_bloginfo('url').'/uploaded/'.$number.'/';
+  $zip_file_name = $number.'.archive.zip';
+
+  class FlxZipArchive extends ZipArchive {
+          /** Add a Dir with Files and Subdirs to the archive;;;;; @param string $location Real Location;;;;  @param string $name Name in Archive;;; @author Nicolas Heimann;;;; @access private  **/
+      public function addDir($location, $name) {
+          $this->addEmptyDir($name);
+           $this->addDirDo($location, $name);
+       } // EO addDir;
+
+          /**  Add Files & Dirs to archive;;;; @param string $location Real Location;  @param string $name Name in Archive;;;;;; @author Nicolas Heimann * @access private   **/
+      private function addDirDo($location, $name) {
+          $name .= '/';         $location .= '/';
+        // Read all Files in Dir
+          $dir = opendir ($location);
+          while ($file = readdir($dir))    {
+              if ($file == '.' || $file == '..') continue;
+            // Rekursiv, If dir: FlxZipArchive::addDir(), else ::File();
+              $do = (filetype( $location . $file) == 'dir') ? 'addDir' : 'addFile';
+              $this->$do($location . $file, $name . $file);
+          }
+      }
+  }
+
+  $za = new FlxZipArchive;
+  $res = $za->open($zip_file_name, ZipArchive::CREATE);
+  if($res === TRUE)    {
+      $za->addDir($the_folder, basename($the_folder)); $za->close();
+  }
+  else  { echo 'Could not create a zip archive';}
+
+  header("Content-type: application/zip");
+  header("Content-Disposition: attachment; filename=$zip_file_name");
+  header("Content-length: " . filesize($zip_file_name));
+  header("Pragma: no-cache");
+  header("Expires: 0");
+  readfile("$zip_file_name");
 
 
-
+  ///////////////Fonction qui marche !//////////////////////////////////////////
+  ///////////////////////////////////////////// zip des fichiers utilisateurs //
+  $pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
+  // Returns array of files
+  $files = scandir($pathfiles);
+  // Count number of files and store them to variable..
+  $num_files = count($files)-2;
+  // s'il y a plus de 2 fichiers dans le dossier client, crée une archive zip
+  if(file_exists($pathfiles) && $num_files >=2) {
+    ini_set('max_execution_time', 600);
+    ini_set('memory_limit','1024M');
+    // Start the backup!
+    function zipData($source, $destination) {
+      if (extension_loaded('zip')) {
+        if (file_exists($source)) {
+          $zip = new ZipArchive();
+          if ($zip->open($destination, ZIPARCHIVE::CREATE)) {
+            $source = realpath($source);
+            if (is_dir($source)) {
+              $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+              foreach ($files as $file) {
+                $file = realpath($file);
+                if (is_dir($file)) {
+                  $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+                } else if (is_file($file)) {
+                  $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+                }
+              }
+            } else if (is_file($source)) {
+              $zip->addFromString(basename($source), file_get_contents($source));
+            }
+          }
+          return $zip->close();
+        }
+      }
+      return false;
+    }
+    // create archive
+    zipData($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/', $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip');
+    echo '<div class="zipMessage">Plusieurs fichiers client trouvés, une archive a été générée: <a href="'.get_bloginfo('url').'/zip/'.$number.'.archive.zip" class="zipDownload">Download Zip</a></div>';
+  }
 
 ?>

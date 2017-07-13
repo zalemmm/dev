@@ -15,7 +15,12 @@
 				</li>
 
 				<li class="form-line" id="id_HD">
-                					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression dibond Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression dibond standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression dibond pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux dibond pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés dibond pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextHD" style="visibility:hidden;">
+							• <span class="highlight"><u><b>Impression dibond Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />
+							• <span class="highlight"><u><b>Impression dibond standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression dibond pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux dibond pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés dibond pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/>
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir qualité d'impression...</option>
 						<option value="HD">Haute définition</option>
@@ -284,68 +289,37 @@
 
 	</div>
 
-	<script type="text/javascript">
-		// checkboxes livraison
-		jQuery('#adresse').click(function() {
-			if (document.getElementById('adresse').checked) {
-				document.getElementById('etiquette').checked = false;
-			}
-		});
+<script type="text/javascript">
+	// checkboxes livraison
+	jQuery('#adresse').click(function() {
+		if (document.getElementById('adresse').checked) {
+			document.getElementById('etiquette').checked = false;
+		}
+	});
 
-		jQuery('#etiquette').click(function() {
-			if (document.getElementById('etiquette').checked) {
-				document.getElementById('adresse').checked = false;
-			}
-		});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('adresse').checked = false;
+		}
+	});
 
-	</script>
+	/* Voici la fonction javascript qui change la propriété "display"	livraison le jour même */
 
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	livraison le jour même */
-
-	function Afficher()
-	{
+	function Afficher()	{
 		divliv = document.getElementById('livraisonrapide');
-
 		if (divliv.style.display == 'none')
 		divliv.style.display = 'block';
-
-
 	}
-	</script>
-
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	pour afficher ou non le div selon que ce soit "none" ou "block". */
-
-	function Afficher()
-	{
+	function Afficher()	{
 		divInfo = document.getElementById('delivery-div');
-
 		if (divInfo.style.display == 'none')
 		divInfo.style.display = 'block';
-
-
 	}
-	</script>
-
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	pour afficher ou non le div selon que ce soit "none" ou "block". */
-
-	function Masquer()
-	{
+	function Masquer()	{
 		divInfo = document.getElementById('delivery-div');
-
 		if (divInfo.style.display == 'block')
 		divInfo.style.display = 'none';
-
-
 	}
-	</script>
-
-	<script type="text/javascript">
 
 	function AddBusinessDays(weekDaysToAdd) {
 	  // fonction jours ouvrés
@@ -365,11 +339,7 @@
 	}
 
 	jQuery(document).ready(function(){
-
 		jQuery('.delivery , .production').click(function(){
-
-
-
 			var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0; cenapojedyncza=0;
 			var suma=0; var suma2=0;
 			var rabat=0; var rabat2=0;
@@ -389,9 +359,7 @@
 			var eBox = document.getElementById('form-button-error2');
 			eBox.innerHTML='';
 
-
 			if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
-
 				ilosc = $('input_32').value;
 				szerokosc = ($('input_10').value);
 				szerokosc = szerokosc.replace(',','.');
@@ -492,7 +460,6 @@
 					poidstotal = poids*ilosc;
 				}
 
-
 				///// Dibond recto 100x50 /////
 				if (($('input_0').value == 'recto') && ($('input_1').value == '100x50')){
 					opis += '<br />- Dibond recto <br />- 100x50cm ';
@@ -537,6 +504,7 @@
 					poids = 4.20*0.5; ////grammage x m²///
 					poidstotal = poids*ilosc;
 				}
+
 				///// Dibond recto/verso 100x50/////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '100x50')){
 					opis += '<br />- Dibond recto/verso <br />- 100x50cm';
@@ -626,6 +594,7 @@
 					poids = 4.20*1.12; ////grammage x m²///
 					poidstotal = poids*ilosc;
 				}
+
 				///// Dibond recto/verso 150x75/////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '150x75')){
 					opis += '<br />- Dibond recto/verso <br />- 150x75cm';
@@ -671,9 +640,6 @@
 					poidstotal = poids*ilosc;
 				}
 
-
-
-
 				///// Dibond recto 200x100 /////
 				if (($('input_0').value == 'recto') && ($('input_1').value == '200x100')){
 					opis += '<br />- Dibond recto <br />- 200x100cm';
@@ -718,6 +684,7 @@
 					poids = 4.20*2; ////grammage x m²///
 					poidstotal = poids*ilosc;
 				}
+
 				///// Dibond recto/verso 200x100 /////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x100')){
 					opis += '<br />- Dibond recto/verso <br />- 200x100cm ';
@@ -852,9 +819,6 @@
 					poidstotal = poids*ilosc;
 				}
 
-
-
-
 				///// Dibond recto 300x150 /////
 				if (($('input_0').value == 'recto') && ($('input_1').value == '300x150')){
 					opis += '<br />- Dibond recto <br />- 300x150cm';
@@ -899,6 +863,7 @@
 					poids = 4.20*4.5; ////grammage x m²///
 					poidstotal = poids*ilosc;
 				}
+
 				///// Dibond recto/verso 300x150 /////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '300x150')){
 					opis += '<br />- Dibond recto/verso <br />- 300x150cm';
@@ -944,7 +909,6 @@
 					poidstotal = poids*ilosc;
 				}
 
-
 				///// Dibond recto personnalisée /////
 				if (($('input_0').value == 'recto') && ($('input_1').value == 'personnalisée')){
 					opis += '<br />- Dibond recto <br />- Taille Personnalisée';
@@ -989,6 +953,7 @@
 					poids = 4.20*0; ////grammage x m²///
 					poidstotal = poids*ilosc;
 				}
+
 				///// Dibond recto/verso personnalisée/////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == 'personnalisée')){
 					opis += '<br />- Dibond recto/verso <br />- Taille Personnalisée';
@@ -1034,11 +999,7 @@
 					poidstotal = poids*ilosc;
 				}
 
-
-
-
 				////fixations/////
-
 				if (($('input_4').value == 'ventouse') || ($('input_4perso').value == 'ventouse')){fixationsventouse=0.2; opis += '<br />- ventouse + perçage';} ////prix 1 ventouse/////
 				if (($('input_4').value == 'double face') || ($('input_4perso').value == 'double face')){fixations=0.3; opis += '<br />- double face';}
 				////perçage/////
@@ -1055,20 +1016,16 @@
 				if ($('input_6perso').value == 'fb') {opis += '<br />- France banderole crée la maquette';}
 				if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {opis += '<br />- j’ai déjà crée la maquette';}
 
-
-
 				////tarif unitaire/////
 				puoption = pu+fixations+percage+tarifventouse;
 				puoption2 = puoption+(maquette/ilosc);
 				////total/////
 				cena = (puoption*ilosc)+maquette;
 
-
 				////HD///
 				if ($('input_HD').value == 'HD') {HD = cena*0.25; cena += HD; opis += '<br />- HD';}
 				if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
 				////FIN HD///
-
 
 				///// options/////
 				var rush24 = $$('#rush24').collect(function(e){ return e.checked; }).any();
@@ -1095,8 +1052,6 @@
 
 
 				///transport///
-
-
 				if (poidstotal <= 1) {prixtransport=4.80;}
 				if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
 				if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
@@ -1131,9 +1086,6 @@
 					cena=cenapojedyncza*ilosc;
 				}
 
-
-
-
 				var total = document.getElementById("total");
 				var remise = document.getElementById("remise");
 
@@ -1158,14 +1110,8 @@
 					cena-= cena*3/100;
 				}
 
-
 				cenapojedyncza=fixstr(cenapojedyncza);
 				cena2 = cenapojedyncza.replace(".", ",");
-
-
-
-
-
 
 				var myClass = jQuery(this).attr("class");
 
@@ -1192,10 +1138,6 @@
 					jQuery('#delivery-value').val(delivery);
 					jQuery(this).prop("disabled",true);
 
-
-
-
-
 					jQuery(document).ready(function(){
 						jQuery('.jotform-form select').click(function(){
 							jQuery('#delivery-value').val(Masquer());
@@ -1212,285 +1154,214 @@
 							jQuery(production-value).prop("disabled",false);
 							jQuery(delivery-value).prop("disabled",true);
 
-						});});
-
-
-						jQuery(document).ready(function(){
-							jQuery('.form-textbox').click(function(){
-								jQuery('#delivery-value').val(Masquer());
-
-								jQuery('.delivery').prop("disabled",false);
-								jQuery('.production').prop("disabled",false);
-
-								jQuery('.production').removeClass('active');
-								jQuery(this).addClass('');
-
-								jQuery('.delivery').removeClass('active');
-								jQuery(this).addClass('active');
-
-								jQuery(production-value).prop("disabled",false);
-								jQuery(delivery-value).prop("disabled",true);
-
-							});});
-
-							jQuery(document).ready(function(){
-								jQuery('.form-textbox2').click(function(){
-									jQuery('#delivery-value').val(Masquer());
-
-									jQuery('.delivery').prop("disabled",false);
-									jQuery('.production').prop("disabled",false);
-
-									jQuery('.production').removeClass('active');
-									jQuery(this).addClass('');
-
-									jQuery('.delivery').removeClass('active');
-									jQuery(this).addClass('active');
-
-									jQuery(production-value).prop("disabled",false);
-									jQuery(delivery-value).prop("disabled",true);
-
-								});});
-
-
-								jQuery(document).ready(function(){
-									jQuery('.form-checkbox').click(function(){
-										jQuery('#delivery-value').val(Masquer());
-
-										jQuery('.delivery').prop("disabled",false);
-										jQuery('.production').prop("disabled",false);
-
-										jQuery('.production').removeClass('active');
-										jQuery(this).addClass('');
-
-										jQuery('.delivery').removeClass('active');
-										jQuery(this).addClass('active');
-
-										jQuery(production-value).prop("disabled",false);
-										jQuery(delivery-value).prop("disabled",true);
-
-									});});
-
-
-
-
-								}
-
-
-
-
-								var production      = jQuery('#production-value').val();
-								//alert(production);
-								var delivery        = jQuery('#delivery-value').val();
-
-
-
-
-
-								if(production && delivery){
-
-									// Calculate price
-									//alert('click');
-									var ProdPercent = '';
-									var DeliPercent = '';
-									var PorductType = jQuery('.production.active').attr('text-value');
-									var DeliveryType = jQuery('.delivery.active').attr('text-value');
-									if(PorductType == '2-3' ){
-										ProdPercent = 15;
-										prliv += '<br />- P 2-3J';
-									}else if(PorductType =='1-1'){
-										ProdPercent = 40;
-										prliv += '<br />- P 1J';
-									}else{
-										ProdPercent = 0;
-										prliv += '<br />- P 4-5J';
-									}
-
-									if(DeliveryType == '2-3'){
-										DeliPercent = 15;
-										prliv += ' / L 2-3J';
-									}else if(DeliveryType =='1-1'){
-										DeliPercent = 40;
-										prliv += ' / L 1J';
-									}else{
-										DeliPercent = 0;
-										prliv += ' / L 3-4J';
-									}
-
-
-
-
-
-
-
-									var price_unit = parseFloat(cenapojedyncza);
-
-									//var str = price_unit;
-									//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-									var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-									var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-									var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
-
-
-
-
-									// Calculate Days
-									var prod_first_val  = parseInt(production[0]);
-									var prod_second_val = parseInt(production[2]);
-									var deli_first_val  = parseInt(delivery[0]);
-									var deli_second_val = parseInt(delivery[2]);
-
-									var totalProduction = prod_first_val + deli_first_val;
-									var totalDelivery   = prod_second_val + deli_second_val;
-									if(totalProduction == totalDelivery){
-										jQuery('#totaldays').text("Total jours " + totalProduction);
-										var days = totalProduction;
-									}else{
-										jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-										var days = totalDelivery;
-									}
-
-									var curdate = new Date();
-									var curhour = curdate.getHours();
-									// ajout 1 jour ouvré de délai sur commande après 12h
-									if (curhour >= 12) {
-										var daystoadd = AddBusinessDays(days+1);
-									}else{
-										var daystoadd = AddBusinessDays(days);
-									}
-
-									curdate.setDate(curdate.getDate()+daystoadd);
-									var estdt = new Date(curdate);
-									var month = estdt.getMonth()+1;
-									var day = estdt.getDate();
-									var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-									//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
-									if(jQuery('#id_7').css('display') != 'none')
-									{
-										//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-										//jQuery('#prix_unitaire').text(finalPrice);
-										jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-
-
-									}
-
-
-
-
-									finalPrice1=fixstr(finalPrice);
-									finalPrice2 = finalPrice1.replace(".", ",");
-
-
-									jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-									jQuery('#remise').html(rabat2);
-
-								}
-
-
-
-
-
-
-								cenapojedyncza = finalPrice1;
-
-
-
-
-								ilosc=($('input_32').value) || ($('input_32perso').value);
-								if ($('input_32').value) {
-									cena=cenapojedyncza*ilosc;
-								}
-
-								if ($('input_32perso').value) {
-									cena=cenapojedyncza*ilosc;
-								}
-
-
-
-
-
-
-								var total = document.getElementById("total");
-								var remise = document.getElementById("remise");
-
-
-
-
-								cenapojedyncza=fixstr(cenapojedyncza);
-								cena2 = cenapojedyncza.replace(".", ",")
-
-
-
-
-
-
-
-								/* koszty transportu */
-
-								var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-								var etiqdesc = '';
-								if (etiquette == true) {
-									transport=0;
-									etiqdesc = '<br />- retrait colis a l\'atelier';
-								}
-								transport=0;
-
-
-
-
-
-
-
-
-
-
-
-
-								var niepokazuj = 0;
-
-								if (niepokazuj==1) {
-									prix.innerHTML='-';
-									remise.innerHTML='-';
-									total.innerHTML='-';
-								}
-
-								///////////livraison le jour même////////
-								if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-									livraisonrapide.style.display = 'block';
-								}
-								else {livraisonrapide.style.display = 'none';}
-								/////////////////////////////////////////
-
-								if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-									suma=cena-rabat;
-									suma=fixstr(suma);
-									suma2 = suma.replace(".", ",");
-									total.innerHTML=suma2+' &euro;';
-
-
-									var rodzaj = "Dibond";
-
-									var dodajkoszyk = document.getElementById("cart_form");
-
-
-									if($('input_1').value == 'personnalisée') {
-										dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-									};
-									if($('input_1').value != 'personnalisée') {
-										dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-										livraisonComp.style.display = 'block';
-									};
-
-
-								}
-
-
-							}
 						});
+					});
 
+					jQuery(document).ready(function(){
+						jQuery('.form-textbox').click(function(){
+							jQuery('#delivery-value').val(Masquer());
 
+							jQuery('.delivery').prop("disabled",false);
+							jQuery('.production').prop("disabled",false);
 
+							jQuery('.production').removeClass('active');
+							jQuery(this).addClass('');
+
+							jQuery('.delivery').removeClass('active');
+							jQuery(this).addClass('active');
+
+							jQuery(production-value).prop("disabled",false);
+							jQuery(delivery-value).prop("disabled",true);
+
+						});
+					});
+
+					jQuery(document).ready(function(){
+						jQuery('.form-textbox2').click(function(){
+							jQuery('#delivery-value').val(Masquer());
+
+							jQuery('.delivery').prop("disabled",false);
+							jQuery('.production').prop("disabled",false);
+
+							jQuery('.production').removeClass('active');
+							jQuery(this).addClass('');
+
+							jQuery('.delivery').removeClass('active');
+							jQuery(this).addClass('active');
+
+							jQuery(production-value).prop("disabled",false);
+							jQuery(delivery-value).prop("disabled",true);
+
+						});
 					});
 
 
+					jQuery(document).ready(function(){
+						jQuery('.form-checkbox').click(function(){
+							jQuery('#delivery-value').val(Masquer());
 
-					</script>
+							jQuery('.delivery').prop("disabled",false);
+							jQuery('.production').prop("disabled",false);
+
+							jQuery('.production').removeClass('active');
+							jQuery(this).addClass('');
+
+							jQuery('.delivery').removeClass('active');
+							jQuery(this).addClass('active');
+
+							jQuery(production-value).prop("disabled",false);
+							jQuery(delivery-value).prop("disabled",true);
+
+						});
+					});
+				}
+
+				var production      = jQuery('#production-value').val();
+				//alert(production);
+				var delivery        = jQuery('#delivery-value').val();
+
+				if(production && delivery){
+					// Calculate price
+					//alert('click');
+					var ProdPercent = '';
+					var DeliPercent = '';
+					var PorductType = jQuery('.production.active').attr('text-value');
+					var DeliveryType = jQuery('.delivery.active').attr('text-value');
+					if(PorductType == '2-3' ){
+						ProdPercent = 15;
+						prliv += '<br />- P 2-3J';
+					}else if(PorductType =='1-1'){
+						ProdPercent = 40;
+						prliv += '<br />- P 1J';
+					}else{
+						ProdPercent = 0;
+						prliv += '<br />- P 4-5J';
+					}
+
+					if(DeliveryType == '2-3'){
+						DeliPercent = 15;
+						prliv += ' / L 2-3J';
+					}else if(DeliveryType =='1-1'){
+						DeliPercent = 40;
+						prliv += ' / L 1J';
+					}else{
+						DeliPercent = 0;
+						prliv += ' / L 3-4J';
+					}
+
+					var price_unit = parseFloat(cenapojedyncza);
+
+					//var str = price_unit;
+					//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
+					var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+					var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+					var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
+
+					// Calculate Days
+					var prod_first_val  = parseInt(production[0]);
+					var prod_second_val = parseInt(production[2]);
+					var deli_first_val  = parseInt(delivery[0]);
+					var deli_second_val = parseInt(delivery[2]);
+
+					var totalProduction = prod_first_val + deli_first_val;
+					var totalDelivery   = prod_second_val + deli_second_val;
+					if(totalProduction == totalDelivery){
+						jQuery('#totaldays').text("Total jours " + totalProduction);
+						var days = totalProduction;
+					}else{
+						jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+						var days = totalDelivery;
+					}
+
+					var curdate = new Date();
+					var curhour = curdate.getHours();
+					// ajout 1 jour ouvré de délai sur commande après 12h
+					if (curhour >= 12) {
+						var daystoadd = AddBusinessDays(days+1);
+					}else{
+						var daystoadd = AddBusinessDays(days);
+					}
+
+					curdate.setDate(curdate.getDate()+daystoadd);
+					var estdt = new Date(curdate);
+					var month = estdt.getMonth()+1;
+					var day = estdt.getDate();
+					var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+					//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
+					if(jQuery('#id_7').css('display') != 'none') {
+						//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
+						//jQuery('#prix_unitaire').text(finalPrice);
+						jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+					}
+
+					finalPrice1=fixstr(finalPrice);
+					finalPrice2 = finalPrice1.replace(".", ",");
+
+					jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+					jQuery('#remise').html(rabat2);
+
+				}
+
+				cenapojedyncza = finalPrice1;
+
+				ilosc=($('input_32').value) || ($('input_32perso').value);
+				if ($('input_32').value) {
+					cena=cenapojedyncza*ilosc;
+				}
+
+				if ($('input_32perso').value) {
+					cena=cenapojedyncza*ilosc;
+				}
+
+				var total = document.getElementById("total");
+				var remise = document.getElementById("remise");
+
+				cenapojedyncza=fixstr(cenapojedyncza);
+				cena2 = cenapojedyncza.replace(".", ",")
+
+				/* koszty transportu */
+
+				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+				var etiqdesc = '';
+				if (etiquette == true) {
+					transport=0;
+					etiqdesc = '<br />- retrait colis a l\'atelier';
+				}
+				transport=0;
+
+				var niepokazuj = 0;
+
+				if (niepokazuj==1) {
+					prix.innerHTML='-';
+					remise.innerHTML='-';
+					total.innerHTML='-';
+				}
+
+				///////////livraison le jour même////////
+				if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+					livraisonrapide.style.display = 'block';
+				}
+				else {livraisonrapide.style.display = 'none';}
+				/////////////////////////////////////////
+
+				if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+					suma=cena-rabat;
+					suma=fixstr(suma);
+					suma2 = suma.replace(".", ",");
+					total.innerHTML=suma2+' &euro;';
+
+					var rodzaj = "Dibond";
+					var dodajkoszyk = document.getElementById("cart_form");
+
+					if($('input_1').value == 'personnalisée') {
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+					};
+					if($('input_1').value != 'personnalisée') {
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						livraisonComp.style.display = 'block';
+					};
+				}
+			}
+		});
+	});
+</script>
