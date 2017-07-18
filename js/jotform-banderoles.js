@@ -679,6 +679,11 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/550g.png)";
               imag2.style.animation="anim1 .5s 1";
 						}
+            if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'jet 550')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/jet550.png)";
+              imag2.style.animation="anim1 .5s 1";
+						}
+
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache nontissé 150g')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png)";
               imag2.style.animation="anim2 .5s 1";
@@ -845,7 +850,7 @@ JotForm = {
             if (($('input_41').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux') || ($('input_44').value == 'sans fourreaux')) {
               imag5.style.backgroundImage="none";
             }
-
+            
 				}
 
 //

@@ -95,7 +95,7 @@ function get_inscription() {
 						$setup_epub = $wpdb->query("INSERT INTO `$fb_tablename_users_cf` VALUES ('','".$new_user."','client_epub','".$f_epub."')");
 					}
 				}
-				$view .= '<p>'._FB_EDIT_OK.'</p>';
+				$view .= '<p class="box_info">'._FB_EDIT_OK.'</p>';
 				$sprawdz = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$new_user'");
 				$_SESSION['loggeduser'] = $sprawdz;
 				$_SESSION['loggeduser']->logme = "yes";
@@ -623,7 +623,7 @@ function get_acces_client() {
         			$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($adresemail->email, "nouveau mot de passe et nom d utilisateur", $letter, $header);
 			        wp_mail($adresemail->email, "Nouveau mot de passe et nom d utilisateur", $letter);
-    	    		$view .= '<p>'._FB_NPASS3.'</p>';
+    	    		$view .= '<p class="box_info">'._FB_NPASS3.'</p>';
     	    	} else {
     	    		$view .= '<p>'._FB_ERROR.'</p><p><a href="'.get_bloginfo('url').'/acces-client/?resend=pass">'._FB_COFNIJ.'</a></p>';
     	    	}

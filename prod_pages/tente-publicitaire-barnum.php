@@ -268,7 +268,8 @@
 
   <div id="container">
     <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-1.jpg" alt="tente publicitaire pas cher" title="tente pub économique" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-0.jpg" alt="tente forum association" title="tente évènement" /></li>
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-1.jpg" alt="tente publicitaire pas cher" title="tente festival économique" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-3.jpg" alt="tente barnum pas cher" title="barnum bas prix" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/tente/slide/tente-barnum-2.jpg" alt="barnum tente plublicitaire pas cher" title="tente publicitaire discount" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>

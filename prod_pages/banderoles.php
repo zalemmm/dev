@@ -17,17 +17,18 @@
 
 				<!--support-->
 				<li class="form-line" id="id_ext">
-					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />• <u><b>Bâche 550g B1</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Toutes les banderoles jusqu'à 3 ans en Ext.<br />• <u><b>Bâche nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />• <u><b>Bâche Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Ue bâche conçue et produite en France, pour un produit fini 100% made in France et résistant dans la durée.<br />• <u><b>Bâche nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
-						<option value="bache 440g">bache 440g </option>
-						<option value="bache 550g">bache 550g B1 </option>
-						<option value="bache nontissé 150g">bache nontissé 150g</option>
-						<option value="bache 470g M1">bache 470g M1</option>
-						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
-						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
-						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 440g" class="option1">bâche 440g </option>
+						<option value="eco toile" class="ecotoile"><!--défini dans fb/main.js--></option>
+						<option value="jet 550" class="fr"><!--défini dans fb/main.js--></option>
+						<option value="bache nontissé 150g" class="option2">bâche nontissé 150g</option>
+						<option value="bache 470g M1"  class="option1">bâche 470g M1</option>
+						<option value="bache 750g M2/B1"  class="option2">bâche 750g M2/B1 </option>
+						<option value="bache 750g M2/B1 recto verso"  class="option1">bâche 750g M2/B1 recto verso </option>
+						<option value="bache micro perforée M1/B1" class="option2">bâche micro perforée M1/B1 </option>
+						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
 					</select>
 				</li>
 
@@ -39,7 +40,7 @@
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
 						<option value="bache nontissé 150g M1">bache nontissé 150g M1</option>
 					</select>
 				</li>
@@ -52,7 +53,7 @@
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
 						<option value="bache nontissé 150g M1">bache nontissé 150g M1</option>
 					</select>
 				</li>
@@ -628,7 +629,7 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*6.5;}
 			opis += '<br />- 440gr'
 		}
-		if ($('input_ext').value == 'bache 550g' ) {
+		if ($('input_ext').value == 'jet 550' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
 			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
@@ -652,7 +653,7 @@ if ( ($('input_1').value) ) {
 			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
 			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
 			if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
-			opis += '<br />- 550gr'
+			opis += '<br />- Jet 550'
 		}
 		if ($('input_ext').value == 'bache 470g M1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
@@ -1547,7 +1548,7 @@ if ( ($('input_1').value) ) {
 					if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
 				};
 
-				if (($('input_ext').value == 'bache 550g') || ($('input_int').value == 'bache 550g') || ($('input_intext').value == 'bache 550g' )) {
+				if (($('input_ext').value == 'jet 550') || ($('input_int').value == 'jet 550') || ($('input_intext').value == 'jet 550' )) {
 				if (metrage*ilosc <= 10.99) {rabat = cena*0;};
 				if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
 				if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
@@ -1679,7 +1680,7 @@ if ( ($('input_intext').value == 'bache micro perforée M1/B1') && (szerokosc > 
 	eBox.style.display="block";
 	niepokazuj=2;
 }
-if ( ($('input_ext').value == 'bache 550g') && (szerokosc > 2) && (wysokosc > 2)  ) {
+if ( ($('input_ext').value == 'jet 550') && (szerokosc > 2) && (wysokosc > 2)  ) {
 	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 	eBox.style.display="block";
 	niepokazuj=2;

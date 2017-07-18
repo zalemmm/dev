@@ -271,15 +271,26 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "intext", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "intext", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "intext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "44", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+
+
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "22", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"}, {"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"}, {"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "41", "visibility": "Show"}},
+
+
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"},{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"},{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"},{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"},{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"},{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"},{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+
+
 
     {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
@@ -302,6 +313,7 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "rislans"}], "action": {"field": "53", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "51", "operator": "notEquals", "value": "rislans"}, {"field": "51", "operator": "notEquals", "value": "tendeurs"}, {"field": "51", "operator": "notEquals", "value": ""}], "action": {"field": "12", "visibility": "Show"}},
 
+
     {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "91", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "nouettes haut/bas"}], "action": {"field": "92", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "81", "operator": "equals", "value": "fourreaux gauche/droite"}, {"field": "81", "operator": "equals", "value": "pas de finition"}], "action": {"field": "101", "visibility": "Show"}},
@@ -315,7 +327,7 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-  ]);
+    ]);
   JotForm.init();
   </script>';
   }

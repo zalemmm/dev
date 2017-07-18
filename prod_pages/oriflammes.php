@@ -208,6 +208,7 @@
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-1.jpg" alt="oriflamme pas cher" title="beachflag pas cher" /></li>
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-2.jpg" alt="beachflag personnalisé" title="devis oriflamme" /></li>
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-3.jpg" alt="windflag pas cher" title="oriflamme devis en ligne" /></li>
+          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-4.jpg" alt="oriflamme pas cher" title="beachflag pas cher" /></li>
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
         </div>
       </div>

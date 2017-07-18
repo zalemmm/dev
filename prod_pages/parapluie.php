@@ -8,16 +8,21 @@
         <li class="form-line" id="id_0">
           <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Stand tissu EasyQuick</u>: <span class="highlight">Dès 468€</span></b><br/>LE meilleur stand parapluie textile 260g robuste et facile à monter. Traité retardement feu. livré avec sac de transport à roulettes<br />• <u><b>Stand ExpoBag</u>: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>• <u><b>Stand parapluie révolution</u>: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br /></span>
+            <span class="helpText" id="helpText0" style="visibility:hidden;">
+              • <u><b>Stand tissu EasyQuick</u>: <span class="highlight">Dès 468€</span></b><br/>LE meilleur stand parapluie textile 260g robuste et facile à monter. Traité retardement feu. livré avec sac de transport à roulettes<br />
+              • <u><b>Stand ExpoBag</u>: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>
+              • <u><b>Stand parapluie révolution</u>: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
+              • <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 316€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              • <u><b>Valise transformable</u>: <span class="highlight"></span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br /></span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
             <option value="">choisir le type</option>
-            <option value="Tissu">Stand Tissu Easy Quick</option>
-            <option value="Stand ExpoBag">Stand Expo’Bag</option>
-            <option value="Stand parapluie">Stand Parapluie Révolution avec Kit (valise + tablette + spot)</option>
-            <option value="Comptoir Easy Quick">Comptoir Easy Quick</option>
-            <option value="valise">Valise transformable en bank d'accueil + tablette</option>
+            <option value="Tissu">stand tissu easy quick</option>
+            <option value="Stand ExpoBag">stand expo’bag</option>
+            <option value="Stand parapluie">stand parapluie révolution avec kit (valise + tablette + spot)</option>
+            <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
+            <option value="valise">valise transformable en bank d'accueil + tablette</option>
           </select>
         </li>
 
@@ -127,13 +132,16 @@
         <li class="form-line" id="id_6">
           <span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText7" style="visibility:hidden;"><br /><br /><br /></span>
+            <span class="helpText" id="helpText7" style="visibility:hidden;">
+              • <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 316€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              • <u><b>Valise transformable</u>: <span class="highlight"></span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br /></span>
+            </span>
           </span>
 
           <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir l'option... </option>
-            <option value="41">Valise de transport / Comptoir accueil </option>
-            <option value="Comptoir Easy Quick">Comptoir Easy Quick</option>
+            <option value="41">valise transformable en bank accueil </option>
+            <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
             <option value="0">non merci </option>
           </select>
         </li>
@@ -529,7 +537,7 @@ jQuery(document).ready(function(){
       if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
       if ($('input_0').value == 'Tissu') {javascript: Masquer2();}
       if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
-      if ($('input_0').value == 'Comptoir Easy Quick') {javascript: Masquer2();}
+      if ($('input_0').value == 'Comptoir tissu Easy Quick') {javascript: Masquer2();}
 
       var ktodaje;
       if ($('input_7').value == 'fb') {

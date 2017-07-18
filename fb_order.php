@@ -1079,7 +1079,7 @@ function print_votre() {
 	} else {
 		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.$user->f_name.'!</div>
 					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i> Se deconnecter</a></div>
-				  </div><p style="position:relative;float:left;display:block;width:100%;padding-top:20px;">'._FB_NZAM.'</p></div>';
+				  </div><div class="box_warning" style="clear:both;top:15px">'._FB_NZAM.'</div></div>';
 	}
   }
   return $view;
