@@ -344,22 +344,36 @@
 </div>
 
 <script type="text/javascript">
+	//////////////////////////////////////////////////////////////////////////////
+	function Afficher() {
+		divliv = document.getElementById('livraisonrapide');
+		if (divliv.style.display == 'none')
+		divliv.style.display = 'block';
+	}
+	function Afficher() {
+		divInfo = document.getElementById('delivery-div');
+		if (divInfo.style.display == 'none')
+		divInfo.style.display = 'block';
+	}
+	function Masquer() {
+		divInfo = document.getElementById('delivery-div');
+		if (divInfo.style.display == 'block')
+		divInfo.style.display = 'none';
+	}
 
-  // checkboxes livraison
+  // checkboxes livraison //////////////////////////////////////////////////////
   jQuery('#adresse').click(function() {
     if (document.getElementById('adresse').checked) {
       document.getElementById('relais').checked = false;
       document.getElementById('etiquette').checked = false;
     }
   });
-
   jQuery('#etiquette').click(function() {
     if (document.getElementById('etiquette').checked) {
       document.getElementById('relais').checked = false;
       document.getElementById('adresse').checked = false;
     }
   });
-
   jQuery('#relais').click(function() {
     if (document.getElementById('relais').checked) {
       document.getElementById('etiquette').checked = false;
@@ -367,27 +381,7 @@
     }
   });
 
-	/* change la propriété "display" livraison le jour même */
-	function Afficher() {
-		divliv = document.getElementById('livraisonrapide');
-		if (divliv.style.display == 'none')
-		divliv.style.display = 'block';
-	}
-
-	/* change la propriété "display" pour afficher ou non le div selon que ce soit "none" ou "block". */
-	function Afficher() {
-		divInfo = document.getElementById('delivery-div');
-		if (divInfo.style.display == 'none')
-		divInfo.style.display = 'block';
-	}
-
-	/* change la propriété "display" pour afficher ou non le div selon que ce soit "none" ou "block". */
-	function Masquer() {
-		divInfo = document.getElementById('delivery-div');
-		if (divInfo.style.display == 'block')
-		divInfo.style.display = 'none';
-	}
-
+	// calcul des jours ouvrés ///////////////////////////////////////////////////
 	function AddBusinessDays(weekDaysToAdd) {
 	  // fonction jours ouvrés
 	  var curdate = new Date();
@@ -405,11 +399,10 @@
 	  return realDaysToAdd;
 	}
 
+	//////////////////////////////////////////////////////////////////////////////
 	jQuery(document).ready(function(){
 		jQuery('.delivery , .production').click(function(){
-
 			//alert(cena);
-
 			var perteH=0; var perteL=0;
 		  var h1=0; var h2=0;
 		  var l1=0; var l2=0;
@@ -428,7 +421,6 @@
 		  var structure=0;
 		  var fp='';
 	    var pu=0;
-
 			var cena=0; var cena2=0; var cenapojedyncza=0;
 			var rabat=0; var rabat2=0;
 			var suma=0; var suma2=0;
@@ -445,7 +437,7 @@
 
 				ilosc=$('input_7').value;
 
-				//// first-line
+				// first-line //////////////////////////////////////////////////////////
 
 				if ($('input_1').value == 'first-line') {
 					if (ilosc<7) {cena=28;}
@@ -469,7 +461,7 @@
 					}
 				}
 
-				///// best-line
+				//  best-line //////////////////////////////////////////////////////////
 
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '60x200')) {
 					if (ilosc<7) {cena=45;}
@@ -491,7 +483,6 @@
 					}
 				}
 
-
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '80x200')) {
 					if (ilosc<7) {cena=47;}
 					if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
@@ -511,7 +502,6 @@
 						dodatkowaopcja += '<br />- '+$('input_4').value;
 					}
 				}
-
 
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '85x200')) {
 					if (ilosc<7) {cena=50;}
@@ -572,7 +562,6 @@
 					}
 				}
 
-
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '150x200')) {
 					if (ilosc<7) {cena=99;}
 					if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
@@ -612,7 +601,7 @@
 					}
 				}
 
-				///// lux-line
+				// lux-line ////////////////////////////////////////////////////////////
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '60x200')){
 					if (ilosc<7) {cena=60;}
@@ -672,7 +661,6 @@
 					}
 				}
 
-
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '100x200')){
 					if (ilosc<7) {cena=80;}
 					if ((ilosc>=7) && (ilosc<=24)) {cena=79;}
@@ -684,7 +672,6 @@
 					if ($('input_33').value == '300µ M1') {cena += 4}
 					if ($('input_33').value == '470g M1') {cena += 5}
 					if ($('input_33').value == '100% écologique M1') {cena += 12}
-
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -705,14 +692,12 @@
 					if ($('input_33').value == '470g M1') {cena += 8}
 					if ($('input_33').value == '100% écologique M1') {cena += 16}
 
-
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					if ($('input_4').value != '') {
 						dodatkowaopcja += '<br />- '+$('input_4').value;
 					}
 				}
-
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '150x200')){
 					if (ilosc<7) {cena=148;}
@@ -726,14 +711,12 @@
 					if ($('input_33').value == '470g M1') {cena += 12}
 					if ($('input_33').value == '100% écologique M1') {cena += 20}
 
-
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					if ($('input_4').value != '') {
 						dodatkowaopcja += '<br />- '+$('input_4').value;
 					}
 				}
-
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x300')){
 					if (ilosc<7) {cena=320;}
@@ -745,7 +728,6 @@
 					if ($('input_35').value == '440g') {cena += 0}
 					if ($('input_35').value == '470g M1') {cena += 40}
 
-
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					dodatkowaopcja='<br />- '+$('input_35').value;
@@ -754,7 +736,7 @@
 					}
 				}
 
-				////// double
+				// double //////////////////////////////////////////////////////////////
 
 				if (($('input_1').value == 'double') && ($('input_24').value == '80x200')){
 					if (ilosc<7) {cena=90;}
@@ -768,14 +750,12 @@
 					if ($('input_34').value == '470g M1') {cena += 8}
 					if ($('input_34').value == '100% écologique M1') {cena += 20}
 
-
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
 					if ($('input_4').value != '') {
 						dodatkowaopcja += '<br />- '+$('input_4').value;
 					}
 				}
-
 
 				if (($('input_1').value == 'double') && ($('input_24').value == '85x200')){
 					if (ilosc<7) {cena=99;}
@@ -789,14 +769,12 @@
 					if ($('input_34').value == '470g M1') {cena += 12}
 					if ($('input_34').value == '100% écologique M1') {cena += 22}
 
-
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
 					if ($('input_4').value != '') {
 						dodatkowaopcja += '<br />- '+$('input_4').value;
 					}
 				}
-
 
 				if (($('input_1').value == 'double') && ($('input_24').value == '100x200')){
 					if (ilosc<7) {cena=135;}
@@ -810,7 +788,6 @@
 					if ($('input_34').value == '470g M1') {cena += 15}
 					if ($('input_34').value == '100% écologique M1') {cena += 28}
 
-
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
 					if ($('input_4').value != '') {
@@ -818,25 +795,19 @@
 					}
 				}
 
-
 				if ($('input_25').value == 'minia4'){
 					cena=24;
 					dodatkowaopcja='<br />- '+$('input_25').value;
-
 				}
 				if ($('input_25').value == 'minia3'){
 					cena=29;
 					dodatkowaopcja='<br />- '+$('input_25').value;
-
 				}
 
+				// mistral /////////////////////////////////////////////////////////////
 
-
-
-
-				////////mistral////
-			if ($('input_1').value == 'Mistral'){
-				////////Laize////
+				if ($('input_1').value == 'Mistral'){
+					// Laise mistral //
 	      	szerokosc=0.8; wysokosc=2;
 	      	metraz = szerokosc * wysokosc;
 	      	metraz = fixstr(metraz);
@@ -867,100 +838,87 @@
 	      	ilosc=$('input_7').value;
 	      	if ($('input_7').value) {
 	      		metragefinal=metrage*ilosc;
-	  	    }
+	  	   	}
 
+					if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
+						if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
+						if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
+						if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
+						if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
+						if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
+						if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
+						if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
+						if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
+						if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
+						if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
+						if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
+						if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
+						if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
+						if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
+						if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
+						if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
+						if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
+						if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
+						if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
+						if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
+						if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
+						if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
+						p1=(metraz*0.55)*ilosc;
 
-			if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
-				p1=(metraz*0.55)*ilosc;
-
-
-
-
-	          if ($('input_26').value == '80x200 1 visuel') {
-				 structure=86.4*1.8;
+		        if ($('input_26').value == '80x200 1 visuel') {
+						  structure=86.4*1.8;
 	            cena=structure+(cenatotal/ilosc);
 	            ktorytyp=$('input_26').value;
-
-				p2=3*ilosc;
+							p2=3*ilosc;
 	          }
 	          if ($('input_26').value == '80x200 2 visuels') {
-				structure=86.4*1.8;
+							structure=86.4*1.8;
 	            cena=structure+((cenatotal*1.5)/ilosc);
 	            ktorytyp=$('input_26').value;
+							p2=3*ilosc;
+		        }
 
-				p2=3*ilosc;
-	          }
+					// poids mistral //
+					poids=(p1+p2);
+			  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
+			  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
+			  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
+			  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
+			  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
+			  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
+			  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
+			  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
+			  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
+			  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
+			     if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
+			  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
+			  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
+			  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
+			     if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
+				   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
+				   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
+				   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
+			     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
+			     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
+					///////////////////
+				}
 
-
-			///////////////////poids mistral
-			poids=(p1+p2);
-	  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
-	  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
-	  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
-	  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
-	  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
-	  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
-	  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
-	  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
-	  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
-	  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
-	     if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
-	  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
-	  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
-	  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
-	     if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
-		   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
-		   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
-		   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
-	     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
-	     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
-			///////////////////
-
-
-			}
-
-
-
-
-				//// spot
+				// spot ////////////////////////////////////////////////////////////////
 				if ($('input_4').value == 'spot') {
 					cena+=29;
 				}
 
-
-				//// maquette
+				// maquette ////////////////////////////////////////////////////////////
 				var ktodaje;
 				if ($('input_6').value == 'fb') {
 					cena+=29;
-					ktodaje = 'France banderole crée la maquette';
+					ktodaje = 'France banderole crée la mise en page';
 				}
 				if ($('input_6').value == 'user') {
 					ktodaje = 'j’ai déjà crée la maquette';
 				}
 
-				//// options
+				// options /////////////////////////////////////////////////////////////
 				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 				if (colis == true) {
 					cena += 2.00;
@@ -1019,27 +977,24 @@
 					jQuery(this).prop("disabled",true);
 
 					jQuery(document).ready(function(){
-
 						jQuery('.jotform-form select').click(function(){
-						jQuery('#delivery-value').val(Masquer());
+							jQuery('#delivery-value').val(Masquer());
 
-						jQuery('.delivery').prop("disabled",false);
-						jQuery('.production').prop("disabled",false);
+							jQuery('.delivery').prop("disabled",false);
+							jQuery('.production').prop("disabled",false);
 
-						jQuery('.production').removeClass('active');
-						jQuery(this).addClass('');
+							jQuery('.production').removeClass('active');
+							jQuery(this).addClass('');
 
-						jQuery('.delivery').removeClass('active');
-						jQuery(this).addClass('active');
+							jQuery('.delivery').removeClass('active');
+							jQuery(this).addClass('active');
 
-						jQuery('#production-value').prop("disabled",false);
-						jQuery('#delivery-value').prop("disabled",true);
-
+							jQuery('#production-value').prop("disabled",false);
+							jQuery('#delivery-value').prop("disabled",true);
 						});
 					});
 
 					jQuery(document).ready(function(){
-
 						jQuery('.form-textbox').click(function(){
 							jQuery('#delivery-value').val(Masquer());
 
@@ -1054,12 +1009,10 @@
 
 							jQuery('#production-value').prop("disabled",false);
 							jQuery('#delivery-value').prop("disabled",true);
-
 						});
 					});
 
 					jQuery(document).ready(function(){
-
 						jQuery('.form-checkbox').click(function(){
 							jQuery('#delivery-value').val(Masquer());
 
@@ -1074,7 +1027,6 @@
 
 							jQuery('#production-value').prop("disabled",false);
 							jQuery('#delivery-value').prop("disabled",true);
-
 						});
 					});
 				}
@@ -1084,7 +1036,6 @@
 				var delivery        = jQuery('#delivery-value').val();
 
 				if(production && delivery){
-
 					// Calculate price
 					//alert('click');
 					var ProdPercent = '';
@@ -1176,15 +1127,6 @@
 				cenapojedyncza=fixstr(cenapojedyncza);
 				cena2 = cenapojedyncza.replace(".", ",")
 
-				/* koszty transportu */
-
-				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-				var etiqdesc = '';
-				if (etiquette == true) {
-					transport=0;
-					etiqdesc = '<br />- retrait colis a l\'atelier';
-					cena-= cena*3/100;
-				}
 				transport=0;
 
 				var niepokazuj = 0;
@@ -1195,12 +1137,12 @@
 					total.innerHTML='-';
 				}
 
-				///////////livraison le jour même////////
+				// livraison le jour même //
 				if ((DeliveryType == '1-1') && (PorductType == '1-1')){
 					livraisonrapide.style.display = 'block';
 				}
 				else {livraisonrapide.style.display = 'none';}
-				/////////////////////////////////////////
+				///////////////////////////
 
 				if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 					suma=cena-rabat;
@@ -1213,7 +1155,6 @@
 					livraisonComp.style.display = 'block';
 				}
 			}
-
 		});
 	});
 

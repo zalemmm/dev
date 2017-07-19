@@ -188,101 +188,95 @@ function get_inscription() {
 		$view .= '
 		<div class="acces_left" >
 			<div class="acces_tab_name">VOTRE COMPTE</div>
-			<div class="acces_tab_content2">
+				<div class="acces_tab_content2">
         	<ul class="regiform">';
-
-			if(fb_is_logged()) {
-				$view .= '<p id="mailOrigin" style="visibility: hidden; display: none;">'.$user->email.'</p>';
-
-				$view .= '
-				<li class="form-line" id="id_1">
-            	    <label class="registerlabel" id="label_1" for="input_1">adresse e-mail:</label>
-            	    <input type="text" class="registerinput validate[required, Email]" id="input_1" name="email" value="'.$user->email.'" />
-            	</li>
-            	<li class="form-line" id="id_2">
-            	    <label class="registerlabel" id="label_2" for="input_2">nom d\'utilisateur:</label>
-            	    <input type="text" class="registerinput v" id="input_2" name="login" value="'.$user->login.'" disabled />
-            	    <span class="info_unique">uniquement chiffres et lettres</span>
-            	</li>';
-
-
-			} else {
-
-				$view .= '
-            	<li class="form-line" id="id_1">
-            	    <label class="registerlabel" id="label_1" for="input_1">adresse e-mail:</label>
-            	    <input type="text" class="registerinput validate[required, Email]" id="input_1" name="email" value="'.$user->email.'" />
-            	</li>
-            	<li class="form-line" id="id_2">
-            	    <label class="registerlabel" id="label_2" for="input_2">nom d\'utilisateur:</label>
-            	    <input type="text" class="registerinput validate[required, AlphaNumeric]" id="input_2" name="login" value="'.$user->login.'" />
-            	    <span class="info_unique">uniquement chiffres et lettres</span>
-            	</li>';
-
-			}
-			$view .= '
-            	<li class="form-line" id="id_3">
-            	    <label class="registerlabel" id="label_3" for="input_3">mot de passe:</label>
-            	    <input type="password" class="registerinput validate['.$passrequire.'AlphaNumeric]" id="input_3" name="pass" />
-            	    <span class="info_unique">uniquement chiffres et lettres</span>
-            	</li>
-            	<li class="form-line" id="id_4">
-            	    <label class="registerlabel" id="label_4" for="input_4">confirmation<br />mot de passe:</label>
-            	    <input type="password" class="registerinput validate['.$passrequire.'AlphaNumeric]" id="input_4" name="pass2" />
-            	</li>
-	        </ul>
-			</div>
-		</div>';
+						if(fb_is_logged()) {
+							$view .= '<p id="mailOrigin" style="visibility: hidden; display: none;">'.$user->email.'</p>';
+							$view .= '
+							<li class="form-line" id="id_1">
+			      	    <label class="registerlabel" id="label_1" for="input_1">adresse e-mail:</label>
+			      	    <input type="text" class="registerinput validate[required, Email]" id="input_1" name="email" value="'.$user->email.'" />
+			      	</li>
+			      	<li class="form-line" id="id_2">
+			      	    <label class="registerlabel" id="label_2" for="input_2">nom d\'utilisateur:</label>
+			      	    <input type="text" class="registerinput v" id="input_2" name="login" value="'.$user->login.'" disabled />
+			      	    <span class="info_unique">uniquement chiffres et lettres</span>
+			      	</li>';
+						} else {
+							$view .= '
+			      	<li class="form-line" id="id_1">
+			      	    <label class="registerlabel" id="label_1" for="input_1">adresse e-mail:</label>
+			      	    <input type="text" class="registerinput validate[required, Email]" id="input_1" name="email" value="'.$user->email.'" />
+			      	</li>
+			      	<li class="form-line" id="id_2">
+			      	    <label class="registerlabel" id="label_2" for="input_2">nom d\'utilisateur:</label>
+			      	    <input type="text" class="registerinput validate[required, AlphaNumeric]" id="input_2" name="login" value="'.$user->login.'" />
+			      	    <span class="info_unique">uniquement chiffres et lettres</span>
+			      	</li>';
+						}
+							$view .= '
+		        	<li class="form-line" id="id_3">
+		        	    <label class="registerlabel" id="label_3" for="input_3">mot de passe:</label>
+		        	    <input type="password" class="registerinput validate['.$passrequire.'AlphaNumeric]" id="input_3" name="pass" />
+		        	    <span class="info_unique">uniquement chiffres et lettres</span>
+		        	</li>
+		        	<li class="form-line" id="id_4">
+		        	    <label class="registerlabel" id="label_4" for="input_4">confirmation<br />mot de passe:</label>
+		        	    <input type="password" class="registerinput validate['.$passrequire.'AlphaNumeric]" id="input_4" name="pass2" />
+		        	</li>
+      		</ul>
+				</div>
+			</div>';
 		} else {
 			$view .= '<input type="hidden" name="email" value="'.$user->email.'" /><input type="hidden" name="login" value="'.$user->login.'" />';
 		}
 		$view .= '
 		<div class="acces_right">
 			<div class="acces_tab_name2">VOTRE ADRESSE DE FACTURATION</div>
-			<div class="acces_tab_content2">
-        	<ul class="regiform2">
-            	<li class="form-line" id="id_30">
+				<div class="acces_tab_content2">
+	        	<ul class="regiform2">
+	            	<li class="form-line" id="id_30">
             	    <label class="registerlabel" id="label_30" for="cl_group">vous êtes un(e)... ?</label>
             	    <select class="registerinput validate[required]" id="cl_group" name="f_group" onchange="champsReq();" />';
-		if($user_groupe->att_value == 'PART') {
-			$view .= '<option value="PART" selected>Particulier</option>';
-		} else {
-			$view .= '<option value="PART">Particulier</option>';
-		}
-		if($user_groupe->att_value == 'ASSO') {
-			$view .= '<option value="ASSO" selected>Association</option>';
-		} else {
-			$view .= '<option value="ASSO">Association</option>';
-		}
-		if($user_groupe->att_value == 'COM') {
-			$view .= '<option value="COM" selected>Agence de communication / publicité</option>';
-		} else {
-			$view .= '<option value="COM">Agence de communication / publicité</option>';
-		}
-		if($user_groupe->att_value == 'TPE') {
-			$view .= '<option value="TPE" selected>TPE / Secteur privé</option>';
-		} else {
-			$view .= '<option value="TPE">TPE / Secteur privé</option>';
-		}
-		if($user_groupe->att_value == 'PME') {
-			$view .= '<option value="PME" selected>PME / PMI</option>';
-		} else {
-			$view .= '<option value="PME">PME / PMI</option>';
-		}
-		if($user_groupe->att_value == 'EPUB') {
-			$view .= '<option value="EPUB" selected>Etablissement public</option>';
-		} else {
-			$view .= '<option value="EPUB">Etablissement public</option>';
-		}
-					$view .= '
-					</select>
-            	</li>';
+									if($user_groupe->att_value == 'PART') {
+										$view .= '<option value="PART" selected>Particulier</option>';
+									} else {
+										$view .= '<option value="PART">Particulier</option>';
+									}
+									if($user_groupe->att_value == 'ASSO') {
+										$view .= '<option value="ASSO" selected>Association</option>';
+									} else {
+										$view .= '<option value="ASSO">Association</option>';
+									}
+									if($user_groupe->att_value == 'COM') {
+										$view .= '<option value="COM" selected>Agence de communication / publicité</option>';
+									} else {
+										$view .= '<option value="COM">Agence de communication / publicité</option>';
+									}
+									if($user_groupe->att_value == 'TPE') {
+										$view .= '<option value="TPE" selected>TPE / Secteur privé</option>';
+									} else {
+										$view .= '<option value="TPE">TPE / Secteur privé</option>';
+									}
+									if($user_groupe->att_value == 'PME') {
+										$view .= '<option value="PME" selected>PME / PMI</option>';
+									} else {
+										$view .= '<option value="PME">PME / PMI</option>';
+									}
+									if($user_groupe->att_value == 'EPUB') {
+										$view .= '<option value="EPUB" selected>Etablissement public</option>';
+									} else {
+										$view .= '<option value="EPUB">Etablissement public</option>';
+									}
+									$view .= '
+									</select>
+            		</li>';
 
 				if($user_siret) {
 				$view .= '<li class="form-line" id="siret_pick">
-					<label class="registerlabel" id="label_32" for="input_32">n° SIRET:</label>
+									<label class="registerlabel" id="label_32" for="input_32">n° SIRET:</label>
             	    <input type="text" class="registerinput validate[required, Numeric]" id="input_32" name="f_siret" value="'.stripslashes($user_siret->att_value).'" />
-				</li>';
+								</li>';
 				} else {
 				$view .= '<li class="form-line" id="siret_pick" style="visibility: hidden; display: none;>
 					<label class="registerlabel" id="label_32" for="input_32">n° SIRET:</label>

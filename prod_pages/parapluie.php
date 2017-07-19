@@ -243,7 +243,9 @@
   <div id="container">
 
     <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-1.jpg" alt="stand exposition meilleur prix" title="stand expo pas cher" /></li>
+      
+      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-0.jpg" alt="stand exposition salon" title="stand expo pas cher" /></li>
+
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-2.jpg" alt="devis en ligne stand expo" title="stand parapluie devis" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-3.jpg" alt="stand parapluie pas cher" title="stand exposition personnalisé" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>

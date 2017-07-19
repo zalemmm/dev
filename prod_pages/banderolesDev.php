@@ -17,17 +17,26 @@
 
 				<!--support-->
 				<li class="form-line" id="id_ext">
-					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />• <u><b>Bâche 550g B1</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Toutes les banderoles jusqu'à 3 ans en Ext.<br />• <u><b>Bâche nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />• <u><b>Bâche 470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
+					• <u><b>Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Ue bâche conçue et produite en France, pour un produit fini 100% made in France et résistant dans la durée.<br />
+					• <u><b>Eco Toile</u>: <span class="highlight"></span></b><br/>Toile...<br />
+					• <u><b>nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
+					• <u><b>470g M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durée 3 ans.<br />
+					• <u><b>750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
+					• <u><b>750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
+					• <u><b>micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
+					• <u><b>100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
-						<option value="bache 440g">bache 440g </option>
-						<option value="bache 550g">bache 550g B1 </option>
-						<option value="bache nontissé 150g">bache nontissé 150g</option>
-						<option value="bache 470g M1">bache 470g M1</option>
-						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
-						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
-						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 440g" class="option1">bâche 440g </option>
+						<option value="eco toile" class="ecotoile"><!--défini dans fb/main.js--></option>
+						<option value="jet 550" class="fr">bâche Dickson Jet 550</option>
+						<option value="bache nontissé 150g" class="option2">bâche nontissé 150g</option>
+						<option value="bache 470g M1"  class="option1">bâche 470g M1</option>
+						<option value="bache 750g M2/B1"  class="option2">bâche 750g M2/B1 </option>
+						<option value="bache 750g M2/B1 recto verso"  class="option1">bâche 750g M2/B1 recto verso </option>
+						<option value="bache micro perforée M1/B1" class="option2">bâche micro perforée M1/B1 </option>
+						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
 					</select>
 				</li>
 
@@ -39,7 +48,7 @@
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
 						<option value="bache nontissé 150g M1">bache nontissé 150g M1</option>
 					</select>
 				</li>
@@ -52,7 +61,7 @@
 						<option value="bache 750g M2/B1">bache 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso">bache 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1">bache micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1">bache 100% écologique M1 </option>
+						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
 						<option value="bache nontissé 150g M1">bache nontissé 150g M1</option>
 					</select>
 				</li>
@@ -275,14 +284,7 @@
 
 				<!--maquette-->
 				<li class="form-line" id="id_12">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
-						</span>
-					</span>
-					
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
 						<option value="fb">France banderole crée la mise en page</option>
@@ -311,7 +313,7 @@
 								</span>
 							</span>
 
-							<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
+							<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
 								<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
 								<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
 									<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
@@ -385,9 +387,9 @@
 
 		<div id="container">
 			<div id="slides">
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-1.jpg" alt="exemple réalisation banderole" /></li>
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-2.jpg" alt="exemple réalisation banderole" /></li>
-				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-0.jpg" alt="exemple réalisation banderole" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/banderole-1.jpg" alt="banderole pas cher" title="bâche imprimée meilleur prix" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/banderole-2.jpg" alt="banderole sur mesure"  title="impression grand format pas cher"/></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/banderole-0.jpg" alt="bâche imprimée" title="banderoles évènements"/></li>
 				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
 			</div>
 		</div>
@@ -400,90 +402,54 @@
 
 	</div>
 
-	<div class="dateLivraison" >
-			<!--<span id="totaldays"></span>&nbsp;-->
-			<span id="totalamt_16"></span>
-			<span id='estdate_16' class="delivery-date"></span>
-	</div>
+<div class="dateLivraison" >
+		<!--<span id="totaldays"></span>&nbsp;-->
+		<span id="totalamt_16"></span>
+		<span id='estdate_16' class="delivery-date"></span>
+</div>
 
-	<div id="custom_price_unit" >
+<div id="custom_price_unit" >
+</div>
 
-	</div>
-
-
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	livraison le jour même */
-
-	function Afficher()
-	{
+<script type="text/javascript">
+  //////////////////////////////////////////////////////////////////////////////
+	function Afficher()	{
 		divliv = document.getElementById('livraisonrapide');
-
 		if (divliv.style.display == 'none')
 		divliv.style.display = 'block';
-
-
 	}
-	</script>
-
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	pour afficher ou non le div selon que ce soit "none" ou "block". */
-
-	function Afficher()
-	{
+	function Afficher()	{
 		divInfo = document.getElementById('delivery-div');
-
 		if (divInfo.style.display == 'none')
 		divInfo.style.display = 'block';
-
-
 	}
-	</script>
-
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	pour afficher ou non le div selon que ce soit "none" ou "block". */
-
-	function Masquer()
-	{
+	function Masquer(){
 		divInfo = document.getElementById('delivery-div');
 		if (divInfo.style.display == 'block')
 		divInfo.style.display = 'none';
 	}
-	</script>
 
+	// checkboxes livraison //////////////////////////////////////////////////////
+	jQuery('#adresse').click(function() {
+		if (document.getElementById('adresse').checked) {
+			document.getElementById('relais').checked = false;
+			document.getElementById('etiquette').checked = false;
+		}
+	});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('relais').checked = false;
+			document.getElementById('adresse').checked = false;
+		}
+	});
+	jQuery('#relais').click(function() {
+		if (document.getElementById('relais').checked) {
+			document.getElementById('etiquette').checked = false;
+			document.getElementById('adresse').checked = false;
+		}
+	});
 
-
-	<script type="text/javascript">
-		// checkboxes livraison
-
-		jQuery('#adresse').click(function() {
-			if (document.getElementById('adresse').checked) {
-				document.getElementById('relais').checked = false;
-				document.getElementById('etiquette').checked = false;
-			}
-		});
-
-		jQuery('#etiquette').click(function() {
-			if (document.getElementById('etiquette').checked) {
-				document.getElementById('relais').checked = false;
-				document.getElementById('adresse').checked = false;
-			}
-		});
-
-		jQuery('#relais').click(function() {
-			if (document.getElementById('relais').checked) {
-				document.getElementById('etiquette').checked = false;
-				document.getElementById('adresse').checked = false;
-			}
-		});
-
-
-	</script>
-
-	<script type="text/javascript">
-
+	// calcul des jours ouvrés ///////////////////////////////////////////////////
 	function AddBusinessDays(weekDaysToAdd) {
 	  // fonction jours ouvrés
 	  var curdate = new Date();
@@ -501,10 +467,9 @@
 	  return realDaysToAdd;
 	}
 
+	//////////////////////////////////////////////////////////////////////////////
 	jQuery(document).ready(function(){
-
 		jQuery('.delivery , .production').click(function(){
-
 			var ktorytyp='';
 			var cedzik='';
 			var prliv='';
@@ -529,11 +494,7 @@
 			var opis=''
 			var metragefinal=0
 			var cenatotal=0
-
-
-
 			var metrage=0;
-
 			var eBox = document.getElementById('form-button-error3');
 			eBox.innerHTML='';
 			/*var ax1 = document.getElementById("id_int");
@@ -543,70 +504,65 @@
 			ax1.style.background="#EA2A6A";
 			ax1.style.border="none";
 			ax1.style.borderBottom="1px solid #9fa3a8";
+			}
+			if (ax2) {
+			ax2.style.background="#EA2A6A";
+			ax2.style.border="none";
+			ax2.style.border="1px solid #9fa3a8";
+			}
+			if (ax3) {
+			ax3.style.background="none";
+			ax3.style.border="none";
+			// ax3.style.borderBottom="1px solid #9fa3a8";
+			}
+			*/
+	//////////////////////////////////////////////////////////////////////////////
+	if ( ($('input_1').value) ) {
+		szerokosc = ($('input_15').value);
+		szerokosc = szerokosc.replace(',','.');
+		szerokosc = fixstr(szerokosc);
+		$('input_15').value = szerokosc;
+		wysokosc = ($('input_14').value);
+		wysokosc = wysokosc.replace(',','.');
+		wysokosc = fixstr(wysokosc);
+		$('input_14').value = wysokosc;
+		szerokosc = parseFloat(szerokosc);
+		wysokosc = parseFloat(wysokosc);
+		metraz = szerokosc * wysokosc;
+		metraz = fixstr(metraz);
+		var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
+		metrazzaokraglony = Math.round(metrazzaokraglony1);
+		var hautbas =szerokosc*2
+		var gauchedroite = wysokosc*2
+
+		// laise ///////////////////////////////////////////////////////////////////
+
+		if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
+		if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
+
+		if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
+		if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
+
+		if (perteH < perteL){metrage = szerokosc*h1;}
+		else if (perteH > perteL){metrage = wysokosc*l1;}
+		else if(perteH == perteL){metrage = wysokosc*l1;}
+
+		ilosc=$('input_13').value;
+		if ($('input_13').value) {
+			metragefinal=metrage*ilosc;
 		}
-		if (ax2) {
-		ax2.style.background="#EA2A6A";
-		ax2.style.border="none";
-		ax2.style.border="1px solid #9fa3a8";
-	}
-	if (ax3) {
-	ax3.style.background="none";
-	ax3.style.border="none";
-	// ax3.style.borderBottom="1px solid #9fa3a8";
-}
-*/
 
-
-if ( ($('input_1').value) ) {
-	szerokosc = ($('input_15').value);
-	szerokosc = szerokosc.replace(',','.');
-	szerokosc = fixstr(szerokosc);
-	$('input_15').value = szerokosc;
-	wysokosc = ($('input_14').value);
-	wysokosc = wysokosc.replace(',','.');
-	wysokosc = fixstr(wysokosc);
-	$('input_14').value = wysokosc;
-	szerokosc = parseFloat(szerokosc);
-	wysokosc = parseFloat(wysokosc);
-	metraz = szerokosc * wysokosc;
-	metraz = fixstr(metraz);
-	var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
-	metrazzaokraglony = Math.round(metrazzaokraglony1);
-	var hautbas =szerokosc*2
-	var gauchedroite = wysokosc*2
-
-	///// lAIZE /////
-
-	if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
-	if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
-	if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
-
-	if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
-	if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
-	if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
-
-	if (perteH < perteL){metrage = szerokosc*h1;}
-	else if (perteH > perteL){metrage = wysokosc*l1;}
-	else if(perteH == perteL){metrage = wysokosc*l1;}
-
-	ilosc=$('input_13').value;
-	if ($('input_13').value) {
-		metragefinal=metrage*ilosc;
-	}
-
-
-
-	//////bâche exterieur/////
-
-
+	// exterieur /////////////////////////////////////////////////////////////////
 	if ($('input_1').value == 'extérieur') {
 
 		if ($('input_ext').value == 'bache 440g' ) {
@@ -635,7 +591,7 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*6.5;}
 			opis += '<br />- 440gr'
 		}
-		if ($('input_ext').value == 'bache 550g' ) {
+		if ($('input_ext').value == 'jet 550' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
 			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
@@ -659,7 +615,7 @@ if ( ($('input_1').value) ) {
 			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
 			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
 			if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
-			opis += '<br />- 550gr'
+			opis += '<br />- Jet 550'
 		}
 		if ($('input_ext').value == 'bache 470g M1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
@@ -739,7 +695,6 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
 			opis += '<br />- 750gr M2/B1 recto verso'
 		}
-
 		if ($('input_ext').value == 'bache micro perforée M1/B1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
@@ -765,7 +720,6 @@ if ( ($('input_1').value) ) {
 			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*7.00;}
 			if (metragefinal > 499.99) {cenatotal = metragefinal*6.50;}
 			opis += '<br />- bache micro perforée M1/B1'
-
 		}
 		if ($('input_ext').value == 'bache 100% écologique M1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
@@ -793,7 +747,6 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
 			opis += '<br />- bache 100% écologique M1'
 		}
-
 		if ($('input_ext').value == 'bache nontissé 150g' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*16.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*15.80;}
@@ -820,16 +773,11 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
 			opis += '<br />- bache nontissé 150g'
 		}
-
 	}
 
-
-	//////////bâche intérieur///////////
-
+	// intérieur /////////////////////////////////////////////////////////////////
 
 	if ($('input_1').value == 'intérieur') {
-
-
 		if ($('input_int').value == 'bache 470g M1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*20.00;}
@@ -989,16 +937,11 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*10.00;}
 			opis += '<br />- bache nontissé 150g M1'
 		}
-
 	}
 
-
-	//////////bâche intérieur / extérieur///////////
-
+	// intérieur / extérieur /////////////////////////////////////////////////////
 
 	if ($('input_1').value == 'int/ext') {
-
-
 		if ($('input_intext').value == 'bache 470g M1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*20.00;}
@@ -1131,7 +1074,6 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
 			opis += '<br />- bache 100% écologique M1'
 		}
-
 		if ($('input_intext').value == 'bache nontissé 150g M1' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
@@ -1158,41 +1100,38 @@ if ( ($('input_1').value) ) {
 			if (metragefinal > 499.99) {cenatotal = metragefinal*10.00;}
 			opis += '<br />- bache nontissé 150g M1'
 		}
-
 	}
 	cena=cenatotal/ilosc;
 
-	///// oeilets////
+	// oeilets ///////////////////////////////////////////////////////////////////
 
 	if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.15*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
-
 	if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
 	if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
 	if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.15; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
 	if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 10cm') ) { oeillets = ((hautbas+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 10cm'};
-
 	if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 100cm') ) { oeillets = ((gauchedroite+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 100cm'};
 	if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 50cm') ) { oeillets = ((gauchedroite+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 50cm'};
 	if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 25cm') ) { oeillets = ((gauchedroite+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 25cm'};
 	if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 10cm') ) { oeillets = ((gauchedroite+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 10cm'};
-
 	if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 100cm') ) { oeillets = ((metrazzaokraglony1+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 100cm'};
 	if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 50cm') ) { oeillets = ((metrazzaokraglony1+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 50cm'};
 	if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 25cm') ) { oeillets = ((metrazzaokraglony1+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 25cm'};
 	if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 10cm') ) { oeillets = ((metrazzaokraglony1+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 10cm'};
 
-	///// ourlets////
+	// ourlets ///////////////////////////////////////////////////////////////////
 
 	if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_33').value == 'ourlet de renfort haut/bas')|| ($('input_34').value == 'ourlet de renfort haut/bas')) { ourlets = hautbas*1; cena+=ourlets ; opis+='<br>- ourlet de renfort haut/bas'};
 	if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_32').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite')|| ($('input_34').value == 'ourlet de renfort gauche/droite')) { ourlets = gauchedroite*1; cena+=ourlets ; opis+='<br>- ourlet de renfort gauche/droite'};
 	if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_32').value == 'ourlet de renfort périmétrique') || ($('input_33').value == 'ourlet de renfort périmétrique')|| ($('input_34').value == 'ourlet de renfort périmétrique')) { ourlets = metrazzaokraglony1*1; cena+=ourlets ; opis+='<br>- ourlet de renfort périmétrique'};
 
-	///// fourreaux////
+	// fourreaux /////////////////////////////////////////////////////////////////
 
 	if (($('input_41').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
 	if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
 
-	////fixation
+	// fixation //////////////////////////////////////////////////////////////////
+
 	if ($('input_101').value) { var fix = $('input_101').value; }
 	if ($('input_51').value) { var fix = $('input_51').value; }
 	if ($('input_52').value) { var nbfix = $('input_52').value; }
@@ -1234,7 +1173,8 @@ if ( ($('input_1').value) ) {
 		cena += fixation;
 		opis +='<br>- drisse fourreaux H/B';
 	}
-	//////////////// 150g finitions
+
+	// 150g finitions ////////////////////////////////////////////////////////////
 
 	if ($('input_81').value) { var fin = $('input_81').value; }
 	if (fin == 'pas de finition') {
@@ -1247,8 +1187,6 @@ if ( ($('input_1').value) ) {
 		opis +='<br>- fourreaux G/D';
 	}
 
-
-
 	if (($('input_81').value == 'oeillets haut/bas') && ($('input_91').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.3; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
 	if (($('input_81').value == 'oeillets haut/bas') && ($('input_91').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.3; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
 	if (($('input_81').value == 'oeillets haut/bas') && ($('input_91').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.3; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
@@ -1259,9 +1197,8 @@ if ( ($('input_1').value) ) {
 	if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 25cm') ) { nouettes = ((hautbas+2)/0.25)*0.8; cena+=nouettes;opis+='<br>- nouettes haut bas tous 25cm'};
 	if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 10cm') ) { nouettes = ((hautbas+2)/0.1)*0.8; cena+=nouettes; opis+='<br>- nouettes haut bas tous 10cm'};
 
+	// maquette //////////////////////////////////////////////////////////////////
 
-
-	//////////////maquette////////
 	var ktodaje='';
 	if ($('input_12').value == 'fb') {
 		cena += 29;
@@ -1270,7 +1207,9 @@ if ( ($('input_1').value) ) {
 	if ($('input_12').value == 'user') {
 		ktodaje = '<br />- j’ai déjà crée la maquette';
 	}
-	////reszta
+
+	// options colis /////////////////////////////////////////////////////////////
+
 	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 	if (colis == true) {
 		cena += 2.00;
@@ -1291,9 +1230,6 @@ if ( ($('input_1').value) ) {
 		cedzik += '<br />- relais colis';
 	}
 
-
-
-
 	cenapojedyncza = cena;
 
 	ilosc=$('input_13').value;
@@ -1301,25 +1237,11 @@ if ( ($('input_1').value) ) {
 		cena=cenapojedyncza*ilosc;
 	}
 
-
-
-
-
-
-
 	var total = document.getElementById("total");
 	var remise = document.getElementById("remise");
 
-
-
-
 	cenapojedyncza=fixstr(cenapojedyncza);
 	cena2 = cenapojedyncza.replace(".", ",");
-
-
-
-
-
 
 	var myClass = jQuery(this).attr("class");
 
@@ -1334,7 +1256,6 @@ if ( ($('input_1').value) ) {
 		var production = jQuery(this).attr('text-value');
 		jQuery('#production-value').val(production);
 		jQuery(this).prop("disabled",true);
-
 	}
 
 	var m = myClass.search("delivery");
@@ -1345,9 +1266,6 @@ if ( ($('input_1').value) ) {
 		var delivery = jQuery(this).attr('text-value');
 		jQuery('#delivery-value').val(delivery);
 		jQuery(this).prop("disabled",true);
-
-
-
 
 		jQuery(document).ready(function(){
 			jQuery('.jotform-form select').click(function(){
@@ -1364,12 +1282,27 @@ if ( ($('input_1').value) ) {
 
 				jQuery(production-value).prop("disabled",false);
 				jQuery(delivery-value).prop("disabled",true);
+			});
+		});
+		jQuery(document).ready(function(){
+			jQuery('.form-textbox').click(function(){
+				jQuery('#delivery-value').val(Masquer());
 
-			});});
+				jQuery('.delivery').prop("disabled",false);
+				jQuery('.production').prop("disabled",false);
 
+				jQuery('.production').removeClass('active');
+				jQuery(this).addClass('');
 
+				jQuery('.delivery').removeClass('active');
+				jQuery(this).addClass('active');
+
+				jQuery(production-value).prop("disabled",false);
+				jQuery(delivery-value).prop("disabled",true);
+				});
+			});
 			jQuery(document).ready(function(){
-				jQuery('.form-textbox').click(function(){
+				jQuery('.form-textbox2').click(function(){
 					jQuery('#delivery-value').val(Masquer());
 
 					jQuery('.delivery').prop("disabled",false);
@@ -1383,196 +1316,151 @@ if ( ($('input_1').value) ) {
 
 					jQuery(production-value).prop("disabled",false);
 					jQuery(delivery-value).prop("disabled",true);
+				});
+			});
+			jQuery(document).ready(function(){
+				jQuery('.form-checkbox').click(function(){
+					jQuery('#delivery-value').val(Masquer());
 
-				});});
+					jQuery('.delivery').prop("disabled",false);
+					jQuery('.production').prop("disabled",false);
 
+					jQuery('.production').removeClass('active');
+					jQuery(this).addClass('');
 
-				jQuery(document).ready(function(){
-					jQuery('.form-textbox2').click(function(){
-						jQuery('#delivery-value').val(Masquer());
+					jQuery('.delivery').removeClass('active');
+					jQuery(this).addClass('active');
 
-						jQuery('.delivery').prop("disabled",false);
-						jQuery('.production').prop("disabled",false);
+					jQuery(production-value).prop("disabled",false);
+					jQuery(delivery-value).prop("disabled",true);
+				});
+			});
+		}
 
-						jQuery('.production').removeClass('active');
-						jQuery(this).addClass('');
+		var production      = jQuery('#production-value').val();
+		//alert(production);
+		var delivery        = jQuery('#delivery-value').val();
 
-						jQuery('.delivery').removeClass('active');
-						jQuery(this).addClass('active');
+		if(production && delivery){
+			// Calculate price
+			//alert('click');
+			var ProdPercent = '';
+			var DeliPercent = '';
+			var PorductType = jQuery('.production.active').attr('text-value');
+			var DeliveryType = jQuery('.delivery.active').attr('text-value');
+			if(PorductType == '2-3' ){
+				ProdPercent = 15;
+				prliv += '<br />- P 2-3J';
+			}else if(PorductType =='1-1'){
+				ProdPercent = 40;
+				prliv += '<br />- P 1J';
+			}else{
+				ProdPercent = 0;
+				prliv += '<br />- P 4-5J';
+			}
 
-						jQuery(production-value).prop("disabled",false);
-						jQuery(delivery-value).prop("disabled",true);
+			if(DeliveryType == '2-3'){
+				DeliPercent = 15;
+				prliv += ' / L 2-3J';
+			}else if(DeliveryType =='1-1'){
+				DeliPercent = 40;
+				prliv += ' / L 1J';
+			}else{
+				DeliPercent = 0;
+				prliv += ' / L 3-4J';
+			}
 
-					});});
+			var price_unit = parseFloat(cenapojedyncza);
 
+			//var str = price_unit;
+			//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
+			var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+			var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+			var finalPrice           = (calculatedTotalPrice + price_unit);
 
-					jQuery(document).ready(function(){
-						jQuery('.form-checkbox').click(function(){
-							jQuery('#delivery-value').val(Masquer());
+			// Calculate Days
+			var prod_first_val  = parseInt(production[0]);
+			var prod_second_val = parseInt(production[2]);
+			var deli_first_val  = parseInt(delivery[0]);
+			var deli_second_val = parseInt(delivery[2]);
 
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
+			var totalProduction = prod_first_val + deli_first_val;
+			var totalDelivery   = prod_second_val + deli_second_val;
+			if(totalProduction == totalDelivery){
+				jQuery('#totaldays').text("Total jours " + totalProduction);
+				var days = totalProduction;
+			}else{
+				jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+				var days = totalDelivery;
+			}
 
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
+			var curdate = new Date();
+			var curhour = curdate.getHours();
+			// ajout 1 jour ouvré de délai sur commande après 12h
+			if (curhour >= 12) {
+				var daystoadd = AddBusinessDays(days+1);
+			}else{
+				var daystoadd = AddBusinessDays(days);
+			}
 
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
+			curdate.setDate(curdate.getDate()+daystoadd);
+			var estdt = new Date(curdate);
+			var month = estdt.getMonth()+1;
+			var day = estdt.getDate();
+			var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+			//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
+			if(jQuery('#id_16').css('display') != 'none')
+			{
+				//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
+				//jQuery('#prix_unitaire').text(finalPrice);
+				jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+			}
 
-							jQuery(production-value).prop("disabled",false);
-							jQuery(delivery-value).prop("disabled",true);
+			finalPrice1=fixstr(finalPrice);
+			finalPrice2 = finalPrice1.replace(".", ",");
 
-						});});
+			jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+			//jQuery('#remise').html(rabat2);
+		}
 
+		cenapojedyncza = finalPrice1;
 
-					}
-
-
-
-
-					var production      = jQuery('#production-value').val();
-					//alert(production);
-					var delivery        = jQuery('#delivery-value').val();
-
-
-
-
-
-					if(production && delivery){
-
-						// Calculate price
-						//alert('click');
-						var ProdPercent = '';
-						var DeliPercent = '';
-						var PorductType = jQuery('.production.active').attr('text-value');
-						var DeliveryType = jQuery('.delivery.active').attr('text-value');
-						if(PorductType == '2-3' ){
-							ProdPercent = 15;
-							prliv += '<br />- P 2-3J';
-						}else if(PorductType =='1-1'){
-							ProdPercent = 40;
-							prliv += '<br />- P 1J';
-						}else{
-							ProdPercent = 0;
-							prliv += '<br />- P 4-5J';
-						}
-
-						if(DeliveryType == '2-3'){
-							DeliPercent = 15;
-							prliv += ' / L 2-3J';
-						}else if(DeliveryType =='1-1'){
-							DeliPercent = 40;
-							prliv += ' / L 1J';
-						}else{
-							DeliPercent = 0;
-							prliv += ' / L 3-4J';
-						}
-
-
-
-
-
-
-
-						var price_unit = parseFloat(cenapojedyncza);
-
-						//var str = price_unit;
-						//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-						var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-						var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-						var finalPrice           = (calculatedTotalPrice + price_unit);
-
-
-
-
-						// Calculate Days
-						var prod_first_val  = parseInt(production[0]);
-						var prod_second_val = parseInt(production[2]);
-						var deli_first_val  = parseInt(delivery[0]);
-						var deli_second_val = parseInt(delivery[2]);
-
-						var totalProduction = prod_first_val + deli_first_val;
-						var totalDelivery   = prod_second_val + deli_second_val;
-						if(totalProduction == totalDelivery){
-							jQuery('#totaldays').text("Total jours " + totalProduction);
-							var days = totalProduction;
-						}else{
-							jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-							var days = totalDelivery;
-						}
-
-						var curdate = new Date();
-						var curhour = curdate.getHours();
-						// ajout 1 jour ouvré de délai sur commande après 12h
-						if (curhour >= 12) {
-							var daystoadd = AddBusinessDays(days+1);
-						}else{
-							var daystoadd = AddBusinessDays(days);
-						}
-
-						curdate.setDate(curdate.getDate()+daystoadd);
-						var estdt = new Date(curdate);
-						var month = estdt.getMonth()+1;
-						var day = estdt.getDate();
-						var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-						//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
-						if(jQuery('#id_16').css('display') != 'none')
-						{
-							//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-							//jQuery('#prix_unitaire').text(finalPrice);
-							jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+		ilosc=$('input_13').value;
+		if ($('input_13').value) {
+			cena=cenapojedyncza*ilosc;
+		}
 
 
-						}
+		////remise
+		var total = document.getElementById("total");
+		var remise = document.getElementById("remise");
 
+	/*if (($('input_ext').value == 'bache 440g') || ($('input_int').value == 'bache 440g') || ($('input_intext').value == 'bache 440g' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
+	if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
+	};
 
-						finalPrice1=fixstr(finalPrice);
-						finalPrice2 = finalPrice1.replace(".", ",");
+	if (($('input_ext').value == 'jet 550') || ($('input_int').value == 'jet 550') || ($('input_intext').value == 'jet 550' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
+	if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
+	};
 
+	if (($('input_ext').value == 'bache 470g M1') || ($('input_int').value == 'bache 470g M1') || ($('input_intext').value == 'bache 470g M1' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 65)) {rabat = cena*0.04;};
+	if (metrage*ilosc > 65) {rabat = cena*0.06;};
+	};
 
-						jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-						//jQuery('#remise').html(rabat2);
-
-					}
-
-					cenapojedyncza = finalPrice1;
-
-					ilosc=$('input_13').value;
-					if ($('input_13').value) {
-						cena=cenapojedyncza*ilosc;
-					}
-
-
-					////remise
-					var total = document.getElementById("total");
-					var remise = document.getElementById("remise");
-
-					/*if (($('input_ext').value == 'bache 440g') || ($('input_int').value == 'bache 440g') || ($('input_intext').value == 'bache 440g' )) {
-					if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-					if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-					if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
-					if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
-				};
-
-				if (($('input_ext').value == 'bache 550g') || ($('input_int').value == 'bache 550g') || ($('input_intext').value == 'bache 550g' )) {
-				if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-				if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
-				if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
-				if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
-			};
-
-			if (($('input_ext').value == 'bache 470g M1') || ($('input_int').value == 'bache 470g M1') || ($('input_intext').value == 'bache 470g M1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 65)) {rabat = cena*0.04;};
-			if (metrage*ilosc > 65) {rabat = cena*0.06;};
-		};
-
-		if (($('input_ext').value == 'bache 750g M2/B1') || ($('input_int').value == 'bache 750g M2/B1') || ($('input_intext').value == 'bache 750g M2/B1' )) {
-		if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-		if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-		if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
-		if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
+	if (($('input_ext').value == 'bache 750g M2/B1') || ($('input_int').value == 'bache 750g M2/B1') || ($('input_intext').value == 'bache 750g M2/B1' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
+	if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
 	};
 
 	if (($('input_ext').value == 'bache 750g M2/B1 recto verso') || ($('input_int').value == 'bache 750g M2/B1 recto verso') || ($('input_intext').value == 'bache 750g M2/B1 recto verso' )) {
@@ -1580,344 +1468,337 @@ if ( ($('input_1').value) ) {
 	if ((metrage*ilosc > 11) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
 	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
 	if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
-};
+	};
 
-if (($('input_ext').value == 'bache micro perforée M1/B1') || ($('input_int').value == 'bache micro perforée M1/B1') || ($('input_intext').value == 'bache micro perforée M1/B1' )) {
-if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
-if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
-if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
-};
+	if (($('input_ext').value == 'bache micro perforée M1/B1') || ($('input_int').value == 'bache micro perforée M1/B1') || ($('input_intext').value == 'bache micro perforée M1/B1' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
+	if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
+	};
 
-if (($('input_ext').value == 'bache 100% écologique M1') || ($('input_int').value == 'bache 100% écologique M1') || ($('input_intext').value == 'bache 100% écologique M1' )) {
-if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
-if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
-};
+	if (($('input_ext').value == 'bache 100% écologique M1') || ($('input_int').value == 'bache 100% écologique M1') || ($('input_intext').value == 'bache 100% écologique M1' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
+	if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
+	};
 
-if (($('input_ext').value == 'bache nontissé 150g M1') || ($('input_int').value == 'bache nontissé 150g M1') || ($('input_intext').value == 'bache nontissé 150g M1' )) {
-if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0;};
-if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0;};
-if (metrage*ilosc > 64.99) {rabat = cena*0;};
-};
+	if (($('input_ext').value == 'bache nontissé 150g M1') || ($('input_int').value == 'bache nontissé 150g M1') || ($('input_intext').value == 'bache nontissé 150g M1' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0;};
+	if (metrage*ilosc > 64.99) {rabat = cena*0;};
+	};
 
-if (($('input_ext').value == 'bache nontissé 150g M1') || ($('input_int').value == 'bache nontissé 150g M1') || ($('input_intext').value == 'bache nontissé 150g M1' )) {
-if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0;};
-if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0;};
-if (metrage*ilosc > 64.9) {rabat = cena*0;};
-};*/
-
-
-rabat=fixstr(rabat);
-rabat2 = rabat.replace(".", ",");
-if (rabat2 != 0) {rabat2 = rabat2+' &euro;'}
-if (rabat2 == 0) {rabat2 = '-'}
-//remise.innerHTML=rabat2;
-
-cenapojedyncza=fixstr(cenapojedyncza);
-cena2 = cenapojedyncza.replace(".", ",")
-
-/* koszty transportu */
-
-transport=0;
-
-if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
-	var blad = document.getElementById("id_14");
-	blad.style.background = "#EA2A6A";
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-if ( ($('input_ext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
-	var blad = document.getElementById("id_14");
-	blad.style.background = "#EA2A6A";
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
-	var blad = document.getElementById("id_14");
-	blad.style.background = "#EA2A6A";
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-
-if ( ($('input_int').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
-	var blad = document.getElementById("id_14");
-	blad.style.background = "#EA2A6A";
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-if ( ($('input_ext').value == 'bache nontissé 150g') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
-	var blad = document.getElementById("id_14");
-	blad.style.background = "#EA2A6A";
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-if ( ($('input_intext').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
-	var blad = document.getElementById("id_14");
-	blad.style.background = "#EA2A6A";
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-	eBox.style.display="block";
-	niepokazuj=1;
-
-}
+	if (($('input_ext').value == 'bache nontissé 150g M1') || ($('input_int').value == 'bache nontissé 150g M1') || ($('input_intext').value == 'bache nontissé 150g M1' )) {
+	if (metrage*ilosc <= 10.99) {rabat = cena*0;};
+	if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0;};
+	if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0;};
+	if (metrage*ilosc > 64.9) {rabat = cena*0;};
+	};*/
 
 
-///////
-if ( ($('input_int').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_intext').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_ext').value == 'bache 550g') && (szerokosc > 2) && (wysokosc > 2)  ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
+	rabat=fixstr(rabat);
+	rabat2 = rabat.replace(".", ",");
+	if (rabat2 != 0) {rabat2 = rabat2+' &euro;'}
+	if (rabat2 == 0) {rabat2 = '-'}
+	//remise.innerHTML=rabat2;
 
-if ( ($('input_int').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_ext').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_intext').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
+	cenapojedyncza=fixstr(cenapojedyncza);
+	cena2 = cenapojedyncza.replace(".", ",")
 
-if ( ($('input_int').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_ext').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_intext').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
+	/* koszty transportu */
 
-}
-if ( ($('input_int').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_ext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_intext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_int').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_ext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if ( ($('input_intext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
+	transport=0;
 
-if ( ($('input_int').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99) ) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-if ( ($('input_intext').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
-	eBox.style.display="block";
-	niepokazuj=1;
-}
-
-if ((szerokosc > 50) || (wysokosc > 50)) {
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, nos rouleaux font au maximum 50m !';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-
-if ((szerokosc <= 0 ) || (wysokosc <= 0 )){
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en <u>mètres</u>';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if (ilosc.empty()){
-	eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
-	eBox.style.display="block";
-	niepokazuj=2;
-}
-if (niepokazuj==1) {
-	jQuery('#prix_unitaire').html('-');
-	//remise.innerHTML='-';
-	prix.innerHTML='-';
-	opt.innerHTML='-';
-	total.innerHTML='-';
-	newtotal.innerHTML='-';
-	newopt.innerHTML='-';
-	rabat2='-';
-	var rodzaj = "banderole";
-	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
-	livraisonComp.style.display = 'block';
-}
-
-
-if (niepokazuj==2) {
-	jQuery('#prix_unitaire').html('-');
-	//remise.innerHTML='-';
-	if ( suma < 0 ) {
-		var forfait = 0;
-		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
-		if (option>0) {
-			var newoption = parseFloat(option) + parseFloat(forfait);
-			newoption=fixstr(newoption);
-			newoption2 = newoption.replace(".", ",");
-			option2 = newoption2;
-			var newopt = document.getElementById("option");
-			newopt.innerHTML=newoption2+' &euro;';
-			suma = 0;
-			suma=fixstr(suma);
-			suma2 = suma.replace(".", ",");
-			var newtotal = document.getElementById("total");
-			newtotal.innerHTML=suma2+' &euro;';
-		} else {
-			var newoption = parseFloat(forfait);
-			newoption=fixstr(newoption);
-			newoption2 = newoption.replace(".", ",");
-			option2 = newoption2;
-			var newopt = document.getElementById("option");
-			newopt.innerHTML=newoption2+' &euro;';
-			suma = 0;
-			suma=fixstr(suma);
-			suma2 = suma.replace(".", ",");
-			var newtotal = document.getElementById("total");
-			newtotal.innerHTML=suma2+' &euro;';
-		}}
-
-
-		var rodzaj = "banderole Thermo-soudure";
-		var dodajkoszyk = document.getElementById("cart_form");
-		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+	if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
+		var blad = document.getElementById("id_14");
+		blad.style.background = "#EA2A6A";
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+		eBox.style.display="block";
+		niepokazuj=1;
+	}
+	if ( ($('input_ext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
+		var blad = document.getElementById("id_14");
+		blad.style.background = "#EA2A6A";
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+		eBox.style.display="block";
+		niepokazuj=1;
+	}
+	if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
+		var blad = document.getElementById("id_14");
+		blad.style.background = "#EA2A6A";
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+		eBox.style.display="block";
+		niepokazuj=1;
 	}
 
-	if (ilosc==''){niepokazuj=1;}
-
-
-}
-///////////livraison le jour même////////
-if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-	livraisonrapide.style.display = 'block';
-}
-else {livraisonrapide.style.display = 'none';}
-/////////////////////////////////////////
-if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-	suma=cena-rabat;
-	suma=fixstr(suma);
-	suma2 = suma.replace(".", ",");
-	total.innerHTML=suma2+' &euro;';
-
-	var blad = document.getElementById("id_14");
-	blad.style.background = "none";
-
-	if (option>0) {
-		option=fixstr(option);
-		option2 = option.replace(".", ",");
-		var opt = document.getElementById("option");
-		opt.innerHTML=option2+' &euro;';
+	if ( ($('input_int').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
+		var blad = document.getElementById("id_14");
+		blad.style.background = "#EA2A6A";
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+		eBox.style.display="block";
+		niepokazuj=1;
 	}
-	if (option==0) {
-		option2 = '-';
-		var opt = document.getElementById("option");
+	if ( ($('input_ext').value == 'bache nontissé 150g') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
+		var blad = document.getElementById("id_14");
+		blad.style.background = "#EA2A6A";
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+		eBox.style.display="block";
+		niepokazuj=1;
+	}
+	if ( ($('input_intext').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
+		var blad = document.getElementById("id_14");
+		blad.style.background = "#EA2A6A";
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+		eBox.style.display="block";
+		niepokazuj=1;
+
+	}
+
+
+	///////
+	if ( ($('input_int').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_intext').value == 'bache micro perforée M1/B1') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_ext').value == 'jet 550') && (szerokosc > 2) && (wysokosc > 2)  ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+
+	if ( ($('input_int').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_ext').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_intext').value == 'bache 470g M1') && (szerokosc > 2) && (wysokosc > 2) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+
+	if ( ($('input_int').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_ext').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_intext').value == 'bache 750g M2/B1') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+
+	}
+	if ( ($('input_int').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_ext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_intext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_int').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_ext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if ( ($('input_intext').value == 'bache 440g') && (szerokosc > 2) && (wysokosc > 2)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+
+	if ( ($('input_int').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99) ) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
+		eBox.style.display="block";
+		niepokazuj=1;
+	}
+	if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
+		eBox.style.display="block";
+		niepokazuj=1;
+	}
+	if ( ($('input_intext').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
+		eBox.style.display="block";
+		niepokazuj=1;
+	}
+
+	if ((szerokosc > 50) || (wysokosc > 50)) {
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, nos rouleaux font au maximum 50m !';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+
+	if ((szerokosc <= 0 ) || (wysokosc <= 0 )){
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en <u>mètres</u>';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if (ilosc.empty()){
+		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+		eBox.style.display="block";
+		niepokazuj=2;
+	}
+	if (niepokazuj==1) {
+		jQuery('#prix_unitaire').html('-');
+		//remise.innerHTML='-';
+		prix.innerHTML='-';
 		opt.innerHTML='-';
-	}
-
-	var niepokazuj = 0;
-	if ( suma < 29 ) {
-		var forfait = 29 - suma;
-		forfait = fixstr(forfait);
-		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
-		if (option>0) {
-			var newoption = parseFloat(option) + parseFloat(forfait);
-			newoption=fixstr(newoption);
-			newoption2 = newoption.replace(".", ",");
-			option2 = newoption2;
-			var newopt = document.getElementById("option");
-			newopt.innerHTML=newoption2+' &euro;';
-			suma = 29;
-			suma=fixstr(suma);
-			suma2 = suma.replace(".", ",");
-			var newtotal = document.getElementById("total");
-			newtotal.innerHTML=suma2+' &euro;';
-		} else {
-			var newoption = parseFloat(forfait);
-			newoption=fixstr(newoption);
-			newoption2 = newoption.replace(".", ",");
-			option2 = newoption2;
-			var newopt = document.getElementById("option");
-			newopt.innerHTML=newoption2+' &euro;';
-			suma = 29;
-			suma=fixstr(suma);
-			suma2 = suma.replace(".", ",");
-			var newtotal = document.getElementById("total");
-			newtotal.innerHTML=suma2+' &euro;';
-		}}
-
-
+		total.innerHTML='-';
+		newtotal.innerHTML='-';
+		newopt.innerHTML='-';
+		rabat2='-';
 		var rodzaj = "banderole";
 		var dodajkoszyk = document.getElementById("cart_form");
-		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+		dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
 		livraisonComp.style.display = 'block';
 	}
 
 
+	if (niepokazuj==2) {
+		jQuery('#prix_unitaire').html('-');
+		//remise.innerHTML='-';
+		if ( suma < 0 ) {
+			var forfait = 0;
+			forfait = fixstr(forfait);
+			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+			if (option>0) {
+				var newoption = parseFloat(option) + parseFloat(forfait);
+				newoption=fixstr(newoption);
+				newoption2 = newoption.replace(".", ",");
+				option2 = newoption2;
+				var newopt = document.getElementById("option");
+				newopt.innerHTML=newoption2+' &euro;';
+				suma = 0;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				var newtotal = document.getElementById("total");
+				newtotal.innerHTML=suma2+' &euro;';
+			} else {
+				var newoption = parseFloat(forfait);
+				newoption=fixstr(newoption);
+				newoption2 = newoption.replace(".", ",");
+				option2 = newoption2;
+				var newopt = document.getElementById("option");
+				newopt.innerHTML=newoption2+' &euro;';
+				suma = 0;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				var newtotal = document.getElementById("total");
+				newtotal.innerHTML=suma2+' &euro;';
+			}}
 
+
+			var rodzaj = "banderole Thermo-soudure";
+			var dodajkoszyk = document.getElementById("cart_form");
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+		}
+
+		if (ilosc==''){niepokazuj=1;}
+
+	}
+	///////////livraison le jour même////////
+	if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+		livraisonrapide.style.display = 'block';
+	}
+	else {livraisonrapide.style.display = 'none';}
+	/////////////////////////////////////////
+	if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+		suma=cena-rabat;
+		suma=fixstr(suma);
+		suma2 = suma.replace(".", ",");
+		total.innerHTML=suma2+' &euro;';
+
+		var blad = document.getElementById("id_14");
+		blad.style.background = "none";
+
+		if (option>0) {
+			option=fixstr(option);
+			option2 = option.replace(".", ",");
+			var opt = document.getElementById("option");
+			opt.innerHTML=option2+' &euro;';
+		}
+		if (option==0) {
+			option2 = '-';
+			var opt = document.getElementById("option");
+			opt.innerHTML='-';
+		}
+
+		var niepokazuj = 0;
+		if ( suma < 29 ) {
+			var forfait = 29 - suma;
+			forfait = fixstr(forfait);
+			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+			if (option>0) {
+				var newoption = parseFloat(option) + parseFloat(forfait);
+				newoption=fixstr(newoption);
+				newoption2 = newoption.replace(".", ",");
+				option2 = newoption2;
+				var newopt = document.getElementById("option");
+				newopt.innerHTML=newoption2+' &euro;';
+				suma = 29;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				var newtotal = document.getElementById("total");
+				newtotal.innerHTML=suma2+' &euro;';
+			} else {
+				var newoption = parseFloat(forfait);
+				newoption=fixstr(newoption);
+				newoption2 = newoption.replace(".", ",");
+				option2 = newoption2;
+				var newopt = document.getElementById("option");
+				newopt.innerHTML=newoption2+' &euro;';
+				suma = 29;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				var newtotal = document.getElementById("total");
+				newtotal.innerHTML=suma2+' &euro;';
+			}}
+
+
+			var rodzaj = "banderole";
+			var dodajkoszyk = document.getElementById("cart_form");
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+			livraisonComp.style.display = 'block';
+		}
+
+	});
 });
-
-
-});
-
-
 
 </script>
