@@ -403,35 +403,35 @@
 	jQuery(document).ready(function(){
 		jQuery('.delivery , .production').click(function(){
 			//alert(cena);
-			var perteH=0; var perteL=0;
-		  var h1=0; var h2=0;
-		  var l1=0; var l2=0;
-		  var metragefinal=0;
-		  var cenatotal='';
-		  var metraz=0;
-		  var metrazzaokraglony=0;
-		  var metrazzaokraglony1=0;
-		  var szerokosc=0;
-		  var wysokosc=0;
-		  var prixsupport=0;
-		  var poids='';///// poids total
-		  var p1='';////poids du support
-		  var p2='';////poids du structure
-		  var metrage=0;
-		  var structure=0;
-		  var fp='';
-	    var pu=0;
-			var cena=0; var cena2=0; var cenapojedyncza=0;
-			var rabat=0; var rabat2=0;
-			var suma=0; var suma2=0;
-			var transport=0;
-			var ktorytyp='';
-			var cedzik='';
-			var prliv='';
-			var date_panier='';
-			var dodatkowaopcja='';
-			var eBox = document.getElementById('form-button-error2');
-			eBox.innerHTML='';
+			var perteH             = 0; 	var perteL   = 0;
+		  var h1                 = 0; 	var h2       = 0;
+		  var l1                 = 0; 	var l2       = 0;
+		  var metragefinal       = 0;
+		  var cenatotal          = '';
+		  var metraz             = 0;
+		  var metrazzaokraglony  = 0;
+		  var metrazzaokraglony1 = 0;
+		  var szerokosc          = 0;
+		  var wysokosc           = 0;
+		  var prixsupport        = 0;
+		  var poids              = '';  ///// poids total
+		  var p1                 = '';  ////poids du support
+		  var p2                 = '';  ////poids du structure
+		  var metrage            = 0;
+		  var structure          = 0;
+		  var fp                 = '';
+	    var pu              	 = 0;
+			var cena               = 0; 	var cena2      = 0; var cenapojedyncza  = 0;
+			var rabat              = 0;	 	var rabat2     = 0;
+			var suma               = 0; 	var suma2      = 0;
+			var transport          = 0;
+			var ktorytyp           = '';
+			var cedzik             = '';
+			var prliv              = '';
+			var date_panier        = '';
+			var dodatkowaopcja     = '';
+			var eBox               = document.getElementById('form-button-error2');
+			eBox.innerHTML         = '';
 
 			if ( ($('input_1').value) && ( ($('input_21').value) || ($('input_22').value) || ($('input_23').value) || ($('input_24').value) || ($('input_25').value) || ($('input_26').value) || ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_4').value) && ($('input_6').value))  && ($('input_7').value) ) {
 
@@ -475,7 +475,6 @@
 					if ($('input_32').value == '470g M1') {cena += 4;}
 					if ($('input_32').value == '100% écologique M1') {cena += 11;}
 
-
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value !== '') {
@@ -494,7 +493,6 @@
 					if ($('input_32').value == '300µ M1') {cena += 3;}
 					if ($('input_32').value == '470g M1') {cena += 4;}
 					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -534,7 +532,6 @@
 					if ($('input_32').value == '470g M1') {cena += 5;}
 					if ($('input_32').value == '100% écologique M1') {cena += 12;}
 
-
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value !== '') {
@@ -553,7 +550,6 @@
 					if ($('input_32').value == '300µ M1') {cena += 6;}
 					if ($('input_32').value == '470g M1') {cena += 8;}
 					if ($('input_32').value == '100% écologique M1') {cena += 16;}
-
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -574,7 +570,6 @@
 					if ($('input_32').value == '470g M1') {cena += 12}
 					if ($('input_32').value == '100% écologique M1') {cena += 20}
 
-
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value != '') {
@@ -591,7 +586,6 @@
 					if (ilosc>=217 ) {cena=188;}
 					if ($('input_35').value == '440g') {cena += 0}
 					if ($('input_35').value == '470g M1') {cena += 15}
-
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -614,7 +608,6 @@
 					if ($('input_33').value == '300µ M1') {cena += 3}
 					if ($('input_33').value == '470g M1') {cena += 4}
 					if ($('input_33').value == '100% écologique M1') {cena += 11}
-
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;

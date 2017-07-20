@@ -687,35 +687,34 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/jet550.png)";
               imag2.style.animation="anim3 .5s 1";
 						}
-
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache nontissé 150g')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png)";
-              imag2.style.animation="anim2 .5s 1";
+              imag2.style.animation="anim4 .5s 1";
 						}
-						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 470g M1')) {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/470g.png)";
-              imag2.style.animation="anim3 .5s 1";
+						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'jet 520 M1')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/jet520.png)";
+              imag2.style.animation="anim .5s 1";
 						}
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 750g M2/B1')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750g.png)";
-              imag2.style.animation="anim .5s 1";
+              imag2.style.animation="anim1 .5s 1";
 						}
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 750g M2/B1 recto verso')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750grv.png)";
-              imag2.style.animation="anim1 .5s 1";
+              imag2.style.animation="anim2 .5s 1";
 						}
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache micro perforée M1/B1')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/micro.png)";
-              imag2.style.animation="anim2 .5s 1";
+              imag2.style.animation="anim3 .5s 1";
 						}
 						if (($('input_1').value == 'extérieur') && ($('input_ext').value == 'bache 100% écologique M1')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/eco.png)";
-              imag2.style.animation="anim3 .5s 1";
+              imag2.style.animation="anim4 .5s 1";
 						}
 
             // select bâche intérieur
-						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 470g M1')) {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/470g.png)";
+						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'jet 520 M1')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/jet520.png)";
               imag2.style.animation="anim .5s 1";
 						}
 						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 750g M2/B1')) {
@@ -732,11 +731,11 @@ JotForm = {
 						}
 						if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache 100% écologique M1')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/eco.png)";
-              imag2.style.animation="anim .5s 1";
+              imag2.style.animation="anim4 .5s 1";
 						}
             if (($('input_1').value == 'intérieur') && ($('input_int').value == 'bache nontissé 150g M1')) {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png)";
-              imag2.style.animation="anim1 .5s 1";
+              imag2.style.animation="anim .5s 1";
 						}
 
             // select bâche int / ext
@@ -744,8 +743,8 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png)";
               imag2.style.animation="anim .5s 1";
 						}
-						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache 470g M1')) {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/470g.png)";
+						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'jet 520 M1')) {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/jet520.png)";
               imag2.style.animation="anim1 .5s 1";
 						}
 						if (($('input_1').value == 'int/ext') && ($('input_intext').value == 'bache 750g M2/B1')) {

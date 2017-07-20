@@ -95,9 +95,10 @@ function get_ratings($type_prod, $nb_comment=2) {
 
   /////////////////////////////////////////////////////////// affichage notes //
   $view = '<div style="clear: both;"></div>
-    <div id="rating_livre">
+    <div id="rating_livre" itemscope itemtype="http://schema.org/Product">
+    <span itemprop="name" class="dis0">'.$display_name. '</span>
       <div id="vosavis"></div>';
-	$view .= '<div id="rating_general"><h2>Vos avis :</h2>';
+	$view .= '<div itemscope itemtype="http://schema.org/AggregateRating" id="rating_general" itemprop="aggregateRating"><h2>Vos avis :</h2>';
 	$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
 	$strmoyenne1 = $notation->note;
 	// $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
@@ -108,9 +109,12 @@ function get_ratings($type_prod, $nb_comment=2) {
 	$strmoyenne3 = $notation->nb_avis;
 	$strmoyenne4 = " avis";
 
-	$view .= '<span class="client_reviews_1">'. $strmoyenne1 . '</span>'. $strmoyenne2 . $strmoyenne3 . $strmoyenne4. '<br />';
+	$view .= '<span class="client_reviews_1" itemprop="ratingValue">'. $strmoyenne1 . '</span>';
+  $view .= '<span class="client_reviews_1" >'. $strmoyenne2 . '</span>';
+  $view .= '<span class="client_reviews_1" itemprop="reviewCount">'. $strmoyenne3 . '</span>';
+  $view .= '<span class="client_reviews_1">'. $strmoyenne4 . '</span><br />';
 	$view .= '<span class="star-note"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
-	$view .= 'pour les produits de type '.$display_name;
+	$view .= '<span>pour les produits de type '.$display_name. '</span>';
 	$view .= '</div>';
 
   ////////////////////////////// affichage des 2 derniers avis pages produits //
