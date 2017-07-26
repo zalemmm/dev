@@ -367,7 +367,6 @@
 					var production = jQuery(this).attr('text-value');
 					jQuery('#production-value').val(production);
 					jQuery(this).prop("disabled",true);
-
 				}
 
 				var m = myClass.search("delivery");

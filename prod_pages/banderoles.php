@@ -6,7 +6,13 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Utilisation en exterieur</u>: <span class="highlight">Dès 6,50€/m²</span></b><br/>Voir toutes nos baches disponibles.<br />• <u><b>Utilisation en intérieur</u>: <span class="highlight">Dès 13,50€/m²</span></b><br/>Uniquement Bâche avec garantie anti-feu.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText0" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Utilisation en exterieur</u>: <span class="highlight">Dès 6,50€/m²</span></b><br/>Voir toutes nos baches disponibles.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Utilisation en intérieur</u>: <span class="highlight">Dès 13,50€/m²</span></b><br/>Uniquement Bâche avec garantie anti-feu.<br/>
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir l'utilisation...</option>
 						<option value="extérieur">extérieur </option>
@@ -17,37 +23,49 @@
 
 				<!--support-->
 				<li class="form-line" id="id_ext">
-					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
-					• <u><b>Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,50€/m²</span></b><br/>Ue bâche conçue et produite en France, pour un produit fini 100% made in France et résistant dans la durée.<br />
-					• <u><b>Eco Toile</u>: <span class="highlight"></span></b><br/><br />
-					• <u><b>nontissé 150g</u>: <span class="highlight">légèreté dès 10,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
-					• <u><b>Dickson Jet 520 M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-					• <u><b>750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
-					• <u><b>750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
-					• <u><b>micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
-					• <u><b>100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText1" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">Eco Toile<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></u>: <span class="highlight">écologique dès 7,80/m²</span></b><br /> sans PVC, impression UV uniquement<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr">Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,80€/m²</span></b> la bâche française, pour un produit fini 100% made in France et résistant dans la durée.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>nontissé 150g</u>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b> Bâche imprimée recto verso, résistance 3 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b> Bâche grand vent pour échafaudage, plage...<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b> Toile 100% polyester M1 sans PVC ni phtalate.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="bache 440g" class="option1">bâche 440g </option>
 						<option value="eco toile" class="ecotoile"><!--défini dans fb/main.js--></option>
-						<option value="jet 550" class="fr">bâche Dickson Jet 550</option>
+						<option value="jet 550" class="option1 fr">bâche Dickson Jet 550</option>
 						<option value="bache nontissé 150g" class="option2">bâche nontissé 150g</option>
-						<option value="jet 520 M1" class="fr">bâche Dickson Jet 520 M1</option>
+						<option value="jet 520 M1" class="option1 fr">bâche Dickson Jet 520 M1</option>
 						<option value="bache 750g M2/B1"  class="option2">bâche 750g M2/B1 </option>
 						<option value="bache 750g M2/B1 recto verso"  class="option1">bâche 750g M2/B1 recto verso </option>
 						<option value="bache micro perforée M1/B1" class="option2">bâche micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
+						<option value="bache 100% écologique M1" class="option1 ecofr"><!--défini dans fb/main.js--></option>
+						<option value="tissu stretch leger 220gr B1" class="option2">tissu stretch léger 220gr B1</option>
+						<option value="tissu stretch infroissable 260gr B1" class="option1">tissu stretch infroissable 260gr B1</option>
 					</select>
 				</li>
 
 				<li class="form-line" id="id_int">
-					<span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText2" style="visibility:hidden;">
-						• <u><b>Dickson Jet 520 M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-						• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
-						• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
-						• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
-						• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />
-						• <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText2" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_int" name="qint_support2" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="jet 520 M1" class="fr">bâche Dickson Jet 520 M1 </option>
@@ -60,13 +78,18 @@
 				</li>
 
 				<li class="form-line" id="id_intext">
-					<span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText3" style="visibility:hidden;">
-						• <u><b>Dickson Jet 520 M1</u>: <span class="highlight">Anti-feu dès 13,50€/m²</span></b><br/>bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-						• <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,00€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
-						• <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
-						• <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
-						• <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 21,00€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />
-						• <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText3" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_intext" name="qintext_support3" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
 						<option value="jet 520 M1" class="fr">bâche Dickson Jet 520 M1</option>
@@ -125,7 +148,15 @@
 				<!--ourlet-->
 
 				<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText4" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -136,7 +167,15 @@
 				</li>
 
 				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText5" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -145,7 +184,16 @@
 				</li>
 
 				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText6" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+						</span>
+					</span>
+
 					<select class="form-dropdown validate[required]" id="input_33" name="q33_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -154,7 +202,16 @@
 				</li>
 
 				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText7" style="visibility:hidden;">• <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />• <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.</span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText7" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+						</span>
+					</span>
+
 					<select class="form-dropdown validate[required]" id="input_34" name="q34_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des ourlets ?</option>
 						<option value="sans ourlet">sans ourlet</option>
@@ -164,7 +221,14 @@
 
 				<!--fourreaux-->
 				<li class="form-line" id="id_41">
-					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText8" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText8" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_41" name="q41_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
@@ -174,7 +238,14 @@
 				</li>
 
 				<li class="form-line" id="id_42">
-					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText9" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText9" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_42" name="q42_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
@@ -183,7 +254,14 @@
 				</li>
 
 				<li class="form-line" id="id_43">
-					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText10" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText10" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_43" name="q43_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
@@ -192,12 +270,36 @@
 				</li>
 
 				<li class="form-line" id="id_44">
-					<span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText11" style="visibility:hidden;">• <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />• <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />• <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br /></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText11" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_44" name="q44_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
 						<option value="fourreaux haut/bas">fourreaux haut/bas</option>
 						<option value="fourreaux gauche/droite">fourreaux gauche/droite</option>
+					</select>
+				</li>
+
+				<li class="form-line" id="id_71">
+					<span class="helpButton" onmouseover="pokazt('helpText71');" onmouseout="ukryjt('helpText71');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText71" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'une finition scratch </u>: <span class="highlight">dès 2€/m</span></b><br/>
+							Une fixation scratch est cousue sur votre banderole, soit tout le tour, soit sur 2 côtés. Fourni avec la face scratch opposée de même longueur à fixer sur le support de votre choix. <br />
+						</span>
+					</span>
+					<select class="form-dropdown validate[required]" id="input_71" name="q71_finition1" onchange="JKakemono.czyscpola(); ">
+						<option value="">Voulez-vous des scratchs ?</option>
+						<option value="sans scratch">sans scratch</option>
+						<option value="scratch perimetrique">scratch périmétrique</option>
+						<option value="scratch haut/bas">scratch haut/bas</option>
+						<option value="scratch gauche/droite">scratch gauche/droite</option>
 					</select>
 				</li>
 
@@ -299,7 +401,11 @@
 
 				<!--maquette-->
 				<li class="form-line" id="id_12">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+						<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+						<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Vous avez déjà crée la mise en page:</b></u><br/>
+						Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
 						<option value="fb">France banderole crée la mise en page</option>
@@ -534,7 +640,7 @@
 			var hautbas =szerokosc*2
 			var gauchedroite = wysokosc*2
 
-			// laise ///////////////////////////////////////////////////////////////////
+			// laize ///////////////////////////////////////////////////////////////////
 
 			if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
 			if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
@@ -561,8 +667,8 @@
 				metragefinal=metrage*ilosc;
 			}
 
-		// exterieur /////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////// exterieur //
 
 		if ($('input_1').value == 'extérieur') {
 			// 440g ////////////////////////////////////////////////////////////////////
@@ -622,54 +728,54 @@
 			// JET 550 : remplace la 550g +1.80 € ajouté au métrage final /////////////
 			if ($('input_ext').value == 'jet 550' ) {
 				if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80+1.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60+1.80;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40+1.80;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20+1.80;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00+1.80;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50+1.80;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25+1.80;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00+1.80;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75+1.80;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50+1.80;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25+1.80;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00+1.80;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75+1.80;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50+1.80;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25+1.80;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11+1.80;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50+1.80;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00+1.80;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50+1.80;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00+1.80;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50+1.80;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*8.00+1.80;}
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(14.80+1.80);}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(14.60+1.80);}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(14.40+1.80);}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(14.20+1.80);}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(14.00+1.80);}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(13.50+1.80);}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(13.25+1.80);}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(13.00+1.80);}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(12.75+1.80);}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(12.50+1.80);}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(12.25+1.80);}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(12.00+1.80);}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(11.75+1.80);}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(11.50+1.80);}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(11.25+1.80);}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(11+1.80);}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(10.50+1.80);}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(10.00+1.80);}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(9.50+1.80);}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(9.00+1.80);}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(8.50+1.80);}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*(8.00+1.80);}
 				opis += '<br />- Jet 550'
 			}
 			if ($('input_ext').value == 'jet 520 M1' ) {
 				if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*19.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*19.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*19.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*18.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*18.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*18.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*17.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*17.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*17.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*16.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*16.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*14.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*13.50;}
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.80);}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.80);}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.80);}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.80);}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.80);}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.80);}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.80);}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.80);}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.80);}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.80);}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.80);}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.80);}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.80);}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.80);}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.80);}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.80);}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.80);}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.80);}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.80);}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.80);}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.80);}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.80);}
 				opis += '<br />- jet 520 M1'
 			}
 			if ($('input_ext').value == 'bache 750g M2/B1' ) {
@@ -802,36 +908,89 @@
 				if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
 				opis += '<br />- bache nontissé 150g'
 			}
+
+			if ($('input_ext').value == 'tissu stretch leger 220gr B1' ) {
+				if (metragefinal < 1.99) {cenatotal = metragefinal*35.00;}
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*34.00;}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*33.00;}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*32.00;}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*31.00;}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*30.00;}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*29.00;}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*28.00;}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*27.00;}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.00;}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*24.00;}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*23.00;}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*22.00;}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*20.00;}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*19.00;}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*18.00;}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.00;}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*15.00;}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.00;}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*13.00;}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*12.00;}
+				opis += '<br />- tissu stretch leger 220gr B1'
+			}
+			if ($('input_ext').value == 'tissu stretch infroissable 260gr B1' ) {
+				if (metragefinal < 1.99) {cenatotal = metragefinal*40.00;}
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*39.00;}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*38.00;}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*37.00;}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*36.00;}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*35.00;}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*34.00;}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*33.00;}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*32.00;}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*31.00;}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*30.00;}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*29.00;}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*28.00;}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*27.00;}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*26.00;}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*25.00;}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.00;}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*23.00;}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*22.00;}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.00;}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*18.00;}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*16.00;}
+				opis += '<br />- tissu stretch infroissable 260gr B1'
+			}
 		}
 
-		// intérieur /////////////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////////////////////////////
+		// fin extérieur ///////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////// intérieur //
 
 		if ($('input_1').value == 'intérieur') {
 			if ($('input_int').value == 'jet 520 M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*19.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*19.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*19.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*18.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*18.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*18.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*17.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*17.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*17.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*16.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*16.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*14.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*13.50;}
+				if (metragefinal < 1.99) {cenatotal = metragefinal*(21.00+1.8);}
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.8);}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.8);}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.8);}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.8);}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.8);}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.8);}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.8);}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.8);}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.8);}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.8);}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.8);}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.8);}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.8);}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.8);}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.8);}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.8);}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.8);}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.8);}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.8);}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.8);}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.8);}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.8);}
 				opis += '<br />- jet 520 M1'
 			}
 			if ($('input_int').value == 'bache 750g M2/B1' ) {
@@ -969,34 +1128,34 @@
 			}
 		}
 
-		// intérieur / extérieur /////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////////////////////////////
+		// fin intérieur ///////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////// intérieur / extérieur ///
 
 		if ($('input_1').value == 'int/ext') {
 			if ($('input_intext').value == 'jet 520 M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*19.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*19.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*19.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*18.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*18.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*18.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*17.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*17.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*17.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*16.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*16.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*14.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*13.50;}
+				if (metragefinal < 1.99) {cenatotal = metragefinal*(21.00+1.8);}
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.8);}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.8);}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.8);}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.8);}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.8);}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.8);}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.8);}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.8);}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.8);}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.8);}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.8);}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.8);}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.8);}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.8);}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.8);}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.8);}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.8);}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.8);}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.8);}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.8);}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.8);}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.8);}
 				opis += '<br />- jet 520 M1'
 			}
 			if ($('input_intext').value == 'bache 750g M2/B1' ) {
@@ -1129,6 +1288,8 @@
 				if (metragefinal > 499.99) {cenatotal = metragefinal*10.00;}
 				opis += '<br />- bache nontissé 150g M1'
 			}
+			// fin intérieur/ extérieur ////////////////////////////////////////////////
+
 		}
 		cena=cenatotal/ilosc;
 
@@ -1158,6 +1319,12 @@
 
 		if (($('input_41').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
 		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
+
+		// scratchs //////////////////////////////////////////////////////////////////
+
+		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*2; cena+=scratch; opis+='<br>- scratch haut/bas' };
+		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*2; cena+=scratch; opis+='<br>- scratch gauche/droite' };
+		if (($('input_71').value == 'scratch périmétrique')) { scratch = metrazzaokraglony1*2; cena+=scratch; opis+='<br>- scratch gauche/droite' };
 
 		// fixation //////////////////////////////////////////////////////////////////
 
@@ -1226,7 +1393,7 @@
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 25cm') ) { nouettes = ((hautbas+2)/0.25)*0.8; cena+=nouettes;opis+='<br>- nouettes haut bas tous 25cm'};
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 10cm') ) { nouettes = ((hautbas+2)/0.1)*0.8; cena+=nouettes; opis+='<br>- nouettes haut bas tous 10cm'};
 
-		// maquette //////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////// maquette //
 
 		var ktodaje='';
 		if ($('input_12').value == 'fb') {
@@ -1237,7 +1404,7 @@
 			ktodaje = '<br />- j’ai déjà crée la maquette';
 		}
 
-		// options colis /////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////// options colis //
 
 		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 		if (colis == true) {
@@ -1373,6 +1540,8 @@
 				});
 			}
 
+			///////////////////////////////////////////////////// calcul des délais //
+
 			var production      = jQuery('#production-value').val();
 			//alert(production);
 			var delivery        = jQuery('#delivery-value').val();
@@ -1465,7 +1634,7 @@
 				cena=cenapojedyncza*ilosc;
 			}
 
-			// remise ////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////// remise //
 			var total = document.getElementById("total");
 			var remise = document.getElementById("remise");
 
@@ -1545,8 +1714,16 @@
 
 			transport=0;
 
+		// fin remise //////////////////////////////////////////////////////////////
 		////////////////////////////////////// 	avertissements, messages d'erreur //
 
+		if ( ($('input_ext').value == 'eco toile') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
+			var blad = document.getElementById("id_14");
+			blad.style.background = "#EA2A6A";
+			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+			eBox.style.display="block";
+			niepokazuj=1;
+		}
 		if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 			var blad = document.getElementById("id_14");
 			blad.style.background = "#EA2A6A";
@@ -1755,14 +1932,15 @@
 					suma2 = suma.replace(".", ",");
 					var newtotal = document.getElementById("total");
 					newtotal.innerHTML=suma2+' &euro;';
-				}}
-
-				var rodzaj = "banderole Thermo-soudure";
-				var dodajkoszyk = document.getElementById("cart_form");
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				}
 			}
-			if (ilosc==''){niepokazuj=1;}
+
+			var rodzaj = "banderole Thermo-soudure";
+			var dodajkoszyk = document.getElementById("cart_form");
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-check-square" aria-hidden="true"></i></button> ';
 		}
+		if (ilosc==''){niepokazuj=1;}
+	}
 
 		// fin envoi formulaire cas particuliers ///////////////////////////////////
 		////////////////////////////////////////////////// livraison le jour même //

@@ -271,15 +271,26 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "intext", "operator": "equals", "value": "bache nontissé 150g M1"}], "action": {"field": "81", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "intext", "operator": "notEquals", "value": "bache nontissé 150g M1"}, {"field": "intext", "operator": "notEquals", "value": ""}], "action": {"field": "21", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "44", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}, {"field": "41", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}, {"field": "42", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}, {"field": "43", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}, {"field": "44", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
+
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets haut/bas"}], "action": {"field": "22", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"}, {"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"}, {"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "41", "visibility": "Show"}},
+
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"},{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"},{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "equals", "value": "eco toile"},{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"},{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"},{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "ext", "operator": "notEquals", "value": "eco toile"},{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
@@ -292,11 +303,14 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
 
+
+
     {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "44", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "71", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "tendeurs"}], "action": {"field": "52", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "equals", "value": "rislans"}], "action": {"field": "53", "visibility": "Show"}},
@@ -315,7 +329,7 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-  ]);
+    ]);
   JotForm.init();
   </script>';
   }
@@ -815,18 +829,17 @@ function fbshop_head() {
   if (is_page('inscription') || is_page('order-inscription')) {
     echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
     <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform_reg.js?v3" type="text/javascript"></script>';
-  if (isset($_GET['goback'])) {
-    echo '<script type="text/javascript">JotForm.init();</script>';
-  } else {
-    /*echo '<script type="text/javascript">JotForm.init(function(){ JotForm.initCaptcha(\'input_20\'); $(\'input_20\').hint(\' \'); });</script>
-    <script src=\'https://www.google.com/recaptcha/api.js\'></script>
-    ';*/
-    echo '<script type="text/javascript">JotForm.init();</script>
-    <script src=\'https://www.google.com/recaptcha/api.js\'></script>
-  ';
+    if (isset($_GET['goback'])) {
+      echo '<script type="text/javascript">JotForm.init();</script>';
+    } else {
+      /*echo '<script type="text/javascript">JotForm.init(function(){ JotForm.initCaptcha(\'input_20\'); $(\'input_20\').hint(\' \'); });</script>
+      <script src=\'https://www.google.com/recaptcha/api.js\'></script>
+      ';*/
+      echo '<script type="text/javascript">JotForm.init();</script>
+      <script src=\'https://www.google.com/recaptcha/api.js\'></script>
+    ';
+    }
   }
-  }
-
 }
 // fin header pages produits ///////////////////////////////////////////////////
 
