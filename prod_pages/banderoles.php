@@ -670,7 +670,7 @@
 				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.50;}
 				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*14.00;}
 				if (metragefinal > 499.99) {cenatotal = metragefinal*13.50;}
-				opis += '<br />- 470gr M1'
+				opis += '<br />- jet 520 M1'
 			}
 			if ($('input_ext').value == 'bache 750g M2/B1' ) {
 				if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
@@ -832,7 +832,7 @@
 				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.50;}
 				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*14.00;}
 				if (metragefinal > 499.99) {cenatotal = metragefinal*13.50;}
-				opis += '<br />- 470gr M1'
+				opis += '<br />- jet 520 M1'
 			}
 			if ($('input_int').value == 'bache 750g M2/B1' ) {
 				if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
@@ -997,7 +997,7 @@
 				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.50;}
 				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*14.00;}
 				if (metragefinal > 499.99) {cenatotal = metragefinal*13.50;}
-				opis += '<br />- 470gr M1'
+				opis += '<br />- jet 520 M1'
 			}
 			if ($('input_intext').value == 'bache 750g M2/B1' ) {
 				if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
@@ -1259,11 +1259,12 @@
 			cedzik += '<br />- relais colis';
 		}
 
-
-		if ( ($('input_ext').value == 'jet 550') && (szerokosc > 2) && (wysokosc > 2) ) {
-			cena *= 1.2;
+		// ajout 30% si hauteur et largeur supérieurs à 2m /////////////////////////
+		if ( (szerokosc > 2) && (wysokosc > 2) ) {
+			cena *= 1.3;
 			cedzik += '<br />- l & h supérieure à 2m';
 		}
+		////////////////////////////////////////////////////////////////////////////
 
 		cenapojedyncza = cena;
 
@@ -1334,42 +1335,42 @@
 
 					jQuery(production-value).prop("disabled",false);
 					jQuery(delivery-value).prop("disabled",true);
+					});
 				});
-			});
-			jQuery(document).ready(function(){
-				jQuery('.form-textbox2').click(function(){
-					jQuery('#delivery-value').val(Masquer());
+				jQuery(document).ready(function(){
+					jQuery('.form-textbox2').click(function(){
+						jQuery('#delivery-value').val(Masquer());
 
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.production').prop("disabled",false);
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
 
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('');
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
 
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
 
-					jQuery(production-value).prop("disabled",false);
-					jQuery(delivery-value).prop("disabled",true);
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
+					});
 				});
-			});
-			jQuery(document).ready(function(){
-				jQuery('.form-checkbox').click(function(){
-					jQuery('#delivery-value').val(Masquer());
+				jQuery(document).ready(function(){
+					jQuery('.form-checkbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
 
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.production').prop("disabled",false);
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
 
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('');
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
 
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
 
-					jQuery(production-value).prop("disabled",false);
-					jQuery(delivery-value).prop("disabled",true);
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
+					});
 				});
-			});
 			}
 
 			var production      = jQuery('#production-value').val();
@@ -1544,6 +1545,8 @@
 
 			transport=0;
 
+		////////////////////////////////////// 	avertissements, messages d'erreur //
+
 		if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 			var blad = document.getElementById("id_14");
 			blad.style.background = "#EA2A6A";
@@ -1701,6 +1704,10 @@
 			eBox.style.display="block";
 			niepokazuj=2;
 		}
+
+		// fin avertissements //////////////////////////////////////////////////////
+		/////////////// envoi formulaire cas particulier niepokazuj==1 (non tissé)//
+
 		if (niepokazuj==1) {
 			jQuery('#prix_unitaire').html('-');
 			//remise.innerHTML='-';
@@ -1710,14 +1717,13 @@
 			newtotal.innerHTML='-';
 			newopt.innerHTML='-';
 			rabat2='-';
-			var longueur = szerokosc*100;
-			var hauteur = wysokosc*100;
 			var rodzaj = "banderole";
 			var dodajkoszyk = document.getElementById("cart_form");
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+'</br>- '+longueur+' x '+hauteur+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
 			livraisonComp.style.display = 'block';
 		}
 
+		///////// envoi formulaire cas particulier niepokazuj==2 (Thermo-soudure) //
 		if (niepokazuj==2) {
 			jQuery('#prix_unitaire').html('-');
 			//remise.innerHTML='-';
@@ -1758,12 +1764,15 @@
 			if (ilosc==''){niepokazuj=1;}
 		}
 
-		// livraison le jour même //
+		// fin envoi formulaire cas particuliers ///////////////////////////////////
+		////////////////////////////////////////////////// livraison le jour même //
+
 		if ((DeliveryType == '1-1') && (PorductType == '1-1')){
 			livraisonrapide.style.display = 'block';
 		}
 		else {livraisonrapide.style.display = 'none';}
-		///////////////////////////
+
+		/////////////////////////////////////////////////////////////// livraison //
 
 		if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))) {
 			suma=cena-rabat;
@@ -1818,9 +1827,13 @@
 				}
 			}
 
+			// fin livraison /////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////// envoi formulaire //
+
 			var rodzaj = "banderole";
 			var dodajkoszyk = document.getElementById("cart_form");
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+			// largeur et hauteur x100 pour un affichage en cm côté admin
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc*100+' x '+szerokosc*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 			livraisonComp.style.display = 'block';
 		}
 

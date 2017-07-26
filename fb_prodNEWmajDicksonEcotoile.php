@@ -464,7 +464,7 @@ function fbshop_head() {
   }
 
   //////////////////////////////////////////////////// pages rollup et kakemonos identiques
-  if (is_page('roll-up') || is_page('kakemonos')) {
+  if ( is_page('roll-up') || is_page('kakemonos') || is_page('kakemono-2')|| is_page('kakemono') ) {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-rollup.js?v4" type="text/javascript"></script>
   <script type="text/javascript">

@@ -31,6 +31,9 @@ function fbs_plugin_init() {
 	fb_is_logged();
 }
 
+////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// enregistrement panier //
+
 function register_cart() {
 	session_start();
 	if(!isset($_SESSION['fbcart'])) {
@@ -60,7 +63,7 @@ function register_cart() {
 		if (isset($_POST['ceddre'])) {
 			$prix = $_POST['prix'] + $_POST['ceddre'];
 		} else {
-			$prix = $_POST['prix'];		
+			$prix = $_POST['prix'];
 		}
 		if ($_POST['isplv'] == 'true') {
 			if ($_POST['projectmak'] == 'fb') {
@@ -68,7 +71,7 @@ function register_cart() {
 				$prix = $prix + 40;
 			}
 			if ($_POST['projectmak'] == 'us') {
-				$opis .= '- j’ai déjà crée la maquette<br />';				
+				$opis .= '- j’ai déjà crée la maquette<br />';
 			}
 		}
 		$ilosc = $_POST['ilosc'];
@@ -80,17 +83,17 @@ function register_cart() {
 			if ($ilosc > 1) {
 				$prix = $prix + 4.9;
 			}
-			$opis .= '- recycler les bâches<br />';				
+			$opis .= '- recycler les bâches<br />';
 		}
 		$colis = $_POST['colis'];
 		if (!empty($colis)) {
-			$opis .= '- colis revendeur<br />';				
+			$opis .= '- colis revendeur<br />';
 		}
 		$etiquette = $_POST['etiquette'];
 		if (!empty($etiquette)) {
 			if ($ilosc > 9) {
 				$prix = $prix + (1.5 * $ilosc);
-				$opis .= '- étiquette personnalisée<br />';				
+				$opis .= '- étiquette personnalisée<br />';
 			}
 		}
 		$rush24 = $_POST['rush24'];
@@ -113,7 +116,7 @@ function register_cart() {
 			if ($ilosc > 20) {
 				$prix = $prix + 19;
 			}
-			$opis .= '- délai rush 24/48H<br />';				
+			$opis .= '- délai rush 24/48H<br />';
 		}
 		$rush72 = $_POST['rush72'];
 		if (!empty($rush72)) {
@@ -135,14 +138,14 @@ function register_cart() {
 			if ($ilosc > 20) {
 				$prix = $prix + 9;
 			}
-			$opis .= '- délai rush 72H<br />';				
+			$opis .= '- délai rush 72H<br />';
 		}
 
 		$total = $ilosc * $prix;
 		$relais = $_POST['relais'];
 		if (!empty($relais)) {
 			$total = $total + 3;
-			$opis .= '- relais colis<br />';				
+			$opis .= '- relais colis<br />';
 		}
 		$prix2 = number_format($prix, 2, '.', '').' &euro;';
 		$total = number_format($total, 2, '.', '').' &euro;';
@@ -152,8 +155,8 @@ function register_cart() {
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
-	
-	
+
+
 	if(isset($_POST['addtocartmma'])) {
 		$products = $_SESSION['fbcart'];
     	if (!is_array($products)) {
@@ -164,7 +167,7 @@ function register_cart() {
 		if (isset($_POST['ceddre'])) {
 			$prix = $_POST['prix'] + $_POST['ceddre'];
 		} else {
-			$prix = $_POST['prix'];		
+			$prix = $_POST['prix'];
 		}
 		if ($_POST['ismma'] == 'true') {
 		$_SESSION['ismma'] = 'true';
@@ -173,7 +176,7 @@ function register_cart() {
 				$prix = $prix + 40;
 			}
 			if ($_POST['projectmak'] == 'us') {
-				$opis .= '- j’ai déjà crée la maquette<br />';				
+				$opis .= '- j’ai déjà crée la maquette<br />';
 			}
 		}
 		$ilosc = $_POST['ilosc'];
@@ -185,17 +188,17 @@ function register_cart() {
 			if ($ilosc > 1) {
 				$prix = $prix + 4.9;
 			}
-			$opis .= '- recycler les bâches<br />';				
+			$opis .= '- recycler les bâches<br />';
 		}
 		$colis = $_POST['colis'];
 		if (!empty($colis)) {
-			$opis .= '- colis revendeur<br />';				
+			$opis .= '- colis revendeur<br />';
 		}
 		$etiquette = $_POST['etiquette'];
 		if (!empty($etiquette)) {
 			if ($ilosc > 9) {
 				$prix = $prix + (1.5 * $ilosc);
-				$opis .= '- étiquette personnalisée<br />';				
+				$opis .= '- étiquette personnalisée<br />';
 			}
 		}
 		$rush24 = $_POST['rush24'];
@@ -218,7 +221,7 @@ function register_cart() {
 			if ($ilosc > 20) {
 				$prix = $prix + 19;
 			}
-			$opis .= '- délai rush 24/48H<br />';				
+			$opis .= '- délai rush 24/48H<br />';
 		}
 		$rush72 = $_POST['rush72'];
 		if (!empty($rush72)) {
@@ -240,14 +243,14 @@ function register_cart() {
 			if ($ilosc > 20) {
 				$prix = $prix + 9;
 			}
-			$opis .= '- délai rush 72H<br />';				
+			$opis .= '- délai rush 72H<br />';
 		}
 
 		$total = $ilosc * $prix;
 		$relais = $_POST['relais'];
 		if (!empty($relais)) {
 			$total = $total + 3;
-			$opis .= '- relais colis<br />';				
+			$opis .= '- relais colis<br />';
 		}
 		$prix2 = number_format($prix, 2, '.', '').' &euro;';
 		$total = number_format($total, 2, '.', '').' &euro;';
@@ -257,8 +260,8 @@ function register_cart() {
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
-	
-	
+
+
 	if(isset($_POST['addtocart3'])) {
 		$products = $_SESSION['fbcart'];
     	if (!is_array($products)) {
@@ -269,7 +272,7 @@ function register_cart() {
 		if (isset($_POST['ceddre'])) {
 			$prix = $_POST['prix'] + $_POST['ceddre'];
 		} else {
-			$prix = $_POST['prix'];		
+			$prix = $_POST['prix'];
 		}
 		if ($_POST['isburaliste'] == 'true') {
 			$_SESSION['isburaliste'] = 'true';
@@ -278,10 +281,10 @@ function register_cart() {
 				$prix = $prix + 27.5;
 			}
 			if ($_POST['projectmak'] == 'us') {
-				$opis .= '- Visuel Standard<br />';				
+				$opis .= '- Visuel Standard<br />';
 			}
 		}
-		
+
 		$ilosc = $_POST['ilosc'];
 		$total = $ilosc * $prix;
 		$prix2 = number_format($prix, 2, '.', '').' &euro;';
@@ -292,7 +295,7 @@ function register_cart() {
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
-	
+
 	if(isset($_POST['delfromcart'])) {
 		$products = $_SESSION['fbcart'];
 		$licznik = 0;
@@ -314,6 +317,9 @@ function register_cart() {
 	}
 }
 
+// fin enregistrement panier ///////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// fbshop plugin installation //
 
 function fbs_install () {
 	global $wpdb;
@@ -355,7 +361,7 @@ function fbs_install () {
 		) DEFAULT CHARSET=utf8;";
 		$wpdb->query($promo_query);
 	}
-	
+
 	if ($wpdb->get_var("SHOW TABLES LIKE '".$fb_tablename_state."'") != $fb_tablename_state) {
 		$state_query = "CREATE TABLE ".$fb_tablename_state." (
 		id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -372,7 +378,7 @@ function fbs_install () {
 		$wpdb->query("INSERT INTO `$fb_tablename_state` VALUES (not null, '5','cloturé')");
 		$wpdb->query("INSERT INTO `$fb_tablename_state` VALUES (not null, '6','annulées')");
 	}
-	
+
 	if ($wpdb->get_var("SHOW TABLES LIKE '".$fb_tablename_comments."'") != $fb_tablename_comments) {
 		$comments_query = "CREATE TABLE ".$fb_tablename_comments." (
 		id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -467,7 +473,7 @@ function fbs_install () {
 //		$import = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE tnt!='' ORDER BY id ASC", ARRAY_A);
 //		foreach ($import as $import => $i) :
 //			$dopisz = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$i[unique_id]."', 'shipping', 'tnt')");
-//		endforeach;		
+//		endforeach;
 	}
 
 	if ($wpdb->get_var("SHOW TABLES LIKE '".$fb_tablename_rating."'") != $fb_tablename_rating) {
@@ -524,14 +530,18 @@ function fbs_install () {
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET=utf8;";
 		$wpdb->query($users_query);
-	}	
+	}
 }
 
+// fin install fbshop //////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////// shortcode //
 
 add_shortcode('FBSHOP', 'wywolaj');
 function wywolaj($page, $pageid) {
 	return generate_page($page['page'], $page['pageid']);
 }
+
+////////////////////////////////////////////////////////////////// newsletter //
 
 function get_newsletter_un() {
 	global $wpdb;

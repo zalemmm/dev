@@ -52,7 +52,6 @@ function fbs_admin_menu() {
 	add_submenu_page('fbsh', 'Relances clients', 'Relances clients', 1, 'fb_manage_relances', 'fb_relances');
 	add_submenu_page('fbsh', 'Sync Mailjet', 'Synchronisation Mailjet', 1, 'fb_sync_mailjet', 'fb_mailjet');
 //    add_submenu_page('fbsh', 'Import', 'Import', 1, 'fb-import', 'fb_admin_import');
-
 }
 
 // fin intégration WORDPRESS ///////////////////////////////////////////////////
@@ -95,8 +94,8 @@ function get_ratings($type_prod, $nb_comment=2) {
 
   /////////////////////////////////////////////////////////// affichage notes //
   $view = '<div style="clear: both;"></div>
-    <div id="rating_livre" itemscope itemtype="http://schema.org/Product">
-    <span itemprop="name" class="dis0">'.$display_name. '</span>
+    <div id="rating_livre" itemtype="http://schema.org/Review">
+
       <div id="vosavis"></div>';
 	$view .= '<div itemscope itemtype="http://schema.org/AggregateRating" id="rating_general" itemprop="aggregateRating"><h2>Vos avis :</h2>';
 	$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
@@ -108,13 +107,13 @@ function get_ratings($type_prod, $nb_comment=2) {
 	// $strmoyenne3 = $total->nb_avis;
 	$strmoyenne3 = $notation->nb_avis;
 	$strmoyenne4 = " avis";
-
+  
 	$view .= '<span class="client_reviews_1" itemprop="ratingValue">'. $strmoyenne1 . '</span>';
   $view .= '<span class="client_reviews_1" >'. $strmoyenne2 . '</span>';
-  $view .= '<span class="client_reviews_1" itemprop="reviewCount">'. $strmoyenne3 . '</span>';
+  $view .= '<span class="client_reviews_1" itemprop="ratingCount">'. $strmoyenne3 . '</span>';
   $view .= '<span class="client_reviews_1">'. $strmoyenne4 . '</span><br />';
 	$view .= '<span class="star-note"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/star-4_7.png" /></span><br />';
-	$view .= '<span>pour les produits de type '.$display_name. '</span>';
+	$view .= 'pour les produits de type <span itemprop="itemReviewed">'.$display_name. '</span>';
 	$view .= '</div>';
 
   ////////////////////////////// affichage des 2 derniers avis pages produits //
