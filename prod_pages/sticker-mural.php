@@ -9,12 +9,11 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_support1" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir le support </option>
-						<option value="permanent">vinyle blanc permanent 95μ monomère 3 ans</option>
-						<option value="semi-permanent">vinyle blanc semi-permanent 95μ monomère 2 ans</option>
-						<option value="permanent75μ">vinyle blanc permanent 75μ polymère 5 ans</option>
+						<option value="stickytex">Stickytex</option>
+						<!--<option value="papier peint">Papier peint adhérant</option>-->
 					</select>
 				</li>
-
+				
 				<li class="form-line" id="id_4">
 					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;">Option</span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onclick="JKakemono.czyscpola(); ">
@@ -100,7 +99,6 @@
 							<input type="hidden" id="delivery-value" value="" />
 						</p>
 					</div>
-
 				</li>
 
 				<li class="form-line" id="id_9a">

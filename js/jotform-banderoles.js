@@ -639,32 +639,12 @@ JotForm = {
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
 						///////////////////////////////
-
-/*				    if ($('input_1').value == 'extérieur') {
-              $('container').style.display="none";
-              imag3.style.backgroundImage="none";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-
-						}
-						if ($('input_1').value == 'intérieur') {
-              $('container').style.display="none";
-              imag3.style.backgroundImage="none";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int.png)";
-						}
-						if ($('input_1').value == 'int/ext') {
-              $('container').style.display="none";
-              imag3.style.backgroundImage="none";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-							imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-int-ext.png)";
-						}*/
-
+            
             // oeuillets coins par défaut
             if ($('input_ext').value !== "") {
               $('container').style.display="none";
+              imag4.style.backgroundImage="none";
+              imag5.style.backgroundImage="none";
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext.png)";
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png)";
               imag3.style.animation="anim .5s 1";
@@ -721,7 +701,7 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/260g.png)";
               imag2.style.animation="anim4 .5s 1";
 						}
-            
+
             // option oeuillets
             if (($('input_21').value == 'sans oeillets') || ($('input_81').value == 'pas de finition')) {
 							imag3.style.backgroundImage="none";
