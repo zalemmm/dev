@@ -9,14 +9,13 @@
           <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu EasyQuick</u>: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu EasyQuick</u>: <span class="highlight">Dès 468€</span></b><br/>LE meilleur stand parapluie textile 260g robuste et facile à monter. Traité retardement feu. livré avec sac de transport à roulettes<br />
               <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand ExpoBag</u>: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>
               <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand parapluie révolution</u>: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Valise transformable</u>: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 316€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Valise transformable</u>: <span class="highlight"></span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
             </span>
           </span>
-
           <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
             <option value="">choisir le type</option>
             <option value="Tissu">stand tissu easy quick</option>
@@ -31,11 +30,10 @@
           <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText1" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit</u>: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé</u>: <span class="highlight">Dès 336€ en 3x3</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/>
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit</u>: <span class="highlight">Dès 468€</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé</u>: <span class="highlight">Dès 688€</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/>
             </span>
           </span>
-
           <select class="form-dropdown validate[required]" id="input_01" name="q01_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
             <option value="">choisir le style</option>
             <option value="Droit">Droit</option>
@@ -76,7 +74,6 @@
               <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>2 Spots halogène 35w</u>: <span class="highlight">Dès 80,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
             </span>
           </span>
-
           <select class="form-dropdown validate[required]" id="input_2" name="q2_option" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir l'option... </option>
             <option value="1">2 spots hallogène 35w aluminium </option>
@@ -88,8 +85,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText4" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit recto </u>: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit recto verso</u>: <span class="highlight">Dès 474€ en 3x3</span></b><br/>le stand tissu meilleur prix en ligne. Disponible de 3x3 (226x226cm)  à 3x8 (226x600cm). le verso est également imprimé sur de la maille extensible 220 ou 260g<br/>
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit recto </u>: <span class="highlight">Dès 468€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit recto verso</u>: <span class="highlight">Dès 638€</span></b><br/>le stand tissu meilleur prix en ligne.<br/>
             </span>
           </span>
 
@@ -123,9 +120,10 @@
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText5" style="visibility:hidden;">
               <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé recto </u>: <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé recto verso</u>: <span class="highlight">Dès 1106€</span></b><br/>le meilleur prix stand tissu en ligne. Disponible de 3x3 (226x208cm) à 3x4 (226x280cm). le verso est également imprimé sur de la maille extensible 260g<br/>
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé recto verso</u>: <span class="highlight">Dès 1106€</span></b><br/>le meilleur prix stand tissu en ligne. Disponible de 3x3 (226x208cm) à 3x4 (226x280cm).<br/>
             </span>
           </span>
+
           <select class="form-dropdown validate[required]" id="input_500" name="q500_option" onChange="JKakemono.czyscpola(); ">
             <option value="">choisir les dimensions... </option>
             <optgroup label="Recto Avec Retour">
@@ -135,28 +133,12 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_02">
-          <span class="helpButton" onmouseover="pokazt('helpText02');" onmouseout="ukryjt('helpText02');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText02" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 260g B1</u>: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_02" name="q02_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir le tissu</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch extensible 260g B1</option>
-          </select>
-        </li>
-
         <li class="form-line" id="id_51">
           <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText6" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>2 spots halogènes 150w</u>: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br />
-            </span>
+            <span class="helpText" id="helpText6" style="visibility:hidden;"><i class="fa fa-check-square" aria-hidden="true"></i> <u><b>2 spots halogènes 150w</u>: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br /></span>
           </span>
+
           <select class="form-dropdown validate[required]" id="input_51" name="q51_option" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir l'option... </option>
             <option value="1">2 spots hallogène 150w noir </option>
@@ -168,8 +150,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText7" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Valise transformable</u>: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 316€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Valise transformable</u>: <span class="highlight"></span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br /></span>
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
@@ -188,6 +170,7 @@
               <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
             </span>
           </span>
+
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir la mise en page... </option>
             <option value="fb">France banderole crée la mise en page</option>
@@ -276,7 +259,9 @@
   <div id="container">
 
     <div id="slides">
+
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-0.jpg" alt="stand exposition salon" title="stand expo pas cher" /></li>
+
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-2.jpg" alt="devis en ligne stand expo" title="stand parapluie devis" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-3.jpg" alt="stand parapluie pas cher" title="stand exposition personnalisé" /></li>
       <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
@@ -302,18 +287,19 @@
 </div>
 
 <script type="text/javascript">
-//////////////////////////////////////////////////// checkboxes livraison //
+// checkboxes livraison
 jQuery('#adresse').click(function() {
   if (document.getElementById('adresse').checked) {
     document.getElementById('etiquette').checked = false;
   }
 });
+
 jQuery('#etiquette').click(function() {
   if (document.getElementById('etiquette').checked) {
     document.getElementById('adresse').checked = false;
   }
 });
-////////////////////////////////////////////////////////////////////////////
+
 function Afficher() {
 divInfo = document.getElementById('delivery-div');
   if (divInfo.style.display == 'none')
@@ -334,7 +320,7 @@ divInfo = document.getElementById('delivery-div');
   if (divInfo.style.display == 'block')
   divInfo.style.display = 'none';
 }
-///////////////////////////////////////////////// calcul des jours ouvrés //
+
 function AddBusinessDays(weekDaysToAdd) {
   // fonction jours ouvrés
   var curdate = new Date();
@@ -351,308 +337,252 @@ function AddBusinessDays(weekDaysToAdd) {
   }
   return realDaysToAdd;
 }
-////////////////////////////////////////////////////////////////////////////
+
 jQuery(document).ready(function(){
   jQuery('.delivery , .production').click(function(){
-    var cena           = 0;   var cena2    = 0;
-    var rabat          = 0;   var rabat2   = 0;
-    var suma           = 0;   var suma2    = 0;
-    var tissu220       = 0;   var tissu260 = 0;
-    var scratch        = 0;
-    var ktorytyp       = '';
-    var cedzik         = '';
-    var dodatkowaopcja = '';
-    var tissu          = '';
-    var structure      = '';
-    var pack           = '';
-    var trans          = '';
-    var prliv          = '';
-    var date_panier    = '';
-    var eBox           = document.getElementById('form-button-error2');
-    eBox.innerHTML     = '';
+    var cena=0; var cena2=0;
+    var rabat=0; var rabat2=0;
+    var suma=0; var suma2=0;
+    var transport=0;
+    var ktorytyp='';
+    var cedzik='';
+    var dodatkowaopcja='';
+    var tissu='';
+    var structure='';
+    var pack='';
+    var trans='';
+    var prliv='';
+    var date_panier='';
+    var eBox = document.getElementById('form-button-error2');
+    eBox.innerHTML='';
 
-    /// stand tissu droit //////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////// recto simple //
-    if ($('input_0').value == 'Tissu') {
-      trans = 15;
-    	if ($('input_50').value == '3x1 R' ) {
-        scratch = 7.7;
-    		structure = 105.3;
-        tissu220 = 21.39;
-        tissu260 = 28.52;
-    		dodatkowaopcja += '<br />- Recto simple 3x1 Droit';
-    	}
-    	if ($('input_50').value == '3x2 R' ) {
-        structure = 120.9;
-        scratch = 9.2;
-        tissu220 = 31.74;
-        tissu260 = 42.32;
-    		dodatkowaopcja += '<br />- Recto simple 3x2 Droit';
-    	}
-    	if ($('input_50').value == '3x3 R' ) {
-    		structure = 129.6;
-        scratch = 10.6;
-        tissu220 = 41.4;
-        tissu260 = 55.2;
-    		dodatkowaopcja += '<br />- Recto simple 3x3 Droit';
-    	}
-    	if ($('input_50').value == '3x4 R' ) {
-    		structure = 165.60;
-        scratch = 12;
-        tissu220 = 51.6;
-        tissu260 = 68.08;
-    		dodatkowaopcja += '<br />- Recto simple 3x4 Droit';
-    	}
-    	if ($('input_50').value == '3x5 R' ) {
-    		structure = 201.6;
-        scratch = 13.6;
-        tissu220 = 62.1;
-        tissu260 = 82.8;
-    		dodatkowaopcja += '<br />- Recto simple 3x5 Droit';
-    	}
-    	if ($('input_50').value == '3x6 R' ) {
-    		structure = 300;
-        scratch = 15;
-        tissu220 = 71.76;
-        tissu260 = 95.68;
-    		dodatkowaopcja += '<br />- Recto simple 3x6 Droit';
-    	}
-    	if ($('input_50').value == '3x7 R' ) {
-    		structure = 345;
-        scratch = 16.5;
-        tissu220 = 82.11;
-        tissu260 = 109.48;
-    		dodatkowaopcja += '<br />- Recto simple 3x7 Droit';
-    	}
-    	if ($('input_50').value == '3x8 R' ) {
-    		structure = 390;
-        scratch = 18;
-        tissu220 = 92.46;
-        tissu260 = 123.28;
-    		dodatkowaopcja += '<br />- Recto simple 3x8 Droit';
-    	}
+    if ( ($('input_0').value) && ((($('input_2').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_7').value) && ($('input_8').value)) || (($('input_1').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_50').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value)) || (($('input_01').value) && ($('input_500').value) && ($('input_51').value) && ($('input_6').value) && ($('input_7').value) && ($('input_8').value))) ) {
 
-      /////////////////////////////////////////////////////////// recto verso //
-    	if ($('input_50').value == '3x1 RV' ) {
-    		structure = 117;
-        scratch = 14;
-        tissu220 = 33.12;
-        tissu260 = 44.16;
-    		dodatkowaopcja += '<br />- Recto Verso 3x1 Droit';
-    	}
-    	if ($('input_50').value == '3x2 RV' ) {
-    		structure = 144.3;
-        scratch = 16.9;
-        tissu220 = 53.13;
-        tissu260 = 70.84;
-    		dodatkowaopcja += '<br />- Recto Verso 3x2 Droit';
-    	}
-    	if ($('input_50').value == '3x3 RV' ) {
-    		structure = 162;
-        scratch = 19.8;
-        tissu220 = 73.14;
-        tissu260 = 97.52;
-    		dodatkowaopcja += '<br />- Recto Verso 3x3 Droit';
-    	}
-    	if ($('input_50').value == '3x4 RV' ) {
-    		structure = 208.8;
-        scratch = 22.6;
-        tissu220 = 92.46;
-        tissu260 = 123.28;
-    		dodatkowaopcja += '<br />- Recto Verso 3x4 Droit';
-    	}
-    	if ($('input_50').value == '3x5 RV' ) {
-    		structure = 255.6;
-        scratch = 25.6;
-        tissu220 = 113.16;
-        tissu260 = 150.88;
-    		dodatkowaopcja += '<br />- Recto Verso 3x5 Droit';
-    	}
-      if ($('input_50').value == '3x6 RV' ) {
-        structure = 354;
-        scratch = 28.6;
-        tissu220 = 133.86;
-        tissu260 = 178.48;
-        dodatkowaopcja += '<br />- Recto Verso 3x6 Droit';
-      }
-      if ($('input_50').value == '3x7 RV' ) {
-        structure = 408;
-        scratch = 31.5;
-        tissu220 = 153.87;
-        tissu260 = 205.16;
-        dodatkowaopcja += '<br />- Recto Verso 3x7 Droit';
-      }
-      if ($('input_50').value == '3x8 RV' ) {
-        structure = 462;
-        scratch = 34.5;
-        tissu220 = 174.57;
-        tissu260 = 232.76;
-        dodatkowaopcja += '<br />- Recto Verso 3x8 Droit';
+      /// stand tissu droit ////////////////////////////////////////////////////////
+      if ($('input_0').value == 'Tissu') {
+      	trans = 45.145;
+      	if ($('input_50').value == '3x1 R' ) {
+      		tissu = 170;
+      		structure = 105.30;
+      		dodatkowaopcja += '<br />- Recto simple 3x1 Droit';
+      	}
+      	if ($('input_50').value == '3x2 R' ) {
+      		tissu = 210;
+      		structure = 120.90;
+      		dodatkowaopcja += '<br />- Recto simple 3x2 Droit';
+      	}
+      	if ($('input_50').value == '3x3 R' ) {
+      		tissu = 219;
+      		structure = 128;
+      		dodatkowaopcja += '<br />- Recto simple 3x3 Droit';
+      	}
+      	if ($('input_50').value == '3x4 R' ) {
+      		tissu = 273;
+      		structure = 165.60;
+      		dodatkowaopcja += '<br />- Recto simple 3x4 Droit';
+      	}
+      	if ($('input_50').value == '3x5 R' ) {
+      		tissu = 355;
+      		structure = 201.60;
+      		dodatkowaopcja += '<br />- Dimensions 3x5 Droit';
+      	}
+      	if ($('input_50').value == '3x6 R' ) {
+      		tissu = 487;
+      		structure = 300;
+      		dodatkowaopcja += '<br />- Dimensions 3x6 Droit';
+      	}
+      	if ($('input_50').value == '3x7 R' ) {
+      		tissu = 583;
+      		structure = 345;
+      		dodatkowaopcja += '<br />- Dimensions 3x7 Droit';
+      	}
+      	if ($('input_50').value == '3x8 R' ) {
+      		tissu = 596;
+      		structure = 390;
+      		dodatkowaopcja += '<br />- Dimensions 3x8 Droit';
+      	}
+
+      	if ($('input_50').value == '3x1 RV' ) {
+      		tissu = 292;
+      		structure = 117;
+      		dodatkowaopcja += '<br />- Recto Verso 3x1 Droit';
+      	}
+      	if ($('input_50').value == '3x2 RV' ) {
+      		tissu = 400;
+      		structure = 144.30;
+      		dodatkowaopcja += '<br />- Recto Verso 3x2 Droit';
+      	}
+      	if ($('input_50').value == '3x3 RV' ) {
+      		tissu = 453;
+      		structure = 175.50;
+      		dodatkowaopcja += '<br />- Recto Verso 3x3 Droit';
+      	}
+      	if ($('input_50').value == '3x4 RV' ) {
+      		tissu = 555;
+      		structure = 226.2;
+      		dodatkowaopcja += '<br />- Recto Verso 3x4 Droit';
+      	}
+      	if ($('input_50').value == '3x5 RV' ) {
+      		tissu = 719;
+      		structure = 276.90;
+      		dodatkowaopcja += '<br />- Recto Verso 3x5 Droit';
+      	}
+        // stand tissu courbé //////////////////////////////////////////////////////
+
+      	if ($('input_500').value == '3' ) {
+      		tissu = 129.60;
+      		structure = 219;
+      		dodatkowaopcja += '<br />- Recto simple 3x3 Courbé';
+      	}
+      	if ($('input_500').value == '4' ) {
+      		tissu = 273;
+      		structure = 165.60;
+      		dodatkowaopcja += '<br />- Recto simple 3x4 Courbé';
+      	}
+
+      	// prix stand tissu ////////////////////////////////////////////////////////
+      	cena= (tissu+structure+trans)*1.40;
+      	////////////////////////////////////////////////////////////////////////////
+
+      	if ($('input_51').value == '1' ) {
+      		cena += 66;
+      		dodatkowaopcja += '<br />- 2 spots hallogène 150w';
+      	}
+      	if ($('input_51').value == '0' ) {
+      		dodatkowaopcja += '<br />- non merci';
+      	}
+       	if ($('input_6').value == '41' ) {
+      		cena += 299+18; ////////// PV + transport
+      		dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
+      	}
+      	if ($('input_6').value == 'Comptoir Easy Quick' ) {
+      		cena += ((120+99)*1.4)+10 /////struture+impression X coef + transport;
+      		dodatkowaopcja += '<br />- Comptoir Easy Quick';
+      	}
+      	if ($('input_6').value == '0' ) {
+      		dodatkowaopcja += '<br />- non merci';
+      	}
       }
 
-      // stand tissu courbé ////////////////////////////////////////////////////
-    	if ($('input_500').value == '3' ) {
-    		structure = 129.6;
-        scratch = 10.2;
-        tissu220 = 38.64;
-        tissu260 = 51.52;
-    		dodatkowaopcja += '<br />- Recto simple 3x3 Courbé';
-    	}
-    	if ($('input_500').value == '4' ) {
-    		structure = 165.6;
-        scratch = 11.6;
-        tissu220 = 48.3;
-        tissu260 = 64.4
-    		dodatkowaopcja += '<br />- Recto simple 3x4 Courbé';
-    	}
-
-      ////////////////////////////////////////////// total selon tissu choisi //
-      if ($('input_02').value == 'tissu 220g' ) {
-        cena = (tissu220+structure+scratch)*1.8+trans;
-        dodatkowaopcja += '<br />- tissu stretch léger 220g B1';
-      }
-      if ($('input_02').value == 'tissu 260g' ) {
-        cena = (tissu260+structure+scratch)*2.2+trans;
-        dodatkowaopcja += '<br />- tissu stretch extensible 260g B1';
+      // Comptoir Easy Quick seul //////////////////////////////////////////////////
+      if ($('input_0').value == 'Comptoir Easy Quick') {
+        tissu = 99;
+        structure = 120;
+        trans = 10;
+        cena = (tissu+structure)*1.40 + trans;
+        dodatkowaopcja += '<br />- Comptoir Easy Quick';
       }
 
-    	// prix stand tissu //////////////////////////////////////////////////////
-    	// cena= (tissu+structure+trans)*1.40;
-    	//////////////////////////////////////////////////////////////////////////
+      // valise seule //////////////////////////////////////////////////////////////
+      if ($('input_0').value == 'valise') {
+        cena += 299+18; ////////// PV + transport
+        dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
+      }
 
-    	if ($('input_51').value == '1' ) {
-    		cena += 66;
-    		dodatkowaopcja += '<br />- 2 spots hallogène 150w';
+      // Stand expo bag ////////////////////////////////////////////////////////////
+       if ($('input_0').value == 'Stand ExpoBag') {
+      	pack = 649;
+      	trans = 29;
+      	cena = pack+trans;
+      	if ($('input_2').value == '1' ) {
+      		cena = cena+80;
+      		dodatkowaopcja += '<br />- 2 spots hallogene 35w aluminium';
+      	}
+      	/*var ktodaje;
+      	if ($('input_7').value == 'fb') {
+      		cena+=40;
+      		ktodaje = 'France banderole crée la maquette';
+      	}
+      	if ($('input_7').value == 'user') {
+      		ktodaje = 'j’ai déjà crée la maquette';
+      	}*/
+       }
+
+      //////////////////////////////////////////////////////////////////////////////
+      ilosc=$('input_8').value;
+
+      if ($('input_0').value == 'Stand parapluie') {
+      trans = 49;
+      	// stand parrapluie courbé /////////////////////////////////////////////////
+      	if ($('input_1').value == '1' ) {
+      		pack = 233;
+      		dodatkowaopcja += '<br />- 3x2-courbé recto<br />- 2225(h)x1600(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '2' ) {
+      		pack = 245;
+      		dodatkowaopcja += '<br />- 3x3-courbé recto<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '3' ) {
+      		pack = 280;
+      		dodatkowaopcja += '<br />- 3x4-courbé recto<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '4' ) {
+      		pack = 269;
+      		dodatkowaopcja += '<br />- 3x3-courbé recto verso<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '5' ) {
+      		pack = 328;
+      		dodatkowaopcja += '<br />- 3x4-courbé recto verso<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+
+      	// stand parrapluie droit //////////////////////////////////////////////////
+      	if ($('input_1').value == '6' ) {
+      		pack = 233;
+      		dodatkowaopcja += '<br />- 3x2-droit recto<br />- 2225(h)x1513(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '7' ) {
+      		pack = 245;
+      		dodatkowaopcja += '<br />- 3x3-droit recto<br />- 2225(h)x2243(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '8' ) {
+      		pack = 280;
+      		dodatkowaopcja += '<br />- 3x4-droit recto<br />- 2225(h)x2973(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '9' ) {
+      		pack = 269;
+      		dodatkowaopcja += '<br />- 3x3-droit recto verso<br />- 2225(h)x2243(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+      	if ($('input_1').value == '10' ) {
+      		pack = 328;
+      		dodatkowaopcja += '<br />- 3x4-droit recto verso<br />- 2225(h)x2973(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
+      	}
+
+      	// prix stand tissu ////////////////////////////////////////////////////////
+      	cena= (pack+trans)*2.35;
+      	////////////////////////////////////////////////////////////////////////////
+      }
+
+      if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
+      if ($('input_0').value == 'Tissu') {javascript: Masquer2();}
+      if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
+      if ($('input_0').value == 'Comptoir tissu Easy Quick') {javascript: Masquer2();}
+
+      var ktodaje;
+      if ($('input_7').value == 'fb') {
+      	cena+=40;
+      	ktodaje = 'France banderole crée la maquette';
+      }
+      if ($('input_7').value == 'user') {
+      	ktodaje = 'j’ai déjà crée la maquette';
+      }
+
+    	// options de livraison //////////////////////////////////////////////////////
+    	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+    	var etiqdesc = '';
+    	if (etiquette == true) {
+    		transport=0;
+    		etiqdesc = '<br />- retrait colis a l\'atelier';
+    		cena-= cena*3/100;
     	}
-     	if ($('input_6').value == '41' ) {
-    		cena += 299+18; ////////// PV + transport
-    		dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
+    	if (etiquette == false) {
+    		transport=0;
     	}
-    	if ($('input_6').value == 'Comptoir Easy Quick' ) {
-    		cena += ((120+99)*1.4)+10 /////struture+impression X coef + transport;
-    		dodatkowaopcja += '<br />- Comptoir Easy Quick';
+    	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+    	if (colis == true) {
+    			cena += 5.00;
+    			cedzik += '<br />- colis revendeur';
     	}
     }
-
-    // Comptoir Easy Quick seul //////////////////////////////////////////////////
-    if ($('input_0').value == 'Comptoir Easy Quick') {
-      tissu = 20*4;//*4 = coeff marge fb//
-      structure = 120*1.40;//1.40 = coeff marge ultima//
-      trans = 10;
-      cena = tissu + structure + trans;
-      dodatkowaopcja += '<br />- Comptoir Easy Quick';
-    }
-
-    // valise seule //////////////////////////////////////////////////////////////
-    if ($('input_0').value == 'valise') {
-      cena += 249+20; ////////// PV + transport
-      dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
-    }
-
-    // Stand expo bag ////////////////////////////////////////////////////////////
-    if ($('input_0').value == 'Stand ExpoBag') {
-    	pack = 649;
-    	trans = 29;
-    	cena = pack+trans;
-    	if ($('input_2').value == '1' ) {
-    		cena = cena+80;
-    		dodatkowaopcja += '<br />- 2 spots hallogene 35w aluminium';
-    	}
-    	/*var ktodaje;
-    	if ($('input_7').value == 'fb') {
-    		cena+=40;
-    		ktodaje = 'France banderole crée la maquette';
-    	}
-    	if ($('input_7').value == 'user') {
-    		ktodaje = 'j’ai déjà crée la maquette';
-    	}*/
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    ilosc=$('input_8').value;
-
-    if ($('input_0').value == 'Stand parapluie') {
-    trans = 49;
-    	// stand parrapluie courbé ///////////////////////////////////////////////
-    	if ($('input_1').value == '1' ) {
-    		pack = 233;
-    		dodatkowaopcja += '<br />- 3x2-courbé recto<br />- 2225(h)x1600(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '2' ) {
-    		pack = 245;
-    		dodatkowaopcja += '<br />- 3x3-courbé recto<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '3' ) {
-    		pack = 280;
-    		dodatkowaopcja += '<br />- 3x4-courbé recto<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '4' ) {
-    		pack = 269;
-    		dodatkowaopcja += '<br />- 3x3-courbé recto verso<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '5' ) {
-    		pack = 328;
-    		dodatkowaopcja += '<br />- 3x4-courbé recto verso<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-
-    	// stand parrapluie droit //////////////////////////////////////////////////
-    	if ($('input_1').value == '6' ) {
-    		pack = 233;
-    		dodatkowaopcja += '<br />- 3x2-droit recto<br />- 2225(h)x1513(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '7' ) {
-    		pack = 245;
-    		dodatkowaopcja += '<br />- 3x3-droit recto<br />- 2225(h)x2243(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '8' ) {
-    		pack = 280;
-    		dodatkowaopcja += '<br />- 3x4-droit recto<br />- 2225(h)x2973(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '9' ) {
-    		pack = 269;
-    		dodatkowaopcja += '<br />- 3x3-droit recto verso<br />- 2225(h)x2243(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '10' ) {
-    		pack = 328;
-    		dodatkowaopcja += '<br />- 3x4-droit recto verso<br />- 2225(h)x2973(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-
-    	// prix stand tissu ////////////////////////////////////////////////////////
-    	cena= (pack+trans)*2.35;
-    	////////////////////////////////////////////////////////////////////////////
-    }
-
-    if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
-    if ($('input_0').value == 'Tissu') {javascript: Masquer2();}
-    if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
-    if ($('input_0').value == 'Comptoir tissu Easy Quick') {javascript: Masquer2();}
-
-    var ktodaje;
-    if ($('input_7').value == 'fb') {
-    	cena+=40;
-    	ktodaje = 'France banderole crée la maquette';
-    }
-    if ($('input_7').value == 'user') {
-    	ktodaje = 'j’ai déjà crée la maquette';
-    }
-
-  	// options de livraison //////////////////////////////////////////////////////
-  	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-  	var etiqdesc = '';
-  	if (etiquette == true) {
-  		transport=0;
-  		etiqdesc = '<br />- retrait colis a l\'atelier';
-  		cena-= cena*3/100;
-  	}
-  	if (etiquette == false) {
-  		transport=0;
-  	}
-  	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-  	if (colis == true) {
-  			cena += 5.00;
-  			cedzik += '<br />- colis revendeur';
-  	}
-
 
     var cenapojedyncza = cena;
     ilosc=$('input_8').value;
@@ -748,8 +678,8 @@ jQuery(document).ready(function(){
     var production      = jQuery('#production-value').val();
     //alert(production);
     var delivery        = jQuery('#delivery-value').val();
-
     if(production && delivery){
+
     	// Calculate price
     	//alert('click');
     	var ProdPercent = '';
@@ -803,7 +733,7 @@ jQuery(document).ready(function(){
 
     	var curdate = new Date();
       var curhour = curdate.getHours();
-    	// ajout 1 jour ouvré de délai sur commande après 12h ////////////////////
+    	// ajout 1 jour ouvré de délai sur commande après 12h
     	if (curhour >= 12) {
     		var daystoadd = AddBusinessDays(days+1);
     	}else{
@@ -871,13 +801,12 @@ jQuery(document).ready(function(){
         eBox.style.display="block";
       }
 
-			////////////////////////////////////////////////////// envoi formulaire //
       var rodzaj = "Stand";
     	var dodajkoszyk = document.getElementById("cart_form");
     	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
       livraisonComp.style.display = 'block';
 		}
-	}); // fin prod/delivery click function
+	}); // fin delivery click function
 }); // fin jq doc ready
 
 </script>

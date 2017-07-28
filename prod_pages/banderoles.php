@@ -5,103 +5,48 @@
 		<div class="form-all">
 			<ul class="form-section">
 
-				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpText0" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Utilisation en exterieur</u>: <span class="highlight">Dès 6,50€/m²</span></b><br/>Voir toutes nos baches disponibles.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Utilisation en intérieur</u>: <span class="highlight">Dès 13,50€/m²</span></b><br/>Uniquement Bâche avec garantie anti-feu.<br/>
-						</span>
-					</span>
-					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
-						<option value="">choisir l'utilisation...</option>
-						<option value="extérieur">extérieur </option>
-						<option value="intérieur">interieur </option>
-						<option value="int/ext">int/ext </option>
-					</select>
-				</li>
-
-				<!--support-->
+				<!--extérieur---------------------------------------------------------->
 				<li class="form-line" id="id_ext">
 					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
 						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText1" style="visibility:hidden;">
 							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">Eco Toile<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></u>: <span class="highlight">écologique dès 7,80/m²</span></b><br /> sans PVC, impression UV uniquement<br />
+
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr">Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,80€/m²</span></b> la bâche française, pour un produit fini 100% made in France et résistant dans la durée.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>nontissé 150g</u>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b> Bâche imprimée recto verso, résistance 3 ans.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b> Bâche grand vent pour échafaudage, plage...<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b> Toile 100% polyester M1 sans PVC ni phtalate.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">EcoToile<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></u>: <span class="highlight">écologique dès 7,80/m²</span></b><br /> sans PVC, impression UV uniquement<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b> Toile 100% polyester M1 sans PVC ni phtalate.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 260g B1</u>: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
-						<option value="bache 440g" class="option1">bâche 440g </option>
-						<option value="eco toile" class="ecotoile"><!--défini dans fb/main.js--></option>
-						<option value="jet 550" class="option1 fr">bâche Dickson Jet 550</option>
-						<option value="bache nontissé 150g" class="option2">bâche nontissé 150g</option>
-						<option value="jet 520 M1" class="option1 fr">bâche Dickson Jet 520 M1</option>
-						<option value="bache 750g M2/B1"  class="option2">bâche 750g M2/B1 </option>
-						<option value="bache 750g M2/B1 recto verso"  class="option1">bâche 750g M2/B1 recto verso </option>
-						<option value="bache micro perforée M1/B1" class="option2">bâche micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1" class="option1 ecofr"><!--défini dans fb/main.js--></option>
-						<option value="tissu stretch leger 220gr B1" class="option2">tissu stretch léger 220gr B1</option>
-						<option value="tissu stretch infroissable 260gr B1" class="option1">tissu stretch infroissable 260gr B1</option>
+						<optgroup label="&#xf016; Traditionnel" class="trad">
+							<option value="bache 440g">bâche 440g </option>
+							<option value="jet 550">bâche Dickson Jet 550</option>
+							<option value="bache micro perforée M1/B1">bâche micro perforée</option>
+							<option value="bache nontissé 150g">bâche nontissé 150g</option>
+						</optgroup>
+						<optgroup label="&#xf06d; Anti feu" class="fyah">
+							<option value="jet 520 M1">bâche Dickson Jet 520 M1</option>
+							<option value="bache 750g M2/B1">bâche 750g M2/B1 </option>
+							<option value="bache 750g M2/B1 recto verso">bâche 750g M2/B1 recto verso </option>
+							<option value="tissu 220g">tissu stretch léger 220g B1</option>
+							<option value="tissu 260g">tissu stretch extensible 260g B1</option>
+						</optgroup>
+						<optgroup label="&#xf299; écologique" class="eco">
+							<option value="ecotoile">bâche EcoToile</option>
+							<option value="bache 100% écologique M1">bâche 100% écologique M1</option>
+						</optgroup>
 					</select>
 				</li>
 
-				<li class="form-line" id="id_int">
-					<span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpText2" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
-						</span>
-					</span>
-					<select class="form-dropdown validate[required]" id="input_int" name="qint_support2" onchange="JKakemono.czyscpola(); ">
-						<option value="">choisir le support...</option>
-						<option value="jet 520 M1" class="fr">bâche Dickson Jet 520 M1 </option>
-						<option value="bache 750g M2/B1">bâche 750g M2/B1 </option>
-						<option value="bache 750g M2/B1 recto verso">bâche 750g M2/B1 recto verso </option>
-						<option value="bache micro perforée M1/B1">bâche micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
-						<option value="bache nontissé 150g M1">bâche nontissé 150g M1</option>
-					</select>
-				</li>
-
-				<li class="form-line" id="id_intext">
-					<span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpText3" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b><br/>bâche OPAQUE et résistante durée 4/5 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 750g RECTO/VERSO</u>: <span class="highlight">dès 17,50€/m²</span></b><br/>Bâche imprimée recto verso, résistance 3 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche micro-perforée</u>: <span class="highlight">dès 8,50€/m²</span></b><br/>Bâche grand vent pour échafaudage, plage...<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b><br/>Toile 100% polyester M1 sans PVC ni phtalate.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche nontissé 150g M1</u>: <span class="highlight"> dès 12,00€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
-						</span>
-					</span>
-					<select class="form-dropdown validate[required]" id="input_intext" name="qintext_support3" onchange="JKakemono.czyscpola(); ">
-						<option value="">choisir le support...</option>
-						<option value="jet 520 M1" class="fr">bâche Dickson Jet 520 M1</option>
-						<option value="bache 750g M2/B1">bâche 750g M2/B1 </option>
-						<option value="bache 750g M2/B1 recto verso">bâche 750g M2/B1 recto verso </option>
-						<option value="bache micro perforée M1/B1">bâche micro perforée M1/B1 </option>
-						<option value="bache 100% écologique M1" class="ecofr"><!--défini dans fb/main.js--></option>
-						<option value="bache nontissé 150g M1">bâche nontissé 150g M1</option>
-					</select>
-				</li>
-
-				<!--oeillets-->
+				<!--option oeillets---------------------------------------------------->
 				<li class="form-line optionsformline4" id="id_21">
 					<select class="form-dropdown validate[required] option3" id="input_21" name="q21_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des oeillets ?</option>
@@ -113,7 +58,7 @@
 					</select>
 				</li>
 
-				<!--espacement oeillets-->
+				<!--espacement oeillets------------------------------------------------>
 				<li class="form-line optionsformline5" id="id_22">
 					<select class="form-dropdown validate[required] option4" id="input_22" name="q22_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">espacement des oeillets...</option>
@@ -145,16 +90,16 @@
 				</li>
 
 				<div style="clear:both"> </div>
-				<!--ourlet-->
 
+				<!-- option ourlet----------------------------------------------------->
 				<li class="form-line" id="id_31">
 					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText4" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_finition1" onchange="JKakemono.czyscpola(); ">
@@ -170,10 +115,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText5" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_finition1" onchange="JKakemono.czyscpola(); ">
@@ -187,10 +132,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText6" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 
@@ -205,10 +150,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText7" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 
@@ -219,17 +164,34 @@
 					</select>
 				</li>
 
-				<!--fourreaux-->
+				<!--option fourreaux---------------------------------------------------->
 				<li class="form-line" id="id_41">
 					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText8" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_41" name="q41_finition1" onchange="JKakemono.czyscpola(); ">
+						<option value="">Voulez-vous des fourreaux ?</option>
+						<option value="sans fourreaux">sans fourreaux</option>
+						<option value="fourreaux haut/bas">fourreaux haut/bas</option>
+						<option value="fourreaux gauche/droite">fourreaux gauche/droite</option>
+					</select>
+				</li>
+
+				<li class="form-line" id="id_41b">
+					<span class="helpButton" onmouseover="pokazt('helpText41b');" onmouseout="ukryjt('helpText41b');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpText41b" style="visibility:hidden;">
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+						</span>
+					</span>
+					<select class="form-dropdown validate[required]" id="input_41b" name="q41b_finition1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fourreaux ?</option>
 						<option value="sans fourreaux">sans fourreaux</option>
 						<option value="fourreaux haut/bas">fourreaux haut/bas</option>
@@ -241,9 +203,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText9" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_42" name="q42_finition1" onchange="JKakemono.czyscpola(); ">
@@ -257,9 +219,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText10" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_43" name="q43_finition1" onchange="JKakemono.czyscpola(); ">
@@ -273,9 +235,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText11" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_44" name="q44_finition1" onchange="JKakemono.czyscpola(); ">
@@ -286,12 +248,13 @@
 					</select>
 				</li>
 
+				<!--option scratch----------------------------------------------------->
 				<li class="form-line" id="id_71">
 					<span class="helpButton" onmouseover="pokazt('helpText71');" onmouseout="ukryjt('helpText71');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText71" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>qu'est-ce qu'une finition scratch </u>: <span class="highlight">dès 2€/m</span></b><br/>
-							Une fixation scratch est cousue sur votre banderole, soit tout le tour, soit sur 2 côtés. Fourni avec la face scratch opposée de même longueur à fixer sur le support de votre choix. <br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'une finition scratch </u>: <span class="highlight">dès 2€/m</span></b><br/>
+							Une fixation scratch est cousue sur les bords de votre banderole, soit tout le tour, soit sur 2 côtés. Fourni avec la face scratch opposée de même longueur à fixer sur le support de votre choix. <br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_71" name="q71_finition1" onchange="JKakemono.czyscpola(); ">
@@ -303,7 +266,7 @@
 					</select>
 				</li>
 
-				<!--fixation-->
+				<!--fixation----------------------------------------------------------->
 				<li class="form-line optionsformline4" id="id_51">
 					<select class="form-dropdown validate[required] option3" id="input_51" name="q51_fixations1" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des fixations ?</option>
@@ -359,7 +322,7 @@
 					</select>
 				</li>
 
-				<!--150gr-->
+				<!--finitions spéciales 150gr------------------------------------------>
 				<li class="form-line optionsformline4" id="id_81">
 					<select class="form-dropdown validate[required] option3" id="input_81" name="q81_finition4" onchange="JKakemono.czyscpola(); ">
 						<option value="">Voulez-vous des finitions ?</option>
@@ -399,11 +362,11 @@
 					</select>
 				</li>
 
-				<!--maquette-->
+				<!--maquette----------------------------------------------------------->
 				<li class="form-line" id="id_12">
 					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-						<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-						<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Vous avez déjà crée la mise en page:</b></u><br/>
+						<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>France banderole crée votre fichier</u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+						<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Vous avez déjà crée la mise en page</u>:</b><br/>
 						Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
@@ -413,6 +376,7 @@
 					</select>
 				</li>
 
+				<!--taille et quantité------------------------------------------------->
 				<li class="form-line optionsformline2" id="id_13">
 					<label class="form-label-left label-highlight" id="label_13" for="input_13">quantité :<br /><span class="small">(par visuel)</span></label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " style="" />
@@ -425,6 +389,7 @@
 					<input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola();" /><span class="mRight highlight">m</span>
 				</li>
 
+				<!--livraison---------------------------------------------------------->
 				<li id="id_16" class="form-line optionsformline">
 					<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 
@@ -484,7 +449,6 @@
 					<div class="form-input-wide">
 						<div id="form-button-error3"></div>
 						<button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
-
 					</div>
 				</li>
 				<li style="display:none">
@@ -532,768 +496,446 @@
 	</div>
 
 	<div id="custom_price_unit" >
-	</div>
+</div>
 
-	<script type="text/javascript">
-	  //////////////////////////////////////////////////////////////////////////////
-		function Afficher()	{
-			divliv = document.getElementById('livraisonrapide');
-			if (divliv.style.display == 'none')
-			divliv.style.display = 'block';
+<script type="text/javascript">
+	//////////////////////////////////////////////////////////////////////////////
+	function Afficher()	{
+		divliv = document.getElementById('livraisonrapide');
+		if (divliv.style.display == 'none')
+		divliv.style.display = 'block';
+	}
+	function Afficher()	{
+		divInfo = document.getElementById('delivery-div');
+		if (divInfo.style.display == 'none')
+		divInfo.style.display = 'block';
+	}
+	function Masquer(){
+		divInfo = document.getElementById('delivery-div');
+		if (divInfo.style.display == 'block')
+		divInfo.style.display = 'none';
+	}
+
+	////////////////////////////////////////////////////// checkboxes livraison //
+	jQuery('#adresse').click(function() {
+		if (document.getElementById('adresse').checked) {
+			document.getElementById('relais').checked = false;
+			document.getElementById('etiquette').checked = false;
 		}
-		function Afficher()	{
-			divInfo = document.getElementById('delivery-div');
-			if (divInfo.style.display == 'none')
-			divInfo.style.display = 'block';
+	});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('relais').checked = false;
+			document.getElementById('adresse').checked = false;
 		}
-		function Masquer(){
-			divInfo = document.getElementById('delivery-div');
-			if (divInfo.style.display == 'block')
-			divInfo.style.display = 'none';
+	});
+	jQuery('#relais').click(function() {
+		if (document.getElementById('relais').checked) {
+			document.getElementById('etiquette').checked = false;
+			document.getElementById('adresse').checked = false;
 		}
+	});
 
-		// checkboxes livraison //////////////////////////////////////////////////////
-		jQuery('#adresse').click(function() {
-			if (document.getElementById('adresse').checked) {
-				document.getElementById('relais').checked = false;
-				document.getElementById('etiquette').checked = false;
-			}
-		});
-		jQuery('#etiquette').click(function() {
-			if (document.getElementById('etiquette').checked) {
-				document.getElementById('relais').checked = false;
-				document.getElementById('adresse').checked = false;
-			}
-		});
-		jQuery('#relais').click(function() {
-			if (document.getElementById('relais').checked) {
-				document.getElementById('etiquette').checked = false;
-				document.getElementById('adresse').checked = false;
-			}
-		});
+	/////////////////////////////////////////////////// calcul des jours ouvrés //
+	function AddBusinessDays(weekDaysToAdd) {
+	  // fonction jours ouvrés
+	  var curdate = new Date();
+	  var realDaysToAdd = 0;
+	  for(i=0; i<weekDaysToAdd; i++){
+	    curdate.setDate(curdate.getDate()+1);
+	    var estdt1 = new Date(curdate);
+	    var n = curdate.getDay();
+	    if (n == '6' || n == '0') {
+	      weekDaysToAdd++;
+	    }
+	    realDaysToAdd++;
+	    //check if current day is business day
+	  }
+	  return realDaysToAdd;
+	}
 
-		// calcul des jours ouvrés ///////////////////////////////////////////////////
-		function AddBusinessDays(weekDaysToAdd) {
-		  // fonction jours ouvrés
-		  var curdate = new Date();
-		  var realDaysToAdd = 0;
-		  for(i=0; i<weekDaysToAdd; i++){
-		    curdate.setDate(curdate.getDate()+1);
-		    var estdt1 = new Date(curdate);
-		    var n = curdate.getDay();
-		    if (n == '6' || n == '0') {
-		      weekDaysToAdd++;
-		    }
-		    realDaysToAdd++;
-		    //check if current day is business day
-		  }
-		  return realDaysToAdd;
+	//////////////////////////////////////////////////////////////////////////////
+	jQuery(document).ready(function(){
+		////////////////////////////////////////////////////////////////////////////
+		jQuery('.delivery , .production').click(function(){
+
+		var ktorytyp          = '';
+		var cedzik            = '';
+		var prliv             = '';
+		var date_panier       = '';
+		var dodatkowaopcja    = '';
+		var cenapojedyncza    = 0;
+		var cena              = 0; 	var cena2   		= 0;
+		var rabat             = 0; 	var rabat2  		= 0;  var rabatp 	  = 0;
+		var suma              = 0; 	var suma2   		= 0;
+		var transport         = 0;
+		var metraz            = 0;
+		var metrazzaokraglony = 0;
+		var szerokosc         = 0;
+		var wysokosc          = 0;
+		var finition          = 0; 	var option 			= 0; 	var fixation  = 0;
+		var cedzik            = ''; var remisik 		= '';
+		var niepokazuj        = 0;
+		var perteH            = 0; 	var perteL 			= 0;
+		var h1                = 0; 	var h2      		= 0;
+		var l1                = 0; 	var l2      		= 0;
+		var oeillets          = 0; 	var optoeillets = 0;
+		var opis              = '';
+		var metragefinal      = 0;
+		var cenatotal         = 0;
+		var metrage           = 0;
+		var eBox              = document.getElementById('form-button-error3');
+		eBox.innerHTML='';
+
+		////////////////////////////////////////////////////////////////////////////
+		szerokosc              = ($('input_15').value);       // szerokosc = largeur
+		szerokosc              = szerokosc.replace(',','.');
+		szerokosc              = fixstr(szerokosc);
+		$('input_15').value    = szerokosc;
+		wysokosc               = ($('input_14').value);        // wysokosc = hauteur
+		wysokosc               = wysokosc.replace(',','.');
+		wysokosc               = fixstr(wysokosc);
+		$('input_14').value    = wysokosc;
+		szerokosc              = parseFloat(szerokosc);
+		wysokosc               = parseFloat(wysokosc);
+		metraz                 = szerokosc * wysokosc;                    // métrage
+		metraz                 = fixstr(metraz);
+		var metrazzaokraglony1 = (szerokosc+wysokosc)*2;                // périmètre
+		metrazzaokraglony      = Math.round(metrazzaokraglony1);
+		var hautbas            = szerokosc*2
+		var gauchedroite       = wysokosc*2
+
+		// laize /////////////////////////////////////////////////////////////////
+
+		if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
+		if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
+		if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
+
+		if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
+		if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
+		if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
+
+		if (perteH < perteL){metrage = szerokosc*h1;}
+		else if (perteH > perteL){metrage = wysokosc*l1;}
+		else if(perteH == perteL){metrage = wysokosc*l1;}
+
+		ilosc=$('input_13').value;
+		if ($('input_13').value) {
+			metragefinal=metrage*ilosc;
 		}
+		////////////////////////////////////////////////////////////////////////////
 
-		//////////////////////////////////////////////////////////////////////////////
-		jQuery(document).ready(function(){
-			jQuery('.delivery , .production').click(function(){
-				var ktorytyp          = '';
-				var cedzik            = '';
-				var prliv             = '';
-				var date_panier       = '';
-				var dodatkowaopcja    = '';
-				var cenapojedyncza    = 0;
-				var cena              = 0; 	var cena2   		= 0;
-				var rabat             = 0; 	var rabat2  		= 0;  var rabatp 	  = 0;
-				var suma              = 0; 	var suma2   		= 0;
-				var transport         = 0;
-				var metraz            = 0;
-				var metrazzaokraglony = 0;
-				var szerokosc         = 0;
-				var wysokosc          = 0;
-				var finition          = 0; 	var option 			= 0; 	var fixation  = 0;
-				var cedzik            = ''; var remisik 		= '';
-				var niepokazuj        = 0;
-				var perteH            = 0; 	var perteL 			= 0;
-				var h1                = 0; 	var h2      		= 0;
-				var l1                = 0; 	var l2      		= 0;
-				var oeillets          = 0; 	var optoeillets = 0;
-				var opis              = '';
-				var metragefinal      = 0;
-				var cenatotal         = 0;
-				var metrage           = 0;
-				var eBox              = document.getElementById('form-button-error3');
-				eBox.innerHTML='';
-
-		//////////////////////////////////////////////////////////////////////////////
-		if ( ($('input_1').value) ) {
-			szerokosc = ($('input_15').value);                  // szerokosc = largeur
-			szerokosc = szerokosc.replace(',','.');
-			szerokosc = fixstr(szerokosc);
-			$('input_15').value = szerokosc;
-			wysokosc = ($('input_14').value);             			 // wysokosc = hauteur
-			wysokosc = wysokosc.replace(',','.');
-			wysokosc = fixstr(wysokosc);
-			$('input_14').value = wysokosc;
-			szerokosc = parseFloat(szerokosc);
-			wysokosc = parseFloat(wysokosc);
-			metraz = szerokosc * wysokosc;                                  // metrage
-			metraz = fixstr(metraz);
-			var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
-			metrazzaokraglony = Math.round(metrazzaokraglony1);
-			var hautbas =szerokosc*2
-			var gauchedroite = wysokosc*2
-
-			// laize ///////////////////////////////////////////////////////////////////
-
-			if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
-			if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
-			if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
-			if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
-			if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
-			if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
-			if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
-
-			if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
-			if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
-			if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
-			if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
-			if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
-			if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
-			if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
-
-			if (perteH < perteL){metrage = szerokosc*h1;}
-			else if (perteH > perteL){metrage = wysokosc*l1;}
-			else if(perteH == perteL){metrage = wysokosc*l1;}
-
-			ilosc=$('input_13').value;
-			if ($('input_13').value) {
-				metragefinal=metrage*ilosc;
-			}
-
-		//////////////////////////////////////////////////////////////////////////////
-		///////////////////////////////////////////////////////////////// exterieur //
-
-		if ($('input_1').value == 'extérieur') {
-			// 440g ////////////////////////////////////////////////////////////////////
-			if ($('input_ext').value == 'bache 440g' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*10.75;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*10.50;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*10.25;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*10.00;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*9.80;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*9.70;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*9.60;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*9.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*9.40;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*9.30;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*9.20;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*9.00;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*8.50;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*8.40;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*8.30;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*8.20;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*8;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*7.75;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*7.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*7.25;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*7;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*6.75;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*6.5;}
-				opis += '<br />- 440gr'
-			}
-			// ECO TOILE +20% par rapport à la 440 (x1.2) /////////////////////////////
-			if ($('input_ext').value == 'eco toile' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*10.75;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*10.50*1.2;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*10.25*1.2;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*10.00*1.2;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*9.80*1.2;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*9.70*1.2;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*9.60*1.2;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*9.50*1.2;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*9.40*1.2;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*9.30*1.2;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*9.20*1.2;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*9.00*1.2;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*8.50*1.2;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*8.40*1.2;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*8.30*1.2;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*8.20*1.2;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*8*1.2;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*7.75*1.2;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*7.50*1.2;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*7.25*1.2;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*7*1.2;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*6.75*1.2;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*6.5*1.2;}
-				opis += '<br />- eco toile'
-			}
-			// JET 550 : remplace la 550g +1.80 € ajouté au métrage final /////////////
-			if ($('input_ext').value == 'jet 550' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(14.80+1.80);}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(14.60+1.80);}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(14.40+1.80);}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(14.20+1.80);}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(14.00+1.80);}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(13.50+1.80);}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(13.25+1.80);}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(13.00+1.80);}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(12.75+1.80);}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(12.50+1.80);}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(12.25+1.80);}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(12.00+1.80);}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(11.75+1.80);}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(11.50+1.80);}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(11.25+1.80);}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(11+1.80);}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(10.50+1.80);}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(10.00+1.80);}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(9.50+1.80);}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(9.00+1.80);}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(8.50+1.80);}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*(8.00+1.80);}
-				opis += '<br />- Jet 550'
-			}
-			if ($('input_ext').value == 'jet 520 M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.80);}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.80);}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.80);}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.80);}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.80);}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.80);}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.80);}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.80);}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.80);}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.80);}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.80);}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.80);}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.80);}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.80);}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.80);}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.80);}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.80);}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.80);}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.80);}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.80);}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.80);}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.80);}
-				opis += '<br />- jet 520 M1'
-			}
-			if ($('input_ext').value == 'bache 750g M2/B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*20.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*20.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*19.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*19.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*19.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*18.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*18.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*18.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*17.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*17.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*17.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*15.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*14.50;}
-				opis += '<br />- 750gr M2/B1'
-			}
-			if ($('input_ext').value == 'bache 750g M2/B1 recto verso' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-				opis += '<br />- 750gr M2/B1 recto verso'
-			}
-			if ($('input_ext').value == 'bache micro perforée M1/B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*17.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*17.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*17.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*16.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*15.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*15.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*14.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*14.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*14;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*12.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*8.00;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*7.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*6.50;}
-				opis += '<br />- bache micro perforée M1/B1'
-			}
-			if ($('input_ext').value == 'bache 100% écologique M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-				opis += '<br />- bache 100% écologique M1'
-			}
-			if ($('input_ext').value == 'bache nontissé 150g' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*16.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*15.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*15.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*15.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*15.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*14.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*14.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*13.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*13.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*13.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*12.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*12.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*12.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*12;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*11.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*8.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.25;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
-				opis += '<br />- bache nontissé 150g'
-			}
-
-			if ($('input_ext').value == 'tissu stretch leger 220gr B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*35.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*34.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*33.00;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*32.00;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*31.00;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*30.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*29.00;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*24.00;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*23.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.00;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*13.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*12.00;}
-				opis += '<br />- tissu stretch leger 220gr B1'
-			}
-			if ($('input_ext').value == 'tissu stretch infroissable 260gr B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*40.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*39.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*38.00;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*37.00;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*36.00;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*35.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*34.00;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*33.00;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*32.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*31.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*30.00;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*29.00;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.00;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*23.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*18.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*16.00;}
-				opis += '<br />- tissu stretch infroissable 260gr B1'
-			}
+		// prix des bâches /////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////// 440g //
+		if ($('input_ext').value == 'bache 440g' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*10.75;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*10.50;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*10.25;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*10.00;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*9.80;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*9.70;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*9.60;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*9.50;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*9.40;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*9.30;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*9.20;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*9.00;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*8.50;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*8.40;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*8.30;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*8.20;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*8;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*7.75;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*7.50;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*7.25;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*7;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*6.75;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*6.5;}
+			opis += '<br />- bache 440g'
 		}
-
-		// fin extérieur ///////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////////// intérieur //
-
-		if ($('input_1').value == 'intérieur') {
-			if ($('input_int').value == 'jet 520 M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*(21.00+1.8);}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.8);}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.8);}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.8);}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.8);}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.8);}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.8);}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.8);}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.8);}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.8);}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.8);}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.8);}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.8);}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.8);}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.8);}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.8);}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.8);}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.8);}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.8);}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.8);}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.8);}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.8);}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.8);}
-				opis += '<br />- jet 520 M1'
-			}
-			if ($('input_int').value == 'bache 750g M2/B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*20.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*20.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*19.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*19.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*19.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*18.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*18.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*18.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*17.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*17.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*17.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*15.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*14.50;}
-				opis += '<br />- 750gr M2/B1'
-			}
-			if ($('input_int').value == 'bache 750g M2/B1 recto verso' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-				opis += '<br />- 750gr M2/B1 recto verso'
-			}
-
-			if ($('input_int').value == 'bache micro perforée M1/B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*17.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*17.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*17.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*16.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*15.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*15.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*14.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*14.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*14;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*12.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*8.00;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*7.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*6.50;}
-				opis += '<br />- bache micro perforée M1/B1'
-
-			}
-			if ($('input_int').value == 'bache 100% écologique M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-				opis += '<br />- bache 100% écologique M1'
-			}
-
-			if ($('input_int').value == 'bache nontissé 150g M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*17.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*17.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*17.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*16.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*15.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*15.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*14.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*14.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*14;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*12.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*11.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*10.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*10.25;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*10.00;}
-				opis += '<br />- bache nontissé 150g M1'
-			}
+		////////////////////////////// ecotoile +20% par rapport à la 440 (x1.2) //
+		if ($('input_ext').value == 'ecotoile' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*10.75;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*10.50*1.2;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*10.25*1.2;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*10.00*1.2;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*9.80*1.2;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*9.70*1.2;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*9.60*1.2;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*9.50*1.2;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*9.40*1.2;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*9.30*1.2;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*9.20*1.2;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*9.00*1.2;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*8.50*1.2;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*8.40*1.2;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*8.30*1.2;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*8.20*1.2;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*8*1.2;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*7.75*1.2;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*7.50*1.2;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*7.25*1.2;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*7*1.2;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*6.75*1.2;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*6.5*1.2;}
+			opis += '<br />- EcoToile'
 		}
-
-		// fin intérieur ///////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////// intérieur / extérieur ///
-
-		if ($('input_1').value == 'int/ext') {
-			if ($('input_intext').value == 'jet 520 M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*(21.00+1.8);}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.8);}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.8);}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.8);}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.8);}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.8);}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.8);}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.8);}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.8);}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.8);}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.8);}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.8);}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.8);}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.8);}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.8);}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.8);}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.8);}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.8);}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.8);}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.8);}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.8);}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.8);}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.8);}
-				opis += '<br />- jet 520 M1'
-			}
-			if ($('input_intext').value == 'bache 750g M2/B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*20.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*20.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*20.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*19.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*19.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*19.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*19.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*18.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*18.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*18.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*18.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*17.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*17.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*17.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*15.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*14.50;}
-				opis += '<br />- 750gr M2/B1'
-			}
-			if ($('input_intext').value == 'bache 750g M2/B1 recto verso' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-				opis += '<br />- 750gr M2/B1 recto verso'
-			}
-			if ($('input_intext').value == 'bache micro perforée M1/B1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*17.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*17.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*17.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*16.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*15.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*15.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*14.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*14.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*14;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*12.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*8.00;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*7.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*6.50;}
-				opis += '<br />- bache micro perforée M1/B1'
-			}
-			if ($('input_intext').value == 'bache 100% écologique M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-				opis += '<br />- bache 100% écologique M1'
-			}
-			if ($('input_intext').value == 'bache nontissé 150g M1' ) {
-				if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
-				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
-				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*17.60;}
-				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*17.40;}
-				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*17.20;}
-				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*17.00;}
-				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*16.50;}
-				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*16.25;}
-				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*16.00;}
-				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*15.75;}
-				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*15.50;}
-				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*15.25;}
-				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*15.00;}
-				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*14.75;}
-				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*14.50;}
-				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*14.25;}
-				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*14;}
-				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*13.00;}
-				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*12.00;}
-				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*11.00;}
-				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*10.50;}
-				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*10.25;}
-				if (metragefinal > 499.99) {cenatotal = metragefinal*10.00;}
-				opis += '<br />- bache nontissé 150g M1'
-			}
-			// fin intérieur/ extérieur ////////////////////////////////////////////////
-
+		////////////// JET 550 : remplace la 550g +1.80 € ajouté au métrage final //
+		if ($('input_ext').value == 'jet 550' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(14.80+1.80);}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(14.60+1.80);}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(14.40+1.80);}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(14.20+1.80);}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(14.00+1.80);}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(13.50+1.80);}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(13.25+1.80);}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(13.00+1.80);}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(12.75+1.80);}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(12.50+1.80);}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(12.25+1.80);}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(12.00+1.80);}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(11.75+1.80);}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(11.50+1.80);}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(11.25+1.80);}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(11+1.80);}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(10.50+1.80);}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(10.00+1.80);}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(9.50+1.80);}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(9.00+1.80);}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(8.50+1.80);}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*(8.00+1.80);}
+			opis += '<br />- bache Jet 550'
 		}
+		////////////// JET 520 : remplace la 470g +1.80 € ajouté au métrage final //
+		if ($('input_ext').value == 'jet 520 M1' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*21.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*(20.00+1.80);}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*(19.75+1.80);}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*(19.50+1.80);}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*(19.25+1.80);}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*(19.00+1.80);}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*(18.75+1.80);}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*(18.50+1.80);}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*(18.25+1.80);}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*(18.00+1.80);}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*(17.75+1.80);}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*(17.50+1.80);}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*(17.25+1.80);}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*(17.00+1.80);}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*(16.90+1.80);}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*(16.75+1.80);}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*(16.50+1.80);}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*(16.00+1.80);}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*(15.50+1.80);}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*(15.00+1.80);}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*(14.50+1.80);}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*(14.00+1.80);}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*(13.50+1.80);}
+			opis += '<br />- bache Jet 520 M1'
+		}
+		//////////////////////////////////////////////////////////////////// 750g //
+		if ($('input_ext').value == 'bache 750g M2/B1' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*22.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*21.00;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*20.75;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*20.50;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*20.25;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*20.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*19.75;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*19.50;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*19.25;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*19.00;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*18.75;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*18.50;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*18.25;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*18.00;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*17.90;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*17.75;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*17.50;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.50;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*16.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*15.50;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*15.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*14.50;}
+			opis += '<br />- bache 750g M2/B1'
+		}
+		///////////////////////////////////////////////////////////////// 750g RV //
+		if ($('input_ext').value == 'bache 750g M2/B1 recto verso' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
+			opis += '<br />- bache 750g M2/B1 recto verso'
+		}
+		////////////////////////////////////////////////////////// micro perforée //
+		if ($('input_ext').value == 'bache micro perforée M1/B1' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*18.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*17.80;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*17.60;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*17.40;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*17.20;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*17.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*16.50;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*16.25;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*16.00;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*15.75;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*15.50;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*15.25;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*15.00;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*14.75;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*14.50;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*14.25;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*14;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*13.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*12.00;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*8.00;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*7.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*6.50;}
+			opis += '<br />- bache micro perforée'
+		}
+		//////////////////////////////////////////////////////////////// 100% éco //
+		if ($('input_ext').value == 'bache 100% écologique M1' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*29.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*28.00;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*27.75;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*27.50;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*27.25;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*27.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*26.75;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*26.50;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*26.25;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.75;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*25.50;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*25.25;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*25.00;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*24.90;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*24.75;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.50;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*22.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*21.50;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
+			opis += '<br />- bache 100% écologique M1'
+		}
+		//////////////////////////////////////////////////////////////// nontissé //
+		if ($('input_ext').value == 'bache nontissé 150g' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*16.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*15.80;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*15.60;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*15.40;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*15.20;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*15.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*14.50;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*14.25;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*14.00;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*13.75;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*13.50;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*13.25;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*13.00;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*12.75;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*12.50;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*12.25;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*12;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*11.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*8.50;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.25;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
+			opis += '<br />- bache nontissé 150g'
+		}
+		////////////////////////////////////////////////////////////// tissu 220g //
+		if ($('input_ext').value == 'tissu 220g' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*35.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*34.00;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*33.00;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*32.00;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*31.00;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*30.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*29.00;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*28.00;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*27.00;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*26.00;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*25.00;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*24.00;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*23.00;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*22.00;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*20.00;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*19.00;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*18.00;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*17.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*16.00;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*15.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*14.00;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*13.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*12.00;}
+			opis += '<br />- tissu stretch léger 220g B1'
+		}
+		////////////////////////////////////////////////////////////// tissu 260g //
+		if ($('input_ext').value == 'tissu 260g' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*40.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*39.00;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*38.00;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*37.00;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*36.00;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*35.00;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*34.00;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*33.00;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*32.00;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*31.00;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*30.00;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*29.00;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*28.00;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*27.00;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*26.00;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*25.00;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*24.00;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*23.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*22.00;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*21.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.00;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*18.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*16.00;}
+			opis += '<br />- tissu stretch extensible 260g B1'
+		}
+		// fin prix des bâches /////////////////////////////////////////////////////
+
 		cena=cenatotal/ilosc;
 
-		// oeilets ///////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////// oeilets //
 
 		if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.15*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
 		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
@@ -1309,24 +951,24 @@
 		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 25cm') ) { oeillets = ((metrazzaokraglony1+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 25cm'};
 		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 10cm') ) { oeillets = ((metrazzaokraglony1+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 10cm'};
 
-		// ourlets ///////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////// ourlets //
 
 		if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_33').value == 'ourlet de renfort haut/bas')|| ($('input_34').value == 'ourlet de renfort haut/bas')) { ourlets = hautbas*1; cena+=ourlets ; opis+='<br>- ourlet de renfort haut/bas'};
 		if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_32').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite')|| ($('input_34').value == 'ourlet de renfort gauche/droite')) { ourlets = gauchedroite*1; cena+=ourlets ; opis+='<br>- ourlet de renfort gauche/droite'};
 		if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_32').value == 'ourlet de renfort périmétrique') || ($('input_33').value == 'ourlet de renfort périmétrique')|| ($('input_34').value == 'ourlet de renfort périmétrique')) { ourlets = metrazzaokraglony1*1; cena+=ourlets ; opis+='<br>- ourlet de renfort périmétrique'};
 
-		// fourreaux /////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////// fourreaux //
 
-		if (($('input_41').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
+		if (($('input_41').value == 'fourreaux haut/bas') || ($('input_41b').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
 		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
 
-		// scratchs //////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////// scratchs //
 
-		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*2; cena+=scratch; opis+='<br>- scratch haut/bas' };
-		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*2; cena+=scratch; opis+='<br>- scratch gauche/droite' };
-		if (($('input_71').value == 'scratch périmétrique')) { scratch = metrazzaokraglony1*2; cena+=scratch; opis+='<br>- scratch gauche/droite' };
+		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*2.5; cena+=scratch; opis+='<br>- scratch haut/bas' };
+		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*2.5; cena+=scratch; opis+='<br>- scratch gauche/droite' };
+		if (($('input_71').value == 'scratch perimetrique')) { scratch = metrazzaokraglony1*2.5; cena+=scratch; opis+='<br>- scratch périmétrique' };
 
-		// fixation //////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////// fixations //
 
 		if ($('input_101').value) { var fix = $('input_101').value; }
 		if ($('input_51').value) { var fix = $('input_51').value; }
@@ -1337,7 +979,6 @@
 			fixation = (metrazzaokraglony+2)*0.80;
 			cena += fixation;
 			opis +='<br>- tendeurs H/B tous les mètres';
-
 		}
 		if (fix == 'tendeurs') {
 			fixation = $('input_52').value*0.80;
@@ -1370,7 +1011,7 @@
 			opis +='<br>- drisse fourreaux H/B';
 		}
 
-		// 150g finitions ////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////// 150g finitions //
 
 		if ($('input_81').value) { var fin = $('input_81').value; }
 		if (fin == 'pas de finition') {
@@ -1426,10 +1067,9 @@
 			cedzik += '<br />- relais colis';
 		}
 
-		// ajout 30% si hauteur et largeur supérieurs à 2m /////////////////////////
+		///////////////////////// ajout 30% si hauteur et largeur supérieurs à 2m //
 		if ( (szerokosc > 2) && (wysokosc > 2) ) {
 			cena *= 1.3;
-			cedzik += '<br />- l & h supérieure à 2m';
 		}
 		////////////////////////////////////////////////////////////////////////////
 
@@ -1541,7 +1181,6 @@
 			}
 
 			///////////////////////////////////////////////////// calcul des délais //
-
 			var production      = jQuery('#production-value').val();
 			//alert(production);
 			var delivery        = jQuery('#delivery-value').val();
@@ -1591,6 +1230,7 @@
 
 				var totalProduction = prod_first_val + deli_first_val;
 				var totalDelivery   = prod_second_val + deli_second_val;
+
 				if(totalProduction == totalDelivery){
 					jQuery('#totaldays').text("Total jours " + totalProduction);
 					var days = totalProduction;
@@ -1638,69 +1278,6 @@
 			var total = document.getElementById("total");
 			var remise = document.getElementById("remise");
 
-			/*if (($('input_ext').value == 'bache 440g') || ($('input_int').value == 'bache 440g') || ($('input_intext').value == 'bache 440g' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
-			};
-
-			if (($('input_ext').value == 'jet 550') || ($('input_int').value == 'jet 550') || ($('input_intext').value == 'jet 550' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
-			};
-
-			if (($('input_ext').value == 'jet 520 M1') || ($('input_int').value == 'jet 520 M1') || ($('input_intext').value == 'jet 520 M1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 65)) {rabat = cena*0.04;};
-			if (metrage*ilosc > 65) {rabat = cena*0.06;};
-			};
-
-			if (($('input_ext').value == 'bache 750g M2/B1') || ($('input_int').value == 'bache 750g M2/B1') || ($('input_intext').value == 'bache 750g M2/B1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
-			};
-
-			if (($('input_ext').value == 'bache 750g M2/B1 recto verso') || ($('input_int').value == 'bache 750g M2/B1 recto verso') || ($('input_intext').value == 'bache 750g M2/B1 recto verso' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 11) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
-			};
-
-			if (($('input_ext').value == 'bache micro perforée M1/B1') || ($('input_int').value == 'bache micro perforée M1/B1') || ($('input_intext').value == 'bache micro perforée M1/B1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.03;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.04;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0.06;};
-			};
-
-			if (($('input_ext').value == 'bache 100% écologique M1') || ($('input_int').value == 'bache 100% écologique M1') || ($('input_intext').value == 'bache 100% écologique M1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0.02;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0.035;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0.05;};
-			};
-
-			if (($('input_ext').value == 'bache nontissé 150g M1') || ($('input_int').value == 'bache nontissé 150g M1') || ($('input_intext').value == 'bache nontissé 150g M1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0;};
-			if (metrage*ilosc > 64.99) {rabat = cena*0;};
-			};
-
-			if (($('input_ext').value == 'bache nontissé 150g M1') || ($('input_int').value == 'bache nontissé 150g M1') || ($('input_intext').value == 'bache nontissé 150g M1' )) {
-			if (metrage*ilosc <= 10.99) {rabat = cena*0;};
-			if ((metrage*ilosc > 10.99) && (metrage*ilosc <= 32.99)) {rabat = cena*0;};
-			if ((metrage*ilosc > 32.99) && (metrage*ilosc <= 64.99)) {rabat = cena*0;};
-			if (metrage*ilosc > 64.9) {rabat = cena*0;};
-			};*/
-
 			rabat=fixstr(rabat);
 			rabat2 = rabat.replace(".", ",");
 			if (rabat2 != 0) {rabat2 = rabat2+' &euro;'}
@@ -1717,14 +1294,7 @@
 		// fin remise //////////////////////////////////////////////////////////////
 		////////////////////////////////////// 	avertissements, messages d'erreur //
 
-		if ( ($('input_ext').value == 'eco toile') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
+		if ( ($('input_ext').value == 'ecotoile') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 			var blad = document.getElementById("id_14");
 			blad.style.background = "#EA2A6A";
 			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
@@ -1738,21 +1308,6 @@
 			eBox.style.display="block";
 			niepokazuj=1;
 		}
-		if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-
-		if ( ($('input_int').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
 		if ( ($('input_ext').value == 'bache nontissé 150g') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 			var blad = document.getElementById("id_14");
 			blad.style.background = "#EA2A6A";
@@ -1760,24 +1315,7 @@
 			eBox.style.display="block";
 			niepokazuj=1;
 		}
-		if ( ($('input_intext').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		if ( ($('input_int').value == 'bache micro perforée M1/B1') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
 		if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-		if ( ($('input_intext').value == 'bache micro perforée M1/B1') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
 			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregitrer votre demande de devis pour vous communiquer un prix';
 			eBox.style.display="block";
 			niepokazuj=2;
@@ -1787,23 +1325,7 @@
 			eBox.style.display="block";
 			niepokazuj=2;
 		}
-		if ( ($('input_int').value == 'jet 520 M1') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
 		if ( ($('input_ext').value == 'jet 520 M1') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-		if ( ($('input_intext').value == 'jet 520 M1') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-
-		if ( ($('input_int').value == 'bache 750g M2/B1') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
 			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 			eBox.style.display="block";
 			niepokazuj=2;
@@ -1813,28 +1335,7 @@
 			eBox.style.display="block";
 			niepokazuj=2;
 		}
-		if ( ($('input_intext').value == 'bache 750g M2/B1') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-
-		}
-		if ( ($('input_int').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
 		if ( ($('input_ext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-		if ( ($('input_intext').value == 'bache 750g M2/B1 recto verso') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-		if ( ($('input_int').value == 'bache 440g') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
 			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
 			eBox.style.display="block";
 			niepokazuj=2;
@@ -1844,23 +1345,7 @@
 			eBox.style.display="block";
 			niepokazuj=2;
 		}
-		if ( ($('input_intext').value == 'bache 440g') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE, veuillez enregistrer votre demande de devis pour vous communiquer un prix';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-
-		if ( ($('input_int').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
 		if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		if ( ($('input_intext').value == 'bache nontissé 150g M1') && (metraz*ilosc < 23.99)) {
 			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
 			eBox.style.display="block";
 			niepokazuj=1;
@@ -1896,7 +1381,7 @@
 			rabat2='-';
 			var rodzaj = "banderole";
 			var dodajkoszyk = document.getElementById("cart_form");
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
 			livraisonComp.style.display = 'block';
 		}
 
@@ -1937,10 +1422,9 @@
 
 			var rodzaj = "banderole Thermo-soudure";
 			var dodajkoszyk = document.getElementById("cart_form");
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-check-square" aria-hidden="true"></i></button> ';
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant  <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 		}
 		if (ilosc==''){niepokazuj=1;}
-	}
 
 		// fin envoi formulaire cas particuliers ///////////////////////////////////
 		////////////////////////////////////////////////// livraison le jour même //
@@ -2011,11 +1495,11 @@
 			var rodzaj = "banderole";
 			var dodajkoszyk = document.getElementById("cart_form");
 			// largeur et hauteur x100 pour un affichage en cm côté admin
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="- '+$('input_1').value+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc*100+' x '+szerokosc*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc*100+' x '+szerokosc*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 			livraisonComp.style.display = 'block';
 		}
 
-		});
-	});
+		});  // fin prod/delivery click function
+	});  // fin jq doc ready
 
 	</script>
