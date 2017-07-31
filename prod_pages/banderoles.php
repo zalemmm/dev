@@ -13,11 +13,11 @@
 							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
 
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr">Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,80€/m²</span></b> la bâche française, pour un produit fini 100% made in France et résistant dans la durée.<br />
+							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>nontissé 150g</u>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b> Bâche imprimée recto verso, résistance 3 ans.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b> Bâche grand vent pour échafaudage, plage...<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>nontissé 150g</u>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">EcoToile<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></u>: <span class="highlight">écologique dès 7,80/m²</span></b><br /> sans PVC, impression UV uniquement<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b> Toile 100% polyester M1 sans PVC ni phtalate.<br />
 							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
@@ -605,7 +605,7 @@
 		var hautbas            = szerokosc*2
 		var gauchedroite       = wysokosc*2
 
-		// laize /////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////// laize //
 
 		if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
 		if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
@@ -937,6 +937,7 @@
 
 		///////////////////////////////////////////////////////////////// oeilets //
 
+		if ($('input_21').value == 'sans oeillets' ) { opis+='<br>- sans oeillets' };
 		if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.15*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
 		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
 		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
@@ -953,17 +954,20 @@
 
 		///////////////////////////////////////////////////////////////// ourlets //
 
+		if (($('input_31').value == 'sans ourlet') || ($('input_32').value == 'sans ourlet') || ($('input_33').value == 'sans ourlet')|| ($('input_34').value == 'sans ourlet')) { opis+='<br>- sans ourlet'};
 		if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_33').value == 'ourlet de renfort haut/bas')|| ($('input_34').value == 'ourlet de renfort haut/bas')) { ourlets = hautbas*1; cena+=ourlets ; opis+='<br>- ourlet de renfort haut/bas'};
 		if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_32').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite')|| ($('input_34').value == 'ourlet de renfort gauche/droite')) { ourlets = gauchedroite*1; cena+=ourlets ; opis+='<br>- ourlet de renfort gauche/droite'};
 		if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_32').value == 'ourlet de renfort périmétrique') || ($('input_33').value == 'ourlet de renfort périmétrique')|| ($('input_34').value == 'ourlet de renfort périmétrique')) { ourlets = metrazzaokraglony1*1; cena+=ourlets ; opis+='<br>- ourlet de renfort périmétrique'};
 
 		/////////////////////////////////////////////////////////////// fourreaux //
 
+		if (($('input_41').value == 'sans fourreaux') || ($('input_41b').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux')|| ($('input_44').value == 'sans fourreaux')) { opis+='<br>- sans fourreaux'};
 		if (($('input_41').value == 'fourreaux haut/bas') || ($('input_41b').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
-		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
-
+		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_41b').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
+		
 		//////////////////////////////////////////////////////////////// scratchs //
 
+		if (($('input_71').value == 'sans scratch')) { opis+='<br>- sans scratch' };
 		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*2.5; cena+=scratch; opis+='<br>- scratch haut/bas' };
 		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*2.5; cena+=scratch; opis+='<br>- scratch gauche/droite' };
 		if (($('input_71').value == 'scratch perimetrique')) { scratch = metrazzaokraglony1*2.5; cena+=scratch; opis+='<br>- scratch périmétrique' };

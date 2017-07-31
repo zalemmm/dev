@@ -22,7 +22,6 @@
 					</select>
 				</li>
 
-
         <li class="form-line" id="id_2">
           <select class="form-dropdown validate[required]" id="input_2" name="2_usage" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir les fixations...</option>
@@ -110,9 +109,7 @@
 							<input type="hidden" id="delivery-value" value="" />
 						</p>
 					</div>
-
       </li>
-
 
       <li class="form-line" id="id_9a">
         <div class="form-input-wide">
@@ -167,21 +164,19 @@
 </div>
 
 <script type="text/javascript">
-  // checkboxes livraison
+  ////////////////////////////////////////////////////// checkboxes livraison //
   jQuery('#adresse').click(function() {
     if (document.getElementById('adresse').checked) {
       document.getElementById('relais').checked = false;
       document.getElementById('etiquette').checked = false;
     }
   });
-
   jQuery('#etiquette').click(function() {
     if (document.getElementById('etiquette').checked) {
       document.getElementById('relais').checked = false;
       document.getElementById('adresse').checked = false;
     }
   });
-
   jQuery('#relais').click(function() {
     if (document.getElementById('relais').checked) {
       document.getElementById('etiquette').checked = false;
@@ -189,27 +184,24 @@
     }
   });
 
-  /* change la propriété "display" livraison le jour même */
+  //////////////////////////////////////////////////////////////////////////////
 	function Afficher() {
 		divliv = document.getElementById('livraisonrapide');
 		if (divliv.style.display == 'none')
 		divliv.style.display = 'block';
 	}
-
-	/* change la propriété "display" pour afficher ou non le div selon que ce soit "none" ou "block". */
 	function Afficher() {
 		divInfo = document.getElementById('delivery-div');
 		if (divInfo.style.display == 'none')
 		divInfo.style.display = 'block';
 	}
-
-	/* change la propriété "display" pour afficher ou non le div selon que ce soit "none" ou "block". */
 	function Masquer() {
 		divInfo = document.getElementById('delivery-div');
 		if (divInfo.style.display == 'block')
 		divInfo.style.display = 'none';
 	}
 
+  /////////////////////////////////////////////////// calcul des jours ouvrés //
 	function AddBusinessDays(weekDaysToAdd) {
 	  // fonction jours ouvrés
 	  var curdate = new Date();
@@ -227,148 +219,132 @@
 	  return realDaysToAdd;
 	}
 
+  //////////////////////////////////////////////////////////////////////////////
   jQuery(document).ready(function(){
+    ////////////////////////////////////////////////////////////////////////////
   	jQuery('.delivery , .production').click(function(){
 
-      var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
-      var suma=0; var suma2=0;
-      var prliv='';
-      var transport=0;
-      var ilosc=0;
-      var opis='';
-      var cedzik='';
+      var cena       = 0;     var cena2 = 0;    var cena1 = 0;  var cenar = 0;  var cenarv = 0;
+      var suma       = 0;     var suma2 = 0;
+      var prliv      = '';
+      var transport  = 0;
+      var ilosc      = 0;
+      var opis       = '';
+      var cedzik     = '';
       var niepokazuj = 0;
-      var option2=0;
-      var szerokosc=0;
-      var wysokosc=0;
-      var rabat=0; var rabat2=0;
-      var HD=0;
-      var p1=0; var p2=0; var fixations=0;  var maquette=0; var metrage=0;
-      var eBox = document.getElementById('form-button-error2');
-      eBox.innerHTML='';
-      var ax1 = document.getElementById("id_5");
-      var ax2 = document.getElementById("id_6");
-      if (ax1) {
-      	ax1.style.background="none";
-      	ax1.style.border="none";
+      var option2    = 0;
+      var szerokosc  = 0;
+      var wysokosc   = 0;
+      var rabat      = 0;     var rabat2 = 0;
+      var HD         = 0;
+      var p1         = 0;     var p2     = 0;   var fixations = 0;  var maquette = 0; var metrage = 0;
+      var eBox       = document.getElementById('form-button-error2');
+      eBox.innerHTML = '';
+      var ax1        = document.getElementById("id_5");
+      var ax2        = document.getElementById("id_6");
+
+      //////////////////////////////////////////////////////////////////////////
+    	ilosc = $('input_4').value;
+    	szerokosc = ($('input_6').value);
+    	szerokosc = szerokosc.replace(',','.');
+    	szerokosc = fixstr(szerokosc);
+    	$('input_6').value = szerokosc;
+    	wysokosc = ($('input_5').value);
+    	wysokosc = wysokosc.replace(',','.');
+    	wysokosc = fixstr(wysokosc);
+    	$('input_5').value = wysokosc;
+
+    	/////////////////////////////////////////////////////////////// métrage //
+    	metrage = szerokosc*wysokosc*ilosc
+
+    	/////////////////////////////////////////////////////////////// PVC 300µ//
+    	if ($('input_1').value == 'recto'){
+    		if (metrage<=3){p1=17*metrage;}
+    		if ((metrage > 3) && (metrage <= 5)){p1=15*metrage;}
+    		if ((metrage > 5) && (metrage <= 8)){p1=14*metrage;}
+    		if ((metrage > 8) && (metrage <= 12)){p1=13*metrage;}
+    		if ((metrage > 12) && (metrage <= 20)){p1=12*metrage;}
+    		if (20<metrage){p1=11*metrage;}
+    		opis += '<br />- PVC 300µ recto';
+    	}
+
+    	if ($('input_1').value == 'rectoverso'){
+    		if (metrage<=3){p1=(17+(17*0.3))*metrage;}////// +30% /////
+    		if ((metrage > 3) && (metrage <= 5)){p1=(15+(15*0.3))*metrage;}//// +30% /////
+    		if ((metrage > 5) && (metrage <= 8)){p1=(14+(14*0.3))*metrage;}//// +30% /////
+    		if ((metrage > 8) && (metrage <= 12)){p1=(13+(13*0.3))*metrage;}/// +30% /////
+    		if ((metrage > 12) && (metrage <= 20)){p1=(12+(12*0.3))*metrage;}// +30% /////
+    		if(20<metrage){p1=(11+(11*0.3))*metrage;}////// +30% /////
+    		opis += '<br />- PVC 300µ recto/verso';
+    	}
+
+    	////////////////////////////////////////////////////////////// fixations//
+    	if ($('input_2').value == '2oeillets'){fixations=1*ilosc; opis += '<br />- 2 oeillets';}
+    	if ($('input_2').value == '4oeillets'){fixations=2*ilosc; opis += '<br />- 4 oeillets';}
+    	if ($('input_2').value == 'sans'){fixations=0; opis += '<br />- sans oeillet';}
+
+    	////////////////////////////////////////////////////////////// maquette //
+    	if ($('input_3').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
+    	if ($('input_3').value == 'user') {maquette=0; opis += '<br />- j’ai déjà crée la maquette';}
+
+    	//////////////////////////////////////////////////////// tarif unitaire //
+    	puoption = p1+fixations+HD;
+      
+    	//////////////////////////////////////////////////////////////////// HD //
+    	if ($('input_HD').value == 'HD') {HD = (puoption)*0.30; puoption+=HD; opis += '<br />- HD';}
+    	if ($('input_HD').value == 'standard') {HD = 0; puoption+=HD; opis += '<br />- Standard';}
+
+    	///////////////////////////////////////////////////////////////// total //
+    	puoption2 = (puoption+maquette)/ilosc;
+    	cena = puoption+maquette;
+
+      /////////////////////////////////////////////////////////////// options //
+      var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+      if (colis == true) {
+        cena += 2.00;
+        opis += '<br />- colis revendeur';
       }
-      if (ax2) {
-      	ax1.style.background="none";
-      	ax1.style.border="none";
+      var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+      var etiqdesc = '';
+      if (etiquette == true) {
+        transport=0;
+        etiqdesc = '<br />- retrait colis a l\'atelier';
+        cena-= cena*3/100;
       }
 
-      if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
+      var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
+      if (relais == true) {
+        cenapojedyncza += 5.00;
+        cena += 5.00;
+        cedzik += '<br />- relais colis';
+      }
 
-      	ilosc = $('input_4').value;
-      	szerokosc = ($('input_6').value);
-      	szerokosc = szerokosc.replace(',','.');
-      	szerokosc = fixstr(szerokosc);
-      	$('input_6').value = szerokosc;
-      	wysokosc = ($('input_5').value);
-      	wysokosc = wysokosc.replace(',','.');
-      	wysokosc = fixstr(wysokosc);
-      	$('input_5').value = wysokosc;
-
-      	////metrage/////
-      	metrage = szerokosc*wysokosc*ilosc
-
-      	///// PVC 300µ/////
-      	if ($('input_1').value == 'recto'){
-
-      		if (metrage<=3){p1=17*metrage;}
-      		if ((metrage > 3) && (metrage <= 5)){p1=15*metrage;}
-      		if ((metrage > 5) && (metrage <= 8)){p1=14*metrage;}
-      		if ((metrage > 8) && (metrage <= 12)){p1=13*metrage;}
-      		if ((metrage > 12) && (metrage <= 20)){p1=12*metrage;}
-      		if (20<metrage){p1=11*metrage;}
-
-      		opis += '<br />- PVC 300µ recto';
-
-      	}
-      	if ($('input_1').value == 'rectoverso'){
-
-      		if (metrage<=3){p1=(17+(17*0.3))*metrage;}////// +30% /////
-      		if ((metrage > 3) && (metrage <= 5)){p1=(15+(15*0.3))*metrage;}//// +30% /////
-      		if ((metrage > 5) && (metrage <= 8)){p1=(14+(14*0.3))*metrage;}//// +30% /////
-      		if ((metrage > 8) && (metrage <= 12)){p1=(13+(13*0.3))*metrage;}/// +30% /////
-      		if ((metrage > 12) && (metrage <= 20)){p1=(12+(12*0.3))*metrage;}// +30% /////
-      		if(20<metrage){p1=(11+(11*0.3))*metrage;}////// +30% /////
-      		opis += '<br />- PVC 300µ recto/verso';
-      	}
-
-      	////fixations/////
-
-      	if ($('input_2').value == '2oeillets'){fixations=1*ilosc; opis += '<br />- 2 oeillets';}
-      	if ($('input_2').value == '4oeillets'){fixations=2*ilosc; opis += '<br />- 4 oeillets';}
-      	if ($('input_2').value == 'sans'){fixations=0; opis += '<br />- sans oeillet';}
-
-      	////maquette/////
-      	if ($('input_3').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
-      	if ($('input_3').value == 'user') {maquette=0; opis += '<br />- j’ai déjà crée la maquette';}
-
-      	////tarif unitaire/////
-      	puoption = p1+fixations+HD;
-
-      	////HD///
-      	if ($('input_HD').value == 'HD') {HD = (puoption)*0.30; puoption+=HD; opis += '<br />- HD';}
-      	if ($('input_HD').value == 'standard') {HD = 0; puoption+=HD; opis += '<br />- Standard';}
-      	////FIN HD///
-
-
-      	////total/////
-      	puoption2 = (puoption+maquette)/ilosc;
-      	cena = puoption+maquette;
-
-        //// options
-        var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-        if (colis == true) {
-          cena += 2.00;
-          opis += '<br />- colis revendeur';
-        }
-        var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-        var etiqdesc = '';
-        if (etiquette == true) {
-          transport=0;
-          etiqdesc = '<br />- retrait colis a l\'atelier';
-          cena-= cena*3/100;
-        }
-
-        var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-        if (relais == true) {
-          cenapojedyncza += 5.00;
-          cena += 5.00;
-          cedzik += '<br />- relais colis';
-        }
-        //// fin options
-
-      ///transport///
-
+      ///////////////////////////////////////////////////////////// transport //
       poidstotal = metrage*0.4;
+    	if (poidstotal <= 1) {prixtransport=4.80;}
+    	if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
+    	if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
+    	if ((poidstotal > 3) && (poidstotal <= 4)) {prixtransport=5.63;}
+    	if ((poidstotal > 4) && (poidstotal <= 5)) {prixtransport=6.88;}
+    	if ((poidstotal > 5) && (poidstotal <= 6)) {prixtransport=7.99;}
+    	if ((poidstotal > 6) && (poidstotal <= 7)) {prixtransport=7.99;}
+    	if ((poidstotal > 7) && (poidstotal <= 10)) {prixtransport=9.30;}
+    	if ((poidstotal > 10) && (poidstotal <= 15)) {prixtransport=11.93;}
+    	if ((poidstotal > 15) && (poidstotal <= 20)) {prixtransport=14.93;}
+      if ((poidstotal > 20) && (poidstotal <= 25)) {prixtransport=18.82;}
+    	if ((poidstotal > 25) && (poidstotal <= 30)) {prixtransport=20.56;}
+    	if ((poidstotal > 30) && (poidstotal <= 40)) {prixtransport=25.64;}
+    	if ((poidstotal > 40) && (poidstotal <= 50)) {prixtransport=33.73;}
+      if ((poidstotal > 50) && (poidstotal <= 60)) {prixtransport=42.14;}
+    	if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
+    	if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
+    	if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
+      if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
+    	if (poidstotal > 100) {prixtransport=69.26;}
 
-    	 if (poidstotal <= 1) {prixtransport=4.80;}
-    	 if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
-    	 if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
-    	 if ((poidstotal > 3) && (poidstotal <= 4)) {prixtransport=5.63;}
-    	 if ((poidstotal > 4) && (poidstotal <= 5)) {prixtransport=6.88;}
-    	 if ((poidstotal > 5) && (poidstotal <= 6)) {prixtransport=7.99;}
-    	 if ((poidstotal > 6) && (poidstotal <= 7)) {prixtransport=7.99;}
-    	 if ((poidstotal > 7) && (poidstotal <= 10)) {prixtransport=9.30;}
-    	 if ((poidstotal > 10) && (poidstotal <= 15)) {prixtransport=11.93;}
-    	 if ((poidstotal > 15) && (poidstotal <= 20)) {prixtransport=14.93;}
-         if ((poidstotal > 20) && (poidstotal <= 25)) {prixtransport=18.82;}
-    	 if ((poidstotal > 25) && (poidstotal <= 30)) {prixtransport=20.56;}
-    	 if ((poidstotal > 30) && (poidstotal <= 40)) {prixtransport=25.64;}
-    	 if ((poidstotal > 40) && (poidstotal <= 50)) {prixtransport=33.73;}
-         if ((poidstotal > 50) && (poidstotal <= 60)) {prixtransport=42.14;}
-    	 if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
-    	 if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
-    	 if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
-         if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
-    	 if (poidstotal > 100) {prixtransport=69.26;}
-    	 prixtransport2 = prixtransport*0.4;
-    	 transport = prixtransport + prixtransport2;
-
-    	///fin transport///
+    	prixtransport2 = prixtransport*0.4;
+    	transport = prixtransport + prixtransport2;
+    	// fin transport /////////////////////////////////////////////////////////
 
 
     	puoption2=fixstr(puoption2);
@@ -417,77 +393,56 @@
   			jQuery(document).ready(function(){
   				jQuery('.jotform-form select').click(function(){
   					jQuery('#delivery-value').val(Masquer());
-
   					jQuery('.delivery').prop("disabled",false);
   					jQuery('.production').prop("disabled",false);
-
   					jQuery('.production').removeClass('active');
   					jQuery(this).addClass('');
-
   					jQuery('.delivery').removeClass('active');
   					jQuery(this).addClass('active');
-
   					jQuery(production-value).prop("disabled",false);
   					jQuery(delivery-value).prop("disabled",true);
-
   				});
         });
 
 				jQuery(document).ready(function(){
 					jQuery('.form-textbox').click(function(){
 						jQuery('#delivery-value').val(Masquer());
-
 						jQuery('.delivery').prop("disabled",false);
 						jQuery('.production').prop("disabled",false);
-
 						jQuery('.production').removeClass('active');
 						jQuery(this).addClass('');
-
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
-
 						jQuery(production-value).prop("disabled",false);
 						jQuery(delivery-value).prop("disabled",true);
-
 					});
         });
 
 				jQuery(document).ready(function(){
 					jQuery('.form-textbox2').click(function(){
 						jQuery('#delivery-value').val(Masquer());
-
 						jQuery('.delivery').prop("disabled",false);
 						jQuery('.production').prop("disabled",false);
-
 						jQuery('.production').removeClass('active');
 						jQuery(this).addClass('');
-
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
-
 						jQuery(production-value).prop("disabled",false);
 						jQuery(delivery-value).prop("disabled",true);
-
 					});
         });
 
 				jQuery(document).ready(function(){
-
 					jQuery('.form-checkbox').click(function(){
 						jQuery('#delivery-value').val(Masquer());
-
 						jQuery('.delivery').prop("disabled",false);
 						jQuery('.production').prop("disabled",false);
-
 						jQuery('.production').removeClass('active');
 						jQuery(this).addClass('');
-
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
-
 						jQuery(production-value).prop("disabled",false);
 						jQuery(delivery-value).prop("disabled",true);
-
 					});
         });
       }
@@ -497,7 +452,6 @@
 			var delivery        = jQuery('#delivery-value').val();
 
 			if(production && delivery){
-
 				// Calculate price
 				//alert('click');
 				var ProdPercent = '';
@@ -646,22 +600,22 @@
       	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'m'+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 
 
-      	if ( (wysokosc > 1.5) && (szerokosc > 1.5) ) {
+      	if ( (wysokosc > 1) && (szerokosc > 1.4) ) {
       		var blad = document.getElementById("id_5");
       		var blad2 = document.getElementById("id_6");
       		prix.innerHTML='-';
       		total.innerHTML='-';
       		dodajkoszyk.innerHTML ='';
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 1x1,4m !';
       	}
 
-      	if ( (wysokosc > 2) || (szerokosc > 2) ) {
+        if ( (wysokosc > 1.4) && (szerokosc > 1) ) {
       		var blad = document.getElementById("id_5");
       		var blad2 = document.getElementById("id_6");
       		prix.innerHTML='-';
       		total.innerHTML='-';
       		dodajkoszyk.innerHTML ='';
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 2x1,5m !';
+      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 1x1,4m !';
       	}
 
       	if ( (wysokosc < 0.2) && (szerokosc < 0.3) ) {
@@ -683,9 +637,7 @@
       		dodajkoszyk.innerHTML ='';
       		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
       	}
-
       }
-    }
     });
   });
   </script>

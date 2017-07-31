@@ -639,7 +639,7 @@ JotForm = {
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
 						///////////////////////////////
-            
+
             // oeuillets coins par défaut
             if ($('input_ext').value !== "") {
               $('container').style.display="none";

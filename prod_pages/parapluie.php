@@ -139,14 +139,14 @@
           <span class="helpButton" onmouseover="pokazt('helpText02');" onmouseout="ukryjt('helpText02');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText02" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
+              <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu extensible 100% polyester 220g traité retardant au feu B1<br />
               <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 260g B1</u>: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_02" name="q02_usage" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir le tissu</option>
             <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch extensible 260g B1</option>
+            <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
           </select>
         </li>
 
@@ -509,11 +509,11 @@ jQuery(document).ready(function(){
       ////////////////////////////////////////////// total selon tissu choisi //
       if ($('input_02').value == 'tissu 220g' ) {
         cena = (tissu220+structure+scratch)*1.8+trans;
-        dodatkowaopcja += '<br />- tissu stretch léger 220g B1';
+        dodatkowaopcja += '<br />- tissu 220g';
       }
       if ($('input_02').value == 'tissu 260g' ) {
         cena = (tissu260+structure+scratch)*2.2+trans;
-        dodatkowaopcja += '<br />- tissu stretch extensible 260g B1';
+        dodatkowaopcja += '<br />- tissu 260g';
       }
 
     	// prix stand tissu //////////////////////////////////////////////////////

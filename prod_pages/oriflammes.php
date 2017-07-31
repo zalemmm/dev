@@ -6,16 +6,19 @@
         <ul class="form-section">
 
           <li class="form-line" id="id_1">
-            <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>Drapeau personnalisé livré avec petit mât pvc.<br />• <u><b>Oriflamme aile d’avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>voile personnalisée de forme courbée en haut, droite en bas. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br/>• <u><b>Beachflag goutte d’eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>Voile imprimée en forme de pétale ou goutte d'eau. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br />• <u><b>Windflag rectangulaire</u>: <span class="highlight">Dès 29,00€</span></b><br/>Voile imprimée rectangulaire. Ganse noire teintée masse ou Full graphic à partir de 10 ex. Vendu complet avec son pied.<br /></span></span>
+            <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Drapeau personnalisé avec une ganse renforcée à gauche et deux demi-lunes en plastique.<br />• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>Drapeau personnalisé livré avec petit mât pvc.<br />• <u><b>Oriflamme aile d’avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>voile personnalisée de forme courbée en haut, droite en bas. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br/>• <u><b>Beachflag goutte d’eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>Voile imprimée en forme de pétale ou goutte d'eau. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br />• <u><b>Windflag rectangulaire</u>: <span class="highlight">Dès 29,00€</span></b><br/>Voile imprimée rectangulaire. Ganse noire teintée masse ou Full graphic à partir de 10 ex. Vendu complet avec son pied.<br /></span></span>
 
             <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();">
               <option value="">choisir votre produit...</option>
-              <option value="drapeaux">Drapeaux à agiter </option>
-              <option value="oriflamme">Oriflamme aile d’avion </option>
+              <option class="option1" value="drapeaux">Drapeaux à agiter </option>
+              <option value="drapeaux grand format">Drapeaux grand format </option>
+              <option class="option1" value="oriflamme">Oriflamme aile d’avion </option>
               <option value="beachflag">Beachflag goutte d’eau </option>
-              <option value="windflag">Windflag rectangulaire </option>
+              <option class="option1" value="windflag">Windflag rectangulaire </option>
             </select>
           </li>
+          
+          
 
           <li class="form-line" id="id_20">
             <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>3 dimensions au choix (autre, nous consulter), les drapeaux sont livrés avec des petits mâts en plastique blanc.<br /></span></span>
@@ -58,6 +61,17 @@
               <option value="windflag-100x350">Voile 100x350cm - Monté 100x530cm - pied inclus </option>
             </select>
           </li>
+          
+          
+           <li class="form-line" id="id_24">
+            <span class="helpButton" onmouseover="pokazt('helpText24');" onmouseout="ukryjt('helpText24');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText24" style="visibility:hidden;">• <u><b>Drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Choisissez votre format horizontal ou vertical<br /></span></span>
+            <select class="form-dropdown validate[required]" id="input_24" name="q24" onclick="JKakemono.czyscpola(); ">
+              <option value="">choisir le format... </option>
+              <option value="vertical">vertical </option>
+              <option value="horizontal">horizontal </option>
+            </select>
+          </li>
+          
 
           <li class="form-line" id="id_3">
             <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>kit complet</u>: <span class="highlight">Dès 70,00€</span></b><br/>Tout est inclus, le mât, la voile personnalisée, le sax de transport et le pied au choix.<br />• <u><b>Structure + Voile</u>: <span class="highlight">Dès 53,00€</span></b><br/>Vous serez livré du mât, la voile imprimée, le sax de transport sans pied.<br />• <u><b>Voile imprimée seule</u>: <span class="highlight">Dès 34,00€</span></b><br/>Vous serez livré uniquement d'un voile personnalisée sous film plastique.<br /></span></span>
@@ -86,6 +100,29 @@
               <option value="Recto/Verso">Recto/Verso</option>
             </select>
           </li>
+          
+          <li class="form-line" id="id_43">
+            <span class="helpButton" onmouseover="pokazt('helpText43');" onmouseout="ukryjt('helpText43');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText43" style="visibility:hidden;">• <u><b>Drapeaux grand format vertical</u></b><br/>4 dimensions au choix pour un drapeau vertical<br /></span></span>
+            <select class="form-dropdown validate[required]" id="input_43" name="q43" onclick="JKakemono.czyscpola(); ">
+              <option value="">choisir la dimension... </option>
+              <option value="250x80cm">250H x 80L cm</option>
+              <option value="300x100cm">300H x 100L cm</option>
+              <option value="400x120cm">400 H x 120L cm</option>
+              <option value="500x150cm">500 H x 150L cm</option>
+            </select>
+          </li>
+          <li class="form-line" id="id_44">
+            <span class="helpButton" onmouseover="pokazt('helpText44');" onmouseout="ukryjt('helpText44');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText44" style="visibility:hidden;">• <u><b>Drapeaux grand format Horizontal</u></b><br/>5 dimensions au choix pour un drapeau horizontal<br /></span></span>
+            <select class="form-dropdown validate[required]" id="input_44" name="q44" onclick="JKakemono.czyscpola(); ">
+              <option value="">choisir la dimension... </option>
+              <option value="80x120cm">80H x 120L cm</option>
+              <option value="100x150cm">100H x 150L cm</option>
+              <option value="120x180cm">120 H x 180L cm</option>
+              <option value="150x225cm">150 H x 225L cm</option>
+              <option value="200x300cm">200 H x 300L cm</option>
+            </select>
+          </li>
+
 
           <li class="form-line" id="id_6">
             <span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText8" style="visibility:hidden;">• <u><b>Embase platine 8 kg</u><span class="highlight">INT/EXT</span> :</b><br/>platine rectangulaire noire acier 8kg avec poignée de transport. pour oriflamme jusqu'à 3,08m<br />• <u><b>Embase platine 13,5kg</u><span class="highlight">INT/EXT</span> :</b><br/>platine rectangulaire acier 13,5kg avec poignée de transport. pour toutes les tailles de beachflags.<br />• <u><b>Pied 4 branches</u><span class="highlight">INT</span> :</b><br/<br /></span></span>
@@ -208,7 +245,6 @@
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-1.jpg" alt="oriflamme pas cher" title="beachflag pas cher" /></li>
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-2.jpg" alt="beachflag personnalisé" title="devis oriflamme" /></li>
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-3.jpg" alt="windflag pas cher" title="oriflamme devis en ligne" /></li>
-          <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/slide/oriflamme-4.jpg" alt="oriflamme pas cher" title="beachflag pas cher" /></li>
           <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
         </div>
       </div>
@@ -379,6 +415,156 @@ if ( ($('input_1').value) ) {
 		}
 
 	}
+	
+	/////////////////////////// drapeaux grand format
+	
+	if ($('input_1').value == 'drapeaux grand format') {
+		ktorytyp='Drapeaux grand format';
+		ilosc = $('input_9').value;
+		
+		//////////////vertical
+		if (($('input_24').value == 'vertical') && ($('input_43').value == '250x80cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 44; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 42;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 38;}
+			if ($('input_9').value > 10) {
+			prixHT = 32;}
+
+			ktorywymiar = 'vertical';
+			composant='250x80cm';
+			p1=2;
+		}
+		if (($('input_24').value == 'vertical') && ($('input_43').value == '300x100cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 53; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 51;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 47;}
+			if ($('input_9').value > 10) {
+			prixHT = 45;}
+
+			ktorywymiar = 'vertical';
+			composant='300x100cm';
+			p1=3;
+		}
+		if (($('input_24').value == 'vertical') && ($('input_43').value == '400x120cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 67; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 65;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 59;}
+			if ($('input_9').value > 10) {
+			prixHT = 57;}
+
+			ktorywymiar = 'vertical';
+			composant='400x120cm';
+			p1=4.8;
+		}
+		if (($('input_24').value == 'vertical') && ($('input_43').value == '500x150cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 88; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 86;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 78;}
+			if ($('input_9').value > 10) {
+			prixHT = 76;}
+
+			ktorywymiar = 'vertical';
+			composant='500x150cm';
+			p1=7.5;
+		}
+		
+		
+		
+		//////////////horizontal
+		if (($('input_24').value == 'horizontal') && ($('input_44').value == '80x120cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 22; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 20;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 17;}
+			if ($('input_9').value > 10) {
+			prixHT = 15;}
+
+			ktorywymiar = 'horizontal';
+			composant='80x120cm';
+			p1=0.96;
+		}
+		if (($('input_24').value == 'horizontal') && ($('input_44').value == '100x150cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 24; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 22;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 19;}
+			if ($('input_9').value > 10) {
+			prixHT = 17;}
+
+			ktorywymiar = 'horizontal';
+			composant='100x150cm';
+			p1=1.5;
+		}
+		if (($('input_24').value == 'horizontal') && ($('input_44').value == '120x180cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 29; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 27;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 24;}
+			if ($('input_9').value > 10) {
+			prixHT = 22;}
+
+			ktorywymiar = 'horizontal';
+			composant='120x180cm';
+			p1=2.16;
+		}
+		if (($('input_24').value == 'horizontal') && ($('input_44').value == '150x225cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 32; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 30;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 27;}
+			if ($('input_9').value > 10) {
+			prixHT = 25;}
+
+			ktorywymiar = 'horizontal';
+			composant='150x225cm';
+			p1=3.37;
+		}
+		
+		if (($('input_24').value == 'horizontal') && ($('input_44').value == '200x300cm')) {
+			if ($('input_9').value == 1) {
+			prixHT = 47; }
+			if (($('input_9').value > 1) && ($('input_9').value <= 6)) {
+			prixHT = 45;}
+			if (($('input_9').value > 6) && ($('input_9').value <= 10)) {
+			prixHT = 41;}
+			if ($('input_9').value > 10) {
+			prixHT = 39;}
+
+			ktorywymiar = 'horizontal';
+			composant='200x300cm';
+			p1=6;
+		}
+		
+
+	}
+	
+	
+	////////////////////////////fin drapeaux grand format
+	
+	
+	
+	
+	
 	if ($('input_1').value == 'oriflamme') {
 		ktorytyp='Oriflamme aile d’avion';
 		ilosc=$('input_9').value;
@@ -783,6 +969,12 @@ if ( ($('input_1').value) ) {
 
 	if ($('input_1').value == 'drapeaux') {
 	var cenapojedyncza = prixHT+maquette;
+	ilosc=$('input_9').value;
+	cena=cenapojedyncza*ilosc;
+	}
+	
+	if ($('input_1').value == 'drapeaux grand format') {
+	var cenapojedyncza = (prixHT+maquette)*1.5;
 	ilosc=$('input_9').value;
 	cena=cenapojedyncza*ilosc;
 	}

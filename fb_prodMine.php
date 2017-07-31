@@ -358,23 +358,6 @@ function fbshop_head() {
   </script>';
   }
 
-  if (is_page('sticker-mural')) {
-  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
-  <script type="text/javascript">
-  JotForm.setConditions([
-    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "equals", "value": "decoupe contour"}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "notEquals", "value": "decoupe contour"}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
-  ]);
-  JotForm.init();
-  </script>';
-  }
-
   if (is_page('sticker-lettrage-predecoupe')) {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform3.js?v3" type="text/javascript"></script>
@@ -1180,17 +1163,6 @@ function generate_page ($page, $pageid) {
   		$info_info='<span class="prezHide">Les vinyles adhésifs (stickers) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Vous pouvez selectionner le matériau de base de votre choix en fonction de son utilisation (vitrine extérieur, vitrophanie, magnétique pour véhicule, etc...).<br />Nos impressions sont garanties 2 ans en extérieur.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_sticker_predecoupe_form();
   	}
-
-    if ($page=='Sticker-mural') {
-      $h1name='Stickers et papier peint pour décoration murale';
-      $imghead1='kakemonos1';
-      $imghead2='kakemonos2';
-      $imghead3='kakemonos3';
-      $mini='sticker-mural';
-      $info_title='Stickers et papier peint adhésif pour décoration murale';
-      $info_info='<span class="prezHide">Les vinyles adhésifs muraux (stickytex) sont imprimés en quadri numérique haute définition et sont livrés coupés au format.<br />Il peuvent être retiré et repositionné sans endommager le mur ni laisser aucun résidu. Ne risque pas de déchirer et est imperméable à l\'eau.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-      $formularz = get_sticker_mural_form();
-    }
 
   	if ($page=='Sticker-lettrage-predecoupe') {
   		$h1name='Stickers adhesifs prédécoupés - lettrage prédécoupé';
@@ -2908,11 +2880,6 @@ function get_stickers_form() {
 
 function get_sticker_predecoupe_form() {
     $form = file_get_contents(getTplPath('sticker-predecoupe.php'));
-    return $form;
-}
-
-function get_sticker_mural_form() {
-    $form = file_get_contents(getTplPath('sticker-mural.php'));
     return $form;
 }
 

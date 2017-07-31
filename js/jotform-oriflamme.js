@@ -641,7 +641,7 @@ JotForm = {
 
 						// choix produit
 
-            if (($('input_1').value == 'drapeaux') || ($('input_1').value == 'oriflamme') || ($('input_1').value == 'beachflag') || ($('input_1').value == 'windflag')) {
+            if (($('input_1').value == 'drapeaux') || ($('input_1').value == 'drapeaux grand format') || ($('input_1').value == 'oriflamme') || ($('input_1').value == 'beachflag') || ($('input_1').value == 'windflag')) {
               $('container').style.display="none";
 							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/ext.png)" ;
               imag3.style.backgroundImage="none";
@@ -649,6 +649,12 @@ JotForm = {
 				    if ($('input_1').value == 'drapeaux') {
 							imag2.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux.png)" ;
               imag2.style.animation="anim .5s 1";
+              imag3.style.backgroundImage="none" ;
+              imag4.style.backgroundImage="none" ;
+						}
+            if ($('input_1').value == 'drapeaux grand format') {
+							imag2.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/gfvt.png)" ;
+              imag2.style.animation="anim4 .5s 1";
               imag3.style.backgroundImage="none" ;
               imag4.style.backgroundImage="none" ;
 						}
@@ -683,6 +689,15 @@ JotForm = {
 						if (($('input_1').value == 'drapeaux') &&($('input_20').value == '75x100')) {
 							imag2.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/drapeaux.png)";
               imag2.style.animation="anim2 .5s 1";
+						}
+
+            if (($('input_1').value == 'drapeaux grand format') &&($('input_24').value == 'vertical')) {
+							imag2.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/gfvt2.png)";
+              imag2.style.animation="anim2 .5s 1";
+						}
+            if (($('input_1').value == 'drapeaux grand format') &&($('input_24').value == 'horizontal')) {
+							imag2.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/gfhz.png)";
+              imag2.style.animation="anim3 .5s 1";
 						}
 
 						// aile d'avion
