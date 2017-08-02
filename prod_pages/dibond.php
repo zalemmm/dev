@@ -201,10 +201,11 @@
 							</span>
 						</span>
 
-						<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
-							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
-								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span>
+						<span class="optionsleft">
+							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
+							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
+							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 							</span>
 						</span>
 
@@ -213,6 +214,15 @@
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
 							<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
 								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+							</span>
+						</span>
+
+						<span class="optionsleft">
+							<label class="form-label-left" id="label_palette" for="palette">Livré monté</label>
+							<input type="checkbox" class="form-checkbox" id="palette" name="palette[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
+							<span class="helpButton" onmouseover="pokazt('helpTextpalette');" onmouseout="ukryjt('helpTextpalette');">
+								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">240€</span><br />
+								Pour recevoir vos enseignes montées.</span>
 							</span>
 						</span>
 
@@ -290,21 +300,28 @@
 	</div>
 
 <script type="text/javascript">
-	// checkboxes livraison
+	////////////////////////////////////////////////////// checkboxes livraison //
 	jQuery('#adresse').click(function() {
 		if (document.getElementById('adresse').checked) {
 			document.getElementById('etiquette').checked = false;
 		}
 	});
-
 	jQuery('#etiquette').click(function() {
 		if (document.getElementById('etiquette').checked) {
 			document.getElementById('adresse').checked = false;
 		}
 	});
-
-	/* Voici la fonction javascript qui change la propriété "display"	livraison le jour même */
-
+	jQuery('#palette').click(function() {
+		if (document.getElementById('palette').checked) {
+			document.getElementById('etiquette').checked = false;
+		}
+	});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('palette').checked = false;
+		}
+	});
+	//////////////////////////////////////////////////////////////////////////////
 	function Afficher()	{
 		divliv = document.getElementById('livraisonrapide');
 		if (divliv.style.display == 'none')
@@ -321,6 +338,7 @@
 		divInfo.style.display = 'none';
 	}
 
+	/////////////////////////////////////////////////// calcul des jours ouvrés //
 	function AddBusinessDays(weekDaysToAdd) {
 	  // fonction jours ouvrés
 	  var curdate = new Date();
@@ -338,26 +356,27 @@
 	  return realDaysToAdd;
 	}
 
+	//////////////////////////////////////////////////////////////////////////////
 	jQuery(document).ready(function(){
 		jQuery('.delivery , .production').click(function(){
-			var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0; cenapojedyncza=0;
-			var suma=0; var suma2=0;
-			var rabat=0; var rabat2=0;
-			var transport=0;
-			var ilosc=0;
-			var ktorytyp='';
-			var cedzik='';
-			var prliv='';
-			var date_panier='';
-			var dodatkowaopcja='';
-			var opis='';
-			var niepokazuj = 0;
-			var option2=0;
-			var szerokosc=0;
-			var wysokosc=0;
-			var pu=0; var fixations=0; var percage=0; var puoption=0; var maquette=0; var tarifventouse=0; var fixationsventouse=0; nbtrou=0;
-			var eBox = document.getElementById('form-button-error2');
-			eBox.innerHTML='';
+			var cena           = 0; 	 var cena2=0; 		var cena1=0; 		var cenar=0;	 	var cenarv=0; 		cenapojedyncza=0;
+			var suma           = 0;		 var suma2=0;
+			var rabat          = 0;		 var rabat2=0;
+			var transport      = 0;
+			var ilosc          = 0;
+			var ktorytyp       = '';
+			var cedzik         = '';
+			var prliv          = '';
+			var date_panier    = '';
+			var dodatkowaopcja = '';
+			var opis           = '';
+			var niepokazuj     = 0;
+			var option2        = 0;
+			var szerokosc      = 0;
+			var wysokosc       = 0;
+			var pu             = 0;			var fixations=0; 	var percage=0; 	var puoption=0; var maquette=0; 	var tarifventouse=0; 	var fixationsventouse=0; 	nbtrou=0;
+			var eBox           = document.getElementById('form-button-error2');
+			eBox.innerHTML     = '';
 
 			if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
 				ilosc = $('input_32').value;
@@ -1027,31 +1046,37 @@
 				if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
 				////FIN HD///
 
-				///// options/////
-				var rush24 = $$('#rush24').collect(function(e){ return e.checked; }).any();
-				if (rush24 == true) {
-					rush = 0.3*cena;
-					puoption2 += rush/ilosc;
-					cena += rush;
-					opis += '<br />- délai express';
+				///////////////////////////////////////////////////////////// options //
+				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+				if (colis == true) {
+					cenapojedyncza += 0.00;
+					cena += 2.00*ilosc;
+					cedzik += '<br />- colis revendeur';
 				}
 
 				var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 				if (relais == true) {
-					puoption2 += 5.00/ilosc;
+					cenapojedyncza += 5.00;
 					cena += 5.00;
-					opis += '<br />- relais colis';
+					cedzik += '<br />- relais colis';
 				}
 
-				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-				if (colis == true) {
-					cena += 2.00*ilosc;
-					opis += '<br />- colis revendeur';
+				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+				if (etiquette == true) {
+					transport=0;
+					cena -= cena*3/100;
+					cedzik += '<br />- retrait colis a l\'atelier';
 				}
-				////fin d'options///
 
+				var palette = $$('#palette').collect(function(e){ return e.checked; }).any();
+				if (palette == true) {
+					cena += 240;
+					cedzik += '<br />- forfait palettisation';
+				}
 
-				///transport///
+				// fin options /////////////////////////////////////////////////////////
+				/////////////////////////////////////////////////////////// transport //
+
 				if (poidstotal <= 1) {prixtransport=4.80;}
 				if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
 				if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
@@ -1081,7 +1106,6 @@
 				if ($('input_32').value) {
 					cena=cenapojedyncza*ilosc;
 				}
-
 				if ($('input_32perso').value) {
 					cena=cenapojedyncza*ilosc;
 				}
@@ -1089,27 +1113,7 @@
 				var total = document.getElementById("total");
 				var remise = document.getElementById("remise");
 
-				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-				if (colis == true) {
-					cenapojedyncza += 0.00;
-					cena += 2.00*ilosc;
-					cedzik += '<br />- colis revendeur';
-				}
-
-				var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-				if (relais == true) {
-					cenapojedyncza += 5.00;
-					cena += 5.00;
-					cedzik += '<br />- relais colis';
-				}
-
-				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-				if (etiquette == true) {
-					transport=0;
-					cedzik += '<br />- retrait colis a l\'atelier';
-					cena-= cena*3/100;
-				}
-
+				////////////////////////////////////////////////////////////////////////
 				cenapojedyncza=fixstr(cenapojedyncza);
 				cena2 = cenapojedyncza.replace(".", ",");
 
@@ -1126,7 +1130,6 @@
 					var production = jQuery(this).attr('text-value');
 					jQuery('#production-value').val(production);
 					jQuery(this).prop("disabled",true);
-
 				}
 
 				var m = myClass.search("delivery");
@@ -1321,12 +1324,6 @@
 
 				/* koszty transportu */
 
-				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-				var etiqdesc = '';
-				if (etiquette == true) {
-					transport=0;
-					etiqdesc = '<br />- retrait colis a l\'atelier';
-				}
 				transport=0;
 
 				var niepokazuj = 0;
@@ -1350,14 +1347,15 @@
 					suma2 = suma.replace(".", ",");
 					total.innerHTML=suma2+' &euro;';
 
+					////////////////////////////////////////////////// envoi formulaire //
 					var rodzaj = "Dibond";
 					var dodajkoszyk = document.getElementById("cart_form");
 
 					if($('input_1').value == 'personnalisée') {
-						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 					};
 					if($('input_1').value != 'personnalisée') {
-						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 						livraisonComp.style.display = 'block';
 					};
 				}

@@ -116,10 +116,8 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport1" style="visibility:hidden;">
 							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
-							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
-							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
 						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
@@ -132,16 +130,17 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport2" style="visibility:hidden;">
 							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
-							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
-							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
+							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Toile 100% écologique M1</b></u>: Toile Dickson 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
+							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Capotoile 320 M1</u>:</b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS.<br />
 						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<!--<option class="option2" value="300µ M1">PVC 300µ M1</option>-->
-						<option class="option1" value="470g M1">bâche 470g M1</option>
-						<option class="option2" value="100% écologique M1">toile 100% écologique M1</option>
+						<option class="option2" value="jet 520 M1">bâche Dickson Jet 520 M1</option>
+						<option class="option1" value="100% écologique M1">toile 100% écologique M1</option>
+						<option class="option2" value="capotoile">Capotoile 320 M1 validé Ecocert Erts</option>
 					</select>
 				</li>
 
@@ -150,16 +149,15 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport3" style="visibility:hidden;">
 							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
-							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
-							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
+							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Toile 100% écologique M1</b></u>: Toile Dickson 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
 						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_33" name="q33_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<!--<option class="option2" value="300µ M1">PVC 300µ M1</option>-->
-						<option class="option1" value="470g M1">bâche 470g M1</option>
-						<option class="option2" value="100% écologique M1">toile 100% écologique M1</option>
+						<option class="option2" value="jet 520 M1">bâche Dickson Jet 520 M1</option>
+						<option class="option1" value="100% écologique M1">toile 100% écologique M1</option>
 					</select>
 				</li>
 
@@ -167,14 +165,13 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport4');" onmouseout="ukryjt('helpTextsupport4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
 							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
-							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
-							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
 						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_34" name="q34_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<option class="option2" value="470g M1">bâche 470g M1</option>
+						<option class="option2" value="jet 520 M1">bâche Dickson Jet 520 M1</option>
 					</select>
 				</li>
 
@@ -183,14 +180,13 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport5" style="visibility:hidden;">
 							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <u><b>PVC 300µ <span class="highlight">M1</span></u>:</b><br/>feuille de PVC semi rigide extra blanc. Bonne opacité et traité anti-feu M1.<br/>
-							• <u><b>Bâche 470g <span class="highlight">M1</span></u>:</b>bâche PVC enduite 470g résistante. Très lisse et traitée anti-feu M1.<br/>
-							• <u><b>Toile 100% écologique <span class="highlight">M1</span></u>:</b><br/>Toile 100% polyester sans phtalate, texturée et ignifugée M1. Aspect blanc cassé, type toile de peintre.</span>
+							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
 						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_35" name="q35_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
-						<option class="option2" value="470g M1">bâche 470g M1</option>
+						<option class="option2" value="jet 520 M1">bâche Dickson Jet 520 M1</option>
 					</select>
 				</li>
 
@@ -241,7 +237,6 @@
 								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 							</span>
 						</span>
-
 
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
@@ -361,7 +356,7 @@
 		divInfo.style.display = 'none';
 	}
 
-  // checkboxes livraison //////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////// checkboxes livraison //
   jQuery('#adresse').click(function() {
     if (document.getElementById('adresse').checked) {
       document.getElementById('relais').checked = false;
@@ -381,7 +376,7 @@
     }
   });
 
-	// calcul des jours ouvrés ///////////////////////////////////////////////////
+	/////////////////////////////////////////////////// calcul des jours ouvrés //
 	function AddBusinessDays(weekDaysToAdd) {
 	  // fonction jours ouvrés
 	  var curdate = new Date();
@@ -436,8 +431,8 @@
 			if ( ($('input_1').value) && ( ($('input_21').value) || ($('input_22').value) || ($('input_23').value) || ($('input_24').value) || ($('input_25').value) || ($('input_26').value) || ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_4').value) && ($('input_6').value))  && ($('input_7').value) ) {
 
 				ilosc=$('input_7').value;
-
-				// first-line //////////////////////////////////////////////////////////
+				////////////////////////////////////////////////////////////////////////
+				////////////////////////////////////////////////////////// first-line //
 
 				if ($('input_1').value == 'first-line') {
 					if (ilosc<7) {cena=28;}
@@ -461,7 +456,8 @@
 					}
 				}
 
-				//  best-line //////////////////////////////////////////////////////////
+				// fin first-line //////////////////////////////////////////////////////
+				//////////////////////////////////////////////////////////  best-line //
 
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '60x200')) {
 					if (ilosc<7) {cena=45;}
@@ -472,9 +468,9 @@
 					if (ilosc>=217 ) {cena=38;}
 					if ($('input_32').value == '440g') {cena += 0;}
 					if ($('input_32').value == '300µ M1') {cena += 3;}
-					if ($('input_32').value == '470g M1') {cena += 4;}
+					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
 					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-
+					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -492,9 +488,9 @@
 					if (ilosc>=217 ) {cena=40;}
 					if ($('input_32').value == '440g') {cena += 0;}
 					if ($('input_32').value == '300µ M1') {cena += 3;}
-					if ($('input_32').value == '470g M1') {cena += 4;}
+					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
 					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-
+					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -512,8 +508,9 @@
 					if (ilosc>=217 ) {cena=43;}
 					if ($('input_32').value == '440g') {cena += 0;}
 					if ($('input_32').value == '300µ M1') {cena += 4;}
-					if ($('input_32').value == '470g M1') {cena += 5;}
+					if ($('input_32').value == 'jet 520 M1') {cena += 5;}
 					if ($('input_32').value == '100% écologique M1') {cena += 12;}
+					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -531,9 +528,9 @@
 					if (ilosc>=217 ) {cena=57;}
 					if ($('input_32').value == '440g') {cena += 0;}
 					if ($('input_32').value == '300µ M1') {cena += 4;}
-					if ($('input_32').value == '470g M1') {cena += 5;}
+					if ($('input_32').value == 'jet 520 M1') {cena += 5;}
 					if ($('input_32').value == '100% écologique M1') {cena += 12;}
-
+					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -551,9 +548,9 @@
 					if (ilosc>=217 ) {cena=78;}
 					if ($('input_32').value == '440g') {cena += 0;}
 					if ($('input_32').value == '300µ M1') {cena += 6;}
-					if ($('input_32').value == '470g M1') {cena += 8;}
+					if ($('input_32').value == 'jet 520 M1') {cena += 8;}
 					if ($('input_32').value == '100% écologique M1') {cena += 16;}
-
+					if ($('input_32').value == 'capotoile') {cena += 16*1.3;}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -563,17 +560,19 @@
 				}
 
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '150x200')) {
+
 					if (ilosc<7) {cena=99;}
 					if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
 					if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
 					if ((ilosc>=49) && (ilosc<=108)) {cena=96;}
 					if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
 					if (ilosc>=217 ) {cena=92;}
+
 					if ($('input_32').value == '440g') {cena += 0}
 					if ($('input_32').value == '300µ M1') {cena += 9}
-					if ($('input_32').value == '470g M1') {cena += 12}
+					if ($('input_32').value == 'jet 520 M1') {cena += 12}
 					if ($('input_32').value == '100% écologique M1') {cena += 20}
-
+					if ($('input_32').value == 'capotoile') {cena += 20*1.3;}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -590,8 +589,7 @@
 					if ((ilosc>=109) && (ilosc<=216)) {cena=192;}
 					if (ilosc>=217 ) {cena=188;}
 					if ($('input_35').value == '440g') {cena += 0}
-					if ($('input_35').value == '470g M1') {cena += 15}
-
+					if ($('input_35').value == 'jet 520 M1') {cena += 15}
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -601,7 +599,8 @@
 					}
 				}
 
-				// lux-line ////////////////////////////////////////////////////////////
+				// fin best-line ///////////////////////////////////////////////////////
+				//////////////////////////////////////////////////////////// lux-line //
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '60x200')){
 					if (ilosc<7) {cena=60;}
@@ -612,9 +611,9 @@
 					if (ilosc>=217 ) {cena=55;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 3}
-					if ($('input_33').value == '470g M1') {cena += 4}
+					if ($('input_33').value == 'jet 520 M1') {cena += 4}
 					if ($('input_33').value == '100% écologique M1') {cena += 11}
-
+					if ($('input_33').value == 'capotoile') {cena += 11*1.3;}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -632,8 +631,9 @@
 					if (ilosc>=217 ) {cena=58;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 3}
-					if ($('input_33').value == '470g M1') {cena += 4}
+					if ($('input_33').value == 'jet 520 M1') {cena += 4}
 					if ($('input_33').value == '100% écologique M1') {cena += 11}
+					if ($('input_33').value == 'capotoile') {cena += 11*1.3;}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -651,8 +651,9 @@
 					if (ilosc>=217 ) {cena=62;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 4}
-					if ($('input_33').value == '470g M1') {cena += 5}
+					if ($('input_33').value == 'jet 520 M1') {cena += 5}
 					if ($('input_33').value == '100% écologique M1') {cena += 12}
+					if ($('input_33').value == 'capotoile') {cena += 12*1.3;}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -670,8 +671,9 @@
 					if (ilosc>=217 ) {cena=73;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 4}
-					if ($('input_33').value == '470g M1') {cena += 5}
+					if ($('input_33').value == 'jet 520 M1') {cena += 5}
 					if ($('input_33').value == '100% écologique M1') {cena += 12}
+					if ($('input_33').value == 'capotoile') {cena += 12*1.3;}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -689,8 +691,9 @@
 					if (ilosc>=217 ) {cena=103;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 6}
-					if ($('input_33').value == '470g M1') {cena += 8}
+					if ($('input_33').value == 'jet 520 M1') {cena += 8}
 					if ($('input_33').value == '100% écologique M1') {cena += 16}
+					if ($('input_33').value == 'capotoile') {cena += 16*1.3;}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -708,8 +711,9 @@
 					if (ilosc>=217 ) {cena=141;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 9}
-					if ($('input_33').value == '470g M1') {cena += 12}
+					if ($('input_33').value == 'jet 520 M1') {cena += 12}
 					if ($('input_33').value == '100% écologique M1') {cena += 20}
+					if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -726,7 +730,7 @@
 					if ((ilosc>=109) && (ilosc<=216)) {cena=278;}
 					if (ilosc>=217 ) {cena=275;}
 					if ($('input_35').value == '440g') {cena += 0}
-					if ($('input_35').value == '470g M1') {cena += 40}
+					if ($('input_35').value == 'jet 520 M1') {cena += 40}
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -736,7 +740,8 @@
 					}
 				}
 
-				// double //////////////////////////////////////////////////////////////
+				// fin lux-line ////////////////////////////////////////////////////////
+				////////////////////////////////////////////////////////////// double //
 
 				if (($('input_1').value == 'double') && ($('input_24').value == '80x200')){
 					if (ilosc<7) {cena=90;}
@@ -747,8 +752,9 @@
 					if (ilosc>=217 ) {cena=83;}
 					if ($('input_34').value == '440g') {cena += 0}
 					if ($('input_34').value == '300µ M1') {cena += 6}
-					if ($('input_34').value == '470g M1') {cena += 8}
+					if ($('input_34').value == 'jet 520 M1') {cena += 8}
 					if ($('input_34').value == '100% écologique M1') {cena += 20}
+					if ($('input_34').value == 'capotoile') {cena += 20*1.3;}
 
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
@@ -766,8 +772,9 @@
 					if (ilosc>=217 ) {cena=92;}
 					if ($('input_34').value == '440g') {cena += 0}
 					if ($('input_34').value == '300µ M1') {cena += 10}
-					if ($('input_34').value == '470g M1') {cena += 12}
+					if ($('input_34').value == 'jet 520 M1') {cena += 12}
 					if ($('input_34').value == '100% écologique M1') {cena += 22}
+					if ($('input_34').value == 'capotoile') {cena += 22*1.3;}
 
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
@@ -785,8 +792,9 @@
 					if (ilosc>=217 ) {cena=129;}
 					if ($('input_34').value == '440g') {cena += 0}
 					if ($('input_34').value == '300µ M1') {cena += 12}
-					if ($('input_34').value == '470g M1') {cena += 15}
+					if ($('input_34').value == 'jet 520 M1') {cena += 15}
 					if ($('input_34').value == '100% écologique M1') {cena += 28}
+					if ($('input_34').value == 'capotoile') {cena += 28*1.3;}
 
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
@@ -804,7 +812,8 @@
 					dodatkowaopcja='<br />- '+$('input_25').value;
 				}
 
-				// mistral /////////////////////////////////////////////////////////////
+				// fin double //////////////////////////////////////////////////////////
+				///////////////////////////////////////////////////////////// mistral //
 
 				if ($('input_1').value == 'Mistral'){
 					// Laise mistral //
@@ -900,15 +909,14 @@
 				   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
 			     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
 			     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
-					///////////////////
 				}
 
-				// spot ////////////////////////////////////////////////////////////////
+				// fin mistral /////////////////////////////////////////////////////////
+				//////////////////////////////////////////////////////////////// spot //
 				if ($('input_4').value == 'spot') {
 					cena+=29;
 				}
-
-				// maquette ////////////////////////////////////////////////////////////
+				//////////////////////////////////////////////////////////// maquette //
 				var ktodaje;
 				if ($('input_6').value == 'fb') {
 					cena+=29;
@@ -917,8 +925,7 @@
 				if ($('input_6').value == 'user') {
 					ktodaje = 'j’ai déjà crée la maquette';
 				}
-
-				// options /////////////////////////////////////////////////////////////
+				///////////////////////////////////////////////////////////// options //
 				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 				if (colis == true) {
 					cena += 2.00;
@@ -938,6 +945,7 @@
 					cena += 5.00;
 					cedzik += '<br />- relais colis';
 				}
+				// fin options /////////////////////////////////////////////////////////
 
 				cenapojedyncza = cena;
 
@@ -979,16 +987,12 @@
 					jQuery(document).ready(function(){
 						jQuery('.jotform-form select').click(function(){
 							jQuery('#delivery-value').val(Masquer());
-
 							jQuery('.delivery').prop("disabled",false);
 							jQuery('.production').prop("disabled",false);
-
 							jQuery('.production').removeClass('active');
 							jQuery(this).addClass('');
-
 							jQuery('.delivery').removeClass('active');
 							jQuery(this).addClass('active');
-
 							jQuery('#production-value').prop("disabled",false);
 							jQuery('#delivery-value').prop("disabled",true);
 						});
@@ -997,16 +1001,12 @@
 					jQuery(document).ready(function(){
 						jQuery('.form-textbox').click(function(){
 							jQuery('#delivery-value').val(Masquer());
-
 							jQuery('.delivery').prop("disabled",false);
 							jQuery('.production').prop("disabled",false);
-
 							jQuery('.production').removeClass('active');
 							jQuery(this).addClass('');
-
 							jQuery('.delivery').removeClass('active');
 							jQuery(this).addClass('active');
-
 							jQuery('#production-value').prop("disabled",false);
 							jQuery('#delivery-value').prop("disabled",true);
 						});
@@ -1015,16 +1015,12 @@
 					jQuery(document).ready(function(){
 						jQuery('.form-checkbox').click(function(){
 							jQuery('#delivery-value').val(Masquer());
-
 							jQuery('.delivery').prop("disabled",false);
 							jQuery('.production').prop("disabled",false);
-
 							jQuery('.production').removeClass('active');
 							jQuery(this).addClass('');
-
 							jQuery('.delivery').removeClass('active');
 							jQuery(this).addClass('active');
-
 							jQuery('#production-value').prop("disabled",false);
 							jQuery('#delivery-value').prop("disabled",true);
 						});

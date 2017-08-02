@@ -10,18 +10,18 @@
 					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
 						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText1" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
-
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr">Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,80€/m²</span></b> la bâche française, pour un produit fini 100% made in France et résistant dans la durée.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>nontissé 150g</u>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b> Bâche imprimée recto verso, résistance 3 ans.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b> Bâche grand vent pour échafaudage, plage...<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">EcoToile<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></u>: <span class="highlight">écologique dès 7,80/m²</span></b><br /> sans PVC, impression UV uniquement<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">100% écologique M1</u>: <span class="highlight">dès 19,50€/m²</span></b> Toile 100% polyester M1 sans PVC ni phtalate.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 260g B1</u>: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
+							• <u><b>Bâche 440g</u>: <span class="highlight">Le moins cher dès 6,50€/m²</span></b><br/>Pour petite banderole à courte durée de vie.<br />
+							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr">Dickson Jet 550</u>: <span class="highlight">qualité/prix dès 9,80€/m²</span></b> la bâche française, pour un produit fini 100% made in France et résistant dans la durée.<br />
+							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>: <span class="highlight">Anti-feu dès 15,30€/m²</span></b> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
+							• <b><u>750g M2/B1 opaque</u>: <span class="highlight">dès 14,50€/m²</span></b> bâche OPAQUE et résistante durée 4/5 ans.<br />
+							• <b><u>750g RECTO/VERSO</u>: <span class="highlight">dès 19,50€/m²</span></b> Bâche imprimée recto verso, résistance 3 ans.<br />
+							• <b><u>micro-perforée</u>: <span class="highlight">dès 6,50€/m²</span></b> Bâche grand vent pour échafaudage, plage...<br />
+							• <b><u>nontissé 150g</u>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile polyester pour balisage, jupe palette...<br />
+							• <i class="fa fa-envira" aria-hidden="true"></i> <b><u class="helpeco">EcoToile<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></u>: <span class="highlight">écologique dès 7,80/m²</span></b><br /> sans PVC, impression UV uniquement<br />
+							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">100% écologique M1</u>: <span class="highlight">dès 21,45€/m²</span></b> Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
+							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Capotoile 320 M1</u>: <span class="highlight">dès 24,20€/m²</span></b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS.<br />
+							• <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
+							• <b><u>tissu 260g B1</u>: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
@@ -42,6 +42,7 @@
 						<optgroup label="&#xf299; écologique" class="eco">
 							<option value="ecotoile">bâche EcoToile</option>
 							<option value="bache 100% écologique M1">bâche 100% écologique M1</option>
+							<option value="capotoile">Capotoile 320 M1 validé Ecocert Erts</option>
 						</optgroup>
 					</select>
 				</li>
@@ -96,10 +97,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText4" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							• <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							• <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_finition1" onchange="JKakemono.czyscpola(); ">
@@ -115,10 +116,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText5" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							• <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							• <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_finition1" onchange="JKakemono.czyscpola(); ">
@@ -132,10 +133,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText6" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							• <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							• <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 
@@ -150,10 +151,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText7" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							• <b><u>Ourlet de renfort </u>: <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
+							• <b><u>ourlet de renfort en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>ourlet de renfort périmétrique </u>:</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
 						</span>
 					</span>
 
@@ -169,9 +170,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText8" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							• <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_41" name="q41_finition1" onchange="JKakemono.czyscpola(); ">
@@ -186,9 +187,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText41b');" onmouseout="ukryjt('helpText41b');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText41b" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							• <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_41b" name="q41b_finition1" onchange="JKakemono.czyscpola(); ">
@@ -203,9 +204,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText9" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							• <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_42" name="q42_finition1" onchange="JKakemono.czyscpola(); ">
@@ -219,9 +220,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText10" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							• <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_43" name="q43_finition1" onchange="JKakemono.czyscpola(); ">
@@ -235,9 +236,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText11" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>qu'est-ce qu'un fourreau </u>: <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
+							• <b><u>fourreaux en haut et en bas </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
+							• <b><u>fourreaux à gauche et à droite </u>:</b><br/> <span class="highlight"><b>! ajouter 20cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_44" name="q44_finition1" onchange="JKakemono.czyscpola(); ">
@@ -253,7 +254,7 @@
 					<span class="helpButton" onmouseover="pokazt('helpText71');" onmouseout="ukryjt('helpText71');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText71" style="visibility:hidden;">
-							<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>qu'est-ce qu'une finition scratch </u>: <span class="highlight">dès 2€/m</span></b><br/>
+							• <b><u>qu'est-ce qu'une finition scratch </u>: <span class="highlight">dès 2€/m</span></b><br/>
 							Une fixation scratch est cousue sur les bords de votre banderole, soit tout le tour, soit sur 2 côtés. Fourni avec la face scratch opposée de même longueur à fixer sur le support de votre choix. <br />
 						</span>
 					</span>
@@ -365,8 +366,8 @@
 				<!--maquette----------------------------------------------------------->
 				<li class="form-line" id="id_12">
 					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-						<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>France banderole crée votre fichier</u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-						<i class="fa fa-check-square" aria-hidden="true"></i> <b><u>Vous avez déjà crée la mise en page</u>:</b><br/>
+						• <b><u>France banderole crée votre fichier</u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+						• <b><u>Vous avez déjà crée la mise en page</u>:</b><br/>
 						Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
@@ -850,6 +851,33 @@
 			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
 			opis += '<br />- bache 100% écologique M1'
 		}
+		/////////////////////////////////////////////////////////////// capotoile //
+		if ($('input_ext').value == 'capotoile' ) {
+			if (metragefinal < 1.99) {cenatotal = metragefinal*60.00;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*55.00;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*50;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*49;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*48;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*47;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*46;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*45;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*44;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*43;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*42;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*41;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*40;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*38;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*36}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*34;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*31;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*29.00;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*27;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*25.00;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*24;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*23.00;}
+			if (metragefinal > 499.99) {cenatotal = metragefinal*22;}
+			opis += '<br />- Capotoile 320 M1 validé Ecocert Erts'
+		}
 		//////////////////////////////////////////////////////////////// nontissé //
 		if ($('input_ext').value == 'bache nontissé 150g' ) {
 			if (metragefinal < 1.99) {cenatotal = metragefinal*16.00;}
@@ -964,7 +992,7 @@
 		if (($('input_41').value == 'sans fourreaux') || ($('input_41b').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux')|| ($('input_44').value == 'sans fourreaux')) { opis+='<br>- sans fourreaux'};
 		if (($('input_41').value == 'fourreaux haut/bas') || ($('input_41b').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
 		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_41b').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
-		
+
 		//////////////////////////////////////////////////////////////// scratchs //
 
 		if (($('input_71').value == 'sans scratch')) { opis+='<br>- sans scratch' };
@@ -1032,7 +1060,6 @@
 		if (($('input_81').value == 'oeillets haut/bas') && ($('input_91').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.3; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
 		if (($('input_81').value == 'oeillets haut/bas') && ($('input_91').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.3; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
 		if (($('input_81').value == 'oeillets haut/bas') && ($('input_91').value == 'tous les 10cm') ) { oeillets = ((hautbas+2)/0.1)*0.3; cena+=oeillets; opis+='<br>- oeillets haut bas tous 10cm'};
-
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 100cm') ) { nouettes = ((hautbas+2)/1)*0.8; cena+=nouettes; opis+='<br>- nouettes haut bas tous 100cm';};
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 50cm') ) { nouettes = ((hautbas+2)/0.5)*0.8; cena+=nouettes; opis+='<br>- nouettes haut bas tous 50cm'};
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 25cm') ) { nouettes = ((hautbas+2)/0.25)*0.8; cena+=nouettes;opis+='<br>- nouettes haut bas tous 25cm'};
@@ -1309,6 +1336,13 @@
 			var blad = document.getElementById("id_14");
 			blad.style.background = "#EA2A6A";
 			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+			eBox.style.display="block";
+			niepokazuj=1;
+		}
+		if ( ($('input_ext').value == 'capotoile') && (szerokosc > 1.45) && (wysokosc > 1.45) ) {
+			var blad = document.getElementById("id_14");
+			blad.style.background = "#EA2A6A";
+			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.45m!';
 			eBox.style.display="block";
 			niepokazuj=1;
 		}

@@ -632,6 +632,8 @@ JotForm = {
 							}
 						}*/
 
+
+
             var imag = $("preview_imag");
             var imag1 = $("preview_imag1");
             var imag2 = $("preview_imag2");
@@ -795,11 +797,14 @@ JotForm = {
             if (($('input_31').value == '300µ M1') || ($('input_32').value == '300µ M1') || ($('input_33').value == '300µ M1')) {
               imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/pvc.png)";
             }
-            if (($('input_32').value == '470g M1') || ($('input_33').value == '470g M1') || ($('input_34').value == '470g M1') || ($('input_35').value == '470g M1')) {
+            if (($('input_32').value == 'jet 520 M1') || ($('input_33').value == 'jet 520 M1') || ($('input_34').value == 'jet 520 M1') || ($('input_35').value == 'jet 520 M1')) {
               imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/470.png)";
             }
             if (($('input_32').value == '100% écologique M1') || ($('input_33').value == '100% écologique M1')) {
               imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/eco.png)";
+            }
+            if (($('input_32').value == 'capotoile') || ($('input_33').value == 'capotoile')) {
+              imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/capotoile.png)";
             }
 
             ///////////////////////spot/////////

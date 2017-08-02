@@ -197,7 +197,7 @@
 				</li>
 
 
-				<li id="id_7" class="form-line optionsformline" style="z-index:100">
+				<li id="id_7" class="form-line optionsformline">
 					<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
 
 					<span class="options_single">
@@ -212,9 +212,9 @@
 
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
-							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
-								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span>
+							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
+							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 							</span>
 						</span>
 
@@ -226,6 +226,14 @@
 							</span>
 						</span>
 
+						<span class="optionsleft">
+							<label class="form-label-left" id="label_palette" for="palette">Livré monté</label>
+							<input type="checkbox" class="form-checkbox" id="palette" name="palette[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
+							<span class="helpButton" onmouseover="pokazt('helpTextpalette');" onmouseout="ukryjt('helpTextpalette');">
+								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">240€</span><br />
+								Pour recevoir vos enseignes montées.</span>
+							</span>
+						</span>
 
 					</span>
 					<div class="break-line"></div>
@@ -298,1287 +306,1217 @@
 
 	<div id="custom_price_unit" >
 
-	</div>
-	<script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
+</div>
 
-	<script type="text/javascript">
-		// checkboxes livraison
-		jQuery('#adresse').click(function() {
-			if (document.getElementById('adresse').checked) {
-				document.getElementById('etiquette').checked = false;
+<script type="text/javascript">
+	//////////////////////////////////////////////////// checkboxes livraison //
+	jQuery('#adresse').click(function() {
+		if (document.getElementById('adresse').checked) {
+			document.getElementById('etiquette').checked = false;
+		}
+	});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('adresse').checked = false;
+		}
+	});
+	jQuery('#palette').click(function() {
+		if (document.getElementById('palette').checked) {
+			document.getElementById('etiquette').checked = false;
+		}
+	});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('palette').checked = false;
+		}
+	});
+//////////////////////////////////////////////////////////////////////////////
+
+function Afficher()	{
+	divliv = document.getElementById('livraisonrapide');
+	if (divliv.style.display == 'none')
+	divliv.style.display = 'block';
+}
+function Afficher()	{
+	divInfo = document.getElementById('delivery-div');
+	if (divInfo.style.display == 'none')
+	divInfo.style.display = 'block';
+}
+function Masquer()	{
+	divInfo = document.getElementById('delivery-div');
+	if (divInfo.style.display == 'block')
+	divInfo.style.display = 'none';
+}
+
+/////////////////////////////////////////////////// calcul des jours ouvrés //
+function AddBusinessDays(weekDaysToAdd) {
+  // fonction jours ouvrés
+  var curdate = new Date();
+  var realDaysToAdd = 0;
+  for(i=0; i<weekDaysToAdd; i++){
+    curdate.setDate(curdate.getDate()+1);
+    var estdt1 = new Date(curdate);
+    var n = curdate.getDay();
+    if (n == '6' || n == '0') {
+      weekDaysToAdd++;
+    }
+    realDaysToAdd++;
+    //check if current day is business day
+  }
+  return realDaysToAdd;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+jQuery(document).ready(function(){
+	jQuery('.delivery , .production').click(function(){
+		var cena           = 0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0; cenapojedyncza=0;
+		var suma           = 0; var suma2=0;
+		var rabat          = 0; var rabat2=0;
+		var transport      = 0;
+		var ilosc          = 0;
+		var ktorytyp       = '';
+		var cedzik         = '';
+		var prliv          = '';
+		var date_panier    = '';
+		var dodatkowaopcja = '';
+		var opis           = '';
+		var niepokazuj     = 0;
+		var option2        = 0;
+		var szerokosc      = 0;
+		var wysokosc       = 0;
+		var pu             = 0; var fixations=0; var percage=0; var puoption=0; var maquette=0; var tarifventouse=0; var fixationsventouse=0; nbtrou=0;
+		var eBox           = document.getElementById('form-button-error2');
+		eBox.innerHTML     = '';
+		if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
+
+			ilosc = $('input_32').value;
+			szerokosc = ($('input_10').value);
+			szerokosc = szerokosc.replace(',','.');
+			szerokosc = fixstr(szerokosc);
+			$('input_10').value = szerokosc;
+			wysokosc = ($('input_9').value);
+			wysokosc = wysokosc.replace(',','.');
+			wysokosc = fixstr(wysokosc);
+			$('input_9').value = wysokosc;
+
+			///// Forex 5mm recto 60x40 /////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == '60x40')){
+				opis += '<br />- Forex 5mm recto <br />- 60x40cm';
+				if ($('input_32').value == '1'){pu=17.28; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=17.28; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=14.40; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=14.40; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=12.96; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=12.96; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=12.96; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=11.52; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=11.52; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=11.52; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=11.52; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=11.00; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=11.00; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=11.00; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=11.00; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=10.90; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=10.90; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=10.90; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=10.90; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=10.90; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=10.80; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=10.80; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=9.72; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=9.72; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=9.72; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=8.64; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=8.64; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=8.64; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=8.64; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=7.34; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=7.34; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=7.34; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=7.34; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=6.48; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=6.48; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=6.48; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=6.48; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=6.48; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0.24; ////grammage x m²///
+				poidstotal = poids*ilosc;
 			}
-		});
 
-		jQuery('#etiquette').click(function() {
-			if (document.getElementById('etiquette').checked) {
-				document.getElementById('adresse').checked = false;
+			///// Forex 5mm recto/verso 60x40 /////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x40')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 60x40cm';
+				if ($('input_32').value == '1'){pu=24.48; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=24.48; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=20.40; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=20.40; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=18.36; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=18.36; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=18.36; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=16.32; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=16.32; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=16.32; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=16.32; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=13.87; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=13.87; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=13.87; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=13.87; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=12.24; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=12.24; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=12.24; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=12.24; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=12.24; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=12.60; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=12.60; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=11.34; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=11.34; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=11.34; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=10.08; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=10.08; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=10.08; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=8.57; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=8.57; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=8.57; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=8.57; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=8.57; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=7.56; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=7.56; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=7.56; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=7.56; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=7.56; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0.24; ////grammage x m²///
+				poidstotal = poids*ilosc;
 			}
-		});
 
-	</script>
+			///// Forex 5mm recto 60x78 /////
 
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	livraison le jour même */
+			if (($('input_0').value == 'recto') && ($('input_1').value == '60x78')){
+				opis += '<br />- Forex 5mm recto <br />- 60x78cm';
+				if ($('input_32').value == '1'){pu=17.28*1.8; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=17.28*1.8; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=14.40*1.8; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=14.40*1.8; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=12.96*1.8; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=12.96*1.8; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=12.96*1.8; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=11.52*1.8; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=11.52*1.8; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=11.52*1.8; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=11.52*1.8; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=11.00*1.8; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=11.00*1.8; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=11.00*1.8; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=11.00*1.8; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=10.90*1.8; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=10.90*1.8; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=10.90*1.8; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=10.90*1.8; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=10.90*1.8; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=10.80*1.8; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=10.80*1.8; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=9.72*1.8; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=9.72*1.8; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=9.72*1.8; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=8.64*1.8; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=8.64*1.8; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=8.64*1.8; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=8.64*1.8; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=7.34*1.8; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=7.34*1.8; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=7.34*1.8; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=7.34*1.8; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=6.48*1.8; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=6.48*1.8; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=6.48*1.8; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=6.48*1.8; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=6.48*1.8; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0.48; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
 
-	function Afficher()
-	{
-		divliv = document.getElementById('livraisonrapide');
+			///// Forex 5mm recto/verso 60x78 /////
 
-		if (divliv.style.display == 'none')
-		divliv.style.display = 'block';
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x78')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 60x78cm';
+				if ($('input_32').value == '1'){pu=24.48*1.8; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=24.48*1.8; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=20.40*1.8; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=20.40*1.8; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=18.36*1.8; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=18.36*1.8; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=18.36*1.8; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=16.32*1.8; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=16.32*1.8; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=16.32*1.8; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=16.32*1.8; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=13.87*1.8; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=13.87*1.8; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=13.87*1.8; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=13.87*1.8; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=12.24*1.8; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=12.24*1.8; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=12.24*1.8; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=12.24*1.8; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=12.24*1.8; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=12.60*1.8; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=12.60*1.8; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=11.34*1.8; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=11.34*1.8; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=11.34*1.8; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=10.08*1.8; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=10.08*1.8; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=10.08*1.8; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=8.57*1.8; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=8.57*1.8; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=8.57*1.8; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=8.57*1.8; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=8.57*1.8; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=7.56*1.8; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=7.56*1.8; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=7.56*1.8; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=7.56*1.8; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=7.56*1.8; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0.48; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto 100x50/////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == '100x50')){
+				opis += '<br />- Forex 5mm recto <br />- 100x50cm';
+				if ($('input_32').value == '1'){pu=30.00; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=27.00; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=25.80; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=24.00; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=24.00; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=24.00; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=24.00; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=22.80; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=22.80; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=22.80; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=22.80; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=21.60; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=21.60; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=21.60; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=21.60; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=20.40; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=20.40; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=20.40; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=20.40; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=20.25; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=19.35; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=18.00; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=17.10; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=16.20; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=15.30; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=15.30; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=14.40; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=14.40; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=13.50; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=13.50; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=13.50; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=12.60; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=12.60; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=12.60; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=11.70; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=11.70; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=10.80; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=10.80; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0.5; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto/verso 100x50 /////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '100x50')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 100x50cm';
+				if ($('input_32').value == '1'){pu=42.50; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=38.25; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=36.55; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=34.00; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=32.30; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=30.60; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=28.90; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=28.90; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=27.20; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=27.20; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=25.50; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=25.50; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=25.50; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=23.80; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=23.80; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=23.80; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=23.63; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=23.63; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=23.63; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=23.63; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=22.58; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=21.00; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=19.95; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=18.90; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=17.85; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=17.85; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=16.80; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=16.80; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=15.75; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=15.75; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=15.75; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=14.70; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=14.70; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=14.70; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=13.65; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=13.65; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=12.60; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=12.60; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0.5; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto 150x75 /////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == '150x75')){
+				opis += '<br />- Forex 5mm recto <br />- 150x75cm';
+				if ($('input_32').value == '1'){pu=67.50; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=60.75; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=58.05; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=54.00; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=51.30; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=51.30; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=51.30; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=48.60; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=48.60; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=48.60; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=40.50; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=40.50; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=45.90; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=45.90; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=45.90; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=45.90; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=45.56; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=45.56; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=45.56; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=45.56; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=43.54; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=40.50; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=38.48; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=36.45; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=34.43; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=34.43; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=32.40; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=32.40; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=30.38; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=30.38; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=30.38; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=28.35; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=28.35; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=28.35; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=26.33; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=26.33; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=24.30; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=24.30; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*1.12; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto/verso 150x75 /////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '150x75')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 150x75cm ';
+				if ($('input_32').value == '1'){pu=95.63; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=86.06; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=82.24; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=76.50; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=72.68; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=68.85; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=65.03; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=65.03; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=61.20; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=61.20; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=57.38; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=57.38; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=57.38; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=53.55; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=53.55; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=53.55; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=53.16; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=53.16; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=53.16; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=53.16; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=50.79; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=47.25; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=44.89; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=42.53; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=40.16; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=40.16; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=37.80; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=37.80; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=35.44; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=35.44; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=35.44; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=33.08; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=33.08; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=33.08; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=30.71; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=30.71; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=28.35; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=28.35; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*1.12; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto 200x100 /////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == '200x100')){
+				opis += '<br />- Forex 5mm recto <br />- 200x100cm ';
+				if ($('input_32').value == '1'){pu=100.80; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=98.40; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=96.00; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=86.40; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=84.00; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=81.60; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=81.60; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=76.80; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=76.80; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=76.80; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=76.80; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=74.40; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=74.40; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=74.40; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=74.40; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=74.40; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=73.80; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=73.80; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=73.80; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=73.80; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=72.00; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=64.80; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=63.00; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=61.20; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=57.60; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=57.60; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=55.80; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=54.00; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=52.20; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=50.40; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=48.60; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=46.80; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=45.00; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=45.00; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=43.20; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=43.20; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=41.40; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=41.40; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*2; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto/verso 200x100 /////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x100')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 200x100cm ';
+				if ($('input_32').value == '1'){pu=142.80; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=139.40; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=136.00; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=122.40; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=119.00; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=115.60; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=108.80; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=108.80; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=105.40; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=102.00; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=98.60; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=95.20; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=91.80; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=88.40; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=86.10; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=86.10; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=86.10; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=86.10; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=86.10; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=86.10; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=84.00; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=75.60; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=73.50; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=71.40; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=67.20; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=67.20; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=65.10; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=63.00; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=60.90; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=58.80; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=56.70; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=54.60; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=52.50; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=52.50; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=50.40; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=50.40; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=48.30; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=48.30; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*2; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto 200x150 /////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == '200x150')){
+				opis += '<br />- Forex 5mm recto <br />- 200x150cm';
+				if ($('input_32').value == '1'){pu=154.80; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=147.60; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=144.00; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=129.60; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=126.00; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=122.40; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=118.80; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=115.20; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=115.20; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=115.20; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=115.20; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=111.60; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=111.60; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=111.60; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=111.60; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=110.70; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=110.70; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=110.70; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=110.70; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=110.70; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=108.00; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=97.20; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=94.50; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=91.80; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=89.10; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=86.40; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=83.70; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=81.00; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=78.30; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=75.60; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=72.90; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=70.20; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=67.50; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=67.50; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=64.80; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=64.80; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=62.10; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=62.10; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*3; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto/verso 200x150/////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x150')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 200x150cm';
+				if ($('input_32').value == '1'){pu=219.30; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=209.10; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=204.00; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=183.60; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=178.50; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=173.40; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=168.30; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=163.20; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=158.10; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=153.10; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=147.90; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=142.80; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=137.70; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=132.60; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=132.60; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=129.15; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=129.15; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=129.15; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=129.15; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=129.15; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=126.00; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=113.40; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=110.25; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=107.10; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=103.95; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=100.80; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=97.65; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=94.50; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=91.35; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=88.20; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=85.05; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=81.90; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=78.75; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=78.75; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=75.60; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=75.60; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=72.45; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=72.45; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*3; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto 300x150 /////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == '300x150')){
+				opis += '<br />- Forex 5mm recto <br />- 300x150cm';
+				if ($('input_32').value == '1'){pu=216.00; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=210.60; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=205.20; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=189.00; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=178.20; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=178.20; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=178.20; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=172.80; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=172.80; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=172.80; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=172.80; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=162.00; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=162.00; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=162.00; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=157.95; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=113.40; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=157.95; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=157.95; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=157.95; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=157.95; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=153.90; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=141.75; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=133.65; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=129.60; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=121.50; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=113.40; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=113.40; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=101.25; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=101.25; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=97.20; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=97.20; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=89.10; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=89.10; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=85.05; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=85.05; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=81.00; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=81.00; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=81.00; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*4.5; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto/verso 300x150/////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == '300x150')){
+				opis += '<br />- Forex 5mm recto/verso <br />- 300x150cm ';
+				if ($('input_32').value == '1'){pu=306.00; opis += '<br />- 1 exemplaire';}
+				if ($('input_32').value == '2'){pu=298.35; opis += '<br />- 2 exemplaires';}
+				if ($('input_32').value == '3'){pu=290.70; opis += '<br />- 3 exemplaires';}
+				if ($('input_32').value == '4'){pu=267.75; opis += '<br />- 4 exemplaires';}
+				if ($('input_32').value == '5'){pu=252.45; opis += '<br />- 5 exemplaires';}
+				if ($('input_32').value == '6'){pu=144.80; opis += '<br />- 6 exemplaires';}
+				if ($('input_32').value == '7'){pu=229.50; opis += '<br />- 7 exemplaires';}
+				if ($('input_32').value == '8'){pu=214.20; opis += '<br />- 8 exemplaires';}
+				if ($('input_32').value == '9'){pu=214.20; opis += '<br />- 9 exemplaires';}
+				if ($('input_32').value == '10'){pu=191.25; opis += '<br />- 10 exemplaires';}
+				if ($('input_32').value == '11'){pu=191.25; opis += '<br />- 11 exemplaires';}
+				if ($('input_32').value == '12'){pu=184.28; opis += '<br />- 12 exemplaires';}
+				if ($('input_32').value == '13'){pu=184.28; opis += '<br />- 13 exemplaires';}
+				if ($('input_32').value == '14'){pu=184.28; opis += '<br />- 14 exemplaires';}
+				if ($('input_32').value == '15'){pu=184.28; opis += '<br />- 15 exemplaires';}
+				if ($('input_32').value == '16'){pu=184.28; opis += '<br />- 16 exemplaires';}
+				if ($('input_32').value == '17'){pu=184.28; opis += '<br />- 17 exemplaires';}
+				if ($('input_32').value == '18'){pu=184.28; opis += '<br />- 18 exemplaires';}
+				if ($('input_32').value == '19'){pu=184.28; opis += '<br />- 19 exemplaires';}
+				if ($('input_32').value == '20'){pu=184.28; opis += '<br />- 20 exemplaires';}
+				if ($('input_32').value == '40'){pu=179.55; opis += '<br />- 40 exemplaires';}
+				if ($('input_32').value == '60'){pu=165.38; opis += '<br />- 60 exemplaires';}
+				if ($('input_32').value == '80'){pu=155.93; opis += '<br />- 80 exemplaires';}
+				if ($('input_32').value == '100'){pu=151.20; opis += '<br />- 100 exemplaires';}
+				if ($('input_32').value == '150'){pu=141.75; opis += '<br />- 150 exemplaires';}
+				if ($('input_32').value == '200'){pu=132.30; opis += '<br />- 200 exemplaires';}
+				if ($('input_32').value == '300'){pu=132.30; opis += '<br />- 300 exemplaires';}
+				if ($('input_32').value == '400'){pu=118.13; opis += '<br />- 400 exemplaires';}
+				if ($('input_32').value == '500'){pu=118.13; opis += '<br />- 500 exemplaires';}
+				if ($('input_32').value == '750'){pu=113.40; opis += '<br />- 750 exemplaires';}
+				if ($('input_32').value == '1000'){pu=113.40; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32').value == '1500'){pu=103.95; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32').value == '2000'){pu=103.95; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32').value == '3000'){pu=99.23; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32').value == '4000'){pu=99.23; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32').value == '5000'){pu=94.50; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32').value == '7500'){pu=94.50; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32').value == '10000'){pu=94.50; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*4.5; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto personnalisée UV/////
+
+			if (($('input_0').value == 'recto') && ($('input_1').value == 'personnalisée')){
+				opis += '<br />- Forex 5mm recto <br />- Taille Personnalisée';
+				if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
+				if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
+				if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
+				if ($('input_32perso').value == '4'){pu=0; opis += '<br />- 4 exemplaires';}
+				if ($('input_32perso').value == '5'){pu=0; opis += '<br />- 5 exemplaires';}
+				if ($('input_32perso').value == '6'){pu=0; opis += '<br />- 6 exemplaires';}
+				if ($('input_32perso').value == '7'){pu=0; opis += '<br />- 7 exemplaires';}
+				if ($('input_32perso').value == '8'){pu=0; opis += '<br />- 8 exemplaires';}
+				if ($('input_32perso').value == '9'){pu=0; opis += '<br />- 9 exemplaires';}
+				if ($('input_32perso').value == '10'){pu=0; opis += '<br />- 10 exemplaires';}
+				if ($('input_32perso').value == '11'){pu=0; opis += '<br />- 11 exemplaires';}
+				if ($('input_32perso').value == '12'){pu=0; opis += '<br />- 12 exemplaires';}
+				if ($('input_32perso').value == '13'){pu=0; opis += '<br />- 13 exemplaires';}
+				if ($('input_32perso').value == '14'){pu=0; opis += '<br />- 14 exemplaires';}
+				if ($('input_32perso').value == '15'){pu=0; opis += '<br />- 15 exemplaires';}
+				if ($('input_32perso').value == '16'){pu=0; opis += '<br />- 16 exemplaires';}
+				if ($('input_32perso').value == '17'){pu=0; opis += '<br />- 17 exemplaires';}
+				if ($('input_32perso').value == '18'){pu=0; opis += '<br />- 18 exemplaires';}
+				if ($('input_32perso').value == '19'){pu=0; opis += '<br />- 19 exemplaires';}
+				if ($('input_32perso').value == '20'){pu=0; opis += '<br />- 20 exemplaires';}
+				if ($('input_32perso').value == '40'){pu=0; opis += '<br />- 40 exemplaires';}
+				if ($('input_32perso').value == '60'){pu=0; opis += '<br />- 60 exemplaires';}
+				if ($('input_32perso').value == '80'){pu=0; opis += '<br />- 80 exemplaires';}
+				if ($('input_32perso').value == '100'){pu=0; opis += '<br />- 100 exemplaires';}
+				if ($('input_32perso').value == '150'){pu=0; opis += '<br />- 150 exemplaires';}
+				if ($('input_32perso').value == '200'){pu=0; opis += '<br />- 200 exemplaires';}
+				if ($('input_32perso').value == '300'){pu=0; opis += '<br />- 300 exemplaires';}
+				if ($('input_32perso').value == '400'){pu=0; opis += '<br />- 400 exemplaires';}
+				if ($('input_32perso').value == '500'){pu=0; opis += '<br />- 500 exemplaires';}
+				if ($('input_32perso').value == '750'){pu=0; opis += '<br />- 750 exemplaires';}
+				if ($('input_32perso').value == '1000'){pu=0; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32perso').value == '1500'){pu=0; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32perso').value == '2000'){pu=0; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32perso').value == '3000'){pu=0; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32perso').value == '4000'){pu=0; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32perso').value == '5000'){pu=0; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			///// Forex 5mm recto/verso personnalisée UV/////
+
+			if (($('input_0').value == 'rectoverso') && ($('input_1').value == 'personnalisée')){
+				opis += '<br />- Forex 5mm recto/verso  <br />- Taille Personnalisée';
+				if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
+				if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
+				if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
+				if ($('input_32perso').value == '4'){pu=0; opis += '<br />- 4 exemplaires';}
+				if ($('input_32perso').value == '5'){pu=0; opis += '<br />- 5 exemplaires';}
+				if ($('input_32perso').value == '6'){pu=0; opis += '<br />- 6 exemplaires';}
+				if ($('input_32perso').value == '7'){pu=0; opis += '<br />- 7 exemplaires';}
+				if ($('input_32perso').value == '8'){pu=0; opis += '<br />- 8 exemplaires';}
+				if ($('input_32perso').value == '9'){pu=0; opis += '<br />- 9 exemplaires';}
+				if ($('input_32perso').value == '10'){pu=0; opis += '<br />- 10 exemplaires';}
+				if ($('input_32perso').value == '11'){pu=0; opis += '<br />- 11 exemplaires';}
+				if ($('input_32perso').value == '12'){pu=0; opis += '<br />- 12 exemplaires';}
+				if ($('input_32perso').value == '13'){pu=0; opis += '<br />- 13 exemplaires';}
+				if ($('input_32perso').value == '14'){pu=0; opis += '<br />- 14 exemplaires';}
+				if ($('input_32perso').value == '15'){pu=0; opis += '<br />- 15 exemplaires';}
+				if ($('input_32perso').value == '16'){pu=0; opis += '<br />- 16 exemplaires';}
+				if ($('input_32perso').value == '17'){pu=0; opis += '<br />- 17 exemplaires';}
+				if ($('input_32perso').value == '18'){pu=0; opis += '<br />- 18 exemplaires';}
+				if ($('input_32perso').value == '19'){pu=0; opis += '<br />- 19 exemplaires';}
+				if ($('input_32perso').value == '20'){pu=0; opis += '<br />- 20 exemplaires';}
+				if ($('input_32perso').value == '40'){pu=0; opis += '<br />- 40 exemplaires';}
+				if ($('input_32perso').value == '60'){pu=0; opis += '<br />- 60 exemplaires';}
+				if ($('input_32perso').value == '80'){pu=0; opis += '<br />- 80 exemplaires';}
+				if ($('input_32perso').value == '100'){pu=0; opis += '<br />- 100 exemplaires';}
+				if ($('input_32perso').value == '150'){pu=0; opis += '<br />- 150 exemplaires';}
+				if ($('input_32perso').value == '200'){pu=0; opis += '<br />- 200 exemplaires';}
+				if ($('input_32perso').value == '300'){pu=0; opis += '<br />- 300 exemplaires';}
+				if ($('input_32perso').value == '400'){pu=0; opis += '<br />- 400 exemplaires';}
+				if ($('input_32perso').value == '500'){pu=0; opis += '<br />- 500 exemplaires';}
+				if ($('input_32perso').value == '750'){pu=0; opis += '<br />- 750 exemplaires';}
+				if ($('input_32perso').value == '1000'){pu=0; opis += '<br />- 1000 exemplaires';}
+				if ($('input_32perso').value == '1500'){pu=0; opis += '<br />- 1500 exemplaires';}
+				if ($('input_32perso').value == '2000'){pu=0; opis += '<br />- 2000 exemplaires';}
+				if ($('input_32perso').value == '3000'){pu=0; opis += '<br />- 3000 exemplaires';}
+				if ($('input_32perso').value == '4000'){pu=0; opis += '<br />- 4000 exemplaires';}
+				if ($('input_32perso').value == '5000'){pu=0; opis += '<br />- 5000 exemplaires';}
+				if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
+				if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
+				poids = 2.43*0; ////grammage x m²///
+				poidstotal = poids*ilosc;
+			}
+
+			////fixations/////
+
+			if (($('input_4').value == 'ventouse') || ($('input_4perso').value == 'ventouse')){fixationsventouse=0.2; opis += '<br />- ventouse + perçage';} ////prix 1 ventouse/////
+			if (($('input_4').value == 'double face') || ($('input_4perso').value == 'double face')){fixations=0.3; opis += '<br />- double face';}
+			////perçage/////
+			if (($('input_5').value == '2') || ($('input_5perso').value == '2')){percage=0.4; nbtrou=2; opis += '<br />- 2 trous';}
+			if (($('input_5').value == '4') || ($('input_5perso').value == '4')){percage=0.8; nbtrou=4; opis += '<br />- 4 trous';}
+			if (($('input_5').value == '6') || ($('input_5perso').value == '6')){percage=1.2; nbtrou=6; opis += '<br />- 6 trous';}
+			if (($('input_5').value == '8') || ($('input_5perso').value == '8')){percage=1.6; nbtrou=8; opis += '<br />- 8 trous';}
+			if (($('input_5').value == '10') || ($('input_5perso').value == '10')){percage=2; nbtrou=10; opis += '<br />- 10 trous';}
+
+			tarifventouse = (fixationsventouse*nbtrou) ////prix x ventouses/////
+
+			////maquette/////
+			if ($('input_6').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
+			if ($('input_6perso').value == 'fb') {opis += '<br />- France banderole crée la maquette';}
+			if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {opis += '<br />- j’ai déjà crée la maquette';}
+
+			////tarif unitaire/////
+			puoption = pu+fixations+percage+tarifventouse;
+			puoption2 = puoption+(maquette/ilosc);
+			////total/////
+			cena = (puoption*ilosc)+maquette;
+
+			////HD///
+			if ($('input_HD').value == 'HD') {HD = cena*0.30; cena += HD; opis += '<br />- HD';}
+			if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
+			////FIN HD///
 
 
-	}
-	</script>
+			///////////////////////////////////////////////////////////// options //
+			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+			if (colis == true) {
+				cenapojedyncza += 0.00;
+				cena += 2.00*ilosc;
+				cedzik += '<br />- colis revendeur';
+			}
 
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	pour afficher ou non le div selon que ce soit "none" ou "block". */
+			var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
+			if (relais == true) {
+				cenapojedyncza += 5.00;
+				cena += 5.00;
+				cedzik += '<br />- relais colis';
+			}
 
-	function Afficher()
-	{
-		divInfo = document.getElementById('delivery-div');
+			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+			if (etiquette == true) {
+				transport=0;
+				cena -= cena*3/100;
+				cedzik += '<br />- retrait colis a l\'atelier';
+			}
 
-		if (divInfo.style.display == 'none')
-		divInfo.style.display = 'block';
+			var palette = $$('#palette').collect(function(e){ return e.checked; }).any();
+			if (palette == true) {
+				cena += 240;
+				cedzik += '<br />- forfait palettisation';
+			}
 
+			// fin options /////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////// transport //
 
-	}
-	</script>
+			if (poidstotal <= 1) {prixtransport=4.80;}
+			if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
+			if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
+			if ((poidstotal > 3) && (poidstotal <= 4)) {prixtransport=5.63;}
+			if ((poidstotal > 4) && (poidstotal <= 5)) {prixtransport=6.88;}
+			if ((poidstotal > 5) && (poidstotal <= 6)) {prixtransport=7.99;}
+			if ((poidstotal > 6) && (poidstotal <= 7)) {prixtransport=7.99;}
+			if ((poidstotal > 7) && (poidstotal <= 10)) {prixtransport=9.30;}
+			if ((poidstotal > 10) && (poidstotal <= 15)) {prixtransport=11.93;}
+			if ((poidstotal > 15) && (poidstotal <= 20)) {prixtransport=14.93;}
+			if ((poidstotal > 20) && (poidstotal <= 25)) {prixtransport=18.82;}
+			if ((poidstotal > 25) && (poidstotal <= 30)) {prixtransport=20.56;}
+			if ((poidstotal > 30) && (poidstotal <= 40)) {prixtransport=25.64;}
+			if ((poidstotal > 40) && (poidstotal <= 50)) {prixtransport=33.73;}
+			if ((poidstotal > 50) && (poidstotal <= 60)) {prixtransport=42.14;}
+			if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
+			if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
+			if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
+			if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
+			if (poidstotal > 100) {prixtransport=69.26;}
+			prixtransport2 = prixtransport*0.4;
+			transport = prixtransport + prixtransport2;
+			if($('input_1').value == 'personnalisée') {transport = 0};
+			cenapojedyncza = cena;
 
-	<script type="text/javascript">
-	/* Voici la fonction javascript qui change la propriété "display"
-	pour afficher ou non le div selon que ce soit "none" ou "block". */
+			ilosc=($('input_32').value) || ($('input_32perso').value);
+			if ($('input_32').value) {
+				cena=cenapojedyncza*ilosc;
+			}
 
-	function Masquer()
-	{
-		divInfo = document.getElementById('delivery-div');
+			if ($('input_32perso').value) {
+				cena=cenapojedyncza*ilosc;
+			}
 
-		if (divInfo.style.display == 'block')
-		divInfo.style.display = 'none';
+			var total = document.getElementById("total");
+			var remise = document.getElementById("remise");
 
+			cenapojedyncza=fixstr(cenapojedyncza);
+			cena2 = cenapojedyncza.replace(".", ",");
 
-	}
-	</script>
+			var myClass = jQuery(this).attr("class");
 
-	<script type="text/javascript">
-
-	function AddBusinessDays(weekDaysToAdd) {
-	  // fonction jours ouvrés
-	  var curdate = new Date();
-	  var realDaysToAdd = 0;
-	  for(i=0; i<weekDaysToAdd; i++){
-	    curdate.setDate(curdate.getDate()+1);
-	    var estdt1 = new Date(curdate);
-	    var n = curdate.getDay();
-	    if (n == '6' || n == '0') {
-	      weekDaysToAdd++;
-	    }
-	    realDaysToAdd++;
-	    //check if current day is business day
-	  }
-	  return realDaysToAdd;
-	}
-
-	jQuery(document).ready(function(){
-
-		jQuery('.delivery , .production').click(function(){
-
-
-
-			var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0; cenapojedyncza=0;
-			var suma=0; var suma2=0;
-			var rabat=0; var rabat2=0;
-			var transport=0;
-			var ilosc=0;
-			var ktorytyp='';
-			var cedzik='';
-			var prliv='';
-			var date_panier='';
-			var dodatkowaopcja='';
-			var opis='';
 			var niepokazuj = 0;
-			var option2=0;
-			var szerokosc=0;
-			var wysokosc=0;
-			var pu=0; var fixations=0; var percage=0; var puoption=0; var maquette=0; var tarifventouse=0; var fixationsventouse=0; nbtrou=0;
-			var eBox = document.getElementById('form-button-error2');
-			eBox.innerHTML='';
+			var n = myClass.search("production");
+			if (n != -1) {
+				jQuery('.production').prop("disabled",false);
+				jQuery('.production').removeClass('active');
+				jQuery(this).addClass('active');
+				var production = jQuery(this).attr('onClick');
+				jQuery('#production-value').val(Afficher());
+				var production = jQuery(this).attr('text-value');
+				jQuery('#production-value').val(production);
+				jQuery(this).prop("disabled",true);
 
+			}
 
-			if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
+			var m = myClass.search("delivery");
+			if (m != -1) {
+				jQuery('.delivery').prop("disabled",false);
+				jQuery('.delivery').removeClass('active');
+				jQuery(this).addClass('active');
+				var delivery = jQuery(this).attr('text-value');
+				jQuery('#delivery-value').val(delivery);
+				jQuery(this).prop("disabled",true);
 
-				ilosc = $('input_32').value;
-				szerokosc = ($('input_10').value);
-				szerokosc = szerokosc.replace(',','.');
-				szerokosc = fixstr(szerokosc);
-				$('input_10').value = szerokosc;
-				wysokosc = ($('input_9').value);
-				wysokosc = wysokosc.replace(',','.');
-				wysokosc = fixstr(wysokosc);
-				$('input_9').value = wysokosc;
+				jQuery(document).ready(function(){
+					jQuery('.jotform-form select').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
+					});
+				});
 
+				jQuery(document).ready(function(){
+					jQuery('.form-textbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
+					});
+				});
 
-				///// Forex 5mm recto 60x40 /////
+				jQuery(document).ready(function(){
+					jQuery('.form-textbox2').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
+					});
+				});
 
-				if (($('input_0').value == 'recto') && ($('input_1').value == '60x40')){
-					opis += '<br />- Forex 5mm recto <br />- 60x40cm';
-					if ($('input_32').value == '1'){pu=17.28; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=17.28; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=14.40; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=14.40; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=12.96; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=12.96; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=12.96; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=11.52; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=11.52; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=11.52; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=11.52; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=11.00; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=11.00; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=11.00; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=11.00; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=10.90; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=10.90; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=10.90; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=10.90; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=10.90; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=10.80; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=10.80; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=9.72; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=9.72; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=9.72; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=8.64; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=8.64; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=8.64; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=8.64; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=7.34; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=7.34; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=7.34; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=7.34; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=6.48; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=6.48; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=6.48; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=6.48; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=6.48; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0.24; ////grammage x m²///
-					poidstotal = poids*ilosc;
+				jQuery(document).ready(function(){
+					jQuery('.form-checkbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
+					});
+				});
+			}
+
+			var production      = jQuery('#production-value').val();
+			//alert(production);
+			var delivery        = jQuery('#delivery-value').val();
+
+			if(production && delivery){
+
+				// Calculate price
+				//alert('click');
+				var ProdPercent = '';
+				var DeliPercent = '';
+				var PorductType = jQuery('.production.active').attr('text-value');
+				var DeliveryType = jQuery('.delivery.active').attr('text-value');
+				if(PorductType == '2-3' ){
+					ProdPercent = 15;
+					prliv += '<br />- P 2-3J';
+				}else if(PorductType =='1-1'){
+					ProdPercent = 40;
+					prliv += '<br />- P 1J';
+				}else{
+					ProdPercent = 0;
+					prliv += '<br />- P 4-5J';
 				}
 
-				///// Forex 5mm recto/verso 60x40 /////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x40')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 60x40cm';
-					if ($('input_32').value == '1'){pu=24.48; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=24.48; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=20.40; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=20.40; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=18.36; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=18.36; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=18.36; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=16.32; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=16.32; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=16.32; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=16.32; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=13.87; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=13.87; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=13.87; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=13.87; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=12.24; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=12.24; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=12.24; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=12.24; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=12.24; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=12.60; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=12.60; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=11.34; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=11.34; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=11.34; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=10.08; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=10.08; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=10.08; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=8.57; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=8.57; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=8.57; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=8.57; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=8.57; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=7.56; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=7.56; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=7.56; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=7.56; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=7.56; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0.24; ////grammage x m²///
-					poidstotal = poids*ilosc;
+				if(DeliveryType == '2-3'){
+					DeliPercent = 15;
+					prliv += ' / L 2-3J';
+				}else if(DeliveryType =='1-1'){
+					DeliPercent = 40;
+					prliv += ' / L 1J';
+				}else{
+					DeliPercent = 0;
+					prliv += ' / L 3-4J';
 				}
 
-				///// Forex 5mm recto 60x78 /////
+				var price_unit = parseFloat(cenapojedyncza);
 
-				if (($('input_0').value == 'recto') && ($('input_1').value == '60x78')){
-					opis += '<br />- Forex 5mm recto <br />- 60x78cm';
-					if ($('input_32').value == '1'){pu=17.28*1.8; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=17.28*1.8; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=14.40*1.8; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=14.40*1.8; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=12.96*1.8; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=12.96*1.8; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=12.96*1.8; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=11.52*1.8; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=11.52*1.8; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=11.52*1.8; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=11.52*1.8; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=11.00*1.8; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=11.00*1.8; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=11.00*1.8; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=11.00*1.8; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=10.90*1.8; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=10.90*1.8; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=10.90*1.8; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=10.90*1.8; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=10.90*1.8; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=10.80*1.8; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=10.80*1.8; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=9.72*1.8; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=9.72*1.8; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=9.72*1.8; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=8.64*1.8; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=8.64*1.8; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=8.64*1.8; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=8.64*1.8; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=7.34*1.8; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=7.34*1.8; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=7.34*1.8; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=7.34*1.8; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=6.48*1.8; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=6.48*1.8; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=6.48*1.8; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=6.48*1.8; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=6.48*1.8; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0.48; ////grammage x m²///
-					poidstotal = poids*ilosc;
+				//var str = price_unit;
+				//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
+				var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+				var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+				var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
+
+				// Calculate Days
+				var prod_first_val  = parseInt(production[0]);
+				var prod_second_val = parseInt(production[2]);
+				var deli_first_val  = parseInt(delivery[0]);
+				var deli_second_val = parseInt(delivery[2]);
+
+				var totalProduction = prod_first_val + deli_first_val;
+				var totalDelivery   = prod_second_val + deli_second_val;
+				if(totalProduction == totalDelivery){
+					jQuery('#totaldays').text("Total jours " + totalProduction);
+					var days = totalProduction;
+				}else{
+					jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+					var days = totalDelivery;
 				}
 
-				///// Forex 5mm recto/verso 60x78 /////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x78')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 60x78cm';
-					if ($('input_32').value == '1'){pu=24.48*1.8; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=24.48*1.8; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=20.40*1.8; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=20.40*1.8; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=18.36*1.8; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=18.36*1.8; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=18.36*1.8; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=16.32*1.8; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=16.32*1.8; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=16.32*1.8; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=16.32*1.8; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=13.87*1.8; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=13.87*1.8; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=13.87*1.8; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=13.87*1.8; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=12.24*1.8; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=12.24*1.8; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=12.24*1.8; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=12.24*1.8; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=12.24*1.8; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=12.60*1.8; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=12.60*1.8; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=11.34*1.8; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=11.34*1.8; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=11.34*1.8; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=10.08*1.8; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=10.08*1.8; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=10.08*1.8; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=8.57*1.8; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=8.57*1.8; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=8.57*1.8; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=8.57*1.8; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=8.57*1.8; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=7.56*1.8; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=7.56*1.8; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=7.56*1.8; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=7.56*1.8; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=7.56*1.8; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0.48; ////grammage x m²///
-					poidstotal = poids*ilosc;
+				var curdate = new Date();
+				var curhour = curdate.getHours();
+				// ajout 1 jour ouvré de délai sur commande après 12h
+				if (curhour >= 12) {
+					var daystoadd = AddBusinessDays(days+1);
+				}else{
+					var daystoadd = AddBusinessDays(days);
 				}
 
-				///// Forex 5mm recto 100x50/////
-
-				if (($('input_0').value == 'recto') && ($('input_1').value == '100x50')){
-					opis += '<br />- Forex 5mm recto <br />- 100x50cm';
-					if ($('input_32').value == '1'){pu=30.00; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=27.00; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=25.80; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=24.00; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=24.00; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=24.00; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=24.00; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=22.80; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=22.80; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=22.80; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=22.80; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=21.60; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=21.60; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=21.60; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=21.60; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=20.40; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=20.40; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=20.40; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=20.40; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=20.25; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=19.35; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=18.00; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=17.10; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=16.20; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=15.30; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=15.30; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=14.40; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=14.40; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=13.50; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=13.50; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=13.50; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=12.60; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=12.60; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=12.60; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=11.70; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=11.70; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=10.80; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=10.80; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0.5; ////grammage x m²///
-					poidstotal = poids*ilosc;
+				curdate.setDate(curdate.getDate()+daystoadd);
+				var estdt = new Date(curdate);
+				var month = estdt.getMonth()+1;
+				var day = estdt.getDate();
+				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+				//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
+				if(jQuery('#id_7').css('display') != 'none')
+				{
+					//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
+					//jQuery('#prix_unitaire').text(finalPrice);
+					jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
 
-				///// Forex 5mm recto/verso 100x50 /////
+				finalPrice1=fixstr(finalPrice);
+				finalPrice2 = finalPrice1.replace(".", ",");
 
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '100x50')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 100x50cm';
-					if ($('input_32').value == '1'){pu=42.50; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=38.25; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=36.55; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=34.00; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=32.30; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=30.60; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=28.90; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=28.90; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=27.20; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=27.20; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=25.50; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=25.50; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=25.50; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=23.80; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=23.80; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=23.80; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=23.63; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=23.63; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=23.63; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=23.63; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=22.58; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=21.00; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=19.95; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=18.90; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=17.85; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=17.85; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=16.80; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=16.80; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=15.75; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=15.75; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=15.75; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=14.70; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=14.70; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=14.70; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=13.65; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=13.65; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=12.60; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=12.60; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0.5; ////grammage x m²///
-					poidstotal = poids*ilosc;
+				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+				jQuery('#remise').html(rabat2);
+
+			}
+
+			cenapojedyncza = finalPrice1;
+
+			ilosc=($('input_32').value) || ($('input_32perso').value);
+			if ($('input_32').value) {
+				cena=cenapojedyncza*ilosc;
+			}
+
+			if ($('input_32perso').value) {
+				cena=cenapojedyncza*ilosc;
+			}
+
+			var total = document.getElementById("total");
+			var remise = document.getElementById("remise");
+
+			cenapojedyncza=fixstr(cenapojedyncza);
+			cena2 = cenapojedyncza.replace(".", ",")
+
+			/* koszty transportu */
+
+			transport=0;
+
+			///////////////////////////////////// avertissements, messages d'erreur //
+			if ( (wysokosc > 160) || (szerokosc > 160) ) {
+				var blad = document.getElementById("id_9");
+				blad.style.background = "#EA2A6A";
+				blad.style.border = "1px solid #EA2A6A";
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+
+			if ( (wysokosc > 120) && (szerokosc > 120) ) {
+				var blad = document.getElementById("id_9");
+				blad.style.background = "#EA2A6A";
+				blad.style.border = "1px solid #EA2A6A";
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+
+			var niepokazuj = 0;
+
+			if (niepokazuj==1) {
+				prix.innerHTML='-';
+				remise.innerHTML='-';
+				total.innerHTML='-';
+			}
+
+			///////////livraison le jour même////////
+			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+				livraisonrapide.style.display = 'block';
+			}
+			else {livraisonrapide.style.display = 'none';}
+			/////////////////////////////////////////
+
+			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+				suma=cena-rabat;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				total.innerHTML=suma2+' &euro;';
+
+				if (option==0) {
+					option2 = '-';
+					var opt = document.getElementById("option");
+					opt.innerHTML='-';
 				}
-
-				///// Forex 5mm recto 150x75 /////
-
-				if (($('input_0').value == 'recto') && ($('input_1').value == '150x75')){
-					opis += '<br />- Forex 5mm recto <br />- 150x75cm';
-					if ($('input_32').value == '1'){pu=67.50; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=60.75; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=58.05; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=54.00; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=51.30; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=51.30; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=51.30; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=48.60; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=48.60; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=48.60; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=40.50; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=40.50; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=45.90; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=45.90; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=45.90; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=45.90; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=45.56; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=45.56; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=45.56; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=45.56; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=43.54; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=40.50; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=38.48; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=36.45; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=34.43; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=34.43; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=32.40; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=32.40; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=30.38; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=30.38; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=30.38; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=28.35; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=28.35; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=28.35; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=26.33; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=26.33; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=24.30; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=24.30; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*1.12; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto/verso 150x75 /////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '150x75')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 150x75cm ';
-					if ($('input_32').value == '1'){pu=95.63; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=86.06; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=82.24; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=76.50; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=72.68; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=68.85; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=65.03; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=65.03; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=61.20; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=61.20; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=57.38; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=57.38; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=57.38; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=53.55; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=53.55; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=53.55; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=53.16; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=53.16; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=53.16; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=53.16; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=50.79; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=47.25; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=44.89; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=42.53; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=40.16; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=40.16; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=37.80; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=37.80; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=35.44; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=35.44; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=35.44; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=33.08; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=33.08; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=33.08; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=30.71; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=30.71; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=28.35; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=28.35; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*1.12; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto 200x100 /////
-
-				if (($('input_0').value == 'recto') && ($('input_1').value == '200x100')){
-					opis += '<br />- Forex 5mm recto <br />- 200x100cm ';
-					if ($('input_32').value == '1'){pu=100.80; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=98.40; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=96.00; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=86.40; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=84.00; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=81.60; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=81.60; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=76.80; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=76.80; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=76.80; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=76.80; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=74.40; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=74.40; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=74.40; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=74.40; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=74.40; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=73.80; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=73.80; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=73.80; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=73.80; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=72.00; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=64.80; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=63.00; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=61.20; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=57.60; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=57.60; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=55.80; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=54.00; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=52.20; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=50.40; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=48.60; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=46.80; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=45.00; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=45.00; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=43.20; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=43.20; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=41.40; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=41.40; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*2; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto/verso 200x100 /////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x100')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 200x100cm ';
-					if ($('input_32').value == '1'){pu=142.80; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=139.40; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=136.00; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=122.40; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=119.00; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=115.60; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=108.80; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=108.80; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=105.40; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=102.00; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=98.60; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=95.20; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=91.80; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=88.40; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=86.10; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=86.10; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=86.10; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=86.10; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=86.10; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=86.10; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=84.00; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=75.60; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=73.50; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=71.40; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=67.20; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=67.20; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=65.10; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=63.00; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=60.90; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=58.80; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=56.70; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=54.60; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=52.50; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=52.50; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=50.40; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=50.40; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=48.30; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=48.30; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*2; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto 200x150 /////
-
-				if (($('input_0').value == 'recto') && ($('input_1').value == '200x150')){
-					opis += '<br />- Forex 5mm recto <br />- 200x150cm';
-					if ($('input_32').value == '1'){pu=154.80; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=147.60; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=144.00; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=129.60; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=126.00; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=122.40; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=118.80; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=115.20; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=115.20; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=115.20; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=115.20; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=111.60; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=111.60; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=111.60; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=111.60; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=110.70; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=110.70; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=110.70; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=110.70; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=110.70; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=108.00; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=97.20; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=94.50; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=91.80; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=89.10; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=86.40; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=83.70; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=81.00; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=78.30; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=75.60; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=72.90; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=70.20; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=67.50; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=67.50; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=64.80; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=64.80; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=62.10; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=62.10; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*3; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto/verso 200x150/////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x150')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 200x150cm';
-					if ($('input_32').value == '1'){pu=219.30; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=209.10; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=204.00; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=183.60; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=178.50; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=173.40; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=168.30; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=163.20; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=158.10; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=153.10; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=147.90; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=142.80; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=137.70; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=132.60; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=132.60; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=129.15; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=129.15; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=129.15; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=129.15; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=129.15; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=126.00; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=113.40; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=110.25; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=107.10; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=103.95; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=100.80; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=97.65; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=94.50; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=91.35; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=88.20; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=85.05; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=81.90; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=78.75; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=78.75; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=75.60; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=75.60; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=72.45; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=72.45; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*3; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto 300x150 /////
-
-				if (($('input_0').value == 'recto') && ($('input_1').value == '300x150')){
-					opis += '<br />- Forex 5mm recto <br />- 300x150cm';
-					if ($('input_32').value == '1'){pu=216.00; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=210.60; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=205.20; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=189.00; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=178.20; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=178.20; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=178.20; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=172.80; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=172.80; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=172.80; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=172.80; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=162.00; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=162.00; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=162.00; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=157.95; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=113.40; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=157.95; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=157.95; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=157.95; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=157.95; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=153.90; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=141.75; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=133.65; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=129.60; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=121.50; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=113.40; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=113.40; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=101.25; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=101.25; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=97.20; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=97.20; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=89.10; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=89.10; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=85.05; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=85.05; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=81.00; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=81.00; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=81.00; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*4.5; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto/verso 300x150/////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '300x150')){
-					opis += '<br />- Forex 5mm recto/verso <br />- 300x150cm ';
-					if ($('input_32').value == '1'){pu=306.00; opis += '<br />- 1 exemplaire';}
-					if ($('input_32').value == '2'){pu=298.35; opis += '<br />- 2 exemplaires';}
-					if ($('input_32').value == '3'){pu=290.70; opis += '<br />- 3 exemplaires';}
-					if ($('input_32').value == '4'){pu=267.75; opis += '<br />- 4 exemplaires';}
-					if ($('input_32').value == '5'){pu=252.45; opis += '<br />- 5 exemplaires';}
-					if ($('input_32').value == '6'){pu=144.80; opis += '<br />- 6 exemplaires';}
-					if ($('input_32').value == '7'){pu=229.50; opis += '<br />- 7 exemplaires';}
-					if ($('input_32').value == '8'){pu=214.20; opis += '<br />- 8 exemplaires';}
-					if ($('input_32').value == '9'){pu=214.20; opis += '<br />- 9 exemplaires';}
-					if ($('input_32').value == '10'){pu=191.25; opis += '<br />- 10 exemplaires';}
-					if ($('input_32').value == '11'){pu=191.25; opis += '<br />- 11 exemplaires';}
-					if ($('input_32').value == '12'){pu=184.28; opis += '<br />- 12 exemplaires';}
-					if ($('input_32').value == '13'){pu=184.28; opis += '<br />- 13 exemplaires';}
-					if ($('input_32').value == '14'){pu=184.28; opis += '<br />- 14 exemplaires';}
-					if ($('input_32').value == '15'){pu=184.28; opis += '<br />- 15 exemplaires';}
-					if ($('input_32').value == '16'){pu=184.28; opis += '<br />- 16 exemplaires';}
-					if ($('input_32').value == '17'){pu=184.28; opis += '<br />- 17 exemplaires';}
-					if ($('input_32').value == '18'){pu=184.28; opis += '<br />- 18 exemplaires';}
-					if ($('input_32').value == '19'){pu=184.28; opis += '<br />- 19 exemplaires';}
-					if ($('input_32').value == '20'){pu=184.28; opis += '<br />- 20 exemplaires';}
-					if ($('input_32').value == '40'){pu=179.55; opis += '<br />- 40 exemplaires';}
-					if ($('input_32').value == '60'){pu=165.38; opis += '<br />- 60 exemplaires';}
-					if ($('input_32').value == '80'){pu=155.93; opis += '<br />- 80 exemplaires';}
-					if ($('input_32').value == '100'){pu=151.20; opis += '<br />- 100 exemplaires';}
-					if ($('input_32').value == '150'){pu=141.75; opis += '<br />- 150 exemplaires';}
-					if ($('input_32').value == '200'){pu=132.30; opis += '<br />- 200 exemplaires';}
-					if ($('input_32').value == '300'){pu=132.30; opis += '<br />- 300 exemplaires';}
-					if ($('input_32').value == '400'){pu=118.13; opis += '<br />- 400 exemplaires';}
-					if ($('input_32').value == '500'){pu=118.13; opis += '<br />- 500 exemplaires';}
-					if ($('input_32').value == '750'){pu=113.40; opis += '<br />- 750 exemplaires';}
-					if ($('input_32').value == '1000'){pu=113.40; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32').value == '1500'){pu=103.95; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32').value == '2000'){pu=103.95; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32').value == '3000'){pu=99.23; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32').value == '4000'){pu=99.23; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32').value == '5000'){pu=94.50; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32').value == '7500'){pu=94.50; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32').value == '10000'){pu=94.50; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*4.5; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto personnalisée UV/////
-
-				if (($('input_0').value == 'recto') && ($('input_1').value == 'personnalisée')){
-					opis += '<br />- Forex 5mm recto <br />- Taille Personnalisée';
-					if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
-					if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
-					if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
-					if ($('input_32perso').value == '4'){pu=0; opis += '<br />- 4 exemplaires';}
-					if ($('input_32perso').value == '5'){pu=0; opis += '<br />- 5 exemplaires';}
-					if ($('input_32perso').value == '6'){pu=0; opis += '<br />- 6 exemplaires';}
-					if ($('input_32perso').value == '7'){pu=0; opis += '<br />- 7 exemplaires';}
-					if ($('input_32perso').value == '8'){pu=0; opis += '<br />- 8 exemplaires';}
-					if ($('input_32perso').value == '9'){pu=0; opis += '<br />- 9 exemplaires';}
-					if ($('input_32perso').value == '10'){pu=0; opis += '<br />- 10 exemplaires';}
-					if ($('input_32perso').value == '11'){pu=0; opis += '<br />- 11 exemplaires';}
-					if ($('input_32perso').value == '12'){pu=0; opis += '<br />- 12 exemplaires';}
-					if ($('input_32perso').value == '13'){pu=0; opis += '<br />- 13 exemplaires';}
-					if ($('input_32perso').value == '14'){pu=0; opis += '<br />- 14 exemplaires';}
-					if ($('input_32perso').value == '15'){pu=0; opis += '<br />- 15 exemplaires';}
-					if ($('input_32perso').value == '16'){pu=0; opis += '<br />- 16 exemplaires';}
-					if ($('input_32perso').value == '17'){pu=0; opis += '<br />- 17 exemplaires';}
-					if ($('input_32perso').value == '18'){pu=0; opis += '<br />- 18 exemplaires';}
-					if ($('input_32perso').value == '19'){pu=0; opis += '<br />- 19 exemplaires';}
-					if ($('input_32perso').value == '20'){pu=0; opis += '<br />- 20 exemplaires';}
-					if ($('input_32perso').value == '40'){pu=0; opis += '<br />- 40 exemplaires';}
-					if ($('input_32perso').value == '60'){pu=0; opis += '<br />- 60 exemplaires';}
-					if ($('input_32perso').value == '80'){pu=0; opis += '<br />- 80 exemplaires';}
-					if ($('input_32perso').value == '100'){pu=0; opis += '<br />- 100 exemplaires';}
-					if ($('input_32perso').value == '150'){pu=0; opis += '<br />- 150 exemplaires';}
-					if ($('input_32perso').value == '200'){pu=0; opis += '<br />- 200 exemplaires';}
-					if ($('input_32perso').value == '300'){pu=0; opis += '<br />- 300 exemplaires';}
-					if ($('input_32perso').value == '400'){pu=0; opis += '<br />- 400 exemplaires';}
-					if ($('input_32perso').value == '500'){pu=0; opis += '<br />- 500 exemplaires';}
-					if ($('input_32perso').value == '750'){pu=0; opis += '<br />- 750 exemplaires';}
-					if ($('input_32perso').value == '1000'){pu=0; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32perso').value == '1500'){pu=0; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32perso').value == '2000'){pu=0; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32perso').value == '3000'){pu=0; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32perso').value == '4000'){pu=0; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32perso').value == '5000'){pu=0; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				///// Forex 5mm recto/verso personnalisée UV/////
-
-				if (($('input_0').value == 'rectoverso') && ($('input_1').value == 'personnalisée')){
-					opis += '<br />- Forex 5mm recto/verso  <br />- Taille Personnalisée';
-					if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
-					if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
-					if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
-					if ($('input_32perso').value == '4'){pu=0; opis += '<br />- 4 exemplaires';}
-					if ($('input_32perso').value == '5'){pu=0; opis += '<br />- 5 exemplaires';}
-					if ($('input_32perso').value == '6'){pu=0; opis += '<br />- 6 exemplaires';}
-					if ($('input_32perso').value == '7'){pu=0; opis += '<br />- 7 exemplaires';}
-					if ($('input_32perso').value == '8'){pu=0; opis += '<br />- 8 exemplaires';}
-					if ($('input_32perso').value == '9'){pu=0; opis += '<br />- 9 exemplaires';}
-					if ($('input_32perso').value == '10'){pu=0; opis += '<br />- 10 exemplaires';}
-					if ($('input_32perso').value == '11'){pu=0; opis += '<br />- 11 exemplaires';}
-					if ($('input_32perso').value == '12'){pu=0; opis += '<br />- 12 exemplaires';}
-					if ($('input_32perso').value == '13'){pu=0; opis += '<br />- 13 exemplaires';}
-					if ($('input_32perso').value == '14'){pu=0; opis += '<br />- 14 exemplaires';}
-					if ($('input_32perso').value == '15'){pu=0; opis += '<br />- 15 exemplaires';}
-					if ($('input_32perso').value == '16'){pu=0; opis += '<br />- 16 exemplaires';}
-					if ($('input_32perso').value == '17'){pu=0; opis += '<br />- 17 exemplaires';}
-					if ($('input_32perso').value == '18'){pu=0; opis += '<br />- 18 exemplaires';}
-					if ($('input_32perso').value == '19'){pu=0; opis += '<br />- 19 exemplaires';}
-					if ($('input_32perso').value == '20'){pu=0; opis += '<br />- 20 exemplaires';}
-					if ($('input_32perso').value == '40'){pu=0; opis += '<br />- 40 exemplaires';}
-					if ($('input_32perso').value == '60'){pu=0; opis += '<br />- 60 exemplaires';}
-					if ($('input_32perso').value == '80'){pu=0; opis += '<br />- 80 exemplaires';}
-					if ($('input_32perso').value == '100'){pu=0; opis += '<br />- 100 exemplaires';}
-					if ($('input_32perso').value == '150'){pu=0; opis += '<br />- 150 exemplaires';}
-					if ($('input_32perso').value == '200'){pu=0; opis += '<br />- 200 exemplaires';}
-					if ($('input_32perso').value == '300'){pu=0; opis += '<br />- 300 exemplaires';}
-					if ($('input_32perso').value == '400'){pu=0; opis += '<br />- 400 exemplaires';}
-					if ($('input_32perso').value == '500'){pu=0; opis += '<br />- 500 exemplaires';}
-					if ($('input_32perso').value == '750'){pu=0; opis += '<br />- 750 exemplaires';}
-					if ($('input_32perso').value == '1000'){pu=0; opis += '<br />- 1000 exemplaires';}
-					if ($('input_32perso').value == '1500'){pu=0; opis += '<br />- 1500 exemplaires';}
-					if ($('input_32perso').value == '2000'){pu=0; opis += '<br />- 2000 exemplaires';}
-					if ($('input_32perso').value == '3000'){pu=0; opis += '<br />- 3000 exemplaires';}
-					if ($('input_32perso').value == '4000'){pu=0; opis += '<br />- 4000 exemplaires';}
-					if ($('input_32perso').value == '5000'){pu=0; opis += '<br />- 5000 exemplaires';}
-					if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
-					if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
-					poids = 2.43*0; ////grammage x m²///
-					poidstotal = poids*ilosc;
-				}
-
-				////fixations/////
-
-				if (($('input_4').value == 'ventouse') || ($('input_4perso').value == 'ventouse')){fixationsventouse=0.2; opis += '<br />- ventouse + perçage';} ////prix 1 ventouse/////
-				if (($('input_4').value == 'double face') || ($('input_4perso').value == 'double face')){fixations=0.3; opis += '<br />- double face';}
-				////perçage/////
-				if (($('input_5').value == '2') || ($('input_5perso').value == '2')){percage=0.4; nbtrou=2; opis += '<br />- 2 trous';}
-				if (($('input_5').value == '4') || ($('input_5perso').value == '4')){percage=0.8; nbtrou=4; opis += '<br />- 4 trous';}
-				if (($('input_5').value == '6') || ($('input_5perso').value == '6')){percage=1.2; nbtrou=6; opis += '<br />- 6 trous';}
-				if (($('input_5').value == '8') || ($('input_5perso').value == '8')){percage=1.6; nbtrou=8; opis += '<br />- 8 trous';}
-				if (($('input_5').value == '10') || ($('input_5perso').value == '10')){percage=2; nbtrou=10; opis += '<br />- 10 trous';}
-
-				tarifventouse = (fixationsventouse*nbtrou) ////prix x ventouses/////
-
-				////maquette/////
-				if ($('input_6').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
-				if ($('input_6perso').value == 'fb') {opis += '<br />- France banderole crée la maquette';}
-				if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {opis += '<br />- j’ai déjà crée la maquette';}
-
-				////tarif unitaire/////
-				puoption = pu+fixations+percage+tarifventouse;
-				puoption2 = puoption+(maquette/ilosc);
-				////total/////
-				cena = (puoption*ilosc)+maquette;
-
-				////HD///
-				if ($('input_HD').value == 'HD') {HD = cena*0.30; cena += HD; opis += '<br />- HD';}
-				if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
-				////FIN HD///
-
-
-				///// options/////
-				var rush24 = $$('#rush24').collect(function(e){ return e.checked; }).any();
-				if (rush24 == true) {
-					rush = 0.3*cena;
-					puoption2 += rush/ilosc;
-					cena += rush;
-					opis += '<br />- délai express';
-				}
-
-				var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-				if (relais == true) {
-					puoption2 += 5.00/ilosc;
-					cena += 5.00;
-					opis += '<br />- relais colis';
-				}
-
-				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-				if (colis == true) {
-					cena += 2.00*ilosc;
-					opis += '<br />- colis revendeur';
-				}
-
-				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-				if (etiquette == true) {
-					transport=0;
-					opis += '<br />- retrait colis a l\'atelier';
-					cena-= cena*3/100;
-				}
-				////fin d'options///
-
-
-				///transport///
-
-				if (poidstotal <= 1) {prixtransport=4.80;}
-				if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
-				if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
-				if ((poidstotal > 3) && (poidstotal <= 4)) {prixtransport=5.63;}
-				if ((poidstotal > 4) && (poidstotal <= 5)) {prixtransport=6.88;}
-				if ((poidstotal > 5) && (poidstotal <= 6)) {prixtransport=7.99;}
-				if ((poidstotal > 6) && (poidstotal <= 7)) {prixtransport=7.99;}
-				if ((poidstotal > 7) && (poidstotal <= 10)) {prixtransport=9.30;}
-				if ((poidstotal > 10) && (poidstotal <= 15)) {prixtransport=11.93;}
-				if ((poidstotal > 15) && (poidstotal <= 20)) {prixtransport=14.93;}
-				if ((poidstotal > 20) && (poidstotal <= 25)) {prixtransport=18.82;}
-				if ((poidstotal > 25) && (poidstotal <= 30)) {prixtransport=20.56;}
-				if ((poidstotal > 30) && (poidstotal <= 40)) {prixtransport=25.64;}
-				if ((poidstotal > 40) && (poidstotal <= 50)) {prixtransport=33.73;}
-				if ((poidstotal > 50) && (poidstotal <= 60)) {prixtransport=42.14;}
-				if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
-				if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
-				if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
-				if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
-				if (poidstotal > 100) {prixtransport=69.26;}
-				prixtransport2 = prixtransport*0.4;
-				transport = prixtransport + prixtransport2;
-				if($('input_1').value == 'personnalisée') {transport = 0};
-				cenapojedyncza = cena;
-
-				ilosc=($('input_32').value) || ($('input_32perso').value);
-				if ($('input_32').value) {
-					cena=cenapojedyncza*ilosc;
-				}
-
-				if ($('input_32perso').value) {
-					cena=cenapojedyncza*ilosc;
-				}
-
-				var total = document.getElementById("total");
-				var remise = document.getElementById("remise");
-
-				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-				if (colis == true) {
-					cenapojedyncza += 0.00;
-					cena += 2.00*ilosc;
-					cedzik += '<br />- colis revendeur';
-				}
-
-				var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-				if (relais == true) {
-					cenapojedyncza += 5.00;
-					cena += 5.00;
-					cedzik += '<br />- relais colis';
-				}
-
-				cenapojedyncza=fixstr(cenapojedyncza);
-				cena2 = cenapojedyncza.replace(".", ",");
-
-				var myClass = jQuery(this).attr("class");
-
 				var niepokazuj = 0;
-				var n = myClass.search("production");
-				if (n != -1) {
-					jQuery('.production').prop("disabled",false);
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('active');
-					var production = jQuery(this).attr('onClick');
-					jQuery('#production-value').val(Afficher());
-					var production = jQuery(this).attr('text-value');
-					jQuery('#production-value').val(production);
-					jQuery(this).prop("disabled",true);
+				if ( suma < 29 ) {
+					var forfait = 29 - suma;
+					forfait = fixstr(forfait);
+					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					if (option>0) {
+						var newoption = parseFloat(option) + parseFloat(forfait);
+						newoption=fixstr(newoption);
+						newoption2 = newoption.replace(".", ",");
+						option2 = newoption2;
+						var newopt = document.getElementById("option");
+						newopt.innerHTML=newoption2+' &euro;';
+						suma = 29;
+						suma=fixstr(suma);
+						suma2 = suma.replace(".", ",");
+						var newtotal = document.getElementById("total");
+						newtotal.innerHTML=suma2+' &euro;';
+					} else {
+						var newoption = parseFloat(forfait);
+						newoption=fixstr(newoption);
+						newoption2 = newoption.replace(".", ",");
+						option2 = newoption2;
+						var newopt = document.getElementById("option");
+						newopt.innerHTML=newoption2+' &euro;';
+						suma = 29;
+						suma=fixstr(suma);
+						suma2 = suma.replace(".", ",");
+						var newtotal = document.getElementById("total");
+						newtotal.innerHTML=suma2+' &euro;';
+					}}
 
+					////////////////////////////////////////////////// envoi formulaire //
+					var rodzaj = "forex 5mm";
+					var dodajkoszyk = document.getElementById("cart_form");
+
+					if($('input_1').value == 'personnalisée') {
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+					};
+					if($('input_1').value != 'personnalisée') {
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						livraisonComp.style.display = 'block';
+					};
 				}
+			}
+		});
+	});
 
-				var m = myClass.search("delivery");
-				if (m != -1) {
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					var delivery = jQuery(this).attr('text-value');
-					jQuery('#delivery-value').val(delivery);
-					jQuery(this).prop("disabled",true);
-
-					jQuery(document).ready(function(){
-						jQuery('.jotform-form select').click(function(){
-							jQuery('#delivery-value').val(Masquer());
-
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
-
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
-
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
-
-							jQuery(production-value).prop("disabled",false);
-							jQuery(delivery-value).prop("disabled",true);
-
-						});});
-
-
-						jQuery(document).ready(function(){
-							jQuery('.form-textbox').click(function(){
-								jQuery('#delivery-value').val(Masquer());
-
-								jQuery('.delivery').prop("disabled",false);
-								jQuery('.production').prop("disabled",false);
-
-								jQuery('.production').removeClass('active');
-								jQuery(this).addClass('');
-
-								jQuery('.delivery').removeClass('active');
-								jQuery(this).addClass('active');
-
-								jQuery(production-value).prop("disabled",false);
-								jQuery(delivery-value).prop("disabled",true);
-
-							});});
-
-							jQuery(document).ready(function(){
-								jQuery('.form-textbox2').click(function(){
-									jQuery('#delivery-value').val(Masquer());
-
-									jQuery('.delivery').prop("disabled",false);
-									jQuery('.production').prop("disabled",false);
-
-									jQuery('.production').removeClass('active');
-									jQuery(this).addClass('');
-
-									jQuery('.delivery').removeClass('active');
-									jQuery(this).addClass('active');
-
-									jQuery(production-value).prop("disabled",false);
-									jQuery(delivery-value).prop("disabled",true);
-
-								});});
-
-
-								jQuery(document).ready(function(){
-									jQuery('.form-checkbox').click(function(){
-										jQuery('#delivery-value').val(Masquer());
-
-										jQuery('.delivery').prop("disabled",false);
-										jQuery('.production').prop("disabled",false);
-
-										jQuery('.production').removeClass('active');
-										jQuery(this).addClass('');
-
-										jQuery('.delivery').removeClass('active');
-										jQuery(this).addClass('active');
-
-										jQuery(production-value).prop("disabled",false);
-										jQuery(delivery-value).prop("disabled",true);
-
-									});});
-								}
-
-								var production      = jQuery('#production-value').val();
-								//alert(production);
-								var delivery        = jQuery('#delivery-value').val();
-
-								if(production && delivery){
-
-									// Calculate price
-									//alert('click');
-									var ProdPercent = '';
-									var DeliPercent = '';
-									var PorductType = jQuery('.production.active').attr('text-value');
-									var DeliveryType = jQuery('.delivery.active').attr('text-value');
-									if(PorductType == '2-3' ){
-										ProdPercent = 15;
-										prliv += '<br />- P 2-3J';
-									}else if(PorductType =='1-1'){
-										ProdPercent = 40;
-										prliv += '<br />- P 1J';
-									}else{
-										ProdPercent = 0;
-										prliv += '<br />- P 4-5J';
-									}
-
-									if(DeliveryType == '2-3'){
-										DeliPercent = 15;
-										prliv += ' / L 2-3J';
-									}else if(DeliveryType =='1-1'){
-										DeliPercent = 40;
-										prliv += ' / L 1J';
-									}else{
-										DeliPercent = 0;
-										prliv += ' / L 3-4J';
-									}
-
-									var price_unit = parseFloat(cenapojedyncza);
-
-									//var str = price_unit;
-									//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-									var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-									var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-									var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
-
-									// Calculate Days
-									var prod_first_val  = parseInt(production[0]);
-									var prod_second_val = parseInt(production[2]);
-									var deli_first_val  = parseInt(delivery[0]);
-									var deli_second_val = parseInt(delivery[2]);
-
-									var totalProduction = prod_first_val + deli_first_val;
-									var totalDelivery   = prod_second_val + deli_second_val;
-									if(totalProduction == totalDelivery){
-										jQuery('#totaldays').text("Total jours " + totalProduction);
-										var days = totalProduction;
-									}else{
-										jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-										var days = totalDelivery;
-									}
-
-									var curdate = new Date();
-									var curhour = curdate.getHours();
-									// ajout 1 jour ouvré de délai sur commande après 12h
-									if (curhour >= 12) {
-										var daystoadd = AddBusinessDays(days+1);
-									}else{
-										var daystoadd = AddBusinessDays(days);
-									}
-
-									curdate.setDate(curdate.getDate()+daystoadd);
-									var estdt = new Date(curdate);
-									var month = estdt.getMonth()+1;
-									var day = estdt.getDate();
-									var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-									//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
-									if(jQuery('#id_7').css('display') != 'none')
-									{
-										//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-										//jQuery('#prix_unitaire').text(finalPrice);
-										jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-									}
-
-									finalPrice1=fixstr(finalPrice);
-									finalPrice2 = finalPrice1.replace(".", ",");
-
-									jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-									jQuery('#remise').html(rabat2);
-
-								}
-
-								cenapojedyncza = finalPrice1;
-
-								ilosc=($('input_32').value) || ($('input_32perso').value);
-								if ($('input_32').value) {
-									cena=cenapojedyncza*ilosc;
-								}
-
-								if ($('input_32perso').value) {
-									cena=cenapojedyncza*ilosc;
-								}
-
-								var total = document.getElementById("total");
-								var remise = document.getElementById("remise");
-
-								cenapojedyncza=fixstr(cenapojedyncza);
-								cena2 = cenapojedyncza.replace(".", ",")
-
-								/* koszty transportu */
-
-								var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-								var etiqdesc = '';
-								if (etiquette == true) {
-									transport=0;
-									etiqdesc = '<br />- retrait colis a l\'atelier';
-								}
-								transport=0;
-
-								if ( (wysokosc > 160) || (szerokosc > 160) ) {
-									var blad = document.getElementById("id_9");
-									blad.style.background = "#EA2A6A";
-									blad.style.border = "1px solid #EA2A6A";
-									eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
-									eBox.style.display="block";
-									niepokazuj=1;
-								}
-
-								if ( (wysokosc > 120) && (szerokosc > 120) ) {
-									var blad = document.getElementById("id_9");
-									blad.style.background = "#EA2A6A";
-									blad.style.border = "1px solid #EA2A6A";
-									eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
-									eBox.style.display="block";
-									niepokazuj=1;
-								}
-
-								var niepokazuj = 0;
-
-								if (niepokazuj==1) {
-									prix.innerHTML='-';
-									remise.innerHTML='-';
-									total.innerHTML='-';
-								}
-
-								///////////livraison le jour même////////
-								if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-									livraisonrapide.style.display = 'block';
-								}
-								else {livraisonrapide.style.display = 'none';}
-								/////////////////////////////////////////
-
-								if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-									suma=cena-rabat;
-									suma=fixstr(suma);
-									suma2 = suma.replace(".", ",");
-									total.innerHTML=suma2+' &euro;';
-
-									if (option==0) {
-										option2 = '-';
-										var opt = document.getElementById("option");
-										opt.innerHTML='-';
-									}
-									var niepokazuj = 0;
-									if ( suma < 29 ) {
-										var forfait = 29 - suma;
-										forfait = fixstr(forfait);
-										eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
-										if (option>0) {
-											var newoption = parseFloat(option) + parseFloat(forfait);
-											newoption=fixstr(newoption);
-											newoption2 = newoption.replace(".", ",");
-											option2 = newoption2;
-											var newopt = document.getElementById("option");
-											newopt.innerHTML=newoption2+' &euro;';
-											suma = 29;
-											suma=fixstr(suma);
-											suma2 = suma.replace(".", ",");
-											var newtotal = document.getElementById("total");
-											newtotal.innerHTML=suma2+' &euro;';
-										} else {
-											var newoption = parseFloat(forfait);
-											newoption=fixstr(newoption);
-											newoption2 = newoption.replace(".", ",");
-											option2 = newoption2;
-											var newopt = document.getElementById("option");
-											newopt.innerHTML=newoption2+' &euro;';
-											suma = 29;
-											suma=fixstr(suma);
-											suma2 = suma.replace(".", ",");
-											var newtotal = document.getElementById("total");
-											newtotal.innerHTML=suma2+' &euro;';
-										}}
-
-										var rodzaj = "forex 5mm";
-
-										var dodajkoszyk = document.getElementById("cart_form");
-
-										if($('input_1').value == 'personnalisée') {
-											dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-										};
-										if($('input_1').value != 'personnalisée') {
-											dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-											livraisonComp.style.display = 'block';
-										};
-									}
-								}
-							});
-						});
-
-
-
-						</script>
+</script>

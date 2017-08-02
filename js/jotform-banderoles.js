@@ -693,6 +693,11 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/eco.png)";
               imag2.style.animation="anim4 .5s 1";
 						}
+            if ($('input_ext').value == 'capotoile') {
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/capotoile.png)";
+              imag2.style.animation="anim .5s 1";
+						}
+
             if ($('input_ext').value == 'tissu 220g') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/220g.png)";
               imag2.style.animation="anim3 .5s 1";

@@ -107,7 +107,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 	// $strmoyenne3 = $total->nb_avis;
 	$strmoyenne3 = $notation->nb_avis;
 	$strmoyenne4 = " avis";
-  
+
 	$view .= '<span class="client_reviews_1" itemprop="ratingValue">'. $strmoyenne1 . '</span>';
   $view .= '<span class="client_reviews_1" >'. $strmoyenne2 . '</span>';
   $view .= '<span class="client_reviews_1" itemprop="ratingCount">'. $strmoyenne3 . '</span>';

@@ -289,7 +289,7 @@
 
     	//////////////////////////////////////////////////////// tarif unitaire //
     	puoption = p1+fixations+HD;
-      
+
     	//////////////////////////////////////////////////////////////////// HD //
     	if ($('input_HD').value == 'HD') {HD = (puoption)*0.30; puoption+=HD; opis += '<br />- HD';}
     	if ($('input_HD').value == 'standard') {HD = 0; puoption+=HD; opis += '<br />- Standard';}
@@ -378,7 +378,6 @@
 				var production = jQuery(this).attr('text-value');
 				jQuery('#production-value').val(production);
 				jQuery(this).prop("disabled",true);
-
 			}
 
 			var m = myClass.search("delivery");

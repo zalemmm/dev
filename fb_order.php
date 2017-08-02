@@ -1209,7 +1209,6 @@ function add_to_db() {
 		$mj_user = getIdFromEmail($user->email);
 		abonnerListe($mj_user,$mj_list);
 
-		//////////////////////////////////////////////////// enregistre le produit commandé et ses caractéristiques dans la base de données table wp_fbs_prods
 		if ($dodaj_zamowienie) {
 			if (!empty($client_remise) && ($client_remise != '0')) {
 				$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$wysokoscrabatu."')");
