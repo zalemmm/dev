@@ -9,11 +9,11 @@
           <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu EasyQuick</u>: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand ExpoBag</u>: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand parapluie révolution</u>: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Valise transformable</u>: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
+              <b>Stand tissu EasyQuick: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
+              <b>Stand ExpoBag: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>
+              <b>Stand parapluie révolution: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
+              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
             </span>
           </span>
 
@@ -31,8 +31,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText1" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit</u>: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé</u>: <span class="highlight">Dès 336€ en 3x3</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/>
+              <b>Stand tissu droit: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
+              <b>Stand tissu courbé: <span class="highlight">Dès 336€ en 3x3</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/>
             </span>
           </span>
 
@@ -47,10 +47,10 @@
           <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText2" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>stand parapluie 3x3 droit</u>: <span class="highlight">Dès 685€</span></b><br/>225x225cm le stand traditionnel complet polyvalent<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>stand parapluie 3x4 droit</u>: <span class="highlight">Dès 760€</span></b><br/>225x300cm stand parapluie de 3 mètres à monter avec ses lés imprimés.<br/>
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>stand parapluie 3x3 courbé</u>: <span class="highlight">Dès 685€</span></b><br/>225x209cm le stand croubé traditionnel complet <br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>stand parapluie 3x4 courbé</u>: <span class="highlight">Dès 760€</span></b><br/>225x280cm stand parapluie courbé de 2,80 mètres à monter avec ses lés imprimés et ses retours.<br/>
+              <b>stand parapluie 3x3 droit: <span class="highlight">Dès 685€</span></b><br/>225x225cm le stand traditionnel complet polyvalent<br />
+              <b>stand parapluie 3x4 droit: <span class="highlight">Dès 760€</span></b><br/>225x300cm stand parapluie de 3 mètres à monter avec ses lés imprimés.<br/>
+              <b>stand parapluie 3x3 courbé: <span class="highlight">Dès 685€</span></b><br/>225x209cm le stand croubé traditionnel complet <br />
+              <b>stand parapluie 3x4 courbé: <span class="highlight">Dès 760€</span></b><br/>225x280cm stand parapluie courbé de 2,80 mètres à monter avec ses lés imprimés et ses retours.<br/>
             </span>
           </span>
 
@@ -73,7 +73,7 @@
           <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText3" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>2 Spots halogène 35w</u>: <span class="highlight">Dès 80,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
+              <b>2 Spots halogène 35w: <span class="highlight">Dès 80,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
             </span>
           </span>
 
@@ -88,8 +88,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText4" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit recto </u>: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu droit recto verso</u>: <span class="highlight">Dès 474€ en 3x3</span></b><br/>le stand tissu meilleur prix en ligne. Disponible de 3x3 (226x226cm)  à 3x8 (226x600cm). le verso est également imprimé sur de la maille extensible 220 ou 260g<br/>
+              <b>Stand tissu droit recto : <span class="highlight">Dès 342€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
+              <b>Stand tissu droit recto verso: <span class="highlight">Dès 474€ en 3x3</span></b><br/>le stand tissu meilleur prix en ligne. Disponible de 3x3 (226x226cm)  à 3x8 (226x600cm). le verso est également imprimé sur de la maille extensible 220 ou 260g<br/>
             </span>
           </span>
 
@@ -122,8 +122,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText5" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé recto </u>: <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Stand tissu courbé recto verso</u>: <span class="highlight">Dès 1106€</span></b><br/>le meilleur prix stand tissu en ligne. Disponible de 3x3 (226x208cm) à 3x4 (226x280cm). le verso est également imprimé sur de la maille extensible 260g<br/>
+              <b>Stand tissu courbé recto : <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />
+              <b>Stand tissu courbé recto verso: <span class="highlight">Dès 1106€</span></b><br/>le meilleur prix stand tissu en ligne. Disponible de 3x3 (226x208cm) à 3x4 (226x280cm). le verso est également imprimé sur de la maille extensible 260g<br/>
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_500" name="q500_option" onChange="JKakemono.czyscpola(); ">
@@ -139,8 +139,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText02');" onmouseout="ukryjt('helpText02');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText02" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 220g B1</u>: <span class="highlight">dès 12€/m²</span></b> tissu extensible 100% polyester 220g traité retardant au feu B1<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <b><u>tissu 260g B1</u>: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
+              <b>tissu 220g B1: <span class="highlight">dès 12€/m²</span></b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
+              <b>tissu 260g B1: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_02" name="q02_usage" onchange="JKakemono.czyscpola(); ">
@@ -154,7 +154,7 @@
           <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText6" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>2 spots halogènes 150w</u>: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br />
+              <b>2 spots halogènes 150w: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_51" name="q51_option" onchange="JKakemono.czyscpola(); ">
@@ -168,8 +168,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText7" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Comptoir tissu EasyQuick</u>: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Valise transformable</u>: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
+              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
@@ -184,8 +184,8 @@
           <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-              <i class="fa fa-check-square" aria-hidden="true"></i> <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
+              <b>France banderole crée votre fichier :</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+              <b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">

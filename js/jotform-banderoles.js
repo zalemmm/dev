@@ -677,11 +677,11 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/jet520.png)";
               imag2.style.animation="anim .5s 1";
 						}
-						if ($('input_ext').value == 'bache 750g M2/B1') {
+						if ($('input_ext').value == 'lacopac') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750g.png)";
               imag2.style.animation="anim1 .5s 1";
 						}
-						if ($('input_ext').value == 'bache 750g M2/B1 recto verso') {
+						if ($('input_ext').value == 'lacopac recto verso') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750grv.png)";
               imag2.style.animation="anim2 .5s 1";
 						}

@@ -8,14 +8,14 @@
 					<span class="helpButton" onmouseover="pokazt('helpTexttype');" onmouseout="ukryjt('helpTexttype');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttype" style="visibility:hidden;">
-							• <u><b>kakemono Roll-up FIRSTLINE</u>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
-							• <u><b>kakemono Roll-up BESTLINE</u>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
-							• <u><b>kakemono Roll-up LUXLINE</u>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />
-							• <u><b>kakemono Roll-up RECTO/VERSO</u>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>
-							• <u><b>kakemono Roll-up MINI</u>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-firstline.pdf" data-lity>kakemono Roll-up FIRSTLINE</a>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-bestline.pdf" data-lity>kakemono Roll-up BESTLINE</a>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-luxeline.pdf" data-lity>kakemono Roll-up LUXLINE</a>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-recto-verso.pdf" data-lity>kakemono Roll-up RECTO/VERSO</a>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-mini.pdf" data-lity>kakemono Roll-up MINI</a>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3<br/>
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-exterieur-mistral.pdf" data-lity>kakemono roll-up Mistral</a>: <span class="highlight">Dès 188,00€</span></b><br/>Le roll-up d’extérieur avec une résistance au vent et possibilité d'être fixé au sol<br/>
 						</span>
 					</span>
-
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le type...</option>
 						<option class="option1" value="first-line">Roll-Up First Line</option>
@@ -30,7 +30,7 @@
 				<li class="form-line" id="id_21">
 					<span class="helpButton" onmouseover="pokazt('helpTexttaille1');" onmouseout="ukryjt('helpTexttaille1');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille1" style="visibility:hidden;">
-							• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
+							<b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_21" name="q21_dimensions" onclick="JKakemono.czyscpola(); ">
@@ -42,9 +42,10 @@
 				<li class="form-line" id="id_22">
 					<span class="helpButton" onmouseover="pokazt('helpTexttaille2');" onmouseout="ukryjt('helpTexttaille2');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTexttaille2" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b>
-							<br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+						<span class="helpText" id="helpTexttaille2" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b>
+							<br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_22" name="q22_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="60x200">60x200 cm </option>
@@ -60,7 +61,7 @@
 				<li class="form-line" id="id_23">
 					<span class="helpButton" onmouseover="pokazt('helpTexttaille3');" onmouseout="ukryjt('helpTexttaille3');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille3" style="visibility:hidden;">
-						• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+						<b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_23" name="q23_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
@@ -77,7 +78,8 @@
 				<li class="form-line" id="id_24">
 					<span class="helpButton" onmouseover="pokazt('helpTexttaille4');" onmouseout="ukryjt('helpTexttaille4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTexttaille4" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+						<span class="helpText" id="helpTexttaille4" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
+						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_24" name="q24_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
@@ -90,7 +92,8 @@
 				<li class="form-line" id="id_25">
 					<span class="helpButton" onmouseover="pokazt('helpTexttaille5');" onmouseout="ukryjt('helpTexttaille5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTexttaille5" style="visibility:hidden;">• <u><b>Choisissez la taille du roll-up</u>:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
+						<span class="helpText" id="helpTexttaille5" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
+						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_25" name="q25_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
@@ -115,7 +118,7 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport1');" onmouseout="ukryjt('helpTextsupport1');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport1" style="visibility:hidden;">
-							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_visuel" onclick="JKakemono.czyscpola(); ">
@@ -129,10 +132,10 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport2');" onmouseout="ukryjt('helpTextsupport2');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport2" style="visibility:hidden;">
-							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
-							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Toile 100% écologique M1</b></u>: Toile Dickson 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
-							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Capotoile 320 M1</u>:</b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS.<br />
+							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: bâche pvc enduite anti-feu M1 INT/EXT durable et made in France.<br/>
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecologique.pdf" data-lity>Toile 100% écologique M1</a></b>: Toile 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-CAPOVERDE.pdf" data-lity>Capotoile 320 M1</a></b>: Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_visuel" onclick="JKakemono.czyscpola(); ">
@@ -148,9 +151,9 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport3');" onmouseout="ukryjt('helpTextsupport3');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport3" style="visibility:hidden;">
-							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
-							• <i class="fa fa-envira" aria-hidden="true"></i><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <b><u class="helpeco">Toile 100% écologique M1</b></u>: Toile Dickson 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
+							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France.<br/>
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecologique.pdf" data-lity>Toile 100% écologique M1</a></b>: Toile 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_33" name="q33_visuel" onclick="JKakemono.czyscpola(); ">
@@ -163,9 +166,10 @@
 
 				<li class="form-line" id="id_34">
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport4');" onmouseout="ukryjt('helpTextsupport4');">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
-							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
+							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_34" name="q34_visuel" onclick="JKakemono.czyscpola(); ">
@@ -179,8 +183,8 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextsupport5');" onmouseout="ukryjt('helpTextsupport5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport5" style="visibility:hidden;">
-							• <u><b>Bâche 440g</u>:</b><br/>bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							• <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <u class="helpfr"><span>Dickson Jet 520 M1</span></u>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France, aspect lisse.<br/>
+							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_35" name="q35_visuel" onclick="JKakemono.czyscpola(); ">
@@ -194,8 +198,8 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextspot');" onmouseout="ukryjt('helpTextspot');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextspot" style="visibility:hidden;">
-							• <u><b>Option Eclairage</u>:</b><br/>Mini Spot pince halogène 35w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>
-							• <u><b>Aucune option:</b></u><br/>... :) Aucune option.<br/>
+							<b>Option Eclairage:</b><br/>Mini Spot pince halogène 35w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>
+							<b>Aucune option:</b><br/>... :) Aucune option.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_maquette4" onclick="JKakemono.czyscpola(); ">
@@ -209,8 +213,8 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>France banderole crée votre fichier :</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">

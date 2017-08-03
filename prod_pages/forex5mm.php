@@ -227,11 +227,11 @@
 						</span>
 
 						<span class="optionsleft">
-							<label class="form-label-left" id="label_palette" for="palette">Livré monté</label>
+							<label class="form-label-left" id="label_palette" for="palette">Grand format livré entier</label>
 							<input type="checkbox" class="form-checkbox" id="palette" name="palette[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
 							<span class="helpButton" onmouseover="pokazt('helpTextpalette');" onmouseout="ukryjt('helpTextpalette');">
-								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">240€</span><br />
-								Pour recevoir vos enseignes montées.</span>
+								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">dès 240€ HT</span><br />
+								Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.</span>
 							</span>
 						</span>
 
