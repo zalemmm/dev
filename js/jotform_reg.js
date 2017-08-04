@@ -1474,6 +1474,20 @@ validator: function(){
           else { return JotForm.errored(input, "Merci de retaper votre mot de passe !"); }
         }
 
+        if ( (input.readAttribute('id')=='input_7') ){
+          var address = $('input_7');
+          if ($(address).value.length < 100 ) {  }
+          if ($(address).value.length > 100 ) {
+            return JotForm.errored(input, "100 charactères maximum !");
+          }
+        }
+
+
+        function updateCount() {
+            var cs = $(this).val().length;
+            $('#characters').text(cs);
+        }
+
         if (!JotForm.isVisible(input)) {
           return true; // if it's hidden then user cannot fill this field then don't validate
         }
@@ -1602,12 +1616,6 @@ validator: function(){
       }
 
     });
-
-
-
-
-
   });
-
-}
+  }
 };

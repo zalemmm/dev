@@ -18,7 +18,7 @@
 							<b>bâche nontissé 150g</b>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile coton/polyester pour balisage, jupe de palette. courte durée de vie. minimum 24M².<br />
 							<b class="helpeco"><i class="fa fa-envira" aria-hidden="true"></i> <a href="http://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecotoile.pdf" data-lity>EcoToile France banderole</a><sup><i class="fa fa-registered" aria-hidden="true"></i></sup></b>: <span class="highlight"> dès 7,80/m²</span><br />Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !<br />
 							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="http://dev.france-banderole.com/wp-content/uploads/2012/04/FT_JetUp_en.pdf" data-lity>100% écologique M1</a></b>: <span class="highlight">dès 21,45€/m²</span> Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
-							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/CAPOVERDE-TBR-EN-BREF-SLIDE.pdf" data-lity>Capotoile 320 M1</a></b>: <span class="highlight">dès 24,20€/m²</span> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS.<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/CAPOVERDE-TBR-EN-BREF-SLIDE.pdf" data-lity>Capotoile 320 M1</a></b>: <span class="highlight">dès 24,20€/m²</span> Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a>.<br />
 							<b>tissu 220g B1</b>: <span class="highlight">dès 12€/m²</span> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
 							<b>tissu 260g B1</b>: <span class="highlight">dès 16€/m²</span> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
 						</span>
@@ -486,6 +486,7 @@
 		<div id="preview_imag3"></div>
 		<div id="preview_imag4"></div>
 		<div id="preview_imag5"></div>
+		<div id="preview_imag6"></div>
 
 	</div>
 

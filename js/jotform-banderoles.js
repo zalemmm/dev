@@ -638,6 +638,7 @@ JotForm = {
             var imag3 = $("preview_imag3");
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
+            var imag6 = $("preview_imag6");
 						///////////////////////////////
 
             // oeuillets coins par défaut
@@ -645,6 +646,7 @@ JotForm = {
               $('container').style.display="none";
               imag4.style.backgroundImage="none";
               imag5.style.backgroundImage="none";
+              imag6.style.backgroundImage="none";
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/banderole-ext.png)";
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png)";
               imag3.style.animation="anim .5s 1";
@@ -682,8 +684,12 @@ JotForm = {
               imag2.style.animation="anim1 .5s 1";
 						}
 						if ($('input_ext').value == 'lacopac recto verso') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750grv.png)";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750g.png)";
+              imag6.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750grvOeuil.png),url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750grvSup.png)";
               imag2.style.animation="anim2 .5s 1";
+              if ($('input_21').value == 'sans oeillets') {
+                imag6.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/750grvSup.png)";
+              }
 						}
 						if ($('input_ext').value == 'bache micro perforée M1/B1') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/micro.png)";

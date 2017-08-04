@@ -3771,43 +3771,59 @@ function fbadm_print_details($number) {
 
   ///////////////////////////////////////////// zip des fichiers utilisateurs //
   $pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
-  // Returns array of files
+  // retourne un array des fichiers
   $files = scandir($pathfiles);
-  // Count number of files and store them to variable..
+  // nombre de fichiers dans le dossier client
   $num_files = count($files)-2;
-  // s'il y a plus de 2 fichiers dans le dossier client, crée une archive zip
+  // taille des fichiers dans le dossier client
+
+  // s'il y a plus de 2 fichiers dans le dossier client, créer l'archive
   if(file_exists($pathfiles) && $num_files >=2) {
-    ini_set('max_execution_time', 600);
-    ini_set('memory_limit','1024M');
-    // Start the backup!
-    function zipData($source, $destination) {
-      if (extension_loaded('zip')) {
-        if (file_exists($source)) {
-          $zip = new ZipArchive();
-          if ($zip->open($destination, ZIPARCHIVE::CREATE)) {
-            $source = realpath($source);
-            if (is_dir($source)) {
-              $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
-              foreach ($files as $file) {
-                $file = realpath($file);
-                if (is_dir($file)) {
-                  $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-                } else if (is_file($file)) {
-                  $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
-                }
-              }
-            } else if (is_file($source)) {
-              $zip->addFromString(basename($source), file_get_contents($source));
-            }
-          }
-          return $zip->close();
-        }
+    $totalSize = 0;
+    foreach (new DirectoryIterator($pathfiles) as $file) {
+      if ($file->isFile()) {
+          $totalSize += $file->getSize();
       }
-      return false;
     }
-    // create archive
-    zipData($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/', $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip');
-    echo '<div class="zipMessage">Plusieurs fichiers client trouvés, une archive a été générée: <a href="'.get_bloginfo('url').'/zip/'.$number.'.archive.zip" class="zipDownload"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Download Zip</a></div>';
+    // conversion en Megabytes
+    $totalSize = number_format($totalSize / 1048576, 2);
+    // si taille des fichiers inférieure à la limite, créer l'archive et afficher le bouton de téléchargement
+    if($totalSize < 300) {
+      ini_set('max_execution_time', 600);
+      ini_set('memory_limit','1024M');
+      // Start the backup!
+      function zipData($source, $destination) {
+        if (extension_loaded('zip')) {
+          if (file_exists($source)) {
+            $zip = new ZipArchive();
+            if ($zip->open($destination, ZIPARCHIVE::CREATE)) {
+              $source = realpath($source);
+              if (is_dir($source)) {
+                $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+                foreach ($files as $file) {
+                  $file = realpath($file);
+                  if (is_dir($file)) {
+                    $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+                  } else if (is_file($file)) {
+                    $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+                  }
+                }
+              } else if (is_file($source)) {
+                $zip->addFromString(basename($source), file_get_contents($source));
+              }
+            }
+            return $zip->close();
+          }
+        }
+        return false;
+      }
+      // create archive
+      zipData($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/', $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip');
+      echo '<div class="zipMessage">FICHIERS CLIENT - taille totale : '.$totalSize.' MB <a href="'.get_bloginfo('url').'/zip/'.$number.'.archive.zip" class="zipDownload"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Download Zip</a></div>';
+    // si la taille des fichiers et trop grande:
+    } else {
+      echo '<div class="zipMessage">FICHIERS CLIENT - taille totale : '.$totalSize.'MB - l\'archive n\'a pas été générée : taille max 300MB</div>';
+    }
   }
   // fin zip des fichiers utilisateur //////////////////////////////////////////
   // fin fichiers utilisateur //////////////////////////////////////////////////
