@@ -424,7 +424,7 @@ pers2=$('input_personnalisation-sans-option').value;
 ilosc=$('input_13').value;
 
 if ($('input_1').value == '2x2') {
-
+  var rodzaj = "Tente 2x2";
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
 	{cena = (structure2x2+canopi2x2+mur2x2)*1.37*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
@@ -475,7 +475,7 @@ if ($('input_1').value == '2x2') {
 
 
 if ($('input_1').value == '2x3') {
-
+  var rodzaj = "Tente 2x3";
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
 	{cena = (structure2x3+canopi2x3+mur2x3)*1.37*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
@@ -522,7 +522,7 @@ if ($('input_1').value == '2x3') {
 }
 
 if ($('input_1').value == '3x3') {
-
+  var rodzaj = "Tente 3x3";
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
 	{cena = (structure3x3+canopi3x3+mur3x3)*1.37*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
@@ -570,7 +570,7 @@ if ($('input_1').value == '3x3') {
 
 
 if ($('input_1').value == '3x4') {
-
+  var rodzaj = "Tente 3x4,5";
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
 	{cena = (structure3x4+canopi3x4+mur3x4)*1.37*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
@@ -618,7 +618,7 @@ if ($('input_1').value == '3x4') {
 
 
 if ($('input_1').value == '3x6') {
-
+  var rodzaj = "Tente 3x6";
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
 	{cena = (structure3x6+canopi3x6+mur3x6)*1.37*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
@@ -666,7 +666,7 @@ if ($('input_1').value == '3x6') {
 
 
 if ($('input_1').value == '4x6') {
-
+  var rodzaj = "Tente 4x6";
 	if ( ($('input_couleur').value == 'Blanc') || ($('input_couleur').value == 'Noir') || ($('input_couleur').value == 'Bleu') || ($('input_couleur').value == 'Rouge') || ($('input_couleur-sans-option').value == 'Blanc') || ($('input_couleur-sans-option').value == 'Noir') || ($('input_couleur-sans-option').value == 'Bleu') || ($('input_couleur-sans-option').value == 'Rouge') )
 	{cena = (structure4x6+canopi4x6+mur4x6)*1.37*ilosc;}
 	if ($('input_option').value == '1x Demi-mur')
@@ -1118,12 +1118,12 @@ if ($('input_1').value == '4x6') {
 
 
 
-                      var rodzaj = "Tente";
+
 
                       var dodajkoszyk = document.getElementById("cart_form");
 
 
-                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+taille+'<br>-'+coul+coul2+'<br>-'+option+pers+pers2+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+                      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="-'+coul+coul2+'<br>-'+option+pers+pers2+opis+etiqdesc+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
                       livraisonComp.style.display = 'block';
 
 

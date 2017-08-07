@@ -47,7 +47,7 @@ function register_cart() {
     	if (!is_array($products)) {
 			$products = array();
 		}
-		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport']);
+		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
@@ -149,7 +149,7 @@ function register_cart() {
 		}
 		$prix2 = number_format($prix, 2, '.', '').' &euro;';
 		$total = number_format($total, 2, '.', '').' &euro;';
-		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$opis, ilosc=>$_POST['ilosc'], prix=>$prix2, option=>'-', remise=>'-', total=>$total, transport=>$_POST['transport']);
+		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$opis, ilosc=>$_POST['ilosc'], prix=>$prix2, option=>'-', remise=>'-', total=>$total, transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);

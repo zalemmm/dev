@@ -654,10 +654,10 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			$kosztcalosci = 0;
 			foreach ( $products as $products => $item ) {
 				////////////////////////////////////////////////////////////////////////// ajout du bouton créér la maquette ds le tableau juste après <tr><td class="lefttd">:
-				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créér la maquette</a>
+				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>
 				$licznik++;
 				$view .= '
-				<tr><td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créér la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
+				<tr><td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 				if ($writable) {
 					$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
 				} else {
@@ -1227,7 +1227,7 @@ function add_to_db() {
 					$ktomakiete = 1;
 				}
 				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$item[prix]."', '".$item[option]."', '".$item[remise]."', '".$item[total]."', '".$item[transport]."', '', '1')");
+				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$item[prix]."', '".$item[option]."', '".$item[remise]."', '".$item[total]."', '".$item[transport]."', '', '1', '".$item[hauteur]."', '".$item[largeur]."')");
 			}
 			if ($dodaj_produkt) {
 				unset($_SESSION['fbcart']);
