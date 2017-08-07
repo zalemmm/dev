@@ -426,6 +426,8 @@ function fbs_install () {
 		frais varchar(100) NOT NULL,
 		filename varchar(255) NULL DEFAULT NULL,
 		status int(11) NOT NULL,
+		hauteur smallint(6) NOT NULL,
+		largeur smallint(6) NOT NULL,
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET=utf8;";
 		$wpdb->query($prods_query);
