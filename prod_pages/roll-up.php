@@ -221,6 +221,8 @@
 						<option class="titre" value="">fichier d'impression...</option>
 						<option class="option1" value="fb">France banderole crée la mise en page</option>
 						<option class="option2" value="user">j’ai déjà crée la mise en page</option>
+						<option class="option1" value="config">je crée ma maquette en ligne</option>
+
 					</select>
 				</li>
 
@@ -447,11 +449,13 @@
 					if (ilosc>=217 ) {cena=25;}
 					if (($('input_21').value == '80x200') && ($('input_31').value == '440g')) {
 						cena += 0;
+						wysokosc = 200;
+						szerokosc = 80;
 					}
 
-					if (($('input_21').value == '80x200') && ($('input_31').value == '300µ M1')) {
-						cena += 3;
-					}
+					//if (($('input_21').value == '80x200') && ($('input_31').value == '300µ M1')) {
+						//cena += 3;
+					//}
 
 					ktorytyp=$('input_21').value;
 					dodatkowaopcja='<br />- '+$('input_31').value;
@@ -476,6 +480,9 @@
 					if ($('input_32').value == '100% écologique M1') {cena += 11;}
 					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 60;
+
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value !== '') {
@@ -495,6 +502,9 @@
 					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
 					if ($('input_32').value == '100% écologique M1') {cena += 11;}
 					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
+
+					wysokosc = 200;
+					szerokosc = 80;
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -516,6 +526,9 @@
 					if ($('input_32').value == '100% écologique M1') {cena += 12;}
 					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 85;
+
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value !== '') {
@@ -536,6 +549,9 @@
 					if ($('input_32').value == '100% écologique M1') {cena += 12;}
 					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 100;
+
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value !== '') {
@@ -555,6 +571,9 @@
 					if ($('input_32').value == 'jet 520 M1') {cena += 8;}
 					if ($('input_32').value == '100% écologique M1') {cena += 16;}
 					if ($('input_32').value == 'capotoile') {cena += 16*1.3;}
+
+					wysokosc = 200;
+					szerokosc = 120;
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -578,6 +597,9 @@
 					if ($('input_32').value == '100% écologique M1') {cena += 20}
 					if ($('input_32').value == 'capotoile') {cena += 20*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 150;
+
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
 					if ($('input_4').value != '') {
@@ -594,6 +616,9 @@
 					if (ilosc>=217 ) {cena=188;}
 					if ($('input_35').value == '440g') {cena += 0}
 					if ($('input_35').value == 'jet 520 M1') {cena += 15}
+
+					wysokosc = 200;
+					szerokosc = 200;
 
 					ktorytyp=$('input_22').value;
 					dodatkowaopcja='<br />- '+$('input_32').value;
@@ -619,6 +644,9 @@
 					if ($('input_33').value == '100% écologique M1') {cena += 11}
 					if ($('input_33').value == 'capotoile') {cena += 11*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 60;
+
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					if ($('input_4').value != '') {
@@ -638,6 +666,9 @@
 					if ($('input_33').value == 'jet 520 M1') {cena += 4}
 					if ($('input_33').value == '100% écologique M1') {cena += 11}
 					if ($('input_33').value == 'capotoile') {cena += 11*1.3;}
+
+					wysokosc = 200;
+					szerokosc = 80;
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -659,6 +690,9 @@
 					if ($('input_33').value == '100% écologique M1') {cena += 12}
 					if ($('input_33').value == 'capotoile') {cena += 12*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 85;
+
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					if ($('input_4').value != '') {
@@ -678,6 +712,9 @@
 					if ($('input_33').value == 'jet 520 M1') {cena += 5}
 					if ($('input_33').value == '100% écologique M1') {cena += 12}
 					if ($('input_33').value == 'capotoile') {cena += 12*1.3;}
+
+					wysokosc = 200;
+					szerokosc = 100;
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -699,6 +736,9 @@
 					if ($('input_33').value == '100% écologique M1') {cena += 16}
 					if ($('input_33').value == 'capotoile') {cena += 16*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 120;
+
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					if ($('input_4').value != '') {
@@ -719,6 +759,9 @@
 					if ($('input_33').value == '100% écologique M1') {cena += 20}
 					if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 150;
+
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
 					if ($('input_4').value != '') {
@@ -735,6 +778,9 @@
 					if (ilosc>=217 ) {cena=275;}
 					if ($('input_35').value == '440g') {cena += 0}
 					if ($('input_35').value == 'jet 520 M1') {cena += 40}
+
+					wysokosc = 300;
+					szerokosc = 200;
 
 					ktorytyp=$('input_23').value;
 					dodatkowaopcja='<br />- '+$('input_33').value;
@@ -760,6 +806,9 @@
 					if ($('input_34').value == '100% écologique M1') {cena += 20}
 					if ($('input_34').value == 'capotoile') {cena += 20*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 80;
+
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
 					if ($('input_4').value != '') {
@@ -779,6 +828,9 @@
 					if ($('input_34').value == 'jet 520 M1') {cena += 12}
 					if ($('input_34').value == '100% écologique M1') {cena += 22}
 					if ($('input_34').value == 'capotoile') {cena += 22*1.3;}
+
+					wysokosc = 200;
+					szerokosc = 85;
 
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
@@ -800,6 +852,9 @@
 					if ($('input_34').value == '100% écologique M1') {cena += 28}
 					if ($('input_34').value == 'capotoile') {cena += 28*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 100;
+
 					ktorytyp=$('input_24').value;
 					dodatkowaopcja='<br />- '+$('input_34').value;
 					if ($('input_4').value != '') {
@@ -810,10 +865,16 @@
 				if ($('input_25').value == 'minia4'){
 					cena=24;
 					dodatkowaopcja='<br />- '+$('input_25').value;
+
+					wysokosc = 29.7;
+					szerokosc = 21;
 				}
 				if ($('input_25').value == 'minia3'){
 					cena=29;
 					dodatkowaopcja='<br />- '+$('input_25').value;
+
+					wysokosc = 42;
+					szerokosc = 29.7;
 				}
 
 				// fin double //////////////////////////////////////////////////////////
@@ -928,6 +989,9 @@
 				}
 				if ($('input_6').value == 'user') {
 					ktodaje = 'j’ai déjà crée la maquette';
+				}
+				if ($('input_6').value == 'config') {
+					ktodaje = 'je crée ma maquette en ligne';
 				}
 				///////////////////////////////////////////////////////////// options //
 				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
@@ -1150,9 +1214,16 @@
 					suma2 = suma.replace(".", ",");
 					total.innerHTML=suma2+' &euro;';
 
-					var dodajkoszyk = document.getElementById("cart_form");
-					dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-					livraisonComp.style.display = 'block';
+					if ($('input_1').value == 'Mistral') {
+						var dodajkoszyk = document.getElementById("cart_form");
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc*100+'" /><input type="hidden" name="largeur" value="'+szerokosc*100+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						livraisonComp.style.display = 'block';
+					}else{
+						var dodajkoszyk = document.getElementById("cart_form");
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						livraisonComp.style.display = 'block';
+					}
+
 				}
 			}
 		});

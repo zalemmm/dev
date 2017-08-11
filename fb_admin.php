@@ -2622,17 +2622,27 @@ function fb_admin_sales() {
 				} else {
 					echo $p->name.' ('.$p->quantity.')<br />';
 				}
-			// vérifie le type de colonne
-			$wzorzec = '/j’ai déjà crée la maquette/';
-			$ktomak = preg_match_all($wzorzec, $p->description, $wynik);
-			$ktomak = count($wynik[0]);
-			if ($ktomak >= 1) {
-				$ktomakiete = 0;
-			} else {
-				$ktomakiete = 1;
-			}
-			if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-			//sprawdzanie dla kolumny type // vérifie le type de colonne
+			//////////////////////////////////////// vérifier le type de maquette //
+
+      $wzorzec = '/j’ai déjà crée la maquette/';
+      $ktomak = preg_match_all($wzorzec, $p->description, $wynik);
+      $ktomak = count($wynik[0]);
+
+      $wzorzec2 = '/je crée ma maquette en ligne/';
+      $ktomak2 = preg_match_all($wzorzec2, $p->description, $wynik);
+      $ktomak2 = count($wynik[0]);  
+
+      if ($ktomak >= 1) {
+        $ktomakiete = 0;
+      }else if ($ktomak2 >= 1) {
+        $ktomakiete = 2;
+      }else {
+        $ktomakiete = 1;
+      }
+      if ($ktomakiete == 1) $czyfbrobimakiete = 1;
+      if ($ktomakiete == 2) $czyfbrobimakiete = 2;
+
+
 
 			// VERIFICATION OU DESCRIPTION CONTIENT RUSH24
 			if ($p->status == 1) {
@@ -2655,8 +2665,10 @@ function fb_admin_sales() {
 
 			// VERIFICATION OU DESCRIPTION CONTIENT RUSH24
 		  endforeach;
-			$maktype = 'impression';
-			if ($czyfbrobimakiete == 1) $maktype = 'creation';
+      $maktype = 'impression';
+      if ($czyfbrobimakiete == 1) $maktype = 'creation';
+      if ($czyfbrobimakiete == 2) $maktype = 'en ligne';
+      // fin vérifier le type de maquette //////////////////////////////////////
       ///
 			$filepath='';
 			$pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$o->unique_id.'/';
@@ -2844,29 +2856,38 @@ function fb_admin_sales_old() {
 			echo '<tr'.$style.'><td>'.$o->unique_id.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>';
 			$status = print_status($o->status);
 			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' ORDER BY name ASC");
-				$ktomakiete = 0;
-				$czyfbrobimakiete = 0;
+			$ktomakiete = 0;
+			$czyfbrobimakiete = 0;
+
 			foreach ($prods as $p) :
 				if ($p->status == 0) {
 					echo '<s style="color:red;">'.$p->name.' ('.$p->quantity.')</s><br />';
 				} else {
 					echo $p->name.' ('.$p->quantity.')<br />';
 				}
-			//sprawdzanie dla kolumny type //
+			  //////////////////////////////////////// vérifier le type de maquette //
 				$wzorzec = '/j’ai déjà crée la maquette/';
 				$ktomak = preg_match_all($wzorzec, $p->description, $wynik);
 				$ktomak = count($wynik[0]);
+
+        $wzorzec2 = '/je crée ma maquette en ligne/';
+				$ktomak2 = preg_match_all($wzorzec2, $p->description, $wynik);
+				$ktomak2 = count($wynik[0]);
 				if ($ktomak >= 1) {
 					$ktomakiete = 0;
-				} else {
-					$ktomakiete = 1;
-				}
+				}else if ($ktomak2 >= 1) {
+					$ktomakiete = 2;
+				}else {
+          $ktomakiete = 1;
+        }
 				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-			//sprawdzanie dla kolumny type //
+        if ($ktomakiete == 2) $czyfbrobimakiete = 2;
 			endforeach;
 			$maktype = 'impression';
 			if ($czyfbrobimakiete == 1) $maktype = 'creation';
-      ///
+      if ($czyfbrobimakiete == 2) $maktype = 'en ligne';
+      // fin vérifier le type de maquette //////////////////////////////////////
+
 			$filepath='';
 			$pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$o->unique_id.'/';
 			if(file_exists($pathfiles)) {
