@@ -486,7 +486,7 @@ function fbshop_head() {
   }
 
   //////////////////////////////////////////////////// pages rollup et kakemonos identiques
-  if ( is_page('roll-up') || is_page('kakemonos') || is_page('kakemono-2')|| is_page('kakemono') ) {
+  if ( is_page('roll-up') || is_page('kakemonos') || is_page('kakemono-2') || is_page('kakemono') || is_page('test-roll-up') ) {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-rollup.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
@@ -500,8 +500,8 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "best-line"},{"field": "22", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "150x200"},{"field": "23", "operator": "equals", "value": "150x200"}], "action": {"field": "33", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x300"}], "action": {"field": "35", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "60x200"},{"field": "22", "operator": "equals", "value": "80x200"},{"field": "22", "operator": "equals", "value": "85x200"},{"field": "22", "operator": "equals", "value": "100x200"},{"field": "22", "operator": "equals", "value": "120x200"},{"field": "23", "operator": "equals", "value": "60x200"},{"field": "23", "operator": "equals", "value": "80x200"},{"field": "23", "operator": "equals", "value": "85x200"},{"field": "23", "operator": "equals", "value": "100x200"},{"field": "23", "operator": "equals", "value": "120x200"}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "60x160"},{"field": "22", "operator": "equals", "value": "60x200"},{"field": "22", "operator": "equals", "value": "80x200"},{"field": "22", "operator": "equals", "value": "85x200"},{"field": "22", "operator": "equals", "value": "100x200"},{"field": "22", "operator": "equals", "value": "120x200"},{"field": "23", "operator": "equals", "value": "60x200"},{"field": "23", "operator": "equals", "value": "80x200"},{"field": "23", "operator": "equals", "value": "85x200"},{"field": "23", "operator": "equals", "value": "100x200"},{"field": "23", "operator": "equals", "value": "120x200"}], "action": {"field": "32", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
@@ -1261,6 +1261,17 @@ function generate_page ($page, $pageid) {
   		$formularz = get_rollup_form();
   	}
 
+    if ($page=='test-roll-up') {
+  		$h1name='Kakemono Roll-up meilleur prix - Rollup enrouleur - kakemono rolup - kakemono enrouleur - roll-up pas cher';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='roll-up';
+  		$info_title='Kakemono Roll-Up Enrouleur rollup publicitaire';
+  		$info_info='<span class="prezHide">Le kakemono roll-up ou rollup, un support publicitaire vertical intérieur de choix de par sa simplicité d’usage et son esthétisme. Son impact visuel fait du roll-up un vecteur de communication idéal pour vos salons professionnels, expositions, communication interne (accueil, séminaires…). Chez France banderole, LE meilleur prix roll-up enrouleur et SANS surprise :<br /><b>livré avec visuel imprimé et monté, <b>housse de protection, sac de transport et carton individuel !</b> (si si...)</b></span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-rollup/" target="_blank" class="notice modal-link"  title="aide rool-up"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-roll-up/" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-roll-up/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_test_rollup_form();
+  	}
+
   	if ($page=='construction') {
   		$h1name='construction';
   		$imghead1='kakemonos1';
@@ -1591,7 +1602,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 function get_mode_de_livraison(){
 	$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  	if($relais_colis !== false){
-		$retour = '<div class="acces_tab_name_devis noprint">MODE DE LIVRAISON : RELAIS COLIS</div>
+		$retour = '<div class="acces_tab_name_devis noprint">CHOISIR VOTRE RELAIS COLIS<sup><i class="fa fa-registered" aria-hidden="true"></i></sup></div>
 			';
 		$retour .= '<div id="tntB2CRelaisColis" class="exemplePresentation"></div>
 		<div id="map_canvas" class="exemplePresentation"></div>';
@@ -2939,6 +2950,13 @@ function get_rollup_form() {
     $form = file_get_contents(getTplPath('roll-up.php'));
     return $form;
 }
+
+function get_test_rollup_form() {
+    $form = file_get_contents(getTplPath('test-roll-up.php'));
+    return $form;
+}
+
+
 
 function get_oriflammes_form() {
 	$form = file_get_contents(getTplPath('oriflammes.php'));

@@ -112,6 +112,7 @@ input.delete:hover {
 }
 
 #add_1 a{
+  float: right;
   width: auto;
   padding: 5px;
   border-radius: 3px;
@@ -128,7 +129,7 @@ input.delete:hover {
 
 .gobackBtn {
   position: absolute;
-  top: 10px;
+  top: 25px;
   left: 245px;
   text-decoration: none;
   font-style: normal;
@@ -287,6 +288,7 @@ select.urs {
 #mywidefat td {
   vertical-align: middle;
   text-align: center;
+
 }
 
 #mywidefat input {
@@ -298,7 +300,14 @@ input#poids_commende {
   margin-left: 16px;
 }
 
-
+.widefat td {
+  border-bottom: 1px dashed #e9e3e3;
+}
+.widefat th {
+  background: rgb(229,229,229);
+  font-weight: bolder;
+  font-size: 11px;
+}
 
 .btnGroup {
   float: right;
@@ -378,6 +387,92 @@ input#poids_commende {
   margin-bottom: 10px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
+
+.statusCheck {
+  border: 1px solid #E5E5E5;
+  position: relative;
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+  background: #E5E5E5;
+  margin-bottom: 10px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+
+.statusCheckButtons {
+  margin-top: 0;
+
+}
+
+input.radioBtn {
+  -webkit-appearance: radio;
+  border: none;
+  box-shadow: none;
+  background: none;
+  width: 10px;
+  height: 10px;
+}
+
+input.radioBtn[type=radio]:checked:before {
+    background: none;
+}
+
+.statusCheck input,
+.statusCheck label {
+  display: inline-block;
+}
+
+.statusCheck .fa {
+  font-size: 22px;
+}
+
+.statusCheck .fa-check-circle {
+  color: #6aba20;
+}
+.statusCheck .fa-exclamation-circle {
+  color: #F9B610;
+}
+.statusCheck .statusVerybad .fa-exclamation-circle {
+  color: #ea2a6a;
+}
+
+.statusChecked {
+  display: inline-block;
+  width: 80px;
+  margin-left: 10px;
+  font-size: 10px;
+  text-align: right;
+}
+.statusChecked2 {
+  box-sizing: border-box;
+  display: inline-block;
+  float: right;
+  background: white;
+  width: 21px;
+  height: 21px;
+  border-radius: 14px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+.statusChecked2 .fa {
+  font-size: 22px;
+  margin-top: -1px;
+  margin-left: 1px;
+}
+.statusChecked2 .fa-check-circle{
+  color: #6aba20;
+}
+.statusChecked2 .fa-exclamation-circle{
+  color: #F9B610;
+}
+.statusChecked2.statusVerybad .fa-exclamation-circle {
+  color: #ea2a6a;
+}
+
+.statusChecked .fa{
+  font-size: 22px;
+}
+
+
 
 .statusp2 {
   border: 1px solid #E5E5E5;

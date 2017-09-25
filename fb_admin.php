@@ -2203,9 +2203,9 @@ function fb_admin_reports() {
   		<thead>
   		<tr>
   		<th></th>
-  		<th>N° DE COMMANDE</th>
+  		<th>N° COMMANDE</th>
   		<th>DESCRIPTION</th>
-  		<th>DATE CREATE</th>
+  		<th>DATE</th>
   		<th>ETAT</th>
   		<th>CLIENT</th>
   		<th>FRAIS</th>
@@ -2601,7 +2601,7 @@ function fb_admin_sales() {
 			}
 		}
 
-		echo '<table class="widefat"><tr><th><a href="'.$order_link.'">N° DE COMMANDE</a></th><th><a href="'.$client_link.'">CLIENT</a></th><th>DESCRIPTION</th><th><a href="'.$prix_link.'">PRIX</a></th><th><a href="'.$date_link.'">DATE CREATE</a></th><th><a href="'.$etat_link.'">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th></tr>';
+		echo '<table class="widefat"><tr><th><a href="'.$order_link.'">N° COMMANDE</a></th><th><a href="'.$client_link.'">CLIENT</a></th><th>DESCRIPTION</th><th><a href="'.$prix_link.'">PRIX</a></th><th><a href="'.$date_link.'">DATE</a></th><th><a href="'.$etat_link.'">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th></tr>';
 
 		foreach ($orders as $o) :
 			$client = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$o->user'");
@@ -2630,7 +2630,7 @@ function fb_admin_sales() {
 
       $wzorzec2 = '/je crée ma maquette en ligne/';
       $ktomak2 = preg_match_all($wzorzec2, $p->description, $wynik);
-      $ktomak2 = count($wynik[0]);  
+      $ktomak2 = count($wynik[0]);
 
       if ($ktomak >= 1) {
         $ktomakiete = 0;
@@ -2732,6 +2732,19 @@ function fb_admin_sales() {
 				}
 			}
 
+      // récupérer le status manuel de la commande
+    	$checkitup = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$o->unique_id'");
+    	$reponse = $checkitup->status_check;
+    	$statusCheck = '';
+    	if ($reponse <= '1' ) {
+    		$statusCheck = '<span class="statusChecked2 statusAllright"><i class="fa fa-check-circle" aria-hidden="true" title="status OK"></i> </span>';
+    	}
+    	if ($reponse == '2' ) {
+    		$statusCheck = '<span class="statusChecked2 statusNotgood"><i class="fa fa-exclamation-circle" aria-hidden="true" title="action requise sur votre commande"></i> </span>';
+    	}
+    	if ($reponse == '3' ) {
+    		$statusCheck = '<span class="statusChecked2 statusVerybad"><i class="fa fa-exclamation-circle" aria-hidden="true" title="problème sur votre commande"></i> </span>';
+    	}
 
 			if ($o->status == 7) {
 				if((isset($o->payment)) AND ($o->payment != '')) {
@@ -2742,7 +2755,7 @@ function fb_admin_sales() {
 					$status = $status.'<br />'.$pay_name->pay_designation;
 				}
 			}
-			echo '</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td'.$stylstatusu.'>'.$status.'</td><td>'.$maktype.'</td><td>'.$filepath.'</td>
+			echo '</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td'.$stylstatusu.'>'.$status.$statusCheck.'</td><td>'.$maktype.'</td><td>'.$filepath.'</td>
 			<td>'.$czyjostatniruch.'</td><td>'.$czyjostatnikomentarz.'</td>
 
 			<td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="DETAILS"></form><br />
@@ -3161,6 +3174,7 @@ function fbadm_print_details($number) {
     }
   }
 
+
   if (isset($_POST['btnSavePoids'])) {
     $poidsColis = $_POST['poids_commende'];
     $hasPoids = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='poids' AND unique_id = '$number'");
@@ -3259,7 +3273,7 @@ function fbadm_print_details($number) {
 		$e_remise_new1 = $_POST['e_remise_new1'];
 		$e_total_new1 = $_POST['e_total_new1'];
 		$e_frais_new1 = $_POST['e_frais_new1'];
-		$add_prod = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES('','$number','$e_name_new1','$e_description_new1','$e_quantity_new1','$e_prix_new1','$e_option_new1','$e_remise_new1','$e_total_new1','$e_frais_new1','',1)");
+		$add_prod = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES('','$number','$e_name_new1','$e_description_new1','$e_quantity_new1','$e_prix_new1','$e_option_new1','$e_remise_new1','$e_total_new1','$e_frais_new1','',1,'','')");
 	}
 
   if (isset($_POST['editdet'])) {
@@ -3650,7 +3664,7 @@ function fbadm_print_details($number) {
     $code_tnt_bon = substr(($useraddress->l_code == "" ? $uzyt->f_code : $useraddress->l_code), 0, 2) . "48904205";
   }
 
-  // select options livraison //////////////////////////////////////////////////
+  ////////////////////////////////////////////////// select options livraison //
 	echo '<div class="statusp4">
   <form name="numertnt" id="numertnt" action="" method="post"><input type="hidden" name="changingtnt" />
     <p><label for="shippingcompany"><b>Shipping company: </b></label>
@@ -3710,7 +3724,8 @@ function fbadm_print_details($number) {
 	echo $select_pre.$select_inter.$select_post;
 	echo '</select><input type="submit" value="SAVE" class="savebutt2" /></form></div>';
 
-  // envoi de fichiers /////////////////////////////////////////////////////////
+  // fin select options livraison //////////////////////////////////////////////
+  ///////////////////////////////////////////////////////// envoi de fichiers //
 	echo '<div class="statusp2">Upload <a href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
@@ -3725,12 +3740,19 @@ function fbadm_print_details($number) {
   }
 	echo $fichiers;
 	echo '</div>';
-  // fin envoi de fichiers /////////////////////////////////////////////////////
 
-  // Commande en traitement puis passage en expédié
-  if($order->status==3 ){
+  // fin envoi de fichiers /////////////////////////////////////////////////////
+  //////////////////////////// Commande en traitement puis passage en expédié //
+
+  if($order->status==3 ){ // status 3 = traitement
+    $wpdb->query("UPDATE `$fb_tablename_order` SET status_check='1' WHERE unique_id='$number'"); // check ok auto au passage en traitement
   	passage_expedie();
   }
+
+  if($order->status==4 ){ // status 4 = expédié
+    $wpdb->query("UPDATE `$fb_tablename_order` SET status_check='1' WHERE unique_id='$number'"); // check ok auto au passage en expédié
+  }
+
 
   // méthodes de paiement //////////////////////////////////////////////////////
 	echo '<div class="statusp"><form name="formaplatnosci" id="formaplatnosci" action="" method="post"><input type="hidden" name="zmianaplatnosci" /><label for="changeplatnosc"><b>Paied: </b></label><select name="changeplatnosc" id="changeplatnosc">';
@@ -3751,10 +3773,51 @@ function fbadm_print_details($number) {
 		echo '<div class="statusp"><b>Moyen de paiement choisi: </b><br />'.$pay_name->pay_designation.'</div>';
 	}
 
-	echo '<div class="statusp"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbbonprint='.$number.'" target="_blank" class="but_par">Imprimer BL</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$number.'" target="_blank" class="but_par">Imprimer facture</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceproprint='.$number.'" target="_blank" class="but_par">PRO</a></div>';
   // fin méthodes de paiement //////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////// boutons imprimer //
 
+	echo '<div class="statusp"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbbonprint='.$number.'" target="_blank" class="but_par">Imprimer BL</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$number.'" target="_blank" class="but_par">Imprimer facture</a><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceproprint='.$number.'" target="_blank" class="but_par">PRO</a></div>';
+
+  // fin boutons imprimer //////////////////////////////////////////////////////
+  /////////////////////////////////////////////// foncion check status manuel //
+
+  if (isset($_POST['statusCheckSubmit'])) { // au check radio & save: update bdd du status manuel
+    $checked = $_POST['statusCheck'];
+    $wpdb->query("UPDATE `$fb_tablename_order` SET status_check='$checked' WHERE unique_id='$number'");
+  }
+  // on récupère la valeur du check sélectionné pour l'afficher
+  $checkitup = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
+  $reponse = $checkitup->status_check;
+  $statusCheck = '';
+  $radio1 = '<label class="statusAllright"><i class="fa fa-check-circle" aria-hidden="true"></i><input class="radioBtn" type="radio" name="statusCheck" value="1" /></label>';
+  $radio2 = '<label class="statusNotgood"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><input  class="radioBtn" type="radio" name="statusCheck" value="2" /></label>';
+  $radio3 = '<label class="statusVerybad"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><input  class="radioBtn" type="radio" name="statusCheck" value="3" /></label>';
+
+  if ($reponse <= '1' ) {
+    $statusCheck = '<span class="statusChecked statusAllright"><i class="fa fa-check-circle" aria-hidden="true"></i> </span>';
+    $radio1 = '<label class="statusAllright"><i class="fa fa-check-circle" aria-hidden="true"></i><input class="radioBtn" type="radio" name="statusCheck" value="1" checked /></label>';
+  }
+  if ($reponse == '2' ) {
+    $statusCheck = '<span class="statusChecked statusNotgood"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </span>';
+    $radio2 = '<label class="statusNotgood"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><input  class="radioBtn" type="radio" name="statusCheck" value="2" checked /></label>';
+  }
+  if ($reponse == '3' ) {
+    $statusCheck = '<span class="statusChecked statusVerybad"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </span>';
+    $radio3 = '<label class="statusVerybad"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><input  class="radioBtn" type="radio" name="statusCheck" value="3" checked /></label>';
+  }
+
+  echo '<div class="statusCheck">
+    <form name="statusCheckForm" id="statusCheck" action="" method="post">
+      <div class="statusCheckButtons">
+        '.$radio1.$radio2.$radio3.$statusCheck.'
+      </div>
+      <input type="submit" value="SAVE"  name="statusCheckSubmit" class="savebutt2" />
+    </form>
+  </div>';
+
+  // fin check status manuel ///////////////////////////////////////////////////
   ////////////////////////////// liste les fichiers envoyés par l'utilisateur //
+
 	echo '<form name="editdetails" id="editdetails" action="" method="post"><input type="hidden" name="editdet" value="'.$number.'" />';
 	echo '<p><small>Please note that:<br />Description lines should contain break lines marker &lt;br /&gt;<br />Total sum couldn\'t contain Frais de port cost.</small></p>';
 	echo '<table class="widefat fixed" id="mywidefat" cellspacing="0"><thead><tr><th>ITEM</th><th style="width:150px;">DESCRIPTION</th><th>QUANTITÉ</th><th>PRIX U.</th><th>OPTION</th><th>REMISE</th><th>TOTAL</th><th>FRAIS DE PORT</th><th>FILE(S)</th></tr></thead>';

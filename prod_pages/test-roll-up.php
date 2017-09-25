@@ -48,14 +48,13 @@
 					</span>
 					<select class="form-dropdown validate[required]" id="input_22" name="q22_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
-						<option class="option1" value="60x160">60x160 cm </option>
-                        <option class="option2" value="60x200">60x200 cm </option>
-						<option class="option1" value="80x200">80x200 cm </option>
-						<option class="option2" value="85x200">85x200 cm </option>
-						<option class="option1" value="100x200">100x200 cm </option>
-						<option class="option2" value="120x200">120x200 cm </option>
-						<option class="option1" value="150x200">150x200 cm </option>
-						<option class="option2" value="200x200">200x200 cm </option>
+						<option class="option1" value="60x200">60x200 cm </option>
+						<option class="option2" value="80x200">80x200 cm </option>
+						<option class="option1" value="85x200">85x200 cm </option>
+						<option class="option2" value="100x200">100x200 cm </option>
+						<option class="option1" value="120x200">120x200 cm </option>
+						<option class="option2" value="150x200">150x200 cm </option>
+						<option class="option1" value="200x200">200x200 cm </option>
 					</select>
 				</li>
 
@@ -490,29 +489,6 @@
 					}
 				}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '60x160')) {
-					if (ilosc<7) {cena=44;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=43;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=42;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=41;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=39;}
-					if (ilosc>=217 ) {cena=37;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 3;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
-					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
-
-					wysokosc = 160;
-					szerokosc = 60;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
-				}
-
 				if (($('input_1').value == 'best-line') && ($('input_22').value == '80x200')) {
 					if (ilosc<7) {cena=47;}
 					if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
@@ -888,14 +864,10 @@
 				}
 
 				if ($('input_25').value == 'minia4'){
-					wysokosc = 29.7;
-					szerokosc = 21;
 					cena=24;
 					dodatkowaopcja='<br />- '+$('input_25').value;
 				}
 				if ($('input_25').value == 'minia3'){
-					wysokosc = 42;
-					szerokosc = 29.7;
 					cena=29;
 					dodatkowaopcja='<br />- '+$('input_25').value;
 				}
@@ -1014,7 +986,6 @@
 					ktodaje = 'j’ai déjà crée la maquette';
 				}
 				if ($('input_6').value == 'config') {
-					cena+=5;
 					ktodaje = 'je crée ma maquette en ligne';
 				}
 

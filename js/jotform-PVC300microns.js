@@ -623,19 +623,19 @@ JotForm = {
 
               if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
                  $('container').style.display="none";
-                 $("preview_imag").style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
+                 $("preview_imag").style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
                  var imag = $("preview_imag2");
-                 imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/base.png)";
+                 imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/base.png)";
                  imag.style.animation="anim .5s 1";
    						}
 
               if ($('input_2').value == '2oeillets') {
                  var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/oeuil2.png)";
+                 imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/oeuil2.png)";
    						}
               if ($('input_2').value == '4oeillets') {
                  var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/oeuil4.png)";
+                 imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/oeuil4.png)";
               }
               if ($('input_2').value == 'sans') {
                  var imag = $("preview_imag3");

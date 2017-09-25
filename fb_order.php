@@ -194,13 +194,13 @@ function has_uploaded_files($cmd, $userid) {
 	$fichiers="";
 	if(file_exists($name))
 	if ($dir = @opendir($name)) {
-	    while(($file = readdir($dir))) {
+	  while(($file = readdir($dir))) {
 			if(!is_dir($file) && !in_array($file, array(".",".."))) {
 				$fichiers.=$file.'<br />';
 			}
-    	}
+    }
 	    closedir($dir);
-  	}
+  }
 	return $fichiers;
 }
 
@@ -213,128 +213,225 @@ function get_filesender($products) {
 	$user = $_SESSION['loggeduser'];
 	$b = has_uploaded_files($idzamowienia, $user->login);
 
-//if ($user->login == 'schizoos' || $user->login == 'pocalypse') {
-//	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
-$view .= '
-<form id="fileupload" class="noprint" action="'.get_bloginfo("url").'/uploaded/" method="post" enctype="multipart/form-data"><input type="hidden" id="cmdID" name="cmd" value="'.$idzamowienia.'" /><input type="hidden" name="usr" value="'.$user->login.'" />
-				<div class="acces_tab_name2">Envoyer vos maquettes</div>
-        <div class="row fileupload-buttonbar">
-            <div class="span7">
-                <input type="checkbox" class="toggle" />
-                <span class="btn btn-success fileinput-button fuselect">
-                    <span><i class="fa fa-plus" aria-hidden="true"></i> sélectionner le(s) fichier(s)</span>
-                    <input type="file" name="files[]" multiple />
-                </span>
-                <button type="submit" class="btn btn-primary start fustart">
-                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer le(s) fichier(s)</span>
-                </button>
-                <button type="reset" class="btn btn-warning cancel fucancel">
-                    <span><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler</span>
-                </button>
-                <button type="button" class="btn btn-danger delete fudelete">
-                    <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
-                </button>
-
-            </div>
-            <div class="span5 fileupload-progress fade">
-                <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100">
-                    <div class="bar" style="width:0%;"></div>
-                </div>
-                <div class="progress-extended">&nbsp;</div>
-            </div>
-        </div>
-        <br />
-        <table id="fbcart_fileupload3" class="table table-striped" cellpadding="0" cellspacing="0">
-		<thead><tr><th class="lefttd"></th><th class="tabname">FICHIER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
-        <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
-</form>
-    ';
-
-$view .= '
-<script id="template-upload" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-upload fade">
-        <td class="lefttd"></td>
-        <td class="name tabname"><span>{%=file.name%}</span></td>
-        <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        {% if (file.error) { %}
-            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
-        {% } else if (o.files.valid && !i) { %}
-            <td class="tdprog"><div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div></td>
-            <td class="tdstart">{% if (!o.options.autoUpload) { %}
-                <button class="btn btn-primary start fustart">
-                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer</span>
-                </button>
-            {% } %}</td>
-        {% } else { %}
-            <td colspan="2"></td>
-        {% } %}
-        <td class="tabdel">{% if (!i) { %}
-            <button class="btn btn-warning cancel delbut">
-                <span>Cancel</span>
-            </button>
-        {% } %}</td>
-    </tr>
-{% } %}
-</script>
-<script id="template-download" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download fade">
-        {% if (file.error) { %}
-            <td class="lefttd"><input type="checkbox" name="delete" value="1" class="toggle" /></td>
-            <td class="name tabname"><span>{%=file.name%}</span></td>
-            <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td class="error" colspan="2"><span class="label label-important">Erreur</span> {%=file.error%}</td>
-        {% } else { %}
-            <td class="lefttd"><input type="checkbox" name="delete" value="1" class="toggle" /></td>
-            <td class="name tabname"><span>{%=file.name%}</span></td>
-            <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td></td>
-            <td class="tabwykrzyknik"></td>
-        {% } %}
-        <td class="tabdel">
-            <button class="btn btn-danger delete delbut" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}"{% if (file.delete_with_credentials) { %} data-xhr-fields=\'{"withCredentials":true}\'{% } %}>
-                <span>Delete</span>
-            </button>
-        </td>
-    </tr>
-{% } %}
-</script>
-	';
+	//if ($user->login == 'schizoos' || $user->login == 'pocalypse') {
+	//	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
 	$view .= '
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/vendor/jquery.ui.widget.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.iframe-transport.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/tmpl.min.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/load-image.min.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/canvas-to-blob.min.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.image-gallery.min.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-fp.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-ui.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-jui.js"></script>
-	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/main.js?v3"></script>
-	<!--[if gte IE 8]><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/cors/jquery.xdr-transport.js"></script><![endif]-->
+	<form id="fileupload" class="noprint" action="'.get_bloginfo("url").'/uploaded/" method="post" enctype="multipart/form-data"><input type="hidden" id="cmdID" name="cmd" value="'.$idzamowienia.'" /><input type="hidden" name="usr" value="'.$user->login.'" />
+					<div class="acces_tab_name2">Envoyer vos maquettes</div>
+	        <div class="row fileupload-buttonbar">
+	            <div class="span7">
+	                <input type="checkbox" class="toggle" />
+	                <span class="btn btn-success fileinput-button fuselect">
+	                    <span><i class="fa fa-plus" aria-hidden="true"></i> sélectionner le(s) fichier(s)</span>
+	                    <input type="file" name="files[]" multiple />
+	                </span>
+	                <button type="submit" class="btn btn-primary start fustart">
+	                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer le(s) fichier(s)</span>
+	                </button>
+	                <button type="reset" class="btn btn-warning cancel fucancel">
+	                    <span><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler</span>
+	                </button>
+	                <button type="button" class="btn btn-danger delete fudelete">
+	                    <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
+	                </button>
+
+	            </div>
+	            <div class="span5 fileupload-progress fade">
+	                <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100">
+	                    <div class="bar" style="width:0%;"></div>
+	                </div>
+	                <div class="progress-extended">&nbsp;</div>
+	            </div>
+	        </div>
+	        <br />
+	        <table id="fbcart_fileupload3" class="table table-striped" cellpadding="0" cellspacing="0">
+			<thead><tr><th class="lefttd"></th><th class="tabname">FICHIER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
+	        <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
+	</form>
 	';
-/*
-} else {
-	if ($b=="") {
-		$view .= '<table id="fbcart_fileupload" border="0" cellspacing="0"><tr><th class="leftth">ETAT</th><th>télécharger</th><th class="nobackground"></th></tr><tr><td class="lefttd">Transferer des fichiers</td><td colspan="2">';
-		$view .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$idzamowienia.'&usr='.$user->login.'&isemail='.$user->email.'&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_telecharger"></a>';
-		$view .= '</td></tr>';
-		$view .= '</table>';
-	} else {
-		$view .= '<table id="fbcart_fileupload2" border="0" cellspacing="0"><tr><th class="leftth">ETAT</th><th class="leftth2">télécharger</th><th class="leftth3">Fichier(s) Reçu(s)</th><th class="nobackground"></th></tr><tr><td class="lefttd2">Transferer des fichiers</td><td class="lefttd3">';
-		$view .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$idzamowienia.'&usr='.$user->login.'&isemail='.$user->email.'&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_telecharger"></a></td><td class="lefttd4" colspan="2">';
-		$view .= $b;
-		$view .= '</td></tr>';
-		$view .= '</table>';
-	}
-}
-*/
+
+	$view .= '
+	<script id="template-upload" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+	    <tr class="template-upload fade">
+	        <td class="lefttd"></td>
+	        <td class="name tabname"><span>{%=file.name%}</span></td>
+	        <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
+	        {% if (file.error) { %}
+	            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+	        {% } else if (o.files.valid && !i) { %}
+	            <td class="tdprog"><div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div></td>
+	            <td class="tdstart">{% if (!o.options.autoUpload) { %}
+	                <button class="btn btn-primary start fustart">
+	                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer</span>
+	                </button>
+	            {% } %}</td>
+	        {% } else { %}
+	            <td colspan="2"></td>
+	        {% } %}
+	        <td class="tabdel">{% if (!i) { %}
+	            <button class="btn btn-warning cancel delbut">
+	                <span>Cancel</span>
+	            </button>
+	        {% } %}</td>
+	    </tr>
+	{% } %}
+	</script>
+	<script id="template-download" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+	    <tr class="template-download fade">
+	        {% if (file.error) { %}
+	            <td class="lefttd"><input type="checkbox" name="delete" value="1" class="toggle" /></td>
+	            <td class="name tabname"><span>{%=file.name%}</span></td>
+	            <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
+	            <td class="error" colspan="2"><span class="label label-important">Erreur</span> {%=file.error%}</td>
+	        {% } else { %}
+	            <td class="lefttd"><input type="checkbox" name="delete" value="1" class="toggle" /></td>
+	            <td class="name tabname"><span>{%=file.name%}</span></td>
+	            <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
+	            <td></td>
+	            <td class="tabwykrzyknik"></td>
+	        {% } %}
+	        <td class="tabdel">
+	            <button class="btn btn-danger delete delbut" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}"{% if (file.delete_with_credentials) { %} data-xhr-fields=\'{"withCredentials":true}\'{% } %}>
+	                <span>Delete</span>
+	            </button>
+	        </td>
+	    </tr>
+	{% } %}
+	</script>
+		';
+		$view .= '
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/vendor/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.iframe-transport.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/tmpl.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/load-image.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/canvas-to-blob.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.image-gallery.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-fp.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-ui.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-jui.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/main.js?v3"></script>
+		<!--[if gte IE 8]><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/cors/jquery.xdr-transport.js"></script><![endif]-->
+		';
+
 	return $view;
 }
 
+
+function get_maksender($products) {
+	$idzamowienia = $_GET['detail'];
+	$user = $_SESSION['loggeduser'];
+	$b = has_uploaded_files($idzamowienia, $user->login);
+
+	//if ($user->login == 'schizoos' || $user->login == 'pocalypse') {
+	//	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
+	$view .= '
+	<form id="fileupload" class="noprint" action="'.get_bloginfo("url").'/uploaded/" method="post" enctype="multipart/form-data"><input type="hidden" id="cmdID" name="cmd" value="'.$idzamowienia.'" /><input type="hidden" name="usr" value="'.$user->login.'" />
+					<div class="acces_tab_name2">Envoyer des fichiers</div>
+	        <div class="row fileupload-buttonbar">
+	            <div class="span7">
+	                <input type="checkbox" class="toggle" />
+	                <span class="btn btn-success fileinput-button fuselect">
+	                    <span><i class="fa fa-plus" aria-hidden="true"></i> sélectionner le(s) fichier(s)</span>
+	                    <input type="file" name="files[]" multiple />
+	                </span>
+	                <button type="submit" class="btn btn-primary start fustart">
+	                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer le(s) fichier(s)</span>
+	                </button>
+	                <button type="reset" class="btn btn-warning cancel fucancel">
+	                    <span><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler</span>
+	                </button>
+	                <button type="button" class="btn btn-danger delete fudelete">
+	                    <span><i class="fa fa-trash-o" aria-hidden="true"></i> Effacer</span>
+	                </button>
+
+	            </div>
+	            <div class="span5 fileupload-progress fade">
+	                <div class="progress progress-success progress-striped active" aria-valuemin="0" aria-valuemax="100">
+	                    <div class="bar" style="width:0%;"></div>
+	                </div>
+	                <div class="progress-extended">&nbsp;</div>
+	            </div>
+	        </div>
+	        <br />
+	        <table id="fbcart_fileupload3" class="table table-striped" cellpadding="0" cellspacing="0">
+			<thead><tr><th class="lefttd"></th><th class="tabname">FICHIER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
+	        <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
+	</form>
+	';
+
+	$view .= '
+	<script id="template-upload" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+	    <tr class="template-upload fade">
+	        <td class="lefttd"></td>
+	        <td class="name tabname"><span>{%=file.name%}</span></td>
+	        <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
+	        {% if (file.error) { %}
+	            <td class="error" colspan="2"><span class="label label-important">Error</span> {%=file.error%}</td>
+	        {% } else if (o.files.valid && !i) { %}
+	            <td class="tdprog"><div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div></td>
+	            <td class="tdstart">{% if (!o.options.autoUpload) { %}
+	                <button class="btn btn-primary start fustart">
+	                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer</span>
+	                </button>
+	            {% } %}</td>
+	        {% } else { %}
+	            <td colspan="2"></td>
+	        {% } %}
+	        <td class="tabdel">{% if (!i) { %}
+	            <button class="btn btn-warning cancel delbut">
+	                <span>Cancel</span>
+	            </button>
+	        {% } %}</td>
+	    </tr>
+	{% } %}
+	</script>
+	<script id="template-download" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+	    <tr class="template-download fade">
+	        {% if (file.error) { %}
+	            <td class="lefttd"><input type="checkbox" name="delete" value="1" class="toggle" /></td>
+	            <td class="name tabname"><span>{%=file.name%}</span></td>
+	            <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
+	            <td class="error" colspan="2"><span class="label label-important">Erreur</span> {%=file.error%}</td>
+	        {% } else { %}
+	            <td class="lefttd"><input type="checkbox" name="delete" value="1" class="toggle" /></td>
+	            <td class="name tabname"><span>{%=file.name%}</span></td>
+	            <td class="size tabsize"><span>{%=o.formatFileSize(file.size)%}</span></td>
+	            <td></td>
+	            <td class="tabwykrzyknik"></td>
+	        {% } %}
+	        <td class="tabdel">
+	            <button class="btn btn-danger delete delbut" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}"{% if (file.delete_with_credentials) { %} data-xhr-fields=\'{"withCredentials":true}\'{% } %}>
+	                <span>Delete</span>
+	            </button>
+	        </td>
+	    </tr>
+	{% } %}
+	</script>
+		';
+		$view .= '
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/vendor/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.iframe-transport.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/tmpl.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/load-image.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/canvas-to-blob.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.image-gallery.min.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-fp.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-ui.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-jui.js"></script>
+		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/main.js?v3"></script>
+		<!--[if gte IE 8]><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/cors/jquery.xdr-transport.js"></script><![endif]-->
+		';
+
+	return $view;
+}
 ////////////////////////////////////////////////////////////////////////////////
 // 											Afficher les détails de la commande
 ////////////////////////////////////////////////////////////////////////////////
@@ -416,13 +513,48 @@ function get_details() {
 	}
 
 	$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
-	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :<span>ETAT : '.print_status($zamowienie->status).'</span></div>';
+	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS <span class="disno480">Nº '.$idzamowienia.'</span><span class="etat">'.print_status($zamowienie->status).'</span></div>';
 
-	// affiche seuls les commentaires de france banderole
+	// récuprère le dernier commentaire de france banderole
 	// $lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
 
-	// affiche tous les commentaires récents ////////////////////////////////////
+	// récupère le dernier commentaire ///////////////////////////////////////////
 	$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' ORDER BY c.date DESC LIMIT 1");
+
+	// si maquette enregistrée, envoi et affichage du message de confirmation ////
+	$data = date('Y-m-d H:i:s');
+	$tresc = "Bonjour,\r\n\r\nNous avons bien réceptionné votre maquette. Elle sera vérifiée dans les 4 heures maximum (horaires d’ouvertures, hors WE & jours fériés) par notre service infographie. Vous serez avertis par mail d’un changement de statut par rapport à votre commande.\r\nAmicalement,\r\nL'équipe France banderole.\r\n https://www.france-banderole.com";
+	$tresc = addslashes($tresc);
+
+	$exist = $wpdb->get_row("SELECT * FROM ".$fb_tablename_comments." WHERE order_id='".$idzamowienia."' && topic='Fichier(s)'");
+	if ((!$exist) && (has_uploaded_files($idzamowienia,$user->id))) {
+			$dodawanie = $wpdb->query("INSERT INTO ".$fb_tablename_comments." VALUES (not null, '".$idzamowienia."', 'Fichier(s)', '".$data."', 'France Banderole', '".$tresc."')");
+			$epilog = '';
+			$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c WHERE c.order_id = '$idzamowienia' ORDER BY c.date DESC LIMIT 1");
+
+			$sprawdzcf = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '$idzamowienia'");
+			if ($sprawdzcf) {
+				$apd = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='user' WHERE unique_id='".$idzamowienia."' AND type='lastupdate'");
+			} else {
+				$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$idzamowienia."', 'lastupdate', 'user')");
+			}
+	}
+
+	// récupérer le status manuel de la commande
+	$checkitup = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
+	$reponse = $checkitup->status_check;
+	$statusCheck = '';
+	if ($reponse <= '1' ) {
+		$statusCheck = '<span class="statusChecked statusAllright"><i class="fa fa-check-circle" aria-hidden="true" title="tout est OK !"></i> </span>';
+	}
+	if ($reponse == '2' ) {
+		$statusCheck = '<span class="statusChecked statusNotgood"><i class="fa fa-exclamation-circle" aria-hidden="true" title="votre attention est requise !"></i> </span>';
+	}
+	if ($reponse == '3' ) {
+		$statusCheck = '<span class="statusChecked statusVerybad"><i class="fa fa-exclamation-circle" aria-hidden="true" title="votre commande est bloquée !"></i> </span>';
+	}
+
+	// affichage du dernier commentaire //////////////////////////////////////////
 	if ($lastcomment) {
 		if (strlen($lastcomment->content) > 250) {
 			$ostcomment = substr($lastcomment->content, 0, 250).'...';
@@ -434,7 +566,7 @@ function get_details() {
 			$ostcomment = htmlspecialchars($ostcomment);
 		}
 		$idostcomment = $lastcomment->order_id;
-		$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...</a>';
+		$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...'.$statusCheck.'</a>';
 		$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">DERNIER COMMENTAIRE</th><th></th><th></th></tr>';
 		if ($lastcomment->author == 'France Banderole') {
 			$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2">'.$lastcomment->author.'</td><td class="lefttd3">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
@@ -546,6 +678,7 @@ function get_details() {
 
 	$view .= print_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia);
 	return $view;
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -644,7 +777,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		$view .= $epilog;
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
 		if ($products) {
-			if ( ($statuszamowienia < 3) OR ($statuszamowienia == 7) ) { // si vous pouvez toujours ajouter le fichier
+			if (($statuszamowienia < 3) OR ($statuszamowienia == 7)) {
 				$view .= get_filesender($produkty);
 			}
 
@@ -657,17 +790,17 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>
 				$licznik++;
 
-				$wzorzec = '/je crée ma maquette en ligne/';
-	      $ktomak = preg_match_all($wzorzec, $item[description], $wynik);
-	      $ktomak = count($wynik[0]);
-				if ($ktomak >= 1) {
+				$find = '/je crée ma maquette en ligne/';
+				$maquette = preg_match_all($find, $item[description], $resultat);
+				$maquette = count($resultat[0]);
+
+				if (($maquette >= 1) && (($statuszamowienia != 6))) {
 					$view .= '
-					<tr><td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
+					<tr><td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 	      }else{
 					$view .= '
 					<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 	      }
-
 				if ($writable) {
 					$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
 				} else {
@@ -944,7 +1077,7 @@ function print_votre() {
 		$view .= $alert_content;
 	}
 
-	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Votre compte et devis</h1><hr />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Vos commandes et devis</h1><hr />';
 	$user = $_SESSION['loggeduser'];
 
 	//Récupération des variables
@@ -980,7 +1113,7 @@ function print_votre() {
 		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
 			<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a>
 			<a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>
- 			Se deconnecter </a></div>';
+ 			Se déconnecter </a></div>';
 
 		$view .= '</div>';
 		$view .= '<div class="votre_tab_head">';
@@ -993,20 +1126,40 @@ function print_votre() {
 
 		$view .= '<table id="fbcart_votre" cellspacing="0">';
 
-		// $view .= '<tr><td colspan="6">HEADER</td></tr>';
+		// on récupère la valeur du check manuel sélectionné pour l'afficher
 
-		$view .= '<tr><th class="leftth">VOIR LE DEVIS<br />OU LA COMMANDE</th><th class="tddesc">DESCRIPTION</th><th>N° DE COMMANDE</th><th>PRIX</th><th>DATE</th><th>ETAT</th></tr>';
+
+		$view .= '<tr><th class="leftth">Gérer</th><th class="tddesc">DESCRIPTION</th><th>N° DE COMMANDE</th><th>PRIX</th><th>DATE</th><th>état</th></tr>';
 		foreach ($orders as $o) :
+
 			$view .= '<tr>';
 			$view .= '<td class="lefttd">';
 			//if ($o->status != 6) {
 				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">
- 				<span class="split"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Gérer la</span> commande</button></form>';
+ 				<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> Gérer <span class="disno960">la commande</span></button></form>';
 			//}
 			$view .= '</td>';
 			$view .= '<td class="tddesc"><div class="kontener">';
 			if ($o->status != 6) {
 				$status = print_status_form($o->status, $o->unique_id);
+				$commande = $o->unique_id;
+
+				// récupérer le status manuel de la commande
+				$checkitup = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$commande'");
+				$reponse = $checkitup->status_check;
+				$statusCheck = '';
+				if ($reponse <= '1' ) {
+					$statusCheck = '<a class="statusChecked statusAllright" href="'.get_bloginfo("url").'/vos-devis/?detail='.$commande.'" title="tout est OK !"><i class="fa fa-check-circle" aria-hidden="true"></i></a>';
+				}
+				if ($reponse == '2' ) {
+					$statusCheck = '<a class="statusChecked statusNotgood" href="'.get_bloginfo("url").'/vos-devis/?detail='.$commande.'" title="votre attention est requise !"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </a>';
+				}
+				if ($reponse == '3' ) {
+					$statusCheck = '<a class="statusChecked statusVerybad" href="'.get_bloginfo("url").'/vos-devis/?detail='.$commande.'" title="votre commande est bloquée !"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> </a>';
+				}
+
+				$status = print_status_form($o->status, $o->unique_id).$statusCheck;
+				$view .= '</div>';
 			} else {
 				$status = print_status($o->status);
 			}
@@ -1027,7 +1180,7 @@ function print_votre() {
 			if ($newcomment) {
 				$newcomment2 = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments` WHERE order_id = '$o->unique_id' AND author='France Banderole' ORDER BY date DESC LIMIT 1");
 				if ($newcomment2) {
-					$comment_new = '<br /><span class="comment_new">NOUVEAU <span class="split">MESSAGE !</span></span>';
+					$comment_new = '<br /><form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$commande.'" /><button class="comment_new"><i class="fa fa-envelope" aria-hidden="true"></i> NOUVEAU <span class="split">MESSAGE!</button></form></span>';
 				}
 			}
 
@@ -1098,7 +1251,7 @@ function print_votre() {
 /// boutons status /////////////////////////////////////////////////////////////
 
 function print_status_form($status, $cmd) {
-	$formatted .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$cmd.'" /><button class="stat'.$status.'" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">';
+	$formatted .= '<div class="stat">';
 	if ($status == 0) {
 		$formatted .= 'attente';
 	}
@@ -1123,7 +1276,7 @@ function print_status_form($status, $cmd) {
 	if ($status == 7) {
 		$formatted .= 'paiement en traitement';
 	}
-	$formatted .= '</button></form>';
+	//$formatted .= '</button></form>';
 	return $formatted;
 }
 
@@ -1212,7 +1365,8 @@ function add_to_db() {
 		$totalcalosci = number_format($totalcalosci, 2);
 		$unique_id = random_string();
 		$data = date('Y-m-d H:i:s');
-		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','')");
+		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','')");
+
 		//ICI PLACER L'AJOUT A MAILJET
 		createContact($user->email);
 		$mj_list = getListId('Tous clients');
@@ -1227,26 +1381,40 @@ function add_to_db() {
 			$ktomakiete = 0;
 			$czyfbrobimakiete = 0;
 			$products = $_SESSION['fbcart'];
+
 			foreach ( $products as $products => $item ) {
 				$wzorzec = '/j’ai déjà crée la maquette/';
 				$ktomak = preg_match_all($wzorzec, $item[description], $wynik);
 				$ktomak = count($wynik[0]);
+
+				$find = '/je crée ma maquette en ligne/';
+				$maquette = preg_match_all($find, $item[description], $resultat);
+				$maquette = count($resultat[0]);
+
 				if ($ktomak >= 1) {
 					$ktomakiete = 0;
-				} else {
+				}else if ($maquette >= 1) {
+					$ktomakiete = 2;
+				}else {
 					$ktomakiete = 1;
 				}
 				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
+				if ($ktomakiete == 2) $czyfbrobimakiete = 2;
+
 				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$item[prix]."', '".$item[option]."', '".$item[remise]."', '".$item[total]."', '".$item[transport]."', '', '1', '".$item[hauteur]."', '".$item[largeur]."')");
 			}
+
 			if ($dodaj_produkt) {
 				unset($_SESSION['fbcart']);
 			}
 			if ($czyfbrobimakiete == 0) {
-				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttp://www.france-banderole.com";
+				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
+				$lettert = "Fonctionnement général de votre accès client";
+			} elseif  ($czyfbrobimakiete == 2){
+				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Créer votre maquette grâce à notre application en ligne. \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
 				$lettert = "Fonctionnement général de votre accès client";
 			} else {
-				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttp://www.france-banderole.com";
+				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
 				$lettert = "Fonctionnement général de votre accès client";
 			}
 			$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
@@ -1255,7 +1423,7 @@ function add_to_db() {
 	        wp_mail($user->email, $lettert, $letter);
 		}
 
-		//ajout header mail <a href=\'http://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
+		//ajout header mail <a href=\'https://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
 
 		/* Ajout de l'indicateur "retrait atelier" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
 		if($retrait_atelier !== false){

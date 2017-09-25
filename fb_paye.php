@@ -105,7 +105,7 @@ function setPaiementFinProd($uid,$pay_method) {
 			$montant_cmd = str_replace(',','',$order_tmp->totalttc);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
 			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';
-			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1')");
+			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','')");
 			calcOrder($uid);
 		} else {
 			$wpdb->delete($fb_tablename_prods, array('order_id' => $uid, 'name' => 'Suppression de l\'escompte commercial'));
@@ -119,7 +119,7 @@ function setPaiementFinProd($uid,$pay_method) {
 			$montant_cmd = str_replace(',','',$order_tmp->totalttc);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
 			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';
-			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1')");
+			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','')");
 			calcOrder($uid);
 		}
 	}

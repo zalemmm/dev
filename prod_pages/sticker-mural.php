@@ -266,14 +266,14 @@
 			var tape          = '';
 
 			//////////////////////////////////////////////////////////////////////////
-			szerokosc = ($('input_9').value);
+			szerokosc = ($('input_8').value);
 			szerokosc = szerokosc.replace(',','.');
 			szerokosc = fixstr(szerokosc);
-			$('input_9').value = szerokosc;
-			wysokosc = ($('input_8').value);
+			$('input_8').value = szerokosc;
+			wysokosc = ($('input_9').value);
 			wysokosc = wysokosc.replace(',','.');
 			wysokosc = fixstr(wysokosc);
-			$('input_8').value = wysokosc;
+			$('input_9').value = wysokosc;
 			metraz = szerokosc * wysokosc;
 			metraz = fixstr(metraz);
 
@@ -595,6 +595,11 @@
 					newtotal.innerHTML=suma2+' &euro;';
 				}
 
+				//////////////////////////////////////////////////// envoi formulaire //
+				var dodajkoszyk = document.getElementById("cart_form");
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+ktorytyp+dodatkowaopcja+'<br />- '+$('input_1').value+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /> <button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				livraisonComp.style.display = 'block';
+
 				/////////////////////////////////// avertissements, messages d'erreur //
 				if ( (szerokosc > 130) && (wysokosc > 130) ) {
 					var blad = document.getElementById("id_1");
@@ -617,12 +622,6 @@
 					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur doit être supérieur ou égal à 10cm!';
 					niepokazuj=1;
 				}
-
-
-				//////////////////////////////////////////////////// envoi formulaire //
-				var dodajkoszyk = document.getElementById("cart_form");
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+ktorytyp+dodatkowaopcja+'<br />- '+$('input_1').value+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'<br />- '+wysokosc+' x '+szerokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-				livraisonComp.style.display = 'block';
 			}
 
 		});

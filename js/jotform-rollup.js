@@ -696,10 +696,10 @@ JotForm = {
               imag4.style.backgroundImage="none";
               imag5.style.backgroundImage="none";
 						}
-
+            
             ////////////////mistral
             if ($('input_1').value == 'Mistral') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral200.png), url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral200.png), url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
               imag2.style.animation="anim .5s 1";
               imag4.style.backgroundImage="none";
               imag5.style.backgroundImage="none";

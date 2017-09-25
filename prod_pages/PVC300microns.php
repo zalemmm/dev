@@ -378,6 +378,7 @@
 				var production = jQuery(this).attr('text-value');
 				jQuery('#production-value').val(production);
 				jQuery(this).prop("disabled",true);
+
 			}
 
 			var m = myClass.search("delivery");
@@ -594,48 +595,38 @@
       		newtotal.innerHTML=suma2+' &euro;';
       	}
 
+
+
+        ///////////////////////////////// avertissements, messages d'erreur //
+        if ( (wysokosc > 1.4) || (szerokosc > 1.4) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+          eBox.style.display="block";
+          niepokazuj=1;
+        }
+
+        if ( (wysokosc > 1) && (szerokosc > 1) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+          eBox.style.display="block";
+          niepokazuj=1;
+        }
+        
+        if ( (wysokosc < 0.2) || (szerokosc < 0.2) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
+          eBox.style.display="block";
+          niepokazuj=1;
+        }
+
+        if ( (wysokosc < 0.3) && (szerokosc < 0.3) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
+          eBox.style.display="block";
+          niepokazuj=1;
+        }
+
+        ////////////////////////////////////////////////// envoi formulaire //
       	var rodzaj = "PVC 300 microns";
       	var dodajkoszyk = document.getElementById("cart_form");
       	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'m'+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
 
-
-      	if ( (wysokosc > 1) && (szerokosc > 1.4) ) {
-      		var blad = document.getElementById("id_5");
-      		var blad2 = document.getElementById("id_6");
-      		prix.innerHTML='-';
-      		total.innerHTML='-';
-      		dodajkoszyk.innerHTML ='';
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 1x1,4m !';
-      	}
-
-        if ( (wysokosc > 1.4) && (szerokosc > 1) ) {
-      		var blad = document.getElementById("id_5");
-      		var blad2 = document.getElementById("id_6");
-      		prix.innerHTML='-';
-      		total.innerHTML='-';
-      		dodajkoszyk.innerHTML ='';
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Dimensions incorrectes car nous imprimons sur des plaques de 1x1,4m !';
-      	}
-
-      	if ( (wysokosc < 0.2) && (szerokosc < 0.3) ) {
-      		var blad = document.getElementById("id_5");
-      		var blad2 = document.getElementById("id_6");
-      		prix.innerHTML='-';
-      		total.innerHTML='-';
-      		option.innerHTML='-';
-      		dodajkoszyk.innerHTML ='';
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
-      	}
-
-      	if ( (wysokosc < 0.3) && (szerokosc < 0.2) ) {
-      		var blad = document.getElementById("id_5");
-      		var blad2 = document.getElementById("id_6");
-      		prix.innerHTML='-';
-      		total.innerHTML='-';
-      		option.innerHTML='-';
-      		dodajkoszyk.innerHTML ='';
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
-      	}
       }
     });
   });

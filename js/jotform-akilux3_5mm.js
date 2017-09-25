@@ -623,135 +623,135 @@ JotForm = {
 
             $('container').style.display="none";
             var imag = $("preview_imag");
-            imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
+            imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
 
 /////////////////////sans rainage//////////
 
 				    	/////////////////////sans rainage recto//////////
 						if ($('input_0').value == 'recto') {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
               imag.style.animation="anim .5s 1";
 						}
 
 						/////sans rainage recto standard////
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 
 						/////sans rainage recto standard fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 									/////sans rainage recto HD////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 																/////sans rainage recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						/////////////////////sans rainage rectoverso//////////
 						if ($('input_0').value == 'rectoverso') {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
               imag.style.animation="anim .5s 1";
 						}
 
 										/////sans rainage rectoverso standard////
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 
 																/////sans rainage rectoverso standard fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 									/////sans rainage rectoverso HD////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 																/////sans rainage rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
 						}
 
 
@@ -764,46 +764,46 @@ JotForm = {
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 									/////1 rainage recto HD////
 																/////1 rainage recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						/////////////////////1 rainage rectoverso//////////
 										/////1 rainage rectoverso standard////
@@ -811,46 +811,46 @@ JotForm = {
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 									/////1 rainage rectoverso HD////
 																/////1 rainage rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
 						}
 
 /////////////////////2 rainages//////////
@@ -861,46 +861,46 @@ JotForm = {
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 									/////2 rainages recto HD////
 																/////2 rainages recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						/////////////////////2 rainages rectoverso//////////
 										/////2 rainages rectoverso standard////
@@ -908,46 +908,46 @@ JotForm = {
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 									/////2 rainages rectoverso HD////
 																/////2 rainages rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
 						}
 
 
@@ -959,46 +959,46 @@ JotForm = {
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 									/////3 rainages recto HD////
 																/////3 rainages recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						/////////////////////3 rainages rectoverso//////////
 										/////3 rainages rectoverso standard////
@@ -1006,46 +1006,46 @@ JotForm = {
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 									/////3 rainages rectoverso HD////
 																/////3 rainages rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag2");
-							imag.style.backgroundImage="url(http://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+							imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
 						}
 
 						}

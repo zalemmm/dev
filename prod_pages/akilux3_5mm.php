@@ -130,6 +130,15 @@
     							</span>
     						</span>
 
+                <span class="optionsleft">
+    							<label class="form-label-left" id="label_palette" for="palette">Grand format livré entier</label>
+    							<input type="checkbox" class="form-checkbox" id="palette" name="palette[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
+    							<span class="helpButton" onmouseover="pokazt('helpTextpalette');" onmouseout="ukryjt('helpTextpalette');">
+    								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">dès 240€ HT</span><br />
+    								Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.</span>
+    							</span>
+    						</span>
+
               </span>
 
             <div class="break-line"></div>
@@ -219,6 +228,16 @@
   jQuery('#etiquette').click(function() {
     if (document.getElementById('etiquette').checked) {
       document.getElementById('adresse').checked = false;
+    }
+  });
+  jQuery('#palette').click(function() {
+    if (document.getElementById('palette').checked) {
+      document.getElementById('etiquette').checked = false;
+    }
+  });
+  jQuery('#etiquette').click(function() {
+    if (document.getElementById('etiquette').checked) {
+      document.getElementById('palette').checked = false;
     }
   });
 
@@ -529,6 +548,12 @@
           etiqdesc = '<br />- retrait colis a l\'atelier';
           cena-= cena*3/100;
         }
+        var palette = $$('#palette').collect(function(e){ return e.checked; }).any();
+  			if (palette == true) {
+  				cena += 240;
+  				cedzik += '<br />- forfait palettisation';
+  			}
+
         ////fin d'options///
 
 
@@ -826,13 +851,13 @@
           }
 
           ///////////////////////////////// avertissements, messages d'erreur //
-          if ( (wysokosc > 160) || (szerokosc > 160) ) {
-            eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+          if ( (wysokosc > 200) || (szerokosc > 200) ) {
+            eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 200x150cm!';
             eBox.style.display="block";
             niepokazuj=1;
           }
-          if ( (wysokosc > 120) && (szerokosc > 120) ) {
-            eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+          if ( (wysokosc > 150) && (szerokosc > 150) ) {
+            eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 200x150cm!';
             eBox.style.display="block";
             niepokazuj=1;
           }

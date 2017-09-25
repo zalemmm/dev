@@ -9,11 +9,11 @@ function get_rating_home() {
 	$rates = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` WHERE exist = 'true' ORDER BY date DESC LIMIT 2", ARRAY_A);
 	foreach ($rates as $r) :
 		$licz = strlen($r[comment]);
-    if ($licz>=120) {
-		$tnij = substr($r[comment],0,90);
-      	$txt = $tnij."...";
-      } else {
-		$txt = $r[comment];
+	    if ($licz>=120) {
+			$tnij = substr($r[comment],0,90);
+        	$txt = $tnij."...";
+        } else {
+			$txt = $r[comment];
 		}
 		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 12;
 		echo '<div class="singlerate">
@@ -58,10 +58,10 @@ function get_rating_page() {
 		// $sec = 0;
 		// $thi = 0;
 		// foreach ($rates as $r) :
-		// $licznik++;
-		// $fir = $fir + $r[fir];
-		// $sec = $sec + $r[sec];
-		// $thi = $thi + $r[thi];
+			// $licznik++;
+			// $fir = $fir + $r[fir];
+			// $sec = $sec + $r[sec];
+			// $thi = $thi + $r[thi];
 		// endforeach;
 		// $gen = ((($fir + $sec + $thi)/$licznik)/3); $gen = (round($gen, 0)) *30;
 		// $fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
@@ -130,41 +130,42 @@ function get_rating_page() {
 			$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 			$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` p, `$fb_tablename_catprods` c WHERE p.order_id='$r[unique_id]' AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
 			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-			if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/roll-up";}
-			elseif ($prodname->name == 'Banderole'){$lienprod = "//www.france-banderole.com/banderoles";}
-			elseif ($prodname->name == 'Cartes 350g'){$lienprod = "//www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "//www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "//www.france-banderole.com/cartes";}
-			elseif ($prodname->name == 'Oriflamme'){$lienprod = "//www.france-banderole.com/oriflammes";}
-			elseif ($prodname->name == 'depliants 80g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 135g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 170g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'depliants 250g'){$lienprod = "//www.france-banderole.com/depliants";}
-			elseif ($prodname->name == 'Enseigne'){$lienprod = "//www.france-banderole.com/enseignes";}
-			elseif ($prodname->name == 'Flyers 80g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 135g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 170g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 250g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 350g'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "//www.france-banderole.com/flyers";}
-			elseif ($prodname->name == 'Affiches 135g'){$lienprod = "//www.france-banderole.com/affiches";}
-			elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-			elseif ($prodname->name == 'Roll-up'){$lienprod = "//www.france-banderole.com/roll-up";}
-			elseif ($prodname->name == 'Totem'){$lienprod = "//www.france-banderole.com/totem";}
-			elseif ($prodname->name == 'Akilux 3mm'){$lienprod = "//www.france-banderole.com/panneaux-akilux-3mm";}
-			elseif ($prodname->name == 'Akilux 3,5mm'){$lienprod = "//www.france-banderole.com/panneaux-akilux-3_5mm";}
-			elseif ($prodname->name == 'Akilux 5mm'){$lienprod = "//www.france-banderole.com/panneaux-akilux-5mm";}
-			elseif ($prodname->name == 'Forex 3mm'){$lienprod = "//www.france-banderole.com/panneaux-forex-3mm";}
-			elseif ($prodname->name == 'Forex 5mm'){$lienprod = "//www.france-banderole.com/panneaux-forex-5mm";}
-			elseif ($prodname->name == 'Dibond'){$lienprod = "//www.france-banderole.com/panneaux-dibond";}
-			elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = "//www.france-banderole.com/stickers";}
-			else {$lienprod = "//www.france-banderole.com/banderoles";};
+			if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
+	    elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
+	    elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
+	    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
+	    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
+	    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
+	    elseif ($prodname->name == 'depliants 80g'){$lienprod = get_bloginfo('url').'/depliants';}
+	    elseif ($prodname->name == 'depliants 135g'){$lienprod = get_bloginfo('url').'/depliants';}
+	    elseif ($prodname->name == 'depliants 170g'){$lienprod = get_bloginfo('url').'/depliants';}
+	    elseif ($prodname->name == 'depliants 250g'){$lienprod = get_bloginfo('url').'/depliants';}
+	    elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
+	    elseif ($prodname->name == 'Flyers 80g'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 135g'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 170g'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 250g'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 350g'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 120µ'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 270µ'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Flyers 350µ'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Affiches 135g'){$lienprod = get_bloginfo('url').'/affiches';}
+	    elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+	    elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+	    elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+	    elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+	    elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+	    elseif ($prodname->name == 'Roll-up'){$lienprod = get_bloginfo('url').'/roll-up';}
+	    elseif ($prodname->name == 'Totem'){$lienprod = get_bloginfo('url').'/totem';}
+	    elseif ($prodname->name == 'Akilux 3mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-3mm';}
+	    elseif ($prodname->name == 'Akilux 3,5mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-3_5mm';}
+	    elseif ($prodname->name == 'Akilux 5mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-5mm';}
+	    elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
+	    elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
+	    elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
+	    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
+	    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+	    else {$lienprod = get_bloginfo('url').'/banderoles';};
 
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
@@ -252,41 +253,42 @@ function get_rating_page() {
 		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 		$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
-		if ($prodname->name == 'Kakemono'){$lienprod = "//www.france-banderole.com/roll-up";}
-		elseif ($prodname->name == 'Banderole'){$lienprod = "//www.france-banderole.com/banderoles";}
-		elseif ($prodname->name == 'Cartes 350g'){$lienprod = "//www.france-banderole.com/cartes";}
-		elseif ($prodname->name == 'Cartes 270µ'){$lienprod = "//www.france-banderole.com/cartes";}
-		elseif ($prodname->name == 'Cartes 350µ'){$lienprod = "//www.france-banderole.com/cartes";}
-		elseif ($prodname->name == 'Oriflamme'){$lienprod = "//www.france-banderole.com/oriflammes";}
-		elseif ($prodname->name == 'depliants 80g'){$lienprod = "//www.france-banderole.com/depliants";}
-		elseif ($prodname->name == 'depliants 135g'){$lienprod = "//www.france-banderole.com/depliants";}
-		elseif ($prodname->name == 'depliants 170g'){$lienprod = "//www.france-banderole.com/depliants";}
-		elseif ($prodname->name == 'depliants 250g'){$lienprod = "//www.france-banderole.com/depliants";}
-		elseif ($prodname->name == 'Enseigne'){$lienprod = "//www.france-banderole.com/enseignes";}
-		elseif ($prodname->name == 'Flyers 80g'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 135g'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 170g'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 250g'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 350g'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 120µ'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 270µ'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Flyers 350µ'){$lienprod = "//www.france-banderole.com/flyers";}
-		elseif ($prodname->name == 'Affiches 135g'){$lienprod = "//www.france-banderole.com/affiches";}
-		elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-		elseif ($prodname->name == 'Barrière délimitation'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-		elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-		elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-		elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = "//www.france-banderole.com/plv-exterieur";}
-		elseif ($prodname->name == 'Roll-up'){$lienprod = "//www.france-banderole.com/roll-up";}
-		elseif ($prodname->name == 'Totem'){$lienprod = "//www.france-banderole.com/totem";}
-		elseif ($prodname->name == 'Akilux 3mm'){$lienprod = "//www.france-banderole.com/panneaux-akilux-3mm";}
-		elseif ($prodname->name == 'Akilux 3,5mm'){$lienprod = "//www.france-banderole.com/panneaux-akilux-3_5mm";}
-		elseif ($prodname->name == 'Akilux 5mm'){$lienprod = "//www.france-banderole.com/panneaux-akilux-5mm";}
-		elseif ($prodname->name == 'Forex 3mm'){$lienprod = "//www.france-banderole.com/panneaux-forex-3mm";}
-		elseif ($prodname->name == 'Forex 5mm'){$lienprod = "//www.france-banderole.com/panneaux-forex-5mm";}
-		elseif ($prodname->name == 'Dibond'){$lienprod = "//www.france-banderole.com/panneaux-dibond";}
-		elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = "//www.france-banderole.com/stickers";}
-		else {$lienprod = "//www.france-banderole.com/banderoles";};
+		if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
+    elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
+    elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
+    elseif ($prodname->name == 'depliants 80g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'depliants 135g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'depliants 170g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'depliants 250g'){$lienprod = get_bloginfo('url').'/depliants';}
+    elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
+    elseif ($prodname->name == 'Flyers 80g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 135g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 170g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 250g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 350g'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 120µ'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 270µ'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Flyers 350µ'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Affiches 135g'){$lienprod = get_bloginfo('url').'/affiches';}
+    elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Cadre extérieur 125x300cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Kit de Barrière supplémentaire'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
+    elseif ($prodname->name == 'Roll-up'){$lienprod = get_bloginfo('url').'/roll-up';}
+    elseif ($prodname->name == 'Totem'){$lienprod = get_bloginfo('url').'/totem';}
+    elseif ($prodname->name == 'Akilux 3mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-3mm';}
+    elseif ($prodname->name == 'Akilux 3,5mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-3_5mm';}
+    elseif ($prodname->name == 'Akilux 5mm'){$lienprod = get_bloginfo('url').'/panneaux-akilux-5mm';}
+    elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
+    elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
+    elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
+    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+    else {$lienprod = get_bloginfo('url').'/banderoles';};
 
 		$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 		if($reponses) {

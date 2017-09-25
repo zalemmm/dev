@@ -8,12 +8,12 @@ var tntRCCommune;
 var tntRClisteRelais;
 var tntRCJsonCommunes;
 
-var tntRCMsgHeaderTitle = "Mode de livraison";
-var tntRCMsgSubHeaderTitle = "Choisissez le Relais Colis<sup class='tntRCSup'>&#174;</sup> qui vous convient :";
+var tntRCMsgHeaderTitle = "";
+var tntRCMsgSubHeaderTitle = "";
 var tntRCMsgHeaderPopup = "D&#233;tail du Relais Colis<sup class='tntRCSup'>&#174;</sup>";
 var tntRCMsgSubHeaderPopup = "Descriptif :";
 var tntRCMsgBodyLoading = "Chargement en cours...";
-var tntRCMsgBodyInput = "Entrez le code postal :&nbsp;";
+var tntRCMsgBodyInput = "CODE POSTAL :&nbsp;";
 var tntRCMsgBodyBack2Communes = "Revenir &#224; la liste des communes";
 var tntRCMsgErrCodePostal = "Veuillez saisir un code postal sur 5 chiffres";
 var tntRCMsgErrLoadCommunes = "Aucun Relais Colis&#174; disponible";
@@ -22,14 +22,14 @@ var tntRCMsgErrLoadRelais = "Aucun Relais Colis&#174; disponible";
 var tntRCsize800 = "444px";
 var tntRCsize789 = "589px";
 var tntRCsize670 = "470px";
-var tntRCsize650 = "450px";
+var tntRCsize650 = "380px";
 var tntRCsize50 = "50px";
 var tntRCsize8 = "8px";
 var tntRCsize5 = "5px";
 var tntRCsize6 = "6px";
 var tntRCsize10 = "10px";
 var tntRCsize30 = "30px";
-var tntRCsize109 = "109px";
+var tntRCsize109 = "150px";
 var tntRCsize442 = "362px";
 var tntRCsize447 = "387px";
 var tntRCsize218 = "178px";
@@ -66,7 +66,7 @@ function tntRCgetRelaisColisJSON(commune)
 	var ajaxUrl;
 	var ajaxData;
 
-	ajaxUrl = "http://" + tntDomain + "/public/b2c/relaisColis/loadJson.do?cp=" + tntRCcodePostal + "&commune=" + tntRCCommune;
+	ajaxUrl = "https://" + tntDomain + "/public/b2c/relaisColis/loadJson.do?cp=" + tntRCcodePostal + "&commune=" + tntRCCommune;
 	ajaxData = "";
 
 	// Chargement de la liste de relais colis
@@ -117,11 +117,11 @@ function tntRCafficheRelais(jData) {
 		tntRCjTable.append(
 			"<tr>"+
 				"<td class='tntRCblanc' width='" + tntRCsize5 + "'></td>"+
-				"<td class='tntRCblanc' width='" + tntRCsize50 + "'><img src='" + pathToImages + "logo-tnt-petit.jpg'>&nbsp;" + logo_point + "</td>"+
+				"<td class='tntRCblanc' width='" + tntRCsize50 + "'><img src='" + pathToImages + "relaisColis.png'>&nbsp;" + logo_point + "</td>"+
 				"<td class='tntRCrelaisColis' width='" + tntRCsize650 + "'>" + nomRelais + " - " + adresse + " - " + codePostal + " - " + commune + "<BR>&nbsp;&nbsp;&nbsp;&nbsp;>> Ouvert jusqu'&agrave; " + heureFermeture + "</td>"+
 				"<td class='tntRCrelaisColis' width='" + tntRCsize10 + "'>&nbsp;</td>"+
 				"<td class='tntRCrelaisColis' valign='middle' align='center' width='" + tntRCsize109 + "'>"+
-					"<a href='#' onclick='tntRCafficheDetail(" + i + ");'><img src='" + pathToImages + "search.png' class='tntRCBoutonLoupe'></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+					"<a href='#' onclick='tntRCafficheDetail(" + i + ");' class='tntRCBoutonLoupe'><i class='fa fa-search' aria-hidden='true'></i> Détails</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 					"<input type='radio' style='vertical-align: middle;' name='tntRCchoixRelais' value='" + codeRelais + "'" + ( i==0 ? "checked" : "") + " onclick='tntRCSetSelectedInfo(" + i + ")'/>"+
 				"</td>"+
 				"<td class='tntRCblanc' width='" + tntRCsize6 + "'></td>"+
@@ -137,8 +137,7 @@ function tntRCafficheRelais(jData) {
 			"<tr>"+
 				"<td colspan='5' class='tntRCBack2Communes'>"+
 					"<a href='#' onclick='tntRCafficheCommunes(tntRCJsonCommunes);'>"+
-						"<img src='" + pathToImages + "bt-Retour.gif'>"+
-						tntRCMsgBodyBack2Communes +
+						"<i class='fa fa-undo'></i>&nbsp;" +	tntRCMsgBodyBack2Communes +
 					"</a>"+
 				"</td>"+
 				"<td />"+
@@ -157,10 +156,13 @@ function tntB2CRelaisColisGetBodyMain() {
 		"<div id='tntBodyContentSC'>" +
 			"<table>"+
 				"<tr>"+
-					"<td>" + tntRCMsgBodyInput + "</td>"+
+					"<td class='codePost'>" + tntRCMsgBodyInput + "</td>"+
 				 	"<td><input type='text' id='tntRCInputCP' class='tntRCInput' maxlength='5' size='5' value=''/></td>"+
-					"<td><a href='#' onclick='tntRCgetCommunesJSON();'><img class='tntRCButton' src='" + pathToImages + "bt-OK-2.jpg' onmouseover='this.src=\"" + pathToImages + "bt-OK-1.jpg\"' onmouseout='this.src=\"" + pathToImages + "bt-OK-2.jpg\"'></a></td>" +
+					"<td><a href='#' onclick='tntRCgetCommunesJSON();' class='tntRCButton'>OK</a></td>" +
+
+
 				"</tr>"+
+				"<tr><td><img class='tntLogo' src='" + pathToImages + "logotnt.png' /></td></tr>"+
 			"</table>" +
 		"</div>"+
 		"<div id='tntRCLoading' style='display:none;'>" + tntRCMsgBodyLoading + "</div>"+
@@ -180,8 +182,7 @@ function tntB2CRelaisColis() {
 	var tntRelaisColisB2C = $("#tntB2CRelaisColis");
 	tntRelaisColisB2C.html(
 		"<div id='tntRCblocEntete'>"+
-			"<div class='tntRCHeader'>"+ tntRCMsgHeaderTitle + "</div>"+
-			"<div class='tntRCSubHeader'>" + tntRCMsgSubHeaderTitle + "</div>"+
+
 			"<input type='hidden' id='tntRCSelectedCode' value=''/>"+
 			"<input type='hidden' id='tntRCSelectedNom' value=''/>"+
 			"<input type='hidden' id='tntRCSelectedAdresse' value=''/>"+
@@ -287,7 +288,7 @@ function tntRCafficheCommunes(jData) {
 		tntRCjTable.append(
 			"<tr>"+
 				"<td class='tntRCblanc' width='" + tntRCsize5 + "'></td>"+
-				"<td class='tntRCblanc' width='" + tntRCsize50 + "'><img src='" + pathToImages + "logo-tnt-petit.jpg'></td>" +
+				"<td class='tntRCblanc' width='" + tntRCsize50 + "'><img src='" + pathToImages + "relaisColis.png'></td>" +
 				"<td class='tntRCrelaisColis' width='" + tntRCsize650 + "'> " + nomVille + " (" + tntRCcodePostal + ") </td>" +
 				"<td class='tntRCrelaisColis' width='" + tntRCsize10 + "'>&nbsp;</td>"+
 				"<td class='tntRCrelaisColis' align='center' width='" + tntRCsize109 + "'>"+
@@ -338,7 +339,7 @@ function tntRCgetCommunesJSON() {
 	var ajaxUrl;
 	var ajaxData;
 
-	ajaxUrl = "http://" + tntDomain + "/public/b2c/relaisColis/rechercheJson.do?code=" + tntRCcodePostal;
+	ajaxUrl = "https://" + tntDomain + "/public/b2c/relaisColis/rechercheJson.do?code=" + tntRCcodePostal;
 	ajaxData = "";
 
 	$.ajax({
@@ -714,7 +715,7 @@ var contentTo = [
                      '<input type="text" id="saisie" name="saisie" value="" maxlength="500" size="30">',
                      '<input type="hidden" id="mode" name="mode" value="toPoint">',
                      '<input type="hidden" id="point_choisi" name="point_choisi" value="">',
-                     '<input type="submit" onclick="popup_roadmap();" value="Ok">',
+                     '<input type="submit" class="itiOK" onclick="popup_roadmap();" value="Ok">',
                      '<br/>Ex: 58 avenue Leclerc 69007 Lyon',
                  '</div>'].join('');
 
@@ -733,7 +734,7 @@ var infowindow;
 
 var relaisMarkers = [];
 var iconRelais = new google.maps.MarkerImage(
-		"http://www.france-banderole.com/wp-content/plugins/fbshop/relaiscolis/img/google/relaisColis.png",
+		"https://www.france-banderole.com/wp-content/plugins/fbshop/relaiscolis/img/google/relaisColis.png",
 		new google.maps.Size(40, 30),
 		new google.maps.Point(0, 0),
 		new google.maps.Point(20, 30))
@@ -866,7 +867,7 @@ function tntRCInitMap() {
 	//Ajout du lien pour retour en zoom zone de chalandise
 	var jMapCanvas = $("#map_canvas");
 	jMapCanvas.wrap("<div></div>");
-	jMapCanvas.parent().append("<a class=\"lien_reset\" href=\"#\" onclick=\"javascript:retourZoomChalandise();\" style=\"text-decoration:none;\">Retour &#224; la vue initiale</a>");
+	//jMapCanvas.parent().append("<a class=\"lien_reset\" href=\"#\" onclick=\"javascript:retourZoomChalandise();\" style=\"text-decoration:none;\">Retour &#224; la vue initiale</a>");
 
 	var mapClass = jMapCanvas.attr("class");
 	if (mapClass && mapClass != "") {
@@ -973,7 +974,7 @@ function switchFromTo(htmlContent) {
 
 function popup_roadmap() {
 	if($("#saisie").val() == "") return;
-	window.open("http://" + tntDomain + "/public/geolocalisation/print_roadmap.do?mode="+ $("#mode").val() +"&point_choisi="+ $("#point_choisi").val() +"&saisie="+ $("#saisie").val());
+	window.open("https://" + tntDomain + "/public/geolocalisation/print_roadmap.do?mode="+ $("#mode").val() +"&point_choisi="+ $("#point_choisi").val() +"&saisie="+ $("#saisie").val());
 }
 
 $().ready(tntB2CRelaisColis);

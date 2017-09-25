@@ -14,7 +14,7 @@ DEFINE('_FB_EXIS','Le login que vous avez choisi existe déjà.');
 DEFINE('_FB_EXISE','Cette adresse Email existe déjà.');
 DEFINE('_FB_TREG','Merci de vous être enregistré !');
 DEFINE('_FB_WELCOME','Bienvenue');
-DEFINE('_FB_NPASS1','Votre nouveau mot de passe sur le site http://www.france-banderole.com est : ');
+DEFINE('_FB_NPASS1','Votre nouveau mot de passe sur le site https://www.france-banderole.com est : ');
 DEFINE('_FB_NPASS2','Après vous être identifié, vous pouvez changer de mot de passe dans les paramètres de votre compte.');
 DEFINE('_FB_NPASS3','Un nouveau mot de passe a été envoyé à l\'adresse Email que vous avez choisi.');
 DEFINE('_FB_COFNIJ','Retourner en arrière');

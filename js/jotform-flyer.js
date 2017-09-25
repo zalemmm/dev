@@ -740,7 +740,7 @@ JotForm = {
 									}
 
 									/*var imag = $("preview_imag");
-									imag.style.background="url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+plik+".png') no-repeat";*/
+									imag.style.background="url('https://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+plik+".png') no-repeat";*/
 
 									var obecny1 = $("lista1");
 									if (obecny1) {

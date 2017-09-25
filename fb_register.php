@@ -141,7 +141,7 @@ function get_inscription() {
 
 	} else {
 		if (fb_is_logged()) {
-			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Edition profil</h1><hr />';
+			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Modifier mon compte</h1><hr />';
 			//$view .= '<p>Note : La modification de votre adresse e-mail est impossible. En cas de changement de cette dernière, merci de contacter un administrateur.</p>';
 		} else {
 			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Inscription</h1><hr />';
@@ -596,6 +596,7 @@ function get_acces_client() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_users = $prefix."fbs_users";
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
+
 //	if (!isset($_SESSION['loggeduser'])) {
 // envoi de rappels mot de passe
 		if ($_GET['resend'] == 'resend') {
@@ -608,8 +609,8 @@ function get_acces_client() {
 		          $losowy = rand(0, strlen($chars) - 1);
         		  $hasloodszyfrowane .= $chars{$losowy};
 			    }
-//				$hasloodszyfrowane = uniqid(rand()); // création d'un nouveau mot de passe
-		        $haslo = sha1(md5($hasloodszyfrowane)); // szyfrowanie hasła
+//			$hasloodszyfrowane = uniqid(rand()); // création d'un nouveau mot de passe
+		     $haslo = sha1(md5($hasloodszyfrowane)); // szyfrowanie hasła
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
 	        		$letter = ""._FB_WELCOME.", votre nom d utilisateur est : ".$adresemail->login."\r\n\r\n"._FB_NPASS1." ".$hasloodszyfrowane."\r\n"._FB_NPASS2."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
@@ -692,8 +693,9 @@ function get_acces_client() {
 
 				}
 			} else {
+				$view .= '<div class="logerror"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><i class="fa fa-exclamation-triangle"></i> '._FB_BLH.'</div>';
 				$view .= get_acces_panel($p);
-				$view .= '<p><span class="logerror">'._FB_BLH.'</span></p>';
+
 			}
 		}
 	return $view;
@@ -719,7 +721,7 @@ function get_acces_panel($p) {
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
 	if ($p == 1) { $path=get_bloginfo("url").'/vos-devis/'; } else { $path=''; }
 	if ($p == 2) { $path=get_bloginfo("url").'/verification/'; } else { $path=''; }
-if ($p == 2) {
+	if ($p == 2) {
 	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">VERIFICATION DE VOS IDENTIFIANTS</div>
