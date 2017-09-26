@@ -11,14 +11,14 @@
 						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText1" style="visibility:hidden;">
 							<b>Bâche PVC 440g</b>: <span class="highlight">Le moins cher dès 4,90€/m²</span><br/>Pour petite ou moyenne banderole pas cher à courte durée de vie.<br />
-							<b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_550_en.pdf" data-lity>Dickson Jet 550</a></b>: <span class="highlight">qualité/prix dès 9,80€/m²</span> la bâche française, pour une banderole 100% made in France, résistante dans la durée.<br />
-							<b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: <span class="highlight">Anti-feu dès 15,30€/m²</span> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
-              <b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-LACOPACS_en.pdf" data-lity>Dickson Lacopac M2/B1</a></b>: <span class="highlight">R/V dès 19,90€/m²</span> bâche pvc épaisse opaque INT/EXT pour banderole recto verso.<br />
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_550_en.pdf" data-lity>Dickson Jet 550</a></b>: <span class="highlight">qualité/prix dès 9,80€/m²</span> la bâche française, pour une banderole 100% made in France, résistante dans la durée.<br />
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: <span class="highlight">Anti-feu dès 15,30€/m²</span> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
+              <b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-LACOPACS_en.pdf" data-lity>Dickson Lacopac M2/B1</a></b>: <span class="highlight">R/V dès 19,90€/m²</span> bâche pvc épaisse opaque INT/EXT pour banderole recto verso.<br />
 							<b>bâche micro-perforée</b>: <span class="highlight">dès 6,50€/m²</span><br /> Bâche mesh grille pour banderole résistante au vent sur échafaudage, plage...<br />
 							<b>bâche nontissé 150g</b>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile coton/polyester pour balisage, jupe de palette. courte durée de vie. minimum 24M².<br />
-							<b><i class="fa fa-envira" aria-hidden="true"></i> <a href="http://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecotoile.pdf" data-lity>EcoToile France banderole</a><sup><i class="fa fa-registered" aria-hidden="true"></i></sup></b>: <span class="highlight"> dès 7,80/m²</span><br />Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !<br />
-							<b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="http://dev.france-banderole.com/wp-content/uploads/2012/04/FT_JetUp_en.pdf" data-lity>100% écologique M1</a></b>: <span class="highlight">dès 21,45€/m²</span> Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
-							<b><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/CAPOVERDE-TBR-EN-BREF-SLIDE.pdf" data-lity>Capotoile 320 M1</a></b>: <span class="highlight">dès 24,20€/m²</span> Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a>.<br />
+							<b class="helpeco"><i class="fa fa-envira" aria-hidden="true"></i> <a href="http://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecotoile.pdf" data-lity>EcoToile France banderole</a><sup><i class="fa fa-registered" aria-hidden="true"></i></sup></b>: <span class="highlight"> dès 7,80/m²</span><br />Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="http://dev.france-banderole.com/wp-content/uploads/2012/04/FT_JetUp_en.pdf" data-lity>100% écologique M1</a></b>: <span class="highlight">dès 21,45€/m²</span> Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/CAPOVERDE-TBR-EN-BREF-SLIDE.pdf" data-lity>Capotoile 320 M1</a></b>: <span class="highlight">dès 24,20€/m²</span> Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a>.<br />
 							<b>tissu 220g B1</b>: <span class="highlight">dès 12€/m²</span> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
 							<b>tissu 260g B1</b>: <span class="highlight">dès 16€/m²</span> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
 						</span>
@@ -35,6 +35,8 @@
 							<option value="jet 520 M1">bâche Dickson Jet 520 M1</option>
 							<option value="lacopac">bâche Dickson Lacopac M2/B1 </option>
 							<option value="lacopac recto verso">bâche Dickson Lacopac M2/B1 recto/verso </option>
+						</optgroup>
+						<optgroup label="&#xf016; Tissu" class="trad">
 							<option value="tissu 220g">tissu stretch léger 220g B1</option>
 							<option value="tissu 260g">tissu stretch extensible 260g B1</option>
 						</optgroup>
@@ -96,10 +98,12 @@
 					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText4" style="visibility:hidden;">
-							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
-							<b>ourlet de renfort en haut et en bas :</b><br/> <span class="highlight"><b>! ajouter 5cm à la hauteur de la banderole</b></span> lors du choix de la taille.<br />
-							<b>ourlet de renfort à gauche et à droite :</b><br/> <span class="highlight"><b>! ajouter 5cm à la largeur de la banderole</b></span> lors du choix de la taille.<br />
-							<b>ourlet de renfort périmétrique :</b><br/> <span class="highlight"><b>! ajouter 5cm aux 2 dimensions de la bache</b></span> lors du choix de la taille.
+							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure pour renforcer votre banderole. Recommandé dès 3m² ou longeur supérieure ou égale à 3m.<br />
+							<b>options possibles :</b><br/>
+                            ourlet de renfort en haut et en bas : le plus commun<br />
+                            ourlet de renfort à gauche et à droite : pour banderole tendue<br />
+                            ourlet de renfort périmétrique : pour un renfort optimal<br />
+                            <span class="highlight">Ajouter 2,5cm aux cotés concernés </span>de la banderole lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_finition1" onchange="JKakemono.czyscpola(); ">
@@ -364,14 +368,10 @@
 
 				<!--maquette----------------------------------------------------------->
 				<li class="form-line" id="id_12">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>France banderole crée votre fichier:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>
-							Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br/>
-						</span>
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+						<b>France banderole crée votre fichier:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+						<b>Vous avez déjà crée la mise en page:</b><br/>
+						Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
@@ -800,7 +800,7 @@
 			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*20.50;}
 			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*20.00;}
 			if (metragefinal > 499.99) {cenatotal = metragefinal*19.50;}
-			opis += '<br />- bache Lacopac M2/B1 recto-verso'
+			opis += '<br />- bache Lacopac M2/B1 recto verso'
 		}
 		////////////////////////////////////////////////////////// micro perforée //
 		if ($('input_ext').value == 'bache micro perforée M1/B1' ) {
@@ -971,19 +971,19 @@
 		///////////////////////////////////////////////////////////////// oeilets //
 
 		if ($('input_21').value == 'sans oeillets' ) { opis+='<br>- sans oeillets' };
-		if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.15*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.15; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 10cm') ) { oeillets = ((hautbas+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 10cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 100cm') ) { oeillets = ((gauchedroite+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 100cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 50cm') ) { oeillets = ((gauchedroite+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 50cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 25cm') ) { oeillets = ((gauchedroite+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 25cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 10cm') ) { oeillets = ((gauchedroite+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 10cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 100cm') ) { oeillets = ((metrazzaokraglony1+2)/1)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 100cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 50cm') ) { oeillets = ((metrazzaokraglony1+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 50cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 25cm') ) { oeillets = ((metrazzaokraglony1+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 25cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 10cm') ) { oeillets = ((metrazzaokraglony1+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 10cm'};
+		if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.20*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.20; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.20; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.20; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 10cm') ) { oeillets = ((hautbas+2)/0.1)*0.20; cena+=oeillets; opis+='<br>- oeillets haut bas tous 10cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 100cm') ) { oeillets = ((gauchedroite+2)/1)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 100cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 50cm') ) { oeillets = ((gauchedroite+2)/0.5)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 50cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 25cm') ) { oeillets = ((gauchedroite+2)/0.25)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 25cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 10cm') ) { oeillets = ((gauchedroite+2)/0.1)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 10cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 100cm') ) { oeillets = ((metrazzaokraglony1+2)/1)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 100cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 50cm') ) { oeillets = ((metrazzaokraglony1+2)/0.5)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 50cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 25cm') ) { oeillets = ((metrazzaokraglony1+2)/0.25)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 25cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 10cm') ) { oeillets = ((metrazzaokraglony1+2)/0.1)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 10cm'};
 
 		///////////////////////////////////////////////////////////////// ourlets //
 
@@ -1001,9 +1001,9 @@
 		//////////////////////////////////////////////////////////////// scratchs //
 
 		if (($('input_71').value == 'sans scratch')) { opis+='<br>- sans scratch' };
-		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*2.5; cena+=scratch; opis+='<br>- scratch haut/bas' };
-		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*2.5; cena+=scratch; opis+='<br>- scratch gauche/droite' };
-		if (($('input_71').value == 'scratch perimetrique')) { scratch = metrazzaokraglony1*2.5; cena+=scratch; opis+='<br>- scratch périmétrique' };
+		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*4; cena+=scratch; opis+='<br>- scratch haut/bas' };
+		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*4; cena+=scratch; opis+='<br>- scratch gauche/droite' };
+		if (($('input_71').value == 'scratch perimetrique')) { scratch = metrazzaokraglony1*4; cena+=scratch; opis+='<br>- scratch périmétrique' };
 
 		/////////////////////////////////////////////////////////////// fixations //
 
@@ -1013,17 +1013,17 @@
 		if ($('input_53').value) { var nbfix = $('input_53').value; }
 
 		if (fix == 'tendeurs H/B tous les mètres') {
-			fixation = (metrazzaokraglony+2)*0.80;
+			fixation = (metrazzaokraglony+2)*0.75;
 			cena += fixation;
 			opis +='<br>- tendeurs H/B tous les mètres';
 		}
 		if (fix == 'tendeurs') {
-			fixation = $('input_52').value*0.80;
+			fixation = $('input_52').value*0.75;
 			cena += fixation;
 			opis +='<br>- tendeurs ' +nbfix;
 		}
 		if (fix == 'rislans') {
-			fixation = $('input_53').value*0.04;
+			fixation = $('input_53').value*0.05;
 			cena += fixation;
 			opis +='<br>- rislans ' +nbfix;
 		}
@@ -1082,7 +1082,7 @@
 		}
 		if ($('input_12').value == 'config') {
 			cena+=5;
-			ktodaje = '<br />- je crée ma maquette en ligne';
+			ktodaje = 'je crée ma maquette en ligne';
 		}
 
 		/////////////////////////////////////////////////////////// options colis //
@@ -1542,7 +1542,7 @@
 			var rodzaj = "banderole";
 			var dodajkoszyk = document.getElementById("cart_form");
 			// largeur et hauteur x100 pour un affichage en cm côté admin
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc*100+' x '+szerokosc*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc*100+'" /><input type="hidden" name="largeur" value="'+szerokosc*100+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 			livraisonComp.style.display = 'block';
 		}
 
