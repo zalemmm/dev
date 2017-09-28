@@ -87,7 +87,7 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 	}
 
   /* ENVOI de l'email "Paiement de votre commande"*/
-  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'PAIEMENT DE VOTRE COMMANDE%'", ARRAY_A);
+  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'PAIEMENT DE VOTRE COMMANDE'", ARRAY_A);
 	foreach ($mails as $ma) :
 		$con = stripslashes($ma[content]);
 		$con = htmlspecialchars($con);
@@ -104,12 +104,16 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 	$temat = htmlspecialchars_decode($top);
 	$zawar = htmlspecialchars_decode($con);
 	$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
-      $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+  $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 
-	//echo "MAIL=".$uzyt->email;
-	// EN PROD:
 	mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
-	//EN DEV: mail("contact@tempopasso.com", stripslashes($temat), stripslashes($zawar), $header);
+
+	// ajout du mail à la bdd
+	$checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
+  $getmail = $checkmail->last_mail;
+
+	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
+	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
 }
 
 /////////////////////////////////////////////////////////// status 4: expédié //
@@ -160,6 +164,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 			$wheresql = "COLIS EXPEDIE AUTRE";
 		}else{
 			$type_expedition = 'autre';
+			$wheresql = "COLIS EXPEDIE AUTRE";
 		}
 	endforeach;
 
@@ -242,7 +247,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	$ktoryuser = $order->user;
 	$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
-	/* On remplace XXXXX dans le message par l'adresse du relais colis, YYYYY par le numéro de suivi, NNNNN par le n° de commande */
+	// On remplace XXXXX dans le message par l'adresse du relais colis, YYYYY par le numéro de suivi, NNNNN par le n° de commande
 	$con = str_replace("XXXXX",$adresse_relais_colis,$con);
 	$con = str_replace("YYYYY",$numberTNT_commande->tnt,$con);
 	$con = str_replace("NNNNN",$number,$con);
@@ -257,6 +262,13 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	//echo "MAIL=".$uzyt->email;
 	// EN PROD:
 	mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
+
+	// ajout du mail à la bdd
+	$checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
+  $getmail = $checkmail->last_mail;
+
+	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
+	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
 }
 
 /////////////////////////////////////////////////////////// status 5: clôturé //
@@ -387,11 +399,15 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 		}
 
 	}
-	//echo "MAIL=".$uzyt->email;
-	// EN PROD:
-	//mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar), $header);
+
 	mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
-	// EN DEV: mail("contact@tempopasso.com", stripslashes($temat), stripslashes($zawar), $header);
+
+	// ajout du mail à la bdd
+	$checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
+  $getmail = $checkmail->last_mail;
+
+	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
+	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
 
 }
 

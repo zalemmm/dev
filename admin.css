@@ -871,3 +871,27 @@ a#but_imprimerfacture {
 #fbcart_address td.lefttd {
   border-right: 1px solid #e9e9e9;
 }
+
+ul.lastMails {
+  font-size: 12px;
+}
+ul.lastMails li {
+  list-style: none;
+  list-style-type: none;
+  list-style-image: none;
+  font-size: 11px;
+  line-height: 12px;
+  margin-bottom: 5px;
+}
+
+.histo {
+  margin-top: 5px;
+}
+
+.voirPlus, .voirMoins {
+  display: inline-block;
+  border: none;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+}

@@ -5,6 +5,10 @@ $fb_tablename_order = $prefix."fbs_order";
 $fb_tablename_prods = $prefix."fbs_prods";
 $fb_tablename_comments = $prefix."fbs_comments";
 $fb_tablename_comments_new = $prefix."fbs_comments_new";
+$fb_tablename_users = $prefix."fbs_users";
+$fb_tablename_mails = $prefix."fbs_mails";
+
+//////////////////////////////////////////////////////// Si paiement effectué //
 if (isset($_GET['paid'])) {
 	$logfile="/home/frbanderolecom/www/sherlock/log/logfile.log";
 	// Ouverture du fichier de log en append
@@ -14,6 +18,7 @@ if (isset($_GET['paid'])) {
 	fwrite( $fp, "-------------------------------------------\n");
 	fclose ($fp);
 }
+
 if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	// RÈcupÈration de la variable cryptÈe DATA
 	$message="message=".$_POST[DATA];
@@ -93,13 +98,13 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 
 	//  analyse du code retour
 	if (( $code == "" ) && ( $error == "" )) {
-	  	fwrite($fp, "erreur appel response\n");
-  		echo "executable response non trouve $path_bin\n";
+	  fwrite($fp, "erreur appel response\n");
+  	echo "executable response non trouve $path_bin\n";
 		fwrite( $fp, "test_order_id: $order_id\n");
 		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
  	} elseif ( $code != 0 ) {  //	Erreur, sauvegarde le message d'erreur
-        fwrite($fp, " API call error.\n");
-        fwrite($fp, "Error message :  $error\n");
+    fwrite($fp, " API call error.\n");
+    fwrite($fp, "Error message :  $error\n");
 		fwrite( $fp, "test_order_id: $order_id\n");
 		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
  	} else {
@@ -670,8 +675,8 @@ function get_details() {
 	}
 
 	if((($status == 1) or ($status == 2) or ($status == 7)) and ((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))))) {
-		$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
-		$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
+		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
+		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
 	}
 
 	$epilog .= '</div>';
@@ -794,9 +799,25 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 				$maquette = preg_match_all($find, $item[description], $resultat);
 				$maquette = count($resultat[0]);
 
+				$find2 = '/verso/';
+				$rectoverso = preg_match_all($find2, $item[description], $resultat2);
+				$rectoverso = count($resultat2[0]);
+
+				// si le client a choisi créer la maquette en ligne, afficher le bouton
 				if (($maquette >= 1) && (($statuszamowienia != 6))) {
 					$view .= '
-					<tr><td class="lefttd"><a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
+					<tr><td class="lefttd">';
+					// si c'est un recto verso, afficher 2 boutons
+					if ($rectoverso >= 1) {
+						$view .='<div class="maquetteRV">
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette recto</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette verso</a></div>';
+					}else{
+						$view .= '<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>';
+					}
+					$view .='<span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
+
+				// autrement, pas de bouton créer la maquette
 	      }else{
 					$view .= '
 					<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
@@ -1365,7 +1386,7 @@ function add_to_db() {
 		$totalcalosci = number_format($totalcalosci, 2);
 		$unique_id = random_string();
 		$data = date('Y-m-d H:i:s');
-		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','')");
+		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','','')");
 
 		//ICI PLACER L'AJOUT A MAILJET
 		createContact($user->email);

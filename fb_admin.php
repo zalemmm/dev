@@ -838,7 +838,7 @@ function fbadm_invoice_print($number) {
 		if ($query->payment == 'trente') { $method = 'PAIEMENT A 30 JOURS'; }
 		if ($query->payment == 'soixante') { $method = 'PAIEMENT A 60 JOURS'; }
 
-		$view .= '<div class="bottomfak onlyprint">FACTURE RÉGLÉE PAR '.$method.'<br /><br /><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>';
+		$view .= '<div class="bottomfak onlyprint">FACTURE RÉGLÉE PAR '.$method.'<br /><br /><i>RCS: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 60.000,00 &euro;</i></div>';
 		$view .= '<div id="fbcart_buttons3"><a href="javascript:window.print()" id="but_imprimerfacture"></a></div>';
 		echo $view;
 	}
@@ -918,7 +918,7 @@ function fbadm_invoice_proprint($number) {
 		if ($query->payment == 'trente') { $method = 'PAIEMENT A 30 JOURS'; }
 		if ($query->payment == 'soixante') { $method = 'PAIEMENT A 60 JOURS'; }
 
-		$view .= '<div class="bottomfak onlyprint"><br /><br /><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>';
+		$view .= '<div class="bottomfak onlyprint"><br /><br /><i>RCS: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 60.000,00 &euro;</i></div>';
 	  		$view .= '<div id="fbcart_buttons3"><a href="javascript:window.print()" id="but_imprimerfacture"></a></div>';
 	  		echo $view;
 	}
@@ -1070,7 +1070,7 @@ function fbadm_bon_print($number) {
         }
 		/* Si colis revendeur, on affiche par le RCS */
 		if (!$coliR) {
-        	$view .= '<div class="bottomfak onlyprint">PAIEMENT PAR ' . $method . '<br /><br /><i>RCS PONTOISE: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i><br /><b><font color="red">CETTE COMMANDE A ÉTÉ CONTROLÉE PAR : OUI - NON</b>  - SIGNATURE : </font></div>';
+        	$view .= '<div class="bottomfak onlyprint">PAIEMENT PAR ' . $method . '<br /><br /><i>RCS: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 60.000,00 &euro;</i><br /><b><font color="red">CETTE COMMANDE A ÉTÉ CONTROLÉE PAR : OUI - NON</b>  - SIGNATURE : </font></div>';
 		}
 
 		$view .= '<div id="fbcart_buttons3"><p><a href="#" id="but_imprimerbon">Imprimer le bon de commande</a><br /></p></div>';
@@ -3324,17 +3324,7 @@ function fbadm_print_details($number) {
 	  $order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
     $uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
-    if (isset($_POST['sendmail'])) {
-      $temat = htmlspecialchars_decode($_POST['hiddentopic']);
-      $zawar = htmlspecialchars_decode($_POST['selmailcontent']);
-      $header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
-      $header .= "\nContent-type: text/html; charset=UTF-8\n" . "Content-Transfer-Encoding: 8bit\n";
-      //mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
-      //mail("contact@tempopasso.com", "ESSAI ENVOI MAIL=".stripslashes($temat), stripslashes($zawar), $header);
-      //wp_mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
-      mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
-      //mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar),$header);
-    }
+
 
 	//Traitement du changement de groupe
 	if (isset($_POST['set_group'])) {
@@ -3398,7 +3388,7 @@ function fbadm_print_details($number) {
   echo '<div style="clear:both"></div></div></div></div>';
 
   /////////////////////////////////////////////////////////// envoyer un mail //
-  echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Send mail for user:</span></h3><div class="inside">';
+  echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Send mail for user:</span></h3><div class="inside">';
   echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" style="float:left;width:100%;"><option value="">choisir...</option>';
   foreach ($mails as $ma) :
     $con = stripslashes($ma[content]);
@@ -3411,7 +3401,37 @@ function fbadm_print_details($number) {
   endforeach;
 
   echo '</select><textarea name="selmailcontent" id="incon"></textarea><input type="submit" value="SEND" class="savebutt3" /></form>';
-  echo '<div style="clear:both"></div></div></div></div>';
+
+  $checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
+  $getmail = $checkmail->last_mail;
+
+  if (isset($_POST['sendmail'])) {
+    $lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$_POST['hiddentopic'].'</li>';
+    $adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
+
+    $temat = htmlspecialchars_decode($_POST['hiddentopic']);
+    $zawar = htmlspecialchars_decode($_POST['selmailcontent']);
+    $header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+    $header .= "\nContent-type: text/html; charset=UTF-8\n" . "Content-Transfer-Encoding: 8bit\n";
+    //mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
+    //mail("contact@tempopasso.com", "ESSAI ENVOI MAIL=".stripslashes($temat), stripslashes($zawar), $header);
+    //wp_mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
+    mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
+    //mail('floroux.int@gmail.com', stripslashes($temat), stripslashes($zawar),$header);
+  }
+  echo '<div class="histo">HISTORIQUE <button class="voirPlus">+</button>/<button class="voirMoins">-</button></div> <ul class="lastMails">'.$getmail.'</ul> ';
+  echo '<div style="clear:both"></div></div></div></div>
+  <script>
+    jQuery("ul.lastMails li").hide();
+    jQuery("ul.lastMails li").first().show();
+    jQuery(".voirPlus").on("click", function() {
+      jQuery("ul.lastMails li").fadeIn();
+    });
+    jQuery(".voirMoins").on("click", function(){
+      jQuery("ul.lastMails li").fadeOut();
+    });
+  </script>
+  ';
 
   //////////////////////////////////////////////////// ajouter un commentaire //
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new comment:</span></h3><div class="inside">';
