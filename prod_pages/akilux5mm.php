@@ -16,7 +16,16 @@
         </li>
 
         <li class="form-line" id="id_HD">
-          <span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression akilux Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression akilux standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression akilux pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux akilux pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés akilux pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
+          <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
+					</span>
           <select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir qualité d'impression...</option>
             <option value="HD">Haute définition</option>
@@ -86,6 +95,7 @@
               <option class="titre" value="">fichier d'impression...</option>
               <option class="option1" value="fb">France banderole crée la mise en page</option>
               <option class="option2" value="user">j’ai déjà crée la mise en page</option>
+              <option class="option1" value="config">je crée ma maquette en ligne</option>
             </select>
           </li>
 
@@ -97,7 +107,6 @@
           <li id="id_9" class="form-line optionsformline2">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
             <input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
-
           </li>
 
           <li id="id_7" class="form-line optionsformline" style="z-index:100">
@@ -345,8 +354,10 @@
         if ($('input_5').value == '1 rainage') {rainage=1; opis += '<br />- 1 rainage';}
         if ($('input_5').value == '2 rainages') {rainage=1.75; opis += '<br />- 2 rainages';}
         if ($('input_5').value == '3 rainages') {rainage=2.25; opis += '<br />- 3 rainages';}
+
         if ($('input_6').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
         if ($('input_6').value == 'user')  {opis += '<br />- j’ai déjà crée la maquette';}
+        if ($('input_6').value == 'config') {maquette=5; opis += '<br />- je crée ma maquette en ligne';}
         /// FIN fixation + maquette/////
 
         //// coupe ///
@@ -860,30 +871,34 @@
           }
         }
 
-        /////////////////////////////////// avertissements, messages d'erreur //
-        if ( (wysokosc > 160) || (szerokosc > 160) ) {
-          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+        var erreur = 0;
+        ///////////////////////////////// avertissements, messages d'erreur //
+        if ( (wysokosc > 200) || (szerokosc > 200) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 200x150cm!';
           eBox.style.display="block";
-          niepokazuj=1;
+          erreur=1;
         }
-
-        if ( (wysokosc > 120) && (szerokosc > 120) ) {
-          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+        if ( (wysokosc > 150) && (szerokosc > 150) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 200x150cm!';
           eBox.style.display="block";
-          niepokazuj=1;
+          erreur=1;
         }
-
         if ( (szerokosc <= 0 ) || (wysokosc <= 0 ) ){
           eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en <u>centimètres</u>';
           eBox.style.display="block";
-          niepokazuj=2;
+          erreur=1;
+        }
+
+        if (erreur == 1) {
+          total.innerHTML='-';
+          ($('submit_cart').style.display="none");
         }
 
         //////////////////////////////////////////////////// envoi formulaire //
         var rodzaj = "Akilux 5mm";
         var dodajkoszyk = document.getElementById("cart_form");
 
-        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
         livraisonComp.style.display = 'block';
       }
     }

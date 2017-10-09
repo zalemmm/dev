@@ -165,17 +165,39 @@
 				</li>
 
 				<li class="form-line" id="id_6">
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 				<li class="form-line" id="id_6perso">
+					<span class="helpButton" onmouseover="pokazt('helpTextmaquette2');" onmouseout="ukryjt('helpTextmaquette2');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
+					</span>
 					<select class="form-dropdown validate[required]" id="input_6perso" name="q6perso_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 
@@ -433,6 +455,9 @@
 					if ($('input_32').value == '10000'){pu=12.60; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*0.24; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 40;
+					szerokosc = 60;
 				}
 				///// Dibond recto/verso 60x40 /////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x40')){
@@ -477,6 +502,9 @@
 					if ($('input_32').value == '10000'){pu=13.68; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*0.24; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 40;
+					szerokosc = 60;
 				}
 
 				///// Dibond recto 100x50 /////
@@ -522,6 +550,9 @@
 					if ($('input_32').value == '10000'){pu=21.00; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*0.5; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 50;
+					szerokosc = 100;
 				}
 
 				///// Dibond recto/verso 100x50/////
@@ -567,6 +598,9 @@
 					if ($('input_32').value == '10000'){pu=22.80; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*0.5; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 50;
+					szerokosc = 100;
 				}
 
 				///// Dibond recto 150x75 /////
@@ -612,6 +646,9 @@
 					if ($('input_32').value == '10000'){pu=47.25; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*1.12; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 75;
+					szerokosc = 150;
 				}
 
 				///// Dibond recto/verso 150x75/////
@@ -657,6 +694,9 @@
 					if ($('input_32').value == '10000'){pu=51.30; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*1.12; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 75;
+					szerokosc = 150;
 				}
 
 				///// Dibond recto 200x100 /////
@@ -702,6 +742,9 @@
 					if ($('input_32').value == '10000'){pu=80.50; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*2; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 100;
+					szerokosc = 200;
 				}
 
 				///// Dibond recto/verso 200x100 /////
@@ -747,6 +790,9 @@
 					if ($('input_32').value == '10000'){pu=87.40; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*2; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 100;
+					szerokosc = 200;
 				}
 
 				///// Dibond recto 200x150 /////
@@ -792,6 +838,9 @@
 					if ($('input_32').value == '10000'){pu=120.75; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*3; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 150;
+					szerokosc = 200;
 				}
 				///// Dibond recto/verso 200x150/////
 				if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x150')){
@@ -836,6 +885,9 @@
 					if ($('input_32').value == '10000'){pu=131.10; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*3; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 150;
+					szerokosc = 200;
 				}
 
 				///// Dibond recto 300x150 /////
@@ -881,6 +933,9 @@
 					if ($('input_32').value == '10000'){pu=157.50; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*4.5; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 150;
+					szerokosc = 300;
 				}
 
 				///// Dibond recto/verso 300x150 /////
@@ -926,6 +981,9 @@
 					if ($('input_32').value == '10000'){pu=171.00; opis += '<br />- 10000 exemplaires';}
 					poids = 4.20*4.5; ////grammage x m²///
 					poidstotal = poids*ilosc;
+
+					wysokosc = 150;
+					szerokosc = 300;
 				}
 
 				///// Dibond recto personnalisée /////
@@ -1031,9 +1089,19 @@
 				tarifventouse = (fixationsventouse*nbtrou) ////prix x ventouses/////
 
 				////maquette/////
-				if ($('input_6').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
-				if ($('input_6perso').value == 'fb') {opis += '<br />- France banderole crée la maquette';}
-				if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {opis += '<br />- j’ai déjà crée la maquette';}
+				if ($('input_6').value == 'fb') {
+					maquette=29; opis += '<br />- France banderole crée la maquette';
+				}
+				if ($('input_6perso').value == 'fb') {
+					opis += '<br />- France banderole crée la maquette';
+				}
+				if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {
+					opis += '<br />- j’ai déjà crée la maquette';
+				}
+				if (($('input_6').value == 'config') || ($('input_6perso').value == 'config') ) {
+					maquette=5;
+					opis += '<br />- je crée ma maquette en ligne';
+				}
 
 				////tarif unitaire/////
 				puoption = pu+fixations+percage+tarifventouse;
@@ -1352,10 +1420,27 @@
 					var dodajkoszyk = document.getElementById("cart_form");
 
 					if($('input_1').value == 'personnalisée') {
-						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						///////////////////////////////////// avertissements, messages d'erreur //
+						if ( (wysokosc > 140) || (szerokosc > 140) ) {
+							eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
+							eBox.style.display="block";
+							erreur=1;
+						}
+
+						if ( (wysokosc > 100) && (szerokosc > 100) ) {
+							eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
+							eBox.style.display="block";
+							erreur=1;
+						}
+
+						total.innerHTML='-';
+
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'<br />- '+szerokosc+' x '+wysokosc+' cm <span style="+color:#F00+">ENREGISTRER VOTRE DEMANDE DE DEVIS POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 					};
+
 					if($('input_1').value != 'personnalisée') {
-						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 						livraisonComp.style.display = 'block';
 					};
 				}

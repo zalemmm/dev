@@ -134,24 +134,39 @@
         <li class="form-line" id="id_6">
           <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText6" style="visibility:hidden;">infos </span>
+            <span class="helpText" id="helpText6" style="visibility:hidden;">
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
           </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
             <option class="option2" value="user">j’ai déjà crée la maquette </option>
+            <option class="option1" value="config">je crée ma maquette en ligne</option>
+
           </select>
         </li>
 
          <li class="form-line" id="id_61">
           <span class="helpButton" onmouseover="pokazt('helpText61');" onmouseout="ukryjt('helpText61');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText61" style="visibility:hidden;">infos </span>
+            <span class="helpText" id="helpText61" style="visibility:hidden;">
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
           </span>
           <select class="form-dropdown validate[required]" id="input_61" name="q61_maquette61" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
             <option class="option2" value="user">j’ai déjà crée la maquette </option>
+            <option class="option1" value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
@@ -609,28 +624,32 @@
 			p1=(metraz*0.55)*ilosc;
 
 
+      if ($('input_21').value == '60x160') {
+	       structure=35*3.6
+        cena=structure+(cenatotal/ilosc);
+        ktorytyp=$('input_21').value;
+	      p2=2*ilosc;
 
-          if ($('input_21').value == '60x160') {
-			structure=35*3.6
-            cena=structure+(cenatotal/ilosc);
-            ktorytyp=$('input_21').value;
-			p2=2*ilosc;
-          }
-          if ($('input_21').value == '80x200') {
-            structure=35*3.6;
-            cena=structure+(cenatotal/ilosc);
-            ktorytyp=$('input_21').value;
-			p2=2*ilosc;
-          }
-          if ($('input_23').value == 'sac') {
-            cena+=22;
-			 dodatkowaopcja='<br />- '+$('input_23').value;
-          }
+        wysokosc = 160;
+				szerokosc = 60;
+      }
+      if ($('input_21').value == '80x200') {
+        structure=35*3.6;
+        cena=structure+(cenatotal/ilosc);
+        ktorytyp=$('input_21').value;
+	      p2=2*ilosc;
 
-        }
+        wysokosc = 200;
+				szerokosc = 80;
+      }
+      if ($('input_23').value == 'sac') {
+        cena+=22;
+	      dodatkowaopcja='<br />- '+$('input_23').value;
+      }
+
+    }
 
 		if ($('input_2').value == 'Mistral') {
-
 
 			if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
@@ -657,132 +676,147 @@
 			if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
 			p1=(metraz*0.55)*ilosc;
 
+      if ($('input_22').value == '80x200 1 visuel') {
+	      structure=86.4*1.8;
+        cena=structure+(cenatotal/ilosc);
+        ktorytyp=$('input_22').value;
 
+	      p2=3*ilosc;
 
+        wysokosc = 200;
+				szerokosc = 80;
+      }
+      if ($('input_22').value == '80x200 2 visuels') {
+	      structure=86.4*1.8;
+        cena=structure+((cenatotal*1.5)/ilosc);
+        ktorytyp=$('input_22').value + ' recto verso';
 
-          if ($('input_22').value == '80x200 1 visuel') {
-			 structure=86.4*1.8;
-            cena=structure+(cenatotal/ilosc);
-            ktorytyp=$('input_22').value;
+	      p2=3*ilosc;
 
-			p2=3*ilosc;
-          }
-          if ($('input_22').value == '80x200 2 visuels') {
-			structure=86.4*1.8;
-            cena=structure+((cenatotal*1.5)/ilosc);
-            ktorytyp=$('input_22').value;
-
-			p2=3*ilosc;
-          }
-        }
+        wysokosc = 200;
+				szerokosc = 80;
+      }
+    }
 
 		///////////////FIN Exterieur/////////
 
 
 		///////////////tarif x-sxcreen/////////
 
-      if (($('input_3').value == '60x160') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
-				ilosc=$('input_7').value;
-  			if ((ilosc > 0) && (ilosc < 30)){structure=(2.5*2.7);}
-  			if ((ilosc > 29) && (ilosc < 50)){structure=(2.5*2.5);}
-  			if (ilosc > 49){structure=(2.5*1.9);}
-  			p2=0.7*ilosc;
-
-  			prixsupport=cenatotal/ilosc;
-              cena= structure+prixsupport;
-              ktorytyp=$('input_3').value;
-              dodatkowaopcja='<br />- '+$('input_31').value;
-		  }
-		  ///////////
-
-      if (($('input_3').value == '80x180') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
-				ilosc=$('input_7').value;
-  			if ((ilosc > 0) && (ilosc < 30)){structure=(5*2.0);}
-  			if ((ilosc > 29) && (ilosc < 50)){structure=(5*1.9);}
-  			if (ilosc > 49){structure=(5*1.7);}
-  			p2=0.8*ilosc;
-
-
-			prixsupport=cenatotal/ilosc;
-            cena= structure+prixsupport;
-            ktorytyp=$('input_3').value;
-            dodatkowaopcja='<br />- '+$('input_31').value;
-		  }
-       ///////////////FIN x-screen/////////
-
-
-		//////TARIF clipit/////
-        if (($('input_1').value == 'clipit') && (($('input_4').value == 'bache 440g') || ($('input_4').value == 'bache 470g M1') || ($('input_4').value == 'bache 100% écologique M1') || ($('input_4').value == 'PVC 300 mircons') || ($('input_4').value == 'Recto/verso PVC 300µ') )){
-
-
-
+    if (($('input_3').value == '60x160') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
 			ilosc=$('input_7').value;
-			if ($('input_14').value==30){structure=(3.55*3); p2=0.3*ilosc;}
-			if ($('input_14').value==42){structure=(4.45*3); p2=0.42*ilosc;}
-			if ($('input_14').value==50){structure=(5.20*3); p2=0.5*ilosc;}
-			if ($('input_14').value==60){structure=(5.75*3); p2=0.6*ilosc;}
-			if ($('input_14').value==70){structure=(6.20*3); p2=0.7*ilosc;}
-			if ($('input_14').value==85){structure=(7.10*3); p2=0.85*ilosc;}
-			if ($('input_14').value==100){structure=(7.95*3); p2=1.00*ilosc;}
-			if ($('input_14').value==120){structure=(8.90*3); p2=1.20*ilosc;}
-			if ($('input_14').value==150){structure=(11.20*3); p2=1.50*ilosc;}
-			if ($('input_14').value==160){structure=(17.00*3); p2=1.60*ilosc;}
-			if ($('input_14').value==180){structure=(20.00*3); p2=1.80*ilosc;}
-			if ($('input_14').value==200){structure=(24.00*3); p2=2.00*ilosc;}
-
-
+			if ((ilosc > 0) && (ilosc < 30)){structure=(2.5*2.7);}
+			if ((ilosc > 29) && (ilosc < 50)){structure=(2.5*2.5);}
+			if (ilosc > 49){structure=(2.5*1.9);}
+			p2=0.7*ilosc;
 
 			prixsupport=cenatotal/ilosc;
-            cena= structure+prixsupport;
-            ktorytyp=$('input_4').value;
-            dodatkowaopcja='<br />- '+$('input_14').value+'x'+$('input_15').value+'cm (Largeur x Hauteur)';
+      cena= structure+prixsupport;
+      ktorytyp=$('input_3').value;
+      dodatkowaopcja='<br />- '+$('input_31').value;
 
-			if ($('input_11').value == 'ventouse') {
-            dodatkowaopcja+='<br />- Ventouse super adhesive 65mm';
-            cena+=5.7;
-          }
+      wysokosc = 160;
+      szerokosc = 60;
+	  }
+	  ///////////
+
+    if (($('input_3').value == '80x180') && (($('input_31').value == 'bache 440g') || ($('input_31').value == 'bache 470g M1') || ($('input_31').value == 'bache 100% écologique M1') || ($('input_31').value == 'PVC 300 mircons') )){
+			ilosc=$('input_7').value;
+			if ((ilosc > 0) && (ilosc < 30)){structure=(5*2.0);}
+			if ((ilosc > 29) && (ilosc < 50)){structure=(5*1.9);}
+			if (ilosc > 49){structure=(5*1.7);}
+			p2=0.8*ilosc;
 
 
-        }
+		  prixsupport=cenatotal/ilosc;
+      cena= structure+prixsupport;
+      ktorytyp=$('input_3').value;
+      dodatkowaopcja='<br />- '+$('input_31').value;
+
+      wysokosc = 180;
+      szerokosc = 80;
+	  }
+    ///////////////FIN x-screen/////////
+
+	  //////TARIF clipit////////////////////////////////////////////////////////
+    if (($('input_1').value == 'clipit') && (($('input_4').value == 'bache 440g') || ($('input_4').value == 'bache 470g M1') || ($('input_4').value == 'bache 100% écologique M1') || ($('input_4').value == 'PVC 300 mircons') || ($('input_4').value == 'Recto/verso PVC 300µ') )){
 
 
-        //// maquette
-        var ktodaje;
-        if ($('input_6').value == 'fb') {
-          cena+=29;
-          ktodaje = 'France banderole crée la maquette';
-        }
-        if ($('input_6').value == 'user') {
-          ktodaje = 'j’ai déjà crée la maquette';
-        }
-		 if ($('input_61').value == 'fb') {
-          cena+=29;
-          ktodaje = 'France banderole crée la maquette';
-        }
-        if ($('input_61').value == 'user') {
-          ktodaje = 'j’ai déjà crée la maquette';
-        }
+		ilosc=$('input_7').value;
+		if ($('input_14').value==30){structure=(3.55*3); p2=0.3*ilosc;}
+		if ($('input_14').value==42){structure=(4.45*3); p2=0.42*ilosc;}
+		if ($('input_14').value==50){structure=(5.20*3); p2=0.5*ilosc;}
+		if ($('input_14').value==60){structure=(5.75*3); p2=0.6*ilosc;}
+		if ($('input_14').value==70){structure=(6.20*3); p2=0.7*ilosc;}
+		if ($('input_14').value==85){structure=(7.10*3); p2=0.85*ilosc;}
+		if ($('input_14').value==100){structure=(7.95*3); p2=1.00*ilosc;}
+		if ($('input_14').value==120){structure=(8.90*3); p2=1.20*ilosc;}
+		if ($('input_14').value==150){structure=(11.20*3); p2=1.50*ilosc;}
+		if ($('input_14').value==160){structure=(17.00*3); p2=1.60*ilosc;}
+		if ($('input_14').value==180){structure=(20.00*3); p2=1.80*ilosc;}
+		if ($('input_14').value==200){structure=(24.00*3); p2=2.00*ilosc;}
 
-        ////reszta
-        var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-        if (colis == true) {
-          cena += 2.00;
-          cedzik += '<br />- colis revendeur';
-        }
-        var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-        var etiqdesc = '';
-        if (etiquette == true) {
-          transport=0;
-          etiqdesc = '<br />- retrait colis a l\'atelier';
-          cena-= cena*3/100;
-        }
+    prixsupport=cenatotal/ilosc;
+    cena= structure+prixsupport;
+    ktorytyp=$('input_4').value;
+    dodatkowaopcja='<br />- '+$('input_14').value+'x'+$('input_15').value+'cm (Largeur x Hauteur)';
 
-        var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-        if (relais == true) {
-          cenapojedyncza += 5.00;
-          cena += 5.00;
-          cedzik += '<br />- relais colis';
-        }
+    wysokosc = $('input_15').value;
+    szerokosc = $('input_14').value;
+
+		if ($('input_11').value == 'ventouse') {
+        dodatkowaopcja+='<br />- Ventouse super adhesive 65mm';
+        cena+=5.7;
+      }
+    }
+
+
+    //// maquette
+    var ktodaje;
+    if ($('input_6').value == 'fb') {
+      cena+=29;
+      ktodaje = 'France banderole crée la maquette';
+    }
+    if ($('input_6').value == 'user') {
+      ktodaje = 'j’ai déjà crée la maquette';
+    }
+    if ($('input_6').value == 'config') {
+      cena+=5;
+      ktodaje = 'je crée ma maquette en ligne';
+    }
+
+    if ($('input_61').value == 'fb') {
+      cena+=29;
+      ktodaje = 'France banderole crée la maquette';
+    }
+    if ($('input_61').value == 'user') {
+      ktodaje = 'j’ai déjà crée la maquette';
+    }
+    if ($('input_61').value == 'config') {
+			cena+=5;
+			ktodaje = 'je crée ma maquette en ligne';
+		}
+
+    ////reszta
+    var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+    if (colis == true) {
+      cena += 2.00;
+      cedzik += '<br />- colis revendeur';
+    }
+    var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+    var etiqdesc = '';
+    if (etiquette == true) {
+      transport=0;
+      etiqdesc = '<br />- retrait colis a l\'atelier';
+      cena-= cena*3/100;
+    }
+
+    var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
+    if (relais == true) {
+      cenapojedyncza += 5.00;
+      cena += 5.00;
+      cedzik += '<br />- relais colis';
+    }
 
 
 
@@ -1111,7 +1145,7 @@
 
 
                 var dodajkoszyk = document.getElementById("cart_form");
-                dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Totem" /><input type="hidden" name="opis" value="- '+$('input_1').value+'&nbsp;'+$('input_2').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+                dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Totem" /><input type="hidden" name="opis" value="- '+$('input_1').value+'&nbsp;'+$('input_2').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
                 livraisonComp.style.display = 'block';
 
 

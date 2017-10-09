@@ -21,7 +21,7 @@
             <option value="">choisir le type</option>
             <option value="Tissu">stand tissu easy quick</option>
             <option value="Stand ExpoBag">stand expo’bag</option>
-            <option value="Stand parapluie">stand parapluie révolution avec kit (valise + tablette + spot)</option>
+            <!--<option value="Stand parapluie">stand parapluie révolution avec kit (valise + tablette + spot)</option>-->
             <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
             <option value="valise">valise transformable en bank d'accueil + tablette</option>
           </select>
@@ -184,14 +184,18 @@
           <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-              <b>France banderole crée votre fichier :</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-              <b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
-            </span>
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
           </span>
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir la mise en page... </option>
             <option value="fb">France banderole crée la mise en page</option>
             <option value="user">j’ai déjà crée la maquette </option>
+            <option class="option1" value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
@@ -375,61 +379,94 @@ jQuery(document).ready(function(){
     //////////////////////////////////////////////////////////// recto simple //
     if ($('input_0').value == 'Tissu') {
       trans = 15;
+      var rodzaj = "Stand Tissu";
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x1 R' ) {
         scratch = 7.7;
     		structure = 105.3;
         tissu220 = 21.39;
         tissu260 = 28.52;
     		dodatkowaopcja += '<br />- Recto simple 3x1 Droit';
+
+        wysokosc = 229;
+        szerokosc = 152;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x2 R' ) {
         structure = 120.9;
         scratch = 9.2;
         tissu220 = 31.74;
         tissu260 = 42.32;
     		dodatkowaopcja += '<br />- Recto simple 3x2 Droit';
+
+        wysokosc = 229;
+        szerokosc = 225.5;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x3 R' ) {
     		structure = 129.6;
         scratch = 10.6;
         tissu220 = 41.4;
         tissu260 = 55.2;
     		dodatkowaopcja += '<br />- Recto simple 3x3 Droit';
+
+        wysokosc = 299;
+        szerokosc = 299;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x4 R' ) {
     		structure = 165.60;
         scratch = 12;
         tissu220 = 51.6;
         tissu260 = 68.08;
     		dodatkowaopcja += '<br />- Recto simple 3x4 Droit';
+
+        wysokosc = 299;
+        szerokosc = 369.5;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x5 R' ) {
     		structure = 201.6;
         scratch = 13.6;
         tissu220 = 62.1;
         tissu260 = 82.8;
     		dodatkowaopcja += '<br />- Recto simple 3x5 Droit';
+
+        wysokosc = 299;
+        szerokosc = 446.5;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x6 R' ) {
     		structure = 300;
         scratch = 15;
         tissu220 = 71.76;
         tissu260 = 95.68;
     		dodatkowaopcja += '<br />- Recto simple 3x6 Droit';
+
+        wysokosc = 299;
+        szerokosc = 522;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x7 R' ) {
     		structure = 345;
         scratch = 16.5;
         tissu220 = 82.11;
         tissu260 = 109.48;
     		dodatkowaopcja += '<br />- Recto simple 3x7 Droit';
+
+        wysokosc = 299;
+        szerokosc = 597;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x8 R' ) {
     		structure = 390;
         scratch = 18;
         tissu220 = 92.46;
         tissu260 = 123.28;
     		dodatkowaopcja += '<br />- Recto simple 3x8 Droit';
+
+        wysokosc = 299;
+        szerokosc = 662;
     	}
 
       /////////////////////////////////////////////////////////// recto verso //
@@ -439,55 +476,86 @@ jQuery(document).ready(function(){
         tissu220 = 33.12;
         tissu260 = 44.16;
     		dodatkowaopcja += '<br />- Recto Verso 3x1 Droit';
+
+        wysokosc = 229;
+        szerokosc = 152;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x2 RV' ) {
     		structure = 144.3;
         scratch = 16.9;
         tissu220 = 53.13;
         tissu260 = 70.84;
     		dodatkowaopcja += '<br />- Recto Verso 3x2 Droit';
+
+        wysokosc = 229;
+        szerokosc = 225.5;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x3 RV' ) {
     		structure = 162;
         scratch = 19.8;
         tissu220 = 73.14;
         tissu260 = 97.52;
     		dodatkowaopcja += '<br />- Recto Verso 3x3 Droit';
+
+        wysokosc = 299;
+        szerokosc = 299;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x4 RV' ) {
     		structure = 208.8;
         scratch = 22.6;
         tissu220 = 92.46;
         tissu260 = 123.28;
     		dodatkowaopcja += '<br />- Recto Verso 3x4 Droit';
+
+        wysokosc = 299;
+        szerokosc = 369.5;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_50').value == '3x5 RV' ) {
     		structure = 255.6;
         scratch = 25.6;
         tissu220 = 113.16;
         tissu260 = 150.88;
     		dodatkowaopcja += '<br />- Recto Verso 3x5 Droit';
+
+        wysokosc = 299;
+        szerokosc = 446.5;
     	}
+      //------------------------------------------------------------------------
       if ($('input_50').value == '3x6 RV' ) {
         structure = 354;
         scratch = 28.6;
         tissu220 = 133.86;
         tissu260 = 178.48;
         dodatkowaopcja += '<br />- Recto Verso 3x6 Droit';
+
+        wysokosc = 299;
+        szerokosc = 522;
       }
+      //------------------------------------------------------------------------
       if ($('input_50').value == '3x7 RV' ) {
         structure = 408;
         scratch = 31.5;
         tissu220 = 153.87;
         tissu260 = 205.16;
         dodatkowaopcja += '<br />- Recto Verso 3x7 Droit';
+
+        wysokosc = 299;
+        szerokosc = 597;
       }
+      //------------------------------------------------------------------------
       if ($('input_50').value == '3x8 RV' ) {
         structure = 462;
         scratch = 34.5;
         tissu220 = 174.57;
         tissu260 = 232.76;
         dodatkowaopcja += '<br />- Recto Verso 3x8 Droit';
+
+        wysokosc = 299;
+        szerokosc = 662;
       }
 
       // stand tissu courbé ////////////////////////////////////////////////////
@@ -497,13 +565,20 @@ jQuery(document).ready(function(){
         tissu220 = 38.64;
         tissu260 = 51.52;
     		dodatkowaopcja += '<br />- Recto simple 3x3 Courbé';
+
+        wysokosc = 299;
+        szerokosc = 275;
     	}
+      //------------------------------------------------------------------------
     	if ($('input_500').value == '4' ) {
     		structure = 165.6;
         scratch = 11.6;
         tissu220 = 48.3;
         tissu260 = 64.4
     		dodatkowaopcja += '<br />- Recto simple 3x4 Courbé';
+
+        wysokosc = 299;
+        szerokosc = 341.5;
     	}
 
       ////////////////////////////////////////////// total selon tissu choisi //
@@ -526,7 +601,7 @@ jQuery(document).ready(function(){
     	}
      	if ($('input_6').value == '41' ) {
     		cena += 299+18; ////////// PV + transport
-    		dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
+    		dodatkowaopcja += '<br />- Valise de transport';
     	}
     	if ($('input_6').value == 'Comptoir Easy Quick' ) {
     		cena += ((120+99)*1.4)+10 /////struture+impression X coef + transport;
@@ -535,22 +610,35 @@ jQuery(document).ready(function(){
     }
 
     // Comptoir Easy Quick seul //////////////////////////////////////////////////
+
     if ($('input_0').value == 'Comptoir Easy Quick') {
+      var rodzaj = "Comptoir";
+
       tissu = 20*4;//*4 = coeff marge fb//
       structure = 120*1.40;//1.40 = coeff marge ultima//
       trans = 10;
       cena = tissu + structure + trans;
       dodatkowaopcja += '<br />- Comptoir Easy Quick';
+
+      wysokosc = 102.4;
+      szerokosc = 172;
     }
 
     // valise seule //////////////////////////////////////////////////////////////
     if ($('input_0').value == 'valise') {
+      var rodzaj = "Valise";
+
       cena += 249+20; ////////// PV + transport
-      dodatkowaopcja += '<br />- Valise de transport / Comptoir accueil';
+      dodatkowaopcja += '<br />- Valise de transport/Bank d\'accueil';
+
+      wysokosc = 90;
+      szerokosc = 174;
     }
 
     // Stand expo bag ////////////////////////////////////////////////////////////
     if ($('input_0').value == 'Stand ExpoBag') {
+      var rodzaj = "Stand ExpoBag";
+
     	pack = 649;
     	trans = 29;
     	cena = pack+trans;
@@ -558,6 +646,10 @@ jQuery(document).ready(function(){
     		cena = cena+80;
     		dodatkowaopcja += '<br />- 2 spots hallogene 35w aluminium';
     	}
+      dodatkowaopcja += '<br />- Stand ExpoBag';
+
+      wysokosc = 220;
+      szerokosc = 240;
     	/*var ktodaje;
     	if ($('input_7').value == 'fb') {
     		cena+=40;
@@ -634,6 +726,10 @@ jQuery(document).ready(function(){
     }
     if ($('input_7').value == 'user') {
     	ktodaje = 'j’ai déjà crée la maquette';
+    }
+    if ($('input_7').value == 'config') {
+      cena+=5;
+      ktodaje = 'je crée ma maquette en ligne';
     }
 
   	// options de livraison //////////////////////////////////////////////////////
@@ -872,9 +968,9 @@ jQuery(document).ready(function(){
       }
 
 			////////////////////////////////////////////////////// envoi formulaire //
-      var rodzaj = "Stand";
+
     	var dodajkoszyk = document.getElementById("cart_form");
-    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stand" /><input type="hidden" name="opis" value="- '+$('input_0').value+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value=" '+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
       livraisonComp.style.display = 'block';
 		}
 	}); // fin prod/delivery click function

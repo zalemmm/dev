@@ -66,11 +66,12 @@
 					</span>
 					<select class="form-dropdown validate[required]" id="input_23" name="q23_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
-						<option class="option1" value="80x200">80x200 cm </option>
+						<option class="option1" value="60x200">60x200 cm </option>
+						<option class="option2" value="80x200">80x200 cm </option>
+						<option class="option1" value="85x200">85x200 cm </option>
 						<option class="option2" value="100x200">100x200 cm </option>
 						<option class="option1" value="120x200">120x200 cm </option>
 						<option class="option2" value="150x200">150x200 cm </option>
-                        <option class="option1" value="200x200">200x200 cm </option>
 						<!--<option class="option1" value="200x300">GIANT 200x300 cm </option>-->
 					</select>
 				</li>
@@ -213,11 +214,8 @@
 					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
-							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>France banderole crée votre fichier :</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
 							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
@@ -656,14 +654,36 @@
 				// fin best-line ///////////////////////////////////////////////////////
 				//////////////////////////////////////////////////////////// lux-line //
 
+				if (($('input_1').value == 'lux-line') && ($('input_23').value == '60x200')){
+					if (ilosc<7) {cena=60;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=59;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=58;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=57;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=55;}
+					if (ilosc>=217 ) {cena=55;}
+					if ($('input_32').value == '440g') {cena += 0}
+					if ($('input_32').value == '300µ M1') {cena += 3}
+					if ($('input_32').value == 'jet 520 M1') {cena += 4}
+					if ($('input_32').value == '100% écologique M1') {cena += 11}
+					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
+
+					wysokosc = 200;
+					szerokosc = 60;
+
+					ktorytyp=$('input_23').value;
+					dodatkowaopcja='<br />- '+$('input_32').value;
+					if ($('input_4').value != '') {
+						dodatkowaopcja += '<br />- '+$('input_4').value;
+					}
+				}
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '80x200')){
-					if (ilosc<7) {cena=85;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
-					if (ilosc>=217 ) {cena=78;}
+					if (ilosc<7) {cena=65;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=64;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=63;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=62;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=60;}
+					if (ilosc>=217 ) {cena=58;}
 					if ($('input_32').value == '440g') {cena += 0}
 					if ($('input_32').value == '300µ M1') {cena += 3}
 					if ($('input_32').value == 'jet 520 M1') {cena += 4}
@@ -680,15 +700,36 @@
 					}
 				}
 
+				if (($('input_1').value == 'lux-line') && ($('input_23').value == '85x200')){
+					if (ilosc<7) {cena=69;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=68;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=67;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=66;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=64;}
+					if (ilosc>=217 ) {cena=62;}
+					if ($('input_32').value == '440g') {cena += 0}
+					if ($('input_32').value == '300µ M1') {cena += 4}
+					if ($('input_32').value == 'jet 520 M1') {cena += 5}
+					if ($('input_32').value == '100% écologique M1') {cena += 12}
+					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
+					wysokosc = 200;
+					szerokosc = 85;
+
+					ktorytyp=$('input_23').value;
+					dodatkowaopcja='<br />- '+$('input_32').value;
+					if ($('input_4').value != '') {
+						dodatkowaopcja += '<br />- '+$('input_4').value;
+					}
+				}
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '100x200')){
-					if (ilosc<7) {cena=105;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=104;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=103;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=102;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=100;}
-					if (ilosc>=217 ) {cena=98;}
+					if (ilosc<7) {cena=80;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=79;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=78;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=77;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=75;}
+					if (ilosc>=217 ) {cena=73;}
 					if ($('input_32').value == '440g') {cena += 0}
 					if ($('input_32').value == '300µ M1') {cena += 4}
 					if ($('input_32').value == 'jet 520 M1') {cena += 5}
@@ -706,12 +747,12 @@
 				}
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '120x200')){
-					if (ilosc<7) {cena=129;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=128;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=127;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=126;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=124;}
-					if (ilosc>=217 ) {cena=122;}
+					if (ilosc<7) {cena=110;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=109;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=108;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=107;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=105;}
+					if (ilosc>=217 ) {cena=103;}
 					if ($('input_32').value == '440g') {cena += 0}
 					if ($('input_32').value == '300µ M1') {cena += 6}
 					if ($('input_32').value == 'jet 520 M1') {cena += 8}
@@ -729,12 +770,12 @@
 				}
 
 				if (($('input_1').value == 'lux-line') && ($('input_23').value == '150x200')){
-					if (ilosc<7) {cena=169;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=168;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=167;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=166;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=164;}
-					if (ilosc>=217 ) {cena=162;}
+					if (ilosc<7) {cena=148;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=147;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=146;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=145;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=143;}
+					if (ilosc>=217 ) {cena=141;}
 					if ($('input_33').value == '440g') {cena += 0}
 					if ($('input_33').value == '300µ M1') {cena += 9}
 					if ($('input_33').value == 'jet 520 M1') {cena += 12}
@@ -751,17 +792,17 @@
 					}
 				}
 
-				if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x200')){
-					if (ilosc<7) {cena=219;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=218;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=217;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=216;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=214;}
-					if (ilosc>=217 ) {cena=212;}
+				if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x300')){
+					if (ilosc<7) {cena=320;}
+					if ((ilosc>=7) && (ilosc<=24)) {cena=310;}
+					if ((ilosc>=25) && (ilosc<=48)) {cena=290;}
+					if ((ilosc>=49) && (ilosc<=108)) {cena=280;}
+					if ((ilosc>=109) && (ilosc<=216)) {cena=278;}
+					if (ilosc>=217 ) {cena=275;}
 					if ($('input_35').value == '440g') {cena += 0}
 					if ($('input_35').value == 'jet 520 M1') {cena += 40}
 
-					wysokosc = 200;
+					wysokosc = 300;
 					szerokosc = 200;
 
 					ktorytyp=$('input_23').value;
@@ -926,18 +967,12 @@
 	            cena=structure+(cenatotal/ilosc);
 	            ktorytyp=$('input_26').value;
 							p2=3*ilosc;
-
-							wysokosc = 200;
-							szerokosc = 80;
 	          }
 	          if ($('input_26').value == '80x200 2 visuels') {
 							structure=86.4*1.8;
 	            cena=structure+((cenatotal*1.5)/ilosc);
-	            ktorytyp=$('input_26').value + ' recto verso';
+	            ktorytyp=$('input_26').value;
 							p2=3*ilosc;
-
-							wysokosc = 200;
-							szerokosc = 80;
 		        }
 
 					// poids mistral //
@@ -1196,8 +1231,7 @@
 					livraisonrapide.style.display = 'block';
 				}
 				else {livraisonrapide.style.display = 'none';}
-
-				////////////////////////////////////////////////////////////////////////
+				///////////////////////////
 
 				if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 					suma=cena-rabat;
@@ -1205,10 +1239,15 @@
 					suma2 = suma.replace(".", ",");
 					total.innerHTML=suma2+' &euro;';
 
-					var dodajkoszyk = document.getElementById("cart_form");
-					dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-					livraisonComp.style.display = 'block';
-
+					if ($('input_1').value == 'Mistral') {
+						var dodajkoszyk = document.getElementById("cart_form");
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- recto-verso<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc*100+'" /><input type="hidden" name="largeur" value="'+szerokosc*100+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						livraisonComp.style.display = 'block';
+					}else{
+						var dodajkoszyk = document.getElementById("cart_form");
+						dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+						livraisonComp.style.display = 'block';
+					}
 				}
 			}
 		});

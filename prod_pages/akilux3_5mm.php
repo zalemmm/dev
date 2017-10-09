@@ -81,11 +81,21 @@
           </li>
 
           <li class="form-line" id="id_6">
-            <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </b></u>:<br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
+            <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+  						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+  						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+  							<b>France banderole crée votre fichier :</b><br/>
+  							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+  							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+  							<b>Vous créez votre maquette en ligne:</b><br/>
+  							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+  						</span>
+  					</span>
             <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
               <option class="titre" value="">fichier d'impression...</option>
               <option class="option1" value="fb">France banderole crée la mise en page</option>
               <option class="option2" value="user">j’ai déjà crée la mise en page</option>
+              <option class="option1" value="config">je crée ma maquette en ligne</option>
             </select>
           </li>
 
@@ -97,7 +107,6 @@
           <li id="id_9" class="form-line optionsformline2">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
             <input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
-
           </li>
 
           <li id="id_7" class="form-line optionsformline">
@@ -300,7 +309,7 @@
       var pa             = 1.50;                                                             ///prix d'achat au m²
       var pe             = 0.8;                                                              ///prix d'encrage au m²
       var cp             = pe+pa;                                                            ///coût de production au m²
-      var dimp           = 1.92;                                                             ///m² d'une plaque (120x160cm)
+      var dimp           = 3;                                                                ///m² d'une plaque (150x200cm)
       var cppr           = cp*dimp;                                                          ///coût de production d'une plaque recto
       var cpprv          = (cp*dimp)*1.32;                                                   ///coût de production d'une plaque verso
       var dim            = 0;                                                                ///m² de l'ensemble de la commande
@@ -328,6 +337,7 @@
           if((metraz>0.24)&&(metraz<=0.48)){metraz2=0.48}
           if((metraz>0.48)&&(metraz<=0.96)){metraz2=0.96}
           if((metraz>0.96)&&(metraz<=1.92)){metraz2=1.92}
+		  if((metraz>1.92)&&(metraz<=3)){metraz2=3}
           opis += '<br />- Akilux 3,5mm recto';
           dim= metraz2*ilosc;
           np = Math.ceil(dim/dimp);
@@ -340,6 +350,7 @@
           if((metraz>0.24)&&(metraz<=0.48)){metraz2=0.48}
           if((metraz>0.48)&&(metraz<=0.96)){metraz2=0.96}
           if((metraz>0.96)&&(metraz<=1.92)){metraz2=1.92}
+		      if((metraz>1.92)&&(metraz<=3)){metraz2=3}
           opis += '<br />- Akilux 3,5mm recto verso';
           dim= metraz2*ilosc;
           np = Math.ceil(dim/dimp);
@@ -360,8 +371,10 @@
         if ($('input_5').value == '1 rainage'){rainage=1.75; opis += '<br />- 1 rainage';}
         if ($('input_5').value == '2 rainages'){rainage=3.5; opis += '<br />- 2 rainages';}
         if ($('input_5').value == '3 rainages'){rainage=5.25; opis += '<br />- 3 rainages';}
+
         if ($('input_6').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
         if ($('input_6').value == 'user') {opis += '<br />- j’ai déjà crée la maquette';}
+        if ($('input_6').value == 'config') {maquette=5; opis += '<br />- je crée ma maquette en ligne';}
         ///Fin fixations et maquette///
 
 
@@ -483,10 +496,50 @@
 
 
         if ((metraz>0.96) && (metraz<=1.92)){
-          if (np<=1){coupe = 1.8*ilosc}
-          if ((np>1) && (np<=2)){coupe = 1.50*ilosc}
-          if ((np>2) && (np<=1000000)){coupe = 0.95*ilosc}
+          if (np<=1){
+            if (ilosc<=1){coupe = -5*ilosc}
+          }
+          if ((np>1) && (np<=2)){
+            if (ilosc<=3){coupe = -0.5*ilosc}
+            if (ilosc>3){coupe = 1.5*ilosc}
+          }
+          if ((np>2) && (np<=3)){coupe = 0.20*ilosc}
+          if ((np>3) && (np<=4)){coupe = 0.5*ilosc}
+          if ((np>4) && (np<=6)){coupe = 0.5*ilosc}
+          if ((np>6) && (np<=7)){coupe = 0.25*ilosc}
+          if ((np>7) && (np<=8)){coupe = 0.2*ilosc}
+          if ((np>8) && (np<=9)){coupe = 0.3*ilosc}
+          if ((np>9) && (np<=16)){coupe = 0.5*ilosc}
+          if ((np>16) && (np<=17)){coupe = 0.38*ilosc}
+          if ((np>17) && (np<=18)){coupe = 0.42*ilosc}
+          if ((np>18) && (np<=21)){coupe = 0.35*ilosc}
+          if ((np>21) && (np<=22)){coupe = 0.29*ilosc}
+          if ((np>22) && (np<=24)){coupe = 0.24*ilosc}
+          if ((np>24) && (np<=25)){coupe = 0.15*ilosc}
+          if ((np>25) && (np<=31)){coupe = 0.10*ilosc}
+          if ((np>31) && (np<=39)){coupe = 0.50*ilosc}
+          if ((np>39) && (np<=62)){coupe = 0.15*ilosc}
+          if ((np>62) && (np<=70)){coupe = 0.03*ilosc}
+          if ((np>70) && (np<=74)){coupe = 0.10*ilosc}
+          if ((np>74) && (np<=90)){coupe = 0.26*ilosc}
+          if ((np>90) && (np<=99)){coupe = 0.25*ilosc}
+          if ((np>99) && (np<=112)){coupe = 0.20*ilosc}
+          if ((np>112) && (np<=124)){coupe = 0.25*ilosc}
+          if ((np>124) && (np<=125)){coupe = 0.32*ilosc}
+          if ((np>125) && (np<=137)){coupe = 0.35*ilosc}
+          if ((np>137) && (np<=187)){coupe = 0.33*ilosc}
+          if ((np>187) && (np<=249)){coupe = 0.35*ilosc}
+          if ((np>249) && (np<=1000000)){coupe = 0.65*ilosc}
         }
+
+		if ((metraz>1.92) && (metraz<=3)){
+          if (np<=1){coupe = 2*ilosc}
+          if ((np>1) && (np<=2)){coupe = 1.8*ilosc}
+          if ((np>2) && (np<=1000000)){coupe = 1.2*ilosc}
+        }
+
+
+
         //// FIN coupe ///
 
         /////coefficient par tranche de plaque/////
@@ -754,12 +807,8 @@
           var month = estdt.getMonth()+1;
           var day = estdt.getDate();
           var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-          //jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
 
-          if(jQuery('#id_7').css('display') != 'none')
-          {
-            //jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-            //jQuery('#prix_unitaire').text(finalPrice);
+          if(jQuery('#id_7').css('display') != 'none') {
             jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
           }
 
@@ -784,28 +833,23 @@
         cenapojedyncza=fixstr(cenapojedyncza);
         cena2 = cenapojedyncza.replace(".", ",")
 
-        /* koszty transportu */
         transport=0;
-        var niepokazuj = 0;
+
         if (ilosc==''){niepokazuj=1;}
         if (niepokazuj==1) {
           prix.innerHTML='-';
           remise.innerHTML='-';
           total.innerHTML='-';
           finalPrice='0';
-        }
-        if (niepokazuj==1) {
-          prix.innerHTML='-';
-          remise.innerHTML='-';
-          total.innerHTML='-';
+          $('submit_cart').style.display="none";
         }
 
-        ///////////livraison le jour même////////
+        //////////////////////////////////////////livraison le jour même////////
         if ((DeliveryType == '1-1') && (PorductType == '1-1')){
           livraisonrapide.style.display = 'block';
         }
         else {livraisonrapide.style.display = 'none';}
-        /////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
 
         if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
           suma=cena-rabat;
@@ -818,7 +862,7 @@
             var opt = document.getElementById("option");
             opt.innerHTML='-';
           }
-          var niepokazuj = 0;
+
           if ( suma < 29 ) {
             var forfait = 29 - suma;
             forfait = fixstr(forfait);
@@ -850,29 +894,35 @@
             }
           }
 
+          var erreur = 0;
           ///////////////////////////////// avertissements, messages d'erreur //
           if ( (wysokosc > 200) || (szerokosc > 200) ) {
             eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 200x150cm!';
             eBox.style.display="block";
-            niepokazuj=1;
+            erreur=1;
           }
           if ( (wysokosc > 150) && (szerokosc > 150) ) {
             eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 200x150cm!';
             eBox.style.display="block";
-            niepokazuj=1;
+            erreur=1;
           }
           if ( (szerokosc <= 0 ) || (wysokosc <= 0 ) ){
             eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en <u>centimètres</u>';
             eBox.style.display="block";
-            niepokazuj=2;
+            erreur=1;
+          }
+
+          if (erreur == 1) {
+            total.innerHTML='-';
+            ($('submit_cart').style.display="none");
           }
 
           ////////////////////////////////////////////////// envoi formulaire //
           var rodzaj = "Akilux 3,5mm";
           var dodajkoszyk = document.getElementById("cart_form");
 
-          dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-          livraisonComp.style.display = 'block';
+          dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+
         }
       }
     });

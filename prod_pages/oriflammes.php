@@ -17,8 +17,8 @@
               <option class="option1" value="windflag">Windflag rectangulaire </option>
             </select>
           </li>
-          
-          
+
+
 
           <li class="form-line" id="id_20">
             <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>3 dimensions au choix (autre, nous consulter), les drapeaux sont livrés avec des petits mâts en plastique blanc.<br /></span></span>
@@ -61,8 +61,8 @@
               <option value="windflag-100x350">Voile 100x350cm - Monté 100x530cm - pied inclus </option>
             </select>
           </li>
-          
-          
+
+
            <li class="form-line" id="id_24">
             <span class="helpButton" onmouseover="pokazt('helpText24');" onmouseout="ukryjt('helpText24');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText24" style="visibility:hidden;">• <u><b>Drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Choisissez votre format horizontal ou vertical<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_24" name="q24" onclick="JKakemono.czyscpola(); ">
@@ -71,7 +71,7 @@
               <option value="horizontal">horizontal </option>
             </select>
           </li>
-          
+
 
           <li class="form-line" id="id_3">
             <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>kit complet</u>: <span class="highlight">Dès 70,00€</span></b><br/>Tout est inclus, le mât, la voile personnalisée, le sax de transport et le pied au choix.<br />• <u><b>Structure + Voile</u>: <span class="highlight">Dès 53,00€</span></b><br/>Vous serez livré du mât, la voile imprimée, le sax de transport sans pied.<br />• <u><b>Voile imprimée seule</u>: <span class="highlight">Dès 34,00€</span></b><br/>Vous serez livré uniquement d'un voile personnalisée sous film plastique.<br /></span></span>
@@ -100,7 +100,7 @@
               <option value="Recto/Verso">Recto/Verso</option>
             </select>
           </li>
-          
+
           <li class="form-line" id="id_43">
             <span class="helpButton" onmouseover="pokazt('helpText43');" onmouseout="ukryjt('helpText43');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText43" style="visibility:hidden;">• <u><b>Drapeaux grand format vertical</u></b><br/>4 dimensions au choix pour un drapeau vertical<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_43" name="q43" onclick="JKakemono.czyscpola(); ">
@@ -144,6 +144,7 @@
               <option value="">fichier d'impression...</option>
               <option value="fb">France banderole crée la mise en page</option>
               <option value="user">j’ai déjà crée la mise en page</option>
+              <option value="config">je crée ma maquette en ligne</option>
             </select>
           </li>
 
@@ -350,6 +351,8 @@ var prliv='';
 var date_panier='';
 var colisr='';
 var dodatkowaopcja='';
+var wysokosc = 0;
+var szerokosc = 0;
 var option2=0;
 var pied=0;
 var poidtotal=0; var p1=0; var p2=0; var p3=0;
@@ -364,6 +367,8 @@ if ( ($('input_1').value) ) {
 	var ktorytyp='';
 	var ktorywymiar ='';
 	var ktorapodstawa='';
+
+  ///////////////////////////////////////////////////////// drapeaux à agiter //
 
 	if ($('input_1').value == 'drapeaux') {
 		ktorytyp='Drapeaux';
@@ -380,9 +385,13 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 49) {
 			prixHT = 15.90;}
 
+      wysokosc = 25;
+      szerokosc = 35;
+
 			ktorywymiar = '25x35';
 			composant='Mât 50cm'
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_20').value == '40x50') {
 			if ($('input_9').value == '1') {
 			prixHT = 49;}
@@ -395,9 +404,13 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 49) {
 			prixHT = 19.90;}
 
+      wysokosc = 40;
+      szerokosc = 50;
+
 			ktorywymiar = '40x50';
 			composant='Mât 75cm'
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_20').value == '75x100') {
 			if ($('input_9').value == 1) {
 			prixHT = 62;}
@@ -410,19 +423,23 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 49) {
 			prixHT = 29.90;}
 
+      wysokosc = 75;
+      szerokosc = 100;
+
 			ktorywymiar = '75x100';
 			composant='Mât 150cm'
 		}
 
 	}
-	
-	/////////////////////////// drapeaux grand format
-	
+
+	///////////////////////////////////////////////////// drapeaux grand format //
+
 	if ($('input_1').value == 'drapeaux grand format') {
 		ktorytyp='Drapeaux grand format';
 		ilosc = $('input_9').value;
-		
-		//////////////vertical
+
+		//------------------------------------------------------------------vertical
+
 		if (($('input_24').value == 'vertical') && ($('input_43').value == '250x80cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 44; }
@@ -433,10 +450,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 32;}
 
+      wysokosc = 250;
+      szerokosc = 80;
+
 			ktorywymiar = 'vertical';
 			composant='250x80cm';
 			p1=2;
 		}
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'vertical') && ($('input_43').value == '300x100cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 53; }
@@ -447,10 +468,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 45;}
 
+      wysokosc = 300;
+      szerokosc = 100;
+
 			ktorywymiar = 'vertical';
 			composant='300x100cm';
 			p1=3;
 		}
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'vertical') && ($('input_43').value == '400x120cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 67; }
@@ -461,10 +486,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 57;}
 
+      wysokosc = 400;
+      szerokosc = 120;
+
 			ktorywymiar = 'vertical';
 			composant='400x120cm';
 			p1=4.8;
 		}
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'vertical') && ($('input_43').value == '500x150cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 88; }
@@ -475,14 +504,16 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 76;}
 
+      wysokosc = 500;
+      szerokosc = 150;
+
 			ktorywymiar = 'vertical';
 			composant='500x150cm';
 			p1=7.5;
 		}
-		
-		
-		
-		//////////////horizontal
+
+		//----------------------------------------------------------------horizontal
+
 		if (($('input_24').value == 'horizontal') && ($('input_44').value == '80x120cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 22; }
@@ -493,10 +524,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 15;}
 
+      wysokosc = 80;
+      szerokosc = 120;
+
 			ktorywymiar = 'horizontal';
 			composant='80x120cm';
 			p1=0.96;
 		}
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'horizontal') && ($('input_44').value == '100x150cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 24; }
@@ -507,10 +542,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 17;}
 
+      wysokosc = 100;
+      szerokosc = 150;
+
 			ktorywymiar = 'horizontal';
 			composant='100x150cm';
 			p1=1.5;
 		}
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'horizontal') && ($('input_44').value == '120x180cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 29; }
@@ -521,10 +560,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 22;}
 
+      wysokosc = 120;
+      szerokosc = 180;
+
 			ktorywymiar = 'horizontal';
 			composant='120x180cm';
 			p1=2.16;
 		}
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'horizontal') && ($('input_44').value == '150x225cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 32; }
@@ -535,11 +578,14 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 25;}
 
+      wysokosc = 150;
+      szerokosc = 225;
+
 			ktorywymiar = 'horizontal';
 			composant='150x225cm';
 			p1=3.37;
 		}
-		
+    //--------------------------------------------------------------------------
 		if (($('input_24').value == 'horizontal') && ($('input_44').value == '200x300cm')) {
 			if ($('input_9').value == 1) {
 			prixHT = 47; }
@@ -550,47 +596,50 @@ if ( ($('input_1').value) ) {
 			if ($('input_9').value > 10) {
 			prixHT = 39;}
 
+      wysokosc = 200;
+      szerokosc = 300;
+
 			ktorywymiar = 'horizontal';
 			composant='200x300cm';
 			p1=6;
 		}
-		
+
 
 	}
-	
-	
-	////////////////////////////fin drapeaux grand format
-	
-	
-	
-	
-	
+	////////////////////////////////////////////////////////////// Aile d'avion //
+
 	if ($('input_1').value == 'oriflamme') {
 		ktorytyp='Oriflamme aile d’avion';
 		ilosc=$('input_9').value;
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-54x190') {
 			structure = 13;
 			p2=0.85;
-
+      wysokosc = 190;
+      szerokosc = 54;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x245') {
 			structure = 13;
 			p2=0.89;
+      wysokosc = 245;
+      szerokosc = 85;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x298') {
 			structure = 15;
 			p2=1.05;
+      wysokosc = 298;
+      szerokosc = 85;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x397') {
 			structure = 22;
 			p2=1.25;
+      wysokosc = 397;
+      szerokosc = 60;
 		}
-
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-54x190' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 31;}
@@ -603,6 +652,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '54x240 recto';
 			p1=0.25;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-54x190' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 81;}
@@ -615,7 +665,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '54x240 recto/verso';
 			p1=0.4;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x245' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 41;}
@@ -628,6 +678,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '85x308 recto';
 			p1=0.4;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x245' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 101;}
@@ -640,7 +691,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '85x308 recto/verso';
 			p1=0.8;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x298' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 49;}
@@ -653,6 +704,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '85x351 recto';
 			p1=0.45;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x298' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 124;}
@@ -665,7 +717,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '85x351 recto/verso';
 			p1=0.95;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x397' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 61;}
@@ -678,6 +730,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '85x465 recto';
 			p1=0.8;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_21').value == 'oriflamme-85x397' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 160;}
@@ -692,32 +745,39 @@ if ( ($('input_1').value) ) {
 		}
 	}
 
-
+  ////////////////////////////////////////////////////////////// goutte d'eau //
 		if ($('input_1').value == 'beachflag') {
 		ktorytyp='Beachflag goutte d’eau';
 		ilosc=$('input_9').value;
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-72x156') {
 			structure = 13;
 			p2=0.85;
+      wysokosc = 156;
+      szerokosc = 72;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-75x213') {
 			structure = 15;
 			p2=0.9;
+      wysokosc = 213;
+      szerokosc = 75;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-106x257') {
 			structure = 19;
 			p2=1.05;
+      wysokosc = 257;
+      szerokosc = 106;
 		}
-
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-125x402') {
 			structure = 24;
 			p2=1.25;
+      wysokosc = 402;
+      szerokosc = 125;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-72x156' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 34;}
@@ -730,6 +790,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '72x203 recto';
 			p1=0.1;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-72x156' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 76;}
@@ -742,7 +803,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '72x203 recto/verso';
 			p1=0.3;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-75x213' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 42;}
@@ -755,6 +816,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '75x254 recto';
 			p1=0.15;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-75x213' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 86;}
@@ -767,7 +829,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '75x254 recto/verso';
 			p1=0.3;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-106x257' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 55;}
@@ -780,6 +842,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '106x323 recto';
 			p1=0.25;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-106x257' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 114;}
@@ -792,7 +855,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '106x323 recto/verso';
 			p1=0.5;
 		}
-
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-125x402' && ($('input_41').value == 'Recto' || $('input_42').value == 'Recto')) {
 			if ($('input_9').value =='1') {
 			impression = 76;}
@@ -805,6 +868,7 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '125x460 recto';
 			p1=0.3;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_22').value == 'beachflag-125x402' && ($('input_41').value == 'Recto/Verso' || $('input_42').value == 'Recto/Verso')) {
 			if ($('input_9').value =='1') {
 			impression = 152;}
@@ -819,9 +883,12 @@ if ( ($('input_1').value) ) {
 		}
 	}
 
+  //////////////////////////////////////////////////// windflag rectangulaire //
+
 	if ($('input_1').value == 'windflag') {
 		ktorytyp='Windflag rectangulaire';
 		ilosc=$('input_9').value;
+    //--------------------------------------------------------------------------
 		if ($('input_23').value == 'windflag-59x180') {
 			structure = 22;
 			if ($('input_9').value =='1') {
@@ -835,7 +902,11 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '63x256';
 			p1=0.15;
 			p2=2.6;
+
+      wysokosc = 180;
+      szerokosc = 59;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_23').value == 'windflag-80x280') {
 			structure = 85;
 			if ($('input_9').value =='1') {
@@ -849,7 +920,11 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '80x410';
 			p1=0.25;
 			p2=8;
+
+      wysokosc = 280;
+      szerokosc = 80;
 		}
+    //--------------------------------------------------------------------------
 		if ($('input_23').value == 'windflag-100x350') {
 			structure = 115;
 			if ($('input_9').value =='1') {
@@ -863,9 +938,13 @@ if ( ($('input_1').value) ) {
 			ktorywymiar = '100x530';
 			p1=0.45;
 			p2=17.4;
+
+      wysokosc = 350;
+      szerokosc = 100;
 		}
 	}
 
+  ///////////////////////////////////////////////////////////////////// Pieds //
 
 	if ($('input_6').value == 'Embase 8kg') {
 			pied=27;
@@ -910,6 +989,7 @@ if ( ($('input_1').value) ) {
 			ktorapodstawa='<br />- Embase ciment 22kg';
 		}
 
+  ////////////////////////////////////////////////////////////////////// Kits //
 
 	if ($('input_3').value == 'Kit complet') {
 		prixHT=structure+impression+pied;
@@ -932,7 +1012,7 @@ if ( ($('input_1').value) ) {
 		composant='Structure + Voile + pied'
 		}
 
-	/* marge*/
+	///////////////////////////////////////////////////////////////////// marge //
 	if ($('input_9').value =='1') {
 		marge = (prixHT*53)/100;}
 	if ($('input_9').value == '2' || $('input_9').value == '3' || $('input_9').value == '4' || $('input_9').value == '5') {
@@ -941,19 +1021,24 @@ if ( ($('input_1').value) ) {
 		marge = (prixHT*36)/100;}
 	if ($('input_9').value >= 10) {
 		marge = (prixHT*33)/100;}
-	/* maquette*/
-	var ktodaje = '';
 
-		if ($('input_8').value == 'fb') {
-			maquette=35/ilosc;
-			options1=(35*ilosc);
-			ktodaje = '<br />- France banderole crée la maquette';
-		}
-		if ($('input_8').value == 'user') {
-			ktodaje = '<br />- j’ai déjà crée la maquette';
-		}
+  //////////////////////////////////////////////////////////// choix maquette //
+  var ktodaje = '';
 
-	/* cena*/
+	if ($('input_8').value == 'fb') {
+		maquette=35/ilosc;
+		options1=(35*ilosc);
+		ktodaje = '<br />- France banderole crée la maquette';
+	}
+	if ($('input_8').value == 'user') {
+		ktodaje = '<br />- j’ai déjà crée la maquette';
+	}
+  if ($('input_8').value == 'config') {
+    maquette=5;
+    ktodaje = '<br />- je crée ma maquette en ligne';
+  }
+
+	//////////////////////////////////////////////////////////////////////////////
 
 	if ($('input_1').value == 'beachflag' || $('input_1').value == 'oriflamme') {
 	var cenapojedyncza = (prixHT+marge+maquette);
@@ -972,7 +1057,7 @@ if ( ($('input_1').value) ) {
 	ilosc=$('input_9').value;
 	cena=cenapojedyncza*ilosc;
 	}
-	
+
 	if ($('input_1').value == 'drapeaux grand format') {
 	var cenapojedyncza = (prixHT+maquette)*1.5;
 	ilosc=$('input_9').value;
@@ -980,7 +1065,7 @@ if ( ($('input_1').value) ) {
 	}
 
 
-////////////
+/////////////////////////////////////////////////////////////////// checkboxes //
 
 
 	var antifeu = $$('#antifeu').collect(function(e){ return e.checked; }).any();
@@ -1002,6 +1087,8 @@ if ( ($('input_1').value) ) {
 		etiqdesc = '<br />- retrait colis a l\'atelier';
 		cena-= cena*3/100;
 	}
+
+  ///////////////////////////////////////////////////////////////// transport //
 
 	poidtotal=(p1+p2+p3)*ilosc;
 
@@ -1026,40 +1113,13 @@ if ( ($('input_1').value) ) {
 	cena+= transports;
 	transport=0;
 
-
 	cenapojedyncza = cena;
-
-	/*ilosc=$('input_9').value;
-	if ($('input_9').value) {
-		cena=cenapojedyncza*ilosc;
-	}*/
-
-
-
-/*
-	var total = document.getElementById("total");
-	var remise = document.getElementById("remise");	*/
-
-/*	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-	if (colis == true) {
-		cenapojedyncza += 0.00;
-		cena += 0.00;
-		cedzik += '- colis revendeur';
-	}
-
-	var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-	if (relais == true) {
-		cenapojedyncza += 5.00;
-		cena += 5.00;
-		cedzik += '- relais colis';
-	}*/
-
 
 	cenapojedyncza=fixstr(cenapojedyncza);
 	cena2 = cenapojedyncza.replace(".", ",");
 	/////////////
 
-var myClass = jQuery(this).attr("class");
+  var myClass = jQuery(this).attr("class");
 
 		var niepokazuj = 0;
 		var n = myClass.search("production");
@@ -1277,8 +1337,7 @@ if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (D
   }
 
 	var dodajkoszyk = document.getElementById("cart_form");
-	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+ktorytyp+' '+ktorywymiar+'<br />- '+composant+ktorapodstawa+ktodaje+cedzik+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-  livraisonComp.style.display = 'block';
+	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+ktorytyp+' '+ktorywymiar+'<br />- '+composant+ktorapodstawa+ktodaje+cedzik+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
       }
     }

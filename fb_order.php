@@ -790,11 +790,11 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th>Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
 			$licznik = 0;
 			$kosztcalosci = 0;
+
 			foreach ( $products as $products => $item ) {
-				////////////////////////////////////////////////////////////////////////// ajout du bouton créér la maquette ds le tableau juste après <tr><td class="lefttd">:
-				//<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity ><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>
 				$licznik++;
 
+				// on recherche dans les descriptions produits les particularités liées à la création de maquette en ligne :
 				$find = '/je crée ma maquette en ligne/';
 				$maquette = preg_match_all($find, $item[description], $resultat);
 				$maquette = count($resultat[0]);
@@ -803,21 +803,56 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 				$rectoverso = preg_match_all($find2, $item[description], $resultat2);
 				$rectoverso = count($resultat2[0]);
 
-				// si le client a choisi créer la maquette en ligne, afficher le bouton
-				if (($maquette >= 1) && (($statuszamowienia != 6))) {
+				$find3 = '/tissu/';
+				$stand = preg_match_all($find3, $item[description], $resultat3);
+				$stand = count($resultat3[0]);
+
+				$find4 = '/Comptoir/';
+				$comptoir = preg_match_all($find4, $item[description], $resultat4);
+				$comptoir = count($resultat4[0]);
+
+				$find5 = '/Valise/';
+				$valise = preg_match_all($find5, $item[description], $resultat5);
+				$valise = count($resultat5[0]);
+
+				$find6 = '/ExpoBag/';
+				$expo = preg_match_all($find6, $item[description], $resultat6);
+				$expo = count($resultat6[0]);
+
+				// si le client a choisi créer la maquette en ligne, afficher le(s) bouton(s)
+				////////////////////////////////////////////////////////////////////////////
+				if (($maquette >= 1) && ($statuszamowienia != 6)) {
 					$view .= '
 					<tr><td class="lefttd">';
 					// si c'est un recto verso, afficher 2 boutons
 					if ($rectoverso >= 1) {
 						$view .='<div class="maquetteRV">
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette recto</a><br />
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette verso</a></div>';
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette recto</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=1&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette verso</a></div>';
+					// si c'est un stand + comptoir
+					}elseif (($stand >= 1) && ($comptoir >= 1)) {
+						$view .='<div class="maquetteRV">
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette stand</a><br />';
+						$view .='<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Comptoir&desc='.$item[description].'&hauteur=102&largeur=172" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> comptoir</a></div>';
+					// si c'est un stand + valise
+					}elseif (($stand >= 1) && ($valise >= 1)) {
+						$view .='<div class="maquetteRV">
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette stand</a><br />';
+						$view .='<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Valise&desc='.$item[description].'&hauteur=90&largeur=174" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> valise</a></div>';
+					// si c'est un stand expobag
+					}elseif ($expo >= 1) {
+						$view .='<div class="maquetteRV">
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Photocall&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Photocall</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Valise&desc='.$item[description].'&hauteur=90&largeur=174" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> valise</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=roll-up&desc='.$item[description].'&hauteur=200&largeur=80" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Roll-ups</a></div>';
+					// cas normal, affichage d'un seul bouton "créer la maquette"
 					}else{
-						$view .= '<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>';
+						$view .= '<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>';
 					}
 					$view .='<span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 
 				// autrement, pas de bouton créer la maquette
+				////////////////////////////////////////////////////////////////////////
 	      }else{
 					$view .= '
 					<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';

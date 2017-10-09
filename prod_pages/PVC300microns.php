@@ -32,10 +32,21 @@
         </li>
 
         <li class="form-line" id="id_3">
+          <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+							<b>France banderole crée votre fichier :</b><br/>
+							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+						</span>
+					</span>
           <select class="form-dropdown validate[required]" id="input_3" name="q3_maquette" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir la mise en page...</option>
             <option value="fb">France banderole crée la mise en page</option>
             <option value="user">j’ai déjà crée la maquette </option>
+            <option value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
@@ -44,11 +55,9 @@
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_4" name="q4_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
         </li>
 
-        <li id="id_5" class="form-line optionsformline2" style="nothing">
-          <label class="form-label-left label-highlight" id="label_5" for="input_5">taille :<span class="highlight small"><br />(Mètres)</span></label>
-
-          <input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_5" name="q5_taile" size="20" onchange="JKakemono.czyscpola();" />  <span class="mLeft highlight">M</span> <span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" id="input_6" placeholder="largeur" name="q6_taile" size="20" value="1" onclick="JKakemono.czyscpola();" /><span class="mRight highlight">M</span>
-          </li>
+        <li id="id_5" class="form-line optionsformline2">
+          <label class="form-label-left label-highlight" id="label_5" for="input_5">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
+          <input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_5" name="q5_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur" id="input_6" name="q6_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
         </li>
 
         <li id="id_7" class="form-line optionsformline">
@@ -255,26 +264,26 @@
     	$('input_5').value = wysokosc;
 
     	/////////////////////////////////////////////////////////////// métrage //
-    	metrage = szerokosc*wysokosc*ilosc
+    	metrage = (szerokosc/100)*(wysokosc/100)*ilosc
 
     	/////////////////////////////////////////////////////////////// PVC 300µ//
     	if ($('input_1').value == 'recto'){
-    		if (metrage<=3){p1=17*metrage;}
-    		if ((metrage > 3) && (metrage <= 5)){p1=15*metrage;}
-    		if ((metrage > 5) && (metrage <= 8)){p1=14*metrage;}
-    		if ((metrage > 8) && (metrage <= 12)){p1=13*metrage;}
-    		if ((metrage > 12) && (metrage <= 20)){p1=12*metrage;}
-    		if (20<metrage){p1=11*metrage;}
+    		if (metrage<=0.03){p1=17*metrage;}
+    		if ((metrage > 0.03) && (metrage <= 0.05)){p1=15*metrage;}
+    		if ((metrage > 0.05) && (metrage <= 0.08)){p1=14*metrage;}
+    		if ((metrage > 0.08) && (metrage <= 0.12)){p1=13*metrage;}
+    		if ((metrage > 0.12) && (metrage <= 0.20)){p1=12*metrage;}
+    		if (0.20<metrage){p1=11*metrage;}
     		opis += '<br />- PVC 300µ recto';
     	}
 
     	if ($('input_1').value == 'rectoverso'){
-    		if (metrage<=3){p1=(17+(17*0.3))*metrage;}////// +30% /////
-    		if ((metrage > 3) && (metrage <= 5)){p1=(15+(15*0.3))*metrage;}//// +30% /////
-    		if ((metrage > 5) && (metrage <= 8)){p1=(14+(14*0.3))*metrage;}//// +30% /////
-    		if ((metrage > 8) && (metrage <= 12)){p1=(13+(13*0.3))*metrage;}/// +30% /////
-    		if ((metrage > 12) && (metrage <= 20)){p1=(12+(12*0.3))*metrage;}// +30% /////
-    		if(20<metrage){p1=(11+(11*0.3))*metrage;}////// +30% /////
+    		if (metrage<=0.03){p1=(17+(17*0.3))*metrage;}////// +30% /////
+    		if ((metrage > 0.03) && (metrage <= 0.05)){p1=(15+(15*0.3))*metrage;}//// +30% /////
+    		if ((metrage > 0.05) && (metrage <= 0.08)){p1=(14+(14*0.3))*metrage;}//// +30% /////
+    		if ((metrage > 0.08) && (metrage <= 0.12)){p1=(13+(13*0.3))*metrage;}/// +30% /////
+    		if ((metrage > 0.12) && (metrage <= 0.20)){p1=(12+(12*0.3))*metrage;}// +30% /////
+    		if(0.20<metrage){p1=(11+(11*0.3))*metrage;}////// +30% /////
     		opis += '<br />- PVC 300µ recto/verso';
     	}
 
@@ -286,6 +295,7 @@
     	////////////////////////////////////////////////////////////// maquette //
     	if ($('input_3').value == 'fb') {maquette=29; opis += '<br />- France banderole crée la maquette';}
     	if ($('input_3').value == 'user') {maquette=0; opis += '<br />- j’ai déjà crée la maquette';}
+      if ($('input_3').value == 'config') {maquette=5; opis += '<br />- je crée ma maquette en ligne';}
 
     	//////////////////////////////////////////////////////// tarif unitaire //
     	puoption = p1+fixations+HD;
@@ -320,7 +330,7 @@
       }
 
       ///////////////////////////////////////////////////////////// transport //
-      poidstotal = metrage*0.4;
+      poidstotal = metrage*40;
     	if (poidstotal <= 1) {prixtransport=4.80;}
     	if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
     	if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
@@ -554,13 +564,7 @@
 
 			var niepokazuj = 0;
 			if (ilosc==''){niepokazuj=1;}
-			if (niepokazuj==1) {
-				prix.innerHTML='-';
-				remise.innerHTML='-';
-				total.innerHTML='-';
-				finalPrice='0';
-				var forfait = 0 ;
-			}
+
 
 			///////////livraison le jour même////////
 			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
@@ -595,39 +599,56 @@
       		newtotal.innerHTML=suma2+' &euro;';
       	}
 
-
-
         ///////////////////////////////// avertissements, messages d'erreur //
-        if ( (wysokosc > 1.4) || (szerokosc > 1.4) ) {
-          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+        if ( (wysokosc > 140) || (szerokosc > 140) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
           eBox.style.display="block";
           niepokazuj=1;
         }
 
-        if ( (wysokosc > 1) && (szerokosc > 1) ) {
-          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 160x120cm!';
+        if ( (wysokosc > 100) && (szerokosc > 100) ) {
+          eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
           eBox.style.display="block";
           niepokazuj=1;
         }
-        
-        if ( (wysokosc < 0.2) || (szerokosc < 0.2) ) {
+
+        if ( (wysokosc < 20) || (szerokosc < 20) ) {
           eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
           eBox.style.display="block";
           niepokazuj=1;
         }
 
-        if ( (wysokosc < 0.3) && (szerokosc < 0.3) ) {
+        if ( (wysokosc < 30) && (szerokosc < 30) ) {
           eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Vos dimensions doivent être supérieures à 0,2x0,3m !';
           eBox.style.display="block";
           niepokazuj=1;
         }
 
-        ////////////////////////////////////////////////// envoi formulaire //
+        ///////////////////////////////////////// en cas d'erreur pas de prix //
+        if (niepokazuj==1) {
+          prix.innerHTML='-';
+          remise.innerHTML='-';
+          total.innerHTML='-';
+          finalPrice='0';
+          var forfait = 0;
+          prix.innerHTML='-';
+          opt.innerHTML='-';
+          total.innerHTML='-';
+          newtotal.innerHTML='-';
+          newopt.innerHTML='-';
+
+          var dodajkoszyk = document.getElementById("cart_form");
+          dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'cm'+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="- &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /> ';
+        }
+
+        //////////////////////////////////////////////////// envoi formulaire //
       	var rodzaj = "PVC 300 microns";
       	var dodajkoszyk = document.getElementById("cart_form");
-      	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'m'+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><button id="submit_cart" type="submit">Suivant</button> ';
+      	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+szerokosc+' x '+wysokosc+'cm'+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 
       }
+
+
     });
   });
   </script>
