@@ -251,81 +251,81 @@
 </div>
 
 <script>
-//////////////////////////////////////////////////////////////////////////////
-function Afficher() {
-	divliv = document.getElementById('livraisonrapide');
-	if (divliv.style.display == 'none')
-	divliv.style.display = 'block';
-}
-function Afficher() {
-	divInfo = document.getElementById('delivery-div');
-	if (divInfo.style.display == 'none')
-	divInfo.style.display = 'block';
-}
-function Masquer() {
-	divInfo = document.getElementById('delivery-div');
-	if (divInfo.style.display == 'block')
-	divInfo.style.display = 'none';
-}
+  //////////////////////////////////////////////////////////////////////////////
+  function Afficher() {
+  	divliv = document.getElementById('livraisonrapide');
+  	if (divliv.style.display == 'none')
+  	divliv.style.display = 'block';
+  }
+  function Afficher() {
+  	divInfo = document.getElementById('delivery-div');
+  	if (divInfo.style.display == 'none')
+  	divInfo.style.display = 'block';
+  }
+  function Masquer() {
+  	divInfo = document.getElementById('delivery-div');
+  	if (divInfo.style.display == 'block')
+  	divInfo.style.display = 'none';
+  }
 
-////////////////////////////////////////////////////// checkboxes livraison //
-jQuery('#adresse').click(function() {
-	if (document.getElementById('adresse').checked) {
-		document.getElementById('relais').checked = false;
-		document.getElementById('etiquette').checked = false;
-	}
-});
-jQuery('#etiquette').click(function() {
-	if (document.getElementById('etiquette').checked) {
-		document.getElementById('relais').checked = false;
-		document.getElementById('adresse').checked = false;
-	}
-});
-jQuery('#relais').click(function() {
-	if (document.getElementById('relais').checked) {
-		document.getElementById('etiquette').checked = false;
-		document.getElementById('adresse').checked = false;
-	}
-});
+  ////////////////////////////////////////////////////// checkboxes livraison //
+  jQuery('#adresse').click(function() {
+  	if (document.getElementById('adresse').checked) {
+  		document.getElementById('relais').checked = false;
+  		document.getElementById('etiquette').checked = false;
+  	}
+  });
+  jQuery('#etiquette').click(function() {
+  	if (document.getElementById('etiquette').checked) {
+  		document.getElementById('relais').checked = false;
+  		document.getElementById('adresse').checked = false;
+  	}
+  });
+  jQuery('#relais').click(function() {
+  	if (document.getElementById('relais').checked) {
+  		document.getElementById('etiquette').checked = false;
+  		document.getElementById('adresse').checked = false;
+  	}
+  });
 
-/////////////////////////////////////////////////// calcul des jours ouvrés //
-function AddBusinessDays(weekDaysToAdd) {
-	// fonction jours ouvrés
-	var curdate = new Date();
-	var realDaysToAdd = 0;
-	for(i=0; i<weekDaysToAdd; i++){
-		curdate.setDate(curdate.getDate()+1);
-		var estdt1 = new Date(curdate);
-		var n = curdate.getDay();
-		if (n == '6' || n == '0') {
-			weekDaysToAdd++;
-		}
-		realDaysToAdd++;
-		//check if current day is business day
-	}
-	return realDaysToAdd;
-}
+  /////////////////////////////////////////////////// calcul des jours ouvrés //
+  function AddBusinessDays(weekDaysToAdd) {
+  	// fonction jours ouvrés
+  	var curdate = new Date();
+  	var realDaysToAdd = 0;
+  	for(i=0; i<weekDaysToAdd; i++){
+  		curdate.setDate(curdate.getDate()+1);
+  		var estdt1 = new Date(curdate);
+  		var n = curdate.getDay();
+  		if (n == '6' || n == '0') {
+  			weekDaysToAdd++;
+  		}
+  		realDaysToAdd++;
+  		//check if current day is business day
+  	}
+  	return realDaysToAdd;
+  }
 
-//////////////////////////////////////////////////////////////////////////////
-jQuery(document).ready(function(){
-	////////////////////////////////////////////////////////////////////////////
-	jQuery('.delivery , .production').click(function(){
-    var cena=0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
-    var suma=0; var suma2=0;
-    var cenapojedyncza  = 0;
-		var rabat      = 0;     var rabat2 = 0;
-		var prliv      = '';
-    var transport=0;
-    var ilosc=0;
-    var opis=''
-    var niepokazuj = 0;
-    var option2=0;
-    var szerokosc          = 0;
-		var wysokosc           = 0;
-    var eBox = document.getElementById('form-button-error2');
-    eBox.innerHTML='';
+  //////////////////////////////////////////////////////////////////////////////
+  jQuery(document).ready(function(){
+  	////////////////////////////////////////////////////////////////////////////
+  	jQuery('.delivery , .production').click(function(){
+      var cena       = 0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0;
+      var suma       = 0; var suma2=0;
+      var prixunite  = 0;
+  		var rabat        = 0;     var rabat2 = 0;
+  		var prliv        = '';
+      var transport  = 0;
+      var ilosc      = $('input_5').value;
+      var opis       = ''
+      var niepokazuj = 0;
+      var option2    = 0;
+      var largeur    = 0;
+  		var hauteur      = 0;
+      var eBox       = document.getElementById('form-button-error2');
+      eBox.innerHTML = '';
 
-      if (($('input_1').value == 'depliants 80g') || ($('input_1').value == 'depliants 135g') || ($('input_1').value == 'depliants 170g') || ($('input_1').value == 'depliants 250g')){
+      //////////////////////////////////////////////////////////////////////////
       if ($('input_1').value == 'depliants 80g') {
         if ($('input_21').value == '1'){ opis += '- 19,8x21cm ouvert -> 9,9x21cm fermé';}
         if ($('input_21').value == '2'){ opis += '- A3 ouvert -> A4 fermé';}
@@ -334,7 +334,7 @@ jQuery(document).ready(function(){
         if ($('input_21').value == '5'){ opis += '- A5 ouvert -> A6 fermé';}
 
         if (($('input_21').value == '1') || ($('input_21').value == '2') || ($('input_21').value == '3') || ($('input_21').value == '4') || ($('input_21').value == '5')) {
-          ilosc = $('input_5').value;
+
           cenar=0.17
           cenarv=0.22
           if ($('input_21').value == '1'){ cena=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 80g | Quadri<br />- Couché Mat';}
@@ -358,7 +358,7 @@ jQuery(document).ready(function(){
         if ($('input_21').value == '4'){ opis += '- A4 ouvert -> 3 volets 10x21cm fermé';}
         if ($('input_21').value == '5'){ opis += '- A5 ouvert -> A6 fermé';}
         if (($('input_21').value == '1') || ($('input_21').value == '2') || ($('input_21').value == '3') || ($('input_21').value == '4') || ($('input_21').value == '5')) {
-          ilosc = $('input_5').value;
+
           cenar=0.22
           cenarv=0.27
           if ($('input_21').value == '1'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
@@ -382,7 +382,7 @@ jQuery(document).ready(function(){
         if ($('input_21').value == '4'){ opis += '- A4 ouvert -> 3 volets 10x21cm fermé';}
         if ($('input_21').value == '5'){ opis += '- A5 ouvert -> A6 fermé';}
         if (($('input_21').value == '1') || ($('input_21').value == '2') || ($('input_21').value == '3') || ($('input_21').value == '4') || ($('input_21').value == '5')) {
-          ilosc = $('input_5').value;
+
           cenar=0.27
           cenarv=0.32
           if ($('input_21').value == '1'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 170g | Quadri';}
@@ -406,7 +406,7 @@ jQuery(document).ready(function(){
         if ($('input_21').value == '4'){ opis += '- A4 ouvert -> 3 volets 10x21cm fermé';}
         if ($('input_21').value == '5'){ opis += '- A5 ouvert -> A6 fermé';}
         if (($('input_21').value == '1') || ($('input_21').value == '2') || ($('input_21').value == '3') || ($('input_21').value == '4') || ($('input_21').value == '5')) {
-          ilosc = $('input_5').value;
+
           cenar=0.32
           cenarv=0.37
           if ($('input_21').value == '1'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
@@ -455,46 +455,30 @@ jQuery(document).ready(function(){
 
       opis += '<br />- '+ilosc+' depliants';
 
-      //////////////////////////////////////////////////////// choix maquette //
-      var ktodaje;
-      if (($('input_41').value == 'fb') || ($('input_42').value == 'fb')) {
-        cena+=29;
-        ktodaje = 'France banderole crée la maquette';
-      }
-      if (($('input_41').value == 'user') || ($('input_42').value == 'user')) {
-        ktodaje = 'j’ai déjà crée la maquette';
-      }
-      if (($('input_41').value == 'config') || ($('input_42').value == 'config')) {
-        cena+=5;
-        ktodaje = 'je crée ma maquette en ligne';
-      }
-      opis += '<br />- '+ktodaje;
-
-
       // -----------------------------------------------------------------------
 			if ($('input_21').value == '1') {
-				wysokosc = 19.8;
-				szerokosc = 21;
+				hauteur = 19.8;
+				largeur = 21;
 			}
       // -----------------------------------------------------------------------
 			if ($('input_21').value == '2') {
-				wysokosc = 29.7;
-				szerokosc = 42;
+				hauteur = 29.7;
+				largeur = 42;
 			}
       // -----------------------------------------------------------------------
 			if ($('input_21').value == '3') {
-				wysokosc = 21;
-				szerokosc = 29.7;
+				hauteur = 21;
+				largeur = 29.7;
 			}
       // -----------------------------------------------------------------------
 			if ($('input_21').value == '4') {
-				wysokosc = 21;
-				szerokosc = 29.7;
+				hauteur = 21;
+				largeur = 29.7;
 			}
       // -----------------------------------------------------------------------
 			if ($('input_21').value == '5') {
-				wysokosc = 14.8;
-				szerokosc = 21;
+				hauteur = 14.8;
+				largeur = 21;
 			}
       ///////////////////////////////////////////// prix transport / quantité //
 
@@ -521,7 +505,24 @@ jQuery(document).ready(function(){
       if (ilosc == '75000') {transport=19.5;}
       if (ilosc == '100000') {transport=23.5;}
 
-      //////////////////////////////////////////////////////////// checkboxes //
+      //////////////////////////////////////////////////////// choix maquette //
+      var ktodaje;
+
+      if (($('input_41').value == 'fb') || ($('input_42').value == 'fb')) {
+        cena+=29;
+        ktodaje = 'France banderole crée la maquette';
+      }
+      if (($('input_41').value == 'user') || ($('input_42').value == 'user')) {
+        ktodaje = 'j’ai déjà crée la maquette';
+      }
+      if (($('input_41').value == 'config') || ($('input_42').value == 'config')) {
+        cena+=5;
+        ktodaje = 'je crée ma maquette en ligne';
+      }
+      
+      opis += '<br />- '+ktodaje;
+
+      /////////////////////////////////////////////////////////////// options //
 
       var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
       if (relais == true) {
@@ -547,13 +548,13 @@ jQuery(document).ready(function(){
 
       //////////////////////////////////////////////////////////////////////////
 
-      cenapojedyncza = cena;
+      prixunite = cena;
 
 			var total = document.getElementById("total");
 			var remise = document.getElementById("remise");
 
-			cenapojedyncza=fixstr(cenapojedyncza);
-			cena2 = cenapojedyncza.replace(".", ",");
+			prixunite=fixstr(prixunite);
+			cena2 = prixunite.replace(".", ",");
 
 			var myClass = jQuery(this).attr("class");
 
@@ -655,7 +656,7 @@ jQuery(document).ready(function(){
 					prliv += ' / L 3-4J';
 				}
 
-				var price_unit = parseFloat(cenapojedyncza);
+				var price_unit = parseFloat(prixunite);
 
 				//var str = price_unit;
 				//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
@@ -704,7 +705,7 @@ jQuery(document).ready(function(){
 				jQuery('#remise').html(rabat2);
 			}
 
-			cenapojedyncza = finalPrice1;
+			prixunite = finalPrice1;
 
 			var niepokazuj = 0;
 
@@ -723,7 +724,7 @@ jQuery(document).ready(function(){
 
 			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 
-			suma=cenapojedyncza;
+			suma=prixunite;
 			suma=fixstr(suma);
 			suma2 = suma.replace(".", ",");
 
@@ -750,9 +751,8 @@ jQuery(document).ready(function(){
       var rodzaj = $('input_1').value;
 
       var dodajkoszyk = document.getElementById("cart_form");
-      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
     }
-  }
 	});
 });
 </script>

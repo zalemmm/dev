@@ -394,9 +394,9 @@
 
 				<li id="id_14" class="form-line optionsformline2" style="nothing">
 					<label class="form-label-left label-highlight" id="label_14" for="input_14">taille :<strong><span class="highlight small"><br />(Mètres)</span></strong></label>
-					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola();" />
+					<input type="text" class="taille form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_14" name="q14_taile" size="20" value="1" onclick="JKakemono.czyscpola();" />
 					<span class="mLeft highlight">m</span><span class="heusepar">x</span>
-					<input type="text" class="form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola();" /><span class="mRight highlight">m</span>
+					<input type="text" class="taille form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola();" /><span class="mRight highlight">m</span>
 				</li>
 
 				<!--livraison---------------------------------------------------------->
@@ -432,6 +432,12 @@
 							</span>
 						</span>
 
+						<span class="optionsleft roll dis0"><label class="form-label-left" id="label_roll" for="roll">Livrée Roulée</label>
+							<input type="checkbox" class="form-checkbox" id="roll" name="roll[]" value="" onclick="JKakemono.czyscpola();" />
+							<span class="helpButton" onmouseover="pokazt('helpTextroll');" onmouseout="ukryjt('helpTextroll');">
+								<span class="helpText" id="helpTextroll" style="visibility:hidden;">Nos banderoles en dessous de 2x2m sont livrées roulées, au delà elles sont pliées pour des raisons de dimensions de colis. La livraison roulée reste disponible en option pour 20€ et un délai d'un jour supplémentaire. </span>
+							</span>
+						</span>
 					</span>
 
 					<div class="break-line"></div>
@@ -544,6 +550,27 @@
 		if (document.getElementById('relais').checked) {
 			document.getElementById('etiquette').checked = false;
 			document.getElementById('adresse').checked = false;
+			document.getElementById('roll').checked = false;
+		}
+	});
+	jQuery('#roll').click(function() {
+		if (document.getElementById('roll').checked) {
+			document.getElementById('etiquette').checked = false;
+			document.getElementById('relais').checked = false;
+		}
+	});
+
+	///////////////////////////////////////// affichage option livraison roulée //
+
+	jQuery('.taille').keyup(function(){
+		var taille = jQuery(this).val();
+		var hauteur = jQuery("#input_14").val();
+		var largeur = jQuery("#input_15").val();
+
+		if (taille > 2 && (hauteur <= 3 || largeur <= 3)){
+				jQuery('.roll').css('display', 'block');
+		}else{
+				jQuery('.roll').css('display', 'none');
 		}
 	});
 
@@ -575,15 +602,15 @@
 		var prliv             = '';
 		var date_panier       = '';
 		var dodatkowaopcja    = '';
-		var cenapojedyncza    = 0;
+		var prixunite    = 0;
 		var cena              = 0; 	var cena2   		= 0;
 		var rabat             = 0; 	var rabat2  		= 0;  var rabatp 	  = 0;
 		var suma              = 0; 	var suma2   		= 0;
 		var transport         = 0;
 		var metraz            = 0;
 		var metrazzaokraglony = 0;
-		var szerokosc         = 0;
-		var wysokosc          = 0;
+		var largeur         = 0;
+		var hauteur          = 0;
 		var finition          = 0; 	var option 			= 0; 	var fixation  = 0;
 		var cedzik            = ''; var remisik 		= '';
 		var niepokazuj        = 0;
@@ -602,267 +629,266 @@
 		eBox.innerHTML='';
 
 		////////////////////////////////////////////////////////////////////////////
-		szerokosc              = ($('input_15').value);       // szerokosc = largeur
-		szerokosc              = szerokosc.replace(',','.');
-		szerokosc              = fixstr(szerokosc);
-		$('input_15').value    = szerokosc;
-		wysokosc               = ($('input_14').value);        // wysokosc = hauteur
-		wysokosc               = wysokosc.replace(',','.');
-		wysokosc               = fixstr(wysokosc);
-		$('input_14').value    = wysokosc;
-		szerokosc              = parseFloat(szerokosc);
-		wysokosc               = parseFloat(wysokosc);
-		metraz                 = szerokosc * wysokosc;                    // métrage
+		largeur              = ($('input_15').value);       // largeur = largeur
+		largeur              = largeur.replace(',','.');
+		largeur              = fixstr(largeur);
+		$('input_15').value    = largeur;
+		hauteur               = ($('input_14').value);        // hauteur = hauteur
+		hauteur               = hauteur.replace(',','.');
+		hauteur               = fixstr(hauteur);
+		$('input_14').value    = hauteur;
+		largeur              = parseFloat(largeur);
+		hauteur               = parseFloat(hauteur);
+		metraz                 = largeur * hauteur;                    // métrage
 		metraz                 = fixstr(metraz);
-		var metrazzaokraglony1 = (szerokosc+wysokosc)*2;                // périmètre
+		var metrazzaokraglony1 = (largeur+hauteur)*2;                // périmètre
 		metrazzaokraglony      = Math.round(metrazzaokraglony1);
-		var hautbas            = szerokosc*2
-		var gauchedroite       = wysokosc*2
-		
+		var hautbas            = largeur*2;
+		var gauchedroite       = hauteur*2;
+		var ilosc              = $('input_13').value;
+
 
 		/////////////////////////////////////////////////////////////////// prix de la banderole en fonction de la laize //
 
-		if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
-		if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
-		if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
-		if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
-		if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
-		if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
-		if ((szerokosc >= 2.01) && (szerokosc <= 2.5)) {l1=2.5; l2=2.5-szerokosc; perteL=l2*wysokosc;};
-		if (szerokosc >= 2.51){l1=szerokosc; perteL=szerokosc*wysokosc;};
+		if (largeur <= 0.50){l1=0.5; l2=0.5-largeur; perteL=l2*hauteur;};
+		if ((largeur >= 0.51) && (largeur <= 0.80)){l1=0.80; l2=0.80-largeur; perteL=l2*hauteur;};
+		if ((largeur >= 0.81) && (largeur <= 1.10)){l1=1.10; l2=1.10-largeur; perteL=l2*hauteur;};
+		if ((largeur >= 1.11) && (largeur <= 1.37)){l1=1.37; l2=1.37-largeur; perteL=l2*hauteur;};
+		if ((largeur >= 1.38) && (largeur <= 1.60)){l1=1.60; l2=1.60-largeur; perteL=l2*hauteur;};
+		if ((largeur >= 1.61) && (largeur <= 2.00)){l1=2.00; l2=2.00-largeur; perteL=l2*hauteur;};
+		if ((largeur >= 2.01) && (largeur <= 2.50)){l1=2.50; l2=2.50-largeur; perteL=l2*hauteur;};
+		if (largeur >= 2.51){l1=largeur; perteL=largeur*hauteur;};
 
-		if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
-		if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
-		if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
-		if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
-		if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
-		if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
-		if ((wysokosc >= 2.01) && (wysokosc <= 2.5)){h1=2.5; h2=2.5-wysokosc; perteH=h2*szerokosc;};
-		if (wysokosc >= 2.51){h1=wysokosc; perteH=wysokosc*szerokosc;};
+		if (hauteur <= 0.50){h1=0.5; h2=0.5-hauteur; perteH=h2*largeur;};
+		if ((hauteur >= 0.51) && (hauteur <= 0.80)){h1=0.80; h2=0.80-hauteur; perteH=h2*largeur;};
+		if ((hauteur >= 0.81) && (hauteur <= 1.10)){h1=1.10; h2=1.10-hauteur; perteH=h2*largeur;};
+		if ((hauteur >= 1.11) && (hauteur <= 1.37)){h1=1.37; h2=1.37-hauteur; perteH=h2*largeur;};
+		if ((hauteur >= 1.38) && (hauteur <= 1.60)){h1=1.60; h2=1.60-hauteur; perteH=h2*largeur;};
+		if ((hauteur >= 1.61) && (hauteur <= 2.00)){h1=2.00; h2=2.00-hauteur; perteH=h2*largeur;};
+		if ((hauteur >= 2.01) && (hauteur <= 2.50)){h1=2.50; h2=2.50-hauteur; perteH=h2*largeur;};
+		if (hauteur >= 2.51){h1=hauteur; perteH=hauteur*largeur;};
 
 		if (perteH < perteL){
-			metrage = szerokosc*h1;
+			metrage = largeur*h1;
 			////bache 440g
-			if (($('input_ext').value == 'bache 440g' ) && (h1<1.00) ){plm =8.10 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (h1<=1.00) ){plm =8.10 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =8.51 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =8.91 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =9.32 ;}
 			if (($('input_ext').value == 'bache 440g' ) && (h1>=2.51)){plm =9.72 ;}
 			////ecotoile
-			if (($('input_ext').value == 'ecotoile' ) && (h1<1.00) ){plm =7.89 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =8.28 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (h1<=1.00) ){plm =7.89 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =8.28 ;}
 			if (($('input_ext').value == 'ecotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =8.68 ;}
 			if (($('input_ext').value == 'ecotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =9.07 ;}
 			if (($('input_ext').value == 'ecotoile' ) && (h1>=2.51)){plm =9.47 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (h1<1.00) ){plm =13.20 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =13.86 ;}
+			if (($('input_ext').value == 'jet 550' ) && (h1<=1.00) ){plm =13.20 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.86 ;}
 			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.61)&&(h1<=2.00))){plm =14.52 ;}
 			if (($('input_ext').value == 'jet 550' ) && ((h1>=2.01)&&(h1<=2.50))){plm =15.18 ;}
 			if (($('input_ext').value == 'jet 550' ) && (h1>=2.51)){plm =15.84 ;}
 			////jet 520 M1
-			if (($('input_ext').value == 'jet 520 M1' ) && (h1<1.00) ){plm =15.15 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =15.91 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (h1<=1.00) ){plm =15.15 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =15.91 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =16.67 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =17.42 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && (h1>=2.51)){plm =18.18 ;}
 			////lacopac
-			if (($('input_ext').value == 'lacopac' ) && (h1<1.00) ){plm =17.40 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =18.27 ;}
+			if (($('input_ext').value == 'lacopac' ) && (h1<=1.00) ){plm =17.40 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =18.27 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.14 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.01 ;}
 			if (($('input_ext').value == 'lacopac' ) && (h1>=2.51)){plm =20.88 ;}
 			////lacopac recto verso
-			if (($('input_ext').value == 'lacopac recto verso' ) && (h1<1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =23.78 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (h1<=1.00) ){plm =22.65 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =23.78 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=1.61)&&(h1<=2.00))){plm =24.92 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=2.01)&&(h1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && (h1>=2.51)){plm =27.18 ;}
 			////bache micro perforée M1/B1
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1<1.00) ){plm =9.66 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =10.14 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1<=1.00) ){plm =9.66 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =10.14 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =10.63 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =11.11 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1>=2.51)){plm =11.59 ;}
 			////bache 100% écologique M1
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1<1.00) ){plm =17.94 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =18.84 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1<=1.00) ){plm =17.94 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =18.84 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.73 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.63 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1>=2.51)){plm =21.53 ;}
 			////capotoile
-			if (($('input_ext').value == 'capotoile' ) && (h1<1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =23.78 ;}
+			if (($('input_ext').value == 'capotoile' ) && (h1<=1.00) ){plm =22.65 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =23.78 ;}
 			if (($('input_ext').value == 'capotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =24.92 ;}
 			if (($('input_ext').value == 'capotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'capotoile' ) && (h1>=2.51)){plm =27.18 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (h1<1.00) ){plm =11.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =12.32 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (h1<=1.00) ){plm =11.73 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =12.32 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =12.90 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =13.49 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && (h1>=2.51)){plm =14.08 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (h1<1.00) ){plm =12.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1<=1.01)&&(h1<=1.60)) ){plm =13.42 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (h1<=1.00) ){plm =12.78 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.42 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =14.06 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =14.70 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && (h1>=2.51)){plm =15.34 ;}
-			
-			
+
+
 			prixproduit = metrage*plm;
 		}
-		
+
 		else if (perteH > perteL){
-			metrage = wysokosc*l1;
+			metrage = hauteur*l1;
 			////bache 440g
-			if (($('input_ext').value == 'bache 440g' ) && (l1<1.00) ){plm =8.10 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =8.51 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (l1<=1.00) ){plm =8.10 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.51 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.91 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.32 ;}
 			if (($('input_ext').value == 'bache 440g' ) && (l1>=2.51)){plm =9.72 ;}
 			////ecotoile
-			if (($('input_ext').value == 'ecotoile' ) && (l1<1.00) ){plm =7.89 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =8.28 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (l1<=1.00) ){plm =7.89 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.28 ;}
 			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.68 ;}
 			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.07 ;}
 			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =9.47 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (l1<1.00) ){plm =13.20 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =13.86 ;}
+			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =13.20 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.86 ;}
 			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.52 ;}
 			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =15.18 ;}
 			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =15.84 ;}
 			////jet 520 M1
-			if (($('input_ext').value == 'jet 520 M1' ) && (l1<1.00) ){plm =15.15 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =15.91 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.15 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =15.91 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =16.67 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =17.42 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && (l1>=2.51)){plm =18.18 ;}
 			////lacopac
-			if (($('input_ext').value == 'lacopac' ) && (l1<1.00) ){plm =17.40 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =18.27 ;}
+			if (($('input_ext').value == 'lacopac' ) && (l1<=1.00) ){plm =17.40 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.27 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.14 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.01 ;}
 			if (($('input_ext').value == 'lacopac' ) && (l1>=2.51)){plm =20.88 ;}
 			////lacopac recto verso
-			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<=1.00) ){plm =22.65 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && (l1>=2.51)){plm =27.18 ;}
 			////bache micro perforée M1/B1
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<1.00) ){plm =9.66 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =10.14 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<=1.00) ){plm =9.66 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =10.14 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =10.63 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =11.11 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1>=2.51)){plm =11.59 ;}
 			////bache 100% écologique M1
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<1.00) ){plm =17.94 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =18.84 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =17.94 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.84 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.73 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.63 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1>=2.51)){plm =21.53 ;}
 			////capotoile
-			if (($('input_ext').value == 'capotoile' ) && (l1<1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
+			if (($('input_ext').value == 'capotoile' ) && (l1<=1.00) ){plm =22.65 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
 			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
 			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =27.18 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (l1<1.00) ){plm =11.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =12.32 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =11.73 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =12.32 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =12.90 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =13.49 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =14.08 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (l1<1.00) ){plm =12.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =13.42 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =12.78 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.42 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.06 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.70 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =15.34 ;}
-			
-			
+
+
 			prixproduit = metrage*plm;
 		}
-		
+
 		else if(perteH == perteL){
-			metrage = wysokosc*l1;
+			metrage = hauteur*l1;
 			////bache 440g
-			if (($('input_ext').value == 'bache 440g' ) && (l1<1.00) ){plm =8.10 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (l1<=1.00) ){plm =8.10 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =8.51 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.91 ;}
 			if (($('input_ext').value == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.32 ;}
 			if (($('input_ext').value == 'bache 440g' ) && (l1>=2.51)){plm =9.72 ;}
 			////ecotoile
-			if (($('input_ext').value == 'ecotoile' ) && (l1<1.00) ){plm =7.89 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =8.28 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (l1<=1.00) ){plm =7.89 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.28 ;}
 			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.68 ;}
 			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.07 ;}
 			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =9.47 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (l1<1.00) ){plm =13.20 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =13.86 ;}
+			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =13.20 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.86 ;}
 			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.52 ;}
 			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =15.18 ;}
 			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =15.84 ;}
 			////jet 520 M1
-			if (($('input_ext').value == 'jet 520 M1' ) && (l1<1.00) ){plm =15.15 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =15.91 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.15 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =15.91 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =16.67 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =17.42 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && (l1>=2.51)){plm =18.18 ;}
 			////lacopac
-			if (($('input_ext').value == 'lacopac' ) && (l1<1.00) ){plm =17.40 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =18.27 ;}
+			if (($('input_ext').value == 'lacopac' ) && (l1<=1.00) ){plm =17.40 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.27 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.14 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.01 ;}
 			if (($('input_ext').value == 'lacopac' ) && (l1>=2.51)){plm =20.88 ;}
 			////lacopac recto verso
-			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<=1.00) ){plm =22.65 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'lacopac recto verso' ) && (l1>=2.51)){plm =27.18 ;}
 			////bache micro perforée M1/B1
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<1.00) ){plm =9.66 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =10.14 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<=1.00) ){plm =9.66 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =10.14 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =10.63 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =11.11 ;}
 			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1>=2.51)){plm =11.59 ;}
 			////bache 100% écologique M1
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<1.00) ){plm =17.94 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =18.84 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =17.94 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.84 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.73 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.63 ;}
 			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1>=2.51)){plm =21.53 ;}
 			////capotoile
-			if (($('input_ext').value == 'capotoile' ) && (l1<1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
+			if (($('input_ext').value == 'capotoile' ) && (l1<=1.00) ){plm =22.65 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
 			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
 			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =27.18 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (l1<1.00) ){plm =11.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =12.32 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =11.73 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =12.32 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =12.90 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =13.49 ;}
 			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =14.08 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (l1<1.00) ){plm =12.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1<=1.01)&&(l1<=1.60)) ){plm =13.42 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =12.78 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.42 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.06 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.70 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =15.34 ;}
-			
+
 			prixproduit = metrage*plm;////prix de la banderole
 		}
 
-		ilosc=$('input_13').value;
-		if ($('input_13').value) {
-			metragefinal=metrage*ilosc;
-			prixtotal=prixproduit*ilosc;
-		}
+		metragefinal=metrage*ilosc;
+		prixtotal=prixproduit*ilosc;
+
 		////////////////////////////////////////////////////////////////////////////
 
 		// prix de l'ensemble de la commande en fonction metrage final /////////////////////////////////////////////////////////
@@ -921,7 +947,7 @@
 			opis += '<br />- EcoToile'
 		}
 		////////////// JET 550 //
-		if ($('input_ext').value == 'jet 550' ) {			
+		if ($('input_ext').value == 'jet 550' ) {
 			if (metragefinal < 1.99) {cenatotal = prixtotal;}
 			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = prixtotal*0.99;}
 			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = prixtotal*0.98;}
@@ -1264,12 +1290,12 @@
 			opis +='<br>- 2 piquets de bois';
 		}
 		if (fix == 'drisse périmétrique') {
-			fixation = (wysokosc+szerokosc)*2*1.5;
+			fixation = (hauteur+largeur)*2*1.5;
 			cena += fixation;
 			opis +='<br>- drisse périmétrique';
 		}
 		if (fix == 'drisse fourreaux H/B') {
-			fixation = (szerokosc+szerokosc)*3*1.0;
+			fixation = (largeur+largeur)*3*1.0;
 			cena += fixation;
 			opis +='<br>- drisse fourreaux H/B';
 		}
@@ -1296,23 +1322,27 @@
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 25cm') ) { nouettes = ((hautbas+2)/0.25)*0.8; cena+=nouettes;opis+='<br>- nouettes haut bas tous 25cm'};
 		if (($('input_81').value == 'nouettes haut/bas') && ($('input_92').value == 'tous les 10cm') ) { nouettes = ((hautbas+2)/0.1)*0.8; cena+=nouettes; opis+='<br>- nouettes haut bas tous 10cm'};
 
+		/////////////////////// ajout 30% si hauteur et largeur supérieurs à 2.5m //
+		if ( (largeur > 2.5) && (hauteur > 2.5) ) {
+			cena *= 1.3;
+		}
+
 		//////////////////////////////////////////////////////////////// maquette //
 
 		var ktodaje='';
 		if ($('input_12').value == 'fb') {
-			cena += 29;
+			cena += 29/ilosc;
 			ktodaje = '<br />- France banderole crée la mise en page';
 		}
 		if ($('input_12').value == 'user') {
 			ktodaje = '<br />- j’ai déjà crée la maquette';
 		}
 		if ($('input_12').value == 'config') {
-			cena+=5;
+			cena+= 5/ilosc;
 			ktodaje = '<br />- je crée ma maquette en ligne';
 		}
 
 		/////////////////////////////////////////////////////////// options colis //
-
 		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 		if (colis == true) {
 			cena += 2.00;
@@ -1328,33 +1358,26 @@
 
 		var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 		if (relais == true) {
-			cenapojedyncza += 5.00; 								// cena pojedyncza = prix unitaire
-			cena += 5.00;
+			cena += 5.00/ilosc;
 			cedzik += '<br />- relais colis';
 		}
 
-		///////////////////////// ajout 30% si hauteur et largeur supérieurs à 2.5m //
-		if ( (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			cena *= 1.3;
-		}
-		////////////////////////////////////////////////////////////////////////////
-
-		cenapojedyncza = cena;
-
-		ilosc=$('input_13').value;
-		if ($('input_13').value) {
-			cena=cenapojedyncza*ilosc;
+		var roll = $$('#roll').collect(function(e){ return e.checked; }).any();
+		if (roll == true) {
+			cena += 20.00/ilosc;
+			cedzik += '<br />- livrée roulée';
 		}
 
-		var total = document.getElementById("total");
-		var remise = document.getElementById("remise");
+		/////////////////////////////////////////////////////////// total produit //
+		prixunite = cena;
+		cena=prixunite*ilosc;
+		prixunite=fixstr(prixunite);
+		cena2 = prixunite.replace(".", ",");
 
-		cenapojedyncza=fixstr(cenapojedyncza);
-		cena2 = cenapojedyncza.replace(".", ",");
-
+		/////////////////////////////////////////////// affichage jours livraison //
 		var myClass = jQuery(this).attr("class");
-
 		var niepokazuj = 0;
+
 		var n = myClass.search("production");
 		if (n != -1) {
 			jQuery('.production').prop("disabled",false);
@@ -1393,6 +1416,7 @@
 					jQuery(delivery-value).prop("disabled",true);
 				});
 			});
+
 			jQuery(document).ready(function(){
 				jQuery('.form-textbox').click(function(){
 					jQuery('#delivery-value').val(Masquer());
@@ -1480,7 +1504,7 @@
 					prliv += ' / L 3-4J';
 				}
 
-				var price_unit = parseFloat(cenapojedyncza);
+				var price_unit = parseFloat(prixunite);
 
 				//var str = price_unit;
 				//var totalPrice         = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
@@ -1509,9 +1533,19 @@
 				var curhour = curdate.getHours();
 				// ajout 1 jour ouvré de délai sur commande après 12h
 				if (curhour >= 12) {
-					var daystoadd = AddBusinessDays(days+1);
+					// + 1 jour pour l'option livré roulé
+					if (jQuery('#roll').is(':checked')) {
+						var daystoadd = AddBusinessDays(days+2);
+					}else{
+						var daystoadd = AddBusinessDays(days+1);
+					}
 				} else {
-					var daystoadd = AddBusinessDays(days);
+					// + 1 jour pour l'option livré roulé
+					if (jQuery('#roll').is(':checked')) {
+						var daystoadd = AddBusinessDays(days+1);
+					}else{
+						var daystoadd = AddBusinessDays(days);
+					}
 				}
 
 				curdate.setDate(curdate.getDate()+daystoadd);
@@ -1519,10 +1553,8 @@
 				var month = estdt.getMonth()+1;
 				var day = estdt.getDate();
 				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-				//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
+
 				if(jQuery('#id_16').css('display') != 'none')	{
-					//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-					//jQuery('#prix_unitaire').text(finalPrice);
 					jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
 
@@ -1533,12 +1565,9 @@
 				//jQuery('#remise').html(rabat2);
 			}
 
-			cenapojedyncza = finalPrice1;
-
-			ilosc=$('input_13').value;
-			if ($('input_13').value) {
-				cena=cenapojedyncza*ilosc;
-			}
+			////////////////////////////////////////////////////// prix avec délais //
+			prixunite = finalPrice1;
+			cena=prixunite*ilosc;
 
 			//////////////////////////////////////////////////////////////// remise //
 			var total = document.getElementById("total");
@@ -1550,269 +1579,271 @@
 			if (rabat2 == 0) {rabat2 = '-'}
 			//remise.innerHTML=rabat2;
 
-			cenapojedyncza=fixstr(cenapojedyncza);
-			cena2 = cenapojedyncza.replace(".", ",")
-
+			prixunite=fixstr(prixunite);
 			/* koszty transportu */
-
 			transport=0;
 
-		// fin remise //////////////////////////////////////////////////////////////
-		////////////////////////////////////// 	avertissements, messages d'erreur //
+			//////////////////////////////////////////////////////////////////////////
+	  	cena2 = prixunite.replace(".", ",")
+	    //////////////////////////////////////////////////////////////////////////
 
-		/////////////ecotoile
-		if ( ($('input_ext').value == 'ecotoile') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 2.5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		/////////////100% écologique
-		if ( ($('input_ext').value == 'bache 100% écologique M1') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 2.5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		/////////////capotoile
-		if ( ($('input_ext').value == 'capotoile') && (szerokosc > 1.45) && (wysokosc > 1.45) ) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.45m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		/////////////bache nontissé 150g
-		if ( ($('input_ext').value == 'bache nontissé 150g') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
-			var blad = document.getElementById("id_14");
-			blad.style.background = "#EA2A6A";
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		/////////micro perforée
-		if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
-			eBox.style.display="block";
-			niepokazuj=0;
-		}
-		if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (szerokosc > 5) && (wysokosc > 5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		///////jet 550
-		if ( ($('input_ext').value == 'jet 550') && (szerokosc > 2.5) && (wysokosc > 2.5)  ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
-			eBox.style.display="block";
-			niepokazuj=0;
-		}
-		if ( ($('input_ext').value == 'jet 550') && (szerokosc > 5) && (wysokosc > 5)  ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		///////jet 520
-		if ( ($('input_ext').value == 'jet 520 M1') && (szerokosc > 2.5) && (wysokosc > 2.5) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
-			eBox.style.display="block";
-			niepokazuj=0;
-		}
-		if ( ($('input_ext').value == 'jet 520 M1') && (szerokosc > 5) && (wysokosc > 5) ) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		///////jet lacopac
-		if ( ($('input_ext').value == 'lacopac') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
-			eBox.style.display="block";
-			niepokazuj=0;
-		}
-		if ( ($('input_ext').value == 'lacopac') && (szerokosc > 5) && (wysokosc > 5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		///////jet lacopac recto verso
-		if ( ($('input_ext').value == 'lacopac recto verso') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" />  Votre banderole comportera une THERMO-SOUDURE!';
-			eBox.style.display="block";
-			niepokazuj=0;
-		}
-		if ( ($('input_ext').value == 'lacopac recto verso') && (szerokosc > 5) && (wysokosc > 5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		///////440g
-		if ( ($('input_ext').value == 'bache 440g') && (szerokosc > 2.5) && (wysokosc > 2.5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
-			eBox.style.display="block";
-			niepokazuj=0;
-		}
-		if ( ($('input_ext').value == 'bache 440g') && (szerokosc > 5) && (wysokosc > 5)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
-		///////bache nontissé 150g
-		if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
-			eBox.style.display="block";
-			niepokazuj=1;
-		}
 
-		if ((szerokosc > 50) || (wysokosc > 50)) {
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, nos rouleaux font au maximum 50m !';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-		if ((szerokosc <= 0 ) || (wysokosc <= 0 )){
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en mètres';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
-		if (ilosc.empty()){
-			eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
-			eBox.style.display="block";
-			niepokazuj=2;
-		}
+			////////////////////////////////////// 	avertissements, messages d'erreur //
 
-		// fin avertissements //////////////////////////////////////////////////////
-		/////////////// envoi formulaire cas particulier niepokazuj==1 (non tissé)//
-
-		if (niepokazuj==1) {
-			jQuery('#prix_unitaire').html('-');
-			//remise.innerHTML='-';
-			prix.innerHTML='-';
-			opt.innerHTML='-';
-			total.innerHTML='-';
-			newtotal.innerHTML='-';
-			newopt.innerHTML='-';
-			rabat2='-';
-			var rodzaj = "banderole";
-			var dodajkoszyk = document.getElementById("cart_form");
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+'</br>- '+szerokosc+' x '+wysokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
-			livraisonComp.style.display = 'block';
-		}
-
-		///////// envoi formulaire cas particulier niepokazuj==2 (Thermo-soudure) //
-		if (niepokazuj==2) {
-			jQuery('#prix_unitaire').html('-');
-			//remise.innerHTML='-';
-			if ( suma < 0 ) {
-				var forfait = 0;
-				forfait = fixstr(forfait);
-				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
-				if (option>0) {
-					var newoption = parseFloat(option) + parseFloat(forfait);
-					newoption=fixstr(newoption);
-					newoption2 = newoption.replace(".", ",");
-					option2 = newoption2;
-					var newopt = document.getElementById("option");
-					newopt.innerHTML=newoption2+' &euro;';
-					suma = 0;
-					suma=fixstr(suma);
-					suma2 = suma.replace(".", ",");
-					var newtotal = document.getElementById("total");
-					newtotal.innerHTML=suma2+' &euro;';
-				} else {
-					var newoption = parseFloat(forfait);
-					newoption=fixstr(newoption);
-					newoption2 = newoption.replace(".", ",");
-					option2 = newoption2;
-					var newopt = document.getElementById("option");
-					newopt.innerHTML=newoption2+' &euro;';
-					suma = 0;
-					suma=fixstr(suma);
-					suma2 = suma.replace(".", ",");
-					var newtotal = document.getElementById("total");
-					newtotal.innerHTML=suma2+' &euro;';
-				}
+			//------------------------------------------------------------------ecotoile
+			if ( ($('input_ext').value == 'ecotoile') && (largeur > 2.5) && (hauteur > 2.5) ) {
+				var blad = document.getElementById("id_14");
+				blad.style.background = "#EA2A6A";
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 2.5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//-----------------------------------------------------------100% écologique
+			if ( ($('input_ext').value == 'bache 100% écologique M1') && (largeur > 1.6) && (hauteur > 1.6) ) {
+				var blad = document.getElementById("id_14");
+				blad.style.background = "#EA2A6A";
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//-----------------------------------------------------------------capotoile
+			if ( ($('input_ext').value == 'capotoile') && (largeur > 1.45) && (hauteur > 1.45) ) {
+				var blad = document.getElementById("id_14");
+				blad.style.background = "#EA2A6A";
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.45m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//-------------------------------------------------------bache nontissé 150g
+			if ( ($('input_ext').value == 'bache nontissé 150g') && (largeur > 1.6) && (hauteur > 1.6)) {
+				var blad = document.getElementById("id_14");
+				blad.style.background = "#EA2A6A";
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 1.6m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//------------------------------------------------------------micro perforée
+			if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (largeur > 2.5) && (hauteur > 2.5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
+				eBox.style.display="block";
+				niepokazuj=0;
+			}
+			if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (largeur > 5) && (hauteur > 5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//-------------------------------------------------------------------jet 550
+			if ( ($('input_ext').value == 'jet 550') && (largeur > 2.5) && (hauteur > 2.5)  ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
+				eBox.style.display="block";
+				niepokazuj=0;
+			}
+			if ( ($('input_ext').value == 'jet 550') && (largeur > 5) && (hauteur > 5)  ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//-------------------------------------------------------------------jet 520
+			if ( ($('input_ext').value == 'jet 520 M1') && (largeur > 2.5) && (hauteur > 2.5) ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
+				eBox.style.display="block";
+				niepokazuj=0;
+			}
+			if ( ($('input_ext').value == 'jet 520 M1') && (largeur > 5) && (hauteur > 5) ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//---------------------------------------------------------------jet lacopac
+			if ( ($('input_ext').value == 'lacopac') && (largeur > 2.5) && (hauteur > 2.5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
+				eBox.style.display="block";
+				niepokazuj=0;
+			}
+			if ( ($('input_ext').value == 'lacopac') && (largeur > 5) && (hauteur > 5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//---------------------------------------------------jet lacopac recto verso
+			if ( ($('input_ext').value == 'lacopac recto verso') && (largeur > 2.5) && (hauteur > 2.5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" />  Votre banderole comportera une THERMO-SOUDURE!';
+				eBox.style.display="block";
+				niepokazuj=0;
+			}
+			if ( ($('input_ext').value == 'lacopac recto verso') && (largeur > 5) && (hauteur > 5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//----------------------------------------------------------------------440g
+			if ( ($('input_ext').value == 'bache 440g') && (largeur > 2.5) && (hauteur > 2.5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Votre banderole comportera une THERMO-SOUDURE!';
+				eBox.style.display="block";
+				niepokazuj=0;
+			}
+			if ( ($('input_ext').value == 'bache 440g') && (largeur > 5) && (hauteur > 5)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//-------------------------------------------------------bache nontissé 150g
+			if ( ($('input_ext').value == 'bache nontissé 150g') && (metraz*ilosc < 23.99)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache nontissé 150g M1 minimum 24m²';
+				eBox.style.display="block";
+				niepokazuj=1;
+			}
+			//----------------------------------------------------------------- + de 50m
+			if ((largeur > 50) || (hauteur > 50)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention la taille est calculée en mètres, nos rouleaux font au maximum 50m !';
+				eBox.style.display="block";
+				niepokazuj=2;
+			}
+			//-----------------------------------------------------------------------nul
+			if ((largeur <= 0 ) || (hauteur <= 0 )){
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une taille en mètres';
+				eBox.style.display="block";
+				niepokazuj=2;
+			}
+			//----------------------------------------------------------------------vide
+			if (ilosc.empty()){
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+				eBox.style.display="block";
+				niepokazuj=2;
 			}
 
-			var rodzaj = "banderole Thermo-soudure";
-			var dodajkoszyk = document.getElementById("cart_form");
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc+' x '+szerokosc+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant  <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-		}
-		if (ilosc==''){niepokazuj=1;}
+			// fin avertissements //////////////////////////////////////////////////////
+			/////////////// envoi formulaire cas particulier niepokazuj==1 (non tissé)//
 
-		// fin envoi formulaire cas particuliers ///////////////////////////////////
-		////////////////////////////////////////////////// livraison le jour même //
-
-		if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-			livraisonrapide.style.display = 'block';
-		}
-		else {livraisonrapide.style.display = 'none';}
-
-		/////////////////////////////////////////////////////////////// livraison //
-
-		if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))) {
-			suma=cena-rabat;
-			suma=fixstr(suma);
-			suma2 = suma.replace(".", ",");
-			total.innerHTML=suma2+' &euro;';
-
-			var blad = document.getElementById("id_14");
-			blad.style.background = "none";
-
-			if (option>0) {
-				option=fixstr(option);
-				option2 = option.replace(".", ",");
-				var opt = document.getElementById("option");
-				opt.innerHTML=option2+' &euro;';
-			}
-			if (option==0) {
-				option2 = '-';
-				var opt = document.getElementById("option");
+			if (niepokazuj==1) {
+				jQuery('#prix_unitaire').html('-');
+				//remise.innerHTML='-';
+				prix.innerHTML='-';
 				opt.innerHTML='-';
+				total.innerHTML='-';
+				newtotal.innerHTML='-';
+				newopt.innerHTML='-';
+				rabat2='-';
+				var rodzaj = "banderole";
+				var dodajkoszyk = document.getElementById("cart_form");
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+'</br>- '+largeur+' x '+hauteur+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'-' &euro;" /><input type="hidden" name="option" value="'-'" /><input type="hidden" name="remise" value="'-'" /><input type="hidden" name="total" value="'-' &euro;" />';
+				livraisonComp.style.display = 'block';
 			}
 
-			var niepokazuj = 0;
-			if ( suma < 29 ) {
-				var forfait = 29 - suma;
-				forfait = fixstr(forfait);
-				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
-				if (option>0) {
-					var newoption = parseFloat(option) + parseFloat(forfait);
-					newoption=fixstr(newoption);
-					newoption2 = newoption.replace(".", ",");
-					option2 = newoption2;
-					var newopt = document.getElementById("option");
-					newopt.innerHTML=newoption2+' &euro;';
-					suma = 29;
-					suma=fixstr(suma);
-					suma2 = suma.replace(".", ",");
-					var newtotal = document.getElementById("total");
-					newtotal.innerHTML=suma2+' &euro;';
-				} else {
-					var newoption = parseFloat(forfait);
-					newoption=fixstr(newoption);
-					newoption2 = newoption.replace(".", ",");
-					option2 = newoption2;
-					var newopt = document.getElementById("option");
-					newopt.innerHTML=newoption2+' &euro;';
-					suma = 29;
-					suma=fixstr(suma);
-					suma2 = suma.replace(".", ",");
-					var newtotal = document.getElementById("total");
-					newtotal.innerHTML=suma2+' &euro;';
+			///////// envoi formulaire cas particulier niepokazuj==2 (Thermo-soudure) //
+			if (niepokazuj==2) {
+				jQuery('#prix_unitaire').html('-');
+				//remise.innerHTML='-';
+				if ( suma < 0 ) {
+					var forfait = 0;
+					forfait = fixstr(forfait);
+					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					if (option>0) {
+						var newoption = parseFloat(option) + parseFloat(forfait);
+						newoption=fixstr(newoption);
+						newoption2 = newoption.replace(".", ",");
+						option2 = newoption2;
+						var newopt = document.getElementById("option");
+						newopt.innerHTML=newoption2+' &euro;';
+						suma = 0;
+						suma=fixstr(suma);
+						suma2 = suma.replace(".", ",");
+						var newtotal = document.getElementById("total");
+						newtotal.innerHTML=suma2+' &euro;';
+					} else {
+						var newoption = parseFloat(forfait);
+						newoption=fixstr(newoption);
+						newoption2 = newoption.replace(".", ",");
+						option2 = newoption2;
+						var newopt = document.getElementById("option");
+						newopt.innerHTML=newoption2+' &euro;';
+						suma = 0;
+						suma=fixstr(suma);
+						suma2 = suma.replace(".", ",");
+						var newtotal = document.getElementById("total");
+						newtotal.innerHTML=suma2+' &euro;';
+					}
 				}
+
+				var rodzaj = "banderole Thermo-soudure";
+				var dodajkoszyk = document.getElementById("cart_form");
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+hauteur+' x '+largeur+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant  <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 			}
+			if (ilosc==''){niepokazuj=1;}
+			// fin envoi formulaire cas particuliers ///////////////////////////////////
 
-			// fin livraison /////////////////////////////////////////////////////////
-			////////////////////////////////////////////////////// envoi formulaire //
+			////////////////////////////////////////////////// livraison le jour même //
 
-			var rodzaj = "banderole";
-			var dodajkoszyk = document.getElementById("cart_form");
-			// largeur et hauteur x100 pour un affichage en cm côté admin
-			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+wysokosc*100+' x '+szerokosc*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc*100+'" /><input type="hidden" name="largeur" value="'+szerokosc*100+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-			livraisonComp.style.display = 'block';
-		}
+			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+				livraisonrapide.style.display = 'block';
+			}
+			else {livraisonrapide.style.display = 'none';}
 
+			//////////////////////////////////////////////// si aucun cas particulier //
+
+			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))) {
+				suma=cena-rabat;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				total.innerHTML=suma2+' &euro;';
+
+				var blad = document.getElementById("id_14");
+				blad.style.background = "none";
+
+				if (option>0) {
+					option=fixstr(option);
+					option2 = option.replace(".", ",");
+					var opt = document.getElementById("option");
+					opt.innerHTML=option2+' &euro;';
+				}
+				if (option==0) {
+					option2 = '-';
+					var opt = document.getElementById("option");
+					opt.innerHTML='-';
+				}
+
+				var niepokazuj = 0;
+				if ( suma < 29 ) {
+					var forfait = 29 - suma;
+					forfait = fixstr(forfait);
+					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					if (option>0) {
+						var newoption = parseFloat(option) + parseFloat(forfait);
+						newoption=fixstr(newoption);
+						newoption2 = newoption.replace(".", ",");
+						option2 = newoption2;
+						var newopt = document.getElementById("option");
+						newopt.innerHTML=newoption2+' &euro;';
+						suma = 29;
+						suma=fixstr(suma);
+						suma2 = suma.replace(".", ",");
+						var newtotal = document.getElementById("total");
+						newtotal.innerHTML=suma2+' &euro;';
+					} else {
+						var newoption = parseFloat(forfait);
+						newoption=fixstr(newoption);
+						newoption2 = newoption.replace(".", ",");
+						option2 = newoption2;
+						var newopt = document.getElementById("option");
+						newopt.innerHTML=newoption2+' &euro;';
+						suma = 29;
+						suma=fixstr(suma);
+						suma2 = suma.replace(".", ",");
+						var newtotal = document.getElementById("total");
+						newtotal.innerHTML=suma2+' &euro;';
+					}
+				}
+
+				////////////////////////////////////////////////////// envoi formulaire //
+
+				var rodzaj = "banderole";
+				var dodajkoszyk = document.getElementById("cart_form");
+				// largeur et hauteur x100 pour un affichage en cm côté admin
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+hauteur*100+' x '+largeur*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				livraisonComp.style.display = 'block';
+			}
+			
 		});  // fin prod/delivery click function
 	});  // fin jq doc ready
 

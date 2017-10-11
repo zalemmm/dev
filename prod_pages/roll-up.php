@@ -414,17 +414,17 @@
 		  var metraz             = 0;
 		  var metrazzaokraglony  = 0;
 		  var metrazzaokraglony1 = 0;
-		  var szerokosc          = 0;
-		  var wysokosc           = 0;
+		  var largeur            = 0;
+		  var hauteur            = 0;
 		  var prixsupport        = 0;
-		  var poids              = '';                                           ///// poids total
+		  var poids              = '';                                           ////poids total
 		  var p1                 = '';                                           ////poids du support
 		  var p2                 = '';                                           ////poids du structure
 		  var metrage            = 0;
 		  var structure          = 0;
 		  var fp                 = '';
 	    var pu              	 = 0;
-			var cena               = 0; 	var cena2      = 0; var cenapojedyncza  = 0;
+			var cena               = 0; 	var cena2      = 0; 		var prixunite  = 0;
 			var rabat              = 0;	 	var rabat2     = 0;
 			var suma               = 0; 	var suma2      = 0;
 			var transport          = 0;
@@ -433,783 +433,771 @@
 			var prliv              = '';
 			var date_panier        = '';
 			var dodatkowaopcja     = '';
+			var ilosc              = $('input_7').value;
 			var eBox               = document.getElementById('form-button-error2');
 			eBox.innerHTML         = '';
 
-			if ( ($('input_1').value) && ( ($('input_21').value) || ($('input_22').value) || ($('input_23').value) || ($('input_24').value) || ($('input_25').value) || ($('input_26').value) || ($('input_31').value) || ($('input_32').value) || ($('input_33').value) || ($('input_34').value) || ($('input_35').value) || ($('input_4').value) && ($('input_6').value))  && ($('input_7').value) ) {
+			//////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////// first-line //
 
-				ilosc=$('input_7').value;
-				////////////////////////////////////////////////////////////////////////
-				////////////////////////////////////////////////////////// first-line //
-
-				if ($('input_1').value == 'first-line') {
-					if (ilosc<7) {cena=28;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=27.5;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=27;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=26;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=25.5;}
-					if (ilosc>=217 ) {cena=25;}
-					if (($('input_21').value == '80x200') && ($('input_31').value == '440g')) {
-						wysokosc = 200;
-						szerokosc = 80;
-						cena += 0;
-					}
-
-					if (($('input_21').value == '80x200') && ($('input_31').value == '300µ M1')) {
-						cena += 3;
-					}
-
-					ktorytyp=$('input_21').value;
-					dodatkowaopcja='<br />- '+$('input_31').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+			if ($('input_1').value == 'first-line') {
+				if (ilosc<7) {cena=28;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=27.5;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=27;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=26;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=25.5;}
+				if (ilosc>=217 ) {cena=25;}
+				if (($('input_21').value == '80x200') && ($('input_31').value == '440g')) {
+					hauteur = 200;
+					largeur = 80;
+					cena += 0;
 				}
 
-				// fin first-line //////////////////////////////////////////////////////
-				//////////////////////////////////////////////////////////  best-line //
-
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '60x200')) {
-					if (ilosc<7) {cena=45;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=44;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=43;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=42;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=40;}
-					if (ilosc>=217 ) {cena=38;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 3;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
-					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
-
-					wysokosc = 200;
-					szerokosc = 60;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				if (($('input_21').value == '80x200') && ($('input_31').value == '300µ M1')) {
+					cena += 3;
 				}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '60x160')) {
-					if (ilosc<7) {cena=44;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=43;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=42;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=41;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=39;}
-					if (ilosc>=217 ) {cena=37;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 3;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
-					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
-
-					wysokosc = 160;
-					szerokosc = 60;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_21').value;
+				dodatkowaopcja='<br />- '+$('input_31').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '80x200')) {
-					if (ilosc<7) {cena=47;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=45;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=44;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
-					if (ilosc>=217 ) {cena=40;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 3;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 4;}
-					if ($('input_32').value == '100% écologique M1') {cena += 11;}
-					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
+			// fin first-line ////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////  best-line //
 
-					wysokosc = 200;
-					szerokosc = 80;
+			//------------------------------------------------------------------60x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '60x200')) {
+				if (ilosc<7) {cena=45;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=44;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=43;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=42;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=40;}
+				if (ilosc>=217 ) {cena=38;}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 3;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
+				if ($('input_32').value == '100% écologique M1') {cena += 11;}
+				if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				hauteur = 200;
+				largeur = 60;
+
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//------------------------------------------------------------------60x160
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '60x160')) {
+				if (ilosc<7) {cena=44;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=43;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=42;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=41;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=39;}
+				if (ilosc>=217 ) {cena=37;}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 3;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
+				if ($('input_32').value == '100% écologique M1') {cena += 11;}
+				if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '85x200')) {
-					if (ilosc<7) {cena=50;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=49;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=48;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=47;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=45;}
-					if (ilosc>=217 ) {cena=43;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 4;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 5;}
-					if ($('input_32').value == '100% écologique M1') {cena += 12;}
-					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
+				hauteur = 160;
+				largeur = 60;
 
-					wysokosc = 200;
-					szerokosc = 85;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//------------------------------------------------------------------80x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '80x200')) {
+				if (ilosc<7) {cena=47;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=45;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=44;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
+				if (ilosc>=217 ) {cena=40;}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 3;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
+				if ($('input_32').value == '100% écologique M1') {cena += 11;}
+				if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '100x200')) {
-					if (ilosc<7) {cena=64;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=63;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=62;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=61;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=59;}
-					if (ilosc>=217 ) {cena=57;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 4;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 5;}
-					if ($('input_32').value == '100% écologique M1') {cena += 12;}
-					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
+				hauteur = 200;
+				largeur = 80;
 
-					wysokosc = 200;
-					szerokosc = 100;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//------------------------------------------------------------------85x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '85x200')) {
+				if (ilosc<7) {cena=50;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=49;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=48;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=47;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=45;}
+				if (ilosc>=217 ) {cena=43;}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 4;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 5;}
+				if ($('input_32').value == '100% écologique M1') {cena += 12;}
+				if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '120x200')) {
-					if (ilosc<7) {cena=85;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
-					if (ilosc>=217 ) {cena=78;}
-					if ($('input_32').value == '440g') {cena += 0;}
-					if ($('input_32').value == '300µ M1') {cena += 6;}
-					if ($('input_32').value == 'jet 520 M1') {cena += 8;}
-					if ($('input_32').value == '100% écologique M1') {cena += 16;}
-					if ($('input_32').value == 'capotoile') {cena += 16*1.3;}
+				hauteur = 200;
+				largeur = 85;
 
-					wysokosc = 200;
-					szerokosc = 120;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value !== '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------100x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '100x200')) {
+				if (ilosc<7) {cena=64;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=63;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=62;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=61;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=59;}
+				if (ilosc>=217 ) {cena=57;}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 4;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 5;}
+				if ($('input_32').value == '100% écologique M1') {cena += 12;}
+				if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '150x200')) {
+				hauteur = 200;
+				largeur = 100;
 
-					if (ilosc<7) {cena=99;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=96;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
-					if (ilosc>=217 ) {cena=92;}
-
-					if ($('input_33').value == '440g') {cena += 0}
-					if ($('input_33').value == '300µ M1') {cena += 9}
-					if ($('input_33').value == 'jet 520 M1') {cena += 12}
-					if ($('input_33').value == '100% écologique M1') {cena += 20}
-					if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
-
-					wysokosc = 200;
-					szerokosc = 150;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_33').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------120x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '120x200')) {
+				if (ilosc<7) {cena=85;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
+				if (ilosc>=217 ) {cena=78;}
+				if ($('input_32').value == '440g') {cena += 0;}
+				if ($('input_32').value == '300µ M1') {cena += 6;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 8;}
+				if ($('input_32').value == '100% écologique M1') {cena += 16;}
+				if ($('input_32').value == 'capotoile') {cena += 16*1.3;}
 
-				if (($('input_1').value == 'best-line') && ($('input_22').value == '200x200')) {
-					if (ilosc<7) {cena=199;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=198;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=196;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=194;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=192;}
-					if (ilosc>=217 ) {cena=188;}
-					if ($('input_35').value == '440g') {cena += 0}
-					if ($('input_35').value == 'jet 520 M1') {cena += 15}
+				hauteur = 200;
+				largeur = 120;
 
-					wysokosc = 200;
-					szerokosc = 200;
-
-					ktorytyp=$('input_22').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					dodatkowaopcja='<br />- '+$('input_35').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value !== '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------150x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '150x200')) {
+				if (ilosc<7) {cena=99;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=96;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
+				if (ilosc>=217 ) {cena=92;}
 
-				// fin best-line ///////////////////////////////////////////////////////
-				//////////////////////////////////////////////////////////// lux-line //
+				if ($('input_33').value == '440g') {cena += 0}
+				if ($('input_33').value == '300µ M1') {cena += 9}
+				if ($('input_33').value == 'jet 520 M1') {cena += 12}
+				if ($('input_33').value == '100% écologique M1') {cena += 20}
+				if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
 
+				hauteur = 200;
+				largeur = 150;
 
-				if (($('input_1').value == 'lux-line') && ($('input_23').value == '80x200')){
-					if (ilosc<7) {cena=85;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
-					if (ilosc>=217 ) {cena=78;}
-					if ($('input_32').value == '440g') {cena += 0}
-					if ($('input_32').value == '300µ M1') {cena += 3}
-					if ($('input_32').value == 'jet 520 M1') {cena += 4}
-					if ($('input_32').value == '100% écologique M1') {cena += 11}
-					if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
-
-					wysokosc = 200;
-					szerokosc = 80;
-
-					ktorytyp=$('input_23').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_33').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------200x200
+			if (($('input_1').value == 'best-line') && ($('input_22').value == '200x200')) {
+				if (ilosc<7) {cena=199;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=198;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=196;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=194;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=192;}
+				if (ilosc>=217 ) {cena=188;}
+				if ($('input_35').value == '440g') {cena += 0}
+				if ($('input_35').value == 'jet 520 M1') {cena += 15}
 
+				hauteur = 200;
+				largeur = 200;
 
-
-				if (($('input_1').value == 'lux-line') && ($('input_23').value == '100x200')){
-					if (ilosc<7) {cena=105;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=104;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=103;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=102;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=100;}
-					if (ilosc>=217 ) {cena=98;}
-					if ($('input_32').value == '440g') {cena += 0}
-					if ($('input_32').value == '300µ M1') {cena += 4}
-					if ($('input_32').value == 'jet 520 M1') {cena += 5}
-					if ($('input_32').value == '100% écologique M1') {cena += 12}
-					if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
-
-					wysokosc = 200;
-					szerokosc = 100;
-
-					ktorytyp=$('input_23').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_22').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				dodatkowaopcja='<br />- '+$('input_35').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
 
-				if (($('input_1').value == 'lux-line') && ($('input_23').value == '120x200')){
-					if (ilosc<7) {cena=129;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=128;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=127;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=126;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=124;}
-					if (ilosc>=217 ) {cena=122;}
-					if ($('input_32').value == '440g') {cena += 0}
-					if ($('input_32').value == '300µ M1') {cena += 6}
-					if ($('input_32').value == 'jet 520 M1') {cena += 8}
-					if ($('input_32').value == '100% écologique M1') {cena += 16}
-					if ($('input_32').value == 'capotoile') {cena += 16*1.3;}
+			// fin best-line /////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////// lux-line //
 
-					wysokosc = 200;
-					szerokosc = 120;
+			//------------------------------------------------------------------80x200
+			if (($('input_1').value == 'lux-line') && ($('input_23').value == '80x200')){
+				if (ilosc<7) {cena=85;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
+				if (ilosc>=217 ) {cena=78;}
+				if ($('input_32').value == '440g') {cena += 0}
+				if ($('input_32').value == '300µ M1') {cena += 3}
+				if ($('input_32').value == 'jet 520 M1') {cena += 4}
+				if ($('input_32').value == '100% écologique M1') {cena += 11}
+				if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
-					ktorytyp=$('input_23').value;
-					dodatkowaopcja='<br />- '+$('input_32').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				hauteur = 200;
+				largeur = 80;
+
+				ktorytyp=$('input_23').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------100x200
+			if (($('input_1').value == 'lux-line') && ($('input_23').value == '100x200')){
+				if (ilosc<7) {cena=105;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=104;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=103;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=102;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=100;}
+				if (ilosc>=217 ) {cena=98;}
+				if ($('input_32').value == '440g') {cena += 0}
+				if ($('input_32').value == '300µ M1') {cena += 4}
+				if ($('input_32').value == 'jet 520 M1') {cena += 5}
+				if ($('input_32').value == '100% écologique M1') {cena += 12}
+				if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
-				if (($('input_1').value == 'lux-line') && ($('input_23').value == '150x200')){
-					if (ilosc<7) {cena=169;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=168;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=167;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=166;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=164;}
-					if (ilosc>=217 ) {cena=162;}
-					if ($('input_33').value == '440g') {cena += 0}
-					if ($('input_33').value == '300µ M1') {cena += 9}
-					if ($('input_33').value == 'jet 520 M1') {cena += 12}
-					if ($('input_33').value == '100% écologique M1') {cena += 20}
-					if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
+				hauteur = 200;
+				largeur = 100;
 
-					wysokosc = 200;
-					szerokosc = 150;
-
-					ktorytyp=$('input_23').value;
-					dodatkowaopcja='<br />- '+$('input_33').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_23').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------120x200
+			if (($('input_1').value == 'lux-line') && ($('input_23').value == '120x200')){
+				if (ilosc<7) {cena=129;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=128;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=127;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=126;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=124;}
+				if (ilosc>=217 ) {cena=122;}
+				if ($('input_32').value == '440g') {cena += 0}
+				if ($('input_32').value == '300µ M1') {cena += 6}
+				if ($('input_32').value == 'jet 520 M1') {cena += 8}
+				if ($('input_32').value == '100% écologique M1') {cena += 16}
+				if ($('input_32').value == 'capotoile') {cena += 16*1.3;}
 
-				if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x200')){
-					if (ilosc<7) {cena=219;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=218;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=217;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=216;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=214;}
-					if (ilosc>=217 ) {cena=212;}
-					if ($('input_35').value == '440g') {cena += 0}
-					if ($('input_35').value == 'jet 520 M1') {cena += 40}
+				hauteur = 200;
+				largeur = 120;
 
-					wysokosc = 200;
-					szerokosc = 200;
-
-					ktorytyp=$('input_23').value;
-					dodatkowaopcja='<br />- '+$('input_35').value;
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_23').value;
+				dodatkowaopcja='<br />- '+$('input_32').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------150x200
+			if (($('input_1').value == 'lux-line') && ($('input_23').value == '150x200')){
+				if (ilosc<7) {cena=169;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=168;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=167;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=166;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=164;}
+				if (ilosc>=217 ) {cena=162;}
+				if ($('input_33').value == '440g') {cena += 0}
+				if ($('input_33').value == '300µ M1') {cena += 9}
+				if ($('input_33').value == 'jet 520 M1') {cena += 12}
+				if ($('input_33').value == '100% écologique M1') {cena += 20}
+				if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
 
-				// fin lux-line ////////////////////////////////////////////////////////
-				////////////////////////////////////////////////////////////// double //
+				hauteur = 200;
+				largeur = 150;
 
-				if (($('input_1').value == 'double') && ($('input_24').value == '80x200')){
-					if (ilosc<7) {cena=90;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=89;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=88;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=87;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=85;}
-					if (ilosc>=217 ) {cena=83;}
-					if ($('input_34').value == '440g') {cena += 0}
-					if ($('input_34').value == '300µ M1') {cena += 6}
-					if ($('input_34').value == 'jet 520 M1') {cena += 8}
-					if ($('input_34').value == '100% écologique M1') {cena += 20}
-					if ($('input_34').value == 'capotoile') {cena += 20*1.3;}
-
-					wysokosc = 200;
-					szerokosc = 80;
-
-					ktorytyp=$('input_24').value;
-					dodatkowaopcja='<br />- '+$('input_34').value;
-					dodatkowaopcja += '<br />- recto-verso';
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_23').value;
+				dodatkowaopcja='<br />- '+$('input_33').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//-----------------------------------------------------------------200x200
+			if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x200')){
+				if (ilosc<7) {cena=219;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=218;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=217;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=216;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=214;}
+				if (ilosc>=217 ) {cena=212;}
+				if ($('input_35').value == '440g') {cena += 0}
+				if ($('input_35').value == 'jet 520 M1') {cena += 40}
 
-				if (($('input_1').value == 'double') && ($('input_24').value == '85x200')){
-					if (ilosc<7) {cena=99;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=95;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
-					if (ilosc>=217 ) {cena=92;}
-					if ($('input_34').value == '440g') {cena += 0}
-					if ($('input_34').value == '300µ M1') {cena += 10}
-					if ($('input_34').value == 'jet 520 M1') {cena += 12}
-					if ($('input_34').value == '100% écologique M1') {cena += 22}
-					if ($('input_34').value == 'capotoile') {cena += 22*1.3;}
+				hauteur = 200;
+				largeur = 200;
 
-					wysokosc = 200;
-					szerokosc = 85;
-
-					ktorytyp=$('input_24').value;
-					dodatkowaopcja='<br />- '+$('input_34').value;
-					dodatkowaopcja += '<br />- recto-verso';
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				ktorytyp=$('input_23').value;
+				dodatkowaopcja='<br />- '+$('input_35').value;
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
 
-				if (($('input_1').value == 'double') && ($('input_24').value == '100x200')){
-					if (ilosc<7) {cena=135;}
-					if ((ilosc>=7) && (ilosc<=24)) {cena=134;}
-					if ((ilosc>=25) && (ilosc<=48)) {cena=133;}
-					if ((ilosc>=49) && (ilosc<=108)) {cena=132;}
-					if ((ilosc>=109) && (ilosc<=216)) {cena=130;}
-					if (ilosc>=217 ) {cena=129;}
-					if ($('input_34').value == '440g') {cena += 0}
-					if ($('input_34').value == '300µ M1') {cena += 12}
-					if ($('input_34').value == 'jet 520 M1') {cena += 15}
-					if ($('input_34').value == '100% écologique M1') {cena += 28}
-					if ($('input_34').value == 'capotoile') {cena += 28*1.3;}
+			// fin lux-line //////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////// double //
 
-					wysokosc = 200;
-					szerokosc = 100;
+			//------------------------------------------------------------------80x200
+			if (($('input_1').value == 'double') && ($('input_24').value == '80x200')){
+				if (ilosc<7) {cena=90;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=89;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=88;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=87;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=85;}
+				if (ilosc>=217 ) {cena=83;}
+				if ($('input_34').value == '440g') {cena += 0}
+				if ($('input_34').value == '300µ M1') {cena += 6}
+				if ($('input_34').value == 'jet 520 M1') {cena += 8}
+				if ($('input_34').value == '100% écologique M1') {cena += 20}
+				if ($('input_34').value == 'capotoile') {cena += 20*1.3;}
 
-					ktorytyp=$('input_24').value;
-					dodatkowaopcja='<br />- '+$('input_34').value;
-					dodatkowaopcja += '<br />- recto-verso';
-					if ($('input_4').value != '') {
-						dodatkowaopcja += '<br />- '+$('input_4').value;
-					}
+				hauteur = 200;
+				largeur = 80;
+
+				ktorytyp=$('input_24').value;
+				dodatkowaopcja='<br />- '+$('input_34').value;
+				dodatkowaopcja += '<br />- recto-verso';
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
+			//------------------------------------------------------------------85x200
+			if (($('input_1').value == 'double') && ($('input_24').value == '85x200')){
+				if (ilosc<7) {cena=99;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=95;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
+				if (ilosc>=217 ) {cena=92;}
+				if ($('input_34').value == '440g') {cena += 0}
+				if ($('input_34').value == '300µ M1') {cena += 10}
+				if ($('input_34').value == 'jet 520 M1') {cena += 12}
+				if ($('input_34').value == '100% écologique M1') {cena += 22}
+				if ($('input_34').value == 'capotoile') {cena += 22*1.3;}
 
-				if ($('input_25').value == 'minia4'){
-					wysokosc = 29.7;
-					szerokosc = 21;
-					cena=24;
-					dodatkowaopcja='<br />- '+$('input_25').value;
+				hauteur = 200;
+				largeur = 85;
+
+				ktorytyp=$('input_24').value;
+				dodatkowaopcja='<br />- '+$('input_34').value;
+				dodatkowaopcja += '<br />- recto-verso';
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
-				if ($('input_25').value == 'minia3'){
-					wysokosc = 42;
-					szerokosc = 29.7;
-					cena=29;
-					dodatkowaopcja='<br />- '+$('input_25').value;
+			}
+			//-----------------------------------------------------------------100x200
+			if (($('input_1').value == 'double') && ($('input_24').value == '100x200')){
+				if (ilosc<7) {cena=135;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=134;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=133;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=132;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=130;}
+				if (ilosc>=217 ) {cena=129;}
+				if ($('input_34').value == '440g') {cena += 0}
+				if ($('input_34').value == '300µ M1') {cena += 12}
+				if ($('input_34').value == 'jet 520 M1') {cena += 15}
+				if ($('input_34').value == '100% écologique M1') {cena += 28}
+				if ($('input_34').value == 'capotoile') {cena += 28*1.3;}
+
+				hauteur = 200;
+				largeur = 100;
+
+				ktorytyp=$('input_24').value;
+				dodatkowaopcja='<br />- '+$('input_34').value;
+				dodatkowaopcja += '<br />- recto-verso';
+				if ($('input_4').value != '') {
+					dodatkowaopcja += '<br />- '+$('input_4').value;
 				}
+			}
 
-				// fin double //////////////////////////////////////////////////////////
-				///////////////////////////////////////////////////////////// mistral //
+			// fin double ////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////// mini //
 
-				if ($('input_1').value == 'Mistral'){
-					// Laise mistral //
-	      	szerokosc=0.8; wysokosc=2;
-	      	metraz = szerokosc * wysokosc;
-	      	metraz = fixstr(metraz);
-	      	var metrazzaokraglony1 = (szerokosc+wysokosc)*2;
-	      	metrazzaokraglony = Math.round(metrazzaokraglony1);
+			if ($('input_25').value == 'minia4'){
+				hauteur = 29.7;
+				largeur = 21;
+				cena=24;
+				dodatkowaopcja='<br />- '+$('input_25').value;
+			}
+			if ($('input_25').value == 'minia3'){
+				hauteur = 42;
+				largeur = 29.7;
+				cena=29;
+				dodatkowaopcja='<br />- '+$('input_25').value;
+			}
+
+			// fin mini //////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////// mistral //
+
+			if ($('input_1').value == 'Mistral'){
+				// Laise mistral //
+      	largeur=0.8; hauteur=2;
+      	metraz = largeur * hauteur;
+      	metraz = fixstr(metraz);
+      	var metrazzaokraglony1 = (largeur+hauteur)*2;
+      	metrazzaokraglony = Math.round(metrazzaokraglony1);
 
 
-	      	if (szerokosc <= 0.50){l1=0.5; l2=0.5-szerokosc; perteL=l2*wysokosc;};
-	      	if ((szerokosc >= 0.51) && (szerokosc <= 0.80)){l1=0.80; l2=0.80-szerokosc; perteL=l2*wysokosc;};
-	      	if ((szerokosc >= 0.81) && (szerokosc <= 1.10)){l1=1.10; l2=1.10-szerokosc; perteL=l2*wysokosc;};
-	      	if ((szerokosc >= 1.11) && (szerokosc <= 1.37)){l1=1.37; l2=1.37-szerokosc; perteL=l2*wysokosc;};
-	      	if ((szerokosc >= 1.38) && (szerokosc <= 1.60)){l1=1.60; l2=1.60-szerokosc; perteL=l2*wysokosc;};
-	      	if ((szerokosc >= 1.61) && (szerokosc <= 2)){l1=2; l2=2-szerokosc; perteL=l2*wysokosc;};
-	      	if (szerokosc >= 2.01){l1=szerokosc; perteL=szerokosc*wysokosc;};
+      	if (largeur <= 0.50){l1=0.5; l2=0.5-largeur; perteL=l2*hauteur;};
+      	if ((largeur >= 0.51) && (largeur <= 0.80)){l1=0.80; l2=0.80-largeur; perteL=l2*hauteur;};
+      	if ((largeur >= 0.81) && (largeur <= 1.10)){l1=1.10; l2=1.10-largeur; perteL=l2*hauteur;};
+      	if ((largeur >= 1.11) && (largeur <= 1.37)){l1=1.37; l2=1.37-largeur; perteL=l2*hauteur;};
+      	if ((largeur >= 1.38) && (largeur <= 1.60)){l1=1.60; l2=1.60-largeur; perteL=l2*hauteur;};
+      	if ((largeur >= 1.61) && (largeur <= 2)){l1=2; l2=2-largeur; perteL=l2*hauteur;};
+      	if (largeur >= 2.01){l1=largeur; perteL=largeur*hauteur;};
 
-	      	if (wysokosc <= 0.50){h1=0.5; h2=0.5-wysokosc; perteH=h2*szerokosc;};
-	      	if ((wysokosc >= 0.51) && (wysokosc <= 0.80)){h1=0.80; h2=0.80-wysokosc; perteH=h2*szerokosc;};
-	      	if ((wysokosc >= 0.81) && (wysokosc <= 1.10)){h1=1.10; h2=1.10-wysokosc; perteH=h2*szerokosc;};
-	      	if ((wysokosc >= 1.11) && (wysokosc <= 1.37)){h1=1.37; h2=1.37-wysokosc; perteH=h2*szerokosc;};
-	      	if ((wysokosc >= 1.38) && (wysokosc <= 1.60)){h1=1.60; h2=1.60-wysokosc; perteH=h2*szerokosc;};
-	      	if ((wysokosc >= 1.61) && (wysokosc <= 2)){h1=2; h2=2-wysokosc; perteH=h2*szerokosc;};
-	      	if (wysokosc >= 2.01){h1=wysokosc; perteH=wysokosc*szerokosc;};
+      	if (hauteur <= 0.50){h1=0.5; h2=0.5-hauteur; perteH=h2*largeur;};
+      	if ((hauteur >= 0.51) && (hauteur <= 0.80)){h1=0.80; h2=0.80-hauteur; perteH=h2*largeur;};
+      	if ((hauteur >= 0.81) && (hauteur <= 1.10)){h1=1.10; h2=1.10-hauteur; perteH=h2*largeur;};
+      	if ((hauteur >= 1.11) && (hauteur <= 1.37)){h1=1.37; h2=1.37-hauteur; perteH=h2*largeur;};
+      	if ((hauteur >= 1.38) && (hauteur <= 1.60)){h1=1.60; h2=1.60-hauteur; perteH=h2*largeur;};
+      	if ((hauteur >= 1.61) && (hauteur <= 2)){h1=2; h2=2-hauteur; perteH=h2*largeur;};
+      	if (hauteur >= 2.01){h1=hauteur; perteH=hauteur*largeur;};
 
-	      	if (perteH < perteL){metrage = szerokosc*h1;}
-	      	else if (perteH > perteL){metrage = wysokosc*l1;}
-	      	else if(perteH == perteL){metrage = wysokosc*l1;}
+      	if (perteH < perteL){metrage = largeur*h1;}
+      	else if (perteH > perteL){metrage = hauteur*l1;}
+      	else if(perteH == perteL){metrage = hauteur*l1;}
 
-	      	ilosc=$('input_7').value;
-	      	if ($('input_7').value) {
-	      		metragefinal=metrage*ilosc;
-	  	   	}
+      	metragefinal=metrage*ilosc;
 
-					if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
-						if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
-						if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
-						if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
-						if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
-						if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
-						if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
-						if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
-						if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
-						if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
-						if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
-						if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
-						if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
-						if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
-						if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
-						if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
-						if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
-						if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
-						if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
-						if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
-						if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
-						if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
-						if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
-						p1=(metraz*0.55)*ilosc;
 
-		        if ($('input_26').value == '80x200 1 visuel') {
-						  structure=86.4*1.8;
-	            cena=structure+(cenatotal/ilosc);
-	            ktorytyp=$('input_26').value;
-							p2=3*ilosc;
+				if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
+					if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
+					if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
+					if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
+					if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
+					if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
+					if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
+					if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
+					if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
+					if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
+					if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
+					if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
+					if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
+					if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
+					if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
+					if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
+					if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
+					if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
+					if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
+					if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
+					if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
+					if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
+					if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
+					p1=(metraz*0.55)*ilosc;
 
-							wysokosc = 200;
-							szerokosc = 80;
-	          }
-	          if ($('input_26').value == '80x200 2 visuels') {
-							structure=86.4*1.8;
-	            cena=structure+((cenatotal*1.5)/ilosc);
-	            ktorytyp=$('input_26').value + ' recto verso';
-							p2=3*ilosc;
+	        if ($('input_26').value == '80x200 1 visuel') {
+					  structure=86.4*1.8;
+            cena=structure+(cenatotal/ilosc);
+            ktorytyp=$('input_26').value;
+						p2=3*ilosc;
 
-							wysokosc = 200;
-							szerokosc = 80;
-		        }
+						hauteur = 200;
+						largeur = 80;
+          }
+          if ($('input_26').value == '80x200 2 visuels') {
+						structure=86.4*1.8;
+            cena=structure+((cenatotal*1.5)/ilosc);
+            ktorytyp=$('input_26').value + ' recto verso';
+						p2=3*ilosc;
 
-					// poids mistral //
-					poids=(p1+p2);
-			  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
-			  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
-			  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
-			  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
-			  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
-			  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
-			  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
-			  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
-			  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
-			  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
-			     if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
-			  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
-			  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
-			  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
-			     if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
-				   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
-				   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
-				   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
-			     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
-			     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
-				}
+						hauteur = 200;
+						largeur = 80;
+	        }
 
-				// fin mistral /////////////////////////////////////////////////////////
-				//////////////////////////////////////////////////////////////// spot //
-				if ($('input_4').value == 'spot') {
-					cena+=29;
-				}
-				//////////////////////////////////////////////////////////// maquette //
-				var ktodaje;
-				if ($('input_6').value == 'fb') {
-					cena+=29;
-					ktodaje = 'France banderole crée la mise en page';
-				}
-				if ($('input_6').value == 'user') {
-					ktodaje = 'j’ai déjà crée la maquette';
-				}
-				if ($('input_6').value == 'config') {
-					cena+=5;
-					ktodaje = 'je crée ma maquette en ligne';
-				}
+				// poids mistral //
+				poids=(p1+p2);
+		  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
+		  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
+		  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
+		  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
+		  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
+		  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
+		  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
+		  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
+		  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
+		  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
+		     if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
+		  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
+		  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
+		  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
+		     if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
+			   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
+			   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
+			   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
+		     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
+		     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
+			}
 
-				///////////////////////////////////////////////////////////// options //
-				var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-				if (colis == true) {
-					cena += 2.00;
-					cedzik += '<br />- colis revendeur';
-				}
-				var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-				var etiqdesc = '';
-				if (etiquette == true) {
-					transport=0;
-					etiqdesc = '<br />- retrait colis a l\'atelier';
-					cena-= cena*3/100;
-				}
+			// fin mistral ///////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////// spot //
+			if ($('input_4').value == 'spot') {
+				cena+=29;
+			}
 
-				var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-				if (relais == true) {
-					cenapojedyncza += 5.00;
-					cena += 5.00;
-					cedzik += '<br />- relais colis';
-				}
-				// fin options /////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////// maquette //
+			var ktodaje;
+			if ($('input_6').value == 'fb') {
+				cena+=29/ilosc;
+				ktodaje = 'France banderole crée la mise en page';
+			}
+			if ($('input_6').value == 'user') {
+				ktodaje = 'j’ai déjà crée la maquette';
+			}
+			if ($('input_6').value == 'config') {
+				cena+=5/ilosc;
+				ktodaje = 'je crée ma maquette en ligne';
+			}
 
-				cenapojedyncza = cena;
+			/////////////////////////////////////////////////////////////// options //
+			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+			if (colis == true) {
+				cena += 2.00*ilosc;
+				cedzik += '<br />- colis revendeur';
+			}
+			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+			var etiqdesc = '';
+			if (etiquette == true) {
+				etiqdesc = '<br />- retrait colis a l\'atelier';
+				cena-= cena*3/100;
+			}
 
-				ilosc=$('input_7').value;
-				if ($('input_7').value) {
-					cena=cenapojedyncza*ilosc;
-				}
+			var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
+			if (relais == true) {
+				cena += 5.00/ilosc;
+				cedzik += '<br />- relais colis';
+			}
 
-				var total = document.getElementById("total");
-				var remise = document.getElementById("remise");
+			///////////////////////////////////////////////////////// total produit //
+			prixunite = cena;
+			cena=prixunite*ilosc;
+			prixunite=fixstr(prixunite);
+			cena2 = prixunite.replace(".", ",");
 
-				cenapojedyncza=fixstr(cenapojedyncza);
-				cena2 = cenapojedyncza.replace(".", ",");
+			///////////////////////////////////////////// affichage jours livraison //
+			var myClass = jQuery(this).attr("class");
+			var niepokazuj = 0;
 
-				var myClass = jQuery(this).attr("class");
+			var n = myClass.search("production");
+			if (n != -1) {
+				jQuery('.production').prop("disabled",false);
+				jQuery('.production').removeClass('active');
+				jQuery(this).addClass('active');
+				var production = jQuery(this).attr('onClick');
+				jQuery('#production-value').val(Afficher());
+				var production = jQuery(this).attr('text-value');
+				jQuery('#production-value').val(production);
+				jQuery(this).prop("disabled",true);
+			}
 
-				var niepokazuj = 0;
-				var n = myClass.search("production");
-				if (n != -1) {
-					jQuery('.production').prop("disabled",false);
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('active');
-					var production = jQuery(this).attr('onClick');
-					jQuery('#production-value').val(Afficher());
-					var production = jQuery(this).attr('text-value');
-					jQuery('#production-value').val(production);
-					jQuery(this).prop("disabled",true);
-				}
+			var m = myClass.search("delivery");
+			if (m != -1) {
+				jQuery('.delivery').prop("disabled",false);
+				jQuery('.delivery').removeClass('active');
+				jQuery(this).addClass('active');
+				var delivery = jQuery(this).attr('text-value');
+				jQuery('#delivery-value').val(delivery);
+				jQuery(this).prop("disabled",true);
 
-				var m = myClass.search("delivery");
-				if (m != -1) {
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					var delivery = jQuery(this).attr('text-value');
-					jQuery('#delivery-value').val(delivery);
-					jQuery(this).prop("disabled",true);
-
-					jQuery(document).ready(function(){
-						jQuery('.jotform-form select').click(function(){
-							jQuery('#delivery-value').val(Masquer());
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
-							jQuery('#production-value').prop("disabled",false);
-							jQuery('#delivery-value').prop("disabled",true);
-						});
+				jQuery(document).ready(function(){
+					jQuery('.jotform-form select').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
 					});
+				});
 
-					jQuery(document).ready(function(){
-						jQuery('.form-textbox').click(function(){
-							jQuery('#delivery-value').val(Masquer());
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
-							jQuery('#production-value').prop("disabled",false);
-							jQuery('#delivery-value').prop("disabled",true);
-						});
+				jQuery(document).ready(function(){
+					jQuery('.form-textbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
 					});
+				});
 
-					jQuery(document).ready(function(){
-						jQuery('.form-checkbox').click(function(){
-							jQuery('#delivery-value').val(Masquer());
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
-							jQuery('#production-value').prop("disabled",false);
-							jQuery('#delivery-value').prop("disabled",true);
-						});
+				jQuery(document).ready(function(){
+					jQuery('.form-checkbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
 					});
+				});
+			}
+
+			var production      = jQuery('#production-value').val();
+			//alert(production);
+			var delivery        = jQuery('#delivery-value').val();
+
+			if(production && delivery){
+				// Calculate price
+				//alert('click');
+				var ProdPercent = '';
+				var DeliPercent = '';
+				var PorductType = jQuery('.production.active').attr('text-value');
+				var DeliveryType = jQuery('.delivery.active').attr('text-value');
+				if(PorductType == '2-3' ){
+					ProdPercent = 15;
+					prliv += '<br />- P 2-3J';
+				}else if(PorductType =='1-1'){
+					ProdPercent = 40;
+					prliv += '<br />- P 1J';
+				}else{
+					ProdPercent = 0;
+					prliv += '<br />- P 4-5J';
 				}
 
-				var production      = jQuery('#production-value').val();
-				//alert(production);
-				var delivery        = jQuery('#delivery-value').val();
-
-				if(production && delivery){
-					// Calculate price
-					//alert('click');
-					var ProdPercent = '';
-					var DeliPercent = '';
-					var PorductType = jQuery('.production.active').attr('text-value');
-					var DeliveryType = jQuery('.delivery.active').attr('text-value');
-					if(PorductType == '2-3' ){
-						ProdPercent = 15;
-						prliv += '<br />- P 2-3J';
-					}else if(PorductType =='1-1'){
-						ProdPercent = 40;
-						prliv += '<br />- P 1J';
-					}else{
-						ProdPercent = 0;
-						prliv += '<br />- P 4-5J';
-					}
-
-					if(DeliveryType == '2-3'){
-						DeliPercent = 15;
-						prliv += ' / L 2-3J';
-					}else if(DeliveryType =='1-1'){
-						DeliPercent = 40;
-						prliv += ' / L 1J';
-					}else{
-						DeliPercent = 0;
-						prliv += ' / L 3-4J';
-					}
-
-					var price_unit = parseFloat(cenapojedyncza);
-
-					//var str = price_unit;
-					//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-					var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-					var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-					var finalPrice           = calculatedTotalPrice + price_unit;
-
-					// Calculate Days
-					var prod_first_val  = parseInt(production[0]);
-					var prod_second_val = parseInt(production[2]);
-					var deli_first_val  = parseInt(delivery[0]);
-					var deli_second_val = parseInt(delivery[2]);
-
-					var totalProduction = prod_first_val + deli_first_val;
-					var totalDelivery   = prod_second_val + deli_second_val;
-					if(totalProduction == totalDelivery){
-						jQuery('#totaldays').text("Total jours " + totalProduction);
-						var days = totalProduction;
-					}else{
-						jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-						var days = totalDelivery;
-					}
-
-					var curdate = new Date();
-					var curhour = curdate.getHours();
-					// ajout 1 jour ouvré de délai sur commande après 12h
-					if (curhour >= 12) {
-						var daystoadd = AddBusinessDays(days+1);
-					}else{
-						var daystoadd = AddBusinessDays(days);
-					}
-
-					curdate.setDate(curdate.getDate()+daystoadd);
-					var estdt = new Date(curdate);
-					var month = estdt.getMonth()+1;
-					var day = estdt.getDate();
-					var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-					if(jQuery('#id_8').css('display') != 'none') {
-						jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-					}
-
-					finalPrice1=fixstr(finalPrice);
-					finalPrice2 = finalPrice1.replace(".", ",");
-
-					jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-					jQuery('#remise').html(rabat2);
-
+				if(DeliveryType == '2-3'){
+					DeliPercent = 15;
+					prliv += ' / L 2-3J';
+				}else if(DeliveryType =='1-1'){
+					DeliPercent = 40;
+					prliv += ' / L 1J';
+				}else{
+					DeliPercent = 0;
+					prliv += ' / L 3-4J';
 				}
 
-				cenapojedyncza = finalPrice1;
+				var price_unit = parseFloat(prixunite);
 
-				ilosc=$('input_7').value;
-				if ($('input_7').value) {
-					cena=cenapojedyncza*ilosc;
+				//var str = price_unit;
+				//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
+				var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+				var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+				var finalPrice           = calculatedTotalPrice + price_unit;
+
+				// Calculate Days
+				var prod_first_val  = parseInt(production[0]);
+				var prod_second_val = parseInt(production[2]);
+				var deli_first_val  = parseInt(delivery[0]);
+				var deli_second_val = parseInt(delivery[2]);
+
+				var totalProduction = prod_first_val + deli_first_val;
+				var totalDelivery   = prod_second_val + deli_second_val;
+				if(totalProduction == totalDelivery){
+					jQuery('#totaldays').text("Total jours " + totalProduction);
+					var days = totalProduction;
+				}else{
+					jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+					var days = totalDelivery;
 				}
 
-				var total = document.getElementById("total");
-				var remise = document.getElementById("remise");
-
-				cenapojedyncza=fixstr(cenapojedyncza);
-				cena2 = cenapojedyncza.replace(".", ",")
-
-				transport=0;
-
-				var niepokazuj = 0;
-
-				if (niepokazuj==1) {
-					prix.innerHTML='-';
-					remise.innerHTML='-';
-					total.innerHTML='-';
+				var curdate = new Date();
+				var curhour = curdate.getHours();
+				// ajout 1 jour ouvré de délai sur commande après 12h
+				if (curhour >= 12) {
+					var daystoadd = AddBusinessDays(days+1);
+				}else{
+					var daystoadd = AddBusinessDays(days);
 				}
 
-				// livraison le jour même //
-				if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-					livraisonrapide.style.display = 'block';
+				curdate.setDate(curdate.getDate()+daystoadd);
+				var estdt = new Date(curdate);
+				var month = estdt.getMonth()+1;
+				var day = estdt.getDate();
+				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+				if(jQuery('#id_8').css('display') != 'none') {
+					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
-				else {livraisonrapide.style.display = 'none';}
 
-				////////////////////////////////////////////////////////////////////////
+				finalPrice1=fixstr(finalPrice);
+				finalPrice2 = finalPrice1.replace(".", ",");
 
-				if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-					suma=cena-rabat;
-					suma=fixstr(suma);
-					suma2 = suma.replace(".", ",");
-					total.innerHTML=suma2+' &euro;';
+				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+				jQuery('#remise').html(rabat2);
 
-					var dodajkoszyk = document.getElementById("cart_form");
-					dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-					livraisonComp.style.display = 'block';
+			}
 
-				}
+			////////////////////////////////////////////////////// prix avec délais //
+			prixunite = finalPrice1;
+			cena=prixunite*ilosc;
+
+			//////////////////////////////////////////////////////////////// remise //
+			var total = document.getElementById("total");
+			var remise = document.getElementById("remise");
+
+			prixunite=fixstr(prixunite);
+			transport=0;
+
+			//////////////////////////////////////////////////////////////////////////
+			cena2 = prixunite.replace(".", ",");
+			//////////////////////////////////////////////////////////////////////////
+
+			var niepokazuj = 0;
+
+			if (niepokazuj==1) {
+				prix.innerHTML='-';
+				remise.innerHTML='-';
+				total.innerHTML='-';
+			}
+
+			//////////////////////////////////////////////// livraison le jour même //
+			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+				livraisonrapide.style.display = 'block';
+			}
+			else {livraisonrapide.style.display = 'none';}
+
+			////////////////////////////////////////////////////// envoi formulaire //
+			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+				suma=cena-rabat;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				total.innerHTML=suma2+' &euro;';
+
+				var dodajkoszyk = document.getElementById("cart_form");
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				livraisonComp.style.display = 'block';
+
 			}
 		});
 	});

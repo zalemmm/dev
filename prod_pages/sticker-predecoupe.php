@@ -134,16 +134,8 @@
 		</script>
 
 	</form>
-
-
-	<script type="text/javascript">
-	$("#preview_imag").attr("href", "http://www.web-design-weekly/");
-	$( "#preview_imag a" ).prop( "href", "allMyHrefsAreTheSameNow.html" );
-
-	</script>
-
-</form>
 </div>
+
 <div id="preview">
 
 	  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
@@ -174,148 +166,109 @@
 <div id="custom_price_unit" >
 
 </div>
-<script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
 
 <script type="text/javascript">
-/* Voici la fonction javascript qui change la propriété "display"
-pour afficher ou non le div selon que ce soit "none" ou "block". */
+	//////////////////////////////////////////////////////////////////////////////
+	function Afficher() {
+		divliv = document.getElementById('livraisonrapide');
+		if (divliv.style.display == 'none')
+		divliv.style.display = 'block';
+	}
+	function Afficher() {
+		divInfo = document.getElementById('delivery-div');
+		if (divInfo.style.display == 'none')
+		divInfo.style.display = 'block';
+	}
+	function Masquer() {
+		divInfo = document.getElementById('delivery-div');
+		if (divInfo.style.display == 'block')
+		divInfo.style.display = 'none';
+	}
 
-function Afficher()
-{
-	divInfo = document.getElementById('delivery-div');
-
-	if (divInfo.style.display == 'none')
-	divInfo.style.display = 'block';
-
-
-}
-</script>
-
-<script type="text/javascript">
-/* Voici la fonction javascript qui change la propriété "display"
-pour afficher ou non le div selon que ce soit "none" ou "block". */
-
-function Masquer()
-{
-	divInfo = document.getElementById('delivery-div');
-
-	if (divInfo.style.display == 'block')
-	divInfo.style.display = 'none';
-
-
-}
-</script>
-
-<script type="text/javascript">
-  // checkboxes livraison
-  jQuery('#adresse').click(function() {
-    if (document.getElementById('adresse').checked) {
-      document.getElementById('relais').checked = false;
-      document.getElementById('etiquette').checked = false;
-    }
-  });
-
-  jQuery('#etiquette').click(function() {
-    if (document.getElementById('etiquette').checked) {
-      document.getElementById('relais').checked = false;
-      document.getElementById('adresse').checked = false;
-    }
-  });
-
-  jQuery('#relais').click(function() {
-    if (document.getElementById('relais').checked) {
-      document.getElementById('etiquette').checked = false;
-      document.getElementById('adresse').checked = false;
-    }
-  });
-</script>
-
-<script type="text/javascript">
-
-function AddBusinessDays(weekDaysToAdd) {
-  // fonction jours ouvrés
-  var curdate = new Date();
-  var realDaysToAdd = 0;
-  for(i=0; i<weekDaysToAdd; i++){
-    curdate.setDate(curdate.getDate()+1);
-    var estdt1 = new Date(curdate);
-    var n = curdate.getDay();
-    if (n == '6' || n == '0') {
-      weekDaysToAdd++;
-    }
-    realDaysToAdd++;
-    //check if current day is business day
-  }
-  return realDaysToAdd;
-}
-
-jQuery(document).ready(function(){
-
-	jQuery('.delivery , .production').click(function(){
-
-		var cena=0; var cena2=0; var cenapojedyncza=0;
-		var rabat=0; var rabat2=0;
-		var suma=0; var suma2=0;
-		var transport=0;
-		var ktorytyp='';
-		var cedzik='';
-		var prliv='';
-		var date_panier='';
-		var dodatkowaopcja='';
-		var metraz=0;
-		var szerokosc=0;
-		var wysokosc=0;
-		var option2=0;
-		var cedzik = '';
-		var niepokazuj = 0;
-		var eBox = document.getElementById('form-button-error2');
-		eBox.innerHTML='';
-		var ax1 = document.getElementById("id_1");
-		var ax2 = document.getElementById("id_8");
-		var ax3 = document.getElementById("id_14");
-		if (ax1) {
-			ax1.style.background="none";
-			ax1.style.border="none";
-			ax1.style.borderBottom="";
+	////////////////////////////////////////////////////// checkboxes livraison //
+	jQuery('#adresse').click(function() {
+		if (document.getElementById('adresse').checked) {
+			document.getElementById('relais').checked = false;
+			document.getElementById('etiquette').checked = false;
 		}
-		if (ax2) {
-			ax2.style.background="none";
-			ax2.style.border="none";
-			/*// ax2.style.borderBottom="1px solid #9fa3a8";*/
+	});
+	jQuery('#etiquette').click(function() {
+		if (document.getElementById('etiquette').checked) {
+			document.getElementById('relais').checked = false;
+			document.getElementById('adresse').checked = false;
 		}
-		if (ax3) {
-			ax3.style.background="none";
-			ax3.style.border="none";
-			/*// ax3.style.borderBottom="1px solid #9fa3a8";*/
+	});
+	jQuery('#relais').click(function() {
+		if (document.getElementById('relais').checked) {
+			document.getElementById('etiquette').checked = false;
+			document.getElementById('adresse').checked = false;
 		}
+	});
 
-		if ( ($('input_1').value) &&  ($('input_4').value)  && ($('input_6').value) && ($('input_7').value) && ($('input_8').value) && ($('input_9').value) ) {
-			var ktorytyp='';
-			var ktorapodstawa='';
-			var tape='';
+	/////////////////////////////////////////////////// calcul des jours ouvrés //
+	function AddBusinessDays(weekDaysToAdd) {
+		// fonction jours ouvrés
+		var curdate = new Date();
+		var realDaysToAdd = 0;
+		for(i=0; i<weekDaysToAdd; i++){
+			curdate.setDate(curdate.getDate()+1);
+			var estdt1 = new Date(curdate);
+			var n = curdate.getDay();
+			if (n == '6' || n == '0') {
+				weekDaysToAdd++;
+			}
+			realDaysToAdd++;
+			//check if current day is business day
+		}
+		return realDaysToAdd;
+	}
 
-			szerokosc = ($('input_8').value);
-			szerokosc = szerokosc.replace(',','.');
-			szerokosc = fixstr(szerokosc);
-			$('input_8').value = szerokosc;
-			wysokosc = ($('input_9').value);
-			wysokosc = wysokosc.replace(',','.');
-			wysokosc = fixstr(wysokosc);
-			$('input_9').value = wysokosc;
-			metraz = szerokosc * wysokosc;
+	//////////////////////////////////////////////////////////////////////////////
+
+	jQuery(document).ready(function(){
+		jQuery('.delivery , .production').click(function(){
+			var cena           = 0; var cena2=0; var prixunite=0;
+			var rabat          = 0; var rabat2=0;
+			var suma           = 0; var suma2=0;
+			var transport      = 0;
+			var ktorytyp       = '';
+			var cedzik         = '';
+			var prliv          = '';
+			var date_panier    = '';
+			var dodatkowaopcja = '';
+			var metraz         = 0;
+			var largeur      = 0;
+			var hauteur       = 0;
+			var option2        = 0;
+			var cedzik         = '';
+			var niepokazuj     = 0;
+			var eBox           = document.getElementById('form-button-error2');
+			eBox.innerHTML     = '';
+			var ktorytyp       = '';
+			var ktorapodstawa  = '';
+			var tape           = '';
+			var ilosc          = $('input_7').value;
+
+			//////////////////////////////////////////////////////////////////////////
+			largeur = ($('input_8').value);
+			largeur = largeur.replace(',','.');
+			largeur = fixstr(largeur);
+			$('input_8').value = largeur;
+			hauteur = ($('input_9').value);
+			hauteur = hauteur.replace(',','.');
+			hauteur = fixstr(hauteur);
+			$('input_9').value = hauteur;
+			metraz = largeur * hauteur;
 			metraz = fixstr(metraz);
 
-
-
-
-
-
+			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent') && ($('input_4').value == 'Pas de film de pose') ) {
 				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0030;
 			}
+			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent') && ($('input_4').value == 'tape') ) {
 				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
@@ -323,15 +276,14 @@ jQuery(document).ready(function(){
 				cena = metraz*0.0045;
 				cedzik += '<br />- Tape';
 			}
-
-
-
+			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'semi-permanent') && ($('input_4').value == 'Pas de film de pose') ) {
 				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0030;
 			}
+			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'semi-permanent') && ($('input_4').value == 'tape') ) {
 				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
@@ -339,14 +291,14 @@ jQuery(document).ready(function(){
 				cena = metraz*0.0045;
 				cedzik += '<br />- Tape';
 			}
-
-
+			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent75μ') && ($('input_4').value == 'Pas de film de pose') ) {
 				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0065;
 			}
+			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent75μ')  && ($('input_4').value == 'tape') ) {
 				ktorytyp='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
@@ -355,35 +307,21 @@ jQuery(document).ready(function(){
 				cedzik += '<br />- Tape';
 			}
 
-
-
-
-
-			///////
-
-
-
-			ilosc=$('input_7').value;
-
-
-
-
-
+			///////////////////////////////////////////////////////// choix maquette//
 			var ktodaje;
 			if ($('input_6').value == 'fb') {
-				cena+=29;
+				cena+=29/ilosc;
 				ktodaje = 'France banderole crée la maquette';
 			}
 			if ($('input_6').value == 'user') {
 				ktodaje = 'j’ai déjà crée la maquette';
 			}
 			if ($('input_6').value == 'config') {
-				cena+=5;
+				cena+=5/ilosc;
 				ktodaje = 'je crée ma maquette en ligne';
 			}
 
-
-			////reszta
+			/////////////////////////////////////////////////////////////// options //
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 			if (colis == true) {
 				cena += cena*3/100;
@@ -392,45 +330,27 @@ jQuery(document).ready(function(){
 			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 			var etiqdesc = '';
 			if (etiquette == true) {
-				transport=0;
 				etiqdesc = '<br />- retrait colis a l\'atelier';
 				cena-= cena*3/100;
 			}
-
 			var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 			if (relais == true) {
-				cenapojedyncza += 5.00/ilosc;
-				cena += 5.00/ilosc;
+				cena += 5/ilosc;
 				cedzik += '<br />- relais colis';
 			}
 
-			cenapojedyncza = cena;
+			/////////////////////////////////////////////////////////// total produit //
+			prixunite = cena;
 			var iloscmetrow1=metraz*ilosc;
+			iloscmetrow=iloscmetrow1/10000;
+			cena=prixunite*ilosc;
+			prixunite=fixstr(prixunite);
+			cena2 = prixunite.replace(".", ",");
 
-			if (ilosc) {
-				cena=cenapojedyncza*ilosc;
-				iloscmetrow=iloscmetrow1/10000;
-			}
-
-
-			///////
-			var total = document.getElementById("total");
-			var remise = document.getElementById("remise");
-
-
-
-
-			cenapojedyncza=fixstr(cenapojedyncza);
-			cena2 = cenapojedyncza.replace(".", ",");
-
-
-
-
-
-
+			/////////////////////////////////////////////// affichage jours livraison //
 			var myClass = jQuery(this).attr("class");
-
 			var niepokazuj = 0;
+
 			var n = myClass.search("production");
 			if (n != -1) {
 				jQuery('.production').prop("disabled",false);
@@ -441,7 +361,6 @@ jQuery(document).ready(function(){
 				var production = jQuery(this).attr('text-value');
 				jQuery('#production-value').val(production);
 				jQuery(this).prop("disabled",true);
-
 			}
 
 			var m = myClass.search("delivery");
@@ -453,310 +372,209 @@ jQuery(document).ready(function(){
 				jQuery('#delivery-value').val(delivery);
 				jQuery(this).prop("disabled",true);
 
-
-
-
-
 				jQuery(document).ready(function(){
 					jQuery('.jotform-form select').click(function(){
 						jQuery('#delivery-value').val(Masquer());
-
 						jQuery('.delivery').prop("disabled",false);
 						jQuery('.production').prop("disabled",false);
-
 						jQuery('.production').removeClass('active');
 						jQuery(this).addClass('');
-
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
-
-						jQuery(production-value).prop("disabled",false);
-						jQuery(delivery-value).prop("disabled",true);
-
-
-					});});
-
-
-					jQuery(document).ready(function(){
-						jQuery('.form-textbox').click(function(){
-							jQuery('#delivery-value').val(Masquer());
-
-							jQuery('.delivery').prop("disabled",false);
-							jQuery('.production').prop("disabled",false);
-
-							jQuery('.production').removeClass('active');
-							jQuery(this).addClass('');
-
-							jQuery('.delivery').removeClass('active');
-							jQuery(this).addClass('active');
-
-							jQuery(production-value).prop("disabled",false);
-							jQuery(delivery-value).prop("disabled",true);
-
-						});});
-
-
-						jQuery(document).ready(function(){
-							jQuery('.form-checkbox').click(function(){
-								jQuery('#delivery-value').val(Masquer());
-
-								jQuery('.delivery').prop("disabled",false);
-								jQuery('.production').prop("disabled",false);
-
-								jQuery('.production').removeClass('active');
-								jQuery(this).addClass('');
-
-								jQuery('.delivery').removeClass('active');
-								jQuery(this).addClass('active');
-
-								jQuery(production-value).prop("disabled",false);
-								jQuery(delivery-value).prop("disabled",true);
-
-							});});
-
-
-
-
-						}
-
-
-
-
-						var production      = jQuery('#production-value').val();
-						//alert(production);
-						var delivery        = jQuery('#delivery-value').val();
-
-
-
-
-
-						if(production && delivery){
-
-							// Calculate price
-							//alert('click');
-							var ProdPercent = '';
-							var DeliPercent = '';
-							var PorductType = jQuery('.production.active').attr('text-value');
-							var DeliveryType = jQuery('.delivery.active').attr('text-value');
-							if(PorductType == '2-3' ){
-								ProdPercent = 15;
-								prliv += '<br />- P 2-3J';
-							}else if(PorductType =='1-1'){
-								ProdPercent = 40;
-								prliv += '<br />- P 1J';
-							}else{
-								ProdPercent = 0;
-								prliv += '<br />- P 4-5J';
-							}
-
-							if(DeliveryType == '2-3'){
-								DeliPercent = 15;
-								prliv += ' / L 2-3J';
-							}else if(DeliveryType =='1-1'){
-								DeliPercent = 40;
-								prliv += ' / L 1J';
-							}else{
-								DeliPercent = 0;
-								prliv += ' / L 3-4J';
-							}
-
-
-
-
-
-
-
-							var price_unit = parseFloat(cenapojedyncza);
-
-							//var str = price_unit;
-							//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-							var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-							var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-							var finalPrice           = calculatedTotalPrice + price_unit;
-
-
-
-
-							// Calculate Days
-							var prod_first_val  = parseInt(production[0]);
-							var prod_second_val = parseInt(production[2]);
-							var deli_first_val  = parseInt(delivery[0]);
-							var deli_second_val = parseInt(delivery[2]);
-
-							var totalProduction = prod_first_val + deli_first_val;
-							var totalDelivery   = prod_second_val + deli_second_val;
-							if(totalProduction == totalDelivery){
-								jQuery('#totaldays').text("Total jours " + totalProduction);
-								var days = totalProduction;
-							}else{
-								jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-								var days = totalDelivery;
-							}
-
-							var curdate = new Date();
-							var curhour = curdate.getHours();
-							// ajout 1 jour ouvré de délai sur commande après 12h
-							if (curhour >= 12) {
-								var daystoadd = AddBusinessDays(days+1);
-							}else{
-								var daystoadd = AddBusinessDays(days);
-							}
-
-							curdate.setDate(curdate.getDate()+daystoadd);
-							var estdt = new Date(curdate);
-							var month = estdt.getMonth()+1;
-							var day = estdt.getDate();
-							var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-							//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
-							if(jQuery('#id_10').css('display') != 'none')
-							{
-								//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-								//jQuery('#prix_unitaire').text(finalPrice);
-								jQuery('#estdate_10').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-
-
-							}
-
-
-
-
-							finalPrice1=fixstr(finalPrice);
-							finalPrice2 = finalPrice1.replace(".", ",");
-
-
-							jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-							jQuery('#remise').html(rabat2);
-
-						}
-
-
-
-
-
-
-						cenapojedyncza = finalPrice1;
-
-						ilosc=$('input_7').value;
-						if ($('input_7').value) {
-							cena=cenapojedyncza*ilosc;
-						}
-
-						var total = document.getElementById("total");
-						var remise = document.getElementById("remise");
-
-
-
-
-						cenapojedyncza=fixstr(cenapojedyncza);
-						cena2 = cenapojedyncza.replace(".", ",")
-
-
-
-
-
-
-
-						/* koszty transportu */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-						var niepokazuj = 0;
-
-						if (niepokazuj==1) {
-							prix.innerHTML='-';
-							remise.innerHTML='-';
-							total.innerHTML='-';
-						}
-						if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-							suma=cena-rabat;
-							suma=fixstr(suma);
-							suma2 = suma.replace(".", ",");
-							total.innerHTML=suma2+' &euro;';
-
-							var forfait = 29 - suma;
-							if (forfait > 0) {
-								forfait = fixstr(forfait);
-								eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
-								var newoption = parseFloat(forfait);
-								newoption=fixstr(newoption);
-								newoption2 = newoption.replace(".", ",");
-								option2 = newoption2;
-								var newopt = document.getElementById("option");
-								newopt.innerHTML=newoption2+' &euro;';
-								suma = 29;
-								suma=fixstr(suma);
-								suma2 = suma.replace(".", ",");
-								var newtotal = document.getElementById("total");
-								newtotal.innerHTML=suma2+' &euro;';
-							}
-
-
-
-							var dodajkoszyk = document.getElementById("cart_form");
-							dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+szerokosc+' x '+wysokosc+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-							livraisonComp.style.display = 'block';
-
-
-
-
-							if ( (szerokosc > 103) && (wysokosc > 103) ) {
-								var blad = document.getElementById("id_1");
-								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#EA2A6A";
-								blad.style.border = "1px solid #EA2A6A";
-								blad2.style.background = "#EA2A6A";
-								blad2.style.border = "1px solid #EA2A6A";
-								eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
-								niepokazuj=1;
-							}
-
-							if ( ((szerokosc < 10) || (wysokosc < 10)) ) {
-								var blad = document.getElementById("id_1");
-								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#EA2A6A";
-								blad.style.border = "1px solid #EA2A6A";
-								blad2.style.background = "#EA2A6A";
-								blad2.style.border = "1px solid #EA2A6A";
-								eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
-								niepokazuj=1;
-							}
-
-
-							if ( ($('input_4').value == 'tape') && (szerokosc > 103) && (wysokosc > 103) ) {
-								var blad = document.getElementById("id_4");
-								var blad2 = document.getElementById("id_8");
-								blad.style.background = "#EA2A6A";
-								blad.style.border = "1px solid #EA2A6A";
-								blad2.style.background = "#EA2A6A";
-								blad2.style.border = "1px solid #EA2A6A";
-								eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
-								niepokazuj=1;
-							}
-
-
-
-
-						}
-
-
-					}
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
+					});
 				});
 
+				jQuery(document).ready(function(){
+					jQuery('.form-textbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
+					});
+				});
+
+				jQuery(document).ready(function(){
+					jQuery('.form-checkbox').click(function(){
+						jQuery('#delivery-value').val(Masquer());
+						jQuery('.delivery').prop("disabled",false);
+						jQuery('.production').prop("disabled",false);
+						jQuery('.production').removeClass('active');
+						jQuery(this).addClass('');
+						jQuery('.delivery').removeClass('active');
+						jQuery(this).addClass('active');
+						jQuery('#production-value').prop("disabled",false);
+						jQuery('#delivery-value').prop("disabled",true);
+					});
+				});
+			}
+
+			var production      = jQuery('#production-value').val();
+			var delivery        = jQuery('#delivery-value').val();
+
+			if(production && delivery){
+				// Calculate price
+				var ProdPercent = '';
+				var DeliPercent = '';
+				var PorductType = jQuery('.production.active').attr('text-value');
+				var DeliveryType = jQuery('.delivery.active').attr('text-value');
+
+				if(PorductType == '2-3' ){
+					ProdPercent = 15;
+					prliv += '<br />- P 2-3J';
+				}else if(PorductType =='1-1'){
+					ProdPercent = 40;
+					prliv += '<br />- P 1J';
+				}else{
+					ProdPercent = 0;
+					prliv += '<br />- P 4-5J';
+				}
+
+				if(DeliveryType == '2-3'){
+					DeliPercent = 15;
+					prliv += ' / L 2-3J';
+				}else if(DeliveryType =='1-1'){
+					DeliPercent = 40;
+					prliv += ' / L 1J';
+				}else{
+					DeliPercent = 0;
+					prliv += ' / L 3-4J';
+				}
+
+				var price_unit = parseFloat(prixunite);
+				var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+				var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+				var finalPrice           = calculatedTotalPrice + price_unit;
+
+				////////////////////////////////////////////////////// Calculate Days //
+				var prod_first_val  = parseInt(production[0]);
+				var prod_second_val = parseInt(production[2]);
+				var deli_first_val  = parseInt(delivery[0]);
+				var deli_second_val = parseInt(delivery[2]);
+
+				var totalProduction = prod_first_val + deli_first_val;
+				var totalDelivery   = prod_second_val + deli_second_val;
+				if(totalProduction == totalDelivery){
+					jQuery('#totaldays').text("Total jours " + totalProduction);
+					var days = totalProduction;
+				}else{
+					jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+					var days = totalDelivery;
+				}
+
+				var curdate = new Date();
+				var curhour = curdate.getHours();
+				// ajout 1 jour ouvré de délai sur commande après 12h
+				if (curhour >= 12) {
+					var daystoadd = AddBusinessDays(days+1);
+				}else{
+					var daystoadd = AddBusinessDays(days);
+				}
+
+				curdate.setDate(curdate.getDate()+daystoadd);
+				var estdt = new Date(curdate);
+				var month = estdt.getMonth()+1;
+				var day = estdt.getDate();
+				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+				if(jQuery('#id_8').css('display') != 'none') {
+					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+				}
+
+				finalPrice1=fixstr(finalPrice);
+				finalPrice2 = finalPrice1.replace(".", ",");
+
+				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+				jQuery('#remise').html(rabat2);
+			}
+
+			////////////////////////////////////////////////////// prix avec délais //
+			prixunite = finalPrice1;
+			cena=prixunite*ilosc;
+
+			//////////////////////////////////////////////////////////////// remise //
+			var total = document.getElementById("total");
+			var remise = document.getElementById("remise");
+
+			prixunite=fixstr(prixunite);
+			transport=0;
+
+			//////////////////////////////////////////////////////////////////////////
+			cena2 = prixunite.replace(".", ",")
+			//////////////////////////////////////////////////////////////////////////
+
+			var niepokazuj = 0;
+
+			if (niepokazuj==1) {
+				prix.innerHTML='-';
+				remise.innerHTML='-';
+				total.innerHTML='-';
+			}
+
+			//////////////////////////////////////////////// livraison le jour même //
+			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
+				livraisonrapide.style.display = 'block';
+			}
+			else {livraisonrapide.style.display = 'none';}
+
+			//////////////////////////////////////////////////// messages d'erreur  //
+			if ( (largeur > 103) && (hauteur > 103) ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
+				niepokazuj=1;
+			}
+
+			if ( ((largeur < 10) || (hauteur < 10)) ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
+				niepokazuj=1;
+			}
 
 
-			});
+			if ( ($('input_4').value == 'tape') && (largeur > 103) && (hauteur > 103) ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
+				niepokazuj=1;
+			}
+
+				////////////////////////////////////////////////////// envoi formulaire //
+			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+				suma=cena-rabat;
+				suma=fixstr(suma);
+				suma2 = suma.replace(".", ",");
+				total.innerHTML=suma2+' &euro;';
+
+				var forfait = 29 - suma;
+				if (forfait > 0) {
+					forfait = fixstr(forfait);
+					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					var newoption = parseFloat(forfait);
+					newoption=fixstr(newoption);
+					newoption2 = newoption.replace(".", ",");
+					option2 = newoption2;
+					var newopt = document.getElementById("option");
+					newopt.innerHTML=newoption2+' &euro;';
+					suma = 29;
+					suma=fixstr(suma);
+					suma2 = suma.replace(".", ",");
+					var newtotal = document.getElementById("total");
+					newtotal.innerHTML=suma2+' &euro;';
+				}
 
 
 
-			</script>
+				var dodajkoszyk = document.getElementById("cart_form");
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+largeur+' x '+hauteur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				livraisonComp.style.display = 'block';
+			}else{
+				suma='-';
+				suma2 = '-';
+				total.innerHTML=suma2;
+				$('submit_cart').style.display = 'none';
+				livraisonComp.style.display = 'none';
+			}
+		});
+	});
+</script>

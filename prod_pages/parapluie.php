@@ -306,17 +306,6 @@
 </div>
 
 <script type="text/javascript">
-//////////////////////////////////////////////////// checkboxes livraison //
-jQuery('#adresse').click(function() {
-  if (document.getElementById('adresse').checked) {
-    document.getElementById('etiquette').checked = false;
-  }
-});
-jQuery('#etiquette').click(function() {
-  if (document.getElementById('etiquette').checked) {
-    document.getElementById('adresse').checked = false;
-  }
-});
 ////////////////////////////////////////////////////////////////////////////
 function Afficher() {
 divInfo = document.getElementById('delivery-div');
@@ -338,6 +327,19 @@ divInfo = document.getElementById('delivery-div');
   if (divInfo.style.display == 'block')
   divInfo.style.display = 'none';
 }
+
+//////////////////////////////////////////////////// checkboxes livraison //
+jQuery('#adresse').click(function() {
+  if (document.getElementById('adresse').checked) {
+    document.getElementById('etiquette').checked = false;
+  }
+});
+jQuery('#etiquette').click(function() {
+  if (document.getElementById('etiquette').checked) {
+    document.getElementById('adresse').checked = false;
+  }
+});
+
 ///////////////////////////////////////////////// calcul des jours ouvrés //
 function AddBusinessDays(weekDaysToAdd) {
   // fonction jours ouvrés
@@ -355,7 +357,8 @@ function AddBusinessDays(weekDaysToAdd) {
   }
   return realDaysToAdd;
 }
-////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
 jQuery(document).ready(function(){
   jQuery('.delivery , .production').click(function(){
     var cena           = 0;   var cena2    = 0;
@@ -371,9 +374,12 @@ jQuery(document).ready(function(){
     var pack           = '';
     var trans          = '';
     var prliv          = '';
+    var hauteur        = 0;
+    var largeur        = 0;
     var date_panier    = '';
     var eBox           = document.getElementById('form-button-error2');
     eBox.innerHTML     = '';
+    var ilosc          = $('input_8').value;
 
     /// stand tissu droit //////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////// recto simple //
@@ -388,8 +394,8 @@ jQuery(document).ready(function(){
         tissu260 = 28.52;
     		dodatkowaopcja += '<br />- Recto simple 3x1 Droit';
 
-        wysokosc = 229;
-        szerokosc = 152;
+        hauteur = 229;
+        largeur = 152;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x2 R' ) {
@@ -399,8 +405,8 @@ jQuery(document).ready(function(){
         tissu260 = 42.32;
     		dodatkowaopcja += '<br />- Recto simple 3x2 Droit';
 
-        wysokosc = 229;
-        szerokosc = 225.5;
+        hauteur = 229;
+        largeur = 225.5;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x3 R' ) {
@@ -410,8 +416,8 @@ jQuery(document).ready(function(){
         tissu260 = 55.2;
     		dodatkowaopcja += '<br />- Recto simple 3x3 Droit';
 
-        wysokosc = 299;
-        szerokosc = 299;
+        hauteur = 299;
+        largeur = 299;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x4 R' ) {
@@ -421,8 +427,8 @@ jQuery(document).ready(function(){
         tissu260 = 68.08;
     		dodatkowaopcja += '<br />- Recto simple 3x4 Droit';
 
-        wysokosc = 299;
-        szerokosc = 369.5;
+        hauteur = 299;
+        largeur = 369.5;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x5 R' ) {
@@ -432,8 +438,8 @@ jQuery(document).ready(function(){
         tissu260 = 82.8;
     		dodatkowaopcja += '<br />- Recto simple 3x5 Droit';
 
-        wysokosc = 299;
-        szerokosc = 446.5;
+        hauteur = 299;
+        largeur = 446.5;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x6 R' ) {
@@ -443,8 +449,8 @@ jQuery(document).ready(function(){
         tissu260 = 95.68;
     		dodatkowaopcja += '<br />- Recto simple 3x6 Droit';
 
-        wysokosc = 299;
-        szerokosc = 522;
+        hauteur = 299;
+        largeur = 522;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x7 R' ) {
@@ -454,8 +460,8 @@ jQuery(document).ready(function(){
         tissu260 = 109.48;
     		dodatkowaopcja += '<br />- Recto simple 3x7 Droit';
 
-        wysokosc = 299;
-        szerokosc = 597;
+        hauteur = 299;
+        largeur = 597;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x8 R' ) {
@@ -465,8 +471,8 @@ jQuery(document).ready(function(){
         tissu260 = 123.28;
     		dodatkowaopcja += '<br />- Recto simple 3x8 Droit';
 
-        wysokosc = 299;
-        szerokosc = 662;
+        hauteur = 299;
+        largeur = 662;
     	}
 
       /////////////////////////////////////////////////////////// recto verso //
@@ -477,8 +483,8 @@ jQuery(document).ready(function(){
         tissu260 = 44.16;
     		dodatkowaopcja += '<br />- Recto Verso 3x1 Droit';
 
-        wysokosc = 229;
-        szerokosc = 152;
+        hauteur = 229;
+        largeur = 152;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x2 RV' ) {
@@ -488,8 +494,8 @@ jQuery(document).ready(function(){
         tissu260 = 70.84;
     		dodatkowaopcja += '<br />- Recto Verso 3x2 Droit';
 
-        wysokosc = 229;
-        szerokosc = 225.5;
+        hauteur = 229;
+        largeur = 225.5;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x3 RV' ) {
@@ -499,8 +505,8 @@ jQuery(document).ready(function(){
         tissu260 = 97.52;
     		dodatkowaopcja += '<br />- Recto Verso 3x3 Droit';
 
-        wysokosc = 299;
-        szerokosc = 299;
+        hauteur = 299;
+        largeur = 299;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x4 RV' ) {
@@ -510,8 +516,8 @@ jQuery(document).ready(function(){
         tissu260 = 123.28;
     		dodatkowaopcja += '<br />- Recto Verso 3x4 Droit';
 
-        wysokosc = 299;
-        szerokosc = 369.5;
+        hauteur = 299;
+        largeur = 369.5;
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x5 RV' ) {
@@ -521,8 +527,8 @@ jQuery(document).ready(function(){
         tissu260 = 150.88;
     		dodatkowaopcja += '<br />- Recto Verso 3x5 Droit';
 
-        wysokosc = 299;
-        szerokosc = 446.5;
+        hauteur = 299;
+        largeur = 446.5;
     	}
       //------------------------------------------------------------------------
       if ($('input_50').value == '3x6 RV' ) {
@@ -532,8 +538,8 @@ jQuery(document).ready(function(){
         tissu260 = 178.48;
         dodatkowaopcja += '<br />- Recto Verso 3x6 Droit';
 
-        wysokosc = 299;
-        szerokosc = 522;
+        hauteur = 299;
+        largeur = 522;
       }
       //------------------------------------------------------------------------
       if ($('input_50').value == '3x7 RV' ) {
@@ -543,8 +549,8 @@ jQuery(document).ready(function(){
         tissu260 = 205.16;
         dodatkowaopcja += '<br />- Recto Verso 3x7 Droit';
 
-        wysokosc = 299;
-        szerokosc = 597;
+        hauteur = 299;
+        largeur = 597;
       }
       //------------------------------------------------------------------------
       if ($('input_50').value == '3x8 RV' ) {
@@ -554,8 +560,8 @@ jQuery(document).ready(function(){
         tissu260 = 232.76;
         dodatkowaopcja += '<br />- Recto Verso 3x8 Droit';
 
-        wysokosc = 299;
-        szerokosc = 662;
+        hauteur = 299;
+        largeur = 662;
       }
 
       // stand tissu courbé ////////////////////////////////////////////////////
@@ -566,8 +572,8 @@ jQuery(document).ready(function(){
         tissu260 = 51.52;
     		dodatkowaopcja += '<br />- Recto simple 3x3 Courbé';
 
-        wysokosc = 299;
-        szerokosc = 275;
+        hauteur = 299;
+        largeur = 275;
     	}
       //------------------------------------------------------------------------
     	if ($('input_500').value == '4' ) {
@@ -577,8 +583,8 @@ jQuery(document).ready(function(){
         tissu260 = 64.4
     		dodatkowaopcja += '<br />- Recto simple 3x4 Courbé';
 
-        wysokosc = 299;
-        szerokosc = 341.5;
+        hauteur = 299;
+        largeur = 341.5;
     	}
 
       ////////////////////////////////////////////// total selon tissu choisi //
@@ -609,7 +615,7 @@ jQuery(document).ready(function(){
     	}
     }
 
-    // Comptoir Easy Quick seul //////////////////////////////////////////////////
+    // Comptoir Easy Quick seul ////////////////////////////////////////////////
 
     if ($('input_0').value == 'Comptoir Easy Quick') {
       var rodzaj = "Comptoir";
@@ -620,22 +626,22 @@ jQuery(document).ready(function(){
       cena = tissu + structure + trans;
       dodatkowaopcja += '<br />- Comptoir Easy Quick';
 
-      wysokosc = 102.4;
-      szerokosc = 172;
+      hauteur = 102.4;
+      largeur = 172;
     }
 
-    // valise seule //////////////////////////////////////////////////////////////
+    // valise seule ////////////////////////////////////////////////////////////
     if ($('input_0').value == 'valise') {
       var rodzaj = "Valise";
 
       cena += 249+20; ////////// PV + transport
       dodatkowaopcja += '<br />- Valise de transport/Bank d\'accueil';
 
-      wysokosc = 90;
-      szerokosc = 174;
+      hauteur = 90;
+      largeur = 174;
     }
 
-    // Stand expo bag ////////////////////////////////////////////////////////////
+    // Stand expo bag //////////////////////////////////////////////////////////
     if ($('input_0').value == 'Stand ExpoBag') {
       var rodzaj = "Stand ExpoBag";
 
@@ -648,8 +654,8 @@ jQuery(document).ready(function(){
     	}
       dodatkowaopcja += '<br />- Stand ExpoBag';
 
-      wysokosc = 220;
-      szerokosc = 240;
+      hauteur = 220;
+      largeur = 240;
     	/*var ktodaje;
     	if ($('input_7').value == 'fb') {
     		cena+=40;
@@ -687,7 +693,7 @@ jQuery(document).ready(function(){
     		dodatkowaopcja += '<br />- 3x4-courbé recto verso<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
     	}
 
-    	// stand parrapluie droit //////////////////////////////////////////////////
+    	// stand parrapluie droit ////////////////////////////////////////////////
     	if ($('input_1').value == '6' ) {
     		pack = 233;
     		dodatkowaopcja += '<br />- 3x2-droit recto<br />- 2225(h)x1513(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
@@ -709,9 +715,9 @@ jQuery(document).ready(function(){
     		dodatkowaopcja += '<br />- 3x4-droit recto verso<br />- 2225(h)x2973(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
     	}
 
-    	// prix stand tissu ////////////////////////////////////////////////////////
+    	// prix stand tissu //////////////////////////////////////////////////////
     	cena= (pack+trans)*2.35;
-    	////////////////////////////////////////////////////////////////////////////
+    	//////////////////////////////////////////////////////////////////////////
     }
 
     if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
@@ -719,20 +725,21 @@ jQuery(document).ready(function(){
     if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
     if ($('input_0').value == 'Comptoir tissu Easy Quick') {javascript: Masquer2();}
 
+    //////////////////////////////////////////////////////////// choix maquette //
     var ktodaje;
     if ($('input_7').value == 'fb') {
-    	cena+=40;
+    	cena+=40/ilosc;
     	ktodaje = 'France banderole crée la maquette';
     }
     if ($('input_7').value == 'user') {
     	ktodaje = 'j’ai déjà crée la maquette';
     }
     if ($('input_7').value == 'config') {
-      cena+=5;
+      cena+=5/ilosc;
       ktodaje = 'je crée ma maquette en ligne';
     }
 
-  	// options de livraison //////////////////////////////////////////////////////
+  	// ////////////////////////////////////////////////////////////// options //
   	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
   	var etiqdesc = '';
   	if (etiquette == true) {
@@ -749,32 +756,26 @@ jQuery(document).ready(function(){
   			cedzik += '<br />- colis revendeur';
   	}
 
+    /////////////////////////////////////////////////////////// total produit //
+    prixunite = cena;
+    cena=prixunite*ilosc;
+    prixunite=fixstr(prixunite);
+    cena2 = prixunite.replace(".", ",");
 
-    var cenapojedyncza = cena;
-    ilosc=$('input_8').value;
-    if ($('input_8').value) {
-    cena=cenapojedyncza*ilosc;
-    }
-
-    var total = document.getElementById("total");
-    var remise = document.getElementById("remise");
-
-    cenapojedyncza=fixstr(cenapojedyncza);
-    cena2 = cenapojedyncza.replace(".", ",");
-
+    /////////////////////////////////////////////// affichage jours livraison //
     var myClass = jQuery(this).attr("class");
-
     var niepokazuj = 0;
+
     var n = myClass.search("production");
     if (n != -1) {
-    jQuery('.production').prop("disabled",false);
-    jQuery('.production').removeClass('active');
-    jQuery(this).addClass('active');
-    var production = jQuery(this).attr('onClick');
-    jQuery('#production-value').val(Afficher());
-    var production = jQuery(this).attr('text-value');
-    jQuery('#production-value').val(production);
-    jQuery(this).prop("disabled",true);
+      jQuery('.production').prop("disabled",false);
+      jQuery('.production').removeClass('active');
+      jQuery(this).addClass('active');
+      var production = jQuery(this).attr('onClick');
+      jQuery('#production-value').val(Afficher());
+      var production = jQuery(this).attr('text-value');
+      jQuery('#production-value').val(production);
+      jQuery(this).prop("disabled",true);
     }
 
     var m = myClass.search("delivery");
@@ -787,159 +788,141 @@ jQuery(document).ready(function(){
       jQuery(this).prop("disabled",true);
 
       jQuery(document).ready(function(){
-      	jQuery('.jotform-form select').click(function(){
-      		jQuery('#delivery-value').val(Masquer());
-
-      		jQuery('.delivery').prop("disabled",false);
-      		jQuery('.production').prop("disabled",false);
-
-      		jQuery('.production').removeClass('active');
-      		jQuery(this).addClass('');
-
-      		jQuery('.delivery').removeClass('active');
-      		jQuery(this).addClass('active');
-
-      		jQuery(production-value).prop("disabled",false);
-      		jQuery(delivery-value).prop("disabled",true);
+        jQuery('.jotform-form select').click(function(){
+          jQuery('#delivery-value').val(Masquer());
+          jQuery('.delivery').prop("disabled",false);
+          jQuery('.production').prop("disabled",false);
+          jQuery('.production').removeClass('active');
+          jQuery(this).addClass('');
+          jQuery('.delivery').removeClass('active');
+          jQuery(this).addClass('active');
+          jQuery('#production-value').prop("disabled",false);
+          jQuery('#delivery-value').prop("disabled",true);
         });
       });
 
       jQuery(document).ready(function(){
-      	jQuery('.form-textbox').click(function(){
-      		jQuery('#delivery-value').val(Masquer());
-
-      		jQuery('.delivery').prop("disabled",false);
-      		jQuery('.production').prop("disabled",false);
-
-      		jQuery('.production').removeClass('active');
-      		jQuery(this).addClass('');
-
-      		jQuery('.delivery').removeClass('active');
-      		jQuery(this).addClass('active');
-
-      		jQuery(production-value).prop("disabled",false);
-      		jQuery(delivery-value).prop("disabled",true);
+        jQuery('.form-textbox').click(function(){
+          jQuery('#delivery-value').val(Masquer());
+          jQuery('.delivery').prop("disabled",false);
+          jQuery('.production').prop("disabled",false);
+          jQuery('.production').removeClass('active');
+          jQuery(this).addClass('');
+          jQuery('.delivery').removeClass('active');
+          jQuery(this).addClass('active');
+          jQuery('#production-value').prop("disabled",false);
+          jQuery('#delivery-value').prop("disabled",true);
         });
       });
 
       jQuery(document).ready(function(){
-      	jQuery('.form-checkbox').click(function(){
-      		jQuery('#delivery-value').val(Masquer());
-
-      		jQuery('.delivery').prop("disabled",false);
-      		jQuery('.production').prop("disabled",false);
-
-      		jQuery('.production').removeClass('active');
-      		jQuery(this).addClass('');
-
-      		jQuery('.delivery').removeClass('active');
-      		jQuery(this).addClass('active');
-
-      		jQuery(production-value).prop("disabled",false);
-      		jQuery(delivery-value).prop("disabled",true);
-      	});
+        jQuery('.form-checkbox').click(function(){
+          jQuery('#delivery-value').val(Masquer());
+          jQuery('.delivery').prop("disabled",false);
+          jQuery('.production').prop("disabled",false);
+          jQuery('.production').removeClass('active');
+          jQuery(this).addClass('');
+          jQuery('.delivery').removeClass('active');
+          jQuery(this).addClass('active');
+          jQuery('#production-value').prop("disabled",false);
+          jQuery('#delivery-value').prop("disabled",true);
+        });
       });
     }
 
     var production      = jQuery('#production-value').val();
-    //alert(production);
     var delivery        = jQuery('#delivery-value').val();
 
     if(production && delivery){
-    	// Calculate price
-    	//alert('click');
-    	var ProdPercent = '';
-    	var DeliPercent = '';
-    	var PorductType = jQuery('.production.active').attr('text-value');
-    	var DeliveryType = jQuery('.delivery.active').attr('text-value');
-    	if(PorductType == '2-3' ){
-    		ProdPercent = 15;
-    		prliv += '<br />- P 2-3J';
-    	}else if(PorductType =='1-1'){
-    		ProdPercent = 40;
-    		prliv += '<br />- P 1J';
-    	}else{
-    		ProdPercent = 0;
-    		prliv += '<br />- P 4-5J';
-    	}
+      // Calculate price
+      var ProdPercent = '';
+      var DeliPercent = '';
+      var PorductType = jQuery('.production.active').attr('text-value');
+      var DeliveryType = jQuery('.delivery.active').attr('text-value');
 
-    	if(DeliveryType == '2-3'){
-    		DeliPercent = 15;
-    		prliv += ' / L 2-3J';
-    	}else if(DeliveryType =='1-1'){
-    		DeliPercent = 40;
-    		prliv += ' / L 1J';
-    	}else{
-    		DeliPercent = 0;
-    		prliv += ' / L 3-4J';
-    	}
+      if(PorductType == '2-3' ){
+        ProdPercent = 15;
+        prliv += '<br />- P 2-3J';
+      }else if(PorductType =='1-1'){
+        ProdPercent = 40;
+        prliv += '<br />- P 1J';
+      }else{
+        ProdPercent = 0;
+        prliv += '<br />- P 4-5J';
+      }
 
-    	var price_unit = parseFloat(cenapojedyncza);
-    	//var str = price_unit;
-    	//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
-    	var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-    	var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-    	var finalPrice           = calculatedTotalPrice + price_unit;
+      if(DeliveryType == '2-3'){
+        DeliPercent = 15;
+        prliv += ' / L 2-3J';
+      }else if(DeliveryType =='1-1'){
+        DeliPercent = 40;
+        prliv += ' / L 1J';
+      }else{
+        DeliPercent = 0;
+        prliv += ' / L 3-4J';
+      }
 
-    	// Calculate Days
-    	var prod_first_val  = parseInt(production[0]);
-    	var prod_second_val = parseInt(production[2]);
-    	var deli_first_val  = parseInt(delivery[0]);
-    	var deli_second_val = parseInt(delivery[2]);
+      var price_unit = parseFloat(prixunite);
+      var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
+      var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
+      var finalPrice           = calculatedTotalPrice + price_unit;
 
-    	var totalProduction = prod_first_val + deli_first_val;
-    	var totalDelivery   = prod_second_val + deli_second_val;
-    	if(totalProduction == totalDelivery){
-    		jQuery('#totaldays').text("Total jours " + totalProduction);
-    		var days = totalProduction;
-    	}else{
-    		jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-    		var days = totalDelivery;
-    	}
+      //////////////////////////////////////////////////////// Calculate Days //
+      var prod_first_val  = parseInt(production[0]);
+      var prod_second_val = parseInt(production[2]);
+      var deli_first_val  = parseInt(delivery[0]);
+      var deli_second_val = parseInt(delivery[2]);
 
-    	var curdate = new Date();
+      var totalProduction = prod_first_val + deli_first_val;
+      var totalDelivery   = prod_second_val + deli_second_val;
+      if(totalProduction == totalDelivery){
+        jQuery('#totaldays').text("Total jours " + totalProduction);
+        var days = totalProduction;
+      }else{
+        jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
+        var days = totalDelivery;
+      }
+
+      var curdate = new Date();
       var curhour = curdate.getHours();
-    	// ajout 1 jour ouvré de délai sur commande après 12h ////////////////////
-    	if (curhour >= 12) {
-    		var daystoadd = AddBusinessDays(days+1);
-    	}else{
-    		var daystoadd = AddBusinessDays(days);
-    	}
+      // ajout 1 jour ouvré de délai sur commande après 12h
+      if (curhour >= 12) {
+        var daystoadd = AddBusinessDays(days+1);
+      }else{
+        var daystoadd = AddBusinessDays(days);
+      }
 
-    	curdate.setDate(curdate.getDate()+daystoadd);
-    	var estdt = new Date(curdate);
-    	var month = estdt.getMonth()+1;
-    	var day = estdt.getDate();
-    	var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-    	//jQuery('#custom_price_unit').html('<div id="wycena_nag"><span class="wycena_poz">PRIX UNITAIRE</span><span class="wycena_poz">OPTION</span><span class="wycena_poz">REMISE</span><span class="wycena_poz">TOTAL H.T.</span></div><div id="wycena_suma"><span class="wycena_poz prix_class" id="prix_unitaire">'+finalPrice+'</span><span class="wycena_poz" id="option">-</span><span class="wycena_poz" id="remise">-</span><span class="wycena_poz" id="total">-</span><div id="dodaj_koszyk"><form name="cart_form" id="cart_form" action="votre-panier/" method="post"></form></div></div>');
-    	if(jQuery('#id_16').css('display') != 'none')
-    	{
-    		//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
-    		//jQuery('#prix_unitaire').text(finalPrice);
-    		jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-    	}
+      curdate.setDate(curdate.getDate()+daystoadd);
+      var estdt = new Date(curdate);
+      var month = estdt.getMonth()+1;
+      var day = estdt.getDate();
+      var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
+      if(jQuery('#id_8').css('display') != 'none') {
+        jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+      }
 
-    	finalPrice1=fixstr(finalPrice);
-    	finalPrice2 = finalPrice1.replace(".", ",");
+      finalPrice1=fixstr(finalPrice);
+      finalPrice2 = finalPrice1.replace(".", ",");
 
-    	jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-    	jQuery('#remise').html(rabat2);
+      jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
+      jQuery('#remise').html(rabat2);
+
     }
 
-    cenapojedyncza = finalPrice1;
+    //////////////////////////////////////////////////////// prix avec délais //
+    prixunite = finalPrice1;
+    cena=prixunite*ilosc;
 
-    ilosc=$('input_8').value;
-    if ($('input_8').value) {
-    	cena=cenapojedyncza*ilosc;
-    }
-
+    ////////////////////////////////////////////////////////////////// remise //
     var total = document.getElementById("total");
     var remise = document.getElementById("remise");
 
-    cenapojedyncza=fixstr(cenapojedyncza);
-    cena2 = cenapojedyncza.replace(".", ",")
-
+    prixunite=fixstr(prixunite);
     transport=0;
+
+    ////////////////////////////////////////////////////////////////////////////
+    cena2 = prixunite.replace(".", ",")
+    ////////////////////////////////////////////////////////////////////////////
 
     var niepokazuj = 0;
 
@@ -970,7 +953,7 @@ jQuery(document).ready(function(){
 			////////////////////////////////////////////////////// envoi formulaire //
 
     	var dodajkoszyk = document.getElementById("cart_form");
-    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value=" '+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value=" '+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
       livraisonComp.style.display = 'block';
 		}
 	}); // fin prod/delivery click function

@@ -249,25 +249,26 @@ function AddBusinessDays(weekDaysToAdd) {
 	return realDaysToAdd;
 }
 
-//////////////////////////////////////////////////////////////////////////////
-jQuery(document).ready(function(){
-	////////////////////////////////////////////////////////////////////////////
-	jQuery('.delivery , .production').click(function(){
-    var cena=0; var cena2=0;
-    var suma=0; var suma2=0;
-    var cenapojedyncza  = 0;
-		var rabat      = 0;     var rabat2 = 0;
-		var prliv      = '';
-    var transport=0;
-    var ilosc=0;
-    var szerokosc          = 0;
-		var wysokosc           = 0;
-    var opis='';
+  //////////////////////////////////////////////////////////////////////////////
+  jQuery(document).ready(function(){
+  	////////////////////////////////////////////////////////////////////////////
+  	jQuery('.delivery , .production').click(function(){
+      var cena        = 0; var cena2=0;
+      var suma        = 0; var suma2=0;
+      var prixunite   = 0;
+  		var rabat       = 0;     var rabat2 = 0;
+  		var prliv       = '';
+      var transport   = 0;
+      var ilosc       = $('input_5').value;
+      var largeur     = 0;
+  		var hauteur     = 0;
+      var opis        = '';
 
-    if (($('input_1').value == 'Affiches 130g') || ($('input_1').value == 'Affiches 150g') || ($('input_1').value == 'Affiches 220g')){
+      //////////////////////////////////////////////////////////////////////////
+
       if ($('input_1').value == 'Affiches 130g') {
         if ($('input_21').value == '1'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*0.25*18; transport=11.9;}
         if (ilosc == '5') { cena=5*0.25*16; transport=11.9;}
         if (ilosc == '10') { cena=10*0.25*14; transport=11.9;}
@@ -278,7 +279,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '2'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*0.5*18; transport=11.9;}
         if (ilosc == '5') { cena=5*0.5*16; transport=11.9;}
         if (ilosc == '10') { cena=10*0.5*14; transport=11.9;}
@@ -289,7 +290,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '3'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1*18; transport=11.9;}
         if (ilosc == '5') { cena=5*1*16; transport=11.9;}
         if (ilosc == '10') { cena=10*1*14; transport=11.9;}
@@ -300,7 +301,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '4'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1.92*18; transport=11.9;}
         if (ilosc == '5') { cena=5*1.92*16; transport=11.9;}
         if (ilosc == '10') { cena=10*1.92*14; transport=11.9;}
@@ -311,7 +312,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '5'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*2.11*18; transport=11.9;}
         if (ilosc == '5') { cena=5*2.11*16; transport=11.9;}
         if (ilosc == '10') { cena=10*2.11*14; transport=11.9;}
@@ -322,7 +323,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '6'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1.50*18; transport=11.9;}
         if (ilosc == '5') { cena=5*1.50*16; transport=11.9;}
         if (ilosc == '10') { cena=10*1.50*14; transport=11.9;}
@@ -333,7 +334,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '7'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*3*18; transport=11.9;}
         if (ilosc == '5') { cena=5*3*16; transport=11.9;}
         if (ilosc == '10') { cena=10*3*14; transport=11.9;}
@@ -346,7 +347,7 @@ jQuery(document).ready(function(){
 
       if ($('input_1').value == 'Affiches 150g') {
         if ($('input_21').value == '1'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*0.25*20; transport=11.9;}
         if (ilosc == '5') { cena=5*0.25*18; transport=11.9;}
         if (ilosc == '10') { cena=10*0.25*16; transport=11.9;}
@@ -357,7 +358,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '2'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*0.5*20; transport=11.9;}
         if (ilosc == '5') { cena=5*0.5*18; transport=11.9;}
         if (ilosc == '10') { cena=10*0.5*16; transport=11.9;}
@@ -368,7 +369,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '3'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1*20; transport=11.9;}
         if (ilosc == '5') { cena=5*1*18; transport=11.9;}
         if (ilosc == '10') { cena=10*1*16; transport=11.9;}
@@ -379,7 +380,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '4'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1.92*20; transport=11.9;}
         if (ilosc == '5') { cena=5*1.92*18; transport=11.9;}
         if (ilosc == '10') { cena=10*1.92*16; transport=11.9;}
@@ -390,7 +391,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '5'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*2.11*20; transport=11.9;}
         if (ilosc == '5') { cena=5*2.11*18; transport=11.9;}
         if (ilosc == '10') { cena=10*2.11*16; transport=11.9;}
@@ -401,7 +402,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '6'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1.50*20; transport=11.9;}
         if (ilosc == '5') { cena=5*1.50*18; transport=11.9;}
         if (ilosc == '10') { cena=10*1.50*16; transport=11.9;}
@@ -412,7 +413,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '7'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*3*20; transport=11.9;}
         if (ilosc == '5') { cena=5*3*18; transport=11.9;}
         if (ilosc == '10') { cena=10*3*16; transport=11.9;}
@@ -425,7 +426,7 @@ jQuery(document).ready(function(){
 
       if ($('input_1').value == 'Affiches 220g') {
         if ($('input_21').value == '1'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*0.25*25; transport=11.9;}
         if (ilosc == '5') { cena=5*0.25*23; transport=11.9;}
         if (ilosc == '10') { cena=10*0.25*19; transport=11.9;}
@@ -436,7 +437,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '2'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*0.5*25; transport=11.9;}
         if (ilosc == '5') { cena=5*0.5*23; transport=11.9;}
         if (ilosc == '10') { cena=10*0.5*19; transport=11.9;}
@@ -447,7 +448,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '3'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1*25; transport=11.9;}
         if (ilosc == '5') { cena=5*1*23; transport=11.9;}
         if (ilosc == '10') { cena=10*1*19; transport=11.9;}
@@ -458,7 +459,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '4'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1.92*25; transport=11.9;}
         if (ilosc == '5') { cena=5*1.92*23; transport=11.9;}
         if (ilosc == '10') { cena=10*1.92*19; transport=11.9;}
@@ -469,7 +470,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '5'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*2.11*25; transport=11.9;}
         if (ilosc == '5') { cena=5*2.11*23; transport=11.9;}
         if (ilosc == '10') { cena=10*2.11*19; transport=11.9;}
@@ -480,7 +481,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '6'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*1.50*25; transport=11.9;}
         if (ilosc == '5') { cena=5*1.50*23; transport=11.9;}
         if (ilosc == '10') { cena=10*1.50*19; transport=11.9;}
@@ -491,7 +492,7 @@ jQuery(document).ready(function(){
         }
 
         if ($('input_21').value == '7'){
-        ilosc = $('input_5').value;
+
         if (ilosc == '1') { cena=1*3*25; transport=11.9;}
         if (ilosc == '5') { cena=5*3*23; transport=11.9;}
         if (ilosc == '10') { cena=10*3*19; transport=11.9;}
@@ -503,6 +504,77 @@ jQuery(document).ready(function(){
       }
 
       opis += '<br />- '+ilosc+' Affiches(s)';
+
+      //////////////////////////////////////////////////////// format gabarit //
+			if ($('input_45').value == 'portrait') {
+				opis += '<br />- portrait';
+			}
+			if ($('input_45').value == 'paysage') {
+				opis += '<br />- paysage';
+			}
+			// -----------------------------------------------------------------------
+			if (($('input_21').value == '1') && ($('input_45').value == 'portrait')) {
+				hauteur = 60;
+				largeur = 42;
+			}
+			if (($('input_21').value == '1') &&  ($('input_45').value == 'paysage')) {
+				hauteur = 42;
+				largeur = 60;
+			}
+      // -----------------------------------------------------------------------
+			if (($('input_21').value == '2') && ($('input_45').value == 'portrait')) {
+				hauteur = 84;
+				largeur = 60;
+			}
+			if (($('input_21').value == '2') && ($('input_45').value == 'paysage')) {
+				hauteur = 60;
+				largeur = 84;
+			}
+      // -----------------------------------------------------------------------
+			if (($('input_21').value == '3') && ($('input_45').value == 'portrait')) {
+				hauteur = 120;
+				largeur = 84;
+			}
+			if (($('input_21').value == '3') && ($('input_45').value == 'paysage')) {
+				hauteur = 84;
+				largeur = 120;
+			}
+      // -----------------------------------------------------------------------
+			if (($('input_21').value == '4') && ($('input_45').value == 'portrait')) {
+				hauteur = 160;
+				largeur = 120;
+			}
+			if (($('input_21').value == '4') && ($('input_45').value == 'paysage')) {
+				hauteur = 120;
+				largeur = 160;
+			}
+      // -----------------------------------------------------------------------
+			if (($('input_21').value == '5') && ($('input_45').value == 'portrait')) {
+				hauteur = 176;
+				largeur = 120;
+			}
+			if (($('input_21').value == '5') && ($('input_45').value == 'paysage')) {
+				hauteur = 120;
+				largeur = 176;
+			}
+      // -----------------------------------------------------------------------
+			if (($('input_21').value == '6') && ($('input_45').value == 'portrait')) {
+				hauteur = 150;
+				largeur = 100;
+			}
+			if (($('input_21').value == '6') && ($('input_45').value == 'paysage')) {
+				hauteur = 100;
+				largeur = 150;
+			}
+      // -----------------------------------------------------------------------
+			if (($('input_21').value == '7') && ($('input_45').value == 'portrait')) {
+				hauteur = 200;
+				largeur = 150;
+			}
+			if (($('input_21').value == '7') && ($('input_45').value == 'paysage')) {
+				hauteur = 150;
+				largeur = 200;
+			}
 
       //////////////////////////////////////////////////////// choix maquette //
       var ktodaje;
@@ -521,78 +593,7 @@ jQuery(document).ready(function(){
 
       opis += '<br />- '+ktodaje;
 
-      //////////////////////////////////////////////////////// format gabarit //
-			if ($('input_45').value == 'portrait') {
-				opis += '<br />- portrait';
-			}
-			if ($('input_45').value == 'paysage') {
-				opis += '<br />- paysage';
-			}
-			// -----------------------------------------------------------------------
-			if (($('input_21').value == '1') && ($('input_45').value == 'portrait')) {
-				wysokosc = 60;
-				szerokosc = 42;
-			}
-			if (($('input_21').value == '1') &&  ($('input_45').value == 'paysage')) {
-				wysokosc = 42;
-				szerokosc = 60;
-			}
-      // -----------------------------------------------------------------------
-			if (($('input_21').value == '2') && ($('input_45').value == 'portrait')) {
-				wysokosc = 84;
-				szerokosc = 60;
-			}
-			if (($('input_21').value == '2') && ($('input_45').value == 'paysage')) {
-				wysokosc = 60;
-				szerokosc = 84;
-			}
-      // -----------------------------------------------------------------------
-			if (($('input_21').value == '3') && ($('input_45').value == 'portrait')) {
-				wysokosc = 120;
-				szerokosc = 84;
-			}
-			if (($('input_21').value == '3') && ($('input_45').value == 'paysage')) {
-				wysokosc = 84;
-				szerokosc = 120;
-			}
-      // -----------------------------------------------------------------------
-			if (($('input_21').value == '4') && ($('input_45').value == 'portrait')) {
-				wysokosc = 160;
-				szerokosc = 120;
-			}
-			if (($('input_21').value == '4') && ($('input_45').value == 'paysage')) {
-				wysokosc = 120;
-				szerokosc = 160;
-			}
-      // -----------------------------------------------------------------------
-			if (($('input_21').value == '5') && ($('input_45').value == 'portrait')) {
-				wysokosc = 176;
-				szerokosc = 120;
-			}
-			if (($('input_21').value == '5') && ($('input_45').value == 'paysage')) {
-				wysokosc = 120;
-				szerokosc = 176;
-			}
-      // -----------------------------------------------------------------------
-			if (($('input_21').value == '6') && ($('input_45').value == 'portrait')) {
-				wysokosc = 150;
-				szerokosc = 100;
-			}
-			if (($('input_21').value == '6') && ($('input_45').value == 'paysage')) {
-				wysokosc = 100;
-				szerokosc = 150;
-			}
-      // -----------------------------------------------------------------------
-			if (($('input_21').value == '7') && ($('input_45').value == 'portrait')) {
-				wysokosc = 200;
-				szerokosc = 150;
-			}
-			if (($('input_21').value == '7') && ($('input_45').value == 'paysage')) {
-				wysokosc = 150;
-				szerokosc = 200;
-			}
-
-      //////////////////////////////////////////////////////////// checkboxes //
+      /////////////////////////////////////////////////////////////// options //
       var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
       if (relais == true) {
         cena += 5.00;
@@ -612,13 +613,13 @@ jQuery(document).ready(function(){
 
       //////////////////////////////////////////////////////////////////////////
 
-      cenapojedyncza = cena;
+      prixunite = cena;
 
 			var total = document.getElementById("total");
 			var remise = document.getElementById("remise");
 
-			cenapojedyncza=fixstr(cenapojedyncza);
-			cena2 = cenapojedyncza.replace(".", ",");
+			prixunite=fixstr(prixunite);
+			cena2 = prixunite.replace(".", ",");
 
 			var myClass = jQuery(this).attr("class");
 
@@ -720,7 +721,7 @@ jQuery(document).ready(function(){
 					prliv += ' / L 3-4J';
 				}
 
-				var price_unit = parseFloat(cenapojedyncza);
+				var price_unit = parseFloat(prixunite);
 
 				//var str = price_unit;
 				//var totalPrice           = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
@@ -769,7 +770,7 @@ jQuery(document).ready(function(){
 				jQuery('#remise').html(rabat2);
 			}
 
-			cenapojedyncza = finalPrice1;
+			prixunite = finalPrice1;
 
 			var niepokazuj = 0;
 
@@ -790,7 +791,7 @@ jQuery(document).ready(function(){
 
 			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 
-			suma=cenapojedyncza;
+			suma=prixunite;
 			suma=fixstr(suma);
 			suma2 = suma.replace(".", ",");
 
@@ -800,9 +801,8 @@ jQuery(document).ready(function(){
 
       var dodajkoszyk = document.getElementById("cart_form");
 
-      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+wysokosc+'" /><input type="hidden" name="largeur" value="'+szerokosc+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
     }
-  }
   });
 });
 </script>
