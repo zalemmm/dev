@@ -100,10 +100,10 @@
 						<span class="helpText" id="helpText4" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure pour renforcer votre banderole. Recommandé dès 3m² ou longeur supérieure ou égale à 3m.<br />
 							<b>options possibles :</b><br/>
-                            ourlet de renfort en haut et en bas : le plus commun<br />
-                            ourlet de renfort à gauche et à droite : pour banderole tendue<br />
-                            ourlet de renfort périmétrique : pour un renfort optimal<br />
-                            <span class="highlight">Ajouter 2,5cm aux cotés concernés </span>de la banderole lors du choix de la taille.<br />
+              ourlet de renfort en haut et en bas : le plus commun<br />
+              ourlet de renfort à gauche et à droite : pour banderole tendue<br />
+              ourlet de renfort périmétrique : pour un renfort optimal<br />
+              <span class="highlight">Ajouter 2,5cm aux cotés concernés </span>de la banderole lors du choix de la taille.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_31" name="q31_finition1" onchange="JKakemono.czyscpola(); ">
@@ -629,16 +629,16 @@
 		eBox.innerHTML='';
 
 		////////////////////////////////////////////////////////////////////////////
-		largeur              = ($('input_15').value);       // largeur = largeur
-		largeur              = largeur.replace(',','.');
-		largeur              = fixstr(largeur);
+		largeur             	 = ($('input_15').value);       // largeur = largeur
+		largeur             	 = largeur.replace(',','.');
+		largeur             	 = fixstr(largeur);
 		$('input_15').value    = largeur;
-		hauteur               = ($('input_14').value);        // hauteur = hauteur
-		hauteur               = hauteur.replace(',','.');
-		hauteur               = fixstr(hauteur);
+		hauteur              	 = ($('input_14').value);        // hauteur = hauteur
+		hauteur                = hauteur.replace(',','.');
+		hauteur              	 = fixstr(hauteur);
 		$('input_14').value    = hauteur;
-		largeur              = parseFloat(largeur);
-		hauteur               = parseFloat(hauteur);
+		largeur            	   = parseFloat(largeur);
+		hauteur                = parseFloat(hauteur);
 		metraz                 = largeur * hauteur;                    // métrage
 		metraz                 = fixstr(metraz);
 		var metrazzaokraglony1 = (largeur+hauteur)*2;                // périmètre
@@ -646,7 +646,6 @@
 		var hautbas            = largeur*2;
 		var gauchedroite       = hauteur*2;
 		var ilosc              = $('input_13').value;
-
 
 		/////////////////////////////////////////////////////////////////// prix de la banderole en fonction de la laize //
 
@@ -736,7 +735,6 @@
 			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =14.06 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =14.70 ;}
 			if (($('input_ext').value == 'tissu 260g' ) && (h1>=2.51)){plm =15.34 ;}
-
 
 			prixproduit = metrage*plm;
 		}
@@ -1505,9 +1503,6 @@
 				}
 
 				var price_unit = parseFloat(prixunite);
-
-				//var str = price_unit;
-				//var totalPrice         = parseFloat(str.replace(',','.').replace(' ','').replace('&euro;',''));
 				var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
 				var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
 				var finalPrice           = (calculatedTotalPrice + price_unit);
@@ -1843,8 +1838,7 @@
 				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+ktodaje+cedzik+prliv+etiqdesc+'</br>- '+hauteur*100+' x '+largeur*100+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
 				livraisonComp.style.display = 'block';
 			}
-			
+
 		});  // fin prod/delivery click function
 	});  // fin jq doc ready
-
-	</script>
+</script>

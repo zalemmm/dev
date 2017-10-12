@@ -296,19 +296,38 @@ function register_cart() {
 		exit;
 	}
 
+	/////////////////////////////////////////////////////// effacer item panier //
 	if(isset($_POST['delfromcart'])) {
 		$products = $_SESSION['fbcart'];
 		$licznik = 0;
 		foreach ( $products as $key => $item ) {
 			$licznik++;
-			if ( ($item[rodzaj] == $_POST['rodzaj']) && ($item[opis] == $_POST['opis']) && ($item[ilosc] == $_POST['ilosc']) && ($licznik=$_POST['licznik']) ){
+			if ( ($item[rodzaj] == $_POST['rodzaj']) && ($item[opis] == $_POST['opis']) && ($item[ilosc] == $_POST['ilosc']) && ($licznik == $_POST['licznik']) ){
 				unset($products[$key]);
 			}
 		}
-	    $_SESSION['fbcart'] = $products;
+	  $_SESSION['fbcart'] = $products;
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
+
+	///////////////////////////////////////////////////// dupliquer item panier //
+	if(isset($_POST['adfromcart'])) {
+		$products = $_SESSION['fbcart'];
+		$licznik = 0;
+		foreach ( $products as $key => $item ) {
+			$licznik++;
+			if ( ($item[rodzaj] == $_POST['rodzaj']) && ($item[opis] == $_POST['opis']) && ($item[ilosc] == $_POST['ilosc']) && ($item[prix] == $_POST['prix']) && ($item[option] == $_POST['option']) && ($item[remise] == $_POST['remise']) && ($item[total] == $_POST['total']) && ($item[hauteur] == $_POST['hauteur']) && ($item[largeur] == $_POST['largeur']) && ($licznik == $_POST['licznik']) ){
+				$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur'] );
+				array_push($products, $product);
+			}
+		}
+		$_SESSION['fbcart'] = $products;
+		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
+		exit;
+	}
+
+	//////////////////////////////////////////////////////////////////////////////
 	if (isset($_SESSION['loggeduser']) && ($_GET["logout"] == "true")) {
 	    unset($_SESSION['loggeduser']);
 	    unset($_SESSION['fbcart']);

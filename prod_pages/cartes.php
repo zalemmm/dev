@@ -368,7 +368,7 @@
         cena+=5;
         ktodaje = 'je crée ma maquette en ligne';
       }
-      
+
       opis += '<br />- '+ktodaje;
 
       /////////////////////////////////////////////////////////////////// options //
@@ -555,7 +555,20 @@
 				jQuery('#remise').html(rabat2);
 			}
 
-			prixunite = finalPrice1;
+      ////////////////////////////////////////////////////// prix avec délais //
+      prixunite = finalPrice1;
+      cena=prixunite*ilosc;
+
+      //////////////////////////////////////////////////////////////// remise //
+      var total = document.getElementById("total");
+      var remise = document.getElementById("remise");
+
+      prixunite=fixstr(prixunite);
+      transport=0;
+
+      //////////////////////////////////////////////////////////////////////////
+      cena2 = prixunite.replace(".", ",");
+      //////////////////////////////////////////////////////////////////////////
 
 			var niepokazuj = 0;
 
@@ -565,12 +578,11 @@
 				total.innerHTML='-';
 			}
 
-			// livraison le jour même //
+      //////////////////////////////////////////////// livraison le jour même //
 			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
 				livraisonrapide.style.display = 'block';
 			}
 			else {livraisonrapide.style.display = 'none';}
-
 
 			//////////////////////////////////////////////////////////////////////////
 

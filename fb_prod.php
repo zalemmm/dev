@@ -1738,9 +1738,10 @@ function contact_advert() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////// contenu panier //
 
 function print_devis($products, $prolog, $epilog) {
+  $products = $_SESSION['fbcart'];
 	/* fonction de validation du devis */
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -1753,12 +1754,53 @@ function print_devis($products, $prolog, $epilog) {
 		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th class="nobackground"></th></tr>';
 		$licznik = 0;
 		$kosztcalosci = 0;
+    /////////////////////////////////////////////////////// display items panier
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span><br /><span class="therest">'.stripslashes($item[opis]).'</span></td><td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td><td><span class="disMob0">Prix unitaire : </span>'.$item[prix].'</td><td><span class="disMob0">Option : </span>'.$item[option].'</td><td><span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'</td><td>
-      <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" /><button id="delcart" type="submit">DEL</button>
-			</form></td></tr>';
+			<tr>
+        <td class="lefttd">
+          <span class="name">'.$item[rodzaj].'</span><br />
+          <span class="therest">'.stripslashes($item[opis]).'</span>
+        </td>
+        <td>
+          <span class="disMob0">Quantité : </span>'.$item[ilosc].'
+        </td>
+        <td>
+          <span class="disMob0">Prix unitaire : </span>'.$item[prix].'
+        </td>
+        <td>
+          <span class="disMob0">Option : </span>'.$item[option].'
+        </td>
+        <td>
+          <span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'
+        </td>
+        <td>
+          <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+            <input type="hidden" name="adfromcart" value="adfromcart" />
+            <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
+            <input type="hidden" name="opis" value="'.$item[opis].'" />
+            <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
+            <input type="hidden" name="prix" value="'.$item[prix].'" />
+            <input type="hidden" name="option" value="'.$item[option].'" />
+            <input type="hidden" name="remise" value="'.$item[remise].'" />
+            <input type="hidden" name="total" value="'.$item[total].'" />
+            <input type="hidden" name="largeur" value="'.$item[largeur].'" />
+            <input type="hidden" name="hauteur" value="'.$item[hauteur].'" />
+            <input type="hidden" name="licznik" value="'.$licznik.'" />
+            <button id="adcart" type="submit" title="dupliquer ce produit">Dupliquer</button>
+          </form>
+          
+          <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+            <input type="hidden" name="delfromcart" value="delfromcart" />
+            <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
+            <input type="hidden" name="opis" value="'.$item[opis].'" />
+            <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
+            <input type="hidden" name="licznik" value="'.$licznik.'" />
+            <button id="delcart" type="submit" title="supprimer ce produit du panier">DEL</button>
+    			</form>
+        </td>
+      </tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[transport];
