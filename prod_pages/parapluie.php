@@ -199,9 +199,13 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_8">
+        <li class="form-line" id="id_8" data-trigger="spinner">
           <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité :<br /><span class="small">(par visuel)</span></label>
-          <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " />
+          <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " data-rule="quantity" />
+					<div class="spinner-controls">
+	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+			  	</div>
         </li>
 
        <li id="id_16" class="form-line optionsformline">
@@ -898,7 +902,7 @@ jQuery(document).ready(function(){
       var day = estdt.getDate();
       var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
       if(jQuery('#id_8').css('display') != 'none') {
-        jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+        jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
       }
 
       finalPrice1=fixstr(finalPrice);

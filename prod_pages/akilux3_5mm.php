@@ -99,9 +99,13 @@
             </select>
           </li>
 
-          <li class="form-line optionsformline2" id="id_13">
+          <li class="form-line optionsformline2" id="id_13" data-trigger="spinner">
             <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité :<br /><span class="small">(par visuel)</span></label>
-            <input type="text" class="form-textbox textboxPush validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
+            <input type="text" class="form-textbox textboxPush validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); "   data-rule="quantity" />
+  					<div class="spinner-controls">
+  	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+  	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+  			  	</div>
           </li>
 
           <li id="id_9" class="form-line optionsformline2">
@@ -790,7 +794,7 @@
         var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
 
         if(jQuery('#id_7').css('display') != 'none') {
-          jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+          jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
         }
 
         finalPrice1=fixstr(finalPrice);
@@ -831,7 +835,7 @@
       }
       else {livraisonrapide.style.display = 'none';}
 
-      ///////////////////////////////////////////////////// messages d'erreur //      
+      ///////////////////////////////////////////////////// messages d'erreur //
       if (ilosc.empty()){
         eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité et une taille en centimètres';
         eBox.style.display="block";

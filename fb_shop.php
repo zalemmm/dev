@@ -468,6 +468,7 @@ function fbs_install () {
 		payment varchar(100) NULL DEFAULT NULL,
 		status_check int(11) NOT NULL,
 		last_mail longtext NOT NULL,
+		last_action text NOT NULL,		
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET=utf8;";
 		$wpdb->query($order_query);

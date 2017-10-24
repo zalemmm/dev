@@ -373,26 +373,20 @@
 
       /////////////////////////////////////////////////////////////////// options //
 
-      var economique = $$('#economique').collect(function(e){ return e.checked; }).any();
-      if (economique == true) {
-        cena *= 0.70;
-        opis += '<br />- Délai économique';
-      }
-
       var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
       if (relais == true) {
         cena += 5.00;
         opis += '<br />- relais colis';
       }
+
       var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
       if (colis == true) {
         opis += '<br />- colis revendeur';
       }
-
+      
       var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-      var etiqdesc = '';
       if (etiquette == true) {
-        transport=0;
+        cena-= cena*3/100;
         opis += '<br />- retrait colis a l\'atelier';
       }
 
@@ -545,7 +539,7 @@
 				var day = estdt.getDate();
 				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
 				if(jQuery('#id_8').css('display') != 'none') {
-					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
 
 				var finalPrice1=fixstr(finalPrice);
@@ -578,11 +572,12 @@
 				total.innerHTML='-';
 			}
 
-      //////////////////////////////////////////////// livraison le jour même //
+			// livraison le jour même //
 			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
 				livraisonrapide.style.display = 'block';
 			}
 			else {livraisonrapide.style.display = 'none';}
+
 
 			//////////////////////////////////////////////////////////////////////////
 

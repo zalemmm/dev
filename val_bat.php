@@ -7,6 +7,7 @@ if(!(isset($cur_img))) {
 }
 $suivant = '';
 $precedent = '';
+$filename = '';
 $name = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$id.'-projects';
 if(file_exists($name))
 if ($dir = @opendir($name)) {
@@ -15,13 +16,16 @@ if ($dir = @opendir($name)) {
 	while(($file = readdir($dir))) {
 		if(!is_dir($file) && !in_array($file, array(".",".."))) {
 			$total++;
+
 			if($cur_img != 0) {
 				$x++;
 				if ($x == $cur_img) {
 					$img .= '<img src="https://www.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
+					$filename = $file;
 				}
 			} else if ($x<1) {
 				$img .= '<img src="https://www.france-banderole.com/uploaded/'.$id.'-projects/'.$file.'" />';
+				$filename = $file;
 				$x++;
 			}
 		}
@@ -132,7 +136,12 @@ if($total > 1) {
 			margin-top: 80px;
 			z-index: 20;
 		}
-
+		.filename {
+			color: #fff;
+			position: fixed;
+			bottom: 0;
+			right: 20px;
+		}
 		@media(max-width: 780px) {
 			.dis0 {
 				display: none;
@@ -153,7 +162,6 @@ if($total > 1) {
 </head>
 <body>
 	<div class="btnbar">
-
 		<div class="prevnext"><?php echo $precedent; ?>	<?php echo $suivant; ?></div>
 		<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
 
@@ -161,6 +169,7 @@ if($total > 1) {
 
 	<div class="main">
 		<?php	echo $img; ?>
+		<p class="filename"><?php	echo $filename; ?></p>
 	</div>
 
 

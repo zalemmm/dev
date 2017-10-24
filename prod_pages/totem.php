@@ -191,9 +191,13 @@
           <span class="form-label-left label-highlight special">Hauteur<br /><span class="small">personnalisée</span> : </span><input type="text" class="form-textbox2 special validate[required, Numeric]" id="input_15" name="q15_taile" size="20" value="100" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span>
         </li>
 
-        <li class="form-line" id="id_7">
+        <li class="form-line" id="id_7" data-trigger="spinner">
           <label class="form-label-left label-highlight" id="label_7" for="input_7">quantité :<br /><span class="small">(par visuel)</span></label>
-          <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " />
+          <input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " data-rule="quantity" />
+					<div class="spinner-controls">
+	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+			  	</div>
         </li>
 
         <li class="form-line optionsformline" id="id_8">
@@ -761,7 +765,7 @@
      ///////////////////////////////////////////////////////////////// options //
      var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
      if (colis == true) {
-       cena += 2.00*ilosc;
+       cena += 2.00;
        cedzik += '<br />- colis revendeur';
      }
      var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
@@ -920,7 +924,7 @@
       var day = estdt.getDate();
       var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
       if(jQuery('#id_8').css('display') != 'none') {
-        jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+        jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
       }
 
       finalPrice1=fixstr(finalPrice);
@@ -943,7 +947,7 @@
     transport=0;
 
     ////////////////////////////////////////////////////////////////////////////
-    cena2 = prixunite.replace(".", ",");
+    cena2 = prixunite.replace(".", ",")
     ////////////////////////////////////////////////////////////////////////////
 
     var niepokazuj = 0;

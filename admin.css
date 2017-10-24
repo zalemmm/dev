@@ -141,13 +141,16 @@ input.delete:hover {
 }
 
 #poststuff {
+  position: relative;
   min-width: 0;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
   box-sizing: border-box;
   width: 98%;
 }
 
-.postbox {}
+.postbox {
+  position: relative;
+}
 
 .adresses {
   width: 60%;
@@ -278,18 +281,8 @@ select.urs {
 
 .widefat.over{
   width: 100%;
-
 }
 
-#mywidefat th {
-  text-align: center;
-}
-
-#mywidefat td {
-  vertical-align: middle;
-  text-align: center;
-
-}
 
 #mywidefat input {
   width: 60px;
@@ -300,13 +293,20 @@ input#poids_commende {
   margin-left: 16px;
 }
 
-.widefat td {
+.widecenter td {
+  vertical-align: middle;
+  text-align: center;
   border-bottom: 1px dashed #e9e3e3;
 }
-.widefat th {
+.widecenter th {
+  text-align: center;
   background: rgb(229,229,229);
   font-weight: bolder;
   font-size: 11px;
+}
+
+.widefat.nopad td{
+  padding: 4px;
 }
 
 .btnGroup {
@@ -402,6 +402,14 @@ input#poids_commende {
 .statusCheckButtons {
   margin-top: 0;
 
+}
+
+.updater{
+  display: block;
+  margin-right: 5px;
+  font-size: 11px;
+  text-align: right;
+  float: right;
 }
 
 input.radioBtn {
@@ -539,6 +547,14 @@ input.radioBtn[type=radio]:checked:before {
   font-size: 9px;
 }
 
+.inside {
+  position: relative;
+}
+
+.inside p {
+  clear: both;
+}
+
 .savebutt {
   width: 50px;
   height: 30px;
@@ -561,7 +577,7 @@ input.radioBtn[type=radio]:checked:before {
   height: 40px;
   margin-top: 8px;
   float: right;
-  clear: left
+  clear: both;
 }
 
 .savebutt4 {
@@ -570,6 +586,26 @@ input.radioBtn[type=radio]:checked:before {
   top: 5px;
   width: 50px;
   height: 28px;
+  float: right;
+}
+
+.savebutt5 {
+  position: absolute;
+  right: 10px;
+  top: -35px;
+  width: 50px;
+  height: 28px;
+}
+.savebutt6 {
+  position: absolute;
+  left: 10px;
+  top: -35px;
+  width: 50px;
+  height: 28px;
+  background: #3A9D2A;
+}
+.close{
+  display: inline-block;
   float: right;
 }
 
@@ -894,4 +930,46 @@ ul.lastMails li {
   font-size: 18px;
   font-weight: 900;
   cursor: pointer;
+}
+#newprod p{
+  clear: both;
+}
+.alignR {
+  display: inline-block;
+  float: right;
+  width: 180px;
+}
+
+.stockbtn {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-left: 5px;
+  background: #ccc;
+  font-size: 14px;
+  color: #fff;
+  padding: 3px 7px;
+  text-decoration: none;
+  height: 25px;
+}
+.stockbtn:hover {
+  background: #fff;
+  color: #ccc;
+}
+
+.colalt{
+  background: #fbfbfb;
+}
+
+.colalert{
+  background:#e29898;
+}
+
+.colwarn{
+  background:#e6ce50;
+}
+.colgood{
+  background:#9ada99;
+}
+.error {
+  color: red;
 }

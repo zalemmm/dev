@@ -148,9 +148,13 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_9">
+          <li class="form-line" id="id_9" data-trigger="spinner">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :<br /><span class="small">(par visuel)</span></label>
-            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();" />
+            <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();"  data-rule="quantity" />
+  					<div class="spinner-controls">
+  	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+  	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+  			  	</div>
           </li>
 
           <li id="id_10" class="form-line optionsformline">
@@ -1009,8 +1013,8 @@
     //////////////////////////////////////////////////////////// choix maquette //
     var ktodaje = '';
   	if ($('input_8').value == 'fb') {
-  		maquette = 35/ilosc;
-  		options1 = (35*ilosc);
+  		maquette=35/ilosc;
+  		options1=(35*ilosc);
   		ktodaje = '<br />- France banderole crée la maquette';
   	}
   	if ($('input_8').value == 'user') {
@@ -1245,7 +1249,7 @@
   			{
   				//jQuery('#totalamt_8').text("Total Amount:  "+finalPrice);
   				//jQuery('#prix_unitaire').text(finalPrice);
-  				jQuery('#estdate_7').html('Date de livraison max : '+output+' <a class="linkUppercase modal-link" href="http://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+  				jQuery('#estdate_7').html('Date de livraison max : '+output+' <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
   			}
 
   		finalPrice1=fixstr(finalPrice);
@@ -1287,4 +1291,5 @@
     }
   });
 });
+
 </script>

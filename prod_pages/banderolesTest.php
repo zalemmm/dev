@@ -218,8 +218,6 @@
 					</select>
 				</li>
 
-
-
 				<!--option scratch----------------------------------------------------->
 				<li class="form-line" id="id_71">
 					<span class="helpButton" onmouseover="pokazt('helpText71');" onmouseout="ukryjt('helpText71');">
@@ -355,13 +353,9 @@
 				</li>
 
 				<!--taille et quantité------------------------------------------------->
-				<li class="form-line optionsformline2" id="id_13" data-trigger="spinner">
+				<li class="form-line optionsformline2" id="id_13">
 					<label class="form-label-left label-highlight" id="label_13" for="input_13">quantité :<br /><span class="small">(par visuel)</span></label>
-					<input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " data-rule="quantity" />
-					<div class="spinner-controls">
-	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
-			  	</div>
+					<input type="text" class="form-textbox validate[required, Numeric]" id="input_13" name="q13_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " style="" />
 				</li>
 
 				<li id="id_14" class="form-line optionsformline2" style="nothing">
@@ -1218,9 +1212,9 @@
 
 		/////////////////////////////////////////////////////////////// fourreaux //
 
-		if (($('input_41').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux')) { opis+='<br>- sans fourreaux'};
-		if (($('input_41').value == 'fourreaux haut/bas') ||  ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
-		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
+		if (($('input_41').value == 'sans fourreaux') || ($('input_41b').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux')|| ($('input_44').value == 'sans fourreaux')) { opis+='<br>- sans fourreaux'};
+		if (($('input_41').value == 'fourreaux haut/bas') || ($('input_41b').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')|| ($('input_44').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
+		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_41b').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
 
 		//////////////////////////////////////////////////////////////// scratchs //
 
@@ -1384,8 +1378,8 @@
 					jQuery('.delivery').removeClass('active');
 					jQuery(this).addClass('active');
 
-					jQuery('#production-value').prop("disabled",false);
-					jQuery('#delivery-value').prop("disabled",true);
+					jQuery(production-value).prop("disabled",false);
+					jQuery(delivery-value).prop("disabled",true);
 				});
 			});
 
@@ -1402,8 +1396,8 @@
 					jQuery('.delivery').removeClass('active');
 					jQuery(this).addClass('active');
 
-					jQuery('#production-value').prop("disabled",false);
-					jQuery('#delivery-value').prop("disabled",true);
+					jQuery(production-value).prop("disabled",false);
+					jQuery(delivery-value).prop("disabled",true);
 					});
 				});
 				jQuery(document).ready(function(){
@@ -1419,8 +1413,8 @@
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
 
-						jQuery('#production-value').prop("disabled",false);
-						jQuery('#delivery-value').prop("disabled",true);
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
 					});
 				});
 				jQuery(document).ready(function(){
@@ -1436,8 +1430,8 @@
 						jQuery('.delivery').removeClass('active');
 						jQuery(this).addClass('active');
 
-						jQuery('#production-value').prop("disabled",false);
-						jQuery('#delivery-value').prop("disabled",true);
+						jQuery(production-value).prop("disabled",false);
+						jQuery(delivery-value).prop("disabled",true);
 					});
 				});
 			}
@@ -1527,7 +1521,7 @@
 				var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
 
 				if(jQuery('#id_16').css('display') != 'none')	{
-					jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+					jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="https://www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
 
 				finalPrice1=fixstr(finalPrice);
