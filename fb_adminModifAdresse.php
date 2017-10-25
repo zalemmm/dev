@@ -2281,8 +2281,8 @@ function fbs_admin_head() {
 	echo '<link rel="stylesheet" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
   echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
+
   echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.increment.js"></script>';
-  echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.mousewheel.min.js"></script>';
 
 	if (isset($_GET['fbdet'])) {
   /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script>*/
@@ -3523,9 +3523,18 @@ function fbadm_print_details($number) {
 	if($user_epub != '') {
 		echo 'Trésor public payeur : <br />'.$user_epub;
 	}
+  echo '<form name="addst" id="adressModif" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="adressModif" value="'.$number.'" />';
+  echo '<label class="adressLab">Mail :<input class="alignR" type="text" name="email" value="' . $uzyt->email . '" /></label>';
+  echo '<label class="adressLab">Nom :<input class="alignR" type="text" name="name" value="' . $uzyt->f_name . '" /></label>';
+  echo '<label class="adressLab">Entreprise :<input class="alignR" type="text" name="comp" value="' . $uzyt->f_comp . '" /></label>';
+  echo '<label class="adressLab">Adresse :<input class="alignR" type="text" name="email" value="' . $f_address . '" /></label>';
+  echo '<label class="adressLab">Porte :<input class="alignR" type="text" name="name" value="' . $f_porte . '" /></label>';
+  echo '<label class="adressLab">Code :<input class="alignR" type="text" name="comp" value="' . $uzyt->f_code . '" /></label>';
+  echo '<label class="adressLab">Ville :<input class="alignR" type="text" name="email" value="' . $uzyt->f_city . '" /></label>';
+  echo '<label class="adressLab">Tél :<input class="alignR" type="text" name="name" value="' . $uzyt->f_phone . '" /></label>';
 
-	echo '<br />' . $uzyt->email . '<br />' . $uzyt->f_name . '<br />' . $uzyt->f_comp . '<br />' . $f_address . '<br />' . $f_porte . '<br />' . $uzyt->f_code . '<br />' . $uzyt->f_city .
-  '<br />' .$uzyt->f_phone. '<br /></div>';
+
+  echo '<input type="submit" value="modifier" class="savebutt" /></form></div>';
 
   ///////////////////////////////////////////////////////// adresse livraison //
   echo '<div class="adsLivraison"><h2>Adresse de livraison:</h2><br />' . $adresdostawy . '</div>';
@@ -7205,19 +7214,16 @@ function fb_admin_entree() {
   echo '<script>
     jQuery("#enqte").increment({ minVal: -100, maxVal: 100 });
   </script>';
-  //------------------------------------------------------formulaire entrée scan
+  //--------------------------------------------------formulaire entrée multiple
   if (isset($_POST['multiple'])) {
     $codeErr = '';
     if (empty($_POST["multi"])) {
       $codeErr = "Code barre requis";
     } else {
-      // on sépare chaque ligne dans une rangée tableau
+      // on sépare chaque ligne
+      $multi = $_POST['multi'];
       $text = trim($_POST['multi']);
       $text = explode ("\n", $text);
-      $text = array_unique($text, SORT_REGULAR); // cette opération supprime les doublons des logs de la scanette
-      array_pop($text); // enlève la dernière ligne du tableau car on sait pas pourquoi la fonction précédente fait le boulot sauf pour la dernière ligne qui reste dupliquée....
-
-      print_r($text);
       // on crée un tableau où pour chaque ligne arr[0] = I/O soit Entrée ou Sortie, arr[1] = code barre, arr[2] = quantité
       foreach ($text as $line) {
         $arr = explode(';', $line);
@@ -7230,6 +7236,7 @@ function fb_admin_entree() {
           $type = 'Sortie scan';
           $mvt = -$arr[2];
         }
+
 
         fb_stock_auto($arr[1], $mvt, $type);
       }

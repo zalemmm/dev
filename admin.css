@@ -57,6 +57,9 @@ input[type="submit"]:hover,
 }
 
 input.edit {
+  position: absolute;
+  right: 15px;
+  top: 15px;
   padding: 0 5px;
   margin: 0;
   border: none;
@@ -178,26 +181,28 @@ h1 {
 }
 
 .adsLivraison {
+  position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
   float: right;
   width: 49%;
   padding: 1rem;
-  height: 250px;
+  height: 315px;
   border: 1px solid #E5E5E5;
   font-size: 11px;
   line-height: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 .adsFact {
+  position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
   float: left;
   width: 49%;
   padding: 1rem;
-  height: 250px;
+  height: 315px;
   border: 1px solid #E5E5E5;
   font-size: 11px;
   line-height: 14px;
@@ -972,4 +977,10 @@ ul.lastMails li {
 }
 .error {
   color: red;
+}
+label.adressLab{
+  height: 20px;
+}
+label.adressLab input{
+  height: 20px;
 }
