@@ -1704,7 +1704,7 @@
 				if ( suma < 0 ) {
 					var forfait = 0;
 					forfait = fixstr(forfait);
-					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
 					if (option>0) {
 						var newoption = parseFloat(option) + parseFloat(forfait);
 						newoption=fixstr(newoption);
@@ -1773,7 +1773,7 @@
 				if ( suma < 29 ) {
 					var forfait = 29 - suma;
 					forfait = fixstr(forfait);
-					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
 					if (option>0) {
 						var newoption = parseFloat(option) + parseFloat(forfait);
 						newoption=fixstr(newoption);

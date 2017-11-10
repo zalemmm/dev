@@ -219,7 +219,6 @@
 
           <li id="id_18" class="form-line id_18">
             <div class="form-input-wide">
-              <div id="form-button-error2"></div>
               <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
             </div>
           </li>
@@ -351,18 +350,18 @@
     var poidtotal          = 0; var p1=0; var p2=0; var p3=0;
     var option             = 0; var options1=0; var options2=0; var options3=0; var options4=0; maquette=0;
     var dodatkowytransport = 0;
-    var cedzik             = '';
+    var optliv             = '';
     var eBox               = document.getElementById('form-button-error2');
     eBox.innerHTML         = '';
-    var ktorytyp           = '';
-    var ktorywymiar        = '';
-    var ktorapodstawa      = '';
+    var designation        = '';
+    var formatProd         = '';
+    var optionPied         = '';
     var ilosc              = $('input_9').value;
 
     ///////////////////////////////////////////////////////// drapeaux à agiter //
 
   	if ($('input_1').value == 'drapeaux') {
-  		ktorytyp='Drapeaux';
+  		designation='Drapeaux';
       //--------------------------------------------------------------------------
   		if ($('input_20').value == '25x35') {
   			if ($('input_9').value == 1) {
@@ -379,7 +378,7 @@
         hauteur = 25;
         largeur = 35;
 
-  			ktorywymiar = '25x35';
+  			formatProd = '25x35';
   			composant='Mât 50cm'
   		}
       //--------------------------------------------------------------------------
@@ -398,7 +397,7 @@
         hauteur = 40;
         largeur = 50;
 
-  			ktorywymiar = '40x50';
+  			formatProd = '40x50';
   			composant='Mât 75cm'
   		}
       //--------------------------------------------------------------------------
@@ -417,7 +416,7 @@
         hauteur = 75;
         largeur = 100;
 
-  			ktorywymiar = '75x100';
+  			formatProd = '75x100';
   			composant='Mât 150cm'
   		}
 
@@ -426,7 +425,7 @@
   	///////////////////////////////////////////////////// drapeaux grand format //
 
   	if ($('input_1').value == 'drapeaux grand format') {
-  		ktorytyp='Drapeaux grand format';
+  		designation='Drapeaux grand format';
 
   		//------------------------------------------------------------------vertical
 
@@ -443,7 +442,7 @@
         hauteur = 250;
         largeur = 80;
 
-  			ktorywymiar = 'vertical';
+  			formatProd = 'vertical';
   			composant='250x80cm';
   			p1=2;
   		}
@@ -461,7 +460,7 @@
         hauteur = 300;
         largeur = 100;
 
-  			ktorywymiar = 'vertical';
+  			formatProd = 'vertical';
   			composant='300x100cm';
   			p1=3;
   		}
@@ -479,7 +478,7 @@
         hauteur = 400;
         largeur = 120;
 
-  			ktorywymiar = 'vertical';
+  			formatProd = 'vertical';
   			composant='400x120cm';
   			p1=4.8;
   		}
@@ -497,7 +496,7 @@
         hauteur = 500;
         largeur = 150;
 
-  			ktorywymiar = 'vertical';
+  			formatProd = 'vertical';
   			composant='500x150cm';
   			p1=7.5;
   		}
@@ -517,7 +516,7 @@
         hauteur = 80;
         largeur = 120;
 
-  			ktorywymiar = 'horizontal';
+  			formatProd = 'horizontal';
   			composant='80x120cm';
   			p1=0.96;
   		}
@@ -535,7 +534,7 @@
         hauteur = 100;
         largeur = 150;
 
-  			ktorywymiar = 'horizontal';
+  			formatProd = 'horizontal';
   			composant='100x150cm';
   			p1=1.5;
   		}
@@ -553,7 +552,7 @@
         hauteur = 120;
         largeur = 180;
 
-  			ktorywymiar = 'horizontal';
+  			formatProd = 'horizontal';
   			composant='120x180cm';
   			p1=2.16;
   		}
@@ -571,7 +570,7 @@
         hauteur = 150;
         largeur = 225;
 
-  			ktorywymiar = 'horizontal';
+  			formatProd = 'horizontal';
   			composant='150x225cm';
   			p1=3.37;
   		}
@@ -589,7 +588,7 @@
         hauteur = 200;
         largeur = 300;
 
-  			ktorywymiar = 'horizontal';
+  			formatProd = 'horizontal';
   			composant='200x300cm';
   			p1=6;
   		}
@@ -599,7 +598,7 @@
   	////////////////////////////////////////////////////////////// Aile d'avion //
 
   	if ($('input_1').value == 'oriflamme') {
-  		ktorytyp='Oriflamme aile d’avion';
+  		designation='Oriflamme aile d’avion';
       //--------------------------------------------------------------------------
   		if ($('input_21').value == 'oriflamme-54x190') {
   			structure = 13;
@@ -638,7 +637,7 @@
   			{impression = 25.75;}
   			if ($('input_9').value >= 10) {
   			impression = 23.15;}
-  			ktorywymiar = '54x240 recto';
+  			formatProd = '54x240 recto';
   			p1=0.25;
   		}
       //--------------------------------------------------------------------------
@@ -651,7 +650,7 @@
   			{impression = 60.72;}
   			if ($('input_9').value >= 10) {
   			impression = 54.65;}
-  			ktorywymiar = '54x240 recto/verso';
+  			formatProd = '54x240 recto/verso';
   			p1=0.4;
   		}
       //--------------------------------------------------------------------------
@@ -664,7 +663,7 @@
   			{impression = 31.28;}
   			if ($('input_9').value >= 10) {
   			impression = 28.15;}
-  			ktorywymiar = '85x308 recto';
+  			formatProd = '85x308 recto';
   			p1=0.4;
   		}
       //--------------------------------------------------------------------------
@@ -677,7 +676,7 @@
   			{impression = 74.52;}
   			if ($('input_9').value >= 10) {
   			impression = 67.07;}
-  			ktorywymiar = '85x308 recto/verso';
+  			formatProd = '85x308 recto/verso';
   			p1=0.8;
   		}
       //--------------------------------------------------------------------------
@@ -690,7 +689,7 @@
   			{impression = 39.56;}
   			if ($('input_9').value >= 10) {
   			impression = 35.60;}
-  			ktorywymiar = '85x351 recto';
+  			formatProd = '85x351 recto';
   			p1=0.45;
   		}
       //--------------------------------------------------------------------------
@@ -703,7 +702,7 @@
   			{impression = 92.92;}
   			if ($('input_9').value >= 10) {
   			impression = 83.63;}
-  			ktorywymiar = '85x351 recto/verso';
+  			formatProd = '85x351 recto/verso';
   			p1=0.95;
   		}
       //--------------------------------------------------------------------------
@@ -716,7 +715,7 @@
   			{impression = 49.68;}
   			if ($('input_9').value >= 10) {
   			impression = 44.71;}
-  			ktorywymiar = '85x465 recto';
+  			formatProd = '85x465 recto';
   			p1=0.8;
   		}
       //--------------------------------------------------------------------------
@@ -729,14 +728,14 @@
   			{impression = 116.84;}
   			if ($('input_9').value >= 10) {
   			impression = 105.16;}
-  			ktorywymiar = '85x465 recto/verso';
+  			formatProd = '85x465 recto/verso';
   			p1=1.2;
   		}
   	}
 
     ////////////////////////////////////////////////////////////// goutte d'eau //
   		if ($('input_1').value == 'beachflag') {
-  		ktorytyp='Beachflag goutte d’eau';
+  		designation='Beachflag goutte d’eau';
 
       //--------------------------------------------------------------------------
   		if ($('input_22').value == 'beachflag-72x156') {
@@ -776,7 +775,7 @@
   			{impression = 25.76;}
   			if ($('input_9').value >= 10) {
   			impression = 23.18;}
-  			ktorywymiar = '72x203 recto';
+  			formatProd = '72x203 recto';
   			p1=0.1;
   		}
       //--------------------------------------------------------------------------
@@ -789,7 +788,7 @@
   			{impression = 60.72;}
   			if ($('input_9').value >= 10) {
   			impression = 54.65;}
-  			ktorywymiar = '72x203 recto/verso';
+  			formatProd = '72x203 recto/verso';
   			p1=0.3;
   		}
       //--------------------------------------------------------------------------
@@ -802,7 +801,7 @@
   			{impression = 34.96;}
   			if ($('input_9').value >= 10) {
   			impression = 31.46;}
-  			ktorywymiar = '75x254 recto';
+  			formatProd = '75x254 recto';
   			p1=0.15;
   		}
       //--------------------------------------------------------------------------
@@ -815,7 +814,7 @@
   			{impression = 67.16;}
   			if ($('input_9').value >= 10) {
   			impression = 60.40;}
-  			ktorywymiar = '75x254 recto/verso';
+  			formatProd = '75x254 recto/verso';
   			p1=0.3;
   		}
       //--------------------------------------------------------------------------
@@ -828,7 +827,7 @@
   			{impression = 44.16;}
   			if ($('input_9').value >= 10) {
   			impression = 39.74;}
-  			ktorywymiar = '106x323 recto';
+  			formatProd = '106x323 recto';
   			p1=0.25;
   		}
       //--------------------------------------------------------------------------
@@ -841,7 +840,7 @@
   			{impression = 88.32;}
   			if ($('input_9').value >= 10) {
   			impression = 79.49;}
-  			ktorywymiar = '106x323 recto/verso';
+  			formatProd = '106x323 recto/verso';
   			p1=0.5;
   		}
       //--------------------------------------------------------------------------
@@ -854,7 +853,7 @@
   			{impression = 63.48;}
   			if ($('input_9').value >= 10) {
   			impression = 57.13;}
-  			ktorywymiar = '125x460 recto';
+  			formatProd = '125x460 recto';
   			p1=0.3;
   		}
       //--------------------------------------------------------------------------
@@ -867,7 +866,7 @@
   			{impression = 121.44;}
   			if ($('input_9').value >= 10) {
   			impression = 109.30;}
-  			ktorywymiar = '125x460 recto/verso';
+  			formatProd = '125x460 recto/verso';
   			p1=0.6;
   		}
   	}
@@ -875,7 +874,7 @@
     //////////////////////////////////////////////////// windflag rectangulaire //
 
   	if ($('input_1').value == 'windflag') {
-  		ktorytyp='Windflag rectangulaire';
+  		designation='Windflag rectangulaire';
       //--------------------------------------------------------------------------
   		if ($('input_23').value == 'windflag-59x180') {
   			structure = 22;
@@ -887,7 +886,7 @@
   			{impression = 22.08;}
   			if ($('input_9').value >= 10) {
   			impression = 19.87;}
-  			ktorywymiar = '63x256';
+  			formatProd = '63x256';
   			p1=0.15;
   			p2=2.6;
 
@@ -905,7 +904,7 @@
   			{impression = 40.48;}
   			if ($('input_9').value >= 10) {
   			impression = 36.43;}
-  			ktorywymiar = '80x410';
+  			formatProd = '80x410';
   			p1=0.25;
   			p2=8;
 
@@ -923,7 +922,7 @@
   			{impression = 54.28;}
   			if ($('input_9').value >= 10) {
   			impression = 48.85;}
-  			ktorywymiar = '100x530';
+  			formatProd = '100x530';
   			p1=0.45;
   			p2=17.4;
 
@@ -937,44 +936,44 @@
   	if ($('input_6').value == 'Embase 8kg') {
   			pied=27;
   			p3=8;
-  			ktorapodstawa='<br />- Embase 8kg';
+  			optionPied='<br />- Embase 8kg';
   		}
   	if ($('input_6').value == 'Embase carrée 13,5kg') {
   			pied=37;
   			p3=13.5;
-  			ktorapodstawa='<br />- Embase carrée 13,5kg';
+  			optionPied='<br />- Embase carrée 13,5kg';
 
   		}
   	if ($('input_6').value == 'Pied 4 branches + bouée') {
   			pied=18;
   			p3=0.2;
-  			ktorapodstawa='<br />- Pied 4 branches + bouée';
+  			optionPied='<br />- Pied 4 branches + bouée';
   		}
   	if ($('input_6').value == 'Pied piquet') {
   			pied=12;
-  			ktorapodstawa='<br />- Pied piquet';
+  			optionPied='<br />- Pied piquet';
   			p3=1.3;
   		}
   	if ($('input_6').value == 'Pied voiture') {
   			pied=16;
   			p3=1.65;
-  			ktorapodstawa='<br />- Pied voiture';
+  			optionPied='<br />- Pied voiture';
   		}
   	if ($('input_6').value == 'Pied à visser') {
   			pied=10;
   			p3=0.75;
-  			ktorapodstawa='<br />- Pied à visser';
+  			optionPied='<br />- Pied à visser';
   		}
 
   	if ($('input_6').value == 'Pied parasol 23L') {
   			pied=14;
   			p3=1.2;
-  			ktorapodstawa='<br />- Pied parasol 23L';
+  			optionPied='<br />- Pied parasol 23L';
   		}
   	if ($('input_6').value == 'Embase ciment 22kg') {
   			pied=52;
   			p3=22;
-  			ktorapodstawa='<br />- Embase ciment 22kg';
+  			optionPied='<br />- Embase ciment 22kg';
   		}
 
     ////////////////////////////////////////////////////////////////////// Kits //
@@ -1011,7 +1010,7 @@
   		marge = (prixHT*33)/100;}
 
     //////////////////////////////////////////////////////////// choix maquette //
-    var ktodaje = '';
+    var maquette = '';
   	if ($('input_8').value == 'fb') {
   		maquette=35/ilosc;
   		options1=(35*ilosc);
@@ -1052,13 +1051,13 @@
   	if (antifeu == true) {
   		cena += (cena*30)/100;
   		options4 = (cena*30)/100;
-  		cedzik += '<br />- Voile anti-feu';
+  		optliv += '<br />- Voile anti-feu';
   	}
 
   	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
   	if (colis == true) {
   		cena += 2.00*ilosc;
-  		cedzik += '<br />- colis revendeur';
+  		optliv += '<br />- colis revendeur';
   	}
   	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
   	var etiqdesc = '';
@@ -1252,7 +1251,7 @@
   				jQuery('#estdate_7').html('Date de livraison max : '+output+' <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
   			}
 
-  		finalPrice1=fixstr(finalPrice);
+  		var finalPrice1=fixstr(finalPrice);
   		finalPrice2 = finalPrice1.replace(".", ",");
 
   	  jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
@@ -1286,8 +1285,7 @@
       }
 
     	var dodajkoszyk = document.getElementById("cart_form");
-    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+ktorytyp+' '+ktorywymiar+'<br />- '+composant+ktorapodstawa+ktodaje+cedzik+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-
+    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+designation+' '+formatProd+'<br />- '+composant+optionPied+ktodaje+optliv+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
     }
   });
 });

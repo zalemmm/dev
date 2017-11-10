@@ -639,9 +639,10 @@ JotForm = {
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
             var imag6 = $("preview_imag6");
+            var imag7 = $("preview_imag7");
 						///////////////////////////////
 
-            // oeuillets coins par défaut
+            //--------------------------------------- oeuillets coins par défaut
             if ($('input_ext').value !== "") {
               $('container').style.display="none";
               imag4.style.backgroundImage="none";
@@ -654,7 +655,7 @@ JotForm = {
               imag3.style.backgroundImage="none";
             }
 
-            // select bâche
+            //----------------------------------------------------- select bâche
 						if ($('input_ext').value == 'bache 440g') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/440g.png)";
               imag2.style.animation="anim .5s 1";
@@ -713,24 +714,22 @@ JotForm = {
               imag2.style.animation="anim4 .5s 1";
 						}
 
-            // option oeuillets
+
+
+            //------------------------------------------------- option oeuillets
             if (($('input_21').value == 'sans oeillets') || ($('input_81').value == 'pas de finition')) {
 							imag3.style.backgroundImage="none";
-						}
-            if (($('input_21').value == 'oeillets aux coins')) {
+						}else if (($('input_21').value == 'oeillets aux coins')) {
 							imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png)";
-						}
-            if (($('input_21').value == 'oeillets haut/bas') || ($('input_81').value == 'oeillets haut/bas')) {
+						}else if (($('input_21').value == 'oeillets haut/bas') || ($('input_81').value == 'oeillets haut/bas')) {
 							imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png)";
-						}
-            if (($('input_21').value == 'oeillets gauche/droite')) {
+						}else if (($('input_21').value == 'oeillets gauche/droite')) {
 							imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd.png)";
-						}
-            if (($('input_21').value == 'oeillets périmétrique')) {
+						}else if (($('input_21').value == 'oeillets périmétrique')) {
 							imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsp.png)";
 						}
 
-            // répartition oeuillets
+            //-------------------------------------------- répartition oeuillets
             var ohb = ($('input_21').value == 'oeillets haut/bas') || ($('input_81').value == 'oeillets haut/bas');
             var ogd = ($('input_21').value == 'oeillets gauche/droite');
             var peri = ($('input_21').value == 'oeillets périmétrique');
@@ -741,119 +740,118 @@ JotForm = {
 
             if (ohb && cent) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png)";
-            }
-            if (ohb && cinquante) {
+            }else if (ohb && cinquante) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb50.png)";
-            }
-            if (ohb && vingtcinq) {
+            }else if (ohb && vingtcinq) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb25.png)";
-            }
-            if (ohb && dix) {
+            }else if (ohb && dix) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb10.png)";
-            }
-            if (ogd && cent) {
+            }else if (ogd && cent) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsc.png)";
-            }
-            if (ogd && cinquante) {
+            }else if (ogd && cinquante) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd.png)";
-            }
-            if (ogd && vingtcinq) {
+            }else if (ogd && vingtcinq) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd25.png)";
-            }
-            if (ogd && dix) {
+            }else if (ogd && dix) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd10.png)";
-            }
-            if (peri && cent) {
+            }else if (peri && cent) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb.png)";
-            }
-            if (peri && cinquante) {
+            }else if (peri && cinquante) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb50.png)";
-            }
-            if (peri && vingtcinq) {
+            }else if (peri && vingtcinq) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd25.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb25.png)";
-            }
-            if (peri && dix) {
+            }else if (peri && dix) {
               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletsgd10.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/oeilletshb10.png)";
             }
 
-            // option ourlets
+            //--------------------------------------------------- option ourlets
             if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_71').value == 'scratch haut/bas'))   {
               imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/ourletshb.png)";
-            }
-            if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite') || ($('input_71').value == 'scratch gauche/droite'))  {
+            }else if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite') || ($('input_71').value == 'scratch gauche/droite'))  {
               imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/ourletsgd.png)";
-            }
-            if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_34').value == 'ourlet de renfort périmétrique') || ($('input_71').value == 'scratch perimetrique'))  {
+            }else if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_34').value == 'ourlet de renfort périmétrique') || ($('input_71').value == 'scratch perimetrique'))  {
               imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/ourlets.png)";
-            }
-            if (($('input_31').value == 'sans ourlet') || ($('input_32').value == 'sans ourlet') || ($('input_33').value == 'sans ourlet') || ($('input_34').value == 'sans ourlet') || ($('input_71').value == 'sans scratch')) {
-
+            }else {
               imag4.style.backgroundImage="none";
             }
 
-            // option fourreaux
-            if (($('input_41').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas') || ($('input_44').value == 'fourreaux haut/bas'))  {
+            //------------------------------------------------- option fourreaux
+            if (($('input_41').value == 'fourreaux haut/bas') || ($('input_42').value == 'fourreaux haut/bas'))  {
               imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/fourreauxhb.png)";
-            }
-            if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')|| ($('input_44').value == 'fourreaux gauche/droite'))  {
+            }else if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite'))  {
               imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/fourreaux.png)";
-            }
-            if (($('input_41').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux') || ($('input_44').value == 'sans fourreaux')) {
+            }else {
               imag5.style.backgroundImage="none";
             }
 
-				}
-
-//
-                }
-
-            }catch(e){
-            	//console.error(e);
-        	}
-        });
-
-        if(condition.type == 'field'){ // Field Condition
-            //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
-            if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
-                if(condition.action.visibility.toLowerCase() == 'show'){
-                    //console.info('Correct: Show field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.showField(condition.action.field);
-                }else{
-                    //console.info('Correct: Hide field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.hideField(condition.action.field);
-                }
-            }else{
-                if(condition.action.visibility.toLowerCase() == 'show'){
-                    //console.info('Fail: Hide field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.hideField(condition.action.field);
-                }else{
-                    //console.info('Fail: Show field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.showField(condition.action.field);
-                }
+            //---------------------------------------------------------fixations
+            if ($('input_51').value == 'tendeurs') {
+              imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/tendeur.png)";
+						}else if ($('input_51').value == 'rislans') {
+              imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/rislan.png)";
+						}else if ($('input_51').value == '2 tourillons bois et sandows') {
+              imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/tourillons.png)";
+						}else if ($('input_51').value == '2 piquets de bois') {
+              imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/piquets.png)";
+						}else if ($('input_51').value == 'drisse fourreaux H/B') {
+              imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/drisse.png)";
+						}else if ($('input_51').value == 'drisse périmétrique') {
+              imag3.style.backgroundImage="none";
+              imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/drissep.png)";
+						}else{
+              imag7.style.backgroundImage="none";
             }
-        }else{ // Page condition
 
-            //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
-            if (JotForm.nextPage) {
-                return;
-            }
-            if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
+			    }//-------------------------------------------------------------------
 
-                //console.info('Correct: Skip To: '+condition.action.skipTo);
-                var sections = $$('.form-section');
-                if(condition.action.skipTo == 'end'){
-                    JotForm.nextPage = sections[sections.length - 1];
-                }else{
-                    JotForm.nextPage = sections[parseInt(condition.action.skipTo.replace('page-', ''), 10)-1];
-                }
+        }
+      }catch(e){
+        	//console.error(e);
+    	}
+    });
 
+    if(condition.type == 'field'){ // Field Condition
+        //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
+        if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
+            if(condition.action.visibility.toLowerCase() == 'show'){
+                //console.info('Correct: Show field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.showField(condition.action.field);
             }else{
-
-                //console.info('Fail: Skip To: page-'+JotForm.currentPage+1);
-
-                JotForm.nextPage = false;
+                //console.info('Correct: Hide field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.hideField(condition.action.field);
+            }
+        }else{
+            if(condition.action.visibility.toLowerCase() == 'show'){
+                //console.info('Fail: Hide field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.hideField(condition.action.field);
+            }else{
+                //console.info('Fail: Show field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.showField(condition.action.field);
             }
         }
+    }else{ // Page condition
+
+        //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
+        if (JotForm.nextPage) {
+            return;
+        }
+        if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
+
+            //console.info('Correct: Skip To: '+condition.action.skipTo);
+            var sections = $$('.form-section');
+            if(condition.action.skipTo == 'end'){
+                JotForm.nextPage = sections[sections.length - 1];
+            }else{
+                JotForm.nextPage = sections[parseInt(condition.action.skipTo.replace('page-', ''), 10)-1];
+            }
+
+        }else{
+
+            //console.info('Fail: Skip To: page-'+JotForm.currentPage+1);
+
+            JotForm.nextPage = false;
+        }
+    }
 
     },
     currentPage: false,

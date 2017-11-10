@@ -277,26 +277,24 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets gauche/droite"}], "action": {"field": "23", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets périmétrique"}], "action": {"field": "24", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"},{"field": "31", "operator": "equals", "value": "sans ourlet"},{"field": "32", "operator": "equals", "value": "sans ourlet"},{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "oeillets aux coins"}], "action": {"field": "31", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"}], "action": {"field": "41", "visibility": "Show"}},
 
     {"type": "field", "link": "All", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
 
-
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "sans ourlet"},{"field": "32", "operator": "equals", "value": "sans ourlet"},{"field": "33", "operator": "equals", "value": "sans ourlet"}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort gauche/droite"},{"field": "33", "operator": "equals", "value": "ourlet de renfort gauche/droite"}], "action": {"field": "42", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort haut/bas"},{"field": "32", "operator": "equals", "value": "ourlet de renfort haut/bas"}], "action": {"field": "43", "visibility": "Show"}},
+
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "notEquals", "value": "sans oeillets"},{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "notEquals", "value": "sans oeillets"},{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "notEquals", "value": "sans oeillets"},{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
 
     {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"},{"field": "41", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"},{"field": "42", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "21", "operator": "equals", "value": "sans oeillets"},{"field": "43", "operator": "equals", "value": "sans fourreaux"}], "action": {"field": "71", "visibility": "Show"}},
-
-    {"type": "field", "link": "All", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "43", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
-
-
 
     {"type": "field", "link": "All", "terms": [{"field": "31", "operator": "equals", "value": "ourlet de renfort périmétrique"}], "action": {"field": "51", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
@@ -456,21 +454,14 @@ function fbshop_head() {
   <script type="text/javascript">
   JotForm.setConditions([
     {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand parapluie"}], "action": {"field": "1", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "photocall", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Stand ExpoBag"}], "action": {"field": "2", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "01", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "photocall", "operator": "isFilled", "value": false}], "action": {"field": "valise", "visibility": "Show"}},
-	    {"type": "field", "link": "Any", "terms": [{"field": "valise", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
-
-
-    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}], "action": {"field": "0222", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "valise"}], "action": {"field": "022", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}, {"field": "0", "operator": "equals", "value": "valise"}], "action": {"field": "7", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Droit"}], "action": {"field": "50", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Courbé"}], "action": {"field": "500", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "022", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "0222", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "02", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "500", "operator": "isFilled", "value": false}], "action": {"field": "02", "visibility": "Show"}},
@@ -561,18 +552,15 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Kakemono Tissu"}], "action": {"field": "24", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "25", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
@@ -1333,10 +1321,8 @@ function generate_page ($page, $pageid) {
 
   	$wycena .= '<div id="livraisonrapide" style="display:none; float:left"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/livraison_rapide/liv-rapide.jpg" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/></div>';
     // ajout de l'affichage livraison comprise
-    $wycena .= '<div id="livraisonComp" style="display:none"><span id="forfait"></span>Livraison comprise</div>';
+    $wycena .= '<div id="livraisonComp" style="display:none">Livraison comprise</div>';
   	$wycena .= '<form name="cart_form" id="cart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"></form>';
-    $wycena .= '<div id="form-button-error2"></div>';
-    $wycena .= '<div id="form-button-error1"></div>';
   	$wycena .= '</div></div>';}
 
   	$view .= '<h1 class="h1product">'.$h1name.'</h1><hr />';

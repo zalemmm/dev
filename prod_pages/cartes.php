@@ -147,7 +147,6 @@
 
       <li class="form-line" id="id_26a">
 				<div class="form-input-wide">
-					<div id="form-button-error2"></div>
 					<button id="input_26" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 				</div>
 			</li>
@@ -266,7 +265,7 @@
       var transport  = 0;
       var ilosc      = $('input_5').value;
       var opis       = '';
-      var niepokazuj = 0;
+      var erreurType = 0;
       var option2    = 0;
       var largeur    = 85;
       var hauteur    = 54;
@@ -383,7 +382,7 @@
       if (colis == true) {
         opis += '<br />- colis revendeur';
       }
-      
+
       var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
       if (etiquette == true) {
         cena-= cena*3/100;
@@ -402,7 +401,6 @@
 
 			var myClass = jQuery(this).attr("class");
 
-			var niepokazuj = 0;
 			var n = myClass.search("production");
 			if (n != -1) {
 				jQuery('.production').prop("disabled",false);
@@ -564,9 +562,8 @@
       cena2 = prixunite.replace(".", ",");
       //////////////////////////////////////////////////////////////////////////
 
-			var niepokazuj = 0;
 
-			if (niepokazuj==1) {
+			if (erreurType==1) {
 				prix.innerHTML='-';
 				remise.innerHTML='-';
 				total.innerHTML='-';
@@ -581,7 +578,7 @@
 
 			//////////////////////////////////////////////////////////////////////////
 
-			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+			if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 
       suma=prixunite;
 			suma=fixstr(suma);
@@ -593,7 +590,7 @@
       var forfait = 15 - suma;
       if (forfait > 0) {
         forfait = fixstr(forfait);
-        eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+        jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
         var newoption = parseFloat(forfait);
         newoption=fixstr(newoption);
         newoption2 = newoption.replace(".", ",");
@@ -611,7 +608,7 @@
       var rodzaj = $('input_1').value;
 
       var dodajkoszyk = document.getElementById("cart_form");
-      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+      dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
     }
   });
 });

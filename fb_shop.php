@@ -42,6 +42,7 @@ function register_cart() {
 	if( (isset($_SESSION['fbcart'])) && ($_GET['cart'] == 'clear') ) {
 		$_SESSION['fbcart'] = 0;
 	}
+	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart'])) {
 		$products = $_SESSION['fbcart'];
     	if (!is_array($products)) {
@@ -50,9 +51,10 @@ function register_cart() {
 		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
-		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
-		exit;
+		//header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
+		//exit;
 	}
+	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart2'])) {
 		$products = $_SESSION['fbcart'];
     	if (!is_array($products)) {
@@ -155,8 +157,7 @@ function register_cart() {
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
-
-
+	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocartmma'])) {
 		$products = $_SESSION['fbcart'];
     	if (!is_array($products)) {
@@ -260,8 +261,7 @@ function register_cart() {
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
-
-
+	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart3'])) {
 		$products = $_SESSION['fbcart'];
     	if (!is_array($products)) {
@@ -302,7 +302,7 @@ function register_cart() {
 		$licznik = 0;
 		foreach ( $products as $key => $item ) {
 			$licznik++;
-			if ( ($item[rodzaj] == $_POST['rodzaj']) && ($item[opis] == $_POST['opis']) && ($item[ilosc] == $_POST['ilosc']) && ($licznik == $_POST['licznik']) ){
+			if ( $licznik == $_POST['licznik'] ){
 				unset($products[$key]);
 			}
 		}
@@ -317,7 +317,7 @@ function register_cart() {
 		$licznik = 0;
 		foreach ( $products as $key => $item ) {
 			$licznik++;
-			if ( ($item[rodzaj] == $_POST['rodzaj']) && ($item[opis] == $_POST['opis']) && ($item[ilosc] == $_POST['ilosc']) && ($item[prix] == $_POST['prix']) && ($item[option] == $_POST['option']) && ($item[remise] == $_POST['remise']) && ($item[total] == $_POST['total']) && ($item[hauteur] == $_POST['hauteur']) && ($item[largeur] == $_POST['largeur']) && ($licznik == $_POST['licznik']) ){
+			if ( $licznik == $_POST['licznik'] ){
 				$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur'] );
 				array_push($products, $product);
 			}
@@ -468,7 +468,7 @@ function fbs_install () {
 		payment varchar(100) NULL DEFAULT NULL,
 		status_check int(11) NOT NULL,
 		last_mail longtext NOT NULL,
-		last_action text NOT NULL,		
+		last_action text NOT NULL,
 		PRIMARY KEY (id)
 		) DEFAULT CHARSET=utf8;";
 		$wpdb->query($order_query);

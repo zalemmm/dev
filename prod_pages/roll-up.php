@@ -84,8 +84,7 @@
 					<select class="form-dropdown validate[required]" id="input_24" name="q24_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
 						<option class="option1" value="80x200">80x200 cm </option>
-						<option class="option2" value="85x200">85x200 cm </option>
-						<option class="option1" value="100x200">100x200 cm </option>
+						<option class="option2" value="100x200">100x200 cm </option>
 					</select>
 				</li>
 
@@ -97,8 +96,8 @@
 					</span>
 					<select class="form-dropdown validate[required]" id="input_25" name="q25_dimensions" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir la taille... </option>
-						<option class="option1" value="minia4">Mini roll-up A4 (21x29cm) </option>
-						<option class="option2" value="minia3">Mini Roll-up A3 (29x42cm) </option>
+						<option class="option1" value="A4">Mini roll-up A4 (21x29cm) </option>
+						<option class="option2" value="A3">Mini Roll-up A3 (29x42cm) </option>
 					</select>
 				</li>
 
@@ -299,7 +298,7 @@
 
 				<li class="form-line" id="id_9a">
 					<div class="form-input-wide">
-						<div id="form-button-error2"></div>
+
 						<button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 					</div>
 				</li>
@@ -413,7 +412,7 @@
 			var perteH             = 0; 	var perteL   = 0;
 		  var h1                 = 0; 	var h2       = 0;
 		  var l1                 = 0; 	var l2       = 0;
-		  var metragefinal       = 0;
+		  var metragefinal       = 0;		var details   = '';
 		  var cenatotal          = '';
 		  var metraz             = 0;
 		  var metrazzaokraglony  = 0;
@@ -432,11 +431,11 @@
 			var rabat              = 0;	 	var rabat2     = 0;
 			var suma               = 0; 	var suma2      = 0;
 			var transport          = 0;
-			var ktorytyp           = '';
-			var cedzik             = '';
+			var designation        = '';
+			var optliv             = '';
 			var prliv              = '';
 			var date_panier        = '';
-			var dodatkowaopcja     = '';
+			var option     = '';
 			var ilosc              = $('input_7').value;
 			var eBox               = document.getElementById('form-button-error2');
 			eBox.innerHTML         = '';
@@ -461,10 +460,10 @@
 					cena += 3;
 				}
 
-				ktorytyp=$('input_21').value;
-				dodatkowaopcja='<br />- '+$('input_31').value;
+				designation=$('input_21').value;
+				details='<br />- '+$('input_31').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 
@@ -488,10 +487,10 @@
 				hauteur = 200;
 				largeur = 60;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//------------------------------------------------------------------60x160
@@ -511,10 +510,10 @@
 				hauteur = 160;
 				largeur = 60;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//------------------------------------------------------------------80x200
@@ -534,10 +533,10 @@
 				hauteur = 200;
 				largeur = 80;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//------------------------------------------------------------------85x200
@@ -557,10 +556,10 @@
 				hauteur = 200;
 				largeur = 85;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------100x200
@@ -580,10 +579,10 @@
 				hauteur = 200;
 				largeur = 100;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------120x200
@@ -603,10 +602,10 @@
 				hauteur = 200;
 				largeur = 120;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value !== '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------150x200
@@ -627,10 +626,10 @@
 				hauteur = 200;
 				largeur = 150;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_33').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_33').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------200x200
@@ -647,11 +646,11 @@
 				hauteur = 200;
 				largeur = 200;
 
-				ktorytyp=$('input_22').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
-				dodatkowaopcja='<br />- '+$('input_35').value;
+				designation=$('input_22').value;
+				details='<br />- '+$('input_32').value;
+				details='<br />- '+$('input_35').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 
@@ -675,10 +674,10 @@
 				hauteur = 200;
 				largeur = 80;
 
-				ktorytyp=$('input_23').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_23').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------100x200
@@ -698,10 +697,10 @@
 				hauteur = 200;
 				largeur = 100;
 
-				ktorytyp=$('input_23').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_23').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------120x200
@@ -721,10 +720,10 @@
 				hauteur = 200;
 				largeur = 120;
 
-				ktorytyp=$('input_23').value;
-				dodatkowaopcja='<br />- '+$('input_32').value;
+				designation=$('input_23').value;
+				details='<br />- '+$('input_32').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------150x200
@@ -744,10 +743,10 @@
 				hauteur = 200;
 				largeur = 150;
 
-				ktorytyp=$('input_23').value;
-				dodatkowaopcja='<br />- '+$('input_33').value;
+				designation=$('input_23').value;
+				details='<br />- '+$('input_33').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------200x200
@@ -764,10 +763,10 @@
 				hauteur = 200;
 				largeur = 200;
 
-				ktorytyp=$('input_23').value;
-				dodatkowaopcja='<br />- '+$('input_35').value;
+				designation=$('input_23').value;
+				details='<br />- '+$('input_35').value;
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 
@@ -791,11 +790,11 @@
 				hauteur = 200;
 				largeur = 80;
 
-				ktorytyp=$('input_24').value;
-				dodatkowaopcja='<br />- '+$('input_34').value;
-				dodatkowaopcja += '<br />- recto-verso';
+				designation=$('input_24').value;
+				details='<br />- '+$('input_34').value;
+				option += '<br />- recto-verso';
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//------------------------------------------------------------------85x200
@@ -815,11 +814,11 @@
 				hauteur = 200;
 				largeur = 85;
 
-				ktorytyp=$('input_24').value;
-				dodatkowaopcja='<br />- '+$('input_34').value;
-				dodatkowaopcja += '<br />- recto-verso';
+				designation=$('input_24').value;
+				details='<br />- '+$('input_34').value;
+				option += '<br />- recto-verso';
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 			//-----------------------------------------------------------------100x200
@@ -839,28 +838,28 @@
 				hauteur = 200;
 				largeur = 100;
 
-				ktorytyp=$('input_24').value;
-				dodatkowaopcja='<br />- '+$('input_34').value;
-				dodatkowaopcja += '<br />- recto-verso';
+				designation=$('input_24').value;
+				details='<br />- '+$('input_34').value;
+				option += '<br />- recto-verso';
 				if ($('input_4').value != '') {
-					dodatkowaopcja += '<br />- '+$('input_4').value;
+					option += '<br />- '+$('input_4').value;
 				}
 			}
 
 			// fin double ////////////////////////////////////////////////////////////
 			////////////////////////////////////////////////////////////////// mini //
 
-			if ($('input_25').value == 'minia4'){
+			if ($('input_25').value == 'A4'){
 				hauteur = 29.7;
 				largeur = 21;
 				cena=24;
-				dodatkowaopcja='<br />- '+$('input_25').value;
+				designation=$('input_25').value;
 			}
-			if ($('input_25').value == 'minia3'){
+			if ($('input_25').value == 'A3'){
 				hauteur = 42;
 				largeur = 29.7;
 				cena=29;
-				dodatkowaopcja='<br />- '+$('input_25').value;
+				designation=$('input_25').value;
 			}
 
 			// fin mini //////////////////////////////////////////////////////////////
@@ -926,7 +925,7 @@
 	        if ($('input_26').value == '80x200 1 visuel') {
 					  structure=86.4*1.8;
             cena=structure+(cenatotal/ilosc);
-            ktorytyp=$('input_26').value;
+            designation='80x200 <br />- 1 visuel';
 						p2=3*ilosc;
 
 						hauteur = 200;
@@ -935,7 +934,7 @@
           if ($('input_26').value == '80x200 2 visuels') {
 						structure=86.4*1.8;
             cena=structure+((cenatotal*1.5)/ilosc);
-            ktorytyp=$('input_26').value + ' recto verso';
+            designation='80x200 <br />- 2 visuels recto-verso';
 						p2=3*ilosc;
 
 						hauteur = 200;
@@ -973,24 +972,24 @@
 			}
 
 			////////////////////////////////////////////////////////////// maquette //
-			var ktodaje;
+			var maquette;
 			if ($('input_6').value == 'fb') {
 				cena+=29/ilosc;
-				ktodaje = 'France banderole crée la mise en page';
+				maquette = 'France banderole crée la mise en page';
 			}
 			if ($('input_6').value == 'user') {
-				ktodaje = 'j’ai déjà crée la maquette';
+				maquette = 'j’ai déjà crée la maquette';
 			}
 			if ($('input_6').value == 'config') {
 				cena+=5/ilosc;
-				ktodaje = 'je crée ma maquette en ligne';
+				maquette = 'je crée ma maquette en ligne';
 			}
 
 			/////////////////////////////////////////////////////////////// options //
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 			if (colis == true) {
 				cena += 2.00;
-				cedzik += '<br />- colis revendeur';
+				optliv += '<br />- colis revendeur';
 			}
 			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
 			var etiqdesc = '';
@@ -1002,7 +1001,7 @@
 			var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
 			if (relais == true) {
 				cena += 5.00/ilosc;
-				cedzik += '<br />- relais colis';
+				optliv += '<br />- relais colis';
 			}
 
 			///////////////////////////////////////////////////////// total produit //
@@ -1013,7 +1012,6 @@
 
 			///////////////////////////////////////////// affichage jours livraison //
 			var myClass = jQuery(this).attr("class");
-			var niepokazuj = 0;
 
 			var n = myClass.search("production");
 			if (n != -1) {
@@ -1154,7 +1152,7 @@
 					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
 
-				finalPrice1=fixstr(finalPrice);
+				var finalPrice1=fixstr(finalPrice);
 				finalPrice2 = finalPrice1.replace(".", ",");
 
 				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
@@ -1177,9 +1175,9 @@
 			cena2 = prixunite.replace(".", ",");
 			//////////////////////////////////////////////////////////////////////////
 
-			var niepokazuj = 0;
+			var erreurType = 0;
 
-			if (niepokazuj==1) {
+			if (erreurType==1) {
 				prix.innerHTML='-';
 				remise.innerHTML='-';
 				total.innerHTML='-';
@@ -1192,14 +1190,14 @@
 			else {livraisonrapide.style.display = 'none';}
 
 			////////////////////////////////////////////////////// envoi formulaire //
-			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+			if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 				suma=cena-rabat;
 				suma=fixstr(suma);
 				suma2 = suma.replace(".", ",");
 				total.innerHTML=suma2+' &euro;';
 
 				var dodajkoszyk = document.getElementById("cart_form");
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+' '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+' '+designation+details+'<br />- '+maquette+optliv+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 				livraisonComp.style.display = 'block';
 
 			}

@@ -57,9 +57,6 @@ input[type="submit"]:hover,
 }
 
 input.edit {
-  position: absolute;
-  right: 15px;
-  top: 15px;
   padding: 0 5px;
   margin: 0;
   border: none;
@@ -181,28 +178,26 @@ h1 {
 }
 
 .adsLivraison {
-  position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
   float: right;
   width: 49%;
   padding: 1rem;
-  height: 315px;
+  height: 250px;
   border: 1px solid #E5E5E5;
   font-size: 11px;
   line-height: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 .adsFact {
-  position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
   float: left;
   width: 49%;
   padding: 1rem;
-  height: 315px;
+  height: 250px;
   border: 1px solid #E5E5E5;
   font-size: 11px;
   line-height: 14px;
@@ -247,7 +242,9 @@ select.urs {
   line-height: 14px;
   color: black;
 }
-
+.infosClient .widecenter {
+  margin-top: 0;
+}
 .hl {
   font-weight: 900;
   color: #32a1cc;
@@ -297,7 +294,9 @@ select.urs {
 input#poids_commende {
   margin-left: 16px;
 }
-
+.widecenter{
+  margin-top: 10px;
+}
 .widecenter td {
   vertical-align: middle;
   text-align: center;
@@ -978,9 +977,54 @@ ul.lastMails li {
 .error {
   color: red;
 }
-label.adressLab{
-  height: 20px;
+.stockAlert {
+  background: -webkit-linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
+  background: -moz-linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
+  background: linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 370px;
+  height: 80px;
+  position: relative;
 }
-label.adressLab input{
-  height: 20px;
+.stockAlert h2 {
+  display: inline-block;
+  width: 80px;
+  vertical-align: middle;
+  color: #835151;
+  line-height: 15px;
+}
+.stockAlert h2 .code{
+  display: block;
+  margin-top: 5px;
+
+}
+.stockAlert li {
+  display: inline-block;
+  width: 170px;
+  vertical-align: middle;
+}
+.stockAlert .qte {
+  text-align: right;
+  font-weight: bold;
+  color: #835151;
+  display: inline-block;
+  width: 80px;
+  vertical-align: middle;
+}
+.closeButton {
+  background: none;
+  border:0;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  right: 5px;
+  font-size: 14px;
+  font-weight: normal;
+  color: #835151;
+  cursor: pointer;
 }

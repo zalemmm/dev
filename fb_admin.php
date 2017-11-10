@@ -2282,7 +2282,6 @@ function fbs_admin_head() {
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
   echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
   echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.increment.js"></script>';
-  echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.mousewheel.min.js"></script>';
 
 	if (isset($_GET['fbdet'])) {
   /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script>*/
@@ -2612,6 +2611,8 @@ function fb_admin_sales() {
 			}
 		}
 
+
+    fb_stock_alert();
 		echo '<table class="widefat widecenter"><tr><th><a href="'.$order_link.'">N° COMMANDE</a></th><th><a href="'.$client_link.'">CLIENT</a></th><th>DESCRIPTION</th><th><a href="'.$prix_link.'">PRIX</a></th><th><a href="'.$date_link.'">DATE</a></th><th><a href="'.$etat_link.'">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th></tr>';
 
 		foreach ($orders as $o) :
@@ -3157,6 +3158,7 @@ function fbadm_print_details($number) {
 	$fb_tablename_paiement_moy = $prefix."fbs_paiement_moy";
   $fb_tablename_stock = $prefix."fbs_stock_prods";
   $fb_tablename_entree = $prefix."fbs_stock_entree";
+  $fb_tablename_auto = $prefix."fbs_stock_auto";
   //----------------------------------------------------------------------------
 	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 	$ktoryuser = $order->user;
@@ -3219,6 +3221,8 @@ function fbadm_print_details($number) {
 		if ($newstat == 3) {
 			$nowadata = date('Y-m-d H:i:s');
 			$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
+      // appel fonction retrait stock auto
+      fb_stock_traitement($number);
 		} else {
 			$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='$newstat' WHERE unique_id='$number'");
 		}
@@ -3226,7 +3230,9 @@ function fbadm_print_details($number) {
 
   //------------------------------------------------- Passage en mode traitement
   if (isset($_POST['mode_traitement'])) {
-  traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users);
+    traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users);
+    // appel fonction retrait stock auto
+    fb_stock_traitement($number);
   }
 
   //---------------------------------------------------- Passage en mode expedie
@@ -3783,58 +3789,14 @@ function fbadm_print_details($number) {
 	echo '</div>';
 
   // fin envoi de fichiers /////////////////////////////////////////////////////
-  //////////////////////////////////////////////////// Commande en traitement //
 
+  //-------------------------------------------------- Commande en traitement //
   if($order->status==3 ){ // status 3 = traitement
     $wpdb->query("UPDATE `$fb_tablename_order` SET status_check='1' WHERE unique_id='$number'"); // check ok auto au passage en traitement
-  	passage_expedie();
-
-
-    //////////////////////////////////////////////////////// Scan contenu panier
-  	$descprod = '';
-
-  	foreach( $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$number'") as $key => $row) {
-  		$descprod = $row->description;
-      $desc = '';
-      $qte = '';
-      $codebarre = '';
-      $type = 'Sortie auto';
-
-      //------------------------------------------------------------------------
-      if(strripos($descprod, "first-line 80x200") == true){
-        $desc = '%first-line 80x200%';
-        $codebarre = '7777';
-      }
-      //------------------------------------------------------------------------
-      if(strripos($descprod, "best-line 60x160") == true){
-        $desc = '%best-line 60x160%';
-        $codebarre = '5555';
-      }
-      //------------------------------------------------------------------------
-      if(strripos($descprod, "best-line 60x200") == true){
-        $desc = '%best-line 60x200%';
-        $codebarre = '6666';
-      }
-      //------------------------------------------------------------------------
-      if(strripos($descprod, "best-line 85x200") == true){
-        $desc = '%best-line 85x200%';
-        $codebarre = '8888';
-      }
-      //------------------------------------------------------------------------
-      // si code barre différent de 0, on met à jours dans le stock les quantités de chaque produit de la commande
-      if ($codebarre != 0){
-        foreach( $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$number' and description like '$desc'")as $key => $row) {
-          $qte = $row->quantity;
-        }
-        fb_stock_auto($codebarre, -$qte, $type);
-      }
-
-  	}
-
-
+    passage_expedie();
   }
-  // fin commande en traitement ////////////////////////////////////////////////
-  /////////////////////////////////////////////////////// Commande en expédié //
+
+  //----------------------------------------------------- Commande en expédié //
   if($order->status==4 ){ // status 4 = expédié
     $wpdb->query("UPDATE `$fb_tablename_order` SET status_check='1' WHERE unique_id='$number'"); // check ok auto au passage en expédié
   }
@@ -6618,8 +6580,10 @@ function fb_admin_stock() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_stock = $prefix."fbs_stock_prods";
+  $fb_tablename_stock = $prefix."fbs_stock_prods";
   $fb_tablename_famille = $prefix."fbs_stock_fam";
   $fb_tablename_place = $prefix."fbs_stock_place";
+  $fb_tablename_auto = $prefix."fbs_stock_auto";
   $fb_tablename_fournisseurs = $prefix."fbs_stock_fournisseurs";
 	include(FBSHOP_URL . '/fb_simpleimage.php');
 	$path = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/stock/';
@@ -6696,6 +6660,10 @@ function fb_admin_stock() {
 			$nazwapliku = $rand.$f['name'];
 		}
 
+    $checked = $_POST['gestionAuto'];
+    if ($checked == '1') { // au check radio gestion auto on ajoute la désignation produit la bdd auto
+      $add_auto = $wpdb->query("INSERT INTO `$fb_tablename_auto` VALUES ('', '$s_designation', '$s_code', '' ) ");
+    }
 		$wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_stock` VALUES ('', '$nazwaplikumini', '$s_famille', '$s_code', '$s_ref', '$s_designation', '$s_fournisseur', '$s_quantite', '$s_mini', '$s_place','$s_volume', '$s_poids', '$s_PUA', '$s_PTA', '$s_PUV', '$s_PTV' ) ");
 	}
 
@@ -6771,8 +6739,19 @@ function fb_admin_stock() {
 				}
 			}
 		}
+    $checked = $_POST['gestionAuto'];
+    $checkedornot = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_auto` WHERE designation='$s_designation'");
+    if ($checked == '1') { // au check radio auto on ajoute la désignation à la bdd auto si elle n'y est pas déjà
+      if ($checkedornot!=1){
+        $add_auto = $wpdb->query("INSERT INTO `$fb_tablename_auto` VALUES ('', '$s_designation', '$s_code', '' ) ");
+      }
+    }else{
+      if ($checkedornot==1){ // au check non on efface la désignation produit de la bdd auto
+        $wpdb->query("DELETE FROM `$fb_tablename_auto` WHERE designation='$s_designation'");
+      }
+    }
     if(isset($_POST['modifier'])){
-      $updateowanie = $wpdb->query("UPDATE `$fb_tablename_stock` SET famille='$s_famille', code='$s_code', ref='$s_ref', designation='$s_designation', fournisseur='$s_fournisseur', quantite= '$s_quantite', mini= '$s_mini', place= '$s_place', volume= '$s_volume', poids= '$poids', PUA= '$s_PUA', PTA= '$s_PTA', PUV= '$s_PUV', PTV= '$s_PTV' WHERE id='$edit_id'");
+      $updateowanie = $wpdb->query("UPDATE `$fb_tablename_stock` SET famille='$s_famille', code='$s_code', ref='$s_ref', designation='$s_designation', fournisseur='$s_fournisseur', quantite= '$s_quantite', mini= '$s_mini', place= '$s_place', volume= '$s_volume', poids= '$s_poids', PUA= '$s_PUA', PTA= '$s_PTA', PUV= '$s_PUV', PTV= '$s_PTV' WHERE id='$edit_id'");
     }else if(isset($_POST['dupliquer'])){
       $wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_stock` VALUES ('', '$nazwaplikumini', '$s_famille', '$s_code', '$s_ref', '$s_designation', '$s_fournisseur', '$s_quantite', '$s_mini', '$s_place','$s_volume', '$s_poids', '$s_PUA', '$s_PTA', '$s_PUV', '$s_PTV' ) ");
     }
@@ -6780,7 +6759,7 @@ function fb_admin_stock() {
 	}
 
 	echo '<div class="form-wrap"><div id="col-container">';
-	echo '<div id="col-right" style="width:19%;margin-top:28px;">';
+	echo '<div id="col-right" style="width:22%;margin-top:38px;">';
 
   //-----------------------------------------------------------formulaire éditer
   if (isset($_POST[editprod])) {
@@ -6816,6 +6795,13 @@ function fb_admin_stock() {
   	echo '<p>Poids <input class="alignR" type="text" size="10" name="s_poids" value="'.$ed->poids.'" /></p>';
   	echo '<p>PUA: <input class="alignR" type="text" size="10" name="s_PUA" value="'.$ed->PUA.'" /></p>';
     echo '<p>PUV: <input class="alignR" type="text" size="10" name="s_PUV" value="'.$ed->PUV.'" /></p>';
+    $checkedornot = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_auto` WHERE designation='$ed->designation'");
+    if ($checkedornot==1){
+      echo '<p>Gestion automatique: <input class="radioBtn" type="radio" name="gestionAuto" value="1" checked />Oui <input class="radioBtn" type="radio" name="gestionAuto" value="0" />Non</p>';
+    }else{
+      echo '<p>Gestion automatique: <input class="radioBtn" type="radio" name="gestionAuto" value="1" />Oui <input class="radioBtn" type="radio" name="gestionAuto" value="0" checked />Non</p>';
+    }
+
 
   	echo '<p style="display:none;">Photo: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'</p>';
   	echo '<p>Thumbnail: <br /><input type="file" name="uploadfilemini" /> '.$ed->photo.'</p>';
@@ -6854,7 +6840,7 @@ function fb_admin_stock() {
   	echo '<p>Poids <input class="alignR" type="text" size="10" name="s_poids" placeholder="poids kg" /></p>';
   	echo '<p>PUA: <input class="alignR" type="text" size="10" name="s_PUA" placeholder="PUA &euro;" /></p>';
     echo '<p>PUV: <input class="alignR" type="text" size="10" name="s_PUV" placeholder="PUV &euro;" /></p>';
-
+    echo '<p>Gestion automatique: <input class="radioBtn" type="radio" name="gestionAuto" value="1" />Oui <input class="radioBtn" type="radio" name="gestionAuto" value="0" checked />Non</p>';
   	echo '<p style="display:none;">Photo: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
   	echo '<p>Thumbnail: <br /><input type="file" name="uploadfilemini" /></p>';
 
@@ -6978,7 +6964,7 @@ function fb_admin_stock() {
   //-----------------------------------------------------------affichage tableau
 
   echo '<h1>Gestion de stock <a class="stockbtn" href="admin.php?page=fb-stock" style="background:#26a7d9">Produits</a> <a class="stockbtn" href="admin.php?page=fb-fournisseurs">Fournisseurs</a> <a class="stockbtn" href="admin.php?page=fb-entree">Entrées/Sorties</a></h1>';
-	echo '<div id="col-left" style="width:80%;margin-top:13px;">';
+	echo '<div id="col-left" style="width:77%;margin-top:13px;">';
 	echo '<table class="widefat widecenter fixed nopad" id="mywidefat" cellspacing="0"><thead><tr>
     <th>Photo</th>
     <th><a href="'.$fam_link.'">Famille</a></th>
@@ -6996,6 +6982,7 @@ function fb_admin_stock() {
     <th class="hideEditor" style="width:30px">PTA</th>
     <th class="hideEditor" style="width:30px">PUV</th>
     <th class="hideEditor" style="width:30px">PTV</th>
+    <th style="width:15px">A</th>
     <th style="width:55px">Modifier</th>
   </tr></thead>';
 
@@ -7003,8 +6990,9 @@ function fb_admin_stock() {
 
 		//$n_price = str_replace('.', ',', $s[price]).' &euro;';
 		//$n_frais = str_replace('.', ',', $s[frais]).' &euro;';
-
+    $auto = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_auto` WHERE code='$s[code]'");
     $fr = $wpdb->get_row("SELECT * FROM `$fb_tablename_fournisseurs` WHERE nom='$s[fournisseur]'");
+
 		$viewmini = '';
 		if ($s[photo]) {
 			$viewmini = '<img src="'.get_bloginfo('url').'/wp-content/uploads/stock/mini'.$s[photo].'" alt="" />';
@@ -7033,7 +7021,13 @@ function fb_admin_stock() {
         <td class="hideEditor">'.$s[PUA].'</td>
         <td class="hideEditor colalt">'.$s[PTA].'</td>
         <td class="hideEditor">'.$s[PUV].'</td>
-        <td class="hideEditor colalt">'.$s[PTV].'</td>
+        <td class="hideEditor colalt">'.$s[PTV].'</td>';
+        if ($auto==1){
+          echo '<td class="hideEditor">1</td>';
+        }else{
+          echo '<td class="hideEditor">0</td>';
+        }
+    echo '
         <td>
           <form name="delstock" action="" method="post">
             <input type="hidden" name="delstock" value="'.$s[Id].'" />
@@ -7080,7 +7074,7 @@ function fb_admin_fournisseurs() {
   }
 
 	echo '<div class="form-wrap"><div id="col-container">';
-	echo '<div id="col-right" style="width:19%;margin-top:28px;">';
+	echo '<div id="col-right" style="width:22%;margin-top:38px;">';
 
   //-----------------------------------------------------------formulaire éditer
   if (isset($_POST['edit'])) {
@@ -7127,7 +7121,7 @@ function fb_admin_fournisseurs() {
 
   //-----------------------------------------------------------affichage tableau
   echo '<h1>Gestion de stock <a class="stockbtn" href="admin.php?page=fb-stock">Produits</a> <a class="stockbtn" href="admin.php?page=fb-fournisseurs" style="background:#26a7d9">Fournisseurs</a> <a class="stockbtn" href="admin.php?page=fb-entree">Entrées/Sorties</a></h1>';
-	echo '<div id="col-left" style="width:80%;margin-top:13px;">';
+	echo '<div id="col-left" style="width:77%;margin-top:13px;">';
 	echo '<table class="widefat widecenter fixed nopad" id="mywidefat" cellspacing="0"><thead><tr>
     <th>Nom</th>
     <th>Contact</th>
@@ -7171,7 +7165,7 @@ function fb_admin_entree() {
   $fb_tablename_entree = $prefix."fbs_stock_entree";
 
   echo '<div class="form-wrap"><div id="col-container">';
-	echo '<div id="col-right" style="width:19%;margin-top:28px;">';
+	echo '<div id="col-right" style="width:22%;margin-top:38px;">';
 
   //----------------------------------------------------formulaire entrée simple
   if (isset($_POST['ajouter'])) {
@@ -7190,22 +7184,21 @@ function fb_admin_entree() {
         $type = 'Entrée manuelle';
       }
 
-      fb_stock_auto($encode, $enqte, $type);
+      fb_stock_auto($encode, $enqte, $type, $encom);
     }
   }
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Stock + / -</span></h3><div class="inside">';
   echo '<form name="addst" id="addst" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="ajouter" value="" />';
 
-  echo '<p>Code Barre: <input class="alignR" type="text" name="encode" placeholder="code barre" /><span class="error">* '.$codeErr.'</span></p>';
-  echo '<p>Quantité: <input class="alignR" type="text" name="enqte" id="enqte" value="1" /></p>';
-  echo '<p>Commentaire: <input class="alignR" type="textarea" name="encom" placeholder="commentaire" /></p>';
+  echo '<p>Code: <input class="alignR" type="text" name="encode" placeholder="code barre" /><span class="error">* '.$codeErr.'</span></p>';
+  echo '<p>Quantité: <input class="alignR" type="text" name="enqte" value="1" /></p>';
+  echo '<p>Com: <input class="alignR" type="text" name="encom" placeholder="commentaire" /></p>';
 
   echo '<input type="submit" value="save" class="savebutt5" /></form>';
   echo '</div></div></div>';
-  echo '<script>
-    jQuery("#enqte").increment({ minVal: -100, maxVal: 100 });
-  </script>';
-  //------------------------------------------------------formulaire entrée scan
+  //echo '<script>jQuery("#enqte").increment({ minVal: -100, maxVal: 100 });</script>';
+
+  //--------------------------------------------------formulaire entrée multiple
   if (isset($_POST['multiple'])) {
     $codeErr = '';
     if (empty($_POST["multi"])) {
@@ -7214,10 +7207,10 @@ function fb_admin_entree() {
       // on sépare chaque ligne dans une rangée tableau
       $text = trim($_POST['multi']);
       $text = explode ("\n", $text);
-      $text = array_unique($text, SORT_REGULAR); // cette opération supprime les doublons des logs de la scanette
-      array_pop($text); // enlève la dernière ligne du tableau car on sait pas pourquoi la fonction précédente fait le boulot sauf pour la dernière ligne qui reste dupliquée....
+      $text = array_unique($text, SORT_REGULAR);
+      array_pop($text);
 
-      print_r($text);
+      //print_r($text);
       // on crée un tableau où pour chaque ligne arr[0] = I/O soit Entrée ou Sortie, arr[1] = code barre, arr[2] = quantité
       foreach ($text as $line) {
         $arr = explode(';', $line);
@@ -7231,7 +7224,7 @@ function fb_admin_entree() {
           $mvt = -$arr[2];
         }
 
-        fb_stock_auto($arr[1], $mvt, $type);
+        fb_stock_auto($arr[1], $mvt, $type, '-');
       }
     }
   }
@@ -7252,18 +7245,18 @@ function fb_admin_entree() {
 
   //-----------------------------------------------------------affichage tableau
   echo '<h1>Gestion de stock <a class="stockbtn" href="admin.php?page=fb-stock">Produits</a> <a class="stockbtn" href="admin.php?page=fb-fournisseurs">Fournisseurs</a> <a class="stockbtn" href="admin.php?page=fb-entree" style="background:#26a7d9">Entrées/Sorties</a></h1>';
-	echo '<div id="col-left" style="width:80%;margin-top:13px;">';
+	echo '<div id="col-left" style="width:77%;margin-top:13px;">';
   echo '<table class="widefat widecenter fixed nopad" id="mywidefat" cellspacing="0"><thead><tr>
-    <th>Date</th>
+    <th style="width:60px">Date</th>
     <th>Famille</th>
     <th>Designation</th>
     <th>Fournisseur</th>
     <th>Code</th>
     <th>Type</th>
-    <th style="width:60px">Quantité</th>
-    <th>Commentaire</th>
-    <th style="width:60px">Qté total</th>
-    <th style="width:60px">Minimum</th>
+    <th style="width:40px">Qté</th>
+    <th style="width:160px">Commentaire</th>
+    <th style="width:30px">Stock</th>
+    <th style="width:30px">Min</th>
   </tr></thead>';
 
   foreach ($entree as $e) :
@@ -7276,9 +7269,18 @@ function fb_admin_entree() {
         <td class="colalt">'.$s->famille.'</td>
         <td>'.$s->designation.'</td>
         <td class="colalt">'.$s->fournisseur.'</td>
-        <td>'.$e[code].'</td>
-        <td class="colalt">'.$e[type].'</td>
-        <td>'.$e[mvt].'</td>
+        <td>'.$e[code].'</td>';
+        if (strpos($e[type], 'Sortie') !== false) {
+          echo '<td class="colalert">'.$e[type].'</td>';
+        }else{
+          echo '<td class="colgood">'.$e[type].'</td>';
+        }
+        if ($e[mvt] < 0) {
+          echo '<td class="colalert">'.$e[mvt].'</td>';
+        }else{
+          echo '<td class="colgood">'.$e[mvt].'</td>';
+        }
+    echo '
         <td class="colalt">'.$e[com].'</td>
         <td>'.$s->quantite.'</td>
         <td class="colalt">'.$s->mini.'</td>
@@ -7290,9 +7292,44 @@ function fb_admin_entree() {
 	echo '</div></div>';
 }
 
-///////////////////////////////////////////////////////////// fonction maj stock
+///////////////////////////////////////////// maj stock au passage en traitement
+function fb_stock_traitement($number) {
+  global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_prods = $prefix."fbs_prods";
+  $fb_tablename_auto = $prefix."fbs_stock_auto";
+  $produits = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$number'");
 
-function fb_stock_auto($barcode, $mvt, $type) {
+  // on scanne la description de chaque produit dans la commande
+  foreach($produits as $p) {
+    $descprod = $p->description;
+    $qte = $p->quantity;
+    $desc = '';
+    $codebarre = '';
+    $text = '';
+    $type = 'Sortie auto';
+
+    // on extrait de la description la première ligne qui doit correspondre à la désignation produit dans la base stock_auto
+    $text = trim($descprod);
+    $text = str_replace('- ', '', $descprod);
+    $arr = explode("<br />", $text);
+    //print_r($arr);
+    $desc = $arr[0];
+    echo $desc.'<br />';
+
+    // pour chaque description qui matche avec la base stock_auto, on récupère le code barre et on enlève la qté correspondante au stock
+    $ga = $wpdb->get_results("SELECT * FROM `$fb_tablename_auto` WHERE designation='$desc'");
+    foreach($ga as $g){
+      $codebarre = $g->code;
+      fb_stock_auto($codebarre, -$qte, $type, $number);
+    }
+    //--------------------------------------------------------------------------
+  } // fin foreach produit
+//------------------------------------------------------------------------------
+}
+
+///////////////////////////////////////////////////////////// fonction maj stock
+function fb_stock_auto($barcode, $mvt, $type, $com) {
   global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_stock = $prefix."fbs_stock_prods";
@@ -7308,7 +7345,45 @@ function fb_stock_auto($barcode, $mvt, $type) {
   $ptv = $bddpuv*$qte;
   $curDate = date('Y-m-d H:i:s');
   $upd_stock = $wpdb->query("UPDATE `$fb_tablename_stock` SET quantite='$qte', PTA='$pta', PTV='$ptv' WHERE code='$barcode'");
-  $upd_entree = $wpdb->query("INSERT INTO `$fb_tablename_entree` VALUES ('', '$curDate', '$type', '$mvt', '', '$barcode') ");
+  $upd_entree = $wpdb->query("INSERT INTO `$fb_tablename_entree` VALUES ('', '$curDate', '$type', '$mvt', '$com', '$barcode') ");
+}
+
+///////////////////////////////////////////////////////// fonction alertes stock
+function fb_stock_alert() {
+  global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_stock = $prefix."fbs_stock_prods";
+  $fb_tablename_entree = $prefix."fbs_stock_entree";
+
+  $stock = $wpdb->get_results("SELECT * FROM `$fb_tablename_stock` ORDER BY famille", ARRAY_A);
+
+  //-------------------------------------------------------------------affichage
+  foreach ($stock as $s){
+    if ($s[quantite] < $s[mini]) {
+      echo '<div class="stockAlert"><h2>Alerte stock!<br /> <span class="code">'.$s[code].'</span></h2><button class="closeButton"><i class="fa fa-times" aria-hidden="true"></i></button>';
+      //$en = $wpdb->get_row("SELECT * FROM `$fb_tablename_entree` WHERE code='$s[code]'");
+  		echo '
+      <li>
+        <span>'.$s[famille].'</span>
+        <span>'.$s[designation].'</span><br />
+        <span>'.$s[fournisseur].'</span>
+
+      </li>
+      <div class="qte">
+        <span>Reste: '.$s[quantite].'</span><br />
+        <span>Min: '.$s[mini].'</span>
+      </div>
+
+      ';
+  	echo '</div>';
+    }
+  }
+  //----------------------------------------------------------------close alerts
+  echo '<script>
+    jQuery(document).on("click", ".closeButton", function() {
+      jQuery(this).parent().fadeOut();
+    });
+  </script>';
 }
 // fin gestion stock ///////////////////////////////////////////////////////////
 ?>

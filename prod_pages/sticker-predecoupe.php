@@ -119,7 +119,6 @@
 
 				<li class="form-line" id="id_9a">
 					<div class="form-input-wide">
-						<div id="form-button-error2"></div>
 						<button id="input_9a" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 					</div>
 				</li>
@@ -235,20 +234,17 @@
 			var rabat          = 0; var rabat2=0;
 			var suma           = 0; var suma2=0;
 			var transport      = 0;
-			var ktorytyp       = '';
+			var designation    = '';
 			var cedzik         = '';
 			var prliv          = '';
 			var date_panier    = '';
-			var dodatkowaopcja = '';
 			var metraz         = 0;
 			var largeur      = 0;
 			var hauteur       = 0;
 			var option2        = 0;
-			var cedzik         = '';
-			var niepokazuj     = 0;
+			var erreurType     = 0;
 			var eBox           = document.getElementById('form-button-error2');
 			eBox.innerHTML     = '';
-			var ktorytyp       = '';
 			var ktorapodstawa  = '';
 			var tape           = '';
 			var ilosc          = $('input_7').value;
@@ -267,14 +263,14 @@
 
 			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent') && ($('input_4').value == 'Pas de film de pose') ) {
-				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				designation='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0030;
 			}
 			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent') && ($('input_4').value == 'tape') ) {
-				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				designation='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0045;
@@ -282,14 +278,14 @@
 			}
 			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'semi-permanent') && ($('input_4').value == 'Pas de film de pose') ) {
-				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				designation='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0030;
 			}
 			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'semi-permanent') && ($('input_4').value == 'tape') ) {
-				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				designation='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0045;
@@ -297,14 +293,14 @@
 			}
 			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent75μ') && ($('input_4').value == 'Pas de film de pose') ) {
-				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				designation='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.0065;
 			}
 			//------------------------------------------------------------------------
 			if ( ($('input_1').value == 'permanent75μ')  && ($('input_4').value == 'tape') ) {
-				ktorytyp='Sticker prédécoupé / Forme personnalisée';
+				designation='Sticker prédécoupé / Forme personnalisée';
 				ktorapodstawa = ($('input_1').value);
 				tape = ($('input_4').value);
 				cena = metraz*0.008;
@@ -353,7 +349,7 @@
 
 			/////////////////////////////////////////////// affichage jours livraison //
 			var myClass = jQuery(this).attr("class");
-			var niepokazuj = 0;
+			var erreurType = 0;
 
 			var n = myClass.search("production");
 			if (n != -1) {
@@ -490,7 +486,7 @@
 					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
 
-				finalPrice1=fixstr(finalPrice);
+				var finalPrice1=fixstr(finalPrice);
 				finalPrice2 = finalPrice1.replace(".", ",");
 
 				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
@@ -512,9 +508,9 @@
 			cena2 = prixunite.replace(".", ",")
 			//////////////////////////////////////////////////////////////////////////
 
-			var niepokazuj = 0;
+			var erreurType = 0;
 
-			if (niepokazuj==1) {
+			if (erreurType==1) {
 				prix.innerHTML='-';
 				remise.innerHTML='-';
 				total.innerHTML='-';
@@ -529,22 +525,22 @@
 			//////////////////////////////////////////////////// messages d'erreur  //
 			if ( (largeur > 103) && (hauteur > 103) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
-				niepokazuj=1;
+				erreurType=1;
 			}
 
 			if ( ((largeur < 10) || (hauteur < 10)) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
-				niepokazuj=1;
+				erreurType=1;
 			}
 
 
 			if ( ($('input_4').value == 'tape') && (largeur > 103) && (hauteur > 103) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
-				niepokazuj=1;
+				erreurType=1;
 			}
 
 				////////////////////////////////////////////////////// envoi formulaire //
-			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+			if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 				suma=cena-rabat;
 				suma=fixstr(suma);
 				suma2 = suma.replace(".", ",");
@@ -553,7 +549,7 @@
 				var forfait = 29 - suma;
 				if (forfait > 0) {
 					forfait = fixstr(forfait);
-					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+					jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
 					var newoption = parseFloat(forfait);
 					newoption=fixstr(newoption);
 					newoption2 = newoption.replace(".", ",");
@@ -570,7 +566,7 @@
 
 
 				var dodajkoszyk = document.getElementById("cart_form");
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+ktorytyp+dodatkowaopcja+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+largeur+' x '+hauteur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Stickers" /><input type="hidden" name="opis" value="- '+$('input_1').value+'<br />- '+designation+'<br />- '+ktodaje+cedzik+etiqdesc+prliv+'</br>- '+largeur+' x '+hauteur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 				livraisonComp.style.display = 'block';
 			}else{
 				suma='-';

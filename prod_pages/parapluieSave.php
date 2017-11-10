@@ -10,7 +10,7 @@
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0" style="visibility:hidden;">
               <b>Stand tissu EasyQuick: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
-              <b>Stand ExpoBag: <span class="highlight">Dès 678€</span></b><br/>stand complet avec un mur d'image 200x220cm en bâche PVC 520g M1 ou en tissu 220g B1 avec visuel 220x240cm + 2 roll-up + valise - comptoir d'accueil avec tablette (visuel en tissu 220gr B1 ou en PVC 300µ) + présentoir documents 4 poches.<br/>
+              <b>Stand ExpoBag: <span class="highlight">Dès 678€</span></b><br/>stand complet avec mur d'image 200x220cm + 2 roll-up + valise - comptoir d'accueil + présentoir documents 4 poches.<br/>
               <b>Stand parapluie révolution: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
               <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
               <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
@@ -24,39 +24,6 @@
             <!--<option value="Stand parapluie">stand parapluie révolution avec kit (valise + tablette + spot)</option>-->
             <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
             <option value="valise">valise transformable en bank d'accueil + tablette</option>
-          </select>
-        </li>
-
-        <li class="form-line" id="id_photocall">
-          <span class="helpButton" onmouseover="pokazt('helpTextphotocall');" onmouseout="ukryjt('helpTextphotocall');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextphotocall" style="visibility:hidden;">
-              <b>PVC Dickson Jet 520g M1: </b><br/>choissez d'imprimer le visuel du mur d'image sur de la bâche PVC Dickson Jet 520g M1 ou du tissu stretch léger 220g B1.<br />
-              <b>tissu stretch léger 220g B1:</b><br/>choissez d'imprimer le visuel du mur d'image sur de la bâche PVC Dickson Jet 520g M1 ou du tissu stretch léger 220g B1.<br />
-            </span>
-          </span>
-
-          <select class="form-dropdown validate[required]" id="input_photocall" name="qphotocall_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir le support du mur d'image</option>
-            <option value="jet 520 M1">bâche PVC 520g M1 / visuel 200x220cm</option>
-            <option value="tissu 220g">tissu 220g B1 / visuel 220x240cm</option>
-          </select>
-        </li>
-
-        <li class="form-line" id="id_valise">
-          <span class="helpButton" onmouseover="pokazt('helpTextvalise');" onmouseout="ukryjt('helpTextvalise');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextvalise" style="visibility:hidden;">
-              <b>PVC 300µ: </b><br/>choissez d'imprimer le visuel de votre valise sur du PVC 300µ.<br />Taille finale 140x85cm<br />
-              <b>Tissu 220g B1: </b><br/>choissez d'imprimer le visuel de votre valise sur du tissu stretch léger 220g B1.<br />Taille finale 178x85cm<br />
-            </span>
-          </span>
-
-          <select class="form-dropdown validate[required]" id="input_valise" name="qvalise_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir le support pour le visuel de la valise</option>
-            <option value="PVC 300µ">PVC 300µ / visuel 140x85cm</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1 / visuel 178x85cm</option>*
-            <option value="sans impression">Valise sans impression</option>
           </select>
         </li>
 
@@ -106,7 +73,7 @@
           <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText3" style="visibility:hidden;">
-              <b>2 Spots halogène 35w: <span class="highlight">Dès 50,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
+              <b>2 Spots halogène 35w: <span class="highlight">Dès 80,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
             </span>
           </span>
 
@@ -180,39 +147,6 @@
             <option value="">choisir le tissu</option>
             <option value="tissu 220g">tissu stretch léger 220g B1</option>
             <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
-          </select>
-        </li>
-
-        <li class="form-line" id="id_0222">
-          <span class="helpButton" onmouseover="pokazt('helpText0222');" onmouseout="ukryjt('helpText0222');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText0222" style="visibility:hidden;">
-              <b>tissu 220g B1:</b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1:</b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_0222" name="q0222_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir le tissu</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
-          </select>
-        </li>
-
-        <li class="form-line" id="id_022">
-          <span class="helpButton" onmouseover="pokazt('helpText022');" onmouseout="ukryjt('helpText022');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText022" style="visibility:hidden;">
-              <b>tissu 220g B1: <span class="highlight">dès 12€/m²</span></b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_022" name="q022_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir sur support d'impression</option>
-            <option value="PVC 300µ">PVC 300µ M1</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
-            <option value="sans visuel">sans visuel</option>
-
           </select>
         </li>
 
@@ -328,7 +262,8 @@
 
         <li id="id_18" class="form-line id_18" style="top:14px">
             <div class="form-input-wide">
-              <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
+            <div id="form-button-error2"></div>
+                    <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
             </div>
         </li>
         <li style="display:none">
@@ -434,10 +369,10 @@ jQuery(document).ready(function(){
     var rabat          = 0;   var rabat2   = 0;
     var suma           = 0;   var suma2    = 0;
     var tissu220       = 0;   var tissu260 = 0;
-    var scratch        = 0;
+    var scratch        = 0;   var maquette = '';
     var ktorytyp       = '';
-    var optliv         = '';
-    var designation    = '';
+    var cedzik         = '';
+    var designation = '';
     var tissu          = '';
     var structure      = '';
     var pack           = '';
@@ -454,7 +389,7 @@ jQuery(document).ready(function(){
     //////////////////////////////////////////////////////////// recto simple //
     if ($('input_0').value == 'Tissu') {
       trans = 15;
-      var rodzaj = "Stand Tissu";
+      var famille = "Stand Tissu";
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x1 R' ) {
         scratch = 7.7;
@@ -687,20 +622,12 @@ jQuery(document).ready(function(){
     // Comptoir Easy Quick seul ////////////////////////////////////////////////
 
     if ($('input_0').value == 'Comptoir Easy Quick') {
-      var rodzaj = "Comptoir";
+      var famille = "Comptoir";
 
-		if ($('input_0222').value == 'tissu 220g' ) {
-    		tissu = 20*4;//4=coeff //
-    		designation += '<br />- Tissu 220g';
-    	}
-		if ($('input_0222').value == 'tissu 260g' ) {
-    		tissu = 26*4;//prix du site x coeff //
-    		designation += '<br />- Tissu 260g';
-    	}
-
-      structure = 120*1.40;//1.40 = coeff //
+      tissu = 20*4;//*4 = coeff marge fb//
+      structure = 120*1.40;//1.40 = coeff marge ultima//
       trans = 10;
-      cena = tissu + structure + trans + scratch;
+      cena = tissu + structure + trans;
       designation += '<br />- Comptoir Easy Quick';
 
       hauteur = 102.4;
@@ -709,30 +636,9 @@ jQuery(document).ready(function(){
 
     // valise seule ////////////////////////////////////////////////////////////
     if ($('input_0').value == 'valise') {
-      var rodzaj = "Valise";
-	  scratch =5.5
-	  trans = 20
-	  structure = 142*1.40
-	 cena = tissu + structure + trans + scratch;
-	 if ($('input_022').value == 'tissu 220g' ) {
-    		tissu = 17.90*4;//4=coeff //
-    		designation += '<br />- Tissu 220g';
-    	}
-		if ($('input_022').value == 'tissu 260g' ) {
-    		tissu = 23.25*4;//4=coeff //
-    		designation += '<br />- Tissu 260g';
-    	}
-		if ($('input_022').value == 'PVC 300µ' ) {
-    		tissu = 13.86*2;//2=coeff //
-    		designation += '<br />- PVC 300µ';
-    	}
-		if ($('input_022').value == 'sans visuel' ) {
-    		tissu = 0;//2=coeff //
-    		designation += '<br />- Sans Impression';
-    	}
-	 cena = tissu + structure + trans + scratch;
+      var famille = "Valise";
 
-       ////////// PA + transport
+      cena += 249+20; ////////// PV + transport
       designation += '<br />- Valise de transport/Bank d\'accueil';
 
       hauteur = 90;
@@ -741,36 +647,16 @@ jQuery(document).ready(function(){
 
     // Stand expo bag //////////////////////////////////////////////////////////
     if ($('input_0').value == 'Stand ExpoBag') {
-      var rodzaj = "Stand ExpoBag";
-	    var rollup = 90; var portedocument = 35; var spot = 0; var photocall = 0; var valise = 0;
+      var famille = "Stand ExpoBag";
 
-	  if ($('input_photocall').value == 'jet 520 M1' ) {
-    		photocall = 190;
-    		designation += '- Mur d\'image en bâche 520g M1';
-    	}
-	  if ($('input_photocall').value == 'tissu 220g' ) {
-    		photocall = 205;
-    		designation += '- Mur d\'image en tissu 220g B1';
-    	}
-
-	  if ($('input_valise').value == 'tissu 220g' ) {
-    		valise = 260;
-    		designation += '<br />- Visuel de la valise en tissu 220g B1';
-    	}
-	  if ($('input_valise').value == 'PVC 300µ' ) {
-    		valise = 240;
-    		designation += '<br />- Visuel de la valise en PVC 300µ';
-    	}
-	  if ($('input_valise').value == 'sans impression' ) {
-    		valise = 215;
-    		designation += '<br />- Valise sans impression';
-    	}
-	  if ($('input_2').value == '1' ) {
-    		spot = 50;
+    	pack = 649;
+    	trans = 29;
+    	cena = pack+trans;
+    	if ($('input_2').value == '1' ) {
+    		cena = cena+80;
     		designation += '<br />- 2 spots hallogene 35w aluminium';
     	}
-
-    	cena = rollup+portedocument+photocall+valise+spot;
+      designation += '<br />- Stand ExpoBag';
 
       hauteur = 220;
       largeur = 240;
@@ -836,7 +722,7 @@ jQuery(document).ready(function(){
     if ($('input_0').value == 'Comptoir tissu Easy Quick') {javascript: Masquer2();}
 
     //////////////////////////////////////////////////////////// choix maquette //
-    var maquette;
+
     if ($('input_7').value == 'fb') {
     	cena+=40/ilosc;
     	maquette = 'France banderole crée la maquette';
@@ -863,7 +749,7 @@ jQuery(document).ready(function(){
   	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
   	if (colis == true) {
   			cena += 5.00;
-  			optliv += '<br />- colis revendeur';
+  			cedzik += '<br />- colis revendeur';
   	}
 
     /////////////////////////////////////////////////////////// total produit //
@@ -874,6 +760,7 @@ jQuery(document).ready(function(){
 
     /////////////////////////////////////////////// affichage jours livraison //
     var myClass = jQuery(this).attr("class");
+    var niepokazuj = 0;
 
     var n = myClass.search("production");
     if (n != -1) {
@@ -1010,7 +897,7 @@ jQuery(document).ready(function(){
         jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
       }
 
-      var finalPrice1=fixstr(finalPrice);
+      finalPrice1=fixstr(finalPrice);
       finalPrice2 = finalPrice1.replace(".", ",");
 
       jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
@@ -1033,9 +920,9 @@ jQuery(document).ready(function(){
     cena2 = prixunite.replace(".", ",")
     ////////////////////////////////////////////////////////////////////////////
 
-    var erreurType = 0;
+    var niepokazuj = 0;
 
-    if (erreurType==1) {
+    if (niepokazuj==1) {
     	prix.innerHTML='-';
     	remise.innerHTML='-';
     	total.innerHTML='-';
@@ -1048,7 +935,7 @@ jQuery(document).ready(function(){
     else {livraisonrapide.style.display = 'none';}
     ////////////////////////////////////////////////////////////////////////////
 
-    if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+    if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
       suma=cena-rabat;
       suma=fixstr(suma);
       suma2 = suma.replace(".", ",");
@@ -1062,7 +949,7 @@ jQuery(document).ready(function(){
 			////////////////////////////////////////////////////// envoi formulaire //
 
     	var dodajkoszyk = document.getElementById("cart_form");
-    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value=" '+designation+'<br />- '+maquette+optliv+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+famille+'" /><input type="hidden" name="opis" value=" '+designation+'<br />- '+maquette+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
       livraisonComp.style.display = 'block';
 		}
 	}); // fin prod/delivery click function

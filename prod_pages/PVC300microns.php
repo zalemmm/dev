@@ -54,8 +54,8 @@
           <label class="form-label-left label-highlight" id="label_4" for="input_4">quantité :<br /><span class="small">(par visuel)</span></label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_4" name="q4_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); "  data-rule="quantity" />
 					<div class="spinner-controls">
-	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+	   			 <a href="javascript:;" data-spin="up"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	   			 <a href="javascript:;" data-spin="down"><i class="fa fa-minus" aria-hidden="true"></i></a>
 			  	</div>
         </li>
 
@@ -126,7 +126,6 @@
 
       <li class="form-line" id="id_9a">
         <div class="form-input-wide">
-          <div id="form-button-error2"></div>
           <button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
         </div>
       </li>
@@ -603,7 +602,7 @@
       	if (forfait > 0){
 
       		forfait = fixstr(forfait);
-      		eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>FORFAIT '+forfait+' &euro;<br />';
+      		jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
       		var newoption = parseFloat(forfait);
       		newoption=fixstr(newoption);
       		newoption2 = newoption.replace(".", ",");
@@ -619,7 +618,7 @@
 
       	var rodzaj = "PVC 300 microns";
       	var dodajkoszyk = document.getElementById("cart_form");
-      	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+largeur+' x '+hauteur+'cm'+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit">Suivant <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
+      	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+'</br>- '+largeur+' x '+hauteur+'cm'+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
       }else{
 				suma='-';
 				suma2 = '-';

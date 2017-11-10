@@ -12,8 +12,7 @@
               • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
               • <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>
               • <u><b>Kakemono Extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />
-              • <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.<br />
-              • <u><b>Kakémono tissu</u>: <span class="highlight">Dès 196,23€</span></b><br/>Totem tissu avec sa structure en aluminium (grande visibilité des messages)
+              • <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();  ">
@@ -21,7 +20,6 @@
             <option class="option1"  value="Extérieur">Kakemono Extérieur</option>
             <option class="option2"  value="x-screen">Kakemono X-Screen </option>
             <option class="option1" value="clipit">Kakemono Clip'it </option>
-            <option class="option2" value="Kakemono Tissu">Kakemono Tissu </option>
           </select>
         </li>
 
@@ -29,6 +27,8 @@
           <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText2" style="visibility:hidden;">
+              • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
+              • <u><b>Kakemono suspendu Clip'it </u>: <span class="highlight">Dès 8,50€</span></b><br/>Toutes les tailles pour toutes vos suspensions, PLV, tête de gondole (crochet + nylon fourni).<br/>
               • <u><b>Kakemono extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />
               • <u><b>Roll-up extérieur Mistral</u>: <span class="highlight">Dès 184,00€</span></b><br/>Rollup extérieur double RECTO et VERSO 80x200cm, résiste au vent jusqu'à 65 km/h.
             </span>
@@ -43,7 +43,7 @@
         <li class="form-line" id="id_21">
           <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText21');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText21" style="visibility:hidden;">Choisissez la taille du Kakémono <b>Blizzard</b></span>
+            <span class="helpText" id="helpText21" style="visibility:hidden;">infos</span>
           </span>
           <select class="form-dropdown validate[required]" id="input_21" name="q21_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille du blizzard...</option>
@@ -52,9 +52,9 @@
           </select>
         </li>
         <li class="form-line" id="id_22">
-          <span class="helpButton" onmouseover="pokazt('helpText22');" onmouseout="ukryjt('helpText22');">
+          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText22');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText22" style="visibility:hidden;">Choisissez la taille du Kakémono <b>Mistral</b></span>
+            <span class="helpText" id="helpText22" style="visibility:hidden;">infos</span>
           </span>
           <select class="form-dropdown validate[required]" id="input_22" name="q22_dimensions4" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir la taille du mistral...</option>
@@ -66,50 +66,12 @@
          <li class="form-line" id="id_23">
           <span class="helpButton" onmouseover="pokazt('helpText23');" onmouseout="ukryjt('helpText23');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText23" style="visibility:hidden;"><b>Option</b> sac à dos de transport</span>
+            <span class="helpText" id="helpText23" style="visibility:hidden;">infos </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_23" name="q23_maquette23" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir une option...</option>
             <option class="option1" value="aucune">aucune</option>
             <option class="option2" value="sac">sac à dos de transport noir </option>
-          </select>
-        </li>
-        
-        
-         <li class="form-line" id="id_24">
-          <span class="helpButton" onmouseover="pokazt('helpText24');" onmouseout="ukryjt('helpText24');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText24" style="visibility:hidden;">
-            <b>tissu 220g B1: </b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-             <b>tissu 260g B1: </b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_24" name="q24_maquette24" onclick="JKakemono.czyscpola(); ">
-            <option class="titre" value="">choisir le support...</option>
-            <option class="option1" value="tissu 220g">tissu stretch léger 220g B1</option>
-			<option class="option2" value="tissu 260g">tissu stretch extensible 260g B1</option>
-          </select>
-        </li>
-        
-         <li class="form-line" id="id_25">
-          <span class="helpButton" onmouseover="pokazt('helpText25');" onmouseout="ukryjt('helpText25');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText24" style="visibility:hidden;">Choisissez la taille de votre <b>totem</b></span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_25" name="q25_maquette25" onclick="JKakemono.czyscpola(); ">
-            <option class="titre" value="">choisir la taille...</option>
-            <optgroup label="Recto">
-           	 	<option class="option1" value="60x230 recto">60x230cm (LxH) recto</option>
-				<option class="option2" value="90x230 recto">90x230cm (LxH) recto</option>
-            	<option class="option1" value="120x230 recto">120x230cm (LxH) recto</option>
-            	<option class="option2" value="150x230 recto">150x230cm (LxH) recto</option>
-            </optgroup>
-             <optgroup label="Recto Verso">
-           	 	<option class="option1" value="60x230 recto/verso">60x230cm (LxH) recto/verso</option>
-				<option class="option2" value="90x230 recto/verso">90x230cm (LxH) recto/verso</option>
-            	<option class="option1" value="120x230 recto/verso">120x230cm (LxH) recto/verso</option>
-            	<option class="option2" value="150x230 recto/verso">150x230cm (LxH) recto/verso</option>
-            </optgroup>
           </select>
         </li>
 
@@ -131,12 +93,12 @@
           <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText51');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText31" style="visibility:hidden;">
-
+            
             		<b>Bâche PVC 440g</b>: Pour petite ou moyenne banderole pas cher à courte durée de vie.
 					<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: bâche pvc enduite M1 INT/EXT durable et made in France.<br />
               		<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-LACOPACS_en.pdf" data-lity>Dickson Lacopac M2/B1</a></b>: <span class="highlight">R/V dès 19,90€/m²</span> bâche pvc épaisse opaque INT/EXT pour banderole recto verso.<br />
 					<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="http://dev.france-banderole.com/wp-content/uploads/2012/04/FT_JetUp_en.pdf" data-lity>100% écologique M1</a></b>: Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
-
+            
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_31" name="q31_visuel">
@@ -313,7 +275,7 @@
 
           <li class="form-line" id="id_9a">
             <div class="form-input-wide">
-
+              <div id="form-button-error2"></div>
               <button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
             </div>
           </li>
@@ -438,11 +400,11 @@
     var rabat              = 0;     var rabat2  = 0;
     var suma               = 0;     var suma2   = 0;
     var transport          = 0;
-    var designation        = '';    var produit = '';    var details     = '';
-    var optliv             = '';
+    var designation        = '';    var produit = '';
+    var cedzik             = '';
     var prliv              = '';
     var date_panier        = '';
-    var option             = '';
+    var option     = '';
 	  var perteH             = 0;    var perteL  = 0;
 	  var h1                 = 0;    var h2      = 0;
 	  var l1                 = 0;    var l2      = 0;
@@ -458,16 +420,10 @@
 	  var p1                 = '';                                           ////poids du support
 	  var p2                 = '';                                           ////poids du structure
     var ilosc              = $('input_7').value;
-	  var plm                = 0; ////prix de la laize au M²
-	  var prixproduit        = 0;
-	  var prixtotal          = 0;
-	  var imp		         = 0;//// prix impression
-	  var m2		         = 0;//// m2
-	  var pm2		         = 0; ////prix m2
-	  var tissu		         = 0; 
-	  var pa		         = 0; 
+	var plm               = 0; ////prix de la laize au M²
+	var prixproduit      =0;
+	var prixtotal      =0;
     var eBox               = document.getElementById('form-button-error2');
-    var aBox               = document.getElementById('form-button-error1');
     eBox.innerHTML         = '';
 
 	  /////////////////////////////////////////////////////////////////// Laize //
@@ -668,7 +624,7 @@
       //------------------------------------------------------------------------
       if ($('input_23').value == 'sac') {
         cena+=22;
-        details='<br />- '+$('input_23').value;
+        option='<br />- '+$('input_23').value;
       }
     }
 
@@ -737,7 +693,7 @@
     	prixsupport=cenatotal/ilosc;
       cena= structure+prixsupport;
       designation=$('input_3').value;
-      details='<br />- '+$('input_31').value;
+      option='<br />- '+$('input_31').value;
 
       hauteur = 160;
       largeur = 60;
@@ -752,7 +708,7 @@
       prixsupport=cenatotal/ilosc;
       cena= structure+prixsupport;
       designation=$('input_3').value;
-      details='<br />- '+$('input_31').value;
+      option='<br />- '+$('input_31').value;
 
       hauteur = 180;
       largeur = 80;
@@ -774,52 +730,21 @@
     if ($('input_14').value==180){structure=(20.00*3); p2=1.80*ilosc;}
     if ($('input_14').value==200){structure=(24.00*3); p2=2.00*ilosc;}
 
-    hauteur = $('input_15').value;
-    largeur = $('input_14').value;
-
     prixsupport=cenatotal/ilosc;
     cena= structure+prixsupport;
     designation=$('input_4').value;
-    details='<br />- '+largeur+'x'+hauteur+'cm (Largeur x Hauteur)';
+    option='<br />- '+$('input_14').value+'x'+$('input_15').value+'cm (Largeur x Hauteur)';
+
+    hauteur = $('input_15').value;
+    largeur = $('input_14').value;
 
     if ($('input_11').value == 'ventouse') {
         option+='<br />- Ventouse super adhesive 65mm';
         cena+=5.7;
       }
     }
-	
-	 /////////////////////////////// kakemono  tissu //
 
-		 if ($('input_1').value == 'Kakemono Tissu') {
-			 if ($('input_24').value == 'tissu 220g') {pm2 = 2.16;}
-			 if ($('input_24').value == 'tissu 260g') {pm2 = 2.51;}
-			 if ($('input_25').value == '60x230 recto') {structure = 40; m2 =(0.612*2.28)*1.5; p1=6.85;}
-			 if ($('input_25').value == '60x230 recto/verso') {structure = 40; m2 =(0.612*2.28)*2; p1=6.85;}
-			 if ($('input_25').value == '90x230 recto') {structure = 70; m2 =(0.917*2.28)*1.5; p1=8.85;}
-			 if ($('input_25').value == '90x230 recto/verso') {structure = 70; m2 =(0.917*2.28)*2; p1=8.85;}
-			 if ($('input_25').value == '120x230 recto') {structure = 85; m2 =(1.222*2.28)*1.5; p1=11;}
-			 if ($('input_25').value == '120x230 recto/verso') {structure = 85; m2 =(1.222*2.28)*2; p1=11;}
-			 if ($('input_25').value == '150x230 recto') {structure = 98; m2 =(1.526*2.28)*1.5; p1=13.60;}
-			 if ($('input_25').value == '150x230 recto/verso') {structure = 98; m2 =(1.526*2.28)*2; p1=13.60;}
-        	 imp=(3*m2)+15////impresion + couture
-			 tissu=pm2*m2////tissu
-			 
-			 
-			 
-        pa=structure+imp+tissu;////////prix d'achat
-		if ((ilosc > 0) && (ilosc < 2)){cena=pa*2.80;}
-    	if ((ilosc > 1) && (ilosc < 4)){cena=pa*2.75;}
-		if ((ilosc > 3) && (ilosc < 6)){cena=pa*2.70;}
-    	if (ilosc > 5){cena=pa*2.65;}
-		
-        designation='Totem Tissu <br />- '+(($('input_25').value) +'<br />- '+ ($('input_24').value)) ;
-
-        p=p1*ilosc;
-
-      
-      }
-
-    ////////////////prix tansport transport////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     poids=(p1+p2);
      if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
      if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
@@ -860,7 +785,7 @@
      var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
      if (colis == true) {
        cena += 2.00;
-       optliv += '<br />- colis revendeur';
+       cedzik += '<br />- colis revendeur';
      }
      var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
      var etiqdesc = '';
@@ -873,7 +798,7 @@
      var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
      if (relais == true) {
        cena += 5.00/ilosc;
-       optliv += '<br />- relais colis';
+       cedzik += '<br />- relais colis';
      }
 
     /////////////////////////////////////////////////////////// total produit //
@@ -884,7 +809,7 @@
 
     /////////////////////////////////////////////// affichage jours livraison //
     var myClass = jQuery(this).attr("class");
-    var erreurType = 0;
+    var niepokazuj = 0;
 
     var n = myClass.search("production");
     if (n != -1) {
@@ -1021,7 +946,7 @@
         jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
       }
 
-      var finalPrice1=fixstr(finalPrice);
+      finalPrice1=fixstr(finalPrice);
       finalPrice2 = finalPrice1.replace(".", ",");
 
       jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
@@ -1044,7 +969,13 @@
     cena2 = prixunite.replace(".", ",")
     ////////////////////////////////////////////////////////////////////////////
 
-    var erreurType = 0;
+    var niepokazuj = 0;
+
+    if (niepokazuj==1) {
+      prix.innerHTML='-';
+      remise.innerHTML='-';
+      total.innerHTML='-';
+    }
 
     ////////////////////////////////////////////////// livraison le jour même //
     if ((DeliveryType == '1-1') && (PorductType == '1-1')){
@@ -1052,23 +983,8 @@
     }
     else {livraisonrapide.style.display = 'none';}
 
-    ////////////////////////////////////////////////////////////////// alerte //
-    if (($('input_1').value == 'clipit') && largeur.empty()){
-      eBox.innerHTML = '<button type="button" class="closeButton" name="button"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de choisir la largeur de votre clipit';
-      eBox.style.display="block";
-      prix.innerHTML='-';
-      remise.innerHTML='-';
-      total.innerHTML='-';
-    }
-    if (($('input_1').value == 'clipit') && (hauteur < 40)){
-      eBox.innerHTML = '<button type="button" class="closeButton" name="button"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une hauteur en cm';
-      eBox.style.display="block";
-      prix.innerHTML='-';
-      remise.innerHTML='-';
-      total.innerHTML='-';
-    }
     //////////////////////////////////////////////////////// envoi formulaire //
-    if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+    if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 			suma=cena-rabat;
 			suma=fixstr(suma);
 			suma2 = suma.replace(".", ",");
@@ -1079,7 +995,7 @@
 				var opt = document.getElementById("option");
 				opt.innerHTML='-';
 			}
-			var erreurType = 0;
+			var niepokazuj = 0;
 			if ( suma < 29 ) {
 				var forfait = 29 - suma;
 				forfait = fixstr(forfait);
@@ -1110,9 +1026,18 @@
 					newtotal.innerHTML=suma2+' &euro;';
 				}}
 
+        if (ilosc.empty()){
+          eBox.innerHTML = '<button type="button" class="closeButton" name="button"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
+          eBox.style.display="block";
+        }
+        var hauteur=$('input_15').value;
+        if (($('input_1').value == 'clipit') && (hauteur.empty())){
+          eBox.innerHTML = '<button type="button" class="closeButton" name="button"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une hauteur en cm';
+          eBox.style.display="block";
+        }
 
         var dodajkoszyk = document.getElementById("cart_form");
-        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Totem" /><input type="hidden" name="opis" value="- '+produit+' '+designation+details+'<br />- '+maquette+optliv+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Totem" /><input type="hidden" name="opis" value="- '+produit+' '+designation+option+'<br />- '+maquette+cedzik+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
         livraisonComp.style.display = 'block';
       }
     });
