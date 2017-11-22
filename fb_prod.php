@@ -245,8 +245,10 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformaffiches.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
+  	{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 120g"}, {"field": "1", "operator": "equals", "value": "Affiches 150g"}, {"field": "1", "operator": "equals", "value": "Affiches 220g"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 120g fluo"}], "action": {"field": "22", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
@@ -923,11 +925,6 @@ function generate_page ($page, $pageid) {
   	return $view;
   }
 
-  if ($page=='promotions') {
-  	$view .= get_promotions();
-  	return $view;
-  }
-
   if ($page=='plv') {
   	$view .= get_plv();
   	return $view;
@@ -938,24 +935,8 @@ function generate_page ($page, $pageid) {
   	return $view;
   }
 
-  if ($page=='buraliste') {
-  	//$view .= get_buraliste();
-  	$view .= get_buralistes();
-  	return $view;
-  }
-
   if ($page=='acc') {
   	$view .= get_acc();
-  	return $view;
-  }
-
-  if ($page=='mma') {
-  	$view .= get_mma();
-  	return $view;
-  }
-
-  if ($page=='acc2') {
-  	$view .= get_acc2();
   	return $view;
   }
 
@@ -971,10 +952,6 @@ function generate_page ($page, $pageid) {
 
   if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Stickers' || $page=='Banderoles' || $page=='cartes' || $page=='affiches' || $page=='cadre-exterieur-bache' || $page=='flyers' || $page=='depliants' || $page=='stand-parapluie' || 'enseignes' || $page=='cadre-exterieur-bache' || $page=='rampe-eclairage-led' || $page=='panneaux-akilux-3mm' || $page=='panneaux-akilux-3_5mm' || $page=='panneaux-akilux-10mm' || $page=='panneaux-forex-1mm' || $page=='panneaux-forex-3mm' || $page=='panneaux-forex-5mm' || $page=='panneaux-dibond' || $page=='PVC-300-microns') {
 
-  	if ($page=='cadre-exterieur-bache') {
-  		$h1name='cadre-exterieur-bache';
-  		$formularz = get_cadre_form();
-  	}
 
   	if ($page=='flyers') {
   		$h1name='Flyers pas cher, impression flyer meilleur prix, Prospectus, tracts, imprimer flyer rapidement papier PEFC et FSC';
@@ -985,12 +962,6 @@ function generate_page ($page, $pageid) {
   		$info_title='Impression rapide flyers pas cher et prospectus';
   		$info_info='<span class="prezHide">Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers au prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. Nous pouvons également réaliser des dimensions de flyer personnalisées pour des carte de voeux etc... Livraison gratuite partout en France métropolitaine</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link" title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_flyers_form();
-  	}
-
-  	if ($page=='rampe-eclairage-led') {
-  		$h1name=' RAMPE ECLAIRAGE LED';
-  		$mini='f21';
-  		$formularz = get_eclairage_form();
   	}
 
   	if ($page=='depliants') {
@@ -1294,7 +1265,7 @@ function generate_page ($page, $pageid) {
   		$imghead3='kakemonos3';
   		$mini='t';
   		$info_title='Totem publicitaire intérieur et extérieur ';
-  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-totem-meilleur-prix/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_totem_form();
   	}
 
@@ -1553,7 +1524,7 @@ function print_devis_verification($products, $prolog, $epilog) {
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
 	$view .= $prolog;
 	if (is_cart_not_empty()) {
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth2">Description</th><th>Quantité</th><th>Total</th><th class="nobackground"></th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth2">Description</th><th>Quantité</th><th>Total</th><th class="nobackground"></th><th></th></tr>';
 		$licznik = 0;
 		$kosztcalosci = 0;
 		foreach ( $products as $products => $item ) {
@@ -1770,7 +1741,7 @@ function print_devis($products, $prolog, $epilog) {
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 	if (is_cart_not_empty()) {
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th class="nobackground"></th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
 		$kosztcalosci = 0;
     /////////////////////////////////////////////////////// display items panier
@@ -1866,7 +1837,7 @@ function print_devis($products, $prolog, $epilog) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////// plv extérieur //
 
 function get_plv() {
 	global $wpdb;
@@ -1879,79 +1850,21 @@ function get_plv() {
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
   <script type="text/javascript">
-
-		function rushcheckbox24($type) {
-        var rush24 = document.getElementById("rush24"+$type);
-        var rush72 = document.getElementById("rush72"+$type);
-        var fedex0 = document.getElementById("fedex"+$type);
-        var tnt0 = document.getElementById("tnt"+$type);
-        if (rush72.checked == true) {
-            document.getElementById("rush72"+$type).checked = false;
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-        }
-        if (rush24.checked == true) {
-				document.getElementById("rush72"+$type).checked = false;
-              document.getElementById("fedex"+$type).checked = false;
-              document.getElementById("tnt"+$type).checked = true;
-        }
-        if (fedex0.checked) {
-              document.getElementById("fedex"+$type).checked = false;
-				document.getElementById("tnt"+$type).checked = true;
-			}
-		}
-
-		function rushcheckbox72($type) {
-        var rush24 = document.getElementById("rush24"+$type);
-        var rush72 = document.getElementById("rush72"+$type);
-        var fedex0 = document.getElementById("fedex"+$type);
-        var tnt0 = document.getElementById("tnt"+$type);
-        if (rush24.checked == true) {
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-        }
-        if (rush72.checked == true) {
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-        }
-        if (fedex0.checked) {
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-			}
-		}
-
-    function TNTClick($type) {
-        if (document.getElementById("tnt"+$type).checked) {
-            document.getElementById("fedex"+$type).checked = false;
-        }else{
-			      document.getElementById("fedex"+$type).checked = true;
-		  }
+  function rushcheckbox24($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush72.checked == true) {
+      rush72.checked = false;
     }
-
-    function FEDClick($type) {
-        if (document.getElementById("fedex"+$type).checked) {
-            document.getElementById("colis"+$type).checked = false;
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("rush72"+$type).checked = false;
-            document.getElementById("relais"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = false;
-        }else{
-						document.getElementById("tnt"+$type).checked = true;
-			}
+  }
+  function rushcheckbox72($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush24.checked == true) {
+      rush24.checked = false;
     }
-
-		function colisrevendeurclick($type){
-  		 /*if (document.getElementById("colis"+$type).checked) {
-  		 	document.getElementById("tnt"+$type).checked = true;
-  			document.getElementById("fedex"+$type).checked = false;
-  		 }*/
-		}
-
-		function refreshBoxs($type){
-		}
-		</script>
+  }
+  </script>
 	';
 
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -1982,7 +1895,7 @@ function get_plv() {
 		}
 
 		$view .=
-      '<form name="cart_form' . $licznik . '" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
+      '<form name="cart_form' . $licznik . '" data-cartform="'.$licznik.'" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
           <tr>
               <td class="lefttd"><span class="prom_title"><b>' . $p[name] . '</b></span><br /><span id="desc' . $licznik . '" class="prom_therest">' . stripslashes($subtitle . $p[description]) . '</span></td>
               <td class="imgtd">' . $viewmini . '<span class="prom_price">a partir de ' . $n_price . '</span></td>
@@ -1998,17 +1911,22 @@ function get_plv() {
                       <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
                       <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
                       <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
+
                   </div>
               </td>
               <td class="righttd">
                   <div class="plvmakcon"><div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div><div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div></div>
-                  <div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" /></div>
+                  <div class="pilosc"  data-trigger="spinner">
+                    <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+                    <div class="spinner-controls plvpromo">
+          	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+          	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+          			  	</div>
+                  </div>
                   <input type="hidden" name="isplv" value="true" />
                   <input type="hidden" name="opis1" value="' . $p[subname] . '" /><input type="hidden" name="opis2" value="' . $p[description] . '" />
                   <input type="hidden" name="prix" value="' . $p[price] . '" />' . $cedd . '<input type="hidden" name="transport" value="' . $p[frais] . ' &euro;" />
-                  <button type="submit" class="prom_sub">Ajouter</button>
+                  <button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
               </td>
           </tr>
       </form>';
@@ -2019,7 +1937,7 @@ function get_plv() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////// plv intérieur //
 
 function get_plv_int() {
 	global $wpdb;
@@ -2031,77 +1949,21 @@ function get_plv_int() {
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
   <script type="text/javascript">
-		function rushcheckbox24($type) {
-            var rush24 = document.getElementById("rush24"+$type);
-            var rush72 = document.getElementById("rush72"+$type);
-            var fedex0 = document.getElementById("fedex"+$type);
-            var tnt0 = document.getElementById("tnt"+$type);
-            if (rush72.checked == true) {
-                document.getElementById("rush72"+$type).checked = false;
-                document.getElementById("fedex"+$type).checked = false;
-                document.getElementById("tnt"+$type).checked = true;
-            }
-            if (rush24.checked == true) {
-						document.getElementById("rush72"+$type).checked = false;
-                document.getElementById("fedex"+$type).checked = false;
-                document.getElementById("tnt"+$type).checked = true;
-            }
-            if (fedex0.checked) {
-                document.getElementById("fedex"+$type).checked = false;
-						document.getElementById("tnt"+$type).checked = true;
-					}
-		}
-
-		function rushcheckbox72($type) {
-            var rush24 = document.getElementById("rush24"+$type);
-            var rush72 = document.getElementById("rush72"+$type);
-            var fedex0 = document.getElementById("fedex"+$type);
-            var tnt0 = document.getElementById("tnt"+$type);
-            if (rush24.checked == true) {
-                document.getElementById("rush24"+$type).checked = false;
-                document.getElementById("fedex"+$type).checked = false;
-                document.getElementById("tnt"+$type).checked = true;
-            }
-            if (rush72.checked == true) {
-						document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-            }
-            if (fedex0.checked) {
-                document.getElementById("fedex"+$type).checked = false;
-						document.getElementById("tnt"+$type).checked = true;
-					  }
-		}
-
-    function TNTClick($type) {
-        if (document.getElementById("tnt"+$type).checked) {
-            document.getElementById("fedex"+$type).checked = false;
-        }else{
-	          document.getElementById("fedex"+$type).checked = true;
-		  }
+  function rushcheckbox24($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush72.checked == true) {
+      rush72.checked = false;
     }
-
-    function FEDClick($type) {
-      if (document.getElementById("fedex"+$type).checked) {
-            document.getElementById("colis"+$type).checked = false;
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("rush72"+$type).checked = false;
-            document.getElementById("relais"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = false;
-      }else{
-						document.getElementById("tnt"+$type).checked = true;
-			}
+  }
+  function rushcheckbox72($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush24.checked == true) {
+      rush24.checked = false;
     }
-
-		function colisrevendeurclick($type){
-					/* if (document.getElementById("colis"+$type).checked) {
-					 	document.getElementById("tnt"+$type).checked = true;
-						document.getElementById("fedex"+$type).checked = false;
-			}*/
-		}
-		function refreshBoxs($type){
-		}
-		</script>
+  }
+  </script>
 	';
 
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -2130,32 +1992,40 @@ function get_plv_int() {
 			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
 			$sname = $p[subname].'<br />';
 		}
-		$view .= '<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')"><tr><td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
-		<td class="optionstd">
-		<span>OPTIONS:</span>
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="plvoptions">
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
-		</div>
-		</td>
-		<td class="righttd">
-		<div class="plvmakcon">
-			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-		</div>
-		<div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /></div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub">Ajouter</button>
-		</td></tr></form>';
+		$view .= '<form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+    <tr>
+      <td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
+  		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
+  		<td class="optionstd">
+    		<span>OPTIONS:</span>
+    		<input type="hidden" name="addtocart2" value="addtocart2" />
+    		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
+    		<div class="plvoptions">
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+
+    		</div>
+    		</td>
+    		<td class="righttd">
+    		<div class="plvmakcon">
+    			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+    			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+    		</div>
+        <div class="pilosc"  data-trigger="spinner">
+          <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+          <div class="spinner-controls plvpromo">
+           <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+           <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+          </div>
+        </div>
+    		<input type="hidden" name="isplv" value="true" />
+    		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
+    		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
+    		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+  		</td>
+    </tr></form>';
 
 	endforeach;
 	$view .= '</table>';
@@ -2174,204 +2044,7 @@ function Change() {
 	}
 }
 
-function get_buralistes() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_buraliste";
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC LIMIT 50", ARRAY_A);
-	$licznik = 0;
-
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-		$change ='';
-
-		if($p[ruban_couleur]!="" && $p[ruban_texte]!=""){
-			$ruban_decla = '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/ruban/css/3d-corner-ribbons.css" />';
-			$ruban = '
-			<div class="ribbon '.$p[ruban_couleur].'">
-			    <div class="banner">
-			        <div class="text">'.$p[ruban_texte].'</div>
-			    </div>
-			</div>
-			';
-		}else{
-			$ruban_decla = '';
-			$ruban = "";
-		}
-
-		if ($p[photo]) {
-			$viewmini1 = '<a rel="shadowbox" width="100%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" alt="'.$p[name].'" width="309px" height="225px;" /></a>';
-		}
-
-
-		if ($p[photo_mini]) {
-				$viewmini2 = '<a rel="shadowbox" width="100%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo_mini].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo_mini].'" alt="'.$p[name].'" width="309px" height="225px;" /></a>';
-		}
-
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-
-		$view .= '
-
-				'.$ruban_decla.'
-
-		<div class="m-row">
-
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/buralistes/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<div class="m-lft">
-			<h1>'.$p[name].'</h1><p>'.$subtitle.stripslashes($p[description]).'</p>
-
-			<div class="m-img-area" style="position:relative;">
-							'.$ruban.'
-
-				<div class="m-img-lft">
-				'.$viewmini1.'</div>
-				<div class="m-img-rgt">'.$viewmini2.'</div>
-				<div class="cb"></div>
-			</div>
-		</div>
-		<div class="m-rgt">
-			<h2><span>'.$n_price.'</span><br>frais de port inclus</h2>'.(($p[reduc]!=""&& $p[reduc]>0)?"<h3> ".$p[reduc]."€ d&rsquo;économie*</h3>":"").'
-			<div class="choice">
-				<h4>Je choisis :</h4>
-
-				<input type="hidden" name="addtocart3" value="addtocart3" />
-				<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-
-				<td class="rightburaliste">
-				<div class="buralistemakcon">
-					<div class="buralistemak">
-					<input type="radio" name="projectmak" value="us" checked="checked" id="us" /> <span>Visuel ci-contre</span>
-					</div>
-					<div class="buralistemak1" >
-						<input type="radio" name="projectmak" value="fb" id="fb" /> <span>Créer votre visuel <span id="madiv'.$licznik.'" style="display:inline-block;">(+27,50 € HT)</span></span>
-						<br><p>Modification du visuel ou création d’un visuel. Un téléconseiller vous contactera sous 72H max</p>
-					</div>
-
-				</div>
-
-				<div class="pilosc"><b>Quantité :</b>
-					<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-
-				</div>
-				<input type="hidden" name="isburaliste" value="true" />
-				<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.strip_shortcodes($p[description]).'" />
-				<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-				<input type="submit" class="prom_sub2" value="Ajouter au panier"></input>
-
-
-				</form><div class="cb"></div>';
-
-				$view .= '<div class="final">
-				<p><a href="/votre-panier/" title="Finaliser votre commande" style="color: #be1700;font-size: 14px;" /><img src="'.get_template_directory_uri().'/img/play.png">Finaliser la commande</a></p>
-				</div>
-
-			</div>
-		</div>
-		<div class="cb"></div></div>';
-
-	endforeach;
-
-	//$view .= '</table>';
-
-	return $view;
-}
-
-function get_buraliste() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_buraliste";
-
-	$view .= '<h1>Buraliste</h1><hr />';
-	$view .= '<img src="//www.france-banderole.com/wp-content/uploads/shopfiles/buraliste/slide.jpg"/>';
-
-
-	$view .= '<table id="promotions_table" cellspacing="0">';
-
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-		$change ='';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a rel="shadowbox" width="75%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-
-		$view .= '
-
-		<tr><td class="lefttd"><form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/buraliste/" method="post" onsubmit="return czyilosc('.$licznik.')"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgburaliste">'.$viewmini.'<span class="prom_price2">Avec visuel ci-contre : '.$n_price.' HT (frais de port inclus)</span></td>
-
-		<input type="hidden" name="addtocart3" value="addtocart3" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-
-		<td class="rightburaliste">
-		<div class="buralistemakcon">
-			<div class="buralistemak"><input type="radio" name="projectmak" value="us" checked="checked" onclick="Change()" id="us" /> Visuel ci-contre</div>
-			<div class="buralistemak1" ><input type="radio" name="projectmak" value="fb" onclick="Change()" id="fb" /> Créer votre Visuel</div>
-			<div id="madiv"  style="display:none"><p>+ 27,50€</p></div>
-			<script type="text/javascript">
-Change()
-</script>
-
-		</div>
-
-		<div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /></div>
-		<input type="hidden" name="isburaliste" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub2">Ajouter</button>
-		</form>';
-		$view .= '<form action="'.get_bloginfo("url").'/votre-panier/" method="post">
-		<button type="submit" class="prom_sub3">voir panier</button></td></tr></form>';
-	endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-}
+///////////////////////////////////////////////////////////////////// promotions
 
 function get_acc() {
 	global $wpdb;
@@ -2426,386 +2099,45 @@ function get_acc() {
 			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
 			$sname = $p[subname].'<br />';
 		}
-		$view .= '<tr><td class="lefttd2"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
-		<td class="righttd2">
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
+		$view .= '
+    <tr>
+      <td class="lefttd2"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
+  		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
+  		<td class="optionstd">
+    		<form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+          <span>OPTIONS:</span>
+          <input type="hidden" name="addtocart2" value="addtocart2" />
+          <input type="hidden" name="rodzaj" value="'.$p[name].'" />
+          <div class="plvoptions">
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
-		<div class="pilosc2"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select>
-		</div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub2">Ajouter au panier</button>
-		</form></td></tr>';
+          </div>
+          </td>
+          <td class="righttd">
+          <div class="plvmakcon">
+            <div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+            <div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+          </div>
+          <div class="pilosc"  data-trigger="spinner">
+            <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+            <div class="spinner-controls plvpromo">
+             <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <input type="hidden" name="isplv" value="true" />
+          <input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
+          <input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
 
-		endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-}
-
-function get_mma() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_mma";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>Banderole MMA</h1><hr />';
-	$view .= '<table id="promotions_tablemma" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC LIMIT 50", ARRAY_A);
-	$licznik = 0;
-	$compteur = 0;
-	/* $promotions = explode(' ', $p[name]); */
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-
-    	if(ereg('200x70',$p[name])) { $style = 'background-color:#cbd0d9';}
-		if(ereg('300x80',$p[name])) { $style = 'background-color:#e1e8f2'; }
-		if(ereg('500x100',$p[name])) { $style = 'background-color:#cbd0d9';}
-		if(ereg('85x308',$p[name])) { $style = 'background-color:#e1e8f2'; }
-		if(ereg('85x351',$p[name])) { $style = 'background-color:#cbd0d9';}
-		if(ereg('A4',$p[name])) { $style = 'background-color:#e1e8f2'; }
-		if(ereg('80x200',$p[name])) { $style = 'background-color:#cbd0d9';}
-
-
-		if (($n_price == 22.00) || ($n_price == 17.00) || (($p[name] == 'Banderole 440g/m² <br/><i> 300x80</i>') && ($n_price == 33.00)) || (($p[name] == 'Kakémono <br/><i> 80x200</i> ') && ($n_price == 50.00)) || (($p[name] == 'Oriflamme aile d\'avion <br/><i> 85x308</i> ') && ($n_price == 93.00))  || (($p[name] == 'Banderole 550g/m²<br/><i> 200x70</i> ') && ($n_price == 33.00))|| ($n_price == 62.00)|| ($n_price == 46.00)  || ($n_price == 115.00) || ($n_price == 105.00) || ($n_price == 130.00) || ($n_price == 154.00) || ($n_price == 139.00) || ($n_price == 85.00) || ($n_price == 24.00) || ($n_price == 73.00) || ($n_price == 46.00) || ($n_price == 38.00) ) {
-		$view .= '<tr style="float:left; margin-right:5px; margin-left:5px"><td style="'.$style.'" class="lefttdmma"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-
-		<td style="'.$style.'" class="righttdmma">
-		<div class="imgtdmma">'.$viewmini.'<span class="prom_pricemma">Tarif : '.$n_price.'</span></div>
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/mma/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocartmma" value="addtocartmma" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="piloscmma"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-      <option value="1">1</option>
-    </select>
-		</div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_submma">Ajouter au panier</button>
-		<div><a href="/votre-panier/" title="Finaliser votre commande" class="prom_submma2" /></a></p>
-		</form></td>
-		</tr>
-		';
-		}
-
-		if (($n_price == 16.00) || ($n_price == 25.00) || ($n_price == 15.00) || ($n_price == 78.00) || ($n_price == 47.00) || ($n_price == 116.00) || ($n_price == 140.00) || ($n_price == 102.00) || ($n_price == 125.00) ||  ($n_price == 68.00) || ($n_price == 28.00) || ($n_price == 41.00) || ($n_price == 78.00) || ($n_price == 20.00) || ($n_price == 41.00) || (($p[name] == 'Banderole 550g/m² <br/><i> 300x80</i> ') && ($n_price == 33.00)) || (($p[name] == 'Banderole 440g/m² <br/><i> 500x100</i> ') && ($n_price == 50.00)) || (($p[name] == 'Oriflamme aile d\'avion <br/><i> 85x351</i> ') && ($n_price == 93.00)) ) {
-		$view .= '<tr style="float:left; margin-right:5px; margin-left:5px"><td style="'.$style.'" class="lefttdmma"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td style="'.$style.'" class="righttdmma">
-		<div class="imgtdmma">'.$viewmini.'<span class="prom_pricemma">Tarif : '.$n_price.'</span></div>
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/mma/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocartmma" value="addtocartmma" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="piloscmma"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-		</div>
-		<input type="hidden" name="mma" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_submma">Ajouter au panier</button>
-		<div style="display:none">
-  		<input name="colis[]" type="checkbox" class="form-checkbox" id="colis" onchange="JKakemono.czyscpola(); " value="" checked="checked" />
-		</div>
-		<div><a href="/votre-panier/" title="Finaliser votre commande" class="prom_submma2" /></a></p>
-		</form></td></tr>';
-		}
-
-  endforeach;
-	$view .= '</table>';
-	return $view;
-}
-
-
-function get_acc2() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_acc2";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-	$view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
-
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-		$view .= '<tr><td class="lefttd2"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
-		<td class="righttd2">
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-
-		<div class="pilosc2"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select>
-		</div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub2">Ajouter au panier</button>
-		</form></td></tr>';
+      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+    		</form>
+      </td>
+    </tr>';
 
 		endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-}
-
-
-/* function get_acc() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_acc";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-	$view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
-
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-		$view .= '<tr><td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
-		<td class="optionstd">
-		<span>OPTIONS:</span>
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="plvoptions">
-			<span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24'.$licznik.'" name="rush24" value="1" onchange="rushcheckbox24('.$licznik.');" /><label class="form-label-left" id="label_rush24'.$licznik.'" for="rush24'.$licznik.'">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24'.$licznik.'\');" onmouseout="ukryjt(\'helpTextRush24'.$licznik.'\');"><span class="helpText" id="helpTextRush24'.$licznik.'" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-			<span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72'.$licznik.'" name="rush72" value="1" onchange="rushcheckbox72('.$licznik.');" /><label class="form-label-left" id="label_rush72'.$licznik.'" for="rush72'.$licznik.'">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72'.$licznik.'\');" onmouseout="ukryjt(\'helpTextrush72'.$licznik.'\');"><span class="helpText" id="helpTextrush72'.$licznik.'" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-			<span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais'.$licznik.'" name="relais" value="1" /><label class="form-label-left" id="label_relais'.$licznik.'" for="relais'.$licznik.'">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais'.$licznik.'\');" onmouseout="ukryjt(\'helpTextrelais'.$licznik.'\');"><span class="helpText" id="helpTextrelais'.$licznik.'" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-		</div>
-		</td>
-		<td class="righttd">
-		<div class="plvmakcon">
-			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-		</div>
-		<div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /></div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub">Ajouter</button>
-		</form></td></tr>';
-
-		endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-} */
-function get_promotions() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_promo";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-
-	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div></div>';
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo]) {
-			$viewmini = '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/promotions/'.$p[photo].'"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/promotions/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-		$view .= '<tr><td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.$subtitle.$p[description].'</span></td><td><span class="prom_price">'.$n_price.'</span></td><td class="imgtd">'.$viewmini.'</td><td class="righttd">
-
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post"><input type="hidden" name="addtocart2" value="addtocart2" /><input type="hidden" name="rodzaj" value="'.$p[name].'" /><b>quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /><input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" /><input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" /><button type="submit" class="prom_sub" onclick="if (czyilosc('.$licznik.')) {return true;} return false;">Ajouter</button></form></td></tr>';
-	endforeach;
 
 	$view .= '</table>';
 
@@ -2912,11 +2244,6 @@ function get_banderoles_form() {
     return $form;
 }
 
-function get_cadre_form() {
-    $form = file_get_contents(getTplPath('cadres.php'));
-    return $form;
-}
-
 function get_cartes_form() {
     $form = file_get_contents(getTplPath('cartes.php'));
     return $form;
@@ -2924,11 +2251,6 @@ function get_cartes_form() {
 
 function get_depliants_form() {
     $form = file_get_contents(getTplPath('depliants.php'));
-    return $form;
-}
-
-function get_eclairage_form() {
-    $form = file_get_contents(getTplPath('eclairages.php'));
     return $form;
 }
 
@@ -2957,7 +2279,6 @@ function get_totem_form() {
     return $form;
 }
 
-
 function get_parapluie_form() {
     $form = file_get_contents(getTplPath('parapluie.php'));
     return $form;
@@ -2983,7 +2304,6 @@ function get_sticker_lettrage_predecoupe_form() {
     return $form;
 }
 
-
 function get_autocollant_form() {
     $form = file_get_contents(getTplPath('autocollant.php'));
     return $form;
@@ -3003,8 +2323,6 @@ function get_test_rollup_form() {
     $form = file_get_contents(getTplPath('test-roll-up.php'));
     return $form;
 }
-
-
 
 function get_oriflammes_form() {
 	$form = file_get_contents(getTplPath('oriflammes.php'));

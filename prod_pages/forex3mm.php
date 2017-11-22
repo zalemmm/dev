@@ -187,7 +187,7 @@
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<!--<option value="config">je crée ma maquette en ligne</option>-->
 					</select>
 				</li>
 				<li class="form-line" id="id_6perso">
@@ -205,7 +205,7 @@
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<!--<option value="config">je crée ma maquette en ligne</option>-->
 					</select>
 				</li>
 

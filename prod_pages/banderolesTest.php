@@ -348,7 +348,7 @@
 						<option value="">fichier d'impression...</option>
 						<option value="fb">France banderole crée la mise en page</option>
 						<option value="user">j’ai déjà crée la mise en page</option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<!--<option value="config">je crée ma maquette en ligne</option>-->
 					</select>
 				</li>
 

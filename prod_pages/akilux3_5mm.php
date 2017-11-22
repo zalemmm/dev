@@ -95,7 +95,7 @@
               <option class="titre" value="">fichier d'impression...</option>
               <option class="option1" value="fb">France banderole crée la mise en page</option>
               <option class="option2" value="user">j’ai déjà crée la mise en page</option>
-              <option class="option1" value="config">je crée ma maquette en ligne</option>
+              <!--<option value="config">je crée ma maquette en ligne</option>-->
             </select>
           </li>
 

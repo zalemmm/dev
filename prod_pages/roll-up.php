@@ -9,7 +9,7 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttype" style="visibility:hidden;">
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-firstline.pdf" data-lity>kakemono Roll-up FIRSTLINE</a>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
-							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-bestline.pdf" data-lity>kakemono Roll-up BESTLINE</a>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-bestline.pdf" data-lity>kakemono Roll-up BESTLINE</a>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up Mosquito le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-luxeline.pdf" data-lity>kakemono Roll-up LUXLINE</a>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-recto-verso.pdf" data-lity>kakemono Roll-up RECTO/VERSO</a>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-mini.pdf" data-lity>kakemono Roll-up MINI</a>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3<br/>
@@ -19,7 +19,7 @@
 					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le type...</option>
 						<option class="option1" value="first-line">Roll-Up First Line</option>
-						<option class="option2" value="best-line">Roll-Up Best Line</option>
+						<option class="option2" value="best-line">Roll-Up Best Line Mosquito</option>
 						<option class="option1" value="lux-line">Roll-Up Lux Line </option>
 						<option class="option2" value="double">Roll-Up Recto/Verso</option>
 						<option class="option1" value="mini">Roll-Up Mini</option>
@@ -223,7 +223,7 @@
 						<option class="titre" value="">fichier d'impression...</option>
 						<option class="option1" value="fb">France banderole crée la mise en page</option>
 						<option class="option2" value="user">j’ai déjà crée la mise en page</option>
-						<option class="option1" value="config">je crée ma maquette en ligne</option>
+						<!--<option value="config">je crée ma maquette en ligne</option>-->
 					</select>
 				</li>
 
@@ -472,12 +472,12 @@
 
 			//------------------------------------------------------------------60x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '60x200')) {
-				if (ilosc<7) {cena=45;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=44;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=43;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=42;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=40;}
-				if (ilosc>=217 ) {cena=38;}
+				if (ilosc<7) {cena=47;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=45;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=44;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
+				if (ilosc>=217 ) {cena=40;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 3;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
@@ -495,12 +495,12 @@
 			}
 			//------------------------------------------------------------------60x160
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '60x160')) {
-				if (ilosc<7) {cena=44;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=43;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=42;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=41;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=39;}
-				if (ilosc>=217 ) {cena=37;}
+				if (ilosc<7) {cena=46;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=45;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=44;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=43;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
+				if (ilosc>=217 ) {cena=39;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 3;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
@@ -518,12 +518,12 @@
 			}
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '80x200')) {
-				if (ilosc<7) {cena=47;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=45;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=44;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
-				if (ilosc>=217 ) {cena=40;}
+				if (ilosc<7) {cena=49;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=48;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=47;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=46;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=44;}
+				if (ilosc>=217 ) {cena=42;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 3;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
@@ -541,12 +541,12 @@
 			}
 			//------------------------------------------------------------------85x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '85x200')) {
-				if (ilosc<7) {cena=50;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=49;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=48;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=47;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=45;}
-				if (ilosc>=217 ) {cena=43;}
+				if (ilosc<7) {cena=51;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=50;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=49;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=48;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=47;}
+				if (ilosc>=217 ) {cena=44;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 4;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 5;}
@@ -659,12 +659,12 @@
 
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '80x200')){
-				if (ilosc<7) {cena=85;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
-				if (ilosc>=217 ) {cena=78;}
+				if (ilosc<7) {cena=89;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=88;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=87;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=86;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=84;}
+				if (ilosc>=217 ) {cena=82;}
 				if ($('input_32').value == '440g') {cena += 0}
 				if ($('input_32').value == '300µ M1') {cena += 3}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4}
@@ -682,12 +682,12 @@
 			}
 			//-----------------------------------------------------------------100x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '100x200')){
-				if (ilosc<7) {cena=105;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=104;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=103;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=102;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=100;}
-				if (ilosc>=217 ) {cena=98;}
+				if (ilosc<7) {cena=109;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=108;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=107;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=106;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=104;}
+				if (ilosc>=217 ) {cena=102;}
 				if ($('input_32').value == '440g') {cena += 0}
 				if ($('input_32').value == '300µ M1') {cena += 4}
 				if ($('input_32').value == 'jet 520 M1') {cena += 5}
@@ -705,12 +705,12 @@
 			}
 			//-----------------------------------------------------------------120x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '120x200')){
-				if (ilosc<7) {cena=129;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=128;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=127;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=126;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=124;}
-				if (ilosc>=217 ) {cena=122;}
+				if (ilosc<7) {cena=133;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=132;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=131;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=130;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=128;}
+				if (ilosc>=217 ) {cena=126;}
 				if ($('input_32').value == '440g') {cena += 0}
 				if ($('input_32').value == '300µ M1') {cena += 6}
 				if ($('input_32').value == 'jet 520 M1') {cena += 8}
@@ -728,12 +728,12 @@
 			}
 			//-----------------------------------------------------------------150x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '150x200')){
-				if (ilosc<7) {cena=169;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=168;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=167;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=166;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=164;}
-				if (ilosc>=217 ) {cena=162;}
+				if (ilosc<7) {cena=173;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=172;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=171;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=170;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=168;}
+				if (ilosc>=217 ) {cena=166;}
 				if ($('input_33').value == '440g') {cena += 0}
 				if ($('input_33').value == '300µ M1') {cena += 9}
 				if ($('input_33').value == 'jet 520 M1') {cena += 12}
@@ -751,12 +751,12 @@
 			}
 			//-----------------------------------------------------------------200x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x200')){
-				if (ilosc<7) {cena=219;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=218;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=217;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=216;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=214;}
-				if (ilosc>=217 ) {cena=212;}
+				if (ilosc<7) {cena=223;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=222;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=221;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=220;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=218;}
+				if (ilosc>=217 ) {cena=216;}
 				if ($('input_35').value == '440g') {cena += 0}
 				if ($('input_35').value == 'jet 520 M1') {cena += 40}
 
@@ -775,12 +775,12 @@
 
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'double') && ($('input_24').value == '80x200')){
-				if (ilosc<7) {cena=90;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=89;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=88;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=87;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=85;}
-				if (ilosc>=217 ) {cena=83;}
+				if (ilosc<7) {cena=95;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=94;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=93;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=92;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=90;}
+				if (ilosc>=217 ) {cena=88;}
 				if ($('input_34').value == '440g') {cena += 0}
 				if ($('input_34').value == '300µ M1') {cena += 6}
 				if ($('input_34').value == 'jet 520 M1') {cena += 8}
@@ -799,12 +799,12 @@
 			}
 			//------------------------------------------------------------------85x200
 			if (($('input_1').value == 'double') && ($('input_24').value == '85x200')){
-				if (ilosc<7) {cena=99;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=95;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
-				if (ilosc>=217 ) {cena=92;}
+				if (ilosc<7) {cena=104;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=103;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=101;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=100;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=99;}
+				if (ilosc>=217 ) {cena=97;}
 				if ($('input_34').value == '440g') {cena += 0}
 				if ($('input_34').value == '300µ M1') {cena += 10}
 				if ($('input_34').value == 'jet 520 M1') {cena += 12}
@@ -823,12 +823,12 @@
 			}
 			//-----------------------------------------------------------------100x200
 			if (($('input_1').value == 'double') && ($('input_24').value == '100x200')){
-				if (ilosc<7) {cena=135;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=134;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=133;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=132;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=130;}
-				if (ilosc>=217 ) {cena=129;}
+				if (ilosc<7) {cena=140;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=139;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=138;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=137;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=135;}
+				if (ilosc>=217 ) {cena=134;}
 				if ($('input_34').value == '440g') {cena += 0}
 				if ($('input_34').value == '300µ M1') {cena += 12}
 				if ($('input_34').value == 'jet 520 M1') {cena += 15}
@@ -1151,8 +1151,8 @@
 				if(jQuery('#id_8').css('display') != 'none') {
 					jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
 				}
-
-				var finalPrice1=fixstr(finalPrice);
+				var finalPrice1 = '';
+				finalPrice1=fixstr(finalPrice);
 				finalPrice2 = finalPrice1.replace(".", ",");
 
 				jQuery('#prix_unitaire').html(finalPrice2+' &euro;');

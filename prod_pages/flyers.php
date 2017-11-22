@@ -101,7 +101,7 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<option value="config">je crée ma maquette en ligne</option>
+					<!--<option value="config">je crée ma maquette en ligne</option>-->
 				</select>
 			</li>
 
@@ -121,7 +121,7 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<option value="config">je crée ma maquette en ligne</option>
+					<!--<option value="config">je crée ma maquette en ligne</option>-->
 				</select>
 			</li>
 
@@ -141,7 +141,7 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<option value="config">je crée ma maquette en ligne</option>
+					<!--<option value="config">je crée ma maquette en ligne</option>-->
 				</select>
 			</li>
 
@@ -161,7 +161,7 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<option value="config">je crée ma maquette en ligne</option>
+					<!--<option value="config">je crée ma maquette en ligne</option>-->
 				</select>
 			</li>
 

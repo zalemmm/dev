@@ -654,7 +654,12 @@ function get_details() {
 			}
 		}
 	} else {
-		$epilog .= '<span id="but_suivre" class="deactive"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</span>';
+		if ($status<2) {
+			$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> changer l\'adresse</a>';
+		} else {
+			$epilog .= '<a id="but_suivre" class="deactive" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> changer l\'adresse</a>';
+		}
+
 	}
 
 	// bouton imprimer la facture ////////////////////////////////////////////////
@@ -787,7 +792,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			}
 
 			$produkty = $products;
-			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th>Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th></tr>';
+			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th class="cartQte">Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th><th></th></tr>';
 			$licznik = 0;
 			$kosztcalosci = 0;
 
@@ -917,7 +922,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 			$view .= '<table id="fbcart_address" border="0" cellspacing="0">
 			<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
-			<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'">Modifier</a></td></tr>
+			<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> changer l\'adresse</a></td></tr>
 			</table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>'; // ajout devis
@@ -955,7 +960,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;" colspan="2"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /><div class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</div></td></tr><tr><td class="print-no">FACTURE NºF - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr><tr><td class="print-title">Madame, Monsieur,<br />Veuillez trouver ci-dessous votre facture concernant la commande<br />ref: '.$idzamowienia.'<br />Dans l\'attente d\'une collaboration prochaine,<br />Veuillez agrèer, Madame, Monsieur, nos solutations respectueuses.</td></tr></table></div>';
 
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '

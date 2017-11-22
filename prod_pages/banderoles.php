@@ -350,7 +350,7 @@
 						<option value="">fichier d'impression...</option>
 						<option value="fb">France banderole crée la mise en page</option>
 						<option value="user">j’ai déjà crée la mise en page</option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<!--<option value="config">je crée ma maquette en ligne</option>-->
 					</select>
 				</li>
 
@@ -699,17 +699,17 @@
 			if (($('input_ext').value == 'capotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'capotoile' ) && (h1>=2.51)){plm =27.18 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (h1<=1.00) ){plm =11.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =12.32 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =12.90 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =13.49 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && (h1>=2.51)){plm =14.08 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (h1<=1.00) ){plm =21.73 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =22.32 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =22.90 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =23.49 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (h1>=2.51)){plm =24.08 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (h1<=1.00) ){plm =12.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.42 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =14.06 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =14.70 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && (h1>=2.51)){plm =15.34 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (h1<=1.00) ){plm =22.78 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =23.42 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =24.06 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =24.70 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (h1>=2.51)){plm =25.34 ;}
 
 
 			prixproduit = metrage*plm;
@@ -772,17 +772,17 @@
 			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =27.18 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =11.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =12.32 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =12.90 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =13.49 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =14.08 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =21.73 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =22.32 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =22.90 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =23.49 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =24.08 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =12.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.42 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.06 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.70 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =15.34 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =22.78 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.42 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.06 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =24.70 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =25.34 ;}
 
 
 			prixproduit = metrage*plm;
@@ -845,17 +845,17 @@
 			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
 			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =27.18 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =11.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =12.32 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =12.90 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =13.49 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =14.08 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =21.73 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =22.32 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =22.90 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =23.49 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =24.08 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =12.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.42 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.06 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.70 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =15.34 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =22.78 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.42 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.06 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =24.70 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =25.34 ;}
 
 			prixproduit = metrage*plm;////prix de la banderole
 		}

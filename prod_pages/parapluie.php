@@ -10,7 +10,7 @@
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0" style="visibility:hidden;">
               <b>Stand tissu EasyQuick: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
-              <b>Stand ExpoBag: <span class="highlight">Dès 678€</span></b><br/>stand complet avec un mur d'image 200x220cm en bâche PVC 520g M1 ou en tissu 220g B1 avec visuel 220x240cm + 2 roll-up + valise - comptoir d'accueil avec tablette (visuel en tissu 220gr B1 ou en PVC 300µ) + présentoir documents 4 poches.<br/>
+              <b>Stand ExpoBag: <span class="highlight">Dès 530€</span></b><br/>stand complet avec un mur d'image 200x220cm en bâche PVC 520g M1 ou en tissu 220g B1 avec visuel 220x240cm + 2 roll-up + valise - comptoir d'accueil avec tablette (visuel en tissu 220gr B1 ou en PVC 300µ) + présentoir documents 4 poches.<br/>
               <b>Stand parapluie révolution: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
               <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
               <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
@@ -261,7 +261,7 @@
             <option value="">choisir la mise en page... </option>
             <option value="fb">France banderole crée la mise en page</option>
             <option value="user">j’ai déjà crée la maquette </option>
-            <option class="option1" value="config">je crée ma maquette en ligne</option>
+            <!--<option value="config">je crée ma maquette en ligne</option>-->
           </select>
         </li>
 

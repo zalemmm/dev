@@ -10,10 +10,9 @@
 
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
             <option value="">choisir l'épaisseur...</option>
-            <option value="Affiches 120g">120g Dos bleu (à coller)</option>
+            <option value="Affiches 130g">130g Dos bleu (à coller)</option>
             <option value="Affiches 150g">150g Dos blanc Mat</option>
             <option value="Affiches 220g">220g M1 ultra blanc</option>
-            <option value="Affiches 120g fluo">120g jaune fluo</option>
           </select>
         </li>
 
@@ -21,29 +20,15 @@
 
           <select class="form-dropdown validate[required]" id="input_21" name="q21_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
             <option value="">choisir le format...</option>
-            <option value="1">DIN A2 (42 x 60 cm) | UV </option>
-            <option value="2">DIN A1 (60 x 80 cm) | UV </option>
-            <option value="3">DIN A0 (80 x 120 cm) | UV </option>
-            <option value="4">120 x 160 cm (Abribus)| UV </option>
-            <option value="5">120 x 176 cm (Abribus)| UV </option>
-            <option value="6">100 x 150 cm (Caisson lumineux/Abribus) | UV </option>
-            <option value="7">150 x 200 cm (Caisson lumineux/Abribus) | UV </option>
+            <option value="1">DIN A2 (42 x 60 cm) | Quadri </option>
+            <option value="2">DIN A1 (60 x 84 cm) | Quadri </option>
+            <option value="3">DIN A0 (84 x 120 cm) | Quadri </option>
+            <option value="4">120 x 160 cm (Abribus)| Quadri </option>
+            <option value="5">120 x 176 cm (Abribus)| Quadri </option>
+            <option value="6">100 x 150 cm (Caisson lumineux/Abribus) | Quadri </option>
+            <option value="7">150 x 200 cm (Caisson lumineux/Abribus) | Quadri </option>
           </select>
         </li>
-        
-        <li class="form-line" id="id_22">
-
-          <select class="form-dropdown validate[required]" id="input_22" name="q22_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
-            <option value="">choisir le format...</option>
-            <option value="1">DIN A2 (42 x 60 cm) | UV </option>
-            <option value="2">DIN A1 (60 x 80 cm) | UV </option>
-            <option value="3">DIN A0 (80 x 120 cm) | UV </option>
-            <option value="4">120 x 160 cm (Abribus)| UV </option>
-            <option value="5">120 x 176 cm (Abribus)| UV </option>
-            <option value="6">100 x 150 cm (Caisson lumineux/Abribus) | UV </option>
-          </select>
-        </li>
-
 
 
         <li class="form-line" id="id_41">
@@ -85,12 +70,9 @@
           <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola(); ">
             <option value="">quantité...</option>
             <option value="1">1 </option>
-            <option value="2">2 </option>
-            <option value="4">4 </option>
-            <option value="6">6 </option>
-            <option value="8">8 </option>
+            <option value="5">5 </option>
             <option value="10">10 </option>
-            <option value="20">20 </option>
+            <option value="25">25 </option>
             <option value="50">50 </option>
             <option value="100">100 </option>
           </select>
@@ -280,459 +262,246 @@ function AddBusinessDays(weekDaysToAdd) {
       var ilosc       = $('input_5').value;
       var largeur     = 0;
   		var hauteur     = 0;
-		var m2     = 0;////////m²
-		var pm2     = 0; ////prix m²
       var opis        = '';
 
       //////////////////////////////////////////////////////////////////////////
 
-      if ($('input_1').value == 'Affiches 120g') {
+      if ($('input_1').value == 'Affiches 130g') {
         if ($('input_21').value == '1'){
 
-        if (ilosc == '1') { m2=1*0.25; transport=7;}
-		if (ilosc == '2') { m2=2*0.25; transport=7;}
-        if (ilosc == '4') { m2=4*0.25; transport=9;}
-		if (ilosc == '6') { m2=6*0.25; transport=9;}
-		if (ilosc == '8') { m2=8*0.25; transport=9;}
-        if (ilosc == '10') { m2=10*0.25; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.25; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.25; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        if (ilosc == '1') { cena=1*0.25*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*0.25*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*0.25*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*0.25*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*0.25*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*0.25*8; transport=26.9;}
+        opis += '<br />- DIN A2 (42 x 60 cm) | Quadri';
         }
 
         if ($('input_21').value == '2'){
 
-         if (ilosc == '1') { m2=1*0.5; transport=7;}
-		if (ilosc == '2') { m2=2*0.5; transport=7;}
-        if (ilosc == '4') { m2=4*0.5; transport=9;}
-		if (ilosc == '6') { m2=6*0.5; transport=9;}
-		if (ilosc == '8') { m2=8*0.5; transport=9;}
-        if (ilosc == '10') { m2=10*0.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        if (ilosc == '1') { cena=1*0.5*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*0.5*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*0.5*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*0.5*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*0.5*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*0.5*8; transport=26.9;}
+        opis += '<br />- DIN A1 (60 x 84 cm) | Quadri';
         }
 
         if ($('input_21').value == '3'){
 
-       if (ilosc == '1') { m2=1*0.96; transport=7;}
-		if (ilosc == '2') { m2=2*0.96; transport=7;}
-        if (ilosc == '4') { m2=4*0.96; transport=9;}
-		if (ilosc == '6') { m2=6*0.96; transport=9;}
-		if (ilosc == '8') { m2=8*0.96; transport=9;}
-        if (ilosc == '10') { m2=10*0.96; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.96; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.96; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        if (ilosc == '1') { cena=1*1*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*1*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*1*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*1*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*1*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*1*8; transport=26.9;}
+        opis += '<br />- DIN A0 (84 x 120 cm) | Quadri';
         }
 
         if ($('input_21').value == '4'){
 
-        if (ilosc == '1') { m2=1*1.92; transport=7;}
-		if (ilosc == '2') { m2=2*1.92; transport=7;}
-        if (ilosc == '4') { m2=4*1.92; transport=9;}
-		if (ilosc == '6') { m2=6*1.92; transport=9;}
-		if (ilosc == '8') { m2=8*1.92; transport=9;}
-        if (ilosc == '10') { m2=10*1.92; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.92; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.92; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        if (ilosc == '1') { cena=1*1.92*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*1.92*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*1.92*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*1.92*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*1.92*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*1.92*8; transport=26.9;}
+        opis += '<br />- 120 x 160 cm | Quadri';
         }
 
         if ($('input_21').value == '5'){
 
-        if (ilosc == '1') { m2=1*2.11; transport=7;}
-		if (ilosc == '2') { m2=2*2.11; transport=7;}
-        if (ilosc == '4') { m2=4*2.11; transport=9;}
-		if (ilosc == '6') { m2=6*2.11; transport=9;}
-		if (ilosc == '8') { m2=8*2.11; transport=9;}
-        if (ilosc == '10') { m2=10*2.11; transport=11.9;}
-        if (ilosc == '20') { m2=20*2.11; transport=13.9;}
-        if (ilosc == '50') { m2=50*2.11; transport=15.9;}
-        if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        if (ilosc == '1') { cena=1*2.11*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*2.11*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*2.11*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*2.11*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*2.11*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*2.11*8; transport=26.9;}
+        opis += '<br />- 120 x 176 cm | Quadri';
         }
 
         if ($('input_21').value == '6'){
 
-        if (ilosc == '1') { m2=1*1.5; transport=7;}
-		if (ilosc == '2') { m2=2*1.5; transport=7;}
-        if (ilosc == '4') { m2=4*1.5; transport=9;}
-		if (ilosc == '6') { m2=6*1.5; transport=9;}
-		if (ilosc == '8') { m2=8*1.5; transport=9;}
-        if (ilosc == '10') { m2=10*1.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        if (ilosc == '1') { cena=1*1.50*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*1.50*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*1.50*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*1.50*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*1.50*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*1.50*8; transport=26.9;}
+        opis += '<br />- 100 x 150 cm | Quadri';
         }
 
         if ($('input_21').value == '7'){
 
-       if (ilosc == '1') { m2=1*3; transport=7;}
-		if (ilosc == '2') { m2=2*3; transport=7;}
-        if (ilosc == '4') { m2=4*3; transport=9;}
-		if (ilosc == '6') { m2=6*3; transport=9;}
-		if (ilosc == '8') { m2=8*3; transport=9;}
-        if (ilosc == '10') { m2=10*3; transport=11.9;}
-        if (ilosc == '20') { m2=20*3; transport=13.9;}
-        if (ilosc == '50') { m2=50*3; transport=15.9;}
-        if (ilosc == '100') { m2=100*3; transport=19.9;}
-        opis += '<br />- 150 x 200 cm | UV';
+        if (ilosc == '1') { cena=1*3*18; transport=11.9;}
+        if (ilosc == '5') { cena=5*3*16; transport=11.9;}
+        if (ilosc == '10') { cena=10*3*14; transport=11.9;}
+        if (ilosc == '25') { cena=25*3*12; transport=14.9;}
+        if (ilosc == '50') { cena=50*3*10; transport=14.9;}
+        if (ilosc == '100') { cena=100*3*8; transport=26.9;}
+        opis += '<br />- 150 x 200 cm | Quadri';
         }
       }
 
       if ($('input_1').value == 'Affiches 150g') {
         if ($('input_21').value == '1'){
 
-        if (ilosc == '1') { m2=1*0.25; transport=7;}
-		if (ilosc == '2') { m2=2*0.25; transport=7;}
-        if (ilosc == '4') { m2=4*0.25; transport=9;}
-		if (ilosc == '6') { m2=6*0.25; transport=9;}
-		if (ilosc == '8') { m2=8*0.25; transport=9;}
-        if (ilosc == '10') { m2=10*0.25; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.25; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.25; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        if (ilosc == '1') { cena=1*0.25*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*0.25*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*0.25*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*0.25*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*0.25*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*0.25*10; transport=26.9;}
+        opis += '<br />- DIN A2 (42 x 60 cm) | Quadri';
         }
 
         if ($('input_21').value == '2'){
 
-         if (ilosc == '1') { m2=1*0.5; transport=7;}
-		if (ilosc == '2') { m2=2*0.5; transport=7;}
-        if (ilosc == '4') { m2=4*0.5; transport=9;}
-		if (ilosc == '6') { m2=6*0.5; transport=9;}
-		if (ilosc == '8') { m2=8*0.5; transport=9;}
-        if (ilosc == '10') { m2=10*0.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        if (ilosc == '1') { cena=1*0.5*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*0.5*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*0.5*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*0.5*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*0.5*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*0.5*10; transport=26.9;}
+        opis += '<br />- DIN A1 (60 x 84 cm) | Quadri';
         }
 
         if ($('input_21').value == '3'){
 
-         if (ilosc == '1') { m2=1*0.96; transport=7;}
-		if (ilosc == '2') { m2=2*0.96; transport=7;}
-        if (ilosc == '4') { m2=4*0.96; transport=9;}
-		if (ilosc == '6') { m2=6*0.96; transport=9;}
-		if (ilosc == '8') { m2=8*0.96; transport=9;}
-        if (ilosc == '10') { m2=10*0.96; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.96; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.96; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        if (ilosc == '1') { cena=1*1*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*1*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*1*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*1*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*1*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*1*10; transport=26.9;}
+        opis += '<br />- DIN A0 (84 x 120 cm) | Quadri';
         }
 
         if ($('input_21').value == '4'){
 
-         if (ilosc == '1') { m2=1*1.92; transport=7;}
-		if (ilosc == '2') { m2=2*1.92; transport=7;}
-        if (ilosc == '4') { m2=4*1.92; transport=9;}
-		if (ilosc == '6') { m2=6*1.92; transport=9;}
-		if (ilosc == '8') { m2=8*1.92; transport=9;}
-        if (ilosc == '10') { m2=10*1.92; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.92; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.92; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        if (ilosc == '1') { cena=1*1.92*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*1.92*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*1.92*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*1.92*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*1.92*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*1.92*10; transport=26.9;}
+        opis += '<br />- 120 x 160 cm | Quadri';
         }
 
         if ($('input_21').value == '5'){
 
-         if (ilosc == '1') { m2=1*2.11; transport=7;}
-		if (ilosc == '2') { m2=2*2.11; transport=7;}
-        if (ilosc == '4') { m2=4*2.11; transport=9;}
-		if (ilosc == '6') { m2=6*2.11; transport=9;}
-		if (ilosc == '8') { m2=8*2.11; transport=9;}
-        if (ilosc == '10') { m2=10*2.11; transport=11.9;}
-        if (ilosc == '20') { m2=20*2.11; transport=13.9;}
-        if (ilosc == '50') { m2=50*2.11; transport=15.9;}
-        if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        if (ilosc == '1') { cena=1*2.11*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*2.11*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*2.11*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*2.11*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*2.11*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*2.11*10; transport=26.9;}
+        opis += '<br />- 120 x 176 cm | Quadri';
         }
 
         if ($('input_21').value == '6'){
 
-         if (ilosc == '1') { m2=1*1.5; transport=7;}
-		if (ilosc == '2') { m2=2*1.5; transport=7;}
-        if (ilosc == '4') { m2=4*1.5; transport=9;}
-		if (ilosc == '6') { m2=6*1.5; transport=9;}
-		if (ilosc == '8') { m2=8*1.5; transport=9;}
-        if (ilosc == '10') { m2=10*1.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        if (ilosc == '1') { cena=1*1.50*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*1.50*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*1.50*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*1.50*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*1.50*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*1.50*10; transport=26.9;}
+        opis += '<br />- 100 x 150 cm | Quadri';
         }
 
         if ($('input_21').value == '7'){
 
-         if (ilosc == '1') { m2=1*3; transport=7;}
-		if (ilosc == '2') { m2=2*3; transport=7;}
-        if (ilosc == '4') { m2=4*3; transport=9;}
-		if (ilosc == '6') { m2=6*3; transport=9;}
-		if (ilosc == '8') { m2=8*3; transport=9;}
-        if (ilosc == '10') { m2=10*3; transport=11.9;}
-        if (ilosc == '20') { m2=20*3; transport=13.9;}
-        if (ilosc == '50') { m2=50*3; transport=15.9;}
-        if (ilosc == '100') { m2=100*3; transport=19.9;}
-        opis += '<br />- 150 x 200 cm | UV';
+        if (ilosc == '1') { cena=1*3*20; transport=11.9;}
+        if (ilosc == '5') { cena=5*3*18; transport=11.9;}
+        if (ilosc == '10') { cena=10*3*16; transport=11.9;}
+        if (ilosc == '25') { cena=25*3*14; transport=14.9;}
+        if (ilosc == '50') { cena=50*3*12; transport=14.9;}
+        if (ilosc == '100') { cena=100*3*10; transport=26.9;}
+        opis += '<br />- 150 x 200 cm | Quadri';
         }
       }
 
       if ($('input_1').value == 'Affiches 220g') {
         if ($('input_21').value == '1'){
 
-        if (ilosc == '1') { m2=1*0.25; transport=7;}
-		if (ilosc == '2') { m2=2*0.25; transport=7;}
-        if (ilosc == '4') { m2=4*0.25; transport=9;}
-		if (ilosc == '6') { m2=6*0.25; transport=9;}
-		if (ilosc == '8') { m2=8*0.25; transport=9;}
-        if (ilosc == '10') { m2=10*0.25; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.25; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.25; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        if (ilosc == '1') { cena=1*0.25*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*0.25*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*0.25*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*0.25*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*0.25*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*0.25*15; transport=26.9;}
+        opis += '<br />- DIN A2 (42 x 60 cm) | Quadri';
         }
 
         if ($('input_21').value == '2'){
 
-        if (ilosc == '1') { m2=1*0.5; transport=7;}
-		if (ilosc == '2') { m2=2*0.5; transport=7;}
-        if (ilosc == '4') { m2=4*0.5; transport=9;}
-		if (ilosc == '6') { m2=6*0.5; transport=9;}
-		if (ilosc == '8') { m2=8*0.5; transport=9;}
-        if (ilosc == '10') { m2=10*0.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        if (ilosc == '1') { cena=1*0.5*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*0.5*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*0.5*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*0.5*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*0.5*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*0.5*15; transport=26.9;}
+        opis += '<br />- DIN A1 (60 x 84 cm) | Quadri';
         }
 
         if ($('input_21').value == '3'){
 
-       if (ilosc == '1') { m2=1*0.96; transport=7;}
-		if (ilosc == '2') { m2=2*0.96; transport=7;}
-        if (ilosc == '4') { m2=4*0.96; transport=9;}
-		if (ilosc == '6') { m2=6*0.96; transport=9;}
-		if (ilosc == '8') { m2=8*0.96; transport=9;}
-        if (ilosc == '10') { m2=10*0.96; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.96; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.96; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        if (ilosc == '1') { cena=1*1*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*1*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*1*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*1*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*1*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*1*15; transport=26.9;}
+        opis += '<br />- DIN A0 (84 x 120 cm) | Quadri';
         }
 
         if ($('input_21').value == '4'){
 
-        if (ilosc == '1') { m2=1*1.92; transport=7;}
-		if (ilosc == '2') { m2=2*1.92; transport=7;}
-        if (ilosc == '4') { m2=4*1.92; transport=9;}
-		if (ilosc == '6') { m2=6*1.92; transport=9;}
-		if (ilosc == '8') { m2=8*1.92; transport=9;}
-        if (ilosc == '10') { m2=10*1.92; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.92; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.92; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        if (ilosc == '1') { cena=1*1.92*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*1.92*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*1.92*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*1.92*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*1.92*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*1.92*15; transport=26.9;}
+        opis += '<br />- 120 x 160 cm | Quadri';
         }
 
         if ($('input_21').value == '5'){
 
-       if (ilosc == '1') { m2=1*2.11; transport=7;}
-		if (ilosc == '2') { m2=2*2.11; transport=7;}
-        if (ilosc == '4') { m2=4*2.11; transport=9;}
-		if (ilosc == '6') { m2=6*2.11; transport=9;}
-		if (ilosc == '8') { m2=8*2.11; transport=9;}
-        if (ilosc == '10') { m2=10*2.11; transport=11.9;}
-        if (ilosc == '20') { m2=20*2.11; transport=13.9;}
-        if (ilosc == '50') { m2=50*2.11; transport=15.9;}
-        if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        if (ilosc == '1') { cena=1*2.11*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*2.11*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*2.11*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*2.11*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*2.11*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*2.11*15; transport=26.9;}
+        opis += '<br />- 120 x 176 cm | Quadri';
         }
 
         if ($('input_21').value == '6'){
 
-       if (ilosc == '1') { m2=1*1.5; transport=7;}
-		if (ilosc == '2') { m2=2*1.5; transport=7;}
-        if (ilosc == '4') { m2=4*1.5; transport=9;}
-		if (ilosc == '6') { m2=6*1.5; transport=9;}
-		if (ilosc == '8') { m2=8*1.5; transport=9;}
-        if (ilosc == '10') { m2=10*1.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        if (ilosc == '1') { cena=1*1.50*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*1.50*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*1.50*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*1.50*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*1.50*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*1.50*15; transport=26.9;}
+        opis += '<br />- 100 x 150 cm | Quadri';
         }
 
         if ($('input_21').value == '7'){
 
-       if (ilosc == '1') { m2=1*3; transport=7;}
-		if (ilosc == '2') { m2=2*3; transport=7;}
-        if (ilosc == '4') { m2=4*3; transport=9;}
-		if (ilosc == '6') { m2=6*3; transport=9;}
-		if (ilosc == '8') { m2=8*3; transport=9;}
-        if (ilosc == '10') { m2=10*3; transport=11.9;}
-        if (ilosc == '20') { m2=20*3; transport=13.9;}
-        if (ilosc == '50') { m2=50*3; transport=15.9;}
-        if (ilosc == '100') { m2=100*3; transport=19.9;}
-        opis += '<br />- 150 x 200 cm | UV';
+        if (ilosc == '1') { cena=1*3*25; transport=11.9;}
+        if (ilosc == '5') { cena=5*3*23; transport=11.9;}
+        if (ilosc == '10') { cena=10*3*19; transport=11.9;}
+        if (ilosc == '25') { cena=25*3*18; transport=14.9;}
+        if (ilosc == '50') { cena=50*3*17; transport=14.9;}
+        if (ilosc == '100') { cena=100*3*15; transport=26.9;}
+        opis += '<br />- 150 x 200 cm | Quadri';
         }
       }
-	  
-	  
-	   if ($('input_1').value == 'Affiches 120g fluo') {
-        if ($('input_22').value == '1'){
-
-        if (ilosc == '1') { m2=1*0.25; transport=7;}
-		if (ilosc == '2') { m2=2*0.25; transport=7;}
-        if (ilosc == '4') { m2=4*0.25; transport=9;}
-		if (ilosc == '6') { m2=6*0.25; transport=9;}
-		if (ilosc == '8') { m2=8*0.25; transport=9;}
-        if (ilosc == '10') { m2=10*0.25; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.25; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.25; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
-        }
-
-        if ($('input_22').value == '2'){
-
-        if (ilosc == '1') { m2=1*0.5; transport=7;}
-		if (ilosc == '2') { m2=2*0.5; transport=7;}
-        if (ilosc == '4') { m2=4*0.5; transport=9;}
-		if (ilosc == '6') { m2=6*0.5; transport=9;}
-		if (ilosc == '8') { m2=8*0.5; transport=9;}
-        if (ilosc == '10') { m2=10*0.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
-        }
-
-        if ($('input_22').value == '3'){
-
-         if (ilosc == '1') { m2=1*0.96; transport=7;}
-		if (ilosc == '2') { m2=2*0.96; transport=7;}
-        if (ilosc == '4') { m2=4*0.96; transport=9;}
-		if (ilosc == '6') { m2=6*0.96; transport=9;}
-		if (ilosc == '8') { m2=8*0.96; transport=9;}
-        if (ilosc == '10') { m2=10*0.96; transport=11.9;}
-        if (ilosc == '20') { m2=20*0.96; transport=13.9;}
-        if (ilosc == '50') { m2=50*0.96; transport=15.9;}
-        if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
-        }
-
-        if ($('input_22').value == '4'){
-
-         if (ilosc == '1') { m2=1*1.92; transport=7;}
-		if (ilosc == '2') { m2=2*1.92; transport=7;}
-        if (ilosc == '4') { m2=4*1.92; transport=9;}
-		if (ilosc == '6') { m2=6*1.92; transport=9;}
-		if (ilosc == '8') { m2=8*1.92; transport=9;}
-        if (ilosc == '10') { m2=10*1.92; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.92; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.92; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
-        }
-
-        if ($('input_22').value == '5'){
-
-         if (ilosc == '1') { m2=1*2.11; transport=7;}
-		if (ilosc == '2') { m2=2*2.11; transport=7;}
-        if (ilosc == '4') { m2=4*2.11; transport=9;}
-		if (ilosc == '6') { m2=6*2.11; transport=9;}
-		if (ilosc == '8') { m2=8*2.11; transport=9;}
-        if (ilosc == '10') { m2=10*2.11; transport=11.9;}
-        if (ilosc == '20') { m2=20*2.11; transport=13.9;}
-        if (ilosc == '50') { m2=50*2.11; transport=15.9;}
-        if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
-        }
-
-        if ($('input_22').value == '6'){
-
-         if (ilosc == '1') { m2=1*1.5; transport=7;}
-		if (ilosc == '2') { m2=2*1.5; transport=7;}
-        if (ilosc == '4') { m2=4*1.5; transport=9;}
-		if (ilosc == '6') { m2=6*1.5; transport=9;}
-		if (ilosc == '8') { m2=8*1.5; transport=9;}
-        if (ilosc == '10') { m2=10*1.5; transport=11.9;}
-        if (ilosc == '20') { m2=20*1.5; transport=13.9;}
-        if (ilosc == '50') { m2=50*1.5; transport=15.9;}
-        if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
-        }
-
-      
-      }
-	  //////////////120g
-	  if ((m2<1) && ($('input_1').value == 'Affiches 120g') ) {pm2=7;}
-	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 120g') ) {pm2=6.5;}
-	  if ((m2>=2) && (m2<3) && ($('input_1').value == 'Affiches 120g') ) {pm2=5.8;}
-	  if ((m2>=3) && (m2<6) && ($('input_1').value == 'Affiches 120g') ) {pm2=5.5;}
-	  if ((m2>=6) && (m2<13) && ($('input_1').value == 'Affiches 120g') ) {pm2=5.2;}
-	  if ((m2>=13) && (m2<25) && ($('input_1').value == 'Affiches 120g') ) {pm2=4.9;}
-	  if ((m2>=25) && (m2<50) && ($('input_1').value == 'Affiches 120g') ) {pm2=4.6;}
-	  if ((m2>=50) && (m2<100) && ($('input_1').value == 'Affiches 120g') ) {pm2=4.3;}
-	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 120g') ) {pm2=4;}
-	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 120g') ) {pm2=3.5;}
-	  if ((m2>=300) && ($('input_1').value == 'Affiches 120g') ) {pm2=3;}
-	  
-	  
-	   //////////////150g
-	  if ((m2<1) && ($('input_1').value == 'Affiches 150g') ) {pm2=9;}
-	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 150g') ) {pm2=8.5;}
-	  if ((m2>=2) && (m2<3) && ($('input_1').value == 'Affiches 150g') ) {pm2=8;}
-	  if ((m2>=3) && (m2<6) && ($('input_1').value == 'Affiches 150g') ) {pm2=7.5;}
-	  if ((m2>=6) && (m2<13) && ($('input_1').value == 'Affiches 150g') ) {pm2=7;}
-	  if ((m2>=13) && (m2<25) && ($('input_1').value == 'Affiches 150g') ) {pm2=6.5;}
-	  if ((m2>=25) && (m2<50) && ($('input_1').value == 'Affiches 150g') ) {pm2=6;}
-	  if ((m2>=50) && (m2<100) && ($('input_1').value == 'Affiches 150g') ) {pm2=5.5;}
-	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 150g') ) {pm2=5;}
-	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 150g') ) {pm2=4.5;}
-	  if ((m2>=300) && ($('input_1').value == 'Affiches 150g') ) {pm2=4;}
-	  
-	    //////////////220g
-	  if ((m2<1) && ($('input_1').value == 'Affiches 220g') ) {pm2=10;}
-	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 220g') ) {pm2=9.5;}
-	  if ((m2>=2) && (m2<3) && ($('input_1').value == 'Affiches 220g') ) {pm2=9;}
-	  if ((m2>=3) && (m2<6) && ($('input_1').value == 'Affiches 220g') ) {pm2=8.5;}
-	  if ((m2>=6) && (m2<13) && ($('input_1').value == 'Affiches 220g') ) {pm2=8;}
-	  if ((m2>=13) && (m2<25) && ($('input_1').value == 'Affiches 220g') ) {pm2=7.5;}
-	  if ((m2>=25) && (m2<50) && ($('input_1').value == 'Affiches 220g') ) {pm2=7;}
-	  if ((m2>=50) && (m2<100) && ($('input_1').value == 'Affiches 220g') ) {pm2=6.5;}
-	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 220g') ) {pm2=6;}
-	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 220g') ) {pm2=5.5;}
-	  if ((m2>=300) && ($('input_1').value == 'Affiches 220g') ) {pm2=5;}
-	  
-	  
-	  
-	    //////////////120g
-	  if ((m2<1) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=9.5;}
-	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=9;}
-	  if ((m2>=2) && (m2<3) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=8.5;}
-	  if ((m2>=3) && (m2<6) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=8;}
-	  if ((m2>=6) && (m2<13) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=7.5;}
-	  if ((m2>=13) && (m2<25) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=7;}
-	  if ((m2>=25) && (m2<50) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=6.5;}
-	  if ((m2>=50) && (m2<100) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=6;}
-	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=5.5;}
-	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=5;}
-	  if ((m2>=300) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=4.5;}
-	  
-	  
-	  cena=m2*pm2
-	  cena+=transport
-	  
 
       opis += '<br />- '+ilosc+' Affiches(s)';
 
@@ -840,9 +609,6 @@ function AddBusinessDays(weekDaysToAdd) {
         cena-= cena*3/100;
         opis += '<br />- retrait colis a l\'atelier';
       }
-	  
-	  
-	  
 
       //////////////////////////////////////////////////////////////////////////
 
@@ -1025,11 +791,6 @@ function AddBusinessDays(weekDaysToAdd) {
 				remise.innerHTML='-';
 				total.innerHTML='-';
 			}
-			
-			
-			
-
-			
 
       //////////////////////////////////////////////// livraison le jour même //
 			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
@@ -1046,39 +807,6 @@ function AddBusinessDays(weekDaysToAdd) {
 			suma2 = suma.replace(".", ",");
 
 			total.innerHTML=suma2+' &euro;';
-			
-			
-			if ( suma < 19 ) {
-					var forfait = 19 - suma;
-					forfait = fixstr(forfait);
-					jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
-					if (option>0) {
-						var newoption = parseFloat(option) + parseFloat(forfait);
-						newoption=fixstr(newoption);
-						newoption2 = newoption.replace(".", ",");
-						option2 = newoption2;
-						var newopt = document.getElementById("option");
-						newopt.innerHTML=newoption2+' &euro;';
-						suma = 19;
-						suma=fixstr(suma);
-						suma2 = suma.replace(".", ",");
-						var newtotal = document.getElementById("total");
-						newtotal.innerHTML=suma2+' &euro;';
-					} else {
-						var newoption = parseFloat(forfait);
-						newoption=fixstr(newoption);
-						newoption2 = newoption.replace(".", ",");
-						option2 = newoption2;
-						var newopt = document.getElementById("option");
-						newopt.innerHTML=newoption2+' &euro;';
-						suma = 19;
-						suma=fixstr(suma);
-						suma2 = suma.replace(".", ",");
-						var newtotal = document.getElementById("total");
-						newtotal.innerHTML=suma2+' &euro;';
-					}
-				}
-			
 
       var rodzaj = $('input_1').value;
 

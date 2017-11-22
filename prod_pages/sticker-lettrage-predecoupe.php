@@ -48,7 +48,7 @@
 						<option value="">Choisir le fichier</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<!--<option value="config">je crée ma maquette en ligne</option>-->
 					</select>
 				</li>
 
@@ -251,7 +251,7 @@
 			var largeur      = 0;
 			var hauteur       = 0;
 			var option2        = 0;
-			var erreurType     = 0;
+			var niepokazuj     = 0;
 			var eBox           = document.getElementById('form-button-error2');
 			eBox.innerHTML     = '';
 			var ktorapodstawa  = '';
@@ -363,7 +363,7 @@
 
 			/////////////////////////////////////////////// affichage jours livraison //
 			var myClass = jQuery(this).attr("class");
-			var erreurType = 0;
+			var niepokazuj = 0;
 
 			var n = myClass.search("production");
 			if (n != -1) {
@@ -522,9 +522,9 @@
 			cena2 = prixunite.replace(".", ",")
 			//////////////////////////////////////////////////////////////////////////
 
-			var erreurType = 0;
+			var niepokazuj = 0;
 
-			if (erreurType==1) {
+			if (niepokazuj==1) {
 				prix.innerHTML='-';
 				remise.innerHTML='-';
 				total.innerHTML='-';
@@ -539,22 +539,22 @@
 			//////////////////////////////////////////////////// messages d'erreur  //
 			if ( (largeur > 103) && (hauteur > 103) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
-				erreurType=1;
+				niepokazuj=1;
 			}
 
 			if ( ((largeur < 10) || (hauteur < 10)) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur et Largeur supérieur ou égal à 10cm!';
-				erreurType=1;
+				niepokazuj=1;
 			}
 
 
 			if ( ($('input_4').value == 'tape') && (largeur > 103) && (hauteur > 103) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 103cm!';
-				erreurType=1;
+				niepokazuj=1;
 			}
 
 			////////////////////////////////////////////////////// envoi formulaire //
-			if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
+			if ((niepokazuj==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
 				suma=cena-rabat;
 				suma=fixstr(suma);
 				suma2 = suma.replace(".", ",");

@@ -141,10 +141,10 @@ function get_inscription() {
 
 	} else {
 		if (fb_is_logged()) {
-			$view .= '<h1><i class="fa fa-lock"></i> Accès Client: Modifier mon compte</h1><hr />';
+			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Modifier mon compte</h1><hr />';
 			//$view .= '<p>Note : La modification de votre adresse e-mail est impossible. En cas de changement de cette dernière, merci de contacter un administrateur.</p>';
 		} else {
-			$view .= '<h1><i class="fa fa-lock"></i> Accès Client: Inscription</h1><hr />';
+			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client: Inscription</h1><hr />';
 		}
 		if (fb_is_logged()) {
 			$user = $_SESSION['loggeduser'];
@@ -487,119 +487,6 @@ function get_inscription() {
 	return $view;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-//                             CARNET D'ADRESSES                              //
-////////////////////////////////////////////////////////////////////////////////
-
-// fonction pour sauvegarder les adresses dans les tables address2, address3 etc.
-function saveAddress($table) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-
-	$wpdb->query("INSERT INTO `$table` VALUES (not null, '".$_SESSION['loggeduser']->id."', '".$_POST['orderid']."', '".$_POST['l_name']."', '".$_POST['l_comp']."', '".$_POST['l_address']."', '".$_POST['l_code']."', '".$_POST['l_city']."', '".$_POST['l_phone']."')");
-
-	header('Location: '.$_SERVER['REQUEST_URI']);
-	exit();
-}
-
-// fonction pour appliquer l'adresse de livraison sélectionnée si aucune autre n'était enregistrée avant
-function saveAsNew($address) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_address = $prefix."fbs_address";
-
-	$wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".$_SESSION['loggeduser']->id."', '".$_POST['orderid']."', '$address->l_name', '$address->l_comp', '$address->l_address', '$address->l_code', '$address->l_city', '$address->l_phone')");
-
-	header('Location: '.$_SERVER['REQUEST_URI']);
-	exit();
-}
-
-// fonction pour appliquer l'adresse de livraison sélectionnée à la place d'une autre enregistrée avant
-function editAddress($address) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_address = $prefix."fbs_address";
-
-	$updateAddress = $wpdb->update($fb_tablename_address, array (
-		 'l_name' => $address->l_name,
-		 'l_comp' => $address->l_comp,
-		 'l_address' => $address->l_address,
-		 'l_code' => $address->l_code,
-		 'l_city' => $address->l_city,
-		 'l_phone' => $address->l_phone ),
-		array ('unique_id' => $_POST['orderid'])
-	);
-
-	header('Location: '.$_SERVER['REQUEST_URI']);
-	exit();
-}
-
-//------------------------------- fonction pour éditer les adresses enregistrées
-function editFromBloc($table) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-
-	$l_name = $_POST['l_name'];
-	$l_comp = $_POST['l_comp'];
-	$l_address = $_POST['l_address'];
-	$l_code = $_POST['l_code'];
-	$l_city = $_POST['l_city'];
-	$l_phone = $_POST['l_phone'];
-	$updateAddress = $wpdb->query("UPDATE `$table` SET l_name = '$l_name', l_comp = '$l_comp', l_address = '$l_address', l_code ='$l_code', l_city = '$l_city', l_phone = '$l_phone' WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-
-	header('Location: '.$_SERVER['REQUEST_URI']);
-	exit();
-}
-
-//------------------------------fonction pour afficher les adresses enregistrées
-// $address -> ex $address2
-// $edit    -> ex edit2
-// $del     -> ex del2
-// $label   -> ex adresse 2
-// $check   -> ex adresse2
-function displayAd($address, $edit, $del, $label, $check) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-
-return <<<EOT
-		<div class="blocAdresse blocA5">
-		<button type="submit" title="éditer cette adresse" name="$edit" class="editAdresse" form="editAdresse"><i class="fa fa-pencil-square-o"></i></button>
-		<button type="submit" title="supprimer cette adresse" name="$del" class="deleteAdresse" form="deleteAdresse"><i class="ion-android-delete"></i></button>
-			$address->l_name<br />
-			$address->l_comp<br />
-			$address->l_address<br />
-			$address->l_code<br />
-			$address->l_city<br />
-			$address->l_phone<br />
-		<div class="blocAdresseSelect">$label <span class="selectionner">| sélectionner:</span><label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="$check" class="checkbox" /><span class="slider round"></span></label></div></div>
-EOT;
-}
-
-// -------------fonction pour afficher le mode édition des adresses enregistrées
-// $address -> ex $address2
-// $edit    -> ex editSub2
-// $id      -> ex addressForm2
-// $modify  -> ex modifier2
-function displayEd($address, $edit, $id, $modify) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-
-return <<<EOT
-		<div class="blocAdresse blocA2">
-			<form name="$edit" id="$id" action="" method="post"></form>
-				<input type="text" form="$id" class="editAd" placeholder="nom, prénom" name="l_name" value="$address->l_name" />
-				<input type="text" form="$id" class="editAd" placeholder="société" name="l_comp" value="$address->l_comp" />
-				<input type="text" form="$id" class="editAd" placeholder="adresse" name="l_address" value="$address->l_address" />
-				<input type="text" form="$id" class="editAd" placeholder="code postal" name="l_code" value="$address->l_code" />
-				<input type="text" form="$id" class="editAd" placeholder="ville" name="l_city" value="$address->l_city" />
-				<input type="text" form="$id" class="editAd" placeholder="téléphone" name="l_phone" value="$address->l_phone" />
-				<button type="submit" form="$id" class="editAdBtn" name="$modify"><i class="ion-checkmark"></i></button>
-		</div>
-EOT;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-
 ///////////////////////////////////////////// page modifier adresse livraison //
 
 function get_inscription2() {
@@ -608,16 +495,10 @@ function get_inscription2() {
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_order = $prefix."fbs_order";
 	$fb_tablename_address = $prefix."fbs_address";
-	$fb_tablename_address1 = $prefix."fbs_address1";
 	$fb_tablename_address2 = $prefix."fbs_address2";
 	$fb_tablename_address3 = $prefix."fbs_address3";
 	$fb_tablename_address4 = $prefix."fbs_address4";
 	$fb_tablename_address5 = $prefix."fbs_address5";
-	$fb_tablename_address6 = $prefix."fbs_address6";
-	$fb_tablename_address7 = $prefix."fbs_address7";
-	$fb_tablename_address8 = $prefix."fbs_address8";
-	$fb_tablename_address9 = $prefix."fbs_address9";
-	$fb_tablename_address10 = $prefix."fbs_address10";
 
 	$goback = $_GET['goback'];
 	if ($goback == '') $goback = $_POST['orderid'];
@@ -625,232 +506,142 @@ function get_inscription2() {
 	$isOwner = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$goback'");
 	if (fb_is_logged() && ($isOwner->user == $_SESSION['loggeduser']->id)) {
 
-		////////////////////////////////////////////////////////////////////////////
-		// pour récupérer l'adresse de livraison depuis la table address origine:
+		// pour récupérer l'adresse de livraison depuis la table adress origine:
 		$user = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$goback'");
 
 		// pour récupérer l'adresse de facturation depuis la table users:
-		$usertable = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '".$_SESSION['loggeduser']->id."'");
+		$usertable = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '".addslashes($_SESSION['loggeduser']->id)."'");
 
 		// autres adresses enregistrées:
-		$address1 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address1` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address2 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address2` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address3 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address3` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address4 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address4` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address5 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address5` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address6 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address6` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address7 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address7` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address8 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address8` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address9 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address9` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$address10 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address10` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count1 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address1` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count2 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address2` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count3 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address3` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count4 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address4` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count5 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address5` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count6 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address6` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count7 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address7` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count8 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address8` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count9 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address9` WHERE user = '".$_SESSION['loggeduser']->id."'");
-		$count10 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address10` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address2 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address2` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$address3 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address3` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$address4 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address4` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$address5 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address5` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$count2 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address2` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$count3 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address3` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$count4 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address4` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
+		$count5 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address5` WHERE user = '".addslashes($_SESSION['loggeduser']->id)."'");
 
-
-		// -------------------------------------------formulaire ajouter une adresse
-		if(isset($_POST['ajouterAdresse'])) {
-
-			if (!empty($_POST['l_porte'])) {
-				$_POST['l_address'] = $_POST['l_address'].' | '.$_POST['l_porte'];
-			}
-
-			//if ($user) { // s'il y a déjà une adresse de livraison enregistrée pour la commande
-
-			// 1 - on sauvegarde l'adresse dans la 1ère table disponible.
-			if($count1==0) {
-				saveAddress($fb_tablename_address1);
-			}else if($count2==0) {
-				saveAddress($fb_tablename_address2);
-			}else if($count3==0) {
-				saveAddress($fb_tablename_address3);
-			}else if($count4==0) {
-				saveAddress($fb_tablename_address4);
-			}else if($count5==0) {
-				saveAddress($fb_tablename_address5);
-			}else if($count6==0) {
-				saveAddress($fb_tablename_address6);
-			}else if($count7==0) {
-				saveAddress($fb_tablename_address7);
-			}else if($count8==0) {
-				saveAddress($fb_tablename_address8);
-			}else if($count9==0) {
-				saveAddress($fb_tablename_address9);
-			}else if($count10==0) {
-				saveAddress($fb_tablename_address10);
-			}
-
-				// 2 - on récupère les données modifiées dans le formulaire et on les met à jour dans la table address origine
-				/*$updateAddress = $wpdb->update($fb_tablename_address, array (
-				   'l_name' => $_POST['l_name'],
-				   'l_comp' => $_POST['l_comp'],
-				   'l_address' => $_POST['l_address'],
-				   'l_code' => $_POST['l_code'],
-				   'l_city' => $_POST['l_city'],
-				   'l_phone' => $_POST['l_phone']),
-					array ('unique_id' => $_POST['orderid'])
-				);
-
-			} else { // s'il n'y a pas d'adresse de livraison enregistrée, on insère les données formulaire dans la table address origine et on sauvegarde dans address1
-				//saveAddress($fb_tablename_address);
-				saveAddress($fb_tablename_address1);
-			}*/
+		// fonction pour sauvegarder les adresses dans les tables address2, address3 etc.
+		function saveAddress($table) {
+			global $wpdb;
+			$prefix = $wpdb->prefix;
+			$wpdb->query("INSERT INTO `$table` VALUES (not null, '".addslashes($_SESSION['loggeduser']->id)."', '".addslashes($_POST[orderid])."', '".addslashes($_POST[f_name])."', '".addslashes($_POST[f_comp])."', '".addslashes($_POST[f_address])."', '".addslashes($_POST[f_code])."', '".addslashes($_POST[f_city])."', '".addslashes($_POST[f_phone])."')");
 		}
 
-		//------------------------------------------ formulaire sélectionner adresse
-		if ($_POST['adresse'] == 'adresseFact') {
+		// fonction pour éditer l'adresse de livraison en fonction de celle qui est sélectionnée dans le carnet d'adresse
+		function editAddress($address) {
+			global $wpdb;
+			$prefix = $wpdb->prefix;
+			$fb_tablename_address = $prefix."fbs_address";
 
-			if ($user) { // s'il y a déjà une adresse de livraison enregistrée pour la commande
-				$updateAddress = $wpdb->update($fb_tablename_address, array (
-					 'l_name' => $usertable->f_name,
-					 'l_comp' => $usertable->f_comp,
-					 'l_address' => $usertable->f_address,
-					 'l_code' => $usertable->f_code,
-					 'l_city' => $usertable->f_city,
-					 'l_phone' => $usertable->f_phone ),
-					array ('unique_id' => $_POST['orderid'])
-				);
-			}else{
-				$createAddress = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".$_SESSION['loggeduser']->id."', '".$_POST['orderid']."', '$usertable->f_name', '$usertable->f_comp', '$usertable->f_address', '$usertable->f_code', '$usertable->f_city', '$usertable->f_phone')");
-			}
-		}else if ($_POST['adresse'] == 'adresse0') {
-			// adresse0 = user, c'est la table qu'on modifie ici donc dans ce cas précis on change rien
-		}else if ($_POST['adresse'] == 'adresse1') {
-			if ($user) {
-				editAddress($address1);
-			}else{
-				saveAsNew($address1);
-			}
-		} else if ($_POST['adresse'] == 'adresse2') {
-			if ($user) {
-				editAddress($address2);
-			}else{
-				saveAsNew($address2);
-			}
-		} else if ($_POST['adresse'] == 'adresse3') {
-			if ($user) {
-				editAddress($address3);
-			}else{
-				saveAsNew($address3);
-			}
-		} else if ($_POST['adresse'] == 'adresse4') {
-			if ($user) {
-				editAddress($address4);
-			}else{
-				saveAsNew($address4);
-			}
-		} else if ($_POST['adresse'] == 'adresse5') {
-			if ($user) {
-				editAddress($address5);
-			}else{
-				saveAsNew($address5);
-			}
-		} else if ($_POST['adresse'] == 'adresse6') {
-			if ($user) {
-				editAddress($address6);
-			}else{
-				saveAsNew($address6);
-			}
-		} else if ($_POST['adresse'] == 'adresse7') {
-			if ($user) {
-				editAddress($address7);
-			}else{
-				saveAsNew($address7);
-			}
-		} else if ($_POST['adresse'] == 'adresse8') {
-			if ($user) {
-				editAddress($address8);
-			}else{
-				saveAsNew($address8);
-			}
-		} else if ($_POST['adresse'] == 'adresse9') {
-			if ($user) {
-				editAddress($address9);
-			}else{
-				saveAsNew($address9);
-			}
-		} else if ($_POST['adresse'] == 'adresse10') {
-			if ($user) {
-				editAddress($address10);
-			}else{
-				saveAsNew($address10);
-			}
+			$updateAddress = $wpdb->update($fb_tablename_address, array (
+				 'l_name' => $address->l_name,
+				 'l_comp' => $address->l_comp,
+				 'l_address' => $address->l_address,
+				 'l_code' => $address->l_code,
+				 'l_city' => $address->l_city,
+				 'l_phone' => $address->l_phone ),
+				array ('unique_id' => addslashes($_POST['orderid']))
+			);
 		}
 
-		// ----------------------------------------------------supprimer une adresse
-		if(isset($_POST['del1'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address1` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del2'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address2` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del3'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address3` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del4'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address4` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del5'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address5` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del6'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address6` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del7'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address7` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del8'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address8` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del9'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address9` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
-		if(isset($_POST['del10'])) {
-			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address10` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
-		}
+		function editFromBloc($table) {
+			global $wpdb;
+			$prefix = $wpdb->prefix;
 
-		// -----------------------------------------------------modifier une adresse
-		if(isset($_POST['modifierFact'])) {
 			$l_name = $_POST['l_name'];
 			$l_comp = $_POST['l_comp'];
 			$l_address = $_POST['l_address'];
 			$l_code = $_POST['l_code'];
 			$l_city = $_POST['l_city'];
 			$l_phone = $_POST['l_phone'];
-			$updateAddress = $wpdb->query("UPDATE `$fb_tablename_users` SET f_name = '$l_name', f_comp = '$l_comp', f_address = '$l_address', f_code ='$l_code', f_city = '$l_city', f_phone = '$l_phone' WHERE `id` = '".$_SESSION['loggeduser']->id."'");
-			header('Location: '.$_SERVER['REQUEST_URI']);
-			exit();
+			$updateAddress = $wpdb->query("UPDATE `$table` SET l_name = '$l_name', l_comp = '$l_comp', l_address = '$l_address', l_code ='$l_code', l_city = '$l_city', l_phone = '$l_phone' WHERE `user` = '".$_SESSION['loggeduser']->id."'");
 		}
-		if(isset($_POST['modifier1'])) {
-			editFromBloc($fb_tablename_address1);
+
+		// --------------------------------------------formulaire modifier l'adresse
+		//--------------------------------------------------------------------------
+		if(isset($_POST['ajouterAdresse'])) {
+
+				if (!empty($_POST['f_porte'])) {
+					$_POST['f_address'] = $_POST['f_address'].'|'.$_POST['f_porte'];
+				}
+
+				if ($user) { // s'il y a déjà une adresse de livraison enregistrée pour la commande
+
+					// 1 - on sauvegarde l'adresse dans address2, address3 etc. et on l'insère dans la 1ère table disponible.
+					if($count2!=1) {
+						saveAddress($fb_tablename_address2);
+					}else if($count3!=1) {
+						saveAddress($fb_tablename_address3);
+					}else if($count4!=1) {
+						saveAddress($fb_tablename_address4);
+					}else if($count5!=1) {
+						saveAddress($fb_tablename_address5);
+					}
+
+					// 2 - on récupère les données modifiées dans le formulaire et on les met à jour dans la table address origine
+					$updateAddress = $wpdb->update($fb_tablename_address, array (
+					   'l_name' => addslashes($_POST['f_name']),
+					   'l_comp' => addslashes($_POST['f_comp']),
+					   'l_address' => addslashes($_POST['f_address']),
+					   'l_code' => addslashes($_POST['f_code']),
+					   'l_city' => addslashes($_POST['f_city']),
+					   'l_phone' => addslashes($_POST['f_phone'])),
+						array ('unique_id' => addslashes($_POST['orderid']))
+					);
+
+				} else { // s'il n'y a pas d'adresse de livraison enregistrée, on insère les données formulaire dans la table address origine et on sauvegarde dans address2
+					saveAddress($fb_tablename_address);
+					saveAddress($fb_tablename_address2);
+				}
+
 		}
+
+		//------------------------------------------ formulaire sélectionner adresse
+		//--------------------------------------------------------------------------
+		//if(isset($_POST['selectAdresse'])) {
+			if ($_POST['adresse'] == 'adresseFact') {
+				if ($user) { // s'il y a déjà une adresse de livraison enregistrée pour la commande
+					$updateAddress = $wpdb->update($fb_tablename_address, array (
+						 'l_name' => $usertable->f_name,
+						 'l_comp' => $usertable->f_comp,
+						 'l_address' => $usertable->f_address,
+						 'l_code' => $usertable->f_code,
+						 'l_city' => $usertable->f_city,
+						 'l_phone' => $usertable->f_phone ),
+						array ('unique_id' => addslashes($_POST['orderid']))
+					);
+				}else{
+					$createAddress = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".addslashes($_SESSION['loggeduser']->id)."', '".addslashes($_POST[orderid])."', '$usertable->f_name', '$usertable->f_comp', '$usertable->f_address', '$usertable->f_code', '$usertable->f_city', '$usertable->f_phone')");
+				}
+			} else if ($_POST['adresse'] == 'adresse2') {
+					editAddress($address2);
+			} else if ($_POST['adresse'] == 'adresse3') {
+					editAddress($address3);
+			} else if ($_POST['adresse'] == 'adresse4') {
+					editAddress($address4);
+			} else if ($_POST['adresse'] == 'adresse5') {
+					editAddress($address5);
+			}
+		//}
+
+		// ----------------------------------------------------supprimer une adresse
+
+		if(isset($_POST['del2'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address2` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+		}
+		if(isset($_POST['del3'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address3` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+		}
+		if(isset($_POST['del4'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address4` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+		}
+		if(isset($_POST['del5'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address5` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+		}
+
+		// -----------------------------------------------------modifier une adresse
 		if(isset($_POST['modifier2'])) {
 			editFromBloc($fb_tablename_address2);
 		}
@@ -863,252 +654,251 @@ function get_inscription2() {
 		if(isset($_POST['modifier5'])) {
 			editFromBloc($fb_tablename_address5);
 		}
-		if(isset($_POST['modifier6'])) {
-			editFromBloc($fb_tablename_address6);
-		}
-		if(isset($_POST['modifier7'])) {
-			editFromBloc($fb_tablename_address7);
-		}
-		if(isset($_POST['modifier8'])) {
-			editFromBloc($fb_tablename_address8);
-		}
-		if(isset($_POST['modifier9'])) {
-			editFromBloc($fb_tablename_address9);
-		}
-		if(isset($_POST['modifier10'])) {
-			editFromBloc($fb_tablename_address10);
-		}
 
-		////////////////////////////////////////////// affichage carnet d'adresse //
 		//--------------------------------------------------------------------------
-		$view = '<h1><i class="fa fa-lock"></i> Accès client: Carnet d\'adresses</h1><hr />';
-		$action = '<input type="hidden" form="registerform" name="orderid" value="'.$goback.'" />';
+		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Commande Nº '.$goback.': ajouter ou choisir une adresse de livraison </h1><hr />';
+		$action = '<input type="hidden" name="orderid" value="'.$goback.'" />';
 		$goaction = get_bloginfo('url').'/vos-devis/?detail='.$_GET['goback'];
-		//$formAction = get_bloginfo('url').'/order-inscription/?goback='.$_GET['goback'];
+
 		$explode2 = explode('|', $user->l_address);
 		$l_address = $explode2['0'];
 		$l_porte = $explode2['1'];
 
+		$formAction = get_bloginfo('url').'/order-inscription/?goback='.$_GET['goback'];
+
+		//----------------------------------------affichage form ajouter une adresse
 		//--------------------------------------------------------------------------
 		$view .= '
-		<div class="box_warning"><button class="closeButton"><i class="ion-ios-close-empty"></i></button>Nouveau! Votre carnet d\'adresses vous permet de sauvegarder jusqu\'à 10 adresses de livraisons parmis lesquelles vous pourrez faire un choix à chaque commande. </div>
-		<div class="acces_tab_name2">Commande Nº '.$goback.': choisir une adresse de livraison </div>
+		<div class="acces_left">
+			<form action="'.$goaction.'" method="post" name="form_registerform" id="registerform" accept-charset="utf-8">
 
-			<div class="acces_tab_content2">
-				<form name="deleteAdresseForm" id="deleteAdresse" action="" method="post"></form>
-				<form name="editAdresseForm" id="editAdresse" action="" method="post"></form>
-				<form name="addNewAdresseForm" id="addNewAdresse" action="" method="post"></form>
-				<form name="adresseCheckForm" id="adresseCheck" action="'.$goaction.'" method="post"></form>
+		   	<input type="hidden" name="formID" value="registerform" />'.$action.'
+				<div class="acces_tab_name2">AJOUTER UNE ADRESSE DE LIVRAISON</div>
+					<div class="acces_tab_content2">
+	        	<ul class="regiform2">
+	            	<li class="form-line" id="id_5">
+	            	    <label class="registerlabel" id="label_5" for="input_5">prénom et nom:</label>
+	            	    <input type="text" class="registerinput validate[required]" id="input_5" name="f_name" value="'.stripslashes($user->l_name).'" />
+	            	</li>
+	            	<li class="form-line" id="id_6">
+	            	    <label class="registerlabel" id="label_6" for="input_6">société:</label>
+	            	    <input type="text" class="registerinput" id="input_6" name="f_comp" value="'.stripslashes($user->l_comp).'" />
+	            	</li>
+	            	<li class="form-line" id="id_7">
+	            	    <label class="registerlabel" id="label_7" for="input_7">adresse <br />de livraison:</label>
+	            	    <input type="text" class="registerinput validate[required]" id="input_7" name="f_address" value="'.stripslashes($l_address).'" />
+	            	</li>
+	            	<li class="form-line" id="id_7a">
+	            	    <label class="registerlabel" id="label_7a" for="input_7a">code <br />porte/esc./etc:</label>
+	            	    <input type="text" class="registerinput" id="input_7a" name="f_porte" value="'.stripslashes($l_porte).'" />
+	            	</li>
+	            	<li class="form-line" id="id_8">
+	            	    <label class="registerlabel" id="label_8" for="input_8">code postal:</label>
+	            	    <input type="text" class="registerinput validate[required]" id="input_8" name="f_code" value="'.stripslashes($user->l_code).'" />
+	            	</li>
+	            	<li class="form-line" id="id_9">
+	            	    <label class="registerlabel" id="label_9" for="input_9">ville:</label>
+	            	    <input type="text" class="registerinput validate[required]" id="input_9" name="f_city" value="'.stripslashes($user->l_city).'" />
+	            	</li>
+	            	<li class="form-line" id="id_10">
+	            	    <label class="registerlabel" id="label_10" for="input_10">tel. de contact:</label>
+	            	    <input type="text" class="registerinput" id="input_10" name="f_phone" value="'.stripslashes($user->l_phone).'" />
+	            	</li>
 
-				<div class="adresses">
-					<input type="hidden" name="adresseSelect" value="select" form="adresseCheck" /><input type="hidden" form="adresseCheck" name="orderid" value="'.$goback.'" />';
+	            	<li class="form-line" id="id_21">
+	            	    <div class="form-input-wide blocBtnBottom">
+	            	    	<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retour2"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a></a>
+	          	        <button name="ajouterAdresse" type="submit" class="register-button2">Ajouter</button>
+	            	    </div>
+	            	</li>
+		        </ul>
+				</div>
 
-					// s'il y a une adresse de livraison enregistrée, on l'affiche avec l'adresse de facturation
-					if($user) {
-						$addressName = 'adresse enregistrée';
-						/*if ($user->l_address == $address1->l_address && $user->l_code == $address1->l_code) {$addressName = 'adresse 1';}
-						if ($user->l_address == $address2->l_address && $user->l_code == $address2->l_code) {$addressName = 'adresse 2';}
-						if ($user->l_address == $address3->l_address && $user->l_code == $address3->l_code) {$addressName = 'adresse 3';}
-						if ($user->l_address == $address4->l_address && $user->l_code == $address4->l_code) {$addressName = 'adresse 4';}
-						if ($user->l_address == $address5->l_address && $user->l_code == $address5->l_code) {$addressName = 'adresse 5';}
-						if ($user->l_address == $address6->l_address && $user->l_code == $address6->l_code) {$addressName = 'adresse 6';}
-						if ($user->l_address == $address7->l_address && $user->l_code == $address7->l_code) {$addressName = 'adresse 7';}
-						if ($user->l_address == $address8->l_address && $user->l_code == $address8->l_code) {$addressName = 'adresse 8';}
-						if ($user->l_address == $address9->l_address && $user->l_code == $address9->l_code) {$addressName = 'adresse 9';}
-						if ($user->l_address == $address10->l_address && $user->l_code == $address10->l_code) {$addressName = 'adresse 10';}*/
-						//------------------------------------------------adresse active
-						$view .= '
-							<div class="blocAdresse blocSelect">
-								<div class="adresseLiv"><i class="fa fa-arrow-left" aria-hidden="true"></i><i class="fa fa-truck" aria-hidden="true"></i></div>
-								'.$user->l_name.'<br />
-								'.$user->l_comp.'<br />
-								'.$user->l_address.'<br />
-								'.$user->l_code.'<br />
-								'.$user->l_city.'<br />
-								'.$user->l_phone.'<br />
-								<div class="blocAdresseSelect headSelect">'.$addressName.'<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresse0" class="checkbox" checked /><span class="slider round"></span>
-								</label></div>
-							</div>';
+			</form>
+			<div class="box_warning">Par défaut votre adresse de facturation est utilisée pour la livraison. Pour la modifier, rendez-vous dans <a class="textLink" href="https://dev.france-banderole.com/inscription/">Mon Compte</a></div>
+		</div>
+		';
 
-						//--------------------------------------- adresse de facturation
-						if(isset($_POST['editf'])) {
+		//-----------------------------------affichage form sélectionner une adresse
+		//--------------------------------------------------------------------------
+		$view .= '
+		<div class="acces_right">
+			<div class="acces_tab_name2">Sélectionner une adresse enregistrée</div>
+				<div class="acces_tab_content2">
+					<form name="deleteAdresseForm" id="deleteAdresse" action="" method="post"></form>
+					<form name="editAdresseForm" id="editAdresse" action="" method="post"></form>
+					<form name="adresseCheckForm" id="adresseCheck" action="'.$goaction.'" method="post"></form>
+
+						<div class="adresses">
+							<input type="hidden" name="adresseSelect" value="select" form="adresseCheck" /><input type="hidden" form="adresseCheck" name="orderid" value="'.$goback.'" />';
+							// s'il y a une adresse de livraison enregistrée, on l'affiche avec l'adresse de facturation
+							if($user) {
+								$view .= '
+									<div class="blocAdresse blocSelect">
+										'.$user->l_name.'<br />
+										'.$user->l_comp.'<br />
+										'.$user->l_address.'<br />
+										'.$user->l_code.'<br />
+										'.$user->l_city.'<br />
+										'.$user->l_phone.'<br />
+										<div class="blocAdresseSelect headSelect">adresse actuelle<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresse1" class="checkbox" checked /><span class="slider round"></span>
+										</label></div>
+									</div>
+
+									<div class="blocAdresse">
+										'.$usertable->f_name.'<br />
+										'.$usertable->f_comp.'<br />
+										'.$usertable->f_address.'<br />
+										'.$usertable->f_code.'<br />
+										'.$usertable->f_city.'<br />
+										'.$usertable->f_phone.'<br />
+										<div class="blocAdresseSelect">adresse de facturation <label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresseFact" class="checkbox" /><span class="slider round"></span>
+										</label></div>
+									</div>
+									';
+
+							// sinon on n'affiche que l'adresse de facturation
+							}else{
+								$view .= '
+									<div class="blocAdresse blocSelect">
+										'.$usertable->f_name.'<br />
+										'.$usertable->f_comp.'<br />
+										'.$usertable->f_address.'<br />
+										'.$usertable->f_code.'<br />
+										'.$usertable->f_city.'<br />
+										'.$usertable->f_phone.'<br />
+										<div class="blocAdresseSelect headSelect">adresse de facturation<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresseFact" class="checkbox" checked /><span class="slider round"></span>
+										</label></div>
+									</div>
+									';
+							}
+
+							//-------- affichage conditionnel des autres adresses enregistrées
+							if($count2==1) {
+								if(isset($_POST['edit2'])) {
+									$view .= '
+										<div class="blocAdresse blocA2">
+											<form name="editSub2" id="editSub2" action="" method="post"></form>
+												<input type="text" form="editSub2" class="editAd" name="l_name" value="'.$address2->l_name.'" />
+												<input type="text" form="editSub2" class="editAd" name="l_comp" value="'.$address2->l_comp.'" />
+												<input type="text" form="editSub2" class="editAd" name="l_address" value="'.$address2->l_address.'" />
+												<input type="text" form="editSub2" class="editAd" name="l_code" value="'.$address2->l_code.'" />
+												<input type="text" form="editSub2" class="editAd" name="l_city" value="'.$address2->l_city.'" />
+												<input type="text" form="editSub2" class="editAd" name="l_phone" value="'.$address2->l_phone.'" />
+												<button type="submit" form="editSub2" class="editAdBtn" name="modifier2"><i class="ion-checkmark"></i></button>
+										</div>';
+								}else{
+									$view .= '
+										<div class="blocAdresse blocA2">
+											<button type="submit" title="éditer cette adresse" id="edit2" name="edit2" value="edit2" class="editAdresse" form="editAdresse"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+											<button type="submit" title="supprimer cette adresse" id="del2" name="del2" value="del2" class="deleteAdresse" form="deleteAdresse"><i class="ion-android-delete" aria-hidden="true"></i></button>
+											'.$address2->l_name.'<br />
+											'.$address2->l_comp.'<br />
+											'.$address2->l_address.'<br />
+											'.$address2->l_code.'<br />
+											'.$address2->l_city.'<br />
+											'.$address2->l_phone.'<br />
+											<div class="blocAdresseSelect">adresse 2<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresse2" class="checkbox"/><span class="slider round"></span>
+											</label></div>
+										</div>';
+								}
+							}
+							if($count3==1) {
+								if(isset($_POST['edit3'])) {
+									$view .= '
+										<div class="blocAdresse blocA3">
+											<form name="editSub3" id="editSub3" action="" method="post"></form>
+												<input type="text" form="editSub3" class="editAd" name="l_name" value="'.$address3->l_name.'" />
+												<input type="text" form="editSub3" class="editAd" name="l_comp" value="'.$address3->l_comp.'" />
+												<input type="text" form="editSub3" class="editAd" name="l_address" value="'.$address3->l_address.'" />
+												<input type="text" form="editSub3" class="editAd" name="l_code" value="'.$address3->l_code.'" />
+												<input type="text" form="editSub3" class="editAd" name="l_city" value="'.$address3->l_city.'" />
+												<input type="text" form="editSub3" class="editAd" name="l_phone" value="'.$address3->l_phone.'" />
+												<button type="submit" form="editSub3" class="editAdBtn" name="modifier3"><i class="ion-checkmark"></i></button>
+										</div>';
+								}else{
+								$view .= '
+									<div class="blocAdresse blocA3">
+									<button type="submit" title="éditer cette adresse" id="edit3" name="edit3" value="edit3" class="editAdresse" form="editAdresse"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+									<button type="submit" title="supprimer cette adresse" id="del3" name="del3" value="del3" class="deleteAdresse" form="deleteAdresse"><i class="ion-android-delete" aria-hidden="true"></i></button>
+										'.$address3->l_name.'<br />
+										'.$address3->l_comp.'<br />
+										'.$address3->l_address.'<br />
+										'.$address3->l_code.'<br />
+										'.$address3->l_city.'<br />
+										'.$address3->l_phone.'<br />
+										<div class="blocAdresseSelect">adresse 3<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresse3" class="checkbox"/><span class="slider round"></span>
+										</label></div>
+									</div>
+									';
+								}
+							}
+							if($count4==1) {
+								if(isset($_POST['edit4'])) {
+									$view .= '
+										<div class="blocAdresse blocA4">
+											<form name="editSub4" id="editSub4" action="" method="post"></form>
+												<input type="text" form="editSub4" class="editAd" name="l_name" value="'.$address4->l_name.'" />
+												<input type="text" form="editSub4" class="editAd" name="l_comp" value="'.$address4->l_comp.'" />
+												<input type="text" form="editSub4" class="editAd" name="l_address" value="'.$address4->l_address.'" />
+												<input type="text" form="editSub4" class="editAd" name="l_code" value="'.$address4->l_code.'" />
+												<input type="text" form="editSub4" class="editAd" name="l_city" value="'.$address4->l_city.'" />
+												<input type="text" form="editSub4" class="editAd" name="l_phone" value="'.$address4->l_phone.'" />
+												<button type="submit" form="editSub4" class="editAdBtn" name="modifier4"><i class="ion-checkmark"></i></button>
+										</div>';
+								}else{
+								$view .= '
+									<div class="blocAdresse blocA4">
+									<button type="submit" title="éditer cette adresse" id="edit4" name="edit4" value="edit4" class="editAdresse" form="editAdresse"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+									<button type="submit" title="supprimer cette adresse" id="del4" name="del4" value="del4" class="deleteAdresse" form="deleteAdresse"><i class="ion-android-delete" aria-hidden="true"></i></button>
+										'.$address4->l_name.'<br />
+										'.$address4->l_comp.'<br />
+										'.$address4->l_address.'<br />
+										'.$address4->l_code.'<br />
+										'.$address4->l_city.'<br />
+										'.$address4->l_phone.'<br />
+										<div class="blocAdresseSelect">adresse 4<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresse4" class="checkbox" /><span class="slider round"></span>
+										</label></div>
+									</div>
+									';
+								}
+							}
+							if($count5==1) {
+								if(isset($_POST['edit5'])) {
+									$view .= '
+										<div class="blocAdresse blocA2">
+											<form name="editSub5" id="editSub5" action="" method="post"></form>
+												<input type="text" form="editSub5" class="editAd" name="l_name" value="'.$address5->l_name.'" />
+												<input type="text" form="editSub5" class="editAd" name="l_comp" value="'.$address5->l_comp.'" />
+												<input type="text" form="editSub5" class="editAd" name="l_address" value="'.$address5->l_address.'" />
+												<input type="text" form="editSub5" class="editAd" name="l_code" value="'.$address5->l_code.'" />
+												<input type="text" form="editSub5" class="editAd" name="l_city" value="'.$address5->l_city.'" />
+												<input type="text" form="editSub5" class="editAd" name="l_phone" value="'.$address5->l_phone.'" />
+												<button type="submit" form="editSub5" class="editAdBtn" name="modifier5"><i class="ion-checkmark"></i></button>
+										</div>';
+								}else{
+								$view .= '
+									<div class="blocAdresse blocA5">
+									<button type="submit" title="éditer cette adresse" id="edit5" name="edit5" value="edit5" class="editAdresse" form="editAdresse"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+									<button type="submit" title="supprimer cette adresse" id="del5" name="del5" value="del5" class="deleteAdresse" form="deleteAdresse"><i class="ion-android-delete" aria-hidden="true"></i></button>
+										'.$address5->l_name.'<br />
+										'.$address5->l_comp.'<br />
+										'.$address5->l_address.'<br />
+										'.$address5->l_code.'<br />
+										'.$address5->l_city.'<br />
+										'.$address5->l_phone.'<br />
+										<div class="blocAdresseSelect">adresse 5<label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresse5" class="checkbox" /><span class="slider round"></span>
+										</label></div>
+									</div>
+									';
+								}
+							}
+							//----------------------------------------- fin affichage adresses
 							$view .= '
-								<div class="blocAdresse">
-									<form name="editFact" id="editFct" action="" method="post"></form>
-										<input type="text" form="editFct" class="editAd" placeholder="nom, prénom" name="l_name" value="'.$usertable->f_name.'" />
-										<input type="text" form="editFct" class="editAd" placeholder="société" name="l_comp" value="'.$usertable->f_comp.'" />
-										<input type="text" form="editFct" class="editAd" placeholder="adresse" name="l_address" value="'.$usertable->f_address.'" />
-										<input type="text" form="editFct" class="editAd" placeholder="code postal" name="l_code" value="'.$usertable->f_code.'" />
-										<input type="text" form="editFct" class="editAd" placeholder="ville" name="l_city" value="'.$usertable->f_city.'" />
-										<input type="text" form="editFct" class="editAd" placeholder="téléphone" name="l_phone" value="'.$usertable->f_phone.'" />
-										<button type="submit" form="editFct" class="editAdBtn" name="modifierFact"><i class="ion-checkmark"></i></button>
-								</div>';
-						}else{
-							$view .= '
-								<div class="blocAdresse">
-								<button type="submit" title="éditer cette adresse" name="editf" class="editAdresse" form="editAdresse"><i class="fa fa-pencil-square-o"></i></button>
-									'.$usertable->f_name.'<br />
-									'.$usertable->f_comp.'<br />
-									'.$usertable->f_address.'<br />
-									'.$usertable->f_code.'<br />
-									'.$usertable->f_city.'<br />
-									'.$usertable->f_phone.'<br />
-									<div class="blocAdresseSelect">adresse de facturation <label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresseFact" class="checkbox" /><span class="slider round"></span></label></div>
-								</div>';
-						}
-					// sinon on n'affiche que l'adresse de facturation et un message explicatif
-					}else{
-						$view .= '
-							<div class="blocAdresse blocSpec">
-								<div class="showDesc">Vous n\'avez pas sélectionné d\'adresse de livraison pour cette commande.<br />
-								Sans modification de votre part, vous serez livré à votre adresse de facturation.</div>
-								<div class="showRight"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
-							</div>';
+						</div>
 
-						if(isset($_POST['editf'])) {
-							$view .= '
-								<div class="blocAdresse">
-									<form name="editFact" id="editFct" action="" method="post"></form>
-									<input type="text" form="editFct" class="editAd" placeholder="nom, prénom" name="l_name" value="'.$usertable->f_name.'" />
-									<input type="text" form="editFct" class="editAd" placeholder="société" name="l_comp" value="'.$usertable->f_comp.'" />
-									<input type="text" form="editFct" class="editAd" placeholder="adresse" name="l_address" value="'.$usertable->f_address.'" />
-									<input type="text" form="editFct" class="editAd" placeholder="code postal" name="l_code" value="'.$usertable->f_code.'" />
-									<input type="text" form="editFct" class="editAd" placeholder="ville" name="l_city" value="'.$usertable->f_city.'" />
-									<input type="text" form="editFct" class="editAd" placeholder="téléphone" name="l_phone" value="'.$usertable->f_phone.'" />
-								<button type="submit" form="editFct" class="editAdBtn" name="modifierFact"><i class="ion-checkmark"></i></button>
-								</div>';
-						}else{
-							$view .= '
-								<div class="blocAdresse blocSelect">
-								<div class="adresseLiv"><i class="fa fa-arrow-left" aria-hidden="true"></i><i class="fa fa-truck" aria-hidden="true"></i></div>
-									'.$usertable->f_name.'<br />
-									'.$usertable->f_comp.'<br />
-									'.$usertable->f_address.'<br />
-									'.$usertable->f_code.'<br />
-									'.$usertable->f_city.'<br />
-									'.$usertable->f_phone.'<br />
-								<div class="blocAdresseSelect headSelect">adresse de facturation <label class="switch"><input type="radio" name="adresse" form="adresseCheck" value="adresseFact" class="checkbox" checked /><span class="slider round"></span></label></div>
-								</div>';
-						}
-					}
-
-					//////////////////////////////////////////////////////////////////
-					//-------- affichage conditionnel des autres adresses enregistrées
-					if($count1==1) {
-						if(isset($_POST['edit1'])) {
-							$view .= displayEd($address1, 'editSub1', 'addressForm1', 'modifier1');
-						}else{
-							$view .= displayAd($address1, 'edit1', 'del1', 'adresse 1', 'adresse1');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count2==1) {
-						if(isset($_POST['edit2'])) {
-							$view .= displayEd($address2, 'editSub2', 'addressForm2', 'modifier2');
-						}else{
-							$view .= displayAd($address2, 'edit2', 'del2', 'adresse 2', 'adresse2');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count3==1) {
-						if(isset($_POST['edit3'])) {
-							$view .= displayEd($address3, 'editSub3', 'addressForm3', 'modifier3');
-						}else{
-							$view .= displayAd($address3, 'edit3', 'del3', 'adresse 3', 'adresse3');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count4==1) {
-						if(isset($_POST['edit4'])) {
-							$view .= displayEd($address4, 'editSub4', 'addressForm4', 'modifier4');
-						}else{
-							$view .= displayAd($address4, 'edit4', 'del4', 'adresse 4', 'adresse4');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count5==1) {
-						if(isset($_POST['edit5'])) {
-							$view .= displayEd($address5, 'editSub5', 'addressForm5', 'modifier5');
-						}else{
-							$view .= displayAd($address5, 'edit5', 'del5', 'adresse 5', 'adresse5');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count6==1) {
-						if(isset($_POST['edit6'])) {
-							$view .= displayEd($address6, 'editSub6', 'addressForm6', 'modifier6');
-						}else{
-							$view .= displayAd($address6, 'edit6', 'del6', 'adresse 6', 'adresse6');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count7==1) {
-						if(isset($_POST['edit7'])) {
-							$view .= displayEd($address7, 'editSub7', 'addressForm7', 'modifier7');
-						}else{
-							$view .= displayAd($address7, 'edit7', 'del7', 'adresse 7', 'adresse7');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count8==1) {
-						if(isset($_POST['edit8'])) {
-							$view .= displayEd($address8, 'editSub8', 'addressForm8', 'modifier8');
-						}else{
-							$view .= displayAd($address8, 'edit5', 'del8', 'adresse 8', 'adresse8');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count9==1) {
-						if(isset($_POST['edit9'])) {
-							$view .= displayEd($address9, 'editSub9', 'addressForm9', 'modifier9');
-						}else{
-							$view .= displayAd($address9, 'edit9', 'del9', 'adresse 9', 'adresse9');
-						}
-					}
-					//----------------------------------------------------------------
-					if($count10==1) {
-						if(isset($_POST['edit10'])) {
-							$view .= displayEd($address10, 'editSub10', 'addressForm10', 'modifier10');
-						}else{
-							$view .= displayAd($address10, 'edit10', 'del10', 'adresse 10', 'adresse10');
-						}
-					}
-					//----------------------------------------- fin affichage adresses
-
-				if($count1+$count2+$count3+$count4+$count5+$count6+$count7+$count8+$count9+$count10 < 10) {
-					if(isset($_POST['addNew'])) {
-						$view .= '
-							<div class="blocAdresse">
-								<form name="addLivr" id="addLiv" action="" method="post"></form>
-									<input type="text" form="addLiv" class="editAd" placeholder="nom, prénom" name="l_name" />
-									<input type="text" form="addLiv" class="editAd" placeholder="société" name="l_comp" />
-									<input type="text" form="addLiv" class="editAd" placeholder="adresse" name="l_address" />
-									<input type="text" form="addLiv" class="editAd" placeholder="code, porte, esc..." name="l_porte" />
-									<input type="text" form="addLiv" class="editAd" placeholder="code postal" name="l_code" />
-									<input type="text" form="addLiv" class="editAd" placeholder="ville" name="l_city" />
-									<input type="text" form="addLiv" class="editAd" placeholder="téléphone" name="l_phone" />
-								<button type="submit" form="addLiv" class="editAdBtn" name="ajouterAdresse"><i class="ion-checkmark"></i></button>
-							</div>';
-					}else{
-						$view .= '
-							<div class="blocAdresse blocSpec">
-								<button type="submit" title="ajouter une adresse de livraison" name="addNew" class="addNew" form="addNewAdresse">
-									<i class="fa fa-plus"></i>
-								</button>
-								<div class="blocAdresseSelect headNew">ajouter une adresse</div>
-							</div>';
-					}
-				}
-
-				//----------------------------------------------------------------------
-				/*<div class="form-input-wide blocBtnBottom">
-					<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retour2"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a>
-					<button type="submit" form="adresseCheck" id="but_save2"><i class="fa fa-floppy-o" aria-hidden="true"></i> Enregistrer</button>
-				</div>*/
-				$view .= '
-				<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$goback.'" id="but_retourCarnet"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a>
-
-			</div>
+				</div>
+				<div class="box_warning">Vous pouvez enregistrer jusquà 5 adresses de livraison.</div>
 		</div>';
 
 	} else {
@@ -1227,7 +1017,7 @@ function get_acces_client() {
 
 				}
 			} else {
-				$view .= '<div class="logerror"><button class="closeButton"><i class="ion-ios-close-empty"></i></button><i class="fa fa-exclamation-triangle"></i> '._FB_BLH.'</div>';
+				$view .= '<div class="logerror"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><i class="fa fa-exclamation-triangle"></i> '._FB_BLH.'</div>';
 				$view .= get_acces_panel($p);
 
 			}
@@ -1236,7 +1026,7 @@ function get_acces_client() {
 }
 
 function get_pass_resend_form() {
-	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">mot de passe oublié ?</div>
 	<div class="acces_tab_content">
@@ -1244,7 +1034,7 @@ function get_pass_resend_form() {
 	<form id="resendform" name="resendform" action="'.get_bloginfo('url').'/acces-client/?resend=resend" method="post">
 
 	<input type="text" placeholder="votre email" name="resendaddress" class="logininputOubli" />
-	<button id="resendbutton" class="resendbutton" type="submit"><i class="fa fa-paper-plane"></i> envoyer</button>
+	<button id="resendbutton" class="resendbutton" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i> envoyer</button>
 	</form>
 	</div>
 	</div>';
@@ -1256,7 +1046,7 @@ function get_acces_panel($p) {
 	if ($p == 1) { $path=get_bloginfo("url").'/vos-devis/'; } else { $path=''; }
 	if ($p == 2) { $path=get_bloginfo("url").'/verification/'; } else { $path=''; }
 	if ($p == 2) {
-	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">VERIFICATION DE VOS IDENTIFIANTS</div>
 	<div class="acces_tab_content">
@@ -1272,7 +1062,7 @@ function get_acces_panel($p) {
 	</div>
 	</div>';
 } else {
-	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">DEJA INSCRIT?</div>
 	<div class="acces_tab_content">
