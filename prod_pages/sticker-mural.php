@@ -6,7 +6,7 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+					<span class="helpButton" onmouseover="tipShow('helpTextsupport');" onmouseout="tipHide('helpTextsupport');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport" style="visibility:hidden;">
 							• <b><u>Stickytex</u></b>: Support indéchirable et imperméable pouvant être retiré et repositionné sans endommager le mur ni laisser aucun résidu.
 						</span>
@@ -19,7 +19,7 @@
 				</li>
 
 				<li class="form-line" id="id_5">
-					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
+					<span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText5" style="visibility:hidden;">
 							• <b><u>Découpe simple</u>: <span class="highlight">Dès 60€/m²</span></b> votre sticker est prédécoupé suivant une forme simple, carrée ou rectangulaire.<br />
@@ -34,7 +34,7 @@
 				</li>
 
 				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;"></span></span>
+					<span class="helpButton" onmouseover="tipShow('helpTextoption');" onmouseout="tipHide('helpTextoption');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;"></span></span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onclick="JKakemono.czyscpola(); ">
 						<option value="">Choisir l'option pose facile</option>
 						<option value="tape">Film de pose facile (Tape)</option>
@@ -43,7 +43,7 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -57,7 +57,7 @@
 						<option value="">Choisir le fichier</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
-						<!--<option value="config">je crée ma maquette en ligne</option>-->
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 
@@ -83,7 +83,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-							<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+							<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
 								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 							</span>
 						</span>
@@ -91,7 +91,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
 								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 							</span>
 						</span>
@@ -99,7 +99,7 @@
 						<span class="optionsright">
 							<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+							<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
 								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
 							</span>
 						</span>
@@ -107,7 +107,7 @@
 						<span class="optionsright">
 							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
 								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 							</span>
 						</span>
@@ -264,17 +264,18 @@
 			var ilosc          = $('input_7').value;
 
 			//////////////////////////////////////////////////////////////////////////
-			largeur = ($('input_8').value);
-			largeur = largeur.replace(',','.');
-			largeur = fixstr(largeur);
-			$('input_8').value = largeur;
-			hauteur = ($('input_9').value);
+			hauteur = ($('input_8').value);
 			hauteur = hauteur.replace(',','.');
 			hauteur = fixstr(hauteur);
-			$('input_9').value = hauteur;
+			$('input_8').value = hauteur;
+
+			largeur = ($('input_9').value);
+			largeur = largeur.replace(',','.');
+			largeur = fixstr(largeur);
+			$('input_9').value = largeur;
+
 			metraz = largeur * hauteur;
 			metraz = fixstr(metraz);
-
 			//------------------------------------------------------------------------
 			if ( ($('input_5').value == 'decoupe simple') ) {
 				designation='Sticker mural';

@@ -178,6 +178,7 @@ h1 {
 }
 
 .adsLivraison {
+  position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
@@ -191,6 +192,7 @@ h1 {
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 .adsFact {
+  position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
@@ -204,11 +206,12 @@ h1 {
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
-.adss {
+.reportTopBloc {
+  position: relative;
   float: left;
   background: #fff;
   display: inline;
-  width: 28%;
+  width: 15%;
   padding: 1rem;
   height: 170px;
   border: 1px solid #E5E5E5;
@@ -217,7 +220,9 @@ h1 {
   line-height: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
-
+.reportTopBloc.topBloc3{
+  width: 19.5%;
+}
 select.urs {
   width: 10%;
 }
@@ -1084,4 +1089,31 @@ ul.lastMails li {
   font-weight: normal;
   color: #835151;
   cursor: pointer;
+}
+
+.editAd {
+  display: block;
+  width: 50%;
+  float: none;
+}
+.editAdBtn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: #32a1cc;
+  color: #fff;
+  cursor:pointer;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+  border: 0;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.editAdBtn:hover {
+  background: #ea2a6a;
+  transition:.2s;
+}
+.changeFactForm {
+  display: block;
+  float: right;
 }

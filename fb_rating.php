@@ -167,12 +167,19 @@ function get_rating_page() {
 	    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
 	    else {$lienprod = get_bloginfo('url').'/banderoles';};
 
+			// séparer nom prénom et ne garder que l'initiale du nom------------------
+			$nomcomplet = trim($us->f_name);
+	    $nom = (strpos($nomcomplet, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $nomcomplet);
+	    $prenom = trim( preg_replace('#'.$nom.'#', '', $nomcomplet ) );
+			$nom = substr($nom, 0, 1);
+			//------------------------------------------------------------------------
+
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
-			$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
+			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
 	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 			} else {
-			$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
+			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
 	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 			}
 
@@ -290,12 +297,19 @@ function get_rating_page() {
     elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
     else {$lienprod = get_bloginfo('url').'/banderoles';};
 
+		// séparer nom prénom et ne garder que l'initiale du nom------------------
+		$nomcomplet = trim($us->f_name);
+		$nom = (strpos($nomcomplet, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $nomcomplet);
+		$prenom = trim( preg_replace('#'.$nom.'#', '', $nomcomplet ) );
+		$nom = substr($nom, 0, 1);
+		//------------------------------------------------------------------------
+
 		$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 		if($reponses) {
-		$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
+		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
 <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 		} else {
-		$view .= '<tr><td class="lefttd">par '.$us->f_name.'<br />'.$r[data].'
+		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
 <br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 		}
 

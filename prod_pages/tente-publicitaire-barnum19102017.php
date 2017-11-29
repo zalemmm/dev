@@ -5,7 +5,7 @@
         <div class="form-all">
             <ul class="form-section">
               <li class="form-line" id="id_1">
-                <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
+                <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');">
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                   <span class="helpText" id="helpText0" style="visibility:hidden;">
                     • <u><b>Tente publicitaire personnalisable</u>: </b><br/>
@@ -28,7 +28,7 @@
 
               <!--support-->
                 <li class="form-line" id="id_option">
-                    <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+                    <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                       <span class="helpText" id="helpText1" style="visibility:hidden;">
                         • <u><b>Demi-mur supplémentaire</u>: </b><span class="highlight">Dès 47,00€</span><br/>1/2 mur latéral personnalisable fourni avec barre de suspension.<br />
@@ -51,7 +51,7 @@
                 </li>
 
                 <li class="form-line" id="id_couleur">
-                    <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
+                    <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                       <span class="helpText" id="helpText2" style="visibility:hidden;">
                         • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>Blanc, noir, rouge ou bleu.<br />
@@ -70,7 +70,7 @@
                 </li>
 
                  <li class="form-line" id="id_couleur-sans-option">
-                    <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
+                    <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                       <span class="helpText" id="helpText3" style="visibility:hidden;">
                         • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>
@@ -91,7 +91,7 @@
 
 
                <li class="form-line" id="id_couleur-sans-mur">
-                  <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText31');">
+                  <span class="helpButton" onmouseover="tipShow('helpText31');" onmouseout="tipHide('helpText31');">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText31" style="visibility:hidden;">
                       • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>
@@ -111,7 +111,7 @@
               </li>
 
                <li class="form-line" id="id_personnalisation">
-                  <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+                  <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText4" style="visibility:hidden;">
                       • <u><b>mur de fond personnalisé</u>: </b><span class="highlight">Dès 147,00€</span><br/>mur entier ou mur de fond imprimé en plus de la couleur de base.<br />
@@ -132,7 +132,7 @@
               </li>
 
               <li class="form-line" id="id_personnalisation-sans-option">
-                  <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
+                  <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText5" style="visibility:hidden;">
                     • <u><b>mur de fond personnalisé</u>: </b><span class="highlight">Dès 147,00€</span><br/>mur entier ou mur de fond imprimé en plus de la couleur de base.<br />
@@ -150,7 +150,7 @@
               </li>
 
               <li class="form-line" id="id_personnalisation-sans-mur">
-                  <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+                  <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>personnalisation frontons</u>: </b><span class="highlight">Dès 121,00€</span><br/>Personnalisez les 4 frontons de votre tente publicitaire.<br />
                     • <u><b>pas de personnalisation</u>: </b><br/>
@@ -166,7 +166,7 @@
 
              <!--maquette-->
               <li class="form-line" id="id_maquette">
-                <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+                <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                   <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
                     • <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
@@ -178,7 +178,7 @@
                     <option value="">Visuel...</option>
                     <option value="fb">France banderole crée la mise en page</option>
                     <option value="user">j’ai déjà crée la maquette </option>
-                    <!--<!--<option value="config">je crée ma maquette en ligne</option>-->-->
+                    <!--<option value="config">je crée ma maquette en ligne</option>-->
                 </select>
               </li>
 
@@ -196,7 +196,7 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
                 <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-                <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+                <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
                   <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
                 </span>
               </span>
@@ -204,7 +204,7 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
                 <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
+                <span class="helpButton" onmouseover="tipShow(\'helpTextetiquette\');" onmouseout="tipHide(\'helpTextetiquette\');">
                   <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
                 </span>
               </span>
@@ -212,7 +212,7 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
                 <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+                <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
                   <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
                 </span>
               </span>

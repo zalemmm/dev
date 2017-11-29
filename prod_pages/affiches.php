@@ -48,7 +48,7 @@
 
         <li class="form-line" id="id_41">
 
-          <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
               <b>France banderole crée votre fichier :</b><br/>
@@ -62,12 +62,12 @@
             <option value="">fichier d'impression...</option>
             <option value="fb">France banderole crée la maquette</option>
             <option value="user">j’ai déjà crée la maquette </option>
-            <!--<option value="config">je crée ma maquette en ligne</option>-->
+            <option value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
         <li class="form-line" id="id_45">
-          <span class="helpButton" onmouseover="pokazt('helpText45');" onmouseout="ukryjt('helpText45');">
+          <span class="helpButton" onmouseover="tipShow('helpText45');" onmouseout="tipHide('helpText45');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText45" style="visibility:hidden;">
               Vous avez choisi de créer votre maquette en ligne, veuillez préciser si vous souhaitez voir s'afficher votre gabarit en mode portrait ou paysage.
@@ -104,7 +104,7 @@
   					<span class="optionsleft">
   						<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
   						<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-  						<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+  						<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
   							<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
   						</span>
   					</span>
@@ -112,7 +112,7 @@
   					<span class="optionsleft">
   						<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
   						<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-  						<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+  						<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
   							<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
   						</span>
   					</span>
@@ -120,7 +120,7 @@
   					<span class="optionsright">
   						<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
   						<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-  						<span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+  						<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
   							<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
   						</span>
   					</span>
@@ -128,7 +128,7 @@
   					<span class="optionsright">
   						<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
   						<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-  						<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+  						<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
   							<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
   						</span>
   					</span>

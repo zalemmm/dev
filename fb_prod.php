@@ -1470,12 +1470,15 @@ function get_verification() {
 			//echo "///Session=";print_r($_SESSION);
 			$products = $_SESSION['fbcart'];
 			$user = $_SESSION['loggeduser'];
+
+      $promo = $_POST['codeProm'] ;
+
 			//echo "1///Session=";print_r($_SESSION);
 			//echo "2///User=";print_r($user);
 			$prolog .= '<div class="acces_tab_name_devis">VOTRE COMMANDE</div>';
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
-			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
 			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION</div>';
 			$explode = explode('|', $user->f_address);
@@ -1518,25 +1521,81 @@ function get_verification() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function print_devis_verification($products, $prolog, $epilog) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_users = $prefix."fbs_users";
-	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+  $products = $_SESSION['fbcart'];
+
+  global $wpdb;
+  $prefix = $wpdb->prefix;
+  $fb_tablename_users = $prefix."fbs_users";
+  $fb_tablename_users_cf = $prefix."fbs_users_cf";
+  $fb_tablename_promo = $prefix."fbs_codepromo";
+
 	$view .= $prolog;
 	if (is_cart_not_empty()) {
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth2">Description</th><th>Quantité</th><th>Total</th><th class="nobackground"></th><th></th></tr>';
+    $view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
 		$kosztcalosci = 0;
+    /////////////////////////////////////////////////////// display items panier
 		foreach ( $products as $products => $item ) {
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span></td><td>'.$item[ilosc].'</td><td>'.$item[total].'</td><td></td></tr>';
+			<tr>
+        <td class="lefttd">
+          <span class="name">'.$item[rodzaj].'</span><br />
+          <span class="therest">'.stripslashes($item[opis]).'</span>
+        </td>
+        <td>
+          <span class="disMob0">Quantité : </span>'.$item[ilosc].'
+        </td>
+        <td>
+          <span class="disMob0">Prix unitaire : </span>'.$item[prix].'
+        </td>
+        <td>
+          <span class="disMob0">Option : </span>'.$item[option].'
+        </td>
+        <td>
+          <span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'
+        </td>
+        <td>
+          <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+            <input type="hidden" name="adfromcart" value="adfromcart" />
+            <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
+            <input type="hidden" name="opis" value="'.$item[opis].'" />
+            <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
+            <input type="hidden" name="prix" value="'.$item[prix].'" />
+            <input type="hidden" name="option" value="'.$item[option].'" />
+            <input type="hidden" name="remise" value="'.$item[remise].'" />
+            <input type="hidden" name="total" value="'.$item[total].'" />
+            <input type="hidden" name="largeur" value="'.$item[largeur].'" />
+            <input type="hidden" name="hauteur" value="'.$item[hauteur].'" />
+            <input type="hidden" name="licznik" value="'.$licznik.'" />
+            <button id="adcart" type="submit" title="dupliquer cet article"><i class="fa fa-files-o" aria-hidden="true"></i> Dupliquer</button>
+          </form>
+
+          <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+            <input type="hidden" name="delfromcart" value="delfromcart" />
+            <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
+            <input type="hidden" name="opis" value="'.$item[opis].'" />
+            <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
+            <input type="hidden" name="licznik" value="'.$licznik.'" />
+            <button id="delcart" type="submit" title="supprimer cet article du panier">DEL</button>
+    			</form>
+        </td>
+      </tr>';
 			$koszttotal = str_replace(',', '.', $item[total]);
 			$kosztcalosci = $kosztcalosci + $koszttotal;
 			$transportcalosci = $transportcalosci + $item[transport];
-  		}
-  		$view .= '</table>';
-    //vérifier s'il y a un rabais pour l'utilisateur//
+  	}
+  	$view .= '</table>';
+
+    $addtodevis ='';
+    $wysokoscrabatu ='';
+    $calculCode = '';
+    $kosztcalosci = $kosztcalosci + $transportcalosci;
+    $podatekcalosci = $kosztcalosci*0.200;
+    $totalcalosci = $kosztcalosci+$podatekcalosci;
+
+    //--------------------------------------------------------remise utilisateur
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
@@ -1546,26 +1605,55 @@ function print_devis_verification($products, $prolog, $epilog) {
 					$newrabat = $client_remise / 100;
 					$wysokoscrabatu = $kosztcalosci * $newrabat;
 					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
-			  		$wysokoscrabatu = str_replace('.', ',', number_format($wysokoscrabatu, 2));
-					$cremisetd = '<tr><td class="toleft">REMISE ('.$client_remise.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+          $wysokoscrabatu = str_replace('.', ',', number_format($wysokoscrabatu, 2));
+					$cremisetd = '<tr><td class="toleft">REMISE CLIENT ('.$client_remise.'%)</td><td class="toright">-'.$wysokoscrabatu.' &euro;</td></tr>';
 				}
 			}
 		}
-    //fin//
-		$kosztcalosci = $kosztcalosci + $transportcalosci;
-		$podatekcalosci = $kosztcalosci*0.200;
-		$totalcalosci = $kosztcalosci+$podatekcalosci;
+
+    //---------------------------------------------------vérification code promo
+    if(isset($_POST['codeProm'] )) {
+      $codepromo = $_POST['codeProm'] ;
+      echo $codepromo;
+      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $curdate = date("Y-m-d");
+      if($codeisindb) {
+        if($curdate > $reduction->date) {
+          $checkcode = '<div class="box_warning">Code expiré le ' .$reduction->date.'</div>';
+        }else{
+          $calculCode = ($kosztcalosci-$wysokoscrabatu)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+          $totalcalosci = $kosztcalosci+$podatekcalosci-$wysokoscrabatu-$calculCode;
+          $calculCode = str_replace('.', ',', number_format($calculCode, 2));
+          $checkcode = '<div class="box_info">Ce code applique une réduction de '.$reduction->remise.'% sur l\'ensemble de votre commande.</div>';
+          $addtodevis ='<tr><td class="toleft">Code réduction ('.$reduction->remise.'%): </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+        }
+      }else{
+        $checkcode = '<div class="box_warning">Code non valide</div>';
+      }
+    }
+
+    //--------------------------------------------------------------------------
+
 		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
 		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
 		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
 		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
+
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
-		'.$cremisetd.'
+
+
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
+		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>'
+    .$cremisetd     // si remise client on affiche la ligne
+    .$addtodevis.   // si remise code promo on affiche la ligne
+    '<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
+		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
+    <div class="blocPromo"><p>Code promo : '.$codepromo.'</p></div>
+    ';
+
 	} else {
 		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
@@ -1672,6 +1760,11 @@ function get_mode_de_livraison(){
 
 function get_devis() {
 	$products = $_SESSION['fbcart'];
+
+  $promo = $_POST['codeProm'];
+  $_SESSION['codeProm'] = $promo;
+  echo $promo;
+
 	$prolog = '<h1 class="noprint"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier / devis</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
 
@@ -1682,7 +1775,7 @@ function get_devis() {
 
 	if (is_cart_not_empty()) {
 		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"><i class="fa fa-times-circle" aria-hidden="true"></i>
- Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
+    Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	}
 
 		if($_SESSION['isburaliste']){
@@ -1704,13 +1797,17 @@ function get_devis() {
 			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
       // soit l'utilisateur est connecté et il enregistre son panier directement(1),
-      // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2) :
+      // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2):
       //1 $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       //2 $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
       if (!empty($_SESSION['loggeduser'])) {
-        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" />
+        <input type="hidden" name="codeProm" value="'.$promo.'" />
+        <button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }else{
-        $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Se connecter et enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/verification/" method="post"><input type="hidden" name="votrecompte" />
+        <input type="hidden" name="codeProm" value="'.$promo.'" />
+        <button id="but_validerdevis" type="submit">Se connecter et enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }
 
 		}
@@ -1731,12 +1828,14 @@ function contact_advert() {
 ////////////////////////////////////////////////////////////// contenu panier //
 
 function print_devis($products, $prolog, $epilog) {
+
   $products = $_SESSION['fbcart'];
-	/* fonction de validation du devis */
+
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+  $fb_tablename_promo = $prefix."fbs_codepromo";
 	$view .= $prolog;
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 	if (is_cart_not_empty()) {
@@ -1797,7 +1896,14 @@ function print_devis($products, $prolog, $epilog) {
   	}
   	$view .= '</table>';
 
-    //vérifier si il ya un rabais pour l'utilisateur//
+    $addtodevis ='';
+    $wysokoscrabatu ='';
+    $calculCode = '';
+    $kosztcalosci = $kosztcalosci + $transportcalosci;
+    $podatekcalosci = $kosztcalosci*0.200;
+    $totalcalosci = $kosztcalosci+$podatekcalosci;
+
+    //--------------------------------------------------------remise utilisateur
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
@@ -1807,28 +1913,57 @@ function print_devis($products, $prolog, $epilog) {
 					$newrabat = $client_remise / 100;
 					$wysokoscrabatu = $kosztcalosci * $newrabat;
 					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
-			  		$wysokoscrabatu = str_replace('.', ',', number_format($wysokoscrabatu, 2));
-					$cremisetd = '<tr><td class="toleft">REMISE ('.$client_remise.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+          $wysokoscrabatu = str_replace('.', ',', number_format($wysokoscrabatu, 2));
+					$cremisetd = '<tr><td class="toleft">REMISE CLIENT ('.$client_remise.'%)</td><td class="toright">-'.$wysokoscrabatu.' &euro;</td></tr>';
 				}
 			}
 		}
-    //fin//
 
-		$kosztcalosci = $kosztcalosci + $transportcalosci;
-		$podatekcalosci = $kosztcalosci*0.200;
-		$totalcalosci = $kosztcalosci+$podatekcalosci;
+    //---------------------------------------------------vérification code promo
+    if(isset($_POST['submitCode'])) {
+      $codepromo = $_POST['codeProm'];
+      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $curdate = date("Y-m-d");
+      if($codeisindb) {
+        if($curdate > $reduction->date) {
+          $checkcode = '<div class="box_warning">Code expiré le ' .$reduction->date.'</div>';
+        }else{
+          $calculCode = ($kosztcalosci-$wysokoscrabatu)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+          $totalcalosci = $kosztcalosci+$podatekcalosci-$wysokoscrabatu-$calculCode;
+          $calculCode = str_replace('.', ',', number_format($calculCode, 2));
+          $checkcode = '<div class="box_info">Ce code applique une réduction de '.$reduction->remise.'% sur l\'ensemble de votre commande.</div>';
+          $addtodevis ='<tr><td class="toleft">Code réduction ('.$reduction->remise.'%): </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+        }
+      }else{
+        $checkcode = '<div class="box_warning">Code non valide</div>';
+      }
+
+    }
+
+    //--------------------------------------------------------------------------
+
 		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
 		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
 		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
 		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
+
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
-		'.$cremisetd.'
+
+
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
+		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>'
+    .$cremisetd     // si remise client on affiche la ligne
+    .$addtodevis.   // si remise code promo on affiche la ligne
+    '<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
 		</table>';
-		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>';
+		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
+
+    <div class="blocPromo"><form name="codePromoForm" id="codePromo" action="" method="post"><p class="lineTitle">Code promo :<p></label> <input type="text" name="codeProm" placeholder="code promo" /><button type="submit" name="submitCode" class="codePromo">Appliquer</button></form><p>'.$checkcode.'</p></div>
+
+    ';
+
 	} else {
 		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
@@ -1907,10 +2042,10 @@ function get_plv() {
                   <div class="">
                   </div>
                   <div class="plvoptions">
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="tipShow(\'helpTextrush72' . $licznik . '\');" onmouseout="tipHide(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="tipShow(\'helpTextrelais' . $licznik . '\');" onmouseout="tipHide(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
                   </div>
               </td>
@@ -2001,10 +2136,10 @@ function get_plv_int() {
     		<input type="hidden" name="addtocart2" value="addtocart2" />
     		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
     		<div class="plvoptions">
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="tipShow(\'helpTextrush72' . $licznik . '\');" onmouseout="tipHide(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="tipShow(\'helpTextrelais' . $licznik . '\');" onmouseout="tipHide(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
     		</div>
     		</td>
@@ -2109,10 +2244,10 @@ function get_acc() {
           <input type="hidden" name="addtocart2" value="addtocart2" />
           <input type="hidden" name="rodzaj" value="'.$p[name].'" />
           <div class="plvoptions">
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="tipShow(\'helpTextrush72' . $licznik . '\');" onmouseout="tipHide(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="tipShow(\'helpTextrelais' . $licznik . '\');" onmouseout="tipHide(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
           </div>
           </td>

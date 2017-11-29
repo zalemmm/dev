@@ -7,7 +7,7 @@
 
 				<!--extérieur---------------------------------------------------------->
 				<li class="form-line" id="id_ext">
-					<span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+					<span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
 						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText1" style="visibility:hidden;">
 							<b>Bâche PVC 440g</b>: <span class="highlight">Le moins cher dès 4,90€/m²</span><br/>Pour petite ou moyenne banderole pas cher à courte durée de vie.<br />
@@ -95,7 +95,7 @@
 
 				<!-- option ourlet----------------------------------------------------->
 				<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+					<span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText4" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure pour renforcer votre banderole. Recommandé dès 3m² ou longeur supérieure ou égale à 3m.<br />
@@ -116,7 +116,7 @@
 				</li>
 
 				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
+					<span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText5" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
@@ -133,7 +133,7 @@
 				</li>
 
 				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+					<span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText6" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
@@ -151,7 +151,7 @@
 				</li>
 
 				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
+					<span class="helpButton" onmouseover="tipShow('helpText7');" onmouseout="tipHide('helpText7');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText7" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
@@ -170,7 +170,7 @@
 
 				<!--option fourreaux---------------------------------------------------->
 				<li class="form-line" id="id_41">
-					<span class="helpButton" onmouseover="pokazt('helpText8');" onmouseout="ukryjt('helpText8');">
+					<span class="helpButton" onmouseover="tipShow('helpText8');" onmouseout="tipHide('helpText8');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText8" style="visibility:hidden;">
 							<b>qu'est-ce qu'un fourreau : <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
@@ -187,7 +187,7 @@
 				</li>
 
 				<li class="form-line" id="id_42">
-					<span class="helpButton" onmouseover="pokazt('helpText9');" onmouseout="ukryjt('helpText9');">
+					<span class="helpButton" onmouseover="tipShow('helpText9');" onmouseout="tipHide('helpText9');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText9" style="visibility:hidden;">
 							<b>qu'est-ce qu'un fourreau : <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
@@ -203,7 +203,7 @@
 				</li>
 
 				<li class="form-line" id="id_43">
-					<span class="helpButton" onmouseover="pokazt('helpText10');" onmouseout="ukryjt('helpText10');">
+					<span class="helpButton" onmouseover="tipShow('helpText10');" onmouseout="tipHide('helpText10');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText10" style="visibility:hidden;">
 							<b>qu'est-ce qu'un fourreau : <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
@@ -220,7 +220,7 @@
 
 				<!--option scratch----------------------------------------------------->
 				<li class="form-line" id="id_71">
-					<span class="helpButton" onmouseover="pokazt('helpText71');" onmouseout="ukryjt('helpText71');">
+					<span class="helpButton" onmouseover="tipShow('helpText71');" onmouseout="tipHide('helpText71');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText71" style="visibility:hidden;">
 							<b>qu'est-ce qu'une finition scratch : <span class="highlight">dès 2€/m</span></b><br/>
@@ -334,7 +334,7 @@
 
 				<!--maquette----------------------------------------------------------->
 				<li class="form-line" id="id_12">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier:</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
@@ -348,7 +348,7 @@
 						<option value="">fichier d'impression...</option>
 						<option value="fb">France banderole crée la mise en page</option>
 						<option value="user">j’ai déjà crée la mise en page</option>
-						<!--<option value="config">je crée ma maquette en ligne</option>-->
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 
@@ -372,35 +372,35 @@
 					<span class="options_single">
 
 						<span class="optionsleft"><label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked /><span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked /><span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
 								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 							</span>
 						</span>
 
 						<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
 								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 							</span>
 						</span>
 
 						<span class="optionsright"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+							<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
 								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
 							</span>
 						</span>
 
 						<span class="optionsright"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
 								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 							</span>
 						</span>
 
 						<span class="optionsleft roll dis0"><label class="form-label-left" id="label_roll" for="roll">Livrée Roulée</label>
 							<input type="checkbox" class="form-checkbox" id="roll" name="roll[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextroll');" onmouseout="ukryjt('helpTextroll');">
+							<span class="helpButton" onmouseover="tipShow('helpTextroll');" onmouseout="tipHide('helpTextroll');">
 								<span class="helpText" id="helpTextroll" style="visibility:hidden;">Nos banderoles en dessous de 2x2m sont livrées roulées, au delà elles sont pliées pour des raisons de dimensions de colis. La livraison roulée reste disponible en option pour 20€ et un délai d'un jour supplémentaire. </span>
 							</span>
 						</span>

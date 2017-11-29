@@ -89,7 +89,7 @@
             <ul class="form-section">
 
                 <li class="form-line" id="id_1">
-			  <span class="helpButton" onmouseover="pokazt('helpTextsupport');" onmouseout="ukryjt('helpTextsupport');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
+			  <span class="helpButton" onmouseover="tipShow('helpTextsupport');" onmouseout="tipHide('helpTextsupport');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextsupport" style="visibility:hidden;">Support</span></span>
                     <select class="form-dropdown validate[required]" id="input_1" name="q1_support1" onclick="JKakemono.czyscpola(); ">
                         <option value="">Choisir le support </option>
                         <option value="permanent">vinyle blanc permanent 95μ monomère 3 ans</option>
@@ -99,7 +99,7 @@
                 </li>
 
 								<li class="form-line" id="id_2">
-				<span class="helpButton" onmouseover="pokazt('helpTextcouleur');" onmouseout="ukryjt('helpTextcouleur');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextcouleur" style="visibility:hidden;">Option</span></span>
+				<span class="helpButton" onmouseover="tipShow('helpTextcouleur');" onmouseout="tipHide('helpTextcouleur');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextcouleur" style="visibility:hidden;">Option</span></span>
 										<select class="form-dropdown validate[required]" id="input_2" name="q2_support2" onclick="JKakemono.czyscpola(); ">
 												<option value="">Couleur </option>
 												<option value="lettrage blanc">lettrage Blanc</option>
@@ -108,7 +108,7 @@
 								</li>
 
                 <li class="form-line" id="id_4">
-			 <span class="helpButton" onmouseover="pokazt('helpTextoption');" onmouseout="ukryjt('helpTextoption');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;"></span></span>
+			 <span class="helpButton" onmouseover="tipShow('helpTextoption');" onmouseout="tipHide('helpTextoption');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextoption" style="visibility:hidden;"></span></span>
                     <select class="form-dropdown validate[required]" id="input_4" name="q4_support4" onclick="JKakemono.czyscpola(); ">
                         <option value="">Choisir l'option pose facile</option>
                         <option value="tape">Film de pose facile (Tape)</option>
@@ -116,7 +116,7 @@
                     </select>
                 </li>
                 <li class="form-line" id="id_6">
-			  <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<font color="#FF0000"><b> de 1 à 6 éléments séparés</b></font> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <font color="#FF0000"><b>BAT gratuit à valider</b></font> vous sera transmis dans votre accès client.<br/></span></span>
+			  <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');"><img style="float:right; margin-top:5px" border="0" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/interrogation.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<font color="#FF0000"><b> de 1 à 6 éléments séparés</b></font> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <font color="#FF0000"><b>BAT gratuit à valider</b></font> vous sera transmis dans votre accès client.<br/></span></span>
                     <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
                         <option value="">Choisir le fichier</option>
                         <option value="fb">France banderole crée la maquette</option>
@@ -135,9 +135,9 @@
 				<span class="title">OPTIONS COMPLEMENTAIRES DISPONIBLES :</span>
 
 				<span class="options_single">
-					<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
-					<span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+					<span class="optionsleft"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label><input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');"><span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span></span></span>
+					<span class="optionsleft"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label><input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" /><span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');"><span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 				</span>
                     <div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
 

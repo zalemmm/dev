@@ -6,7 +6,7 @@
 		<ul class="form-section">
 
 			<li class="form-line" id="id_1">
-				<span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
+				<span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
 
 				<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir l'épaisseur...</option>
@@ -87,7 +87,7 @@
 
 			<li class="form-line" id="id_41">
 
-				<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+				<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 						<b>France banderole crée votre fichier :</b><br/>
@@ -101,13 +101,13 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<!--<option value="config">je crée ma maquette en ligne</option>-->
+					<option value="config">je crée ma maquette en ligne</option>
 				</select>
 			</li>
 
 			<li class="form-line" id="id_42">
 
-				<span class="helpButton" onmouseover="pokazt('helpTextmaquette1');" onmouseout="ukryjt('helpTextmaquette1');">
+				<span class="helpButton" onmouseover="tipShow('helpTextmaquette1');" onmouseout="tipHide('helpTextmaquette1');">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpTextmaquette1" style="visibility:hidden;">
 						<b>France banderole crée votre fichier :</b><br/>
@@ -121,13 +121,13 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<!--<option value="config">je crée ma maquette en ligne</option>-->
+					<option value="config">je crée ma maquette en ligne</option>
 				</select>
 			</li>
 
 			<li class="form-line" id="id_43">
 
-				<span class="helpButton" onmouseover="pokazt('helpTextmaquette3');" onmouseout="ukryjt('helpTextmaquette3');">
+				<span class="helpButton" onmouseover="tipShow('helpTextmaquette3');" onmouseout="tipHide('helpTextmaquette3');">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpTextmaquette3" style="visibility:hidden;">
 						<b>France banderole crée votre fichier :</b><br/>
@@ -141,13 +141,13 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<!--<option value="config">je crée ma maquette en ligne</option>-->
+					<option value="config">je crée ma maquette en ligne</option>
 				</select>
 			</li>
 
 			<li class="form-line" id="id_44">
 
-				<span class="helpButton" onmouseover="pokazt('helpTextmaquette2');" onmouseout="ukryjt('helpTextmaquette2');">
+				<span class="helpButton" onmouseover="tipShow('helpTextmaquette2');" onmouseout="tipHide('helpTextmaquette2');">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
 						<b>France banderole crée votre fichier :</b><br/>
@@ -161,13 +161,13 @@
 					<option value="">fichier d'impression...</option>
 					<option value="fb">France banderole crée la maquette</option>
 					<option value="user">j’ai déjà crée la maquette </option>
-					<!--<option value="config">je crée ma maquette en ligne</option>-->
+					<option value="config">je crée ma maquette en ligne</option>
 				</select>
 			</li>
 
 			<li class="form-line" id="id_45">
 
-				<span class="helpButton" onmouseover="pokazt('helpText45');" onmouseout="ukryjt('helpText45');">
+				<span class="helpButton" onmouseover="tipShow('helpText45');" onmouseout="tipHide('helpText45');">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpText45" style="visibility:hidden;">
 						Vous avez choisi de créer votre maquette en ligne, veuillez préciser si vous souhaitez voir s'afficher votre gabarit en mode portrait ou paysage.
@@ -216,7 +216,7 @@
 					<span class="optionsleft">
 						<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 						<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-						<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+						<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
 							<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 						</span>
 					</span>
@@ -224,7 +224,7 @@
 					<span class="optionsleft">
 						<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 						<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-						<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+						<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
 							<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 						</span>
 					</span>
@@ -232,7 +232,7 @@
 					<span class="optionsright">
 						<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 						<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-						<span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+						<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
 							<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
 						</span>
 					</span>
@@ -240,7 +240,7 @@
 					<span class="optionsright">
 						<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 						<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-						<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+						<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
 							<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 						</span>
 					</span>

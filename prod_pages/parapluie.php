@@ -6,7 +6,7 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_0">
-          <span class="helpButton" onmouseover="pokazt('helpText0');" onmouseout="ukryjt('helpText0');">
+          <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0" style="visibility:hidden;">
               <b>Stand tissu EasyQuick: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
@@ -28,7 +28,7 @@
         </li>
 
         <li class="form-line" id="id_photocall">
-          <span class="helpButton" onmouseover="pokazt('helpTextphotocall');" onmouseout="ukryjt('helpTextphotocall');">
+          <span class="helpButton" onmouseover="tipShow('helpTextphotocall');" onmouseout="tipHide('helpTextphotocall');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextphotocall" style="visibility:hidden;">
               <b>PVC Dickson Jet 520g M1: </b><br/>choissez d'imprimer le visuel du mur d'image sur de la bâche PVC Dickson Jet 520g M1 ou du tissu stretch léger 220g B1.<br />
@@ -44,7 +44,7 @@
         </li>
 
         <li class="form-line" id="id_valise">
-          <span class="helpButton" onmouseover="pokazt('helpTextvalise');" onmouseout="ukryjt('helpTextvalise');">
+          <span class="helpButton" onmouseover="tipShow('helpTextvalise');" onmouseout="tipHide('helpTextvalise');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextvalise" style="visibility:hidden;">
               <b>PVC 300µ: </b><br/>choissez d'imprimer le visuel de votre valise sur du PVC 300µ.<br />Taille finale 140x85cm<br />
@@ -61,7 +61,7 @@
         </li>
 
         <li class="form-line" id="id_01">
-          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+          <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText1" style="visibility:hidden;">
               <b>Stand tissu droit: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
@@ -77,7 +77,7 @@
         </li>
 
         <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
+          <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText2" style="visibility:hidden;">
               <b>stand parapluie 3x3 droit: <span class="highlight">Dès 685€</span></b><br/>225x225cm le stand traditionnel complet polyvalent<br />
@@ -103,7 +103,7 @@
         </li>
 
         <li class="form-line" id="id_2">
-          <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
+          <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText3" style="visibility:hidden;">
               <b>2 Spots halogène 35w: <span class="highlight">Dès 50,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
@@ -118,7 +118,7 @@
         </li>
 
         <li class="form-line" id="id_50">
-          <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+          <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText4" style="visibility:hidden;">
               <b>Stand tissu droit recto : <span class="highlight">Dès 342€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
@@ -152,7 +152,7 @@
         </li>
 
         <li class="form-line" id="id_500">
-          <span class="helpButton" onmouseover="pokazt('helpText5');" onmouseout="ukryjt('helpText5');">
+          <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText5" style="visibility:hidden;">
               <b>Stand tissu courbé recto : <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />
@@ -169,7 +169,7 @@
         </li>
 
         <li class="form-line" id="id_02">
-          <span class="helpButton" onmouseover="pokazt('helpText02');" onmouseout="ukryjt('helpText02');">
+          <span class="helpButton" onmouseover="tipShow('helpText02');" onmouseout="tipHide('helpText02');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText02" style="visibility:hidden;">
               <b>tissu 220g B1: <span class="highlight">dès 12€/m²</span></b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
@@ -184,7 +184,7 @@
         </li>
 
         <li class="form-line" id="id_0222">
-          <span class="helpButton" onmouseover="pokazt('helpText0222');" onmouseout="ukryjt('helpText0222');">
+          <span class="helpButton" onmouseover="tipShow('helpText0222');" onmouseout="tipHide('helpText0222');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0222" style="visibility:hidden;">
               <b>tissu 220g B1:</b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
@@ -199,7 +199,7 @@
         </li>
 
         <li class="form-line" id="id_022">
-          <span class="helpButton" onmouseover="pokazt('helpText022');" onmouseout="ukryjt('helpText022');">
+          <span class="helpButton" onmouseover="tipShow('helpText022');" onmouseout="tipHide('helpText022');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText022" style="visibility:hidden;">
               <b>tissu 220g B1: <span class="highlight">dès 12€/m²</span></b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
@@ -217,7 +217,7 @@
         </li>
 
         <li class="form-line" id="id_51">
-          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+          <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText6" style="visibility:hidden;">
               <b>2 spots halogènes 150w: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br />
@@ -231,7 +231,7 @@
         </li>
 
         <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="pokazt('helpText7');" onmouseout="ukryjt('helpText7');">
+          <span class="helpButton" onmouseover="tipShow('helpText7');" onmouseout="tipHide('helpText7');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText7" style="visibility:hidden;">
               <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
@@ -247,7 +247,7 @@
         </li>
 
         <li class="form-line" id="id_7">
-          <span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -261,7 +261,7 @@
             <option value="">choisir la mise en page... </option>
             <option value="fb">France banderole crée la mise en page</option>
             <option value="user">j’ai déjà crée la maquette </option>
-            <!--<option value="config">je crée ma maquette en ligne</option>-->
+            <option value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
@@ -275,21 +275,24 @@
         </li>
 
        <li id="id_16" class="form-line optionsformline">
-               <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
+
+        <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
 
 				<span class="options_single">
+
           <span class="optionsleft">
             <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
             <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-            <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
-              <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+            <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
+              <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client.
+              </span>
             </span>
           </span>
 
 					<span class="optionsleft">
             <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
             <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-            <span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+            <span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
               <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
             </span>
           </span>
@@ -297,7 +300,7 @@
           <span class="optionsleft">
             <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
             <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-            <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+            <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
               <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
             </span>
           </span>
@@ -1006,8 +1009,8 @@ jQuery(document).ready(function(){
       var month = estdt.getMonth()+1;
       var day = estdt.getDate();
       var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-      if(jQuery('#id_8').css('display') != 'none') {
-        jQuery('#estdate_8').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
+      if(jQuery('#id_16').css('display') != 'none') {
+        jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
       }
 
       var finalPrice1=fixstr(finalPrice);

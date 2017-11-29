@@ -6,7 +6,7 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+          <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
               <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
               <span class="helpText" id="helpText1" style="visibility:hidden;">
               • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
@@ -24,7 +24,7 @@
         </li>
 
          <li class="form-line" id="id_2">
-          <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
+          <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText2" style="visibility:hidden;">
               • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
@@ -41,7 +41,7 @@
         </li>
 
         <li class="form-line" id="id_21">
-          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText21');">
+          <span class="helpButton" onmouseover="tipShow('helpText21');" onmouseout="tipHide('helpText21');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText21" style="visibility:hidden;">infos</span>
           </span>
@@ -52,7 +52,7 @@
           </select>
         </li>
         <li class="form-line" id="id_22">
-          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText22');">
+          <span class="helpButton" onmouseover="tipShow('helpText21');" onmouseout="tipHide('helpText22');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText22" style="visibility:hidden;">infos</span>
           </span>
@@ -64,7 +64,7 @@
         </li>
 
          <li class="form-line" id="id_23">
-          <span class="helpButton" onmouseover="pokazt('helpText23');" onmouseout="ukryjt('helpText23');">
+          <span class="helpButton" onmouseover="tipShow('helpText23');" onmouseout="tipHide('helpText23');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText23" style="visibility:hidden;">infos </span>
           </span>
@@ -76,7 +76,7 @@
         </li>
 
         <li class="form-line" id="id_3">
-          <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
+          <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText3" style="visibility:hidden;">
             • <u><b>Choisissez la taille des X-screen</u>:</b><br/>Définissez la largeur et hauteur de vos X-Banner. 60x160cm ou 80x180cm
@@ -90,7 +90,7 @@
         </li>
 
         <li class="form-line" id="id_31">
-          <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText51');">
+          <span class="helpButton" onmouseover="tipShow('helpText31');" onmouseout="tipHide('helpText51');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText31" style="visibility:hidden;">
             
@@ -111,7 +111,7 @@
         </li>
 
         <li class="form-line" id="id_4">
-          <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+          <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText4" style="visibility:hidden;">
            		    <b>Bâche PVC 440g</b>: Pour petite ou moyenne banderole pas cher à courte durée de vie.
@@ -131,7 +131,7 @@
         </li>
 
         <li class="form-line" id="id_11">
-          <span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');">
+          <span class="helpButton" onmouseover="tipShow('helpText11');" onmouseout="tipHide('helpText11');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText11" style="visibility:hidden;">infos </span>
           </span>
@@ -143,7 +143,7 @@
         </li>
 
         <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+          <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText6" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -157,13 +157,13 @@
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
             <option class="option2" value="user">j’ai déjà crée la maquette </option>
-            <!--<option value="config">je crée ma maquette en ligne</option>-->
+            <option value="config">je crée ma maquette en ligne</option>
 
           </select>
         </li>
 
          <li class="form-line" id="id_61">
-          <span class="helpButton" onmouseover="pokazt('helpText61');" onmouseout="ukryjt('helpText61');">
+          <span class="helpButton" onmouseover="tipShow('helpText61');" onmouseout="tipHide('helpText61');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText61" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -177,7 +177,7 @@
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
             <option class="option2" value="user">j’ai déjà crée la maquette </option>
-            <!--<option value="config">je crée ma maquette en ligne</option>-->
+            <option value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
@@ -220,7 +220,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
               <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-              <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+              <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
                 <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
               </span>
             </span>
@@ -228,7 +228,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
               <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
+              <span class="helpButton" onmouseover="tipShow(\'helpTextetiquette\');" onmouseout="tipHide(\'helpTextetiquette\');">
                 <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span>
               </span>
             </span>
@@ -236,7 +236,7 @@
             <span class="optionsright">
               <label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
               <input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-              <span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+              <span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
                 <span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
               </span>
             </span>
@@ -244,7 +244,7 @@
             <span class="optionsright">
               <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
               <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+              <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
                 <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
               </span>
             </span>

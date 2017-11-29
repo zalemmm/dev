@@ -375,11 +375,11 @@
 	
                 
 				<span class="options_single">
-					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L\'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span></span></span>
+					<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L\'Atelier</label><input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="tipShow(\'helpTextetiquette\');" onmouseout="tipHide(\'helpTextetiquette\');"><span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span></span></span>
 				</span>
 
 				<span class="options_single">
-					<span class="optionsleft"><label class="form-label-left" id="label_contact" for="contact"><div style="line-height:10px; padding-top:8px">Etre contacté<br>pour une installation</div></label><input type="checkbox" class="form-checkbox" id="contact" name="contact[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="pokazt(\'helpTextcontact\');" onmouseout="ukryjt(\'helpTextcontact\');"><span class="helpText" id="helpTextcontact" style="visibility:hidden;">Si vous souhaitez être contacté pour la pose de votre cadre extérieur</span></span></span>
+					<span class="optionsleft"><label class="form-label-left" id="label_contact" for="contact"><div style="line-height:10px; padding-top:8px">Etre contacté<br>pour une installation</div></label><input type="checkbox" class="form-checkbox" id="contact" name="contact[]" value="" onchange="JKakemono.czyscpola(); " /><span class="helpButton" onmouseover="tipShow(\'helpTextcontact\');" onmouseout="tipHide(\'helpTextcontact\');"><span class="helpText" id="helpTextcontact" style="visibility:hidden;">Si vous souhaitez être contacté pour la pose de votre cadre extérieur</span></span></span>
 				</span>
 									
                     <!--<div class="nothing" style="width: 376px; height: 1px; border-bottom: 1px solid #9FA3A8; display: inline-block; margin-top: 5px;" />
@@ -388,14 +388,14 @@
                             <img src="/img/star2.png" alt="fedex" style="width: 16px; padding: 2px; display: inline-block; float: left;" />
                             <label class="form-label-left" id="label_fedex" for="fedex">Livraison gratuite<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 à 9 jours</label>
                             <input type="checkbox" class="form-checkbox" id="fedex" name="fedex[]" value="" onchange=" JKakemono.czyscpola(); " />
-                            <span class="helpButton" onmouseover="pokazt('helpTextfedex');" onmouseout="ukryjt('helpTextfedex');">
+                            <span class="helpButton" onmouseover="tipShow('helpTextfedex');" onmouseout="tipHide('helpTextfedex');">
                                 <span class="helpText" id="helpTextfedex" style="visibility:hidden;">Livraison gratuite en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span>
                             </span>
                         </span>
                         <span class="optionsright" style="clear:both;float:left;text-align:left;">
                             <label class="form-label-left" id="label_tnt" for="tnt">Livraison payante &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br> 4 à 7 jours</label>
                             <input type="checkbox" class="form-checkbox" id="tnt" name="tnt[]" value="" onchange=" JKakemono.czyscpola(); " />
-                            <span class="helpButton" onmouseover="pokazt('helpTexttnt');" onmouseout="ukryjt('helpTexttnt');">
+                            <span class="helpButton" onmouseover="tipShow('helpTexttnt');" onmouseout="tipHide('helpTexttnt');">
                                 <span class="helpText" id="helpTexttnt" style="visibility:hidden;">Livraison payante en 4 à 7 jours ouvrés (non compatible avec un colis hors-norme*)</span>
                             </span>
                         </span>

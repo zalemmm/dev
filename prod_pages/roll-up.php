@@ -5,7 +5,7 @@
 			<ul class="form-section">
 
 				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="pokazt('helpTexttype');" onmouseout="ukryjt('helpTexttype');">
+					<span class="helpButton" onmouseover="tipShow('helpTexttype');" onmouseout="tipHide('helpTexttype');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttype" style="visibility:hidden;">
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-firstline.pdf" data-lity>kakemono Roll-up FIRSTLINE</a>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
@@ -28,7 +28,7 @@
 				</li>
 
 				<li class="form-line" id="id_21">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille1');" onmouseout="ukryjt('helpTexttaille1');">
+					<span class="helpButton" onmouseover="tipShow('helpTexttaille1');" onmouseout="tipHide('helpTexttaille1');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille1" style="visibility:hidden;">
 							<b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
@@ -40,7 +40,7 @@
 				</li>
 
 				<li class="form-line" id="id_22">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille2');" onmouseout="ukryjt('helpTexttaille2');">
+					<span class="helpButton" onmouseover="tipShow('helpTexttaille2');" onmouseout="tipHide('helpTexttaille2');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille2" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b>
 							<br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
@@ -60,7 +60,7 @@
 				</li>
 
 				<li class="form-line" id="id_23">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille3');" onmouseout="ukryjt('helpTexttaille3');">
+					<span class="helpButton" onmouseover="tipShow('helpTexttaille3');" onmouseout="tipHide('helpTexttaille3');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille3" style="visibility:hidden;">
 						<b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
 					</span>
@@ -70,13 +70,13 @@
 						<option class="option2" value="100x200">100x200 cm </option>
 						<option class="option1" value="120x200">120x200 cm </option>
 						<option class="option2" value="150x200">150x200 cm </option>
-                        <option class="option1" value="200x200">200x200 cm </option>
+            <option class="option1" value="200x200">200x200 cm </option>
 						<!--<option class="option1" value="200x300">GIANT 200x300 cm </option>-->
 					</select>
 				</li>
 
 				<li class="form-line" id="id_24">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille4');" onmouseout="ukryjt('helpTexttaille4');">
+					<span class="helpButton" onmouseover="tipShow('helpTexttaille4');" onmouseout="tipHide('helpTexttaille4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille4" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
@@ -89,7 +89,7 @@
 				</li>
 
 				<li class="form-line" id="id_25">
-					<span class="helpButton" onmouseover="pokazt('helpTexttaille5');" onmouseout="ukryjt('helpTexttaille5');">
+					<span class="helpButton" onmouseover="tipShow('helpTexttaille5');" onmouseout="tipHide('helpTexttaille5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille5" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
@@ -102,7 +102,7 @@
 				</li>
 
         <li class="form-line" id="id_26">
-          <span class="helpButton" onmouseover="pokazt('helpText26');" onmouseout="ukryjt('helpText26');">
+          <span class="helpButton" onmouseover="tipShow('helpText26');" onmouseout="tipHide('helpText26');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText26" style="visibility:hidden;">infos</span>
 					</span>
@@ -114,7 +114,7 @@
         </li>
 
 				<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport1');" onmouseout="ukryjt('helpTextsupport1');">
+					<span class="helpButton" onmouseover="tipShow('helpTextsupport1');" onmouseout="tipHide('helpTextsupport1');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport1" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -128,7 +128,7 @@
 				</li>
 
 				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport2');" onmouseout="ukryjt('helpTextsupport2');">
+					<span class="helpButton" onmouseover="tipShow('helpTextsupport2');" onmouseout="tipHide('helpTextsupport2');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport2" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -147,7 +147,7 @@
 				</li>
 
 				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport3');" onmouseout="ukryjt('helpTextsupport3');">
+					<span class="helpButton" onmouseover="tipShow('helpTextsupport3');" onmouseout="tipHide('helpTextsupport3');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport3" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -164,7 +164,7 @@
 				</li>
 
 				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport4');" onmouseout="ukryjt('helpTextsupport4');">
+					<span class="helpButton" onmouseover="tipShow('helpTextsupport4');" onmouseout="tipHide('helpTextsupport4');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -179,7 +179,7 @@
 				</li>
 
 				<li class="form-line" id="id_35">
-					<span class="helpButton" onmouseover="pokazt('helpTextsupport5');" onmouseout="ukryjt('helpTextsupport5');">
+					<span class="helpButton" onmouseover="tipShow('helpTextsupport5');" onmouseout="tipHide('helpTextsupport5');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport5" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -194,7 +194,7 @@
 				</li>
 
 				<li class="form-line" id="id_4">
-					<span class="helpButton" onmouseover="pokazt('helpTextspot');" onmouseout="ukryjt('helpTextspot');">
+					<span class="helpButton" onmouseover="tipShow('helpTextspot');" onmouseout="tipHide('helpTextspot');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextspot" style="visibility:hidden;">
 							<b>Option Eclairage:</b><br/>Mini Spot pince halogène 35w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>
@@ -209,7 +209,7 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -223,7 +223,7 @@
 						<option class="titre" value="">fichier d'impression...</option>
 						<option class="option1" value="fb">France banderole crée la mise en page</option>
 						<option class="option2" value="user">j’ai déjà crée la mise en page</option>
-						<!--<option value="config">je crée ma maquette en ligne</option>-->
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 
@@ -244,7 +244,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-							<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+							<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
 								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 							</span>
 						</span>
@@ -252,7 +252,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
 								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 							</span>
 						</span>
@@ -260,7 +260,7 @@
 						<span class="optionsright">
 							<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+							<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
 								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
 							</span>
 						</span>
@@ -268,7 +268,7 @@
 						<span class="optionsright">
 							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
 								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 							</span>
 						</span>

@@ -14,7 +14,7 @@ function get_inscription() {
 			if ($czynieistnieje) {
 				$kod = $czynieistnieje->confirm_link;
         $letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-				$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
+				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
         $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 		    //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
 		    wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
@@ -130,11 +130,8 @@ function get_inscription() {
 						$setup_epub = $wpdb->query("INSERT INTO `$fb_tablename_users_cf` VALUES ('','".$new_user->id."','client_epub','".$f_epub."')");
 					}
 
-        		//	$letter = ""._FB_THANK.", ".$login."!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-		        //  mail($email, "france-banderole.com Inscription", $letter, "From: FRANCE BANDEROLE <info@france-banderole.fr>");
-    	    	//	$view .= '<p>'._FB_TREG.'</p>';
-    	    		$view .= get_acces_panel(2);
-				    unset($_SESSION['fbreguser']);
+    	    $view .= get_acces_panel(2);
+				  unset($_SESSION['fbreguser']);
 				}
 			}
 		}
@@ -392,7 +389,7 @@ function get_inscription() {
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	        <div class="pushButton">
-            	            <button id="input_21" type="submit" class="edit-button">EDITER</button>
+            	            <button id="input_21" type="submit" class="edit-button"><i class="fa fa-save"></i> enregistrer</button>
             	        </div>
             	    </div>
             	</li>
@@ -508,7 +505,7 @@ function saveAsNew($address) {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_address = $prefix."fbs_address";
 
-	$wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".$_SESSION['loggeduser']->id."', '".$_POST['orderid']."', '$address->l_name', '$address->l_comp', '$address->l_address', '$address->l_code', '$address->l_city', '$address->l_phone')");
+	$wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".$_SESSION['loggeduser']->id."', '".$_POST['orderid']."', '".addslashes($address->l_name)."', '".addslashes($address->l_comp)."', '".addslashes($address->l_address)."', '".addslashes($address->l_code)."', '".addslashes($address->l_city)."', '".addslashes($address->l_phone)."')");
 
 	header('Location: '.$_SERVER['REQUEST_URI']);
 	exit();
@@ -1148,7 +1145,7 @@ function get_acces_client() {
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
 	        		$letter = ""._FB_WELCOME.", votre nom d utilisateur est : ".$adresemail->login."\r\n\r\n"._FB_NPASS1." ".$hasloodszyfrowane."\r\n"._FB_NPASS2."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-					$header = 'From: FRANCE BANDEROLE <info@france-banderole.fr>';
+					$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
         			$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($adresemail->email, "nouveau mot de passe et nom d utilisateur", $letter, $header);
 			        wp_mail($adresemail->email, "Nouveau mot de passe et nom d utilisateur", $letter);
@@ -1256,7 +1253,9 @@ function get_acces_panel($p) {
 	if ($p == 1) { $path=get_bloginfo("url").'/vos-devis/'; } else { $path=''; }
 	if ($p == 2) { $path=get_bloginfo("url").'/verification/'; } else { $path=''; }
 	if ($p == 2) {
-	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$promo = $_POST['codeProm'];
+
+	$view .= $promo.'<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">VERIFICATION DE VOS IDENTIFIANTS</div>
 	<div class="acces_tab_content">
@@ -1266,13 +1265,15 @@ function get_acces_panel($p) {
 	<input type="text" name="loginname" class="logininput" />
 	<label class="loginlabel" for="loginpass">mot de passe:</label>
 	<input type="password" name="loginpass" class="logininput" />
+	<input type="hidden" name="codeProm" value="'.$promo.'" />
 	<button id="loginsubmit2" class="loginbutton2" type="submit">Se connecter</button>
 	</form>
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>
 	</div>';
 } else {
-	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$promo = $_POST['codeProm'];
+	$view .= $promo.'<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">DEJA INSCRIT?</div>
 	<div class="acces_tab_content">
@@ -1282,6 +1283,7 @@ function get_acces_panel($p) {
 	<input type="text" name="loginname" class="logininput" />
 	<label class="loginlabel" for="loginpass">mot de passe:</label>
 	<input type="password" name="loginpass" class="logininput" />
+	<input type="hidden" name="codeProm" value="'.$promo.'" />
 	<button id="loginsubmit" class="loginbutton" type="submit">Se connecter</button>
 	</form>
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>

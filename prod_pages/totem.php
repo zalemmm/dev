@@ -6,7 +6,7 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="pokazt('helpText1');" onmouseout="ukryjt('helpText1');">
+          <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
               <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
               <span class="helpText" id="helpText1" style="visibility:hidden;">
               • <u><b>Totem intérieur X-screen</u>: <span class="highlight">Dès 9,90€</span></b><br/>le X-banner le moins cher du marché, léger, robuste et facile à installer.<br />
@@ -26,7 +26,7 @@
         </li>
 
          <li class="form-line" id="id_2">
-          <span class="helpButton" onmouseover="pokazt('helpText2');" onmouseout="ukryjt('helpText2');">
+          <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText2" style="visibility:hidden;">
               • <u><b>Kakemono extérieur Blizzard</u>: <span class="highlight">Dès 149,00€</span></b><br/>structure lestée stable pour visuel 60x160cm ou 80x200cm, pour vent jusqu'à 40 km/h.<br />
@@ -41,7 +41,7 @@
         </li>
 
         <li class="form-line" id="id_21">
-          <span class="helpButton" onmouseover="pokazt('helpText21');" onmouseout="ukryjt('helpText21');">
+          <span class="helpButton" onmouseover="tipShow('helpText21');" onmouseout="tipHide('helpText21');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText21" style="visibility:hidden;">Choisissez la taille du Kakémono <b>Blizzard</b></span>
           </span>
@@ -52,7 +52,7 @@
           </select>
         </li>
         <li class="form-line" id="id_22">
-          <span class="helpButton" onmouseover="pokazt('helpText22');" onmouseout="ukryjt('helpText22');">
+          <span class="helpButton" onmouseover="tipShow('helpText22');" onmouseout="tipHide('helpText22');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText22" style="visibility:hidden;">Choisissez la taille du Kakémono <b>Mistral</b></span>
           </span>
@@ -64,7 +64,7 @@
         </li>
 
          <li class="form-line" id="id_23">
-          <span class="helpButton" onmouseover="pokazt('helpText23');" onmouseout="ukryjt('helpText23');">
+          <span class="helpButton" onmouseover="tipShow('helpText23');" onmouseout="tipHide('helpText23');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText23" style="visibility:hidden;"><b>Option</b> sac à dos de transport</span>
           </span>
@@ -74,10 +74,10 @@
             <option class="option2" value="sac">sac à dos de transport noir </option>
           </select>
         </li>
-        
-        
+
+
          <li class="form-line" id="id_24">
-          <span class="helpButton" onmouseover="pokazt('helpText24');" onmouseout="ukryjt('helpText24');">
+          <span class="helpButton" onmouseover="tipShow('helpText24');" onmouseout="tipHide('helpText24');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText24" style="visibility:hidden;">
             <b>tissu 220g B1: </b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
@@ -90,9 +90,9 @@
 			<option class="option2" value="tissu 260g">tissu stretch extensible 260g B1</option>
           </select>
         </li>
-        
+
          <li class="form-line" id="id_25">
-          <span class="helpButton" onmouseover="pokazt('helpText25');" onmouseout="ukryjt('helpText25');">
+          <span class="helpButton" onmouseover="tipShow('helpText25');" onmouseout="tipHide('helpText25');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText24" style="visibility:hidden;">Choisissez la taille de votre <b>totem</b></span>
           </span>
@@ -114,7 +114,7 @@
         </li>
 
         <li class="form-line" id="id_3">
-          <span class="helpButton" onmouseover="pokazt('helpText3');" onmouseout="ukryjt('helpText3');">
+          <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText3" style="visibility:hidden;">
             • <u><b>Choisissez la taille des X-screen</u>:</b><br/>Définissez la largeur et hauteur de vos X-Banner. 60x160cm ou 80x180cm
@@ -128,7 +128,7 @@
         </li>
 
         <li class="form-line" id="id_31">
-          <span class="helpButton" onmouseover="pokazt('helpText31');" onmouseout="ukryjt('helpText51');">
+          <span class="helpButton" onmouseover="tipShow('helpText31');" onmouseout="tipHide('helpText51');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText31" style="visibility:hidden;">
 
@@ -149,7 +149,7 @@
         </li>
 
         <li class="form-line" id="id_4">
-          <span class="helpButton" onmouseover="pokazt('helpText4');" onmouseout="ukryjt('helpText4');">
+          <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText4" style="visibility:hidden;">
            		    <b>Bâche PVC 440g</b>: Pour petite ou moyenne banderole pas cher à courte durée de vie.
@@ -169,7 +169,7 @@
         </li>
 
         <li class="form-line" id="id_11">
-          <span class="helpButton" onmouseover="pokazt('helpText11');" onmouseout="ukryjt('helpText11');">
+          <span class="helpButton" onmouseover="tipShow('helpText11');" onmouseout="tipHide('helpText11');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText11" style="visibility:hidden;">infos </span>
           </span>
@@ -181,7 +181,7 @@
         </li>
 
         <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="pokazt('helpText6');" onmouseout="ukryjt('helpText6');">
+          <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText6" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -195,13 +195,13 @@
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
             <option class="option2" value="user">j’ai déjà crée la maquette </option>
-            <!--<option value="config">je crée ma maquette en ligne</option>-->
+            <option value="config">je crée ma maquette en ligne</option>
 
           </select>
         </li>
 
          <li class="form-line" id="id_61">
-          <span class="helpButton" onmouseover="pokazt('helpText61');" onmouseout="ukryjt('helpText61');">
+          <span class="helpButton" onmouseover="tipShow('helpText61');" onmouseout="tipHide('helpText61');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText61" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -215,7 +215,7 @@
             <option class="titre" value="">choisir la maquette...</option>
             <option class="option1" value="fb">France banderole crée la maquette</option>
             <option class="option2" value="user">j’ai déjà crée la maquette </option>
-            <!--<option value="config">je crée ma maquette en ligne</option>-->
+            <option value="config">je crée ma maquette en ligne</option>
           </select>
         </li>
 
@@ -258,7 +258,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
               <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-              <span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+              <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
                 <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
               </span>
             </span>
@@ -266,7 +266,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
               <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="pokazt(\'helpTextetiquette\');" onmouseout="ukryjt(\'helpTextetiquette\');">
+              <span class="helpButton" onmouseover="tipShow(\'helpTextetiquette\');" onmouseout="tipHide(\'helpTextetiquette\');">
                 <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l\'atelier de Vitrolles.</span>
               </span>
             </span>
@@ -274,7 +274,7 @@
             <span class="optionsright">
               <label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
               <input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-              <span class="helpButton" onmouseover="pokazt('helpTextrelais');" onmouseout="ukryjt('helpTextrelais');">
+              <span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
                 <span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
               </span>
             </span>
@@ -282,7 +282,7 @@
             <span class="optionsright">
               <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
               <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+              <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
                 <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
               </span>
             </span>
@@ -464,8 +464,8 @@
 	  var imp		         = 0;//// prix impression
 	  var m2		         = 0;//// m2
 	  var pm2		         = 0; ////prix m2
-	  var tissu		         = 0; 
-	  var pa		         = 0; 
+	  var tissu		         = 0;
+	  var pa		         = 0;
     var eBox               = document.getElementById('form-button-error2');
     var aBox               = document.getElementById('form-button-error1');
     eBox.innerHTML         = '';
@@ -787,36 +787,36 @@
         cena+=5.7;
       }
     }
-	
+
 	 /////////////////////////////// kakemono  tissu //
 
 		 if ($('input_1').value == 'Kakemono Tissu') {
 			 if ($('input_24').value == 'tissu 220g') {pm2 = 2.16;}
 			 if ($('input_24').value == 'tissu 260g') {pm2 = 2.51;}
-			 if ($('input_25').value == '60x230 recto') {structure = 40; m2 =(0.612*2.28)*1.5; p1=6.85;}
-			 if ($('input_25').value == '60x230 recto/verso') {structure = 40; m2 =(0.612*2.28)*2; p1=6.85;}
-			 if ($('input_25').value == '90x230 recto') {structure = 70; m2 =(0.917*2.28)*1.5; p1=8.85;}
-			 if ($('input_25').value == '90x230 recto/verso') {structure = 70; m2 =(0.917*2.28)*2; p1=8.85;}
-			 if ($('input_25').value == '120x230 recto') {structure = 85; m2 =(1.222*2.28)*1.5; p1=11;}
-			 if ($('input_25').value == '120x230 recto/verso') {structure = 85; m2 =(1.222*2.28)*2; p1=11;}
-			 if ($('input_25').value == '150x230 recto') {structure = 98; m2 =(1.526*2.28)*1.5; p1=13.60;}
-			 if ($('input_25').value == '150x230 recto/verso') {structure = 98; m2 =(1.526*2.28)*2; p1=13.60;}
+			 if ($('input_25').value == '60x230 recto') {structure = 40; m2 =(0.612*2.28)*1.5; p1=6.85; hauteur = 230; largeur = 60;}
+			 if ($('input_25').value == '60x230 recto/verso') {structure = 40; m2 =(0.612*2.28)*2; p1=6.85; hauteur = 230; largeur = 60;}
+			 if ($('input_25').value == '90x230 recto') {structure = 70; m2 =(0.917*2.28)*1.5; p1=8.85; hauteur = 230; largeur = 90;}
+			 if ($('input_25').value == '90x230 recto/verso') {structure = 70; m2 =(0.917*2.28)*2; p1=8.85; hauteur = 230; largeur = 90;}
+			 if ($('input_25').value == '120x230 recto') {structure = 85; m2 =(1.222*2.28)*1.5; p1=11; hauteur = 230; largeur = 120;}
+			 if ($('input_25').value == '120x230 recto/verso') {structure = 85; m2 =(1.222*2.28)*2; p1=11; hauteur = 230; largeur = 120;}
+			 if ($('input_25').value == '150x230 recto') {structure = 98; m2 =(1.526*2.28)*1.5; p1=13.60; hauteur = 230; largeur = 150;}
+			 if ($('input_25').value == '150x230 recto/verso') {structure = 98; m2 =(1.526*2.28)*2; p1=13.60; hauteur = 230; largeur = 150;}
         	 imp=(3*m2)+15////impresion + couture
 			 tissu=pm2*m2////tissu
-			 
-			 
-			 
+
+
+
         pa=structure+imp+tissu;////////prix d'achat
 		if ((ilosc > 0) && (ilosc < 2)){cena=pa*2.80;}
     	if ((ilosc > 1) && (ilosc < 4)){cena=pa*2.75;}
 		if ((ilosc > 3) && (ilosc < 6)){cena=pa*2.70;}
     	if (ilosc > 5){cena=pa*2.65;}
-		
+
         designation='Totem Tissu <br />- '+(($('input_25').value) +'<br />- '+ ($('input_24').value)) ;
 
         p=p1*ilosc;
 
-      
+
       }
 
     ////////////////prix tansport transport////////////////////////////////////////////////////////////////////////////

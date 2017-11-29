@@ -15,7 +15,7 @@
 				</li>
 
 				<li class="form-line" id="id_HD">
-					<span class="helpButton" onmouseover="pokazt('helpTextHD');" onmouseout="ukryjt('helpTextHD');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+					<span class="helpButton" onmouseover="tipShow('helpTextHD');" onmouseout="tipHide('helpTextHD');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextHD" style="visibility:hidden;">
 							• <span class="highlight"><u><b>Impression dibond Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />
 							• <span class="highlight"><u><b>Impression dibond standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression dibond pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux dibond pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés dibond pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/>
@@ -165,7 +165,7 @@
 				</li>
 
 				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette');" onmouseout="ukryjt('helpTextmaquette');">
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -179,11 +179,11 @@
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
-						<!--<option value="config">je crée ma maquette en ligne</option>-->
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 				<li class="form-line" id="id_6perso">
-					<span class="helpButton" onmouseover="pokazt('helpTextmaquette2');" onmouseout="ukryjt('helpTextmaquette2');">
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette2');" onmouseout="tipHide('helpTextmaquette2');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -197,7 +197,7 @@
 						<option value="">choisir la maquette</option>
 						<option value="fb">France banderole crée la maquette</option>
 						<option value="user">j’ai déjà crée la maquette </option>
-						<!--<option value="config">je crée ma maquette en ligne</option>-->
+						<option value="config">je crée ma maquette en ligne</option>
 					</select>
 				</li>
 
@@ -218,7 +218,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-							<span class="helpButton" onmouseover="pokazt('helpTextAdresse');" onmouseout="ukryjt('helpTextAdresse');">
+							<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
 								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 							</span>
 						</span>
@@ -226,7 +226,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="pokazt('helpTextetiquette');" onmouseout="ukryjt('helpTextetiquette');">
+							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
 								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 							</span>
 						</span>
@@ -234,7 +234,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt('helpTextcolis');" onmouseout="ukryjt('helpTextcolis');">
+							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
 								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 							</span>
 						</span>
@@ -242,7 +242,7 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_palette" for="palette">Grand format livré entier</label>
 							<input type="checkbox" class="form-checkbox" id="palette" name="palette[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="pokazt('helpTextpalette');" onmouseout="ukryjt('helpTextpalette');">
+							<span class="helpButton" onmouseover="tipShow('helpTextpalette');" onmouseout="tipHide('helpTextpalette');">
 								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">dès 240€ HT</span><br />
 								Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.</span>
 							</span>
