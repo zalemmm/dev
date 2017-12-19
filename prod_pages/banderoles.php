@@ -218,8 +218,6 @@
 					</select>
 				</li>
 
-
-
 				<!--option scratch----------------------------------------------------->
 				<li class="form-line" id="id_71">
 					<span class="helpButton" onmouseover="tipShow('helpText71');" onmouseout="tipHide('helpText71');">
@@ -338,19 +336,38 @@
 				<li class="form-line" id="id_12">
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>France banderole crée votre fichier:</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>
-							Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
 							<b>Vous créez votre maquette en ligne:</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-						</span>
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                        </span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
-						<option value="fb">France banderole crée la mise en page</option>
-						<option value="user">j’ai déjà crée la mise en page</option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +19,00€</option>
+					</select>
+				</li>
+
+        <li class="form-line" id="id_signature">
+        	<span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+              <b>Logo France Banderole</b><br/>
+						  Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+              <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+            </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
 					</select>
 				</li>
 
@@ -400,7 +417,7 @@
 						<span class="optionsright"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
 							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
 							</span>
 						</span>
 
@@ -543,7 +560,7 @@
 		var hauteur = jQuery("#input_14").val();
 		var largeur = jQuery("#input_15").val();
 
-		if ((hauteur > 1.99) && (hauteur < 3.21)) {
+		if ( ((hauteur > 1.99) && (hauteur < 3.21) && (largeur > 1.99)) || ((largeur > 1.99) && (largeur < 3.21) && (hauteur > 1.99)) ) {
 			jQuery('.roll').css('display', 'block');
 		}else{
 			jQuery('.roll').css('display', 'none');
@@ -647,71 +664,71 @@
 		if (perteH < perteL){
 			metrage = largeur*h1;
 			////bache 440g
-			if (($('input_ext').value == 'bache 440g' ) && (h1<=1.00) ){plm =8.10 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =8.51 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =8.91 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =9.32 ;}
-			if (($('input_ext').value == 'bache 440g' ) && (h1>=2.51)){plm =9.72 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (h1<=1.00) ){plm =6.45 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.77 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.10 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.42 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (h1>=2.51)){plm =7.74 ;}
 			////ecotoile
-			if (($('input_ext').value == 'ecotoile' ) && (h1<=1.00) ){plm =7.89 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =8.28 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =8.68 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =9.07 ;}
-			if (($('input_ext').value == 'ecotoile' ) && (h1>=2.51)){plm =9.47 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (h1<=1.00) ){plm =6.24 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =6.55 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =6.86 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.18 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (h1>=2.51)){plm =7.49 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (h1<=1.00) ){plm =13.20 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.86 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.61)&&(h1<=2.00))){plm =14.52 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1>=2.01)&&(h1<=2.50))){plm =15.18 ;}
-			if (($('input_ext').value == 'jet 550' ) && (h1>=2.51)){plm =15.84 ;}
+			if (($('input_ext').value == 'jet 550' ) && (h1<=1.00) ){plm =12.45 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.07 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.61)&&(h1<=2.00))){plm =13.70 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((h1>=2.01)&&(h1<=2.50))){plm =14.32 ;}
+			if (($('input_ext').value == 'jet 550' ) && (h1>=2.51)){plm =14.94 ;}
 			////jet 520 M1
-			if (($('input_ext').value == 'jet 520 M1' ) && (h1<=1.00) ){plm =15.15 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =15.91 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =16.67 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =17.42 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && (h1>=2.51)){plm =18.18 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (h1<=1.00) ){plm =15.90 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =16.70 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =17.49 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =18.29 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (h1>=2.51)){plm =19.08 ;}
 			////lacopac
-			if (($('input_ext').value == 'lacopac' ) && (h1<=1.00) ){plm =17.40 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =18.27 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.14 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.01 ;}
-			if (($('input_ext').value == 'lacopac' ) && (h1>=2.51)){plm =20.88 ;}
+			if (($('input_ext').value == 'lacopac' ) && (h1<=1.00) ){plm =18.15 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =19.06 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.97 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.87 ;}
+			if (($('input_ext').value == 'lacopac' ) && (h1>=2.51)){plm =21.78 ;}
 			////lacopac recto verso
-			if (($('input_ext').value == 'lacopac recto verso' ) && (h1<=1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =23.78 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=1.61)&&(h1<=2.00))){plm =24.92 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=2.01)&&(h1<=2.50))){plm =26.05 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && (h1>=2.51)){plm =27.18 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (h1<=1.00) ){plm =24.15 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =25.36 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=1.61)&&(h1<=2.00))){plm =26.57 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((h1>=2.01)&&(h1<=2.50))){plm =27.77 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (h1>=2.51)){plm =28.98 ;}
 			////bache micro perforée M1/B1
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1<=1.00) ){plm =9.66 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =10.14 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =10.63 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =11.11 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1>=2.51)){plm =11.59 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1<=1.00) ){plm =8.91 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =9.36 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =9.80 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =10.25 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (h1>=2.51)){plm =10.69 ;}
 			////bache 100% écologique M1
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1<=1.00) ){plm =17.94 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =18.84 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.73 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.63 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1>=2.51)){plm =21.53 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1<=1.00) ){plm =18.69 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =19.62 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =20.56 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =21.49 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (h1>=2.51)){plm =22.43 ;}
 			////capotoile
-			if (($('input_ext').value == 'capotoile' ) && (h1<=1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =23.78 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =24.92 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =26.05 ;}
-			if (($('input_ext').value == 'capotoile' ) && (h1>=2.51)){plm =27.18 ;}
+			if (($('input_ext').value == 'capotoile' ) && (h1<=1.00) ){plm =24.90 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =26.15 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =27.39 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =28.64 ;}
+			if (($('input_ext').value == 'capotoile' ) && (h1>=2.51)){plm =29.88 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (h1<=1.00) ){plm =21.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =22.32 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =22.90 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =23.49 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && (h1>=2.51)){plm =24.08 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (h1<=1.00) ){plm =19.50 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =20.48 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =21.45 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =22.43 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (h1>=2.51)){plm =23.40 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (h1<=1.00) ){plm =22.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =23.42 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =24.06 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =24.70 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && (h1>=2.51)){plm =25.34 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (h1<=1.00) ){plm =31.50 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =33.08 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =34.65 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =36.23 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (h1>=2.51)){plm =37.80 ;}
 
 
 			prixproduit = metrage*plm;
@@ -720,71 +737,71 @@
 		else if (perteH > perteL){
 			metrage = hauteur*l1;
 			////bache 440g
-			if (($('input_ext').value == 'bache 440g' ) && (l1<=1.00) ){plm =8.10 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.51 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.91 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.32 ;}
-			if (($('input_ext').value == 'bache 440g' ) && (l1>=2.51)){plm =9.72 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (l1<=1.00) ){plm =6.45 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =6.77 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =7.10 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.42 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (l1>=2.51)){plm =7.74 ;}
 			////ecotoile
-			if (($('input_ext').value == 'ecotoile' ) && (l1<=1.00) ){plm =7.89 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.28 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.68 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.07 ;}
-			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =9.47 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (l1<=1.00) ){plm =6.24 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =6.55 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =6.86 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.18 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =7.49 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =13.20 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.86 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.52 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =15.18 ;}
-			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =15.84 ;}
+			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =12.45 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
+			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =14.94 ;}
 			////jet 520 M1
-			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.15 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =15.91 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =16.67 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =17.42 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && (l1>=2.51)){plm =18.18 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =17.49 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =18.29 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (l1>=2.51)){plm =19.08 ;}
 			////lacopac
-			if (($('input_ext').value == 'lacopac' ) && (l1<=1.00) ){plm =17.40 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.27 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.14 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.01 ;}
-			if (($('input_ext').value == 'lacopac' ) && (l1>=2.51)){plm =20.88 ;}
+			if (($('input_ext').value == 'lacopac' ) && (l1<=1.00) ){plm =18.15 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.06 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.97 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.87 ;}
+			if (($('input_ext').value == 'lacopac' ) && (l1>=2.51)){plm =21.78 ;}
 			////lacopac recto verso
-			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<=1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && (l1>=2.51)){plm =27.18 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<=1.00) ){plm =24.15 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =25.36 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =26.57 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =27.77 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (l1>=2.51)){plm =28.98 ;}
 			////bache micro perforée M1/B1
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<=1.00) ){plm =9.66 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =10.14 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =10.63 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =11.11 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1>=2.51)){plm =11.59 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<=1.00) ){plm =8.91 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =9.36 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.80 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =10.25 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1>=2.51)){plm =10.69 ;}
 			////bache 100% écologique M1
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =17.94 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.84 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.73 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.63 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1>=2.51)){plm =21.53 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =18.69 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.62 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =20.56 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =21.49 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1>=2.51)){plm =22.43 ;}
 			////capotoile
-			if (($('input_ext').value == 'capotoile' ) && (l1<=1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
-			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =27.18 ;}
+			if (($('input_ext').value == 'capotoile' ) && (l1<=1.00) ){plm =24.90 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =26.15 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =27.39 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =28.64 ;}
+			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =29.88 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =21.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =22.32 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =22.90 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =23.49 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =24.08 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =19.50 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =20.48 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =21.45 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =22.43 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =23.40 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =22.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.42 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.06 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =24.70 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =25.34 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =31.50 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =33.08 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =34.65 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =36.23 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =37.80 ;}
 
 
 			prixproduit = metrage*plm;
@@ -793,71 +810,71 @@
 		else if(perteH == perteL){
 			metrage = hauteur*l1;
 			////bache 440g
-			if (($('input_ext').value == 'bache 440g' ) && (l1<=1.00) ){plm =8.10 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =8.51 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.91 ;}
-			if (($('input_ext').value == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.32 ;}
-			if (($('input_ext').value == 'bache 440g' ) && (l1>=2.51)){plm =9.72 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (l1<=1.00) ){plm =6.45 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =6.77 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =7.10 ;}
+			if (($('input_ext').value == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.42 ;}
+			if (($('input_ext').value == 'bache 440g' ) && (l1>=2.51)){plm =7.74 ;}
 			////ecotoile
-			if (($('input_ext').value == 'ecotoile' ) && (l1<=1.00) ){plm =7.89 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.28 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =8.68 ;}
-			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.07 ;}
-			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =9.47 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (l1<=1.00) ){plm =6.24 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =6.55 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =6.86 ;}
+			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.18 ;}
+			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =7.49 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =13.20 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.86 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =14.52 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =15.18 ;}
-			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =15.84 ;}
+			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =12.45 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
+			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
+			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =14.94 ;}
 			////jet 520 M1
-			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.15 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =15.91 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =16.67 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =17.42 ;}
-			if (($('input_ext').value == 'jet 520 M1' ) && (l1>=2.51)){plm =18.18 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =17.49 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =18.29 ;}
+			if (($('input_ext').value == 'jet 520 M1' ) && (l1>=2.51)){plm =19.08 ;}
 			////lacopac
-			if (($('input_ext').value == 'lacopac' ) && (l1<=1.00) ){plm =17.40 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.27 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.14 ;}
-			if (($('input_ext').value == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.01 ;}
-			if (($('input_ext').value == 'lacopac' ) && (l1>=2.51)){plm =20.88 ;}
+			if (($('input_ext').value == 'lacopac' ) && (l1<=1.00) ){plm =18.15 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.06 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.97 ;}
+			if (($('input_ext').value == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.87 ;}
+			if (($('input_ext').value == 'lacopac' ) && (l1>=2.51)){plm =21.78 ;}
 			////lacopac recto verso
-			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<=1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
-			if (($('input_ext').value == 'lacopac recto verso' ) && (l1>=2.51)){plm =27.18 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (l1<=1.00) ){plm =24.15 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =25.36 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =26.57 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =27.77 ;}
+			if (($('input_ext').value == 'lacopac recto verso' ) && (l1>=2.51)){plm =28.98 ;}
 			////bache micro perforée M1/B1
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<=1.00) ){plm =9.66 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =10.14 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =10.63 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =11.11 ;}
-			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1>=2.51)){plm =11.59 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1<=1.00) ){plm =8.91 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =9.36 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.80 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =10.25 ;}
+			if (($('input_ext').value == 'bache micro perforée M1/B1' ) && (l1>=2.51)){plm =10.69 ;}
 			////bache 100% écologique M1
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =17.94 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =18.84 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.73 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.63 ;}
-			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1>=2.51)){plm =21.53 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =18.69 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.62 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =20.56 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =21.49 ;}
+			if (($('input_ext').value == 'bache 100% écologique M1' ) && (l1>=2.51)){plm =22.43 ;}
 			////capotoile
-			if (($('input_ext').value == 'capotoile' ) && (l1<=1.00) ){plm =22.65 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.78 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.92 ;}
-			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =26.05 ;}
-			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =27.18 ;}
+			if (($('input_ext').value == 'capotoile' ) && (l1<=1.00) ){plm =24.90 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =26.15 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =27.39 ;}
+			if (($('input_ext').value == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =28.64 ;}
+			if (($('input_ext').value == 'capotoile' ) && (l1>=2.51)){plm =29.88 ;}
 			////tissu 220g
-			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =21.73 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =22.32 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =22.90 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =23.49 ;}
-			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =24.08 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1<=1.00) ){plm =19.50 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =20.48 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =21.45 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =22.43 ;}
+			if (($('input_ext').value == 'tissu 220g' ) && (l1>=2.51)){plm =23.40 ;}
 			////tissu 260g
-			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =22.78 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =23.42 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =24.06 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =24.70 ;}
-			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =25.34 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1<=1.00) ){plm =31.50 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =33.08 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =34.65 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =36.23 ;}
+			if (($('input_ext').value == 'tissu 260g' ) && (l1>=2.51)){plm =37.80 ;}
 
 			prixproduit = metrage*plm;////prix de la banderole
 		}
@@ -1199,27 +1216,27 @@
 		///////////////////////////////////////////////////////////////// oeilets //
 
 		if ($('input_21').value == 'sans oeillets' ) { opis+='<br>- sans oeillets' };
-		if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.20*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.20; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.20; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.20; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
-		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 10cm') ) { oeillets = ((hautbas+2)/0.1)*0.20; cena+=oeillets; opis+='<br>- oeillets haut bas tous 10cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 100cm') ) { oeillets = ((gauchedroite+2)/1)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 100cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 50cm') ) { oeillets = ((gauchedroite+2)/0.5)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 50cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 25cm') ) { oeillets = ((gauchedroite+2)/0.25)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 25cm'};
-		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 10cm') ) { oeillets = ((gauchedroite+2)/0.1)*0.20; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 10cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 100cm') ) { oeillets = ((metrazzaokraglony1+2)/1)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 100cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 50cm') ) { oeillets = ((metrazzaokraglony1+2)/0.5)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 50cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 25cm') ) { oeillets = ((metrazzaokraglony1+2)/0.25)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 25cm'};
-		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 10cm') ) { oeillets = ((metrazzaokraglony1+2)/0.1)*0.20; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 10cm'};
+		if ($('input_21').value == 'oeillets aux coins' ) { oeillets = 0.00*4; cena+=oeillets; opis+='<br>- oeillets aux coins'};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 100cm') ) { oeillets = ((hautbas+2)/1)*0.00; cena+=oeillets; opis+='<br>- oeillets haut bas tous 100cm';};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 50cm') ) { oeillets = ((hautbas+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 50cm'};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 25cm') ) { oeillets = ((hautbas+2)/0.25)*0.15; cena+=oeillets;opis+='<br>- oeillets haut bas tous 25cm'};
+		if (($('input_21').value == 'oeillets haut/bas') && ($('input_22').value == 'tous les 10cm') ) { oeillets = ((hautbas+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets haut bas tous 10cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 100cm') ) { oeillets = ((gauchedroite+2)/1)*0.00; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 100cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 50cm') ) { oeillets = ((gauchedroite+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 50cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 25cm') ) { oeillets = ((gauchedroite+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 25cm'};
+		if (($('input_21').value == 'oeillets gauche/droite') && ($('input_23').value == 'tous les 10cm') ) { oeillets = ((gauchedroite+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets gauche droite tous 10cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 100cm') ) { oeillets = ((metrazzaokraglony1+2)/1)*0.00; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 100cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 50cm') ) { oeillets = ((metrazzaokraglony1+2)/0.5)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 50cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 25cm') ) { oeillets = ((metrazzaokraglony1+2)/0.25)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 25cm'};
+		if (($('input_21').value == 'oeillets périmétrique') && ($('input_24').value == 'tous les 10cm') ) { oeillets = ((metrazzaokraglony1+2)/0.1)*0.15; cena+=oeillets; opis+='<br>- oeillets périmétrique tous 10cm'};
 
 		///////////////////////////////////////////////////////////////// ourlets //
 
 		if (($('input_31').value == 'sans ourlet') || ($('input_32').value == 'sans ourlet') || ($('input_33').value == 'sans ourlet')|| ($('input_34').value == 'sans ourlet')) { opis+='<br>- sans ourlet'};
 
-		if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_33').value == 'ourlet de renfort haut/bas')|| ($('input_34').value == 'ourlet de renfort haut/bas')) { ourlets = hautbas*1; cena+=ourlets ; opis+='<br>- ourlet de renfort haut/bas'};
-		if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_32').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite')|| ($('input_34').value == 'ourlet de renfort gauche/droite')) { ourlets = gauchedroite*1; cena+=ourlets ; opis+='<br>- ourlet de renfort gauche/droite'};
-		if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_32').value == 'ourlet de renfort périmétrique') || ($('input_33').value == 'ourlet de renfort périmétrique')|| ($('input_34').value == 'ourlet de renfort périmétrique')) { ourlets = metrazzaokraglony1*1; cena+=ourlets ; opis+='<br>- ourlet de renfort périmétrique'};
+		if (($('input_31').value == 'ourlet de renfort haut/bas') || ($('input_32').value == 'ourlet de renfort haut/bas') || ($('input_33').value == 'ourlet de renfort haut/bas')|| ($('input_34').value == 'ourlet de renfort haut/bas')) { ourlets = hautbas*2.00; cena+=ourlets ; opis+='<br>- ourlet de renfort haut/bas'};
+		if (($('input_31').value == 'ourlet de renfort gauche/droite') || ($('input_32').value == 'ourlet de renfort gauche/droite') || ($('input_33').value == 'ourlet de renfort gauche/droite')|| ($('input_34').value == 'ourlet de renfort gauche/droite')) { ourlets = gauchedroite*2.00; cena+=ourlets ; opis+='<br>- ourlet de renfort gauche/droite'};
+		if (($('input_31').value == 'ourlet de renfort périmétrique') || ($('input_32').value == 'ourlet de renfort périmétrique') || ($('input_33').value == 'ourlet de renfort périmétrique')|| ($('input_34').value == 'ourlet de renfort périmétrique')) { ourlets = metrazzaokraglony1*2.00; cena+=ourlets ; opis+='<br>- ourlet de renfort périmétrique'};
 
 		/////////////////////////////////////////////////////////////// fourreaux //
 		/*var sansFourreaux = "($('input_41').value == 'sans fourreaux') || ($('input_42').value == 'sans fourreaux') || ($('input_43').value == 'sans fourreaux')";*/
@@ -1227,15 +1244,15 @@
 		if (($('input_42')).value == 'sans fourreaux') { opis+='<br>- sans fourreaux'};
 		if (($('input_43')).value == 'sans fourreaux') { opis+='<br>- sans fourreaux'};
 
-		if (($('input_41').value == 'fourreaux haut/bas') ||  ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')) { fourreaux = hautbas*2; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
-		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*2; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
+		if (($('input_41').value == 'fourreaux haut/bas') ||  ($('input_42').value == 'fourreaux haut/bas') || ($('input_43').value == 'fourreaux haut/bas')) { fourreaux = hautbas*3; cena+=fourreaux; opis+='<br>- fourreaux haut/bas'};
+		if (($('input_41').value == 'fourreaux gauche/droite') || ($('input_42').value == 'fourreaux gauche/droite') || ($('input_43').value == 'fourreaux gauche/droite')) { fourreaux = gauchedroite*3; cena+=fourreaux; opis+='<br>- fourreaux gauche/droite'};
 
 		//////////////////////////////////////////////////////////////// scratchs //
 
 		if (($('input_71').value == 'sans scratch')) { opis+='<br>- sans scratch' };
-		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*4; cena+=scratch; opis+='<br>- scratch haut/bas' };
-		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*4; cena+=scratch; opis+='<br>- scratch gauche/droite' };
-		if (($('input_71').value == 'scratch perimetrique')) { scratch = metrazzaokraglony1*4; cena+=scratch; opis+='<br>- scratch périmétrique' };
+		if (($('input_71').value == 'scratch haut/bas')) { scratch = hautbas*6; cena+=scratch; opis+='<br>- scratch haut/bas' };
+		if (($('input_71').value == 'scratch gauche/droite')) { scratch = gauchedroite*6; cena+=scratch; opis+='<br>- scratch gauche/droite' };
+		if (($('input_71').value == 'scratch perimetrique')) { scratch = metrazzaokraglony1*6; cena+=scratch; opis+='<br>- scratch périmétrique' };
 
 		/////////////////////////////////////////////////////////////// fixations //
 
@@ -1288,7 +1305,7 @@
 		}
 
 		if (fin == 'fourreaux G/D') {
-			fourreaux = gauchedroite*2;
+			fourreaux = gauchedroite*3;
 			cena+=fourreaux;
 			opis +='<br>- fourreaux G/D';
 		}
@@ -1312,21 +1329,33 @@
 
 		var maquette='';
 		if ($('input_12').value == 'fb') {
-			cena += 29/ilosc;
+			cena += 19/ilosc;
 			maquette = '<br />- France banderole crée la mise en page';
 		}
 		if ($('input_12').value == 'user') {
-			maquette = '<br />- j’ai déjà crée la maquette';
+			cena+= 5/ilosc;
+			maquette = '<br />- BAT en LIGNE';
 		}
 		if ($('input_12').value == 'config') {
 			cena+= 5/ilosc;
 			maquette = '<br />- je crée ma maquette en ligne';
 		}
+		if ($('input_12').value == 'sansbat') {
+			maquette = '<br />- je ne souhaite pas de BAT';
+		}
+		if ($('input_signature').value == 'sans signature') {
+			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
+			opis += '<br />- sans signature';
+		}
+		if ($('input_signature').value == 'signature FB') {
+			opis += '<br />- signature France Banderole';
+		}
+
 
 		/////////////////////////////////////////////////////////// options colis //
 		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 		if (colis == true) {
-			cena += 2.00;
+			if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2;}
 			optliv += '<br />- colis revendeur';
 		}
 		var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
@@ -1571,7 +1600,7 @@
 			//////////////////////////////////// 	avertissements, messages d'erreur //
 
 			//----------------------------------------------recommandation livré roulé
-			if ( (hauteur > 1.99) && (hauteur < 3.21) ){
+			if ( ((hauteur > 1.99) && (hauteur < 3.21) && (largeur > 1.99)) || ((largeur > 1.99) && (largeur < 3.21) && (hauteur > 1.99)) ) {
 
 				if (roll == true) {
 					warning = '';
@@ -1584,8 +1613,8 @@
 				}
 			}
 			//---------------------------------------------------avertissement ourlets
-			if ( (($('input_31').value == 'sans ourlet') || ($('input_32').value == 'sans ourlet') || ($('input_33').value == 'sans ourlet')|| ($('input_34').value == 'sans ourlet')) && (metraz*ilosc > 3) ) {
-				warning += '- ourlet de renfort recommandé en extérieur !<br />';
+			if ( (($('input_31').value == 'sans ourlet') || ($('input_32').value == 'sans ourlet') || ($('input_33').value == 'sans ourlet')|| ($('input_34').value == 'sans ourlet')) && (metraz*ilosc > 2.4) ) {
+				warning += '- ourlet de renfort recommandé dès 2,5m² Ext ou 4m² Int !<br />';
 				aBox.style.display="block";
 				erreurType=0;
 			}
@@ -1847,8 +1876,8 @@
 				}
 
 				var erreurType = 0;
-				if ( suma < 29 ) {
-					var forfait = 29 - suma;
+				if ( suma < 14.90 ) {
+					var forfait = 14.90 - suma;
 					forfait = fixstr(forfait);
 					jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
 					if (option>0) {
@@ -1858,7 +1887,7 @@
 						option2 = newoption2;
 						var newopt = document.getElementById("option");
 						newopt.innerHTML=newoption2+' &euro;';
-						suma = 29;
+						suma = 14.90;
 						suma=fixstr(suma);
 						suma2 = suma.replace(".", ",");
 						var newtotal = document.getElementById("total");
@@ -1870,7 +1899,7 @@
 						option2 = newoption2;
 						var newopt = document.getElementById("option");
 						newopt.innerHTML=newoption2+' &euro;';
-						suma = 29;
+						suma = 14.90;
 						suma=fixstr(suma);
 						suma2 = suma.replace(".", ",");
 						var newtotal = document.getElementById("total");
@@ -1880,7 +1909,7 @@
 
 				////////////////////////////////////////////////////// envoi formulaire //
 
-				var rodzaj = "banderole";
+				var rodzaj = "Banderole";
 				var dodajkoszyk = document.getElementById("cart_form");
 				// largeur et hauteur x100 pour un affichage en cm côté admin
 				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+bacheType+'</br>- '+hauteur*100+' x '+largeur*100+' cm'+opis+maquette+optliv+prliv+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
@@ -1889,45 +1918,6 @@
 
 		});  // fin prod/delivery click function
 
-
-		jQuery('#submit_cart').on('click', function () {
-        var cart = jQuery('.menu-client--panier');
-        var imgtodrag = 'https://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up.png';
-        if (imgtodrag) {
-            var imgclone = imgtodrag.clone()
-                .offset({
-                top: imgtodrag.offset().top,
-                left: imgtodrag.offset().left
-            })
-                .css({
-                'opacity': '0.5',
-                    'position': 'absolute',
-                    'height': '150px',
-                    'width': '150px',
-                    'z-index': '100'
-            })
-                .appendTo(jQuery('body'))
-                .animate({
-                'top': cart.offset().top + 10,
-                    'left': cart.offset().left + 10,
-                    'width': 75,
-                    'height': 75
-            }, 1000, 'easeInOutExpo');
-
-            setTimeout(function () {
-                cart.effect("shake", {
-                    times: 2
-                }, 200);
-            }, 1500);
-
-            imgclone.animate({
-                'width': 0,
-                    'height': 0
-            }, function () {
-                jQuery(this).detach()
-            });
-        }
-    });
 	});  // fin jq doc ready
 
 	</script>

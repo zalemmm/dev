@@ -154,9 +154,6 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-flyer.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-  	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Flyers"}], "action": {"field": "1", "visibility": "Show"}},
-	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Depliants"}], "action": {"field": "1depliant", "visibility": "Show"}},   
-  
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
 
     {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
@@ -173,34 +170,11 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "42", "operator": "equals", "value": "fb"}, {"field": "43", "operator": "equals", "value": "fb"},{"field": "44", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "42", "operator": "equals", "value": "user"}, {"field": "43", "operator": "equals", "value": "user"}, {"field": "44", "operator": "equals", "value": "user"}, {"field": "41", "operator": "equals", "value": "sansbat"}, {"field": "42", "operator": "equals", "value": "sansbat"}, {"field": "43", "operator": "equals", "value": "sansbat"}, {"field": "44", "operator": "equals", "value": "sansbat"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "42", "operator": "equals", "value": "fb"}, {"field": "43", "operator": "equals", "value": "fb"},{"field": "44", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "42", "operator": "equals", "value": "user"}, {"field": "43", "operator": "equals", "value": "user"}, {"field": "44", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "config"}, {"field": "42", "operator": "equals", "value": "config"}, {"field": "43", "operator": "equals", "value": "config"}, {"field": "44", "operator": "equals", "value": "config"}], "action": {"field": "45", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-	
-	
-
-	
-	
-	{"type": "field", "link": "Any", "terms": [{"field": "1depliant", "operator": "isFilled", "value": false}], "action": {"field": "21depliant", "visibility": "Show"}},
-
-    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 80g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "42depliant", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 135g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "32depliant", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 170g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "33depliant", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 250g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "34depliant", "visibility": "Show"}},
-
-    {"type": "field", "link": "Any", "terms": [{"field": "32depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "33depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "34depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "41depliant", "operator": "isFilled", "value": false}], "action": {"field": "5depliant", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "42depliant", "operator": "isFilled", "value": false}], "action": {"field": "5depliant", "visibility": "Show"}},
-
-    {"type": "field", "link": "Any", "terms": [{"field": "5depliant", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
-	
-	
-	
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -276,12 +250,11 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 	{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "sansbat"},{"field": "41", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "config"}], "action": {"field": "45", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
 
   ]);
   JotForm.init();
@@ -344,38 +317,6 @@ function fbshop_head() {
   JotForm.init();
   </script>';
   }
-  
-  
-  
-  
-  if (is_page('nappes-publicitaires')) {
-  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
-  echo '
-  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
-  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-nappes.js?v3" type="text/javascript"></script>
-  <script type="text/javascript">
-  JotForm.setConditions([
-
-    {"type": "field", "link": "All", "terms": [{"field": "support", "operator": "isFilled", "value": false}], "action": {"field": "forme", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "forme", "operator": "equals", "value": "ronde"}], "action": {"field": "maquette1", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "forme", "operator": "equals", "value": "rectangulaire"}], "action": {"field": "maquette2", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "maquette1", "operator": "isFilled", "value": false}], "action": {"field": "signature1", "visibility": "Show"}},
-	{"type": "field", "link": "All", "terms": [{"field": "maquette2", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
-	
-	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "14rond", "visibility": "Show"}},
-	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
-
-	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
-	
-  
-  ]);
-  JotForm.init();
-  </script>';
-  }
-
 
   if (is_page('stickers')) {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
@@ -506,9 +447,8 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "9", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "10", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -543,9 +483,8 @@ function fbshop_head() {
 
     {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -576,10 +515,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -639,19 +577,17 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 	{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -662,7 +598,7 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-   {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
@@ -672,10 +608,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -696,10 +631,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -720,10 +654,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -737,10 +670,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -850,12 +782,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -879,12 +809,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -909,12 +837,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -1103,21 +1029,6 @@ function generate_page ($page, $pageid) {
   		$info_info='<span class="prezHide">Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-tente-publicitaire/" target="_blank" class="notice modal-link"  title="tout savoir sur les tentes publicitaires personnalisées"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-tente-publicitaire/" target="_blank" class="notice modal-link"  title="notice technique tente publicitaire"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-tente-publicitaire/" target="_blank" class="notice modal-link"  title="gabarit tente publicitaire pas cher"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_tente_exposition_form();
   	}
-
-
-
-if ($page=='nappes-publicitaires') {
-  		$h1name='Nappe publicitaire personnalisée';
-  		$imghead1='kakemonos1';
-  		$imghead2='kakemonos2';
-  		$imghead3='kakemonos3';
-  		$mini='nappes';
-  		$info_title='Nappes publicitaires';
-  		$info_info='<span class="prezHide">la nappe est un support publicitaire pour habiller vos tables lors de vos salons professionnels, expositions ou aussi bien pour décorer votre intérieur. Imprimmé sur du tissu en 220gr ou en 260gr, vous pouvez choisir sa forme ronde carrée ou rectangulaire. Nos nappes ont par défault un ourlet avec une double surpiqûre.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
-  		$formularz = get_nappes_form();
-  	}
-
-
 
   	if ($page=='panneaux-akilux-3_5mm') {
   		$h1name='panneaux akilux 3,5mm pas cher, panneau akylux meilleur rapport qualité prix, affiche permis de construire, Akilux 3,5mm, Akylux 600g';
@@ -1558,7 +1469,7 @@ function get_votre() {
 function get_verification() {
 	if (fb_is_logged()) {
 		$prolog = '<h1><i class="fa fa-lock" aria-hidden="true"></i> Votre devis: Verification de la commande</h1><hr />';
-		if (is_cart_not_empty() || isset($_GET['share'])) {
+		if (is_cart_not_empty()) {
 			//echo "///Session=";print_r($_SESSION);
 			$products = $_SESSION['fbcart'];
 			$user = $_SESSION['loggeduser'];
@@ -1570,7 +1481,7 @@ function get_verification() {
 			$prolog .= '<div class="acces_tab_name_devis">VOTRE COMMANDE</div>';
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
-			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
 			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION</div>';
 			$explode = explode('|', $user->f_address);
@@ -1613,15 +1524,7 @@ function get_verification() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function print_devis_verification($products, $prolog, $epilog) {
-  if(isset($_GET['share'])){ // si les données panier viennent de l'url (share)
-    $string= urldecode($_GET['share']); // on décode les données de l'url
-    parse_str($string, $output); // on extrait le tableau des commandes
-    //print_r($output['Array']);
-    $products = $output['Array'];
-  }else{
-    //print_r($products);
-    $products = $_SESSION['fbcart'];
-  }
+  $products = $_SESSION['fbcart'];
 
   global $wpdb;
   $prefix = $wpdb->prefix;
@@ -1631,7 +1534,7 @@ function print_devis_verification($products, $prolog, $epilog) {
   $fb_tablename_promo = $prefix."fbs_codepromo";
 
 	$view .= $prolog;
-	if (is_cart_not_empty() || isset($_GET['share'])) {
+	if (is_cart_not_empty()) {
     $view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
 		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
@@ -1639,10 +1542,7 @@ function print_devis_verification($products, $prolog, $epilog) {
     /////////////////////////////////////////////////////// display items panier
     foreach ( $products as $products => $item ) {
       $calculCat = '-';
-      $totalItem = str_replace(',', '.', $item[total]);
-      $prixUnit = str_replace(',', '.', $item[prix]);
-      $totalItem = str_replace('€', '', $totalItem);
-      $prixUnit = str_replace('€', '', $prixUnit);
+      $totalItem = $item[total];
       //----------------------------------------------si l'utilisateur est loggé
       if (!empty($_SESSION['loggeduser'])) {
   			$uid = $_SESSION['loggeduser']->id;
@@ -1658,12 +1558,11 @@ function print_devis_verification($products, $prolog, $epilog) {
               $trouve = preg_match_all($find, $prodCat, $resultat);
               $trouve = count($resultat[0]);
               if($trouve >= 1){ // si on trouve la catégorie, on applique la remise
-                $prixItem += $prixUnit*$item[ilosc];
+                $prixItem += $item[prix]*$item[ilosc];
                 $calculCat = ($prixItem)*($value/100); // calcule la réduction sur le total HT produit x quantité
-                $totalItem = $totalItem-$calculCat;
-                $calculCat = number_format($calculCat, 2);
-                $totalItem = number_format($totalItem, 2);
-                $totalItem = str_replace(',', '', $totalItem);
+                $totalItem = $item[total]-$calculCat;
+                $calculCat = str_replace('.', ',', number_format($calculCat, 2));
+                $totalItem = str_replace('.', ',', number_format($totalItem, 2));
               }
             }
           endforeach;
@@ -1676,20 +1575,28 @@ function print_devis_verification($products, $prolog, $epilog) {
           <span class="name">'.$item[rodzaj].'</span><br />
           <span class="therest">'.stripslashes($item[opis]).'</span>
         </td>
-        <td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td>
-        <td><span class="disMob0">Prix unitaire : </span>'.$prixUnit.'</td>
-        <td><span class="disMob0">Option : </span>'.str_replace(',', '.', $item[option]).'</td>
-        <td><span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'</td>
+        <td>
+          <span class="disMob0">Quantité : </span>'.$item[ilosc].'
+        </td>
+        <td>
+          <span class="disMob0">Prix unitaire : </span>'.$item[prix].'
+        </td>
+        <td>
+          <span class="disMob0">Option : </span>'.$item[option].'
+        </td>
+        <td>
+          <span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'
+        </td>
         <td>
           <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="adfromcart" value="adfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
             <input type="hidden" name="opis" value="'.$item[opis].'" />
             <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
-            <input type="hidden" name="prix" value="'.$prixUnit.'" />
+            <input type="hidden" name="prix" value="'.$item[prix].'" />
             <input type="hidden" name="option" value="'.$item[option].'" />
             <input type="hidden" name="remise" value="'.$calculCat.'" />
-            <input type="hidden" name="total" value="'.$totalItem.'" />
+            <input type="hidden" name="total" value="'.$item[total].'" />
             <input type="hidden" name="largeur" value="'.$item[largeur].'" />
             <input type="hidden" name="hauteur" value="'.$item[hauteur].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
@@ -1706,7 +1613,7 @@ function print_devis_verification($products, $prolog, $epilog) {
     			</form>
         </td>
       </tr>';
-
+			$totalItem = str_replace(',', '.', $totalItem);
 			$totalHT = $totalHT + $totalItem;
 			$fraisPort = $fraisPort + $item[transport];
   	}
@@ -1721,6 +1628,48 @@ function print_devis_verification($products, $prolog, $epilog) {
     $calculTVA = $totalHT*0.200;
     $totalTTC = $totalHT+$calculTVA;
 
+    //---------------------------------------------------vérification code promo
+    if(isset($_POST['codeProm'] )) {
+      $products = $_SESSION['fbcart'];
+      $codepromo = $_POST['codeProm'] ;
+      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $curdate = date("Y-m-d");
+      $promoCat = $reduction->categorie;
+
+      if($codeisindb) { // si le code entré est bien dans la bdd:
+        if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
+          if($curdate > $reduction->date) { // si le code a expiré:
+
+          }else{ //-------------------------------------- si le code est valide:
+
+            if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
+              $prixItem = 0;
+              foreach ( $products as $products => $item ) {
+        				$prodCat = $item[rodzaj];
+                $find = '/'.$promoCat.'/';
+        				$trouve = preg_match_all($find, $prodCat, $resultat);
+        				$trouve = count($resultat[0]);
+                if($trouve >= 1){
+                  $prixItem += $item[prix]*$item[ilosc];
+                }
+              }
+
+              $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
+              $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
+
+            }else{ //--------------si la réduction s'applique à tous les produits:
+              $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+              $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
+            }
+          }
+        }else{ // si le code est inférieur au minimum d'achat:
+        }
+
+      }else{ // si le code n'est pas dans la bdd:
+      }
+    }
+
     //------------------------------------------------vérification remise client
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
@@ -1730,75 +1679,23 @@ function print_devis_verification($products, $prolog, $epilog) {
 				if (!empty($client_remise) && $client_remise != '0') {
 					$newrabat = $client_remise / 100;
 					$calculRemise = ($totalHT-$calculCode) * $newrabat;
-					$cremisetd = '<tr><td class="toleft">REMISE générale ('.$client_remise.'%)</td><td class="toright">-'.str_replace('.', ',', number_format($calculRemise, 2)).' &euro;</td></tr>';
+					$cremisetd = '<tr><td class="toleft">REMISE CLIENT ('.$client_remise.'%)</td><td class="toright">-'.str_replace('.', ',', number_format($calculRemise, 2)).' &euro;</td></tr>';
 				}
 			}
 		}
 
-    //---------------------------------------------------vérification code promo
-    if(isset($_POST['codeProm'] )) {
-  		$uid = $_SESSION['loggeduser']->id;
-  		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
-
-      if (!empty($_SESSION['loggeduser']) && ($exist_remise)) {
-        $checkcode = 'Vous bénéficiez déjà d\'un tarif préférentiel, les codes promos ne sont pas cumulables avec les remises client.';
-      } else {
-        $products = $_SESSION['fbcart'];
-        $codepromo = $_POST['codeProm'] ;
-        $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-        $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-        $curdate = date("Y-m-d");
-        $promoCat = $reduction->categorie;
-
-        if($codeisindb) { // si le code entré est bien dans la bdd:
-          if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
-            if($curdate > $reduction->date) { // si le code a expiré:
-
-            }else{ //-------------------------------------- si le code est valide:
-
-              if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
-                $prixItem = 0;
-                foreach ( $products as $products => $item ) {
-                  $prixUnit = str_replace(',', '.', $item[prix]);
-                  $prixUnit = str_replace('€', '', $prixUnit);
-          				$prodCat = $item[rodzaj];
-                  $find = '/'.$promoCat.'/';
-          				$trouve = preg_match_all($find, $prodCat, $resultat);
-          				$trouve = count($resultat[0]);
-                  if($trouve >= 1){
-                    $prixItem += $prixUnit*$item[ilosc];
-                  }
-                }
-
-                $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
-                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
-
-              }else{ //--------------si la réduction s'applique à tous les produits:
-                $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
-                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
-              }
-            }
-          }else{ // si le code est inférieur au minimum d'achat:
-          }
-
-        }else{ // si le code n'est pas dans la bdd:
-        }
-      }
-    }
     //--------------------------------------------------------------------------
 
     $totalHTdeduit = $totalHT + $fraisPort - $calculRemise - $calculCode;
     $calculTVA = $totalHTdeduit*0.200;
     $totalTTC = $totalHTdeduit+$calculTVA;
 
-    $calculRemise = str_replace(',', '', number_format($calculRemise, 2));
-    $calculCode = str_replace(',', '', number_format($calculCode, 2));
-		$totalHT = str_replace(',', '', number_format($totalHT, 2));
-		$fraisPort = str_replace(',', '', number_format($fraisPort, 2));
-		$calculTVA = str_replace(',', '', number_format($calculTVA, 2));
-		$totalTTC = str_replace(',', '', number_format($totalTTC, 2));
-
-    //--------------------------------------------------------------------------
+    $calculRemise = str_replace('.', ',', number_format($calculRemise, 2));
+    $calculCode = str_replace('.', ',', number_format($calculCode, 2));
+		$totalHT = str_replace('.', ',', number_format($totalHT, 2));
+		$fraisPort = str_replace('.', ',', number_format($fraisPort, 2));
+		$calculTVA = str_replace('.', ',', number_format($calculTVA, 2));
+		$totalTTC = str_replace('.', ',', number_format($totalTTC, 2));
 
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
     <tr><td class="toleft">Frais de port</td><td class="toright">'.$fraisPort.' &euro;</td></tr>
@@ -1810,7 +1707,6 @@ function print_devis_verification($products, $prolog, $epilog) {
 		</table>';
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
 
-    <div class="blocPromo"><p>'.$checkcode.'</p></div>
     ';
 
 	} else {
@@ -1926,12 +1822,12 @@ function get_devis() {
 	$prolog = '<h1 class="noprint"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier / devis</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
 
-	if (is_cart_not_empty() || isset($_GET['share'])) {
+	if (is_cart_not_empty()) {
 		$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :</div>';
 	}
 	$epilog = '<div id="fbcart_buttons" class="noprint">';
 
-	if (is_cart_not_empty() || isset($_GET['share'])) {
+	if (is_cart_not_empty()) {
 		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"><i class="fa fa-times-circle" aria-hidden="true"></i>
     Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	}
@@ -1948,11 +1844,11 @@ function get_devis() {
 
 	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>';
 
-	if (is_cart_not_empty() || isset($_GET['share'])) {
+	if (is_cart_not_empty()) {
 		//$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  		if($relais_colis !== false){
-			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
       // soit l'utilisateur est connecté et il enregistre son panier directement(1),
       // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2):
@@ -1961,11 +1857,11 @@ function get_devis() {
       if (!empty($_SESSION['loggeduser'])) {
         $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" />
         <input type="hidden" name="codeProm" value="'.$promo.'" />
-        <button id="but_validerdevis" type="submit">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+        <button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }else{
         $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/verification/" method="post"><input type="hidden" name="votrecompte" />
         <input type="hidden" name="codeProm" value="'.$promo.'" />
-        <button id="but_validerdevis" type="submit">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+        <button id="but_validerdevis" type="submit">Se connecter et enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }
 
 		}
@@ -1987,18 +1883,6 @@ function contact_advert() {
 
 function print_devis($products, $prolog, $epilog) {
 
-  if(isset($_GET['share'])){ // si des données panier viennent de l'url (share)
-    $string= urldecode($_GET['share']); // on décode les données de l'url
-    parse_str($string, $output); // on extrait le tableau des produits dans l'url
-    //print_r($output['Array']);
-    if (is_cart_not_empty()) { // si le panier contient déjà des produits
-      $_SESSION['fbcart'] = array_merge($_SESSION['fbcart'], $output['Array']); // on rajoute à la session panier les produits dans l'url
-    }else{ // sinon le panier ne contient que les produits de l'url
-      $_SESSION['fbcart'] = $output['Array'];
-    }
-  }
-
-  //print_r($products);
   $products = $_SESSION['fbcart'];
 
 	global $wpdb;
@@ -2009,7 +1893,7 @@ function print_devis($products, $prolog, $epilog) {
   $fb_tablename_promo = $prefix."fbs_codepromo";
 	$view .= $prolog;
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
-	if (is_cart_not_empty() || isset($_GET['share'])) {
+	if (is_cart_not_empty()) {
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
 		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
@@ -2017,10 +1901,7 @@ function print_devis($products, $prolog, $epilog) {
     /////////////////////////////////////////////////////// display items panier
 		foreach ( $products as $products => $item ) {
       $calculCat = '-';
-      $totalItem = str_replace(',', '.', $item[total]);
-      $prixUnit = str_replace(',', '.', $item[prix]);
-      $totalItem = str_replace('€', '', $totalItem);
-      $prixUnit = str_replace('€', '', $prixUnit);
+      $totalItem = $item[total];
       //----------------------------------------------si l'utilisateur est loggé
       if (!empty($_SESSION['loggeduser'])) {
   			$uid = $_SESSION['loggeduser']->id;
@@ -2036,12 +1917,11 @@ function print_devis($products, $prolog, $epilog) {
               $trouve = preg_match_all($find, $prodCat, $resultat);
               $trouve = count($resultat[0]);
               if($trouve >= 1){ // si on trouve la catégorie, on applique la remise
-                $prixItem += $prixUnit*$item[ilosc];
+                $prixItem += $item[prix]*$item[ilosc];
                 $calculCat = ($prixItem)*($value/100); // calcule la réduction sur le total HT produit x quantité
-                $totalItem = $totalItem-$calculCat;
-                $calculCat = number_format($calculCat, 2);
-                $totalItem = number_format($totalItem, 2);
-                $totalItem = str_replace(',', '', $totalItem);
+$totalItem = $totalItem-$calculCat;
+                $calculCat = str_replace('.', ',', number_format($calculCat, 2));
+                $totalItem = str_replace('.', ',', number_format($totalItem, 2));
               }
             }
           endforeach;
@@ -2054,20 +1934,28 @@ function print_devis($products, $prolog, $epilog) {
           <span class="name">'.$item[rodzaj].'</span><br />
           <span class="therest">'.stripslashes($item[opis]).'</span>
         </td>
-        <td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td>
-        <td><span class="disMob0">Prix unitaire : </span>'.$prixUnit.'</td>
-        <td><span class="disMob0">Option : </span>'.str_replace(',', '.', $item[option]).'</td>
-        <td><span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'</td>
+        <td>
+          <span class="disMob0">Quantité : </span>'.$item[ilosc].'
+        </td>
+        <td>
+          <span class="disMob0">Prix unitaire : </span>'.$item[prix].'
+        </td>
+        <td>
+          <span class="disMob0">Option : </span>'.$item[option].'
+        </td>
+        <td>
+          <span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'
+        </td>
         <td>
           <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="adfromcart" value="adfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
             <input type="hidden" name="opis" value="'.$item[opis].'" />
             <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
-            <input type="hidden" name="prix" value="'.$prixUnit.'" />
+            <input type="hidden" name="prix" value="'.$item[prix].'" />
             <input type="hidden" name="option" value="'.$item[option].'" />
             <input type="hidden" name="remise" value="'.$calculCat.'" />
-            <input type="hidden" name="total" value="'.$totalItem.'" />
+            <input type="hidden" name="total" value="'.$item[total].'" />
             <input type="hidden" name="largeur" value="'.$item[largeur].'" />
             <input type="hidden" name="hauteur" value="'.$item[hauteur].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
@@ -2085,6 +1973,7 @@ function print_devis($products, $prolog, $epilog) {
         </td>
       </tr>';
 
+      $totalItem = str_replace(',', '.', $totalItem);
 			$totalHT = $totalHT + $totalItem;
 			$fraisPort = $fraisPort + $item[transport];
   	}
@@ -2099,6 +1988,54 @@ function print_devis($products, $prolog, $epilog) {
     $calculTVA = $totalHT*0.200;
     $totalTTC = $totalHT+$calculTVA;
 
+    //---------------------------------------------------vérification code promo
+    if(isset($_POST['codeProm'] )) {
+      $products = $_SESSION['fbcart'];
+      $codepromo = $_POST['codeProm'] ;
+      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+      $curdate = date("Y-m-d");
+      $promoCat = $reduction->categorie;
+
+      if($codeisindb) { // si le code entré est bien dans la bdd:
+        if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
+          if($curdate > $reduction->date) { // si le code a expiré:
+            $checkcode = '<div class="box_warning">Code expiré le ' .date("d/m/Y", strtotime("$reduction->date")).'</div>';
+
+          }else{ //-------------------------------------- si le code est valide:
+
+            if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
+              $prixItem = 0;
+              foreach ( $products as $products => $item ) {
+        				$prodCat = $item[rodzaj];
+                $find = '/'.$promoCat.'/';
+        				$trouve = preg_match_all($find, $prodCat, $resultat);
+        				$trouve = count($resultat[0]);
+                if($trouve >= 1){
+                  $prixItem += $item[prix]*$item[ilosc];
+                }
+              }
+
+              $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
+              $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur les produits de type <strong>'.$promoCat.'</strong>, vous économisez <strong>'.$calculCode.'&euro;</strong> sur cette commande!</div>';
+              $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
+
+            }else{ //--------------si la réduction s'applique à tous les produits:
+              $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+              $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur l\'ensemble de votre commande, vous économisez <strong>'.str_replace('.', ',', number_format($calculCode, 2)).'&euro;</strong>!</div>';
+              $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
+            }
+          }
+
+        }else{ // si le code est inférieur au minimum d'achat:
+          $checkcode = '<div class="box_warning">Ce code s\'applique à partir de '.$reduction->mini.'&euro; d\'achat!</div>';
+        }
+
+      }else{ // si le code n'est pas dans la bdd:
+        $checkcode = '<div class="box_warning">Code non valide</div>';
+      }
+    }
+
     //------------------------------------------------si l'utilisateur est loggé
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
@@ -2109,67 +2046,10 @@ function print_devis($products, $prolog, $epilog) {
 				if (!empty($client_remise) && $client_remise != '0') {
 					$newrabat = $client_remise / 100;
 					$calculRemise = ($totalHT-$calculCode) * $newrabat;
-					$cremisetd = '<tr><td class="toleft">REMISE Générale ('.$client_remise.'%)</td><td class="toright">-'.number_format($calculRemise, 2).' &euro;</td></tr>';
+					$cremisetd = '<tr><td class="toleft">REMISE Générale ('.$client_remise.'%)</td><td class="toright">-'.str_replace('.', ',', number_format($calculRemise, 2)).' &euro;</td></tr>';
 				}
 			}
 		}
-
-    //---------------------------------------------------vérification code promo
-    if(isset($_POST['codeProm'] )) {
-  		$uid = $_SESSION['loggeduser']->id;
-  		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
-      if (!empty($_SESSION['loggeduser']) && ($exist_remise)) {
-        $checkcode = '<div class="box_warning">Vous bénéficiez déjà d\'un tarif préférentiel, ce code n\'est pas cumulable avec vos remises client.</div>';
-      } else {
-        $products = $_SESSION['fbcart'];
-        $codepromo = $_POST['codeProm'] ;
-        $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-        $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-        $curdate = date("Y-m-d");
-        $promoCat = $reduction->categorie;
-
-        if($codeisindb) { // si le code entré est bien dans la bdd:
-          if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
-            if($curdate > $reduction->date) { // si le code a expiré:
-              $checkcode = '<div class="box_warning">Code expiré le ' .date("d/m/Y", strtotime("$reduction->date")).'</div>';
-
-            }else{ //-------------------------------------- si le code est valide:
-
-              if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
-                $prixItem = 0;
-
-                foreach ( $products as $products => $item ) {
-                  $prixUnit = str_replace(',', '.', $item[prix]);
-                  $prixUnit = str_replace('€', '', $prixUnit);
-                  $prodCat = $item[rodzaj];
-                  $find = '/'.$promoCat.'/';
-                  $trouve = preg_match_all($find, $prodCat, $resultat);
-                  $trouve = count($resultat[0]);
-                  if($trouve >= 1){
-                    $prixItem += $prixUnit*$item[ilosc];
-                  }
-                }
-
-                $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
-                $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur les produits de type <strong>'.$promoCat.'</strong>, vous économisez <strong>'.number_format($calculCode, 2).' &euro;</strong> sur cette commande!</div>';
-                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.number_format($calculCode, 2).' &euro;</td></tr>';
-
-              }else{ //--------------si la réduction s'applique à tous les produits:
-                $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
-                $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur l\'ensemble de votre commande, vous économisez <strong>'.number_format($calculCode, 2).'&euro;</strong>!</div>';
-                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.number_format($calculCode, 2).' &euro;</td></tr>';
-              }
-            }
-
-          }else{ // si le code est inférieur au minimum d'achat:
-            $checkcode = '<div class="box_warning">Ce code s\'applique à partir de '.$reduction->mini.'&euro; d\'achat!</div>';
-          }
-
-        }else{ // si le code n'est pas dans la bdd:
-          $checkcode = '<div class="box_warning">Code non valide</div>';
-        }
-      }
-    }
 
     //--------------------------------------------------------------------------
 
@@ -2177,18 +2057,13 @@ function print_devis($products, $prolog, $epilog) {
     $calculTVA = $totalHTdeduit*0.200;
     $totalTTC = $totalHTdeduit+$calculTVA;
 
-    $calculRemise = str_replace(',', '', number_format($calculRemise, 2));
-    $calculCode = str_replace(',', '', number_format($calculCode, 2));
-		$totalHT = str_replace(',', '', number_format($totalHT, 2));
-		$fraisPort = str_replace(',', '', number_format($fraisPort, 2));
-		$calculTVA = str_replace(',', '', number_format($calculTVA, 2));
-		$totalTTC = str_replace(',', '', number_format($totalTTC, 2));
+    $calculRemise = str_replace('.', ',', number_format($calculRemise, 2));
+    $calculCode = str_replace('.', ',', number_format($calculCode, 2));
+		$totalHT = str_replace('.', ',', number_format($totalHT, 2));
+		$fraisPort = str_replace('.', ',', number_format($fraisPort, 2));
+		$calculTVA = str_replace('.', ',', number_format($calculTVA, 2));
+		$totalTTC = str_replace('.', ',', number_format($totalTTC, 2));
 
-    //--------------------------------------------------------------------------
-
-    $data = array('Array' => $_SESSION["fbcart"]);
-    $query = http_build_query($data);
-    $url = urlencode($query);
 
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
     <tr><td class="toleft">Frais de port</td><td class="toright">'.$fraisPort.' &euro;</td></tr>
@@ -2201,21 +2076,11 @@ function print_devis($products, $prolog, $epilog) {
 		</table>';
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
 
-    <div class="blocPromo noprint">
-      <p><form name="codePromoForm" id="codePromo" action="" method="post">
-        <input type="text" name="codeProm" class="promoInput" placeholder="CODE PROMO" /><button type="submit" name="submitCode" class="codePromo"><i class="fa fa-check" aria-hidden="true"></i> Appliquer</button>
-      </form></p>
-      <p>'.$checkcode.'</p>';
+    <div class="blocPromo"><form name="codePromoForm" id="codePromo" action="" method="post"><input type="text" name="codeProm" class="promoInput" placeholder="CODE PROMO" /><button type="submit" name="submitCode" class="codePromo">Appliquer</button></form><p>'.$checkcode.'</p></div>
 
-      $login= $_SESSION['loggeduser']->login;
-      if($login =='pocalypse' || $login =='malgoire2' || $login =='samrr' || $login =='qzefr'){
-        $view .= '<p><input type="text" class="promoInput" id="to-copy" value="'.get_bloginfo("url").'/votre-panier?share='. $url.'" /><button  class="codePromo" id="copy" type="button"><i class="fa fa-files-o" aria-hidden="true"></i> Copier URL panier<span class="copiedtext" aria-hidden="true">Copié</span></button>
-        </p>';
-      }
+    ';
 
-    $view .= '</div>';
-
-	} else { // si le panier est vide
+	} else {
 		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
 	$view .= $epilog;
@@ -2288,7 +2153,7 @@ function get_plv() {
               <td class="optionstd">
                   <span>OPTIONS:</span>
                   <input type="hidden" name="addtocart2" value="addtocart2" />
-                  <input type="hidden" name="rodzaj" value="PLVEXT ext ' . $p[name] . '" />
+                  <input type="hidden" name="rodzaj" value="' . $p[name] . '" />
 
                   <div class="">
                   </div>
@@ -2385,7 +2250,7 @@ function get_plv_int() {
   		<td class="optionstd">
     		<span>OPTIONS:</span>
     		<input type="hidden" name="addtocart2" value="addtocart2" />
-    		<input type="hidden" name="rodzaj" value="PLVint '.$p[name].'" />
+    		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
     		<div class="plvoptions">
           <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
           <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
@@ -2719,10 +2584,5 @@ function get_tente_exposition_form() {
     $form = file_get_contents(getTplPath('tente-publicitaire-barnum.php'));
     return $form;
 }
-function get_nappes_form() {
-    $form = file_get_contents(getTplPath('nappes-publicitaires.php'));
-    return $form;
-}
-
 
 ?>

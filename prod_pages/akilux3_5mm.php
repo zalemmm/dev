@@ -7,7 +7,7 @@
       <ul class="form-section">
 
         <li class="form-line" id="id_0">
-          <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Impression recto</b></u>: <span class="highlight">Dès 1,13€</span><br/>impression 1,2,3, ou quadri akilux une face.<br />• <u><b>Impression recto/verso</b></u>: <span class="highlight">Dès 1,39€</span><br/>impression 1,2,3, ou quadri sur Akylux 2 faces.<br/></span></span>
+          <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Impression recto</b></u>: <span class="highlight">Dès 1,20€</span><br/>impression 1,2,3, ou quadri akilux une face.<br />• <u><b>Impression recto/verso</b></u>: <span class="highlight">Dès 1,39€</span><br/>impression 1,2,3, ou quadri sur Akylux 2 faces.<br/></span></span>
           <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir l'impression...</option>
             <option value="recto">Recto </option>
@@ -16,11 +16,11 @@
         </li>
 
         <li class="form-line" id="id_HD">
-          <span class="helpButton" onmouseover="tipShow('helpTextHD');" onmouseout="tipHide('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression akilux Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression akilux standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression akilux pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux akilux pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés akilux pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
+          <span class="helpButton" onmouseover="tipShow('helpTextHD');" onmouseout="tipHide('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression akilux Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression akilux standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression akilux pas cher de très bonne qualité à 1m.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux akilux pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés akilux pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
           <select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir qualité d'impression...</option>
-            <option value="HD">Haute définition</option>
             <option value="standard">Standard</option>
+            <option value="HD">Haute définition</option>
           </select>
         </li>
 
@@ -28,11 +28,11 @@
           <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</b></u>: <span class="highlight">Dès 0,1€</span><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</b></u>: <span class="highlight">Dès 0,1€</span><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</b></u>: <span class="highlight">Dès 0,02€</span><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</b></u>: <span class="highlight">Dès 0,3€</span><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
           <select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir les fixations...</option>
+            <option value="sans">pas de fixations</option>
             <option value="oeillets">oeillets nickels</option>
             <option value="crochets">crochets invisbles</option>
             <option value="rislans">rislans</option>
             <option value="double face">double face (4 adhésifs)</option>
-            <option value="sans">pas de fixations</option>
           </select>
         </li>
 
@@ -73,31 +73,50 @@
           <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>rainage</b></u>: <span class="highlight">Dès 0,25€</span><br/>Le rainage ou rainurage est une suppression ou écrasement de matière pour créer une pliure droite dans un matériau<br />• <u><b>1 - 2 ou 3 rainages</b></u>:<br/><span class="highlight">1 rainage</span> pour panneaux akilux sandwichs,<br /> <span class="highlight">2 rainages</span> pour faire des triptyques,<br /> <span class="highlight">3 rainages </span>pour faire des encadrements.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_5" name="5_usage" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir le rainage...</option>
+              <option value="pas de rainage">pas de rainage </option>
               <option value="1 rainage">1 rainage par panneau</option>
               <option value="2 rainages">2 rainages par panneau</option>
               <option value="3 rainages">3 rainages par panneau </option>
-              <option value="pas de rainage">pas de rainage </option>
             </select>
           </li>
 
           <li class="form-line" id="id_6">
-            <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
-  						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-  						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-  							<b>France banderole crée votre fichier :</b><br/>
-  							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-  							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
-  							<b>Vous créez votre maquette en ligne:</b><br/>
-  							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-  						</span>
-  					</span>
-            <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
-              <option class="titre" value="">fichier d'impression...</option>
-              <option class="option1" value="fb">France banderole crée la mise en page</option>
-              <option class="option2" value="user">j’ai déjà crée la mise en page</option>
-              <option value="config">je crée ma maquette en ligne</option>
-            </select>
-          </li>
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                        </span>
+					</span>
+					</span>
+					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette" onclick="JKakemono.czyscpola(); ">
+						<option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +19,00€</option>
+					</select>
+				</li>
+                <li class="form-line" id="id_signature">
+                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+                        	<b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+                        </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
 
           <li class="form-line optionsformline2" id="id_13" data-trigger="spinner">
             <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité :<br /><span class="small">(par visuel)</span></label>
@@ -178,7 +197,7 @@
 
             <li id="id_18" class="form-line id_18">
               <div class="form-input-wide">
-                
+
                 <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
               </div>
             </li>
@@ -311,7 +330,7 @@
       var metraz         = 0;
       var metraz2        = 0;
       var pa             = 1.50;                                                             ///prix d'achat au m²
-      var pe             = 0.8;                                                              ///prix d'encrage au m²
+      var pe             = 0.6;                                                              ///prix d'encrage au m²
       var cp             = pe+pa;                                                            ///coût de production au m²
       var dimp           = 3;                                                                ///m² d'une plaque (150x200cm)
       var cppr           = cp*dimp;                                                          ///coût de production d'une plaque recto
@@ -344,7 +363,7 @@
         if((metraz>0.48)&&(metraz<=0.96)){metraz2=0.96}
         if((metraz>0.96)&&(metraz<=1.92)){metraz2=1.92}
 	      if((metraz>1.92)&&(metraz<=3)){metraz2=3}
-        opis += '<br />- Akilux 3,5mm recto';
+        opis += '- Akilux 3,5mm recto';
         dim= metraz2*ilosc;
         np = Math.ceil(dim/dimp);
         p1=np*cppr;
@@ -358,7 +377,7 @@
         if((metraz>0.48)&&(metraz<=0.96)){metraz2=0.96}
         if((metraz>0.96)&&(metraz<=1.92)){metraz2=1.92}
 	      if((metraz>1.92)&&(metraz<=3)){metraz2=3}
-        opis += '<br />- Akilux 3,5mm recto verso';
+        opis += '- Akilux 3,5mm recto verso';
         dim= metraz2*ilosc;
         np = Math.ceil(dim/dimp);
         p1=np*cpprv;
@@ -381,16 +400,21 @@
       if ($('input_5').value == '3 rainages'){rainage=5.25; opis += '<br />- 3 rainages';}
 
       //////////////////////////////////////////////////////// choix maquette //
-      if ($('input_6').value == 'fb') {
-        maquette=29;
-        opis += '<br />- France banderole crée la maquette';
-      }
+       if ($('input_6').value == 'fb') {
+		maquette=19;
+		opis += '<br />- France banderole crée la maquette';
+	  }
       if ($('input_6').value == 'user') {
-        opis += '<br />- j’ai déjà crée la maquette';
+		  maquette=5;
+        opis += '<br />- BAT en ligne';
       }
       if ($('input_6').value == 'config') {
         maquette=5; opis += '<br />- je crée ma maquette en ligne';
       }
+	  if ($('input_6').value == 'sansbat') {
+		opis += '<br />- je ne souhaite pas de BAT';
+	  }
+
 
       ///////////////////////////////////////////////////////////////// coupe //
       //------------------------------------------------------------------------
@@ -591,13 +615,13 @@
       cena = puoption+maquette;
 
       //////////////////////////////////////////////////////////////////// HD //
-      if ($('input_HD').value == 'HD') {HD = cena*0.30; cena += HD; opis += '<br />- HD';}
+      if ($('input_HD').value == 'HD') {HD = cena*0.35; cena += HD; opis += '<br />- HD';}
       if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
 
       //////////////////////////////////////////////////////////////// options//
       var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
       if (colis == true) {
-        cena += 2.00*ilosc;
+        if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2*ilosc;}
         cedzik += '<br />- colis revendeur';
       }
       var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
@@ -612,6 +636,15 @@
 				cena += 240;
 				cedzik += '<br />- forfait palettisation';
 			}
+			
+		//////////////////////////////////////////////////////signature
+			if ($('input_signature').value == 'signature FB') {
+				opis += '<br />- signature France Banderole';
+			}
+			if ($('input_signature').value == 'sans signature') {
+				if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5*ilosc;};
+				opis += '<br />- sans signature';
+			}	
 
       ///////////////////////////////////////////////////////////// transport //
       if (poidstotal <= 1) {prixtransport=4.80;}
@@ -866,8 +899,8 @@
           opt.innerHTML='-';
         }
 
-        if ( suma < 29 ) {
-          var forfait = 29 - suma;
+        if ( suma < 19 ) {
+          var forfait = 19 - suma;
           forfait = fixstr(forfait);
           jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
           if (option>0) {
@@ -877,7 +910,7 @@
             option2 = newoption2;
             var newopt = document.getElementById("option");
             newopt.innerHTML=newoption2+' &euro;';
-            suma = 29;
+            suma = 19;
             suma=fixstr(suma);
             suma2 = suma.replace(".", ",");
             var newtotal = document.getElementById("total");
@@ -889,7 +922,7 @@
             option2 = newoption2;
             var newopt = document.getElementById("option");
             newopt.innerHTML=newoption2+' &euro;';
-            suma = 29;
+            suma = 19;
             suma=fixstr(suma);
             suma2 = suma.replace(".", ",");
             var newtotal = document.getElementById("total");
@@ -900,7 +933,7 @@
         var rodzaj = "Akilux 3,5mm";
         var dodajkoszyk = document.getElementById("cart_form");
 
-        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+largeur+' x '+hauteur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- H|'+hauteur+' x L|'+ largeur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
       }else{
 				suma='-';
 				suma2 = '-';

@@ -1,4 +1,4 @@
-  <div id="buying">
+<div id="buying">
     <h3>Votre devis en ligne</h3>
     <form class="jotform-form" action="" method="post" name="form_1060900215" id="1060900215" accept-charset="utf-8" onsubmit="JKakemono.cal_oriflamme(); return false;">
       <input type="hidden" name="formID" value="1060900215" />
@@ -10,11 +10,11 @@
 
             <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();">
               <option value="">choisir votre produit...</option>
-              <option class="option1" value="drapeaux">Drapeaux à agiter </option>
-              <option value="drapeaux grand format">Drapeaux grand format </option>
               <option class="option1" value="oriflamme">Oriflamme aile d’avion </option>
               <option value="beachflag">Beachflag goutte d’eau </option>
               <option class="option1" value="windflag">Windflag rectangulaire </option>
+              <option value="drapeaux grand format">Drapeaux grand format </option>
+              <option class="option1" value="drapeaux">Drapeaux à agiter </option>
             </select>
           </li>
 
@@ -139,14 +139,45 @@
           </li>
 
           <li class="form-line" id="id_8">
-            <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier à partir des gabarits disponibles(une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
-            <select class="form-dropdown validate[required]" id="input_8" name="q8_maquette8" onclick="JKakemono.czyscpola(); ">
-              <option value="">fichier d'impression...</option>
-              <option value="fb">France banderole crée la mise en page</option>
-              <option value="user">j’ai déjà crée la mise en page</option>
-              <option value="config">je crée ma maquette en ligne</option>
-            </select>
+            <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+              <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+  						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+                <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+  							Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
+  							si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
+  							France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
+  							<b>j’ai mon fichier, je souhaite un BAT:</b><br/>
+  							Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
+  							<b>Vous créez votre maquette en ligne:</b><br/>
+  							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+  							<b>France banderole crée votre fichier:</b><br/>
+  							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+              </span>
+  					</span>
+  					<select class="form-dropdown validate[required]" id="input_8" name="q8_maquette8" onchange="JKakemono.czyscpola(); ">
+  						<option value="">fichier d'impression...</option>
+  						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+  						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+  						<option value="config">je crée ma maquette en ligne +5,00€</option>
+              <option value="fb">France banderole crée la mise en page +29,00€</option>
+  					</select>
           </li>
+
+          <li class="form-line" id="id_signature">
+            <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+              <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+					    <span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+                <b>Logo France Banderole</b><br/>
+							  Si vous choisissez l'option "produit signée" un logo sera imprimé en bas de votre visuel de 11x3 cm <br/>
+                <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+              </span>
+  					</span>
+  					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+  						<option value="">logo France Banderole ?</option>
+  						<option value="signature FB">produit signé</option>
+  						<option value="sans signature">produit neutre +5,00 €</option>
+  					</select>
+  			  </li>
 
           <li class="form-line" id="id_9" data-trigger="spinner">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :<br /><span class="small">(par visuel)</span></label>
@@ -334,7 +365,7 @@
 
     var cena               = 0; var cena2=0; var prixunite=0;
     var prixHT             = 0; var marge=0; var composant=0;
-    var rabat              = 0; var rabat2=0;
+    var rabat              = 0; var rabat2=0; var opis='';
     var suma               = 0; var suma2=0;
     var transports         = 0;
     var structure          = 0;
@@ -348,7 +379,7 @@
     var option2            = 0;
     var pied               = 0;
     var poidtotal          = 0; var p1=0; var p2=0; var p3=0;
-    var option             = 0; var options1=0; var options2=0; var options3=0; var options4=0; maquette=0;
+    var option             = 0; var options1=0; var options2=0; var options3=0; var options4=0; maquette=0; var options5=0; var options6=0;
     var dodatkowytransport = 0;
     var optliv             = '';
     var eBox               = document.getElementById('form-button-error2');
@@ -931,7 +962,7 @@
   		}
   	}
 
-    ///////////////////////////////////////////////////////////////////// Pieds //
+    /////////////////////////////////////////////////////////////////// Pieds //
 
   	if ($('input_6').value == 'Embase 8kg') {
   			pied=27;
@@ -976,7 +1007,7 @@
   			optionPied='<br />- Embase ciment 22kg';
   		}
 
-    ////////////////////////////////////////////////////////////////////// Kits //
+    //////////////////////////////////////////////////////////////////// Kits //
 
   	if ($('input_3').value == 'Kit complet') {
   		prixHT=structure+impression+pied;
@@ -999,7 +1030,7 @@
   		composant='Structure + Voile + pied'
   		}
 
-  	///////////////////////////////////////////////////////////////////// marge //
+  	/////////////////////////////////////////////////////////////////// marge //
   	if ($('input_9').value =='1') {
   		marge = (prixHT*53)/100;}
   	if ($('input_9').value == '2' || $('input_9').value == '3' || $('input_9').value == '4' || $('input_9').value == '5') {
@@ -1009,7 +1040,7 @@
   	if ($('input_9').value >= 10) {
   		marge = (prixHT*33)/100;}
 
-    //////////////////////////////////////////////////////////// choix maquette //
+    ////////////////////////////////////////////////////////// choix maquette //
     var maquette = '';
   	if ($('input_8').value == 'fb') {
   		maquette=35/ilosc;
@@ -1017,14 +1048,19 @@
   		ktodaje = '<br />- France banderole crée la maquette';
   	}
   	if ($('input_8').value == 'user') {
-  		ktodaje = '<br />- j’ai déjà crée la maquette';
+		maquette=5/ilosc;
+		options5=(5*ilosc);
+  		ktodaje = '<br />- BAT en ligne';
+  	}
+	if ($('input_8').value == 'sansbat') {
+  		ktodaje = '<br />- je ne souhaite pas de BAT';
   	}
     if ($('input_8').value == 'config') {
       maquette=5/ilosc;
       ktodaje = '<br />- je crée ma maquette en ligne';
     }
 
-  	//////////////////////////////////////////////////////////////////////////////
+  	////////////////////////////////////////////////////////////////////////////
 
   	if ($('input_1').value == 'beachflag' || $('input_1').value == 'oriflamme') {
   	var prixunite = (prixHT+marge+maquette);
@@ -1046,7 +1082,7 @@
   	cena=prixunite*ilosc;
   	}
 
-    ////////////////////////////////////////////////////////////////// options //
+    ///////////////////////////////////////////////////////////////// options //
   	var antifeu = $$('#antifeu').collect(function(e){ return e.checked; }).any();
   	if (antifeu == true) {
   		cena += (cena*30)/100;
@@ -1067,7 +1103,16 @@
   		cena-= cena*3/100;
   	}
 
-    ///////////////////////////////////////////////////////////////// transport //
+	  /////////////////////////////////////////////////////////////// signature //
+		if ($('input_signature').value == 'signature FB') {
+			opis += '<br />- signature France Banderole';
+		}
+		if ($('input_signature').value == 'sans signature') {
+			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5*ilosc;}
+			opis += '<br />- sans signature';
+		}
+
+    /////////////////////////////////////////////////////////////// transport //
   	poidtotal=(p1+p2+p3)*ilosc;
 
   	if ((poidtotal>=0) && (poidtotal<=10.00)) {transports=12;}
@@ -1086,6 +1131,7 @@
   	if ((poidtotal>=700.01) && (poidtotal<=800.00)) {transports=353;}
   	if ((poidtotal>=800.01) && (poidtotal<=900.00)) {transports=392;}
   	if (poidtotal>=900.01) {transports=400;}
+
 
     /////////////////////////////////////////////////////////// total produit //
   	cena+= transports;
@@ -1285,7 +1331,7 @@
       }
 
     	var dodajkoszyk = document.getElementById("cart_form");
-    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+designation+' '+formatProd+'<br />- '+composant+optionPied+ktodaje+optliv+etiqdesc+colisr+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+designation+' '+formatProd+'<br />- '+composant+optionPied+ktodaje+optliv+etiqdesc+colisr+opis+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
     }
   });
 });

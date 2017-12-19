@@ -13,7 +13,7 @@
 
 p {
   text-decoration: none!important;
-  color:#404040!important;
+  color: #404040!important;
   font-style: normal!important;
 }
 
@@ -69,11 +69,13 @@ input.edit {
   padding: 0 10px;
   text-transform: none;
 }
+
 .zipMessage {
   margin-bottom: 5px;
   text-align: left;
   font-size: 11px;
 }
+
 .zipDownload {
   display: inline-block;
   padding: 0 5px;
@@ -90,11 +92,14 @@ input.edit {
   padding: 2px 7px;
   text-transform: none;
 }
-.zipDownload:hover, .zipDownload:focus {
+
+.zipDownload:hover,
+.zipDownload:focus {
   background-color: #ea2a6a;
   color: #fff;
   transition: .2s;
 }
+
 input.delete {
   padding: 0 5px;
   margin: 0;
@@ -107,11 +112,12 @@ input.delete {
   height: 20px;
   box-shadow: none;
 }
+
 input.delete:hover {
   background-color: #d4cfcf;
 }
 
-#add_1 a{
+#add_1 a {
   float: right;
   width: auto;
   padding: 5px;
@@ -122,9 +128,9 @@ input.delete:hover {
   text-transform: uppercase;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
-#add_1 a:hover{
-  background: #ea2a6a;
 
+#add_1 a:hover {
+  background: #ea2a6a;
 }
 
 .gobackBtn {
@@ -191,6 +197,7 @@ h1 {
   line-height: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
+
 .adsFact {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -211,18 +218,81 @@ h1 {
   float: left;
   background: #fff;
   display: inline;
-  width: 15%;
   padding: 1rem;
-  height: 170px;
+  height: 250px;
   border: 1px solid #E5E5E5;
   margin: 10px 1% 20px 0;
   font-size: 11px;
   line-height: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
-.reportTopBloc.topBloc3{
-  width: 19.5%;
+
+.reportTopBloc.topBlocA {
+  width: 14%;
 }
+
+.reportTopBloc.topBloc2 {
+  width: 20%;
+}
+
+.reportTopBloc.topBloc3 {
+  width: 18%;
+}
+
+.reportTopBloc.topBloc4 {
+  width: 16%;
+}
+
+.reportTopBloc .left {
+  display: inline-block;
+  width: 50%;
+}
+
+.reportTopBloc .right {
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: right;
+  width: 38%;
+}
+
+.reportTopBloc label {
+  display: inline-block;
+}
+
+.reportTopBloc .coll,
+.reportTopBloc .colr {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+}
+
+.reportTopBloc .coll input,
+.reportTopBloc .colr input,
+.reportTopBloc .coll label,
+.reportTopBloc .colr label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 48%;
+}
+
+.reportTopBloc .coll label,
+.reportTopBloc .colr label {
+  padding-left: 5px;
+  text-transform: uppercase;
+}
+
+.blocscouleur {
+  display: block;
+  clear: both;
+  margin: 20px 0;
+}
+
+.userID {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
 select.urs {
   width: 10%;
 }
@@ -247,6 +317,7 @@ select.urs {
   line-height: 14px;
   color: black;
 }
+
 .infosClient .widecenter {
   margin-top: 0;
 }
@@ -265,11 +336,12 @@ select.urs {
   font-size: 11px;
   line-height: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
-
 }
+
 .coteClient form {
   display: inline-block;
 }
+
 .coteClient button {
   display: inline-block;
   border: 0;
@@ -277,27 +349,33 @@ select.urs {
   border-radius: 3px;
   background: #32a1cc;
   color: #fff;
-  cursor:pointer;
+  cursor: pointer;
   margin-right: 5px;
   text-transform: uppercase;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
+
 .coteClient button:hover {
   background: #EA2A6A;
 }
-.coteClient button.btn2{
+
+.coteClient button.btn2 {
   background: #14b61c;
 }
-.coteClient button.btn2:hover{
+
+.coteClient button.btn2:hover {
   background: #EA2A6A;
 }
-.coteClient button.btn3{
+
+.coteClient button.btn3 {
   background: #EA2A6A;
 }
-.coteClient button.btn3:hover{
+
+.coteClient button.btn3:hover {
   background: #32a1cc;
 }
-.coteClient button.desactive{
+
+.coteClient button.desactive {
   opacity: .2;
   cursor: not-allowed;
 }
@@ -343,10 +421,9 @@ select.urs {
   border-bottom: 1px solid #E5E5E5;
 }
 
-.widefat.over{
+.widefat.over {
   width: 100%;
 }
-
 
 #mywidefat input {
   width: 60px;
@@ -356,23 +433,30 @@ select.urs {
 input#poids_commende {
   margin-left: 16px;
 }
-.widecenter{
+
+.widecenter {
   margin-top: 10px;
 }
+
 .widecenter td {
   vertical-align: middle;
   text-align: center;
   border-bottom: 1px dashed #e9e3e3;
 }
+
 .widecenter th {
   text-align: center;
-  background: rgb(229,229,229);
+  background: rgb(229, 229, 229);
   font-weight: bolder;
   font-size: 11px;
 }
 
-.widefat.nopad td{
+.widefat.nopad td {
   padding: 4px;
+}
+
+.widefat td img {
+  max-width: 150px;
 }
 
 .btnGroup {
@@ -406,9 +490,11 @@ input#poids_commende {
   margin-right: 0;
   padding: 0 10px 1px;
 }
-#nbcolis{
+
+#nbcolis {
   margin-top: 4px;
 }
+
 .singlefile {
   font-size: 10px;
   font-weight: bold;
@@ -467,10 +553,9 @@ input#poids_commende {
 
 .statusCheckButtons {
   margin-top: 0;
-
 }
 
-.updater{
+.updater {
   display: block;
   margin-right: 5px;
   font-size: 11px;
@@ -488,7 +573,7 @@ input.radioBtn {
 }
 
 input.radioBtn[type=radio]:checked:before {
-    background: none;
+  background: none;
 }
 
 .statusCheck input,
@@ -503,9 +588,11 @@ input.radioBtn[type=radio]:checked:before {
 .statusCheck .fa-check-circle {
   color: #6aba20;
 }
+
 .statusCheck .fa-exclamation-circle {
   color: #F9B610;
 }
+
 .statusCheck .statusVerybad .fa-exclamation-circle {
   color: #ea2a6a;
 }
@@ -517,6 +604,7 @@ input.radioBtn[type=radio]:checked:before {
   font-size: 10px;
   text-align: right;
 }
+
 .statusChecked2 {
   box-sizing: border-box;
   display: inline-block;
@@ -527,26 +615,28 @@ input.radioBtn[type=radio]:checked:before {
   border-radius: 14px;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
+
 .statusChecked2 .fa {
   font-size: 22px;
   margin-top: -1px;
   margin-left: 1px;
 }
-.statusChecked2 .fa-check-circle{
+
+.statusChecked2 .fa-check-circle {
   color: #6aba20;
 }
-.statusChecked2 .fa-exclamation-circle{
+
+.statusChecked2 .fa-exclamation-circle {
   color: #F9B610;
 }
+
 .statusChecked2.statusVerybad .fa-exclamation-circle {
   color: #ea2a6a;
 }
 
-.statusChecked .fa{
+.statusChecked .fa {
   font-size: 22px;
 }
-
-
 
 .statusp2 {
   border: 1px solid #E5E5E5;
@@ -662,6 +752,7 @@ input.radioBtn[type=radio]:checked:before {
   width: 50px;
   height: 28px;
 }
+
 .savebutt6 {
   position: absolute;
   left: 10px;
@@ -670,7 +761,8 @@ input.radioBtn[type=radio]:checked:before {
   height: 28px;
   background: #3A9D2A;
 }
-.close{
+
+.close {
   display: inline-block;
   float: right;
 }
@@ -977,6 +1069,7 @@ a#but_imprimerfacture {
 ul.lastMails {
   font-size: 12px;
 }
+
 ul.lastMails li {
   list-style: none;
   list-style-type: none;
@@ -990,16 +1083,19 @@ ul.lastMails li {
   margin-top: 5px;
 }
 
-.voirPlus, .voirMoins {
+.voirPlus,
+.voirMoins {
   display: inline-block;
   border: none;
   font-size: 18px;
   font-weight: 900;
   cursor: pointer;
 }
-#newprod p{
+
+#newprod p {
   clear: both;
 }
+
 .alignR {
   display: inline-block;
   float: right;
@@ -1017,28 +1113,32 @@ ul.lastMails li {
   text-decoration: none;
   height: 25px;
 }
+
 .stockbtn:hover {
   background: #fff;
   color: #ccc;
 }
 
-.colalt{
+.colalt {
   background: #fbfbfb;
 }
 
-.colalert{
-  background:#e29898;
+.colalert {
+  background: #e29898;
 }
 
-.colwarn{
-  background:#e6ce50;
+.colwarn {
+  background: #e6ce50;
 }
-.colgood{
-  background:#9ada99;
+
+.colgood {
+  background: #9ada99;
 }
+
 .error {
   color: red;
 }
+
 .stockAlert {
   background: -webkit-linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
   background: -moz-linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
@@ -1053,6 +1153,7 @@ ul.lastMails li {
   height: 80px;
   position: relative;
 }
+
 .stockAlert h2 {
   display: inline-block;
   width: 80px;
@@ -1060,16 +1161,18 @@ ul.lastMails li {
   color: #835151;
   line-height: 15px;
 }
-.stockAlert h2 .code{
+
+.stockAlert h2 .code {
   display: block;
   margin-top: 5px;
-
 }
+
 .stockAlert li {
   display: inline-block;
   width: 170px;
   vertical-align: middle;
 }
+
 .stockAlert .qte {
   text-align: right;
   font-weight: bold;
@@ -1078,9 +1181,10 @@ ul.lastMails li {
   width: 80px;
   vertical-align: middle;
 }
+
 .closeButton {
   background: none;
-  border:0;
+  border: 0;
   position: absolute;
   padding: 0;
   top: 0;
@@ -1096,24 +1200,63 @@ ul.lastMails li {
   width: 50%;
   float: none;
 }
+
 .editAdBtn {
   position: absolute;
   bottom: 15px;
   right: 15px;
   background: #32a1cc;
   color: #fff;
-  cursor:pointer;
+  cursor: pointer;
   text-transform: uppercase;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
   border: 0;
   border-radius: 3px;
   padding: 5px 10px;
 }
+
 .editAdBtn:hover {
   background: #ea2a6a;
-  transition:.2s;
+  transition: .2s;
 }
+
 .changeFactForm {
   display: block;
   float: right;
+}
+
+tr.grized {
+  background: #fbfbfb;
+}
+
+tr.grized td {
+  color: #ccc;
+}
+
+.statuscol {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.nobat {
+  color: #fff;
+}
+
+.prevnext {
+  background: #fff;
+  border: 0;
+  border-radius: 3px;
+  display: inline-block;
+  color: #ccc;
+  height: 20px;
+  cursor: pointer;
+  font-size: 10px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+.prevnext:hover{
+  background: #32a1cc;
+  color: #fff;
 }

@@ -89,15 +89,43 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_6">
-            <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextmaquette" style="visibility:hidden;">• <u><b>France banderole crée votre fichier </b></u>:<br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>• <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/></span></span>
-            <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
-              <option class="titre" value="">fichier d'impression...</option>
-              <option class="option1" value="fb">France banderole crée la mise en page</option>
-              <option class="option2" value="user">j’ai déjà crée la mise en page</option>
-              <option value="config">je crée ma maquette en ligne</option>
-            </select>
-          </li>
+           <li class="form-line" id="id_6">
+					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                        </span>
+					</span>
+					</span>
+					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette" onclick="JKakemono.czyscpola(); ">
+						<option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +19,00€</option>
+					</select>
+				</li>
+                <li class="form-line" id="id_signature">
+                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+                        	<b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+                        </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
 
           <li class="form-line optionsformline2" id="id_13" data-trigger="spinner">
             <label class="form-label-left label-highlight" id="label_13" for="input_13">quantité :<br /><span class="small">(par visuel)</span></label>
@@ -323,7 +351,7 @@
         if((metraz>0.24)&&(metraz<=0.48)){metraz2=0.48}
         if((metraz>0.48)&&(metraz<=0.96)){metraz2=0.96}
         if((metraz>0.96)&&(metraz<=1.92)){metraz2=1.92}
-        opis += '<br />- Akilux 5mm recto';
+        opis += '- Akilux 5mm recto';
         dim= metraz2*ilosc;
         np = Math.ceil(dim/dimp);
         p1=np*cppr;
@@ -336,7 +364,7 @@
         if((metraz>0.24)&&(metraz<=0.48)){metraz2=0.48}
         if((metraz>0.48)&&(metraz<=0.96)){metraz2=0.96}
         if((metraz>0.96)&&(metraz<=1.92)){metraz2=1.92}
-        opis += '<br />- Akilux 5mm recto verso';
+        opis += '- Akilux 5mm recto verso';
         dim= metraz2*ilosc;
         np = Math.ceil(dim/dimp);
         p1=np*cpprv;
@@ -360,16 +388,19 @@
 
       //////////////////////////////////////////////////////// choix maquette //
       if ($('input_6').value == 'fb') {
-        maquette=29;
-        opis += '<br />- France banderole crée la maquette';
-      }
+		maquette=19;
+		opis += '<br />- France banderole crée la maquette';
+	  }
       if ($('input_6').value == 'user') {
-        opis += '<br />- j’ai déjà crée la maquette';
+		  maquette=5;
+        opis += '<br />- BAT en ligne';
       }
       if ($('input_6').value == 'config') {
-        maquette=5;
-        opis += '<br />- je crée ma maquette en ligne';
+        maquette=5; opis += '<br />- je crée ma maquette en ligne';
       }
+	  if ($('input_6').value == 'sansbat') {
+		opis += '<br />- je ne souhaite pas de BAT';
+	  }
 
       ///////////////////////////////////////////////////////////////// coupe //
       //------------------------------------------------------------------------
@@ -514,7 +545,7 @@
       //////////////////////////////////////////////////////////////// options//
       var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
       if (colis == true) {
-        cena += 2.00*ilosc;
+        if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2*ilosc;}
         opis += '<br />- colis revendeur';
       }
       var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
@@ -524,6 +555,16 @@
         etiqdesc = '<br />- retrait colis a l\'atelier';
         cena-= cena*3/100;
       }
+	  
+	  //////////////////////////////////////////////////////signature
+			if ($('input_signature').value == 'signature FB') {
+				opis += '<br />- signature France Banderole';
+			}
+			if ($('input_signature').value == 'sans signature') {
+				if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5*ilosc;};
+				opis += '<br />- sans signature';
+			}	
+
 
       ///////////////////////////////////////////////////////////// transport //
       if (poidstotal <= 1) {prixtransport=4.80;}
@@ -806,7 +847,7 @@
         var rodzaj = "Akilux 5mm";
         var dodajkoszyk = document.getElementById("cart_form");
 
-        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- '+largeur+' x '+hauteur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+etiqdesc+prliv+'</br>- H|'+hauteur+' x L|'+ largeur+' cm" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
         livraisonComp.style.display = 'block';
       }else{
 				suma='-';

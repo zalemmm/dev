@@ -30,7 +30,7 @@
             <option value="7">150 x 200 cm (Caisson lumineux/Abribus) | UV </option>
           </select>
         </li>
-        
+
         <li class="form-line" id="id_22">
 
           <select class="form-dropdown validate[required]" id="input_22" name="q22_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
@@ -50,22 +50,26 @@
 
           <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-              <b>France banderole crée votre fichier :</b><br/>
-              Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-              <b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
-              <b>Vous créez votre maquette en ligne:</b><br/>
-              Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_41" name="q41_maquette41" onchange="JKakemono.czyscpola();">
-            <option value="">fichier d'impression...</option>
-            <option value="fb">France banderole crée la maquette</option>
-            <option value="user">j’ai déjà crée la maquette </option>
-            <option value="config">je crée ma maquette en ligne</option>
-          </select>
-        </li>
-
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
+							<b>Vous créez votre maquette en ligne:</b><br/>
+							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                        </span>
+					</span>
+					</span>
+					<select class="form-dropdown validate[required]" id="input_41" name="q41_maquette" onclick="JKakemono.czyscpola(); ">
+						<option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +19,00€</option>
+					</select>
+				</li>
         <li class="form-line" id="id_45">
           <span class="helpButton" onmouseover="tipShow('helpText45');" onmouseout="tipHide('helpText45');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
@@ -79,6 +83,8 @@
             <option value="paysage">Paysage</option>
           </select>
         </li>
+        
+       
 
         <li class="form-line" id="id_5">
 
@@ -95,6 +101,22 @@
             <option value="100">100 </option>
           </select>
         </li>
+        
+         <li class="form-line" id="id_signature">
+                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+                        	<b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+                        </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
+
 
         <li class="form-line optionsformline" id="id_101">
   				<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
@@ -280,8 +302,8 @@ function AddBusinessDays(weekDaysToAdd) {
       var ilosc       = $('input_5').value;
       var largeur     = 0;
   		var hauteur     = 0;
-		var m2     = 0;////////m²
-		var pm2     = 0; ////prix m²
+  		var m2     = 0;////////m²
+  		var pm2     = 0; ////prix m²
       var opis        = '';
 
       //////////////////////////////////////////////////////////////////////////
@@ -298,7 +320,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.25; transport=13.9;}
         if (ilosc == '50') { m2=50*0.25; transport=15.9;}
         if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        opis += '- DIN A2 (42 x 60 cm) | UV';
         }
 
         if ($('input_21').value == '2'){
@@ -312,7 +334,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.5; transport=13.9;}
         if (ilosc == '50') { m2=50*0.5; transport=15.9;}
         if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        opis += '- DIN A1 (60 x 80 cm) | UV';
         }
 
         if ($('input_21').value == '3'){
@@ -326,7 +348,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.96; transport=13.9;}
         if (ilosc == '50') { m2=50*0.96; transport=15.9;}
         if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        opis += '- DIN A0 (80 x 120 cm) | UV';
         }
 
         if ($('input_21').value == '4'){
@@ -340,7 +362,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.92; transport=13.9;}
         if (ilosc == '50') { m2=50*1.92; transport=15.9;}
         if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        opis += '- 120 x 160 cm | UV';
         }
 
         if ($('input_21').value == '5'){
@@ -354,7 +376,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*2.11; transport=13.9;}
         if (ilosc == '50') { m2=50*2.11; transport=15.9;}
         if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        opis += '- 120 x 176 cm | UV';
         }
 
         if ($('input_21').value == '6'){
@@ -368,7 +390,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.5; transport=13.9;}
         if (ilosc == '50') { m2=50*1.5; transport=15.9;}
         if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        opis += '- 100 x 150 cm | UV';
         }
 
         if ($('input_21').value == '7'){
@@ -382,7 +404,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*3; transport=13.9;}
         if (ilosc == '50') { m2=50*3; transport=15.9;}
         if (ilosc == '100') { m2=100*3; transport=19.9;}
-        opis += '<br />- 150 x 200 cm | UV';
+        opis += '- 150 x 200 cm | UV';
         }
       }
 
@@ -398,7 +420,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.25; transport=13.9;}
         if (ilosc == '50') { m2=50*0.25; transport=15.9;}
         if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        opis += '- DIN A2 (42 x 60 cm) | UV';
         }
 
         if ($('input_21').value == '2'){
@@ -412,7 +434,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.5; transport=13.9;}
         if (ilosc == '50') { m2=50*0.5; transport=15.9;}
         if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        opis += '- DIN A1 (60 x 80 cm) | UV';
         }
 
         if ($('input_21').value == '3'){
@@ -426,7 +448,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.96; transport=13.9;}
         if (ilosc == '50') { m2=50*0.96; transport=15.9;}
         if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        opis += '- DIN A0 (80 x 120 cm) | UV';
         }
 
         if ($('input_21').value == '4'){
@@ -440,7 +462,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.92; transport=13.9;}
         if (ilosc == '50') { m2=50*1.92; transport=15.9;}
         if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        opis += '- 120 x 160 cm | UV';
         }
 
         if ($('input_21').value == '5'){
@@ -454,7 +476,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*2.11; transport=13.9;}
         if (ilosc == '50') { m2=50*2.11; transport=15.9;}
         if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        opis += '- 120 x 176 cm | UV';
         }
 
         if ($('input_21').value == '6'){
@@ -468,7 +490,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.5; transport=13.9;}
         if (ilosc == '50') { m2=50*1.5; transport=15.9;}
         if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        opis += '- 100 x 150 cm | UV';
         }
 
         if ($('input_21').value == '7'){
@@ -482,7 +504,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*3; transport=13.9;}
         if (ilosc == '50') { m2=50*3; transport=15.9;}
         if (ilosc == '100') { m2=100*3; transport=19.9;}
-        opis += '<br />- 150 x 200 cm | UV';
+        opis += '- 150 x 200 cm | UV';
         }
       }
 
@@ -498,7 +520,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.25; transport=13.9;}
         if (ilosc == '50') { m2=50*0.25; transport=15.9;}
         if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        opis += '- DIN A2 (42 x 60 cm) | UV';
         }
 
         if ($('input_21').value == '2'){
@@ -512,7 +534,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.5; transport=13.9;}
         if (ilosc == '50') { m2=50*0.5; transport=15.9;}
         if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        opis += '- DIN A1 (60 x 80 cm) | UV';
         }
 
         if ($('input_21').value == '3'){
@@ -526,7 +548,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.96; transport=13.9;}
         if (ilosc == '50') { m2=50*0.96; transport=15.9;}
         if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        opis += '- DIN A0 (80 x 120 cm) | UV';
         }
 
         if ($('input_21').value == '4'){
@@ -540,7 +562,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.92; transport=13.9;}
         if (ilosc == '50') { m2=50*1.92; transport=15.9;}
         if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        opis += '- 120 x 160 cm | UV';
         }
 
         if ($('input_21').value == '5'){
@@ -554,7 +576,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*2.11; transport=13.9;}
         if (ilosc == '50') { m2=50*2.11; transport=15.9;}
         if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        opis += '- 120 x 176 cm | UV';
         }
 
         if ($('input_21').value == '6'){
@@ -568,7 +590,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.5; transport=13.9;}
         if (ilosc == '50') { m2=50*1.5; transport=15.9;}
         if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        opis += '- 100 x 150 cm | UV';
         }
 
         if ($('input_21').value == '7'){
@@ -582,11 +604,11 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*3; transport=13.9;}
         if (ilosc == '50') { m2=50*3; transport=15.9;}
         if (ilosc == '100') { m2=100*3; transport=19.9;}
-        opis += '<br />- 150 x 200 cm | UV';
+        opis += '- 150 x 200 cm | UV';
         }
       }
-	  
-	  
+
+
 	   if ($('input_1').value == 'Affiches 120g fluo') {
         if ($('input_22').value == '1'){
 
@@ -599,7 +621,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.25; transport=13.9;}
         if (ilosc == '50') { m2=50*0.25; transport=15.9;}
         if (ilosc == '100') { m2=100*0.25; transport=19.9;}
-        opis += '<br />- DIN A2 (42 x 60 cm) | UV';
+        opis += '- DIN A2 (42 x 60 cm) | UV';
         }
 
         if ($('input_22').value == '2'){
@@ -613,7 +635,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.5; transport=13.9;}
         if (ilosc == '50') { m2=50*0.5; transport=15.9;}
         if (ilosc == '100') { m2=100*0.5; transport=19.9;}
-        opis += '<br />- DIN A1 (60 x 80 cm) | UV';
+        opis += '- DIN A1 (60 x 80 cm) | UV';
         }
 
         if ($('input_22').value == '3'){
@@ -627,7 +649,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*0.96; transport=13.9;}
         if (ilosc == '50') { m2=50*0.96; transport=15.9;}
         if (ilosc == '100') { m2=100*0.96; transport=19.9;}
-        opis += '<br />- DIN A0 (80 x 120 cm) | UV';
+        opis += '- DIN A0 (80 x 120 cm) | UV';
         }
 
         if ($('input_22').value == '4'){
@@ -641,7 +663,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.92; transport=13.9;}
         if (ilosc == '50') { m2=50*1.92; transport=15.9;}
         if (ilosc == '100') { m2=100*1.92; transport=19.9;}
-        opis += '<br />- 120 x 160 cm | UV';
+        opis += '- 120 x 160 cm | UV';
         }
 
         if ($('input_22').value == '5'){
@@ -655,7 +677,7 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*2.11; transport=13.9;}
         if (ilosc == '50') { m2=50*2.11; transport=15.9;}
         if (ilosc == '100') { m2=100*2.11; transport=19.9;}
-        opis += '<br />- 120 x 176 cm | UV';
+        opis += '- 120 x 176 cm | UV';
         }
 
         if ($('input_22').value == '6'){
@@ -669,10 +691,10 @@ function AddBusinessDays(weekDaysToAdd) {
         if (ilosc == '20') { m2=20*1.5; transport=13.9;}
         if (ilosc == '50') { m2=50*1.5; transport=15.9;}
         if (ilosc == '100') { m2=100*1.5; transport=19.9;}
-        opis += '<br />- 100 x 150 cm | UV';
+        opis += '- 100 x 150 cm | UV';
         }
 
-      
+
       }
 	  //////////////120g
 	  if ((m2<1) && ($('input_1').value == 'Affiches 120g') ) {pm2=7;}
@@ -686,8 +708,8 @@ function AddBusinessDays(weekDaysToAdd) {
 	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 120g') ) {pm2=4;}
 	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 120g') ) {pm2=3.5;}
 	  if ((m2>=300) && ($('input_1').value == 'Affiches 120g') ) {pm2=3;}
-	  
-	  
+
+
 	   //////////////150g
 	  if ((m2<1) && ($('input_1').value == 'Affiches 150g') ) {pm2=9;}
 	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 150g') ) {pm2=8.5;}
@@ -700,7 +722,7 @@ function AddBusinessDays(weekDaysToAdd) {
 	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 150g') ) {pm2=5;}
 	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 150g') ) {pm2=4.5;}
 	  if ((m2>=300) && ($('input_1').value == 'Affiches 150g') ) {pm2=4;}
-	  
+
 	    //////////////220g
 	  if ((m2<1) && ($('input_1').value == 'Affiches 220g') ) {pm2=10;}
 	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 220g') ) {pm2=9.5;}
@@ -713,9 +735,9 @@ function AddBusinessDays(weekDaysToAdd) {
 	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 220g') ) {pm2=6;}
 	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 220g') ) {pm2=5.5;}
 	  if ((m2>=300) && ($('input_1').value == 'Affiches 220g') ) {pm2=5;}
-	  
-	  
-	  
+
+
+
 	    //////////////120g
 	  if ((m2<1) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=9.5;}
 	  if ((m2>=1) && (m2<2) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=9;}
@@ -728,11 +750,11 @@ function AddBusinessDays(weekDaysToAdd) {
 	  if ((m2>=100) && (m2<200) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=5.5;}
 	  if ((m2>=200) && (m2<300) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=5;}
 	  if ((m2>=300) && ($('input_1').value == 'Affiches 120g fluo') ) {pm2=4.5;}
-	  
-	  
+
+
 	  cena=m2*pm2
 	  cena+=transport
-	  
+
 
       opis += '<br />- '+ilosc+' Affiches(s)';
 
@@ -809,18 +831,21 @@ function AddBusinessDays(weekDaysToAdd) {
 
       //////////////////////////////////////////////////////// choix maquette //
       var ktodaje;
-
-      if (($('input_41').value == 'fb')) {
-        cena+=29;
-        ktodaje = 'France banderole crée la maquette';
+	  
+	  if ($('input_41').value == 'fb') {
+		cena+=19;
+		ktodaje = '<br />- France banderole crée la maquette';
+	  }
+      if ($('input_41').value == 'user') {
+		  cena+=5;
+        ktodaje = '<br />- BAT en ligne';
       }
-      if (($('input_41').value == 'user')) {
-        ktodaje = 'j’ai déjà crée la maquette';
+      if ($('input_41').value == 'config') {
+        cena+=5; ktodaje = '<br />- je crée ma maquette en ligne';
       }
-      if (($('input_41').value == 'config')) {
-        cena+=5;
-        ktodaje = 'je crée ma maquette en ligne';
-      }
+	  if ($('input_41').value == 'sansbat') {
+		ktodaje = '<br />- je ne souhaite pas de BAT';
+	  }
 
       opis += '<br />- '+ktodaje;
 
@@ -840,9 +865,16 @@ function AddBusinessDays(weekDaysToAdd) {
         cena-= cena*3/100;
         opis += '<br />- retrait colis a l\'atelier';
       }
-	  
-	  
-	  
+
+//////////////////////////////////////////////////////signature
+			if ($('input_signature').value == 'signature FB') {
+				opis += '<br />- signature France Banderole';
+			}
+			if ($('input_signature').value == 'sans signature') {
+				cena+= 5*ilosc;
+				opis += '<br />- sans signature';
+			}
+
 
       //////////////////////////////////////////////////////////////////////////
 
@@ -1025,11 +1057,11 @@ function AddBusinessDays(weekDaysToAdd) {
 				remise.innerHTML='-';
 				total.innerHTML='-';
 			}
-			
-			
-			
 
-			
+
+
+
+
 
       //////////////////////////////////////////////// livraison le jour même //
 			if ((DeliveryType == '1-1') && (PorductType == '1-1')){
@@ -1048,6 +1080,9 @@ function AddBusinessDays(weekDaysToAdd) {
 			total.innerHTML=suma2+' &euro;';
 			
 			
+		
+
+
 			if ( suma < 19 ) {
 					var forfait = 19 - suma;
 					forfait = fixstr(forfait);
@@ -1078,7 +1113,7 @@ function AddBusinessDays(weekDaysToAdd) {
 						newtotal.innerHTML=suma2+' &euro;';
 					}
 				}
-			
+
 
       var rodzaj = $('input_1').value;
 

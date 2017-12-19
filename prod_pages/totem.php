@@ -87,7 +87,7 @@
           <select class="form-dropdown validate[required]" id="input_24" name="q24_maquette24" onclick="JKakemono.czyscpola(); ">
             <option class="titre" value="">choisir le support...</option>
             <option class="option1" value="tissu 220g">tissu stretch léger 220g B1</option>
-			<option class="option2" value="tissu 260g">tissu stretch extensible 260g B1</option>
+			      <option class="option2" value="tissu 260g">tissu stretch extensible 260g B1</option>
           </select>
         </li>
 
@@ -181,43 +181,86 @@
         </li>
 
         <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
+          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText6" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
-							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+           <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
+							si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
+							France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT:</b><br/>
+							Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
 							<b>Vous créez votre maquette en ligne:</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-						</span>
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+          </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
-            <option class="titre" value="">choisir la maquette...</option>
-            <option class="option1" value="fb">France banderole crée la maquette</option>
-            <option class="option2" value="user">j’ai déjà crée la maquette </option>
-            <option value="config">je crée ma maquette en ligne</option>
-
+           <option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +29,00€</option>
           </select>
         </li>
 
          <li class="form-line" id="id_61">
-          <span class="helpButton" onmouseover="tipShow('helpText61');" onmouseout="tipHide('helpText61');">
+          <span class="helpButton" onmouseover="tipShow('helpTextmaquette2');" onmouseout="tipHide('helpTextmaquette2');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText61" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
-							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-						</span>
+            <span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+            	Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
+            	si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
+            	France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
+            	<b>j’ai mon fichier, je souhaite un BAT:</b><br/>
+            	Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
+            	<b>Vous créez votre maquette en ligne:</b><br/>
+            	Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+            	<b>France banderole crée votre fichier:</b><br/>
+            	Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+            </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_61" name="q61_maquette61" onclick="JKakemono.czyscpola(); ">
-            <option class="titre" value="">choisir la maquette...</option>
-            <option class="option1" value="fb">France banderole crée la maquette</option>
-            <option class="option2" value="user">j’ai déjà crée la maquette </option>
-            <option value="config">je crée ma maquette en ligne</option>
+           <option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +29,00€</option>
           </select>
         </li>
+
+        <li class="form-line" id="id_signature">
+          <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+              <b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signée" un logo sera imprimé en bas de votre visuel de 11x3 cm <br/>
+              <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+            </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
+
+        <li class="form-line" id="id_signature2">
+          <span class="helpButton" onmouseover="tipShow('helpTextsignature2');" onmouseout="tipHide('helpTextsignature2');">
+          <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+					<span class="helpText" id="helpTextsignature2" style="visibility:hidden;">
+              <b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signée" un logo sera imprimé en bas de votre visuel de 11x3 cm <br/>
+              <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+            </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature2" id="input_signature2" name="qsignature_signature2" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
 
    		  <li class="optionsformline4" id="id_14">
           <select class="form-dropdown validate[required] option4" id="input_14" name="q14_dimensions" onclick="JKakemono.czyscpola(); ">
@@ -439,7 +482,7 @@
     var suma               = 0;     var suma2   = 0;
     var transport          = 0;
     var designation        = '';    var produit = '';    var details     = '';
-    var optliv             = '';
+    var optliv             = ''; 	var opis             = '';
     var prliv              = '';
     var date_panier        = '';
     var option             = '';
@@ -461,11 +504,11 @@
 	  var plm                = 0; ////prix de la laize au M²
 	  var prixproduit        = 0;
 	  var prixtotal          = 0;
-	  var imp		         = 0;//// prix impression
-	  var m2		         = 0;//// m2
-	  var pm2		         = 0; ////prix m2
-	  var tissu		         = 0;
-	  var pa		         = 0;
+	  var imp		             = 0;//// prix impression
+	  var m2		             = 0;//// m2
+	  var pm2		             = 0; ////prix m2
+	  var tissu		           = 0;
+	  var pa		             = 0;
     var eBox               = document.getElementById('form-button-error2');
     var aBox               = document.getElementById('form-button-error1');
     eBox.innerHTML         = '';
@@ -760,64 +803,58 @@
 
     ////////////////////////////////////////////////////////////////// CLIPIT //
     if (($('input_1').value == 'clipit') && (($('input_4').value == 'bache 440g') || ($('input_4').value == 'jet 520 M1') || ($('input_4').value == 'bache 100% écologique M1') || ($('input_4').value == 'PVC 300 mircons') || ($('input_4').value == 'Recto/verso PVC 300µ') )){
-    produit = 'clipit';
-    if ($('input_14').value==30){structure=(3.55*3); p2=0.3*ilosc;}
-    if ($('input_14').value==42){structure=(4.45*3); p2=0.42*ilosc;}
-    if ($('input_14').value==50){structure=(5.20*3); p2=0.5*ilosc;}
-    if ($('input_14').value==60){structure=(5.75*3); p2=0.6*ilosc;}
-    if ($('input_14').value==70){structure=(6.20*3); p2=0.7*ilosc;}
-    if ($('input_14').value==85){structure=(7.10*3); p2=0.85*ilosc;}
-    if ($('input_14').value==100){structure=(7.95*3); p2=1.00*ilosc;}
-    if ($('input_14').value==120){structure=(8.90*3); p2=1.20*ilosc;}
-    if ($('input_14').value==150){structure=(11.20*3); p2=1.50*ilosc;}
-    if ($('input_14').value==160){structure=(17.00*3); p2=1.60*ilosc;}
-    if ($('input_14').value==180){structure=(20.00*3); p2=1.80*ilosc;}
-    if ($('input_14').value==200){structure=(24.00*3); p2=2.00*ilosc;}
 
-    hauteur = $('input_15').value;
-    largeur = $('input_14').value;
+      if ($('input_14').value==30){structure=(3.55*3); p2=0.3*ilosc; produit = 'clipit 30cm';}
+      if ($('input_14').value==42){structure=(4.45*3); p2=0.42*ilosc; produit = 'clipit 42cm';}
+      if ($('input_14').value==50){structure=(5.20*3); p2=0.5*ilosc; produit = 'clipit 50cm';}
+      if ($('input_14').value==60){structure=(5.75*3); p2=0.6*ilosc; produit = 'clipit 60cm';}
+      if ($('input_14').value==70){structure=(6.20*3); p2=0.7*ilosc; produit = 'clipit 70cm';}
+      if ($('input_14').value==85){structure=(7.10*3); p2=0.85*ilosc; produit = 'clipit 85cm';}
+      if ($('input_14').value==100){structure=(7.95*3); p2=1.00*ilosc; produit = 'clipit 100cm';}
+      if ($('input_14').value==120){structure=(8.90*3); p2=1.20*ilosc; produit = 'clipit 120cm';}
+      if ($('input_14').value==150){structure=(11.20*3); p2=1.50*ilosc; produit = 'clipit 150cm';}
+      if ($('input_14').value==160){structure=(17.00*3); p2=1.60*ilosc; produit = 'clipit 160cm';}
+      if ($('input_14').value==180){structure=(20.00*3); p2=1.80*ilosc; produit = 'clipit 180cm';}
+      if ($('input_14').value==200){structure=(24.00*3); p2=2.00*ilosc; produit = 'clipit 200cm';}
 
-    prixsupport=cenatotal/ilosc;
-    cena= structure+prixsupport;
-    designation=$('input_4').value;
-    details='<br />- '+largeur+'x'+hauteur+'cm (Largeur x Hauteur)';
+      hauteur = $('input_15').value;
+      largeur = $('input_14').value;
 
-    if ($('input_11').value == 'ventouse') {
-        option+='<br />- Ventouse super adhesive 65mm';
+      prixsupport=cenatotal/ilosc;
+      cena= structure+prixsupport;
+      details='<br />- '+$('input_4').value+' <br />- '+largeur+'x'+hauteur+'cm (Largeur x Hauteur)';
+
+      if ($('input_11').value == 'ventouse') {
+        details+='<br />- Ventouse super adhesive 65mm';
         cena+=5.7;
       }
     }
 
-	 /////////////////////////////// kakemono  tissu //
+	  ///////////////////////////////////////////////////////// kakemono  tissu //
+    if ($('input_1').value == 'Kakemono Tissu') {
+      if ($('input_24').value == 'tissu 220g') {pm2 = 2.16;}
+      if ($('input_24').value == 'tissu 260g') {pm2 = 2.51;}
+      if ($('input_25').value == '60x230 recto') {structure = 40; m2 =(0.612*2.28)*1.5; p1=6.85; hauteur = 230; largeur = 60;}
+      if ($('input_25').value == '60x230 recto/verso') {structure = 40; m2 =(0.612*2.28)*2; p1=6.85; hauteur = 230; largeur = 60;}
+      if ($('input_25').value == '90x230 recto') {structure = 70; m2 =(0.917*2.28)*1.5; p1=8.85; hauteur = 230; largeur = 90;}
+      if ($('input_25').value == '90x230 recto/verso') {structure = 70; m2 =(0.917*2.28)*2; p1=8.85; hauteur = 230; largeur = 90;}
+      if ($('input_25').value == '120x230 recto') {structure = 85; m2 =(1.222*2.28)*1.5; p1=11; hauteur = 230; largeur = 120;}
+      if ($('input_25').value == '120x230 recto/verso') {structure = 85; m2 =(1.222*2.28)*2; p1=11; hauteur = 230; largeur = 120;}
+      if ($('input_25').value == '150x230 recto') {structure = 98; m2 =(1.526*2.28)*1.5; p1=13.60; hauteur = 230; largeur = 150;}
+      if ($('input_25').value == '150x230 recto/verso') {structure = 98; m2 =(1.526*2.28)*2; p1=13.60; hauteur = 230; largeur = 150;}
+      imp=(3*m2)+15////impresion + couture
+      tissu=pm2*m2////tissu
 
-		 if ($('input_1').value == 'Kakemono Tissu') {
-			 if ($('input_24').value == 'tissu 220g') {pm2 = 2.16;}
-			 if ($('input_24').value == 'tissu 260g') {pm2 = 2.51;}
-			 if ($('input_25').value == '60x230 recto') {structure = 40; m2 =(0.612*2.28)*1.5; p1=6.85; hauteur = 230; largeur = 60;}
-			 if ($('input_25').value == '60x230 recto/verso') {structure = 40; m2 =(0.612*2.28)*2; p1=6.85; hauteur = 230; largeur = 60;}
-			 if ($('input_25').value == '90x230 recto') {structure = 70; m2 =(0.917*2.28)*1.5; p1=8.85; hauteur = 230; largeur = 90;}
-			 if ($('input_25').value == '90x230 recto/verso') {structure = 70; m2 =(0.917*2.28)*2; p1=8.85; hauteur = 230; largeur = 90;}
-			 if ($('input_25').value == '120x230 recto') {structure = 85; m2 =(1.222*2.28)*1.5; p1=11; hauteur = 230; largeur = 120;}
-			 if ($('input_25').value == '120x230 recto/verso') {structure = 85; m2 =(1.222*2.28)*2; p1=11; hauteur = 230; largeur = 120;}
-			 if ($('input_25').value == '150x230 recto') {structure = 98; m2 =(1.526*2.28)*1.5; p1=13.60; hauteur = 230; largeur = 150;}
-			 if ($('input_25').value == '150x230 recto/verso') {structure = 98; m2 =(1.526*2.28)*2; p1=13.60; hauteur = 230; largeur = 150;}
-        	 imp=(3*m2)+15////impresion + couture
-			 tissu=pm2*m2////tissu
+      pa=structure+imp+tissu;////////prix d'achat
+  		if ((ilosc > 0) && (ilosc < 2)){cena=pa*2.80;}
+      if ((ilosc > 1) && (ilosc < 4)){cena=pa*2.75;}
+  		if ((ilosc > 3) && (ilosc < 6)){cena=pa*2.70;}
+      if (ilosc > 5){cena=pa*2.65;}
 
+      designation='Totem Tissu <br />- '+(($('input_25').value) +'<br />- '+ ($('input_24').value)) ;
 
-
-        pa=structure+imp+tissu;////////prix d'achat
-		if ((ilosc > 0) && (ilosc < 2)){cena=pa*2.80;}
-    	if ((ilosc > 1) && (ilosc < 4)){cena=pa*2.75;}
-		if ((ilosc > 3) && (ilosc < 6)){cena=pa*2.70;}
-    	if (ilosc > 5){cena=pa*2.65;}
-
-        designation='Totem Tissu <br />- '+(($('input_25').value) +'<br />- '+ ($('input_24').value)) ;
-
-        p=p1*ilosc;
-
-
-      }
+      p=p1*ilosc;
+    }
 
     ////////////////prix tansport transport////////////////////////////////////////////////////////////////////////////
     poids=(p1+p2);
@@ -842,39 +879,59 @@
      if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
      if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
 
-     ////////////////////////////////////////////////////////// choix maquette //
-     var maquette;
-     if (($('input_6').value == 'fb') || ($('input_61').value == 'fb')){
-       cena+=29/ilosc;
-       maquette = 'France banderole crée la maquette';
-     }
-     if (($('input_6').value == 'user') || ($('input_61').value == 'user')) {
-       maquette = 'j’ai déjà crée la maquette';
-     }
-     if  (($('input_6').value == 'config') || ($('input_61').value == 'config')){
-       cena+=5/ilosc;
-       maquette = 'je crée ma maquette en ligne';
-     }
+    ////////////////////////////////////////////////////////// choix maquette //
+    var maquette;
+    if (($('input_6').value == 'fb') || ($('input_61').value == 'fb')){
+     cena+=29/ilosc;
+     maquette = 'France banderole crée la maquette';
+    }
+    if (($('input_6').value == 'user') || ($('input_61').value == 'user')) {
+     maquette = 'BAT en ligne';
+    cena+=5/ilosc;
+    }
+    if (($('input_6').value == 'sansbat') || ($('input_61').value == 'sansbat')) {
+     maquette = 'je ne souhaite pas de BAT';
+    }
+    if  (($('input_6').value == 'config') || ($('input_61').value == 'config')){
+     cena+=5/ilosc;
+     maquette = 'je crée ma maquette en ligne';
+    }
 
-     ///////////////////////////////////////////////////////////////// options //
-     var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-     if (colis == true) {
-       cena += 2.00;
-       optliv += '<br />- colis revendeur';
-     }
-     var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-     var etiqdesc = '';
-     if (etiquette == true) {
-       transport=0;
-       etiqdesc = '<br />- retrait colis a l\'atelier';
-       cena-= cena*3/100;
-     }
+	  /////////////////////////////////////////////////////////////// signature //
+	  if ($('input_signature').value == 'signature FB') {
+  				opis += '<br />- signature France Banderole';
+  			}
+	  if ($('input_signature2').value == 'signature FB') {
+			opis += '<br />- signature France Banderole';
+		}
+	  if ($('input_signature').value == 'sans signature') {
+			opis += '<br />- sans signature';
+			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
+		}
+	  if ($('input_signature2').value == 'sans signature') {
+			opis += '<br />- sans signature';
+			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
+		}
 
-     var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-     if (relais == true) {
-       cena += 5.00/ilosc;
-       optliv += '<br />- relais colis';
-     }
+    ///////////////////////////////////////////////////////////////// options //
+    var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
+    if (colis == true) {
+     if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2;}
+     optliv += '<br />- colis revendeur';
+    }
+    var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
+    var etiqdesc = '';
+    if (etiquette == true) {
+     transport=0;
+     etiqdesc = '<br />- retrait colis a l\'atelier';
+     cena-= cena*3/100;
+    }
+
+    var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
+    if (relais == true) {
+     cena += 5.00/ilosc;
+     optliv += '<br />- relais colis';
+    }
 
     /////////////////////////////////////////////////////////// total produit //
     prixunite = cena;
@@ -1112,7 +1169,7 @@
 
 
         var dodajkoszyk = document.getElementById("cart_form");
-        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Totem" /><input type="hidden" name="opis" value="- '+produit+' '+designation+details+'<br />- '+maquette+optliv+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+        dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Totem" /><input type="hidden" name="opis" value="- '+produit+' '+designation+details+'<br />- '+maquette+optliv+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
         livraisonComp.style.display = 'block';
       }
     });

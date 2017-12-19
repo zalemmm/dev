@@ -176,39 +176,77 @@
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
-							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
 							<b>Vous créez votre maquette en ligne:</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-						</span>
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                        </span>
+					</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la maquette</option>
-						<option value="fb">France banderole crée la maquette</option>
-						<option value="user">j’ai déjà crée la maquette </option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +19,00€</option>
 					</select>
 				</li>
 				<li class="form-line" id="id_6perso">
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette2');" onmouseout="tipHide('helpTextmaquette2');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
-							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
 							<b>Vous créez votre maquette en ligne:</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-						</span>
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                        </span>
+					</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_6perso" name="q6perso_maquette" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la maquette</option>
-						<option value="fb">France banderole crée la maquette</option>
-						<option value="user">j’ai déjà crée la maquette </option>
-						<option value="config">je crée ma maquette en ligne</option>
+						<option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+                        <option value="fb">France banderole crée la mise en page +19,00€</option>
 					</select>
 				</li>
-
+                
+                <li class="form-line" id="id_signature">
+                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+                        	<b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+                        </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
+                 <li class="form-line" id="id_signature2">
+                <span class="helpButton" onmouseover="tipShow('helpTextsignature2');" onmouseout="tipHide('helpTextsignature2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature2" style="visibility:hidden;">
+                        	<b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+                        </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature2" name="qsignature_signature2" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
+					</select>
+				</li>
 
 				<li id="id_9" class="form-line optionsformline3">
 					<label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
@@ -242,7 +280,7 @@
 							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
 							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
 							</span>
 						</span>
 
@@ -422,7 +460,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 60x40 //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '60x40')){
-			opis += '<br />- Forex 5mm recto <br />- 60x40cm';
+			opis += '- Forex 5mm recto <br />- 60x40cm';
 			if ($('input_32').value == '1'){pu=17.28; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=17.28; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=14.40; opis += '<br />- 3 exemplaires';}
@@ -471,7 +509,7 @@ jQuery(document).ready(function(){
 		///////////////////////////////////////////// Forex 5mm recto/verso 60x40 //
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x40')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 60x40cm';
+			opis += '- Forex 5mm recto/verso <br />- 60x40cm';
 			if ($('input_32').value == '1'){pu=24.48; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=24.48; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=20.40; opis += '<br />- 3 exemplaires';}
@@ -520,7 +558,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 60x78 //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '60x78')){
-			opis += '<br />- Forex 5mm recto <br />- 60x78cm';
+			opis += '- Forex 5mm recto <br />- 60x78cm';
 			if ($('input_32').value == '1'){pu=17.28*1.8; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=17.28*1.8; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=14.40*1.8; opis += '<br />- 3 exemplaires';}
@@ -569,7 +607,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso 60x78 //
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x78')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 60x78cm';
+			opis += '- Forex 5mm recto/verso <br />- 60x78cm';
 			if ($('input_32').value == '1'){pu=24.48*1.8; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=24.48*1.8; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=20.40*1.8; opis += '<br />- 3 exemplaires';}
@@ -618,7 +656,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 100x50/////
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '100x50')){
-			opis += '<br />- Forex 5mm recto <br />- 100x50cm';
+			opis += '- Forex 5mm recto <br />- 100x50cm';
 			if ($('input_32').value == '1'){pu=30.00; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=27.00; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=25.80; opis += '<br />- 3 exemplaires';}
@@ -667,7 +705,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso 100x50 //
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '100x50')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 100x50cm';
+			opis += '- Forex 5mm recto/verso <br />- 100x50cm';
 			if ($('input_32').value == '1'){pu=42.50; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=38.25; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=36.55; opis += '<br />- 3 exemplaires';}
@@ -716,7 +754,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 150x75 //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '150x75')){
-			opis += '<br />- Forex 5mm recto <br />- 150x75cm';
+			opis += '- Forex 5mm recto <br />- 150x75cm';
 			if ($('input_32').value == '1'){pu=67.50; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=60.75; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=58.05; opis += '<br />- 3 exemplaires';}
@@ -765,7 +803,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso 150x75 //
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '150x75')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 150x75cm ';
+			opis += '- Forex 5mm recto/verso <br />- 150x75cm ';
 			if ($('input_32').value == '1'){pu=95.63; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=86.06; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=82.24; opis += '<br />- 3 exemplaires';}
@@ -814,7 +852,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 200x100 //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '200x100')){
-			opis += '<br />- Forex 5mm recto <br />- 200x100cm ';
+			opis += '- Forex 5mm recto <br />- 200x100cm ';
 			if ($('input_32').value == '1'){pu=100.80; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=98.40; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=96.00; opis += '<br />- 3 exemplaires';}
@@ -863,7 +901,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso 200x100 //
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x100')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 200x100cm ';
+			opis += '- Forex 5mm recto/verso <br />- 200x100cm ';
 			if ($('input_32').value == '1'){pu=142.80; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=139.40; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=136.00; opis += '<br />- 3 exemplaires';}
@@ -912,7 +950,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 200x150 //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '200x150')){
-			opis += '<br />- Forex 5mm recto <br />- 200x150cm';
+			opis += '- Forex 5mm recto <br />- 200x150cm';
 			if ($('input_32').value == '1'){pu=154.80; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=147.60; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=144.00; opis += '<br />- 3 exemplaires';}
@@ -961,7 +999,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso 200x150/////
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x150')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 200x150cm';
+			opis += '- Forex 5mm recto/verso <br />- 200x150cm';
 			if ($('input_32').value == '1'){pu=219.30; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=209.10; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=204.00; opis += '<br />- 3 exemplaires';}
@@ -1010,7 +1048,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto 300x150 //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == '300x150')){
-			opis += '<br />- Forex 5mm recto <br />- 300x150cm';
+			opis += '- Forex 5mm recto <br />- 300x150cm';
 			if ($('input_32').value == '1'){pu=216.00; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=210.60; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=205.20; opis += '<br />- 3 exemplaires';}
@@ -1059,7 +1097,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso 300x150/////
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '300x150')){
-			opis += '<br />- Forex 5mm recto/verso <br />- 300x150cm ';
+			opis += '- Forex 5mm recto/verso <br />- 300x150cm ';
 			if ($('input_32').value == '1'){pu=306.00; opis += '<br />- 1 exemplaire';}
 			if ($('input_32').value == '2'){pu=298.35; opis += '<br />- 2 exemplaires';}
 			if ($('input_32').value == '3'){pu=290.70; opis += '<br />- 3 exemplaires';}
@@ -1108,7 +1146,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto personnalisée UV //
 
 		if (($('input_0').value == 'recto') && ($('input_1').value == 'personnalisée')){
-			opis += '<br />- Forex 5mm recto <br />- Taille Personnalisée';
+			opis += '- Forex 5mm recto <br />- Taille Personnalisée';
 			if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
 			if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
 			if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
@@ -1154,7 +1192,7 @@ jQuery(document).ready(function(){
 		/////////////////////////////////////////////////// Forex 5mm recto/verso personnalisée UV //
 
 		if (($('input_0').value == 'rectoverso') && ($('input_1').value == 'personnalisée')){
-			opis += '<br />- Forex 5mm recto/verso  <br />- Taille Personnalisée';
+			opis += '- Forex 5mm recto/verso  <br />- Taille Personnalisée';
 			if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
 			if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
 			if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
@@ -1211,19 +1249,23 @@ jQuery(document).ready(function(){
 
 		//////////////////////////////////////////////////////// choix maquette //
 		if ($('input_6').value == 'fb') {
-			maquette=29;
+			maquette=19;
 			opis += '<br />- France banderole crée la maquette';
 		}
 		if ($('input_6perso').value == 'fb') {
 			opis += '<br />- France banderole crée la maquette';
 		}
 		if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {
-			opis += '<br />- j’ai déjà crée la maquette';
+			opis += '<br />- BAT en ligne';
+			maquette=5;
 		}
 		if (($('input_6').value == 'config') || ($('input_6perso').value == 'config') ) {
 			maquette=5;
 			opis += '<br />- je crée ma maquette en ligne';
 		}
+		if ($('input_6').value == 'sansbat') {
+			opis += '<br />- je ne souhaite pas de BAT';
+			}
 
 		///////////////////////////////////////////////////////// tarif unitaire//
 		puoption = pu+fixations+percage+tarifventouse;
@@ -1235,12 +1277,19 @@ jQuery(document).ready(function(){
 		if ($('input_HD').value == 'HD') {HD = cena*0.30; cena += HD; opis += '<br />- HD';}
 		if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
 		////FIN HD///
-
+		//////////////////////////////////////////////////////signature
+			if ($('input_signature').value == 'signature FB') {
+				opis += '<br />- signature France Banderole';
+			}
+			if ($('input_signature').value == 'sans signature') {
+				if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5*ilosc;};
+				opis += '<br />- sans signature';
+			}
 
 		///////////////////////////////////////////////////////////// options //
 		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 		if (colis == true) {
-			cena += 2.00*ilosc;
+			if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2*ilosc;}
 			cedzik += '<br />- colis revendeur';
 		}
 
@@ -1500,7 +1549,7 @@ jQuery(document).ready(function(){
 
 
 				////////////////////////////////////////////////// envoi formulaire //
-				var rodzaj = "forex 5mm";
+				var rodzaj = "Forex 5mm";
 				var dodajkoszyk = document.getElementById("cart_form");
 
 				if($('input_1').value == 'personnalisée') {

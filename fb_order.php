@@ -250,7 +250,7 @@ function get_filesender($products) {
 	        </div>
 	        <br />
 	        <table id="fbcart_fileupload3" class="table table-striped" cellpadding="0" cellspacing="0">
-			<thead><tr><th class="lefttd"></th><th class="tabname">FICHIER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
+					<thead><tr><th class="lefttd"></th><th class="tabname">FICHIER</th><th class="tabsize">TAILLE</th><th class="tabprog">progrès</th><th class="tabstart">action</th><th class="tabdel"></th></tr></thead>
 	        <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
 	</form>
 	';
@@ -305,22 +305,22 @@ function get_filesender($products) {
 	    </tr>
 	{% } %}
 	</script>
-		';
-		$view .= '
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/vendor/jquery.ui.widget.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.iframe-transport.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/tmpl.min.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/load-image.min.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/canvas-to-blob.min.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.image-gallery.min.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-fp.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-ui.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-jui.js"></script>
-		<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/main.js?v3"></script>
-		<!--[if gte IE 8]><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/cors/jquery.xdr-transport.js"></script><![endif]-->
-		';
+	';
+	$view .= '
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/vendor/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.iframe-transport.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/tmpl.min.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/load-image.min.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/canvas-to-blob.min.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.image-gallery.min.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-fp.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-ui.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/jquery.fileupload-jui.js"></script>
+	<script type="text/javascript" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/main.js?v3"></script>
+	<!--[if gte IE 8]><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/juploader/js/cors/jquery.xdr-transport.js"></script><![endif]-->
+	';
 
 	return $view;
 }
@@ -336,8 +336,12 @@ function get_details() {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_comments = $prefix."fbs_comments";
 	$fb_tablename_cf = $prefix."fbs_cf";
+	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+	$fb_tablename_users_cr = $prefix."fbs_users_cr";
+	$fb_tablename_users_co = $prefix."fbs_users_co";
 	$fb_tablename_rating = $prefix."fbs_rating";
 	$user = $_SESSION['loggeduser'];
+	$uid = $_SESSION['loggeduser']->id;
 	$idzamowienia = $_GET['detail'];
 
 	$zamowienie = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
@@ -407,6 +411,9 @@ function get_details() {
 
 	$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
 	$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS <span class="disno480">Nº '.$idzamowienia.'</span><span class="etat">'.print_status($zamowienie->status).'</span></div>';
+	$prolog .= '<div id="expop" class="devisPop mfp-hide">
+	'.export_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia).'
+	<button onclick="print(\'#expop\');" id="print" class="noprint" title="imprimer"><i class="fa fa-print"></i></button></div>';
 
 	// récuprère le dernier commentaire de france banderole
 	// $lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
@@ -471,11 +478,11 @@ function get_details() {
 		$epilog .= '<div id="fbcart_lastcomment"></div>';
 	}
 
-	// bouton retour à vos devis /////////////////////////////////////////////////
+	//-------------------------------------------------- bouton retour à vos devis
 	$epilog .= '<div id="fbcart_buttons" class="noprint">';
-	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a>';
+	$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a>';
 
-	// bouton annuler ////////////////////////////////////////////////////////////
+	//------------------------------------------------------------- bouton annuler
 	if ($status<2) {
 		$epilog .= '<form name="delfromvosdevis" id="delfromvosdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="annulervosdevis" value="'.$idzamowienia.'" /><button id="but_annulercommande" type="submit"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</button></form>';
 	// status 1 attente paeiment bouton annuler
@@ -483,14 +490,25 @@ function get_details() {
 		$epilog .= '<span id="but_annulercommande" class="deactive"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</span>';
 	}
 
-	//  bouton imprimer //////////////////////////////////////////////////////////
+	$revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_value = 'compte revendeur' AND uid = '$uid'");
+	$exco = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_co` WHERE uid = '$uid'");
+
+	//------------------------------------------------- bouton imprimer / exporter
 	if ($status!=3 && $status!=4 && $status!=5) {
+		if ($revendeur) {
+			if ($exco->devi == 1) $epilog .= '<a href="#expop" id="but_exporter" class="open-popup-link"><i class="fa fa-print" aria-hidden="true"></i> Exporter ce devis</a>';
+			else $epilog .= '<a href="#expop" id="but_exporter" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Exporter ce devis</a>';
+		}
 		$epilog .= '<a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	} else {
+		if ($revendeur) {
+			if ($exco->devi == 1) $epilog .= '<a href="#expop" id="but_exporter" class="open-popup-link"><i class="fa fa-print" aria-hidden="true"></i> Exporter ce devis</a>';
+			else $epilog .= '<a href="#expop" id="but_exporter" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Exporter ce devis</a>';
+		}
 		$epilog .= '<span id="but_imprimer" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</span>';
 	}
 
-	// bouton voir BAT ///////////////////////////////////////////////////////////
+	//------------------------------------------------------------ bouton voir BAT
 	$has_bat = 0;
 	if (($zamowienie->status) > 0) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$idzamowienia.'-projects';
@@ -512,21 +530,21 @@ function get_details() {
   	}
   }
 
-	// bouton écrire commentaire ////////////////////////////////////////////////
+	//-------------------------------------------------- bouton écrire commentaire
   if ($status!=5 && $status!=6 ) {
 		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
 	} else {
 		$epilog .= '<span id="but_comment" class="deactive"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</span>';
 	}
 
-	// bouton payer la commande //////////////////////////////////////////////////
+	//--------------------------------------------------- bouton payer la commande
 	if ($status<2) {
 		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
 	} else {
 		$epilog .= '<span id="but_payer" class="deactive"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</span>';
 	}
 
-	// bouton suivre le colis ////////////////////////////////////////////////////
+	//----------------------------------------------------- bouton suivre le colis
 	if ($status>=4) {
 		$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$idzamowienia'");
 		if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
@@ -543,21 +561,21 @@ function get_details() {
 		}
 	} else {
 		if ($status<2) {
-			$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> changer l\'adresse</a>';
+			$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
 		} else {
-			$epilog .= '<a id="but_suivre" class="deactive" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> changer l\'adresse</a>';
+			$epilog .= '<a id="but_suivre" class="deactive" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
 		}
 
 	}
 
-	// bouton imprimer la facture ////////////////////////////////////////////////
+	//------------------------------------------------- bouton imprimer la facture
 	if ($status==3 || $status==4 || $status==5) {
 		$epilog .= '<a href="javascript:window.print()" id="but_imprimerfacture"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</a>';
 	} else {
 		$epilog .= '<span id="but_imprimerfacture" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</span>';
 	}
 
-	// bouton noter france banderole /////////////////////////////////////////////
+	//---------------------------------------------- bouton noter france banderole
 	if ($status==4 || $status==5) {
 		$czyoceniony = $wpdb->get_row("SELECT * FROM `$fb_tablename_rating` WHERE unique_id = '$idzamowienia' AND exist = 'true'");
 		if (!$czyoceniony) {
@@ -589,56 +607,58 @@ function reorganize_votre($idzamowienia) {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_remises = $prefix."fbs_remises";
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
-	$kosztcalosci=0;
+	$totalHT=0;
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
-			$koszttotal = str_replace(',', '.', $item[total]);
-			$kosztcalosci = $kosztcalosci + $koszttotal;
-			$transportcalosci = $transportcalosci + $item[frais];
+			$totalItems = str_replace(',', '.', $item[total]);
+			$totalHT = $totalHT + $totalItems;
+			$fraisPort = $fraisPort + $item[frais];
 		}
-	//réduction supplémentaire
+		//--------------------------------------------------réduction supplémentaire
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
 				$dodatkowyrabat = $czyjestwtabeli->remis;
 				$dodatkowyrabat = str_replace(',', '.', $dodatkowyrabat);
-				$kosztcalosci = $kosztcalosci + $dodatkowyrabat;
+				$totalHT = $totalHT + $dodatkowyrabat;
 			}
 		}
-		//réduction supplémentaire
-		//vérifier s'il y a un rabais pour l'utilisateur//
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-				$newrabat = $exist_remise->percent / 100;
-				$wysokoscrabatu = $kosztcalosci * $newrabat;
-				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
-				$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $wysokoscrabatu), array ( 'sku' => $idzamowienia ) );
-			}
-	//fin//
-		$kosztcalosci = $kosztcalosci + $transportcalosci;
-	//changement TVA
+
+		//-------------------------------------------------mise à jour remise client
+		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
+		if ($exist_remise) {
+			$newrabat = $exist_remise->percent / 100;
+			$calculRemise = $totalHT * $newrabat;
+			$totalHT = $totalHT - $calculRemise;
+			$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $calculRemise), array ( 'sku' => $idzamowienia ) );
+		}
+
+	  //--------------------------------------------------------------------------
+		$totalHT = $totalHT + $fraisPort;
+		//------------------------------------------------------------changement TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
 			if ($czyjesttva->remis == 0) {
-				$podatekcalosci = 0;
+				$calculTVA = 0;
 			} elseif ($czyjesttva->remis == '') {
-			  	$podatekcalosci = $kosztcalosci*0.200;
+			  $calculTVA = $totalHT*0.200;
 			} else {
 				$tvapod = $czyjesttva->remis/100;
-				$podatekcalosci = $kosztcalosci*$tvapod;
+				$calculTVA = $totalHT*$tvapod;
 			}
 		} else {
-		  	$podatekcalosci = $kosztcalosci*0.200;
+		  	$calculTVA = $totalHT*0.200;
 		}
-	//changement TVA
-	  $totalcalosci = $kosztcalosci+$podatekcalosci;
-	  $kosztcalosci = number_format($kosztcalosci, 2);
-		$transportcalosci = number_format($transportcalosci, 2);
-		$podatekcalosci = number_format($podatekcalosci, 2);
-	  	$totalcalosci = number_format($totalcalosci, 2);
+
+		//--------------------------------------------------------------------------
+	  $totalTTC = $totalHT+$calculTVA;
+	  $totalHT = number_format($totalHT, 2);
+		$fraisPort = number_format($fraisPort, 2);
+		$calculTVA = number_format($calculTVA, 2);
+	  $totalTTC = number_format($totalTTC, 2);
 		//$nowadata = date('Y-m-d H:i:s');
-		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $transportcalosci, 'totalht' => $kosztcalosci, 'tva' => $podatekcalosci, 'totalttc' => $totalcalosci), array ( 'unique_id' => $idzamowienia ) );
+		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $fraisPort, 'totalht' => $totalHT, 'tva' => $calculTVA, 'promo'=>0, 'totalttc' => $totalTTC), array ( 'unique_id' => $idzamowienia ) );
 	} else {
 		$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
@@ -652,13 +672,15 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_remises = $prefix."fbs_remises";
+	$fb_tablename_users_cf = $prefix."fbs_users_cf";
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
 	$fb_tablename_order = $prefix."fbs_order";
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
 	$fb_tablename_address = $prefix."fbs_address";
 	$idzamowienia=$_GET['detail'];
 	$query = $wpdb->get_row("SELECT *, DATE_FORMAT(date_modify, '%d/%m/%Y') AS datamodyfikacji FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
-
+	$user = $_SESSION['loggeduser'];
+	$uid = $_SESSION['loggeduser']->id;
 	$r = get_inscription2();
 
 	/* un commentaire, le cas échéant mis en lecture */
@@ -682,7 +704,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			$produkty = $products;
 			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th class="cartQte">Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="threm">Remise</th><th class="thtotal">Total</th><th></th></tr>';
 			$licznik = 0;
-			$kosztcalosci = 0;
+			$totalHT = 0;
 
 			foreach ( $products as $products => $item ) {
 				$licznik++;
@@ -751,7 +773,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 					<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 	      }
 				if ($writable) {
-					$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande?" ).'")) {return true;} return false;\'>DEL</button></form></td>';
+					$view .= '<td class="noprint"><form name="delvotre_form" id="delvotre_form" action="" method="post"><input type="hidden" name="delfromvotre" value="'.$item[id].'" /><input type="hidden" name="order_id" value="'.$item[order_id].'" /><button id="delcart" type="submit" onclick=\'if (confirm("'.esc_js( "Etes-vous sûr de vouloir retirer ce produit de votre commande? Si vous aviez un code promotionnel, il ne sera plus appliqué. " ).'")) {return true;} return false;\'>DEL</button></form></td>';
 				} else {
 					$view .= '<td class="noprint"></td>';
 				}
@@ -771,22 +793,23 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			//---------------------------------------vérifier s'il y a une remise client
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
-		  	$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$cremisetd = '<tr><td class="toleft">REMISE CLIENT ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+		  	$calculRemise = number_format($exist_remise->remisenew, 2);
+				$cremisetd = '<tr><td class="toleft">REMISE générale ('.$exist_remise->percent.'%)</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
 			}
 			//-------------------------------------------vérifier s'il y a un code promo
-			$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+			$exist_code = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
 			if ($exist_code->promo > 1) {
-				$calculCode = ($kosztcalosci-$wysokoscrabatu)*($exist_code->promo/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
-				$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-				$addtodevis ='<tr><td class="toleft">Code réduction ('.$exist_code->promo.'%) </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+				$calculCode = $exist_code->promo;
+				$totalHT = $exist_code->totalht;
+				$calculCode = number_format($calculCode, 2);
+				$addtodevis ='<tr><td class="toleft">CODE PROMO </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
 			}
 			//------------------------------------------------------------------------
 
- 	  	$tfrais = str_replace('.', ',', $kosztorder->frais).' &euro;';
-	  	$ttotalht = str_replace('.', ',', $kosztorder->totalht).' &euro;';
-	  	$ttva = str_replace('.', ',', $kosztorder->tva).' &euro;';
-	  	$ttotalttc = str_replace('.', ',', $kosztorder->totalttc).' &euro;';
+ 	  	$tfrais = $kosztorder->frais.' &euro;';
+	  	$ttotalht = $kosztorder->totalht.' &euro;';
+	  	$ttva = $kosztorder->tva.' &euro;';
+	  	$ttotalttc = $kosztorder->totalttc.' &euro;';
 
 			$user = $_SESSION['loggeduser'];
 			$explode = explode('|', $user->f_address);
@@ -812,22 +835,25 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 			<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
 			<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
+			'.$addtodevis.'
+			'.$cremisetd.'
 			<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
-			'.$cremisetd.
-			$addtodevis.'
-			<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
+			<tr><td class="toleft total">total ttc</td><td class="toright total">'.$ttotalttc.'</td></tr>
 			</table>';
 
 			$view .= '<table id="fbcart_address" border="0" cellspacing="0">
 			<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
-			<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> changer l\'adresse</a></td></tr>
+			<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'</td></tr>
 			</table>';
 
 			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en Provence: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 15.000,00 &euro;</i></div>'; // ajout devis
 
-			// ajout des conditions générales de ventes à l'impression du devis papier
+    	// ajout des conditions générales de ventes à l'impression du devis papier
+			$revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_value = 'compte revendeur' AND uid = '$uid'");
+			if (!$revendeur) {
 			$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
 			$view .= $cgv;
+			}
 
 		} else {
 			$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
@@ -877,15 +903,16 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		//---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
-	  	$wysokoscrabatu = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-			$cremisetd = '<tr><td class="toleft">REMISE CLIENT ('.$exist_remise->percent.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+	  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
+			$cremisetd = '<tr><td class="toleft">REMISE générale ('.$exist_remise->percent.'%)</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
 		}
 		//-------------------------------------------vérifier s'il y a un code promo
-		$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+		$exist_code = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
 		if ($exist_code->promo > 1) {
-			$calculCode = ($kosztcalosci-$wysokoscrabatu)*($exist_code->promo/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+			$calculCode = $exist_code->promo;
+			$totalHT = $exist_code->totalht;
 			$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-			$addtodevis ='<tr><td class="toleft">Code réduction ('.$exist_code->promo.'%) </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+			$addtodevis ='<tr><td class="toleft">CODE PROMO </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
 		}
 		//--------------------------------------------------------------------------
 	  $tfrais = str_replace('.', ',', $query->frais).' &euro;';
@@ -893,13 +920,12 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	  $ttva = str_replace('.', ',', $query->tva).' &euro;';
 	  $ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
-
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
 		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
+		'.$addtodevis.'
+		'.$cremisetd.'
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
-		'.$cremisetd     // si remise client on affiche la ligne
-    .$addtodevis.'
-		<tr><td class="toleft"">total ttc</td><td class="toright"><b>'.$ttotalttc.'</b></td></tr>
+		<tr><td class="toleft total">total ttc</td><td class="toright total">'.$ttotalttc.'</td></tr>
 		</table>';
 
 		if ($query->payment == 'cheque') { $method = 'CHÉQUE'; }
@@ -939,10 +965,153 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		</table>';
 
 		// ajout des conditions générales de ventes à l'impression de la facture papier
+		$revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_value = 'compte revendeur' AND uid = '$uid'");
+		if (!$revendeur) {
 		$cgv = file_get_contents('https://www.france-banderole.com/wp-content/plugins/fbshop/printCGV.html');
-		$view .= $cgv; // ajout CGV
+		$view .= $cgv;
+		}
+
 	}
 	$view .= contact_advert();
+	return $view;
+}
+
+// fin affichage détails ///////////////////////////////////////////////////////
+function export_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_remises = $prefix."fbs_remises";
+	$fb_tablename_remisnew = $prefix."fbs_remisenew";
+	$fb_tablename_order = $prefix."fbs_order";
+	$fb_tablename_comments_new = $prefix."fbs_comments_new";
+	$fb_tablename_address = $prefix."fbs_address";
+	$idzamowienia=$_GET['detail'];
+	$query = $wpdb->get_row("SELECT *, DATE_FORMAT(date_modify, '%d/%m/%Y') AS datamodyfikacji FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
+
+	//$r = get_inscription2();
+
+	$view .= '<div class="modalDevis" id="modalDevis">';
+	$view .= $epilog;
+
+	if ($products) {
+
+		$produkty = $products;
+
+		$user = $_SESSION['loggeduser'];
+		$explode = explode('|', $user->f_address);
+		$f_address = $explode['0'];
+		$f_porte = $explode['1'].'<br />';
+		$explode2 = explode('|', $user->l_address);
+		$l_address = $explode2['0'];
+		$l_porte = $explode2['1'].'<br />';
+		if ( ($l_name == '') && ($l_address == '') ) {
+			$epilog_0 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
+		} else {
+			$epilog_0 .= $user->l_name.'<br />'.$user->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$user->l_code.'<br />'.$user->l_city;
+		}
+		$useraddress = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$idzamowienia'");
+		if ($useraddress) {
+			$explode2 = explode('|', $useraddress->l_address);
+			$l_address = $explode2['0'];
+			$l_porte = $explode2['1'].'<br />';
+			$epilog_0 = $useraddress->l_name.'<br />'.$useraddress->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$useraddress->l_code.'<br />'.$useraddress->l_city;
+		}
+		$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
+
+		$view .= '<table id="fbcart_address" style="width:100%" cellspacing="0">
+		<tr><th class="leftth">émetteur</th><th>destinataire</th></tr>
+		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'<a id="order_inscription"  href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> modifier destinataire</a></td></tr>
+		</table>';
+
+		$view .= '<div id="printable"><table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th class="thqte"><th class="cartQte">Quantité</th><th>Prix  U.</th><th class="thopt">Option</th><th class="thtotal">Total</th></tr>';
+		$licznik = 0;
+		$totalHT = 0;
+		$items = 0;
+		$remiseG = 0;
+
+		// on vérifie s'il y a une remise générale et on récupère le pourcentage
+		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
+		if ($exist_remise) {
+	  	$remiseG = $exist_remise->percent/100;
+		}
+
+		foreach ( $products as $products => $item ) { // pour chaque produit
+			$prixItem = $item[total]/$item[quantity]; // on récupère le prix unitaire après les remises par catégories
+			$prixItem = $prixItem - ($prixItem*$remiseG); // on soustrait le % remise générale
+			$prixItem = str_replace(',', '', number_format($prixItem, 2));
+			$totalItem = $item[total]; // on récupère le total item
+			$totalItem = $totalItem - ($totalItem*$remiseG); // on soustrait le % remise générale
+			$totalItem = str_replace(',', '', number_format($totalItem, 2));
+			$licznik++;
+			$view .= '
+			<tr class="produit"><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> <span class="qte" data-id="'.$item[quantity].'">'.$item[quantity].'</span></td><td><span class="disMob0">Prix Unitaire : </span><span class="prixu" data-id="'.$prixItem.'">'.$prixItem.'</span></td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdtotal"><span class="disMob0">Total : </span><span class="prixi">'.$totalItem.'</span></td>';
+			$view .= '</tr>';
+			$items += $totalItem;
+		}
+
+		$marge = 0;
+		if (isset($_POST['amount'])) {
+			$marge = $_POST['amount'];
+		}
+		$totalht = $items + ($items*$marge/100);
+		$tva = $totalht*20/100;
+		$ttotalttc = $totalht + $tva;
+
+		$kosztorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+
+	  $tfrais = str_replace(',', '', number_format($kosztorder->frais, 2)).' &euro;';
+  	$ttotalht = str_replace(',', '', number_format($totalht, 2)).' &euro;';
+  	$ttva = str_replace(',', '', number_format($tva, 2)).' &euro;';
+  	$ttotalttc = str_replace(',', '', number_format($ttotalttc, 2)).' &euro;';
+
+		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
+		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
+		<tr><td class="toleft">Total ht</td><td class="toright" id="loadht">'.$ttotalht.'</td></tr>
+		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright" id="loadtva">'.$ttva.'</td></tr>
+		<tr><td class="toleft total">total ttc</td><td class="toright total" id="loadttc">'.$ttotalttc.'</td></tr>
+
+		</table>';
+
+		$view .= '
+		</div>
+
+		<div style="clear:both;"></div>
+
+		<div class="curseur noprint" id="curseurWrapper">
+
+			<p>Ajustez votre marge :</p>
+			<div id="curseur" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"></div>
+			<div class="steps">
+				<span class="tick">|<br>0%</span>
+				<span class="tick" style="left: 10%;">|<br>10%</span>
+				<span class="tick" style="left: 20%;">|<br>20%</span>
+				<span class="tick" style="left: 30%;">|<br>30%</span>
+				<span class="tick" style="left: 40%;">|<br>40%</span>
+				<span class="tick" style="left: 50%;">|<br>50%</span>
+				<span class="tick" style="left: 60%;">|<br>60%</span>
+				<span class="tick" style="left: 70%;">|<br>70%</span>
+				<span class="tick" style="left: 80%;">|<br>80%</span>
+				<span class="tick" style="left: 90%;">|<br>90%</span>
+				<span class="tick" style="left: 100%;">|<br>100%</span>
+			</div>
+
+			<form id="marge" name="ajustMarge" method="post" action="">
+
+				<input type="text" id="amount" name="amount" /> %
+				<input type="hidden" id="toutht" value="'.$ttotalht.'" />
+				<button type="submit" class="btMarge" name="margeSubmit">Appliquer</button>
+			</form>
+
+			<div id="totalMarge"></div>
+
+		</div>
+		';
+
+	} else {
+		$view .= '<p style="position:relative;float:left;display:inline;width:100%;">'._FB_ANNUL.'</p>';
+	}
+
+	$view .= '</div>';
 	return $view;
 }
 
@@ -1292,6 +1461,7 @@ function add_to_db() {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+	$fb_tablename_users_cr = $prefix."fbs_users_cr";
 	$fb_tablename_remisenew = $prefix."fbs_remisenew";
 	$fb_tablename_cf = $prefix."fbs_cf";
 	$fb_tablename_address = $prefix."fbs_address";
@@ -1312,52 +1482,122 @@ function add_to_db() {
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
 
 		$user = $_SESSION['loggeduser'];
+    $uid = $_SESSION['loggeduser']->id;
+
 		foreach ( $products as $products => $item ) {
-			$koszttotal = str_replace(',', '.', $item[total]);
-			$kosztcalosci = $kosztcalosci + $koszttotal;
-			$transportcalosci = $transportcalosci + $item[transport];
+			$calculCat = '-';
+			$totalItem = str_replace(',', '.', $item[total]);
+      $prixUnit = str_replace(',', '.', $item[prix]);
+      $totalItem = str_replace('€', '', $totalItem);
+      $prixUnit = str_replace('€', '', $prixUnit);
+			$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
+
+			//------------------------------------vérification remise par catégories
+			if ($cat) { // s'il existe des remises par catégorie pour ce client
+				foreach($cat as $key => $value) : // pour chaque catégorie
+					if (!empty($value) && $value != '0') { // si valeur différente de 0 existe
+						$prixItem = 0;
+						$prodCat = $item[rodzaj];
+						$find = '/'.$key.'/'; // on recherche le nom de la catégorie dans le panier
+						$trouve = preg_match_all($find, $prodCat, $resultat);
+						$trouve = count($resultat[0]);
+						if($trouve >= 1){ // si on trouve la catégorie, on applique la remise
+							$prixItem += $prixUnit*$item[ilosc];
+							$calculCat = ($prixItem)*($value/100); // calcule la réduction sur le total HT produit x quantité
+							$totalItem = $totalItem-$calculCat;
+							$calculCat = number_format($calculCat, 2);
+							$totalItem = number_format($totalItem, 2);
+							$totalItem = str_replace(',', '', $totalItem);
+						}
+					}
+				endforeach;
+			}
+
+			$totalHT = $totalHT + $totalItem;
+			$fraisPort = $fraisPort + $item[transport];
 		}
 
-		$kosztcalosci = $kosztcalosci + $transportcalosci;
-		$podatekcalosci = $kosztcalosci*0.200;
-		$totalcalosci = $kosztcalosci+$podatekcalosci;
+		//--------------------------------------------------------------------------
+    $addtodevis ='';
+    $calculRemise = 0;
+    $calculCode = 0;
 
-		//--------------------------------------------------------remise utilisateur
+    $totalHT = $totalHT + $fraisPort;
+    $calculTVA = $totalHT*0.200;
+    $totalTTC = $totalHT+$calculTVA;
+
+		//------------------------------------------------vérification remise client
 		$uid = $user->id;
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
 		if ($exist_remise) {
 			$client_remise = $exist_remise->att_value;
 			if (!empty($client_remise) && $client_remise != '0') {
 				$newrabat = $client_remise / 100;
-				$wysokoscrabatu = $kosztcalosci * $newrabat;
-				$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
+				$calculRemise = ($totalHT-$calculCode) * $newrabat;
 			}
 		}
 
-		//---------------------------------------------------vérification code promo
-    if(isset($_POST['codeProm'] )) {
-      $codepromo = $_POST['codeProm'] ;
-      echo $codepromo;
-      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-      $curdate = date("Y-m-d");
-      if($codeisindb) {
-				if($curdate > $reduction->date) {
+		//---------------------------s'il n'y a ni remise client ni remise catégorie
+		if (!$exist_remise && !$cat) {
+			//---------------------------------------------------vérification code promo
+			if(isset($_POST['codeProm'] )) {
+	      $products = $_SESSION['fbcart'];
+	      $codepromo = $_POST['codeProm'] ;
+	      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+	      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+	      $curdate = date("Y-m-d");
+	      $promoCat = $reduction->categorie;
 
-				}else{
-          $calculCode = ($kosztcalosci-$wysokoscrabatu)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
-          $totalcalosci = $kosztcalosci+$podatekcalosci-$wysokoscrabatu-$calculCode;
-				}
-			}
-    }
+	      if($codeisindb) { // si le code entré est bien dans la bdd:
+	        if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
+	          if($curdate > $reduction->date) { // si le code a expiré:
 
-		$kosztcalosci = number_format($kosztcalosci, 2);
-		$transportcalosci = number_format($transportcalosci, 2);
-		$podatekcalosci = number_format($podatekcalosci, 2);
-		$totalcalosci = number_format($totalcalosci, 2);
+	          }else{ //-------------------------------------- si le code est valide:
+
+	            if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
+	              $prixItem = 0;
+	              foreach ( $products as $products => $item ) {
+	        				$prodCat = $item[rodzaj];
+	                $find = '/'.$promoCat.'/';
+	        				$trouve = preg_match_all($find, $prodCat, $resultat);
+	        				$trouve = count($resultat[0]);
+	                if($trouve >= 1){
+	                  $prixItem += $item[prix]*$item[ilosc];
+	                }
+	              }
+	              $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
+	            }else{ //--------------si la réduction s'applique à tous les produits:
+	              $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+	            }
+	          }
+	        }else{ // si le code est inférieur au minimum d'achat:
+	        }
+
+	      }else{ // si le code n'est pas dans la bdd:
+	      }
+	    }
+		}
+
+
+		//--------------------------------------------------------------------------
+
+    $totalHTdeduit = $totalHT + $fraisPort - $calculRemise - $calculCode;
+    $calculTVA = $totalHTdeduit*0.200;
+    $totalTTC = $totalHTdeduit+$calculTVA;
+
+		$calculRemise = str_replace(',', '', number_format($calculRemise, 2));
+    $calculCode = str_replace(',', '', number_format($calculCode, 2));
+		$totalHT = str_replace(',', '', number_format($totalHT, 2));
+		$totalHTdeduit = str_replace(',', '', number_format($totalHTdeduit, 2));
+		$fraisPort = str_replace(',', '', number_format($fraisPort, 2));
+		$calculTVA = str_replace(',', '', number_format($calculTVA, 2));
+		$totalTTC = str_replace(',', '', number_format($totalTTC, 2));
+
+    //--------------------------------------------------------------------------
+
 		$unique_id = random_string();
 		$data = date('Y-m-d H:i:s');
-		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$transportcalosci."', '".$kosztcalosci."', '".$podatekcalosci."', '".$reduction->remise."', '".$totalcalosci."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','','','')");
+		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$fraisPort."', '".$totalHT."', '".$calculTVA."', '".$calculCode."', '".$totalTTC."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','','','')");
 
 		//ICI PLACER L'AJOUT A MAILJET
 		createContact($user->email);
@@ -1367,7 +1607,7 @@ function add_to_db() {
 
 		if ($dodaj_zamowienie) {
 			if (!empty($client_remise) && ($client_remise != '0')) {
-				$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$wysokoscrabatu."')");
+				$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$calculRemise."')");
 				if ($dodaj_nowyrabat) { }
 			}
 			$ktomakiete = 0;
@@ -1375,6 +1615,33 @@ function add_to_db() {
 			$products = $_SESSION['fbcart'];
 
 			foreach ( $products as $products => $item ) {
+				$calculCat = '-';
+				$totalItem = str_replace(',', '.', $item[total]);
+	      $prixUnit = str_replace(',', '.', $item[prix]);
+	      $totalItem = str_replace('€', '', $totalItem);
+	      $prixUnit = str_replace('€', '', $prixUnit);
+				$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
+
+				//------------------------------------vérification remise par catégories
+				if ($cat) { // s'il existe des remises par catégorie pour ce client
+					foreach($cat as $key => $value) : // pour chaque catégorie
+						if (!empty($value) && $value != '0') { // si valeur différente de 0 existe
+							$prixItem = 0;
+							$prodCat = $item[rodzaj];
+							$find = '/'.$key.'/'; // on recherche le nom de la catégorie dans le panier
+							$trouve = preg_match_all($find, $prodCat, $resultat);
+							$trouve = count($resultat[0]);
+							if($trouve >= 1){ // si on trouve la catégorie, on applique la remise
+								$prixItem += $prixUnit*$item[ilosc];
+								$calculCat = ($prixItem)*($value/100); // calcule la réduction sur le total HT produit x quantité
+								$totalItem = $totalItem-$calculCat;
+								$calculCat = number_format($calculCat, 2);
+								$totalItem = number_format($totalItem, 2);
+								$totalItem = str_replace(',', '', $totalItem);
+							}
+						}
+					endforeach;
+				}
 				$wzorzec = '/j’ai déjà crée la maquette/';
 				$ktomak = preg_match_all($wzorzec, $item[description], $wynik);
 				$ktomak = count($wynik[0]);
@@ -1393,7 +1660,7 @@ function add_to_db() {
 				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
 				if ($ktomakiete == 2) $czyfbrobimakiete = 2;
 
-				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$item[prix]."', '".$item[option]."', '".$item[remise]."', '".$item[total]."', '".$item[transport]."', '', '1', '".$item[hauteur]."', '".$item[largeur]."')");
+				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item[rodzaj]."', '".$item[opis]."', '".$item[ilosc]."', '".$prixUnit."', '".str_replace(',', '.', $item[option])."', '".$calculCat."', '".$totalItem."', '".$item[transport]."', '', '1', '".$item[hauteur]."', '".$item[largeur]."')");
 			}
 
 			if ($dodaj_produkt) {
@@ -1409,7 +1676,7 @@ function add_to_db() {
 				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
 				$lettert = "Fonctionnement général de votre accès client";
 			}
-			$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+			$header = 'From: France Banderole <information@france-banderole.com>';
       		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 	        //mail($user->email, $lettert, $letter, $header);
 	        wp_mail($user->email, $lettert, $letter);

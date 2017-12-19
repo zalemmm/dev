@@ -2578,7 +2578,7 @@ function fb_admin_sales() {
         $found23= count($resultat3[0]);
         if ($found3 >= 1) {
           $batcolor = 'nobat"';
-        }
+        }$batcolo
 
   			//-----------------------------------------------------vérification rush
   			if ($p->status == 1) {
@@ -6668,14 +6668,13 @@ function fb_admin_fournisseurs() {
 /////////////////////////////////////////////////////////// page entrées/sorties
 
 function fb_admin_entree() {
-
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_stock = $prefix."fbs_stock_prods";
   $fb_tablename_entree = $prefix."fbs_stock_entree";
 
   echo '<div class="form-wrap"><div id="col-container">';
-	echo '<div id="col-right" style="width:22%;margin-top:47px;">';
+	echo '<div id="col-right" style="width:22%;margin-top:38px;">';
 
   //----------------------------------------------------formulaire entrée simple
   if (isset($_POST['ajouter'])) {
@@ -6750,35 +6749,14 @@ function fb_admin_entree() {
 	echo '</div>';
 
   //------------------------------------------------------------------classement
-;
-  $monthsback = '';
-  $nextm = '';
-  $i = 0;
-
-  if (isset($_POST['prevmonth'])) {
-    $i = 1;
-
-    if  ($_POST['prevmonth'] >= 1 && $_POST['prevmonth'] < 12 ) {
-      $i += 1;
-    }
-
-    $monthsback = '-'.$i;
-    $nextm = '<button type="submit" class="stockbtn prevnext" name="nextmonth" value="'.$i.'" style="">Mois Suivant <i class="fa fa-caret-right"></i></button>';
-  }
-
-  if (isset($_POST['nextmonth'])) {
-    $i = $i-1;
-  }
-  //$entree = $wpdb->get_results("SELECT * FROM `$fb_tablename_entree` WHERE date BETWEEN (CURRENT_DATE() - INTERVAL 1 MONTH) AND (CURRENT_DATE()) ORDER BY date DESC LIMIT 100", ARRAY_A);
-  $entree = $wpdb->get_results("SELECT * FROM `$fb_tablename_entree` WHERE MONTH(date) = (MONTH(NOW()) $monthsback) AND YEAR(date) = YEAR(NOW()) ORDER BY date DESC LIMIT 100", ARRAY_A);
-
+$c
+  $curMonth = date('my');
+  echo $curMonth;
+	$entree = $wpdb->get_results("SELECT * FROM `$fb_tablename_entree` WHERE STR_TO_DATE(date, '%m/%d/%Y') > CURDATE() - INTERVAL 7 DAYS ORDER BY date DESC LIMIT 100");
+  $c
   //-----------------------------------------------------------affichage tableau
-  echo '<h1>Gestion de stock <a class="stockbtn" href="admin.php?page=fb-stock">Produits</a> <a class="stockbtn" href="admin.php?page=fb-fournisseurs">Fournisseurs</a> <a class="stockbtn" style="background:#26a7d9" href="admin.php?page=fb-entree">Entrées/Sorties</a>
-  <form type="" method="post">
-  <button type="submit" class="stockbtn prevnext" name="prevmonth" value="'.$i.'" style=""><i class="fa fa-caret-left"></i> Mois précédent</button>
-  '.$nextm.'
-  </form></h1>';
-	echo '<div id="col-left" style="width:77%;margin-top:0;">';
+  echo '<h1>Gestion de stock <a class="stockbtn" href="admin.php?page=fb-stock">Produits</a> <a class="stockbtn" href="admin.php?page=fb-fournisseurs">Fournisseurs</a> <a class="stockbtn" href="admin.php?page=fb-entree" style="background:#26a7d9">Entrées/Sorties</a></h1>';
+	echo '<div id="col-left" style="width:77%;margin-top:13px;">';
   echo '<table class="widefat widecenter fixed nopad" id="mywidefat" cellspacing="0"><thead><tr>
     <th style="width:60px">Date</th>
     <th>Famille</th>
@@ -6792,11 +6770,10 @@ function fb_admin_entree() {
     <th style="width:30px">Min</th>
   </tr></thead>';
 
-  foreach ($entree as $e) :
-
+  foreach ($entree as $e) :$cur
     $s = $wpdb->get_row("SELECT * FROM `$fb_tablename_stock` WHERE code = '$e[code]'");
 
-		echo '
+    echo '
       <tr>
         <td>'.$e[date].'</td>
         <td class="colalt">'.$s->famille.'</td>
@@ -6819,6 +6796,7 @@ function fb_admin_entree() {
         <td class="colalt">'.$s->mini.'</td>
       </tr>
     ';
+
 	endforeach;
 
 	echo '</table>';

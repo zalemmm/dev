@@ -8,8 +8,8 @@
 					<span class="helpButton" onmouseover="tipShow('helpTexttype');" onmouseout="tipHide('helpTexttype');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttype" style="visibility:hidden;">
-							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-firstline.pdf" data-lity>kakemono Roll-up FIRSTLINE</a>: <span class="highlight">Dès 28,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
-							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-bestline.pdf" data-lity>kakemono Roll-up BESTLINE</a>: <span class="highlight">Dès 45,00€</span></b><br/>le kakemono roll-up Mosquito le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-firstline.pdf" data-lity>kakemono Roll-up FIRSTLINE</a>: <span class="highlight">Dès 24,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
+							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-bestline.pdf" data-lity>kakemono Roll-up BESTLINE</a>: <span class="highlight">Dès 40,00€</span></b><br/>le kakemono roll-up Mosquito le plus vendu, meilleur rapport qualité/prix de 60 à 200cm de large.<br/>
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-luxeline.pdf" data-lity>kakemono Roll-up LUXLINE</a>: <span class="highlight">Dès 60,00€</span></b><br/>le roll-up de luxe, plus stable et résistant, de 60 à 200cm jusqu'à 300cm de haut ! <br />
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-recto-verso.pdf" data-lity>kakemono Roll-up RECTO/VERSO</a>: <span class="highlight">Dès 90,00€</span></b><br/>Rollup avec 2 visuels indépendants montés ensemble ou seul. De 80 à 100cm de large.<br/>
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-mini.pdf" data-lity>kakemono Roll-up MINI</a>: <span class="highlight">Dès 24,00€</span></b><br/>le mini roll-up de comptoir, esthétique et pas cher, Disponible en A4 et A3<br/>
@@ -132,9 +132,9 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport2" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: bâche pvc enduite anti-feu M1 INT/EXT durable et made in France.<br/>
-							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecologique.pdf" data-lity>Toile 100% écologique M1</a></b>: Toile 100% polyester M1 sans PVC ni phtalate. Texturée et ignifugée. Aspect blanc cassé, type toile de peintre.<br />
-							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-CAPOVERDE.pdf" data-lity>Capotoile 320 M1</a></b>: Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a>.<br />
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: bâche pvc enduite anti-feu M1 durable et made in France.<br/>
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecologique.pdf" data-lity>Toile 100% écologique M1</a></b>: Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-CAPOVERDE.pdf" data-lity>Capotoile 320 M1</a></b>: Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a> à base de bouchons de bouteille recyclés.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_32" name="q32_visuel" onclick="JKakemono.czyscpola(); ">
@@ -168,13 +168,17 @@
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
-							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a>:</b> bâche pvc enduite anti-feu M1 INT/EXT durable et made in France.<br/>
+							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: bâche pvc enduite anti-feu M1 durable et made in France.<br/>
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecologique.pdf" data-lity>Toile 100% écologique M1</a></b>: Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="//www.france-banderole.com/wp-content/uploads/notice/notice-banderole-CAPOVERDE.pdf" data-lity>Capotoile 320 M1</a></b>: Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a> à base de bouchons de bouteille recyclés.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_34" name="q34_visuel" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir le support... </option>
 						<option class="option1" value="440g">bâche 440g</option>
 						<option class="option2" value="jet 520 M1">bâche Dickson Jet 520 M1</option>
+                        <option class="option1" value="100% écologique M1">toile 100% écologique M1</option>
+						<option class="option2" value="capotoile">Capotoile 320 M1 validé Ecocert Erts</option>
 					</select>
 				</li>
 
@@ -197,14 +201,14 @@
 					<span class="helpButton" onmouseover="tipShow('helpTextspot');" onmouseout="tipHide('helpTextspot');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextspot" style="visibility:hidden;">
-							<b>Option Eclairage:</b><br/>Mini Spot pince halogène 35w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>
+							<b>Option Eclairage:</b><br/>Mini Spot pince halogène 50w complet avec raccord 220v. se fixe sur le mât du roll-up.<br/>
 							<b>Aucune option:</b><br/>... :) Aucune option.<br/>
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_4" name="q4_maquette4" onclick="JKakemono.czyscpola(); ">
 						<option class="titre" value="">choisir une option...</option>
 						<option class="option1" value="aucune">aucune</option>
-						<option class="option2" value="spot">spot Pince Halogène 35w Aluminium </option>
+						<option class="option2" value="spot">spot Pince Halogène 50w Aluminium </option>
 					</select>
 				</li>
 
@@ -212,18 +216,37 @@
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
-							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+              <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
 							<b>Vous créez votre maquette en ligne:</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-						</span>
+							<b>France banderole crée votre fichier:</b><br/>
+							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+            </span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
-						<option class="titre" value="">fichier d'impression...</option>
-						<option class="option1" value="fb">France banderole crée la mise en page</option>
-						<option class="option2" value="user">j’ai déjà crée la mise en page</option>
-						<option value="config">je crée ma maquette en ligne</option>
+            <option value="">fichier d'impression...</option>
+						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
+						<option value="config">je crée ma maquette en ligne +5,00€</option>
+            <option value="fb">France banderole crée la mise en page +19,00€</option>
+					</select>
+				</li>
+
+        <li class="form-line" id="id_signature">
+          <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
+	            <b>Logo France Banderole</b><br/>
+							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
+	            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+	          </span>
+					</span>
+					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
+						<option value="">logo France Banderole ?</option>
+						<option value="signature FB">produit signé</option>
+						<option value="sans signature">produit neutre +5,00 €</option>
 					</select>
 				</li>
 
@@ -269,7 +292,7 @@
 							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
 							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
 							</span>
 						</span>
 
@@ -412,8 +435,8 @@
 			var perteH             = 0; 	var perteL   = 0;
 		  var h1                 = 0; 	var h2       = 0;
 		  var l1                 = 0; 	var l2       = 0;
-		  var metragefinal       = 0;		var details   = '';
-		  var cenatotal          = '';
+		  var metragefinal       = 0;		var details  = '';
+		  var cenatotal          = '';  var opis     = '';
 		  var metraz             = 0;
 		  var metrazzaokraglony  = 0;
 		  var metrazzaokraglony1 = 0;
@@ -444,12 +467,12 @@
 			//////////////////////////////////////////////////////////// first-line //
 
 			if ($('input_1').value == 'first-line') {
-				if (ilosc<7) {cena=28;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=27.5;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=27;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=26;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=25.5;}
-				if (ilosc>=217 ) {cena=25;}
+				if (ilosc<7) {cena=24;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=24;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=24;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=23;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=22.5;}
+				if (ilosc>=217 ) {cena=22;}
 				if (($('input_21').value == '80x200') && ($('input_31').value == '440g')) {
 					hauteur = 200;
 					largeur = 80;
@@ -472,12 +495,12 @@
 
 			//------------------------------------------------------------------60x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '60x200')) {
-				if (ilosc<7) {cena=47;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=46;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=45;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=44;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
-				if (ilosc>=217 ) {cena=40;}
+				if (ilosc<7) {cena=42;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=41;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=40;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=39;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=38;}
+				if (ilosc>=217 ) {cena=37;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 3;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
@@ -495,16 +518,16 @@
 			}
 			//------------------------------------------------------------------60x160
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '60x160')) {
-				if (ilosc<7) {cena=46;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=45;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=44;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=43;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
-				if (ilosc>=217 ) {cena=39;}
+				if (ilosc<7) {cena=41;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=40;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=39;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=38;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=37;}
+				if (ilosc>=217 ) {cena=34;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 3;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
-				if ($('input_32').value == '100% écologique M1') {cena += 11;}
+				if ($('input_32').value == '100% écologique M1') {cena += 10;}
 				if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
 
 				hauteur = 160;
@@ -518,17 +541,17 @@
 			}
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '80x200')) {
-				if (ilosc<7) {cena=49;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=48;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=47;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=46;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=44;}
-				if (ilosc>=217 ) {cena=42;}
+				if (ilosc<7) {cena=44;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=43;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=42;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=41;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=39;}
+				if (ilosc>=217 ) {cena=37;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 3;}
-				if ($('input_32').value == 'jet 520 M1') {cena += 4;}
-				if ($('input_32').value == '100% écologique M1') {cena += 11;}
-				if ($('input_32').value == 'capotoile') {cena += 11*1.3;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 5;}
+				if ($('input_32').value == '100% écologique M1') {cena += 12;}
+				if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
 				hauteur = 200;
 				largeur = 80;
@@ -541,15 +564,15 @@
 			}
 			//------------------------------------------------------------------85x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '85x200')) {
-				if (ilosc<7) {cena=51;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=50;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=49;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=48;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=47;}
-				if (ilosc>=217 ) {cena=44;}
+				if (ilosc<7) {cena=46;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=45;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=44;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=43;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=42;}
+				if (ilosc>=217 ) {cena=39;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 4;}
-				if ($('input_32').value == 'jet 520 M1') {cena += 5;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 6;}
 				if ($('input_32').value == '100% écologique M1') {cena += 12;}
 				if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
 
@@ -564,17 +587,17 @@
 			}
 			//-----------------------------------------------------------------100x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '100x200')) {
-				if (ilosc<7) {cena=64;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=63;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=62;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=61;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=59;}
-				if (ilosc>=217 ) {cena=57;}
+				if (ilosc<7) {cena=59;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=58;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=57;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=56;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=55;}
+				if (ilosc>=217 ) {cena=52;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 4;}
-				if ($('input_32').value == 'jet 520 M1') {cena += 5;}
-				if ($('input_32').value == '100% écologique M1') {cena += 12;}
-				if ($('input_32').value == 'capotoile') {cena += 12*1.3;}
+				if ($('input_32').value == 'jet 520 M1') {cena += 7;}
+				if ($('input_32').value == '100% écologique M1') {cena += 13;}
+				if ($('input_32').value == 'capotoile') {cena += 13*1.3;}
 
 				hauteur = 200;
 				largeur = 100;
@@ -587,12 +610,12 @@
 			}
 			//-----------------------------------------------------------------120x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '120x200')) {
-				if (ilosc<7) {cena=85;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=84;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=83;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=82;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=80;}
-				if (ilosc>=217 ) {cena=78;}
+				if (ilosc<7) {cena=80;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=79;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=78;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=77;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=75;}
+				if (ilosc>=217 ) {cena=74;}
 				if ($('input_32').value == '440g') {cena += 0;}
 				if ($('input_32').value == '300µ M1') {cena += 6;}
 				if ($('input_32').value == 'jet 520 M1') {cena += 8;}
@@ -610,18 +633,18 @@
 			}
 			//-----------------------------------------------------------------150x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '150x200')) {
-				if (ilosc<7) {cena=99;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=98;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=97;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=96;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=94;}
-				if (ilosc>=217 ) {cena=92;}
+				if (ilosc<7) {cena=94;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=93;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=92;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=91;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=89;}
+				if (ilosc>=217 ) {cena=88;}
 
 				if ($('input_33').value == '440g') {cena += 0}
 				if ($('input_33').value == '300µ M1') {cena += 9}
-				if ($('input_33').value == 'jet 520 M1') {cena += 12}
-				if ($('input_33').value == '100% écologique M1') {cena += 20}
-				if ($('input_33').value == 'capotoile') {cena += 20*1.3;}
+				if ($('input_33').value == 'jet 520 M1') {cena += 10}
+				if ($('input_33').value == '100% écologique M1') {cena += 18}
+				if ($('input_33').value == 'capotoile') {cena += 18*1.3;}
 
 				hauteur = 200;
 				largeur = 150;
@@ -634,14 +657,14 @@
 			}
 			//-----------------------------------------------------------------200x200
 			if (($('input_1').value == 'best-line') && ($('input_22').value == '200x200')) {
-				if (ilosc<7) {cena=199;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=198;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=196;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=194;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=192;}
-				if (ilosc>=217 ) {cena=188;}
+				if (ilosc<7) {cena=169;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=168;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=167;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=166;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=163;}
+				if (ilosc>=217 ) {cena=160;}
 				if ($('input_35').value == '440g') {cena += 0}
-				if ($('input_35').value == 'jet 520 M1') {cena += 15}
+				if ($('input_35').value == 'jet 520 M1') {cena += 20}
 
 				hauteur = 200;
 				largeur = 200;
@@ -659,12 +682,12 @@
 
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '80x200')){
-				if (ilosc<7) {cena=89;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=88;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=87;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=86;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=84;}
-				if (ilosc>=217 ) {cena=82;}
+				if (ilosc<7) {cena=84;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=83;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=82;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=81;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=79;}
+				if (ilosc>=217 ) {cena=78;}
 				if ($('input_32').value == '440g') {cena += 0}
 				if ($('input_32').value == '300µ M1') {cena += 3}
 				if ($('input_32').value == 'jet 520 M1') {cena += 4}
@@ -682,12 +705,12 @@
 			}
 			//-----------------------------------------------------------------100x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '100x200')){
-				if (ilosc<7) {cena=109;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=108;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=107;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=106;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=104;}
-				if (ilosc>=217 ) {cena=102;}
+				if (ilosc<7) {cena=104;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=103;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=102;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=101;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=99;}
+				if (ilosc>=217 ) {cena=98;}
 				if ($('input_32').value == '440g') {cena += 0}
 				if ($('input_32').value == '300µ M1') {cena += 4}
 				if ($('input_32').value == 'jet 520 M1') {cena += 5}
@@ -705,12 +728,12 @@
 			}
 			//-----------------------------------------------------------------120x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '120x200')){
-				if (ilosc<7) {cena=133;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=132;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=131;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=130;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=128;}
-				if (ilosc>=217 ) {cena=126;}
+				if (ilosc<7) {cena=126;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=125;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=124;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=123;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=122;}
+				if (ilosc>=217 ) {cena=121;}
 				if ($('input_32').value == '440g') {cena += 0}
 				if ($('input_32').value == '300µ M1') {cena += 6}
 				if ($('input_32').value == 'jet 520 M1') {cena += 8}
@@ -728,12 +751,12 @@
 			}
 			//-----------------------------------------------------------------150x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '150x200')){
-				if (ilosc<7) {cena=173;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=172;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=171;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=170;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=168;}
-				if (ilosc>=217 ) {cena=166;}
+				if (ilosc<7) {cena=165;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=164;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=163;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=162;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=161;}
+				if (ilosc>=217 ) {cena=160;}
 				if ($('input_33').value == '440g') {cena += 0}
 				if ($('input_33').value == '300µ M1') {cena += 9}
 				if ($('input_33').value == 'jet 520 M1') {cena += 12}
@@ -751,12 +774,12 @@
 			}
 			//-----------------------------------------------------------------200x200
 			if (($('input_1').value == 'lux-line') && ($('input_23').value == '200x200')){
-				if (ilosc<7) {cena=223;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=222;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=221;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=220;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=218;}
-				if (ilosc>=217 ) {cena=216;}
+				if (ilosc<7) {cena=219;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=218;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=217;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=216;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=215;}
+				if (ilosc>=217 ) {cena=214;}
 				if ($('input_35').value == '440g') {cena += 0}
 				if ($('input_35').value == 'jet 520 M1') {cena += 40}
 
@@ -775,12 +798,12 @@
 
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'double') && ($('input_24').value == '80x200')){
-				if (ilosc<7) {cena=95;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=94;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=93;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=92;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=90;}
-				if (ilosc>=217 ) {cena=88;}
+				if (ilosc<7) {cena=90;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=89;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=88;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=87;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=85;}
+				if (ilosc>=217 ) {cena=83;}
 				if ($('input_34').value == '440g') {cena += 0}
 				if ($('input_34').value == '300µ M1') {cena += 6}
 				if ($('input_34').value == 'jet 520 M1') {cena += 8}
@@ -823,12 +846,12 @@
 			}
 			//-----------------------------------------------------------------100x200
 			if (($('input_1').value == 'double') && ($('input_24').value == '100x200')){
-				if (ilosc<7) {cena=140;}
-				if ((ilosc>=7) && (ilosc<=24)) {cena=139;}
-				if ((ilosc>=25) && (ilosc<=48)) {cena=138;}
-				if ((ilosc>=49) && (ilosc<=108)) {cena=137;}
-				if ((ilosc>=109) && (ilosc<=216)) {cena=135;}
-				if (ilosc>=217 ) {cena=134;}
+				if (ilosc<7) {cena=135;}
+				if ((ilosc>=7) && (ilosc<=24)) {cena=134;}
+				if ((ilosc>=25) && (ilosc<=48)) {cena=133;}
+				if ((ilosc>=49) && (ilosc<=108)) {cena=132;}
+				if ((ilosc>=109) && (ilosc<=216)) {cena=130;}
+				if (ilosc>=217 ) {cena=129;}
 				if ($('input_34').value == '440g') {cena += 0}
 				if ($('input_34').value == '300µ M1') {cena += 12}
 				if ($('input_34').value == 'jet 520 M1') {cena += 15}
@@ -896,99 +919,112 @@
 
       	metragefinal=metrage*ilosc;
 
-
 				if (metragefinal < 1.99) {cenatotal = metragefinal*15.00;}
-					if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
-					if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
-					if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
-					if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
-					if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
-					if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
-					if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
-					if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
-					if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
-					if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
-					if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
-					if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
-					if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
-					if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
-					if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
-					if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
-					if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
-					if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
-					if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
-					if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
-					if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
-					if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
-					p1=(metraz*0.55)*ilosc;
+				if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = metragefinal*14.80;}
+				if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = metragefinal*14.60;}
+				if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = metragefinal*14.40;}
+				if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = metragefinal*14.20;}
+				if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = metragefinal*14.00;}
+				if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = metragefinal*13.50;}
+				if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = metragefinal*13.25;}
+				if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = metragefinal*13.00;}
+				if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = metragefinal*12.75;}
+				if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = metragefinal*12.50;}
+				if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = metragefinal*12.25;}
+				if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = metragefinal*12.00;}
+				if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = metragefinal*11.75;}
+				if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = metragefinal*11.50;}
+				if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = metragefinal*11.25;}
+				if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = metragefinal*11;}
+				if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = metragefinal*10.50;}
+				if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = metragefinal*10.00;}
+				if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = metragefinal*9.50;}
+				if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = metragefinal*9.00;}
+				if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = metragefinal*8.50;}
+				if (metragefinal > 499.99) {cenatotal = metragefinal*8.00;}
+				p1=(metraz*0.55)*ilosc;
 
-	        if ($('input_26').value == '80x200 1 visuel') {
-					  structure=86.4*1.8;
-            cena=structure+(cenatotal/ilosc);
-            designation='80x200 <br />- 1 visuel';
-						p2=3*ilosc;
+        if ($('input_26').value == '80x200 1 visuel') {
+				  structure=86.4*1.8;
+          cena=structure+(cenatotal/ilosc);
+          designation='80x200 <br />- 1 visuel';
+					p2=3*ilosc;
 
-						hauteur = 200;
-						largeur = 80;
-          }
-          if ($('input_26').value == '80x200 2 visuels') {
-						structure=86.4*1.8;
-            cena=structure+((cenatotal*1.5)/ilosc);
-            designation='80x200 <br />- 2 visuels recto-verso';
-						p2=3*ilosc;
+					hauteur = 200;
+					largeur = 80;
+        }
+        if ($('input_26').value == '80x200 2 visuels') {
+					structure=86.4*1.8;
+          cena=structure+((cenatotal*1.5)/ilosc);
+          designation='80x200 <br />- 2 visuels recto-verso';
+					p2=3*ilosc;
 
-						hauteur = 200;
-						largeur = 80;
-	        }
+					hauteur = 200;
+					largeur = 80;
+        }
 
 				// poids mistral //
 				poids=(p1+p2);
-		  	 if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
-		  	 if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
-		  	 if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
-		  	 if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
-		  	 if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
-		  	 if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
-		  	 if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
-		  	 if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
-		  	 if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
-		  	 if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
-		     if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
-		  	 if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
-		  	 if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
-		  	 if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
-		     if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
-			   if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
-			   if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
-			   if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
-		     if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
-		     if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
+				if (poids <= 1) {cena+=(4.80*1.5)/ilosc;}
+				if ((poids > 1) && (poids <= 2)) {cena+=(5.1*1.5)/ilosc;}
+				if ((poids > 2) && (poids <= 3)) {cena+=(5.67*1.5)/ilosc;}
+				if ((poids > 3) && (poids <= 4)) {cena+=(5.63*1.5)/ilosc;}
+				if ((poids > 4) && (poids <= 5)) {cena+=(6.88*1.5)/ilosc;}
+				if ((poids > 5) && (poids <= 6)) {cena+=(7.99*1.5)/ilosc;}
+				if ((poids > 6) && (poids <= 7)) {cena+=(7.99*1.5)/ilosc;}
+				if ((poids > 7) && (poids <= 10)) {cena+=(9.30*1.5)/ilosc;}
+				if ((poids > 10) && (poids <= 15)) {cena+=(11.93*1.5)/ilosc;}
+				if ((poids > 15) && (poids <= 20)) {cena+=(14.93*1.5)/ilosc;}
+				if ((poids > 20) && (poids <= 25)) {cena+=(18.82*1.5)/ilosc;}
+				if ((poids > 25) && (poids <= 30)) {cena+=(20.56*1.4)/ilosc;}
+				if ((poids > 30) && (poids <= 40)) {cena+=(25.64*1.3)/ilosc;}
+				if ((poids > 40) && (poids <= 50)) {cena+=(33.73*1.2)/ilosc;}
+				if ((poids > 50) && (poids <= 60)) {cena+=(42.14*1.2)/ilosc;}
+				if ((poids > 60) && (poids <= 70)) {cena+=(47.71*1.2)/ilosc;}
+				if ((poids > 70) && (poids <= 80)) {cena+=(55.26*1.2)/ilosc;}
+				if ((poids > 80) && (poids <= 90)) {cena+=(62.12*1.2)/ilosc;}
+				if ((poids > 90) && (poids <= 100)) {cena+=(68.54*1.2)/ilosc;}
+				if (poids > 100) {cena+=(69.26*1.2)/ilosc;}
 			}
 
 			// fin mistral ///////////////////////////////////////////////////////////
 			////////////////////////////////////////////////////////////////// spot //
 			if ($('input_4').value == 'spot') {
 				cena+=29;
+				opis  += '<br />- spot 50w';
 			}
 
 			////////////////////////////////////////////////////////////// maquette //
 			var maquette;
 			if ($('input_6').value == 'fb') {
-				cena+=29/ilosc;
+				cena+=19/ilosc;
 				maquette = 'France banderole crée la mise en page';
 			}
 			if ($('input_6').value == 'user') {
-				maquette = 'j’ai déjà crée la maquette';
+				cena+=5/ilosc;
+				maquette = 'BAT en ligne';
 			}
 			if ($('input_6').value == 'config') {
 				cena+=5/ilosc;
 				maquette = 'je crée ma maquette en ligne';
 			}
+			if ($('input_6').value == 'sansbat') {
+				maquette = 'je ne souhaite pas de BAT';
+			}
+			//////////////////////////////////////////////////////signature
+			if ($('input_signature').value == 'signature FB') {
+				opis += '<br />- signature France Banderole';
+			}
+			if ($('input_signature').value == 'sans signature') {
+				if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
+				opis += '<br />- sans signature';
+			}
+
 
 			/////////////////////////////////////////////////////////////// options //
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 			if (colis == true) {
-				cena += 2.00;
+				if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2;}
 				optliv += '<br />- colis revendeur';
 			}
 			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
@@ -1197,7 +1233,7 @@
 				total.innerHTML=suma2+' &euro;';
 
 				var dodajkoszyk = document.getElementById("cart_form");
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+' '+designation+details+'<br />- '+maquette+optliv+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Roll-up" /><input type="hidden" name="opis" value="- '+$('input_1').value+' '+designation+details+'<br />- '+maquette+opis+optliv+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 				livraisonComp.style.display = 'block';
 
 			}

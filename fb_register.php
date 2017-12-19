@@ -14,7 +14,7 @@ function get_inscription() {
 			if ($czynieistnieje) {
 				$kod = $czynieistnieje->confirm_link;
         $letter = ""._FB_THANK.", $login!\r\n\r\n"._FB_POTWIERDZENIE."\r\n".get_bloginfo('url')."/inscription/?verify=confirm&unique=".$kod."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-				$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+				$header = 'From: France Banderole <information@france-banderole.com>';
         $header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 		    //mail($czynieistnieje->email, "france-banderole.com Inscription", $letter, $header);
 		    wp_mail($czynieistnieje->email, "Inscription France Banderole", $letter);
@@ -373,14 +373,9 @@ function get_inscription() {
 
 
 		$view .= '
-			<div class="acces_tab_content2">
+			<div class="acces_tab_content2" style="min-height:0;">
         	<ul class="regiform">
-            <li class="form-line" id="id_20">
-            	<div class="antiSpam">
-								ANTI-SPAM, merci de cocher la case ci-dessous:<br/>
-               	<div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>
-              </div>
-            </li>';
+            ';
 
 
 			if(fb_is_logged()) {
@@ -389,7 +384,7 @@ function get_inscription() {
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	        <div class="pushButton">
-            	            <button id="input_21" type="submit" class="edit-button"><i class="fa fa-save"></i> enregistrer</button>
+            	            <button id="input_21" type="submit" class="edit-button" style="margin-top:0;"><i class="fa fa-save"></i> enregistrer</button>
             	        </div>
             	    </div>
             	</li>
@@ -403,10 +398,16 @@ function get_inscription() {
 		';
 			} else {
 				$view .= '
+							<li class="form-line" id="id_20">
+								<div class="antiSpam">
+									ANTI-SPAM, merci de cocher la case ci-dessous:<br/>
+									<div class="g-recaptcha" data-sitekey="6LfnzAgTAAAAADWbNyD5geBFVGSQ_cp1NP1yiBV8"></div>
+								</div>
+							</li>
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
             	        <div class="pushButton">
-            	            <button id="input_21" type="submit" class="register-button">Inscription</button>
+            	            <button id="input_21" type="submit" class="register-button"><i class="fa fa-pencil-square-o"></i> Inscription</button>
             	        </div>
             	    </div>
             	</li>
@@ -427,7 +428,7 @@ function get_inscription() {
             	<li class="form-line" id="id_21">
             	    <div class="form-input-wide">
 
-            	            <button id="input_22" type="submit" class="register-button2">Modifier</button>
+            	            <button id="input_22" type="submit" class="register-button2"><i class="fa fa-pencil-square-o"></i> Modifier</button>
 
             	    </div>
             	</li>
@@ -1145,7 +1146,7 @@ function get_acces_client() {
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
 	        		$letter = ""._FB_WELCOME.", votre nom d utilisateur est : ".$adresemail->login."\r\n\r\n"._FB_NPASS1." ".$hasloodszyfrowane."\r\n"._FB_NPASS2."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-					$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+					$header = 'From: France Banderole <information@france-banderole.com>';
         			$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($adresemail->email, "nouveau mot de passe et nom d utilisateur", $letter, $header);
 			        wp_mail($adresemail->email, "Nouveau mot de passe et nom d utilisateur", $letter);
@@ -1253,9 +1254,10 @@ function get_acces_panel($p) {
 	if ($p == 1) { $path=get_bloginfo("url").'/vos-devis/'; } else { $path=''; }
 	if ($p == 2) { $path=get_bloginfo("url").'/verification/'; } else { $path=''; }
 	if ($p == 2) {
+
 	$promo = $_POST['codeProm'];
 
-	$view .= $promo.'<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">VERIFICATION DE VOS IDENTIFIANTS</div>
 	<div class="acces_tab_content">
@@ -1271,9 +1273,11 @@ function get_acces_panel($p) {
 	<a href="'.get_bloginfo("url").'/acces-client/?resend=pass" class="forgetpass">Mot de passe oublié?</a>
 	</div>
 	</div>';
-} else {
+	} else {
+
 	$promo = $_POST['codeProm'];
-	$view .= $promo.'<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
+
+	$view .= '<h1><i class="fa fa-lock"></i> Accès Client</h1><hr /><img class="aligncenter size-full" title="" src="'.$plugin_url.'/images/accesclient-name.jpg" alt="Accès Client" width="706" height="46" style="margin-bottom: 11px" />';
 	$view .= '<div class="acces_left">
 	<div class="acces_tab_name">DEJA INSCRIT?</div>
 	<div class="acces_tab_content">
@@ -1293,7 +1297,7 @@ function get_acces_panel($p) {
 	<div class="acces_tab_name">PAS ENCORE INSCRIT?</div>
 	<div class="acces_tab_content"><span id="notregistered"><font color="red">Je m\'enregistre pour continuer mon devis et télécharger mes fichiers</font color></span><a href="'.get_bloginfo('url').'/inscription/" class="pleaseregister">S\'ENREGISTRER</a></div>
 	</div>';
-}
+	}
 
 	return $view;
 }

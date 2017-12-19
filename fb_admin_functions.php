@@ -87,7 +87,7 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 	}
 
   /* ENVOI de l'email "Paiement de votre commande"*/
-  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'PAIEMENT DE VOTRE COMMANDE'", ARRAY_A);
+  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'Paiement de votre commande'", ARRAY_A);
 	foreach ($mails as $ma) :
 		$con = stripslashes($ma[content]);
 		$con = htmlspecialchars($con);
@@ -103,7 +103,7 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 
 	$temat = htmlspecialchars_decode($top);
 	$zawar = htmlspecialchars_decode($con);
-	$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+	$header = 'From: France Banderole <information@france-banderole.com>';
   $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 
 	mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
@@ -145,26 +145,26 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$valeur = $single->value;
 		if($type == 'shipping' && $valeur == 'tnt'){
 			$type_expedition = 'tnt';
-			$wheresql = "COLIS EXPEDIE TNT + SUIVI";
+			$wheresql = "Colis expédié TNT + Suivi";
 			break;
 		}elseif($type == 'shipping' && strtolower($valeur) == 'fedex'){
 			$type_expedition = 'fedex';
-			$wheresql = "COLIS EXPEDIE FEDEX + SUIVI";
+			$wheresql = "Colis expédié FEDEX + Suivi";
 			break;
 		}elseif($type == 'relais' && $valeur != ''){
 			$type_expedition = 'relais';
-			$wheresql = "COLIS RELAIS COLIS";
+			$wheresql = "Colis Relais Colis";
 			break;
 		}elseif($type == 'retrait atelier' && $valeur == 'yes'){
 			$type_expedition = 'retrait';
-			$wheresql = "COLIS RETRAIT ATELIER";
+			$wheresql = "Colis retrait atelier";
 			break;
 		}elseif($type == 'shipping' && $valeur == 'autre') {
 			$type_expedition = 'autre';
-			$wheresql = "COLIS EXPEDIE AUTRE";
+			$wheresql = "Colis expédié autre";
 		}else{
 			$type_expedition = 'autre';
-			$wheresql = "COLIS EXPEDIE AUTRE";
+			$wheresql = "Colis expédié autre";
 		}
 	endforeach;
 
@@ -256,7 +256,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	//$zawar = htmlspecialchars_decode($_POST['selmailcontent']);
 	$temat = htmlspecialchars_decode($top);
 	$zawar = htmlspecialchars_decode($con);
-	$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+	$header = 'From: France Banderole <information@france-banderole.com>';
   $header .= "\nContent-Type: text/html; charset=UTF-88\n" ."Content-Transfer-Encoding: 8bit\n";
 
 	//echo "MAIL=".$uzyt->email;
@@ -323,7 +323,7 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 	}
 
   /* ENVOI de l'email "Votre avis sur FB"*/
-  $wheresql = "VOTRE AVIS SUR FRANCE BANDEROLE";
+  $wheresql = "Votre avis sur France Banderole";
 	$mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
 	foreach ($mails as $ma) :
 		$con = stripslashes($ma[content]);
@@ -340,7 +340,7 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 
 	$temat = htmlspecialchars_decode($top);
 	$zawar = htmlspecialchars_decode($con);
-	$header = 'From: FRANCE BANDEROLE <information@france-banderole.com>';
+	$header = 'From: France Banderole <information@france-banderole.com>';
   $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 
 	//Sync Mailjet
