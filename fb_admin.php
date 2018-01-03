@@ -1372,15 +1372,16 @@ function fb_admin_reports_users() {
         $sticker = $_POST['sticker'];
         $affiche = $_POST['affiche'];
         $papier = $_POST['papier'];
+        $nappe = $_POST['nappe'];
 
         $excat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid = ".$where."");
 
         if ($excat) {
           //$update = $wpdb->query("UPDATE `$fb_tablename_users_cr` SET Banderole='$banderole', Roll='$rollup', Totem='$totem', Stand='$stand', Oriflamme='$oriflamme', Forex='$forex', Dibond='$dibond' Akilux='$akilux', PVC='$pvc', Tente='$tente', PLVint='$plvint', PLVext='$plvext', Sticker='$sticker', Affiche='$affiche', Papier='$papier' WHERE uid = ".$where."");
           $wpdb->query("DELETE FROM `$fb_tablename_users_cr` WHERE uid='$where'");
-          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$papier' )");
+          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$papier', '$nappe' )");
         } else {
-          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$papier' )");
+          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$papier', '$nappe' )");
         }
       }
 
@@ -1547,6 +1548,7 @@ function fb_admin_reports_users() {
         $bsk = $cat->Sticker;
         $baf = $cat->Affiche;
         $bpa = $cat->Papier;
+        $bna = $cat->Nappe;
         echo '<div class="reportTopBloc topBloc3">
       		<form name="client_remisebycat" id="client_remisebycat" method="post" action="" />
 
@@ -1569,6 +1571,7 @@ function fb_admin_reports_users() {
               <label>sticker:</label> <input type="text" name="sticker" value="'.$bsk.'" />
               <label>affiche:</label> <input type="text" name="affiche" value="'.$baf.'" />
               <label>papier:</label> <input type="text" name="papier" value="'.$bpa.'" />
+              <label>nappe:</label> <input type="text" name="nappe" value="'.$bna.'" />
             </div>
 
         		<input type="submit" class="editAdBtn" value="enregistrer" /><input type="hidden" name="saveByCat" value="true" /><input type="hidden" name="pokaztab" value="" /><input type="hidden" name="user_name" value="'.$_POST["user_name"].'" /><input type="hidden" name="user_login" value="'.$_POST["user_login"].'" />
@@ -4844,6 +4847,7 @@ function fb_admin_acc() {
       <option value="PLVext">PLV-ext</option>
       <option value="Affiche">Affiche</option>
       <option value="Papier">Papier</option>
+      <option value="Nappe">Nappe</option>
     </select></p>';
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
@@ -4875,6 +4879,7 @@ function fb_admin_acc() {
       <option value="PLVext">PLV-ext</option>
       <option value="Affiche">Affiche</option>
       <option value="Papier">Papier</option>
+      <option value="Nappe">Nappe</option>
     </select></p>';
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
@@ -6969,6 +6974,7 @@ function fb_admin_promocode() {
     <option value="PLVext">PLV-ext</option>
     <option value="Affiche">Affiche</option>
     <option value="Papier">Papier</option>
+    <option value="Nappe">Nappe</option>
   </select></p>';
   echo '<p>Minimum d\'achat: <input class="alignR" type="text" name="prmini" placeholder="minimum d\'achat HT" /></p>';
   echo '<p>Date d\'expiration: <input class="alignR" type="text" name="prdate" placeholder="AAAA-MM-JJ" /></p>';

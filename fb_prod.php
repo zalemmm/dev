@@ -155,8 +155,8 @@ function fbshop_head() {
   <script type="text/javascript">
   JotForm.setConditions([
   	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Flyers"}], "action": {"field": "1", "visibility": "Show"}},
-	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Depliants"}], "action": {"field": "1depliant", "visibility": "Show"}},   
-  
+	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Depliants"}], "action": {"field": "1depliant", "visibility": "Show"}},
+
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
 
     {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
@@ -178,11 +178,11 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "config"}, {"field": "42", "operator": "equals", "value": "config"}, {"field": "43", "operator": "equals", "value": "config"}, {"field": "44", "operator": "equals", "value": "config"}], "action": {"field": "45", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-	
-	
 
-	
-	
+
+
+
+
 	{"type": "field", "link": "Any", "terms": [{"field": "1depliant", "operator": "isFilled", "value": false}], "action": {"field": "21depliant", "visibility": "Show"}},
 
     {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 80g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "42depliant", "visibility": "Show"}},
@@ -198,9 +198,9 @@ function fbshop_head() {
 
     {"type": "field", "link": "Any", "terms": [{"field": "5depliant", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
 	{"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
-	
-	
-	
+
+
+
   ]);
   JotForm.init();
   </script>';
@@ -344,10 +344,10 @@ function fbshop_head() {
   JotForm.init();
   </script>';
   }
-  
-  
-  
-  
+
+
+
+
   if (is_page('nappes-publicitaires')) {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
   echo '
@@ -361,7 +361,7 @@ function fbshop_head() {
 	{"type": "field", "link": "Any", "terms": [{"field": "forme", "operator": "equals", "value": "rectangulaire"}], "action": {"field": "maquette2", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "maquette1", "operator": "isFilled", "value": false}], "action": {"field": "signature1", "visibility": "Show"}},
 	{"type": "field", "link": "All", "terms": [{"field": "maquette2", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
-	
+
 	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
 	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "14rond", "visibility": "Show"}},
 	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
@@ -369,8 +369,8 @@ function fbshop_head() {
 	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
 	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
 	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
-	
-  
+
+
   ]);
   JotForm.init();
   </script>';
@@ -1734,14 +1734,14 @@ function print_devis_verification($products, $prolog, $epilog) {
 				}
 			}
 		}
-
+    $checkcode = '';
     //---------------------------------------------------vérification code promo
     if(isset($_POST['codeProm'] )) {
   		$uid = $_SESSION['loggeduser']->id;
   		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
 
       if (!empty($_SESSION['loggeduser']) && ($exist_remise)) {
-        $checkcode = 'Vous bénéficiez déjà d\'un tarif préférentiel, les codes promos ne sont pas cumulables avec les remises client.';
+
       } else {
         $products = $_SESSION['fbcart'];
         $codepromo = $_POST['codeProm'] ;

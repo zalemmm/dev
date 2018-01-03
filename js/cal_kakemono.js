@@ -317,6 +317,8 @@ cal_tente_exposition: function(){
 
 },
 
+cal_nappe: function(){
 
+},
 
 };

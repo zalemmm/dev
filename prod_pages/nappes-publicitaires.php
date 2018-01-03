@@ -1,6 +1,6 @@
 <div id="buying">
 	<h3>Votre devis en ligne</h3>
-	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_nappes(); return false;">
+	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_nappe(); return false;">
 		<input type="hidden" name="formID" value="1060900217" />
 		<div class="form-all">
 			<ul class="form-section">
@@ -16,15 +16,12 @@
 					</span>
 					<select class="form-dropdown validate[required]" id="input_support" name="qext_support" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
-                       <option value="tissu 220g">tissu stretch léger 220g B1</option>
+            <option value="tissu 220g">tissu stretch léger 220g B1</option>
 						<option value="tissu 260g">tissu stretch extensible 260g B1</option>
 					</select>
 				</li>
 
-				
-				
 
-				
 				<!--forme---------------------------------------------------->
 				<li class="form-line" id="id_forme">
 					<span class="helpButton" onmouseover="tipShow('helpText8');" onmouseout="tipHide('helpText8');">
@@ -40,13 +37,11 @@
 					</select>
 				</li>
 
-				
-
 				<!--maquette----------------------------------------------------------->
 				<li class="form-line" id="id_maquette1">
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette1');" onmouseout="tipHide('helpTextmaquette1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette1" style="visibility:hidden;">
-                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+              <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
 							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
 							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
@@ -64,11 +59,11 @@
                         <option value="fb">France banderole crée la mise en page +29,00€</option>
 					</select>
 				</li>
-                
-                <li class="form-line" id="id_maquette2">
+
+        <li class="form-line" id="id_maquette2">
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette2');" onmouseout="tipHide('helpTextmaquette2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
-                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+              <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
 							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
 							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
@@ -76,7 +71,7 @@
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
 							<b>France banderole crée votre fichier:</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-                        </span>
+            </span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_maquette2" name="q6_maquette2" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
@@ -86,14 +81,14 @@
                         <option value="fb">France banderole crée la mise en page +29,00€</option>
 					</select>
 				</li>
-                
-                <li class="form-line" id="id_signature1">
-                <span class="helpButton" onmouseover="tipShow('helpTextsignature1');" onmouseout="tipHide('helpTextsignature1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+
+        <li class="form-line" id="id_signature1">
+          <span class="helpButton" onmouseover="tipShow('helpTextsignature1');" onmouseout="tipHide('helpTextsignature1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature1" style="visibility:hidden;">
-                        	<b>Logo France Banderole</b><br/>
+              <b>Logo France Banderole</b><br/>
 							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-                        </span>
+              <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+            </span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature1" name="qsignature_signature1" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -101,14 +96,14 @@
 						<option value="sans signature">produit neutre +5,00 €</option>
 					</select>
 				</li>
-                
-                 <li class="form-line" id="id_signature2">
-                <span class="helpButton" onmouseover="tipShow('helpTextsignature2');" onmouseout="tipHide('helpTextsignature2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+
+        <li class="form-line" id="id_signature2">
+          <span class="helpButton" onmouseover="tipShow('helpTextsignature2');" onmouseout="tipHide('helpTextsignature2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature2" style="visibility:hidden;">
-                        	<b>Logo France Banderole</b><br/>
+	            <b>Logo France Banderole</b><br/>
 							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-                        </span>
+	            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
+	          </span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature2" name="qsignature_signature2" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -133,7 +128,6 @@
 					<span class="mLeft highlight">m</span><span class="heusepar">x</span>
 					<input type="text" class="taille form-textbox2 validate[required, Numeric]" id="input_15" placeholder="largeur" name="q15_taile" size="20" value="1" onclick="JKakemono.czyscpola();" /><span class="mRight highlight">m</span>
 				</li>
-                
 
 				<li id="id_14rond" class="form-line optionsformline2" style="nothing">
 					<label class="form-label-left label-highlight" id="label_14rond" for="input_14rond">diamètre :<strong><span class="highlight small"><br />(Mètres)</span></strong></label>
@@ -174,12 +168,6 @@
 							</span>
 						</span>
 
-						<span class="optionsleft roll dis0"><label class="form-label-left" id="label_roll" for="roll">Livrée Roulée</label>
-							<input type="checkbox" class="form-checkbox" id="roll" name="roll[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextroll');" onmouseout="tipHide('helpTextroll');">
-								<span class="helpText" id="helpTextroll" style="visibility:hidden;">Nos banderoles en dessous de 2x2m sont livrées roulées, au delà elles sont pliées pour des raisons de dimensions de colis. La livraison roulée reste disponible en option pour 20€ et un délai d'un jour supplémentaire. </span>
-							</span>
-						</span>
 					</span>
 
 					<div class="break-line"></div>
@@ -231,12 +219,13 @@
 
 	  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
 
-	  <div id="container">
+		<div id="container">
 
 	    <div id="slides">
-	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/1.png" alt="commencez votre devis en ligne" /></li>
-	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/2.png" alt="commencez votre devis en ligne" /></li>
-	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/slidedefault/3.png" alt="commencez votre devis en ligne" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/slide/nappe-publicitaire0.jpg" alt="nappe publicitaire devis en ligne" title="nappe conférence meeting salons meilleur prix" /></li>
+	      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/slide/nappe-publicitaire1.jpg" alt="nappe publicitaire pas cher" title="nappe publicitaire pas cher" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/slide/nappe-publicitaire2.jpg" alt="nappe publicitaire évènement" title="nappe imprimée" /></li>
+				<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression nappe publicitaire" /></li>
 	    </div>
 	  </div>
 
@@ -246,7 +235,7 @@
 	  <div id="preview_imag4"></div>
 	  <div id="preview_imag5"></div>
 
-</div>
+	</div>
 
 	<div class="dateLivraison" >
 			<!--<span id="totaldays"></span>&nbsp;-->
@@ -302,21 +291,6 @@
 		}
 	});
 
-	///////////////////////////////////////// affichage option livraison roulée //
-
-	jQuery('.taille').keyup(function(){
-		jQuery(this).val(jQuery(this).val().replace(/,/g, '.'));
-
-		var taille = jQuery(this).val();
-		var hauteur = jQuery("#input_14").val();
-		var largeur = jQuery("#input_15").val();
-
-		if ((hauteur > 1.99) && (hauteur < 3.21)) {
-			jQuery('.roll').css('display', 'block');
-		}else{
-			jQuery('.roll').css('display', 'none');
-		}
-	});
 
 	/////////////////////////////////////////////////// calcul des jours ouvrés //
 	function AddBusinessDays(weekDaysToAdd) {
@@ -345,7 +319,7 @@
 		var prliv             = '';
 		var date_panier       = '';
 		var dodatkowaopcja    = '';
-		var prixunite    = 0;
+		var prixunite         = 0;
 		var cena              = 0; 	var cena2   		= 0;
 		var rabat             = 0; 	var rabat2  		= 0;  var rabatp 	  = 0;
 		var suma              = 0; 	var suma2   		= 0;
@@ -374,37 +348,33 @@
 		aBox.innerHTML='';		eBox.innerHTML='';
 
 		////////////////////////////////////////////////////////////////////////////
-		largeur              = $('input_15').value ;       // largeur = largeur
+		largeur              = $('input_15').value ;
 		largeur              = largeur.replace(',','.');
 		largeur              = fixstr(largeur);
 		$('input_15').value = largeur;
-		hauteur               = $('input_14').value;        // hauteur = hauteur
+		hauteur               = $('input_14').value;
 		hauteur               = hauteur.replace(',','.');
 		hauteur               = fixstr(hauteur);
 		$('input_14').value	 = hauteur;
-		
-		diametre               = $('input_14rond').value;        // hauteur = hauteur
+
+		diametre               = $('input_14rond').value;
 		diametre               = diametre.replace(',','.');
 		diametre               = fixstr(diametre);
 		$('input_14rond').value	 = diametre;
-		
+
 		diametre              = parseFloat(diametre);
-		largeur              = parseFloat(largeur);
-		hauteur              = parseFloat(hauteur);
+		largeur               = parseFloat(largeur);
+		hauteur               = parseFloat(hauteur);
 		metraz = largeur*hauteur ;                   // métrage
 		metraz = fixstr(metraz);
-		var metrazzaokraglony1 = (largeur+hauteur)*2;                // périmètre
+		var metrazzaokraglony1 = (largeur+hauteur)*2;               // périmètre
 		metrazzaokraglony      = Math.round(metrazzaokraglony1);
 		var hautbas            = largeur*2;
 		var gauchedroite       = hauteur*2;
 		var ilosc              = $('input_13').value;
 		var laize = 0;
 
-
 		/////////////////////////////////////////////////////////////////// prix de la banderole en fonction de la laize //
-		
-	
-	
 
 		if (largeur <= 1.55){l1=1.55; l2=1.55-largeur; perteL=l2*hauteur;};
 		if ((largeur >= 1.56) && (largeur <= 2.60)){l1=2.6; l2=2.6-largeur; perteL=l2*hauteur;};
@@ -413,10 +383,10 @@
 		if (hauteur <= 1.55){h1=1.55; h2=1.55-hauteur; perteH=h2*largeur;};
 		if ((hauteur >= 1.56) && (hauteur <= 2.60)){h1=2.60; h2=2.60-hauteur; perteH=h2*largeur;};
 		if (hauteur >= 2.61){h1=hauteur; perteH=hauteur*largeur;};
-		
+
 		if (diametre <= 1.55){laize=1.55;};
 		if ((diametre >= 1.56) && (diametre <= 2.60)){laize=2.60;};
-		
+
 
 		if ((perteH < perteL) && ($('input_forme').value == 'rectangulaire')){
 			metrage = largeur*h1;
@@ -433,8 +403,6 @@
 			if (($('input_support').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =34.65 ;}
 			if (($('input_support').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =36.23 ;}
 			if (($('input_support').value == 'tissu 260g' ) && (h1>=2.51)){plm =37.80 ;}
-			
-
 
 			prixproduit = metrage*plm;
 			opis += '<br />- forme rectangulaire';
@@ -442,7 +410,7 @@
 
 		else if ((perteH > perteL) && ($('input_forme').value == 'rectangulaire')){
 			metrage = hauteur*l1;
-			
+
 			////tissu 220g
 			if (($('input_support').value == 'tissu 220g' ) && (h1<=1.00) ){plm =19.50 ;}
 			if (($('input_support').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =20.48 ;}
@@ -456,14 +424,13 @@
 			if (($('input_support').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =36.23 ;}
 			if (($('input_support').value == 'tissu 260g' ) && (h1>=2.51)){plm =37.80 ;}
 
-
 			prixproduit = metrage*plm;
 			opis += '<br />- forme rectangulaire';
 		}
 
 		else if((perteH == perteL) && ($('input_forme').value == 'rectangulaire')){
 			metrage = hauteur*l1;
-			
+
 			////tissu 220g
 			if (($('input_support').value == 'tissu 220g' ) && (h1<=1.00) ){plm =19.50 ;}
 			if (($('input_support').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =20.48 ;}
@@ -480,12 +447,12 @@
 			prixproduit = metrage*plm;////prix de la banderole
 			opis += '<br />- forme rectangulaire';
 		}
-		
+
 		if($('input_forme').value == 'ronde'){
-			
+
 			metrage = laize*diametre;
 			opis += '<br />- forme ronde';
-			
+
 			////tissu 220g
 			if (($('input_support').value == 'tissu 220g' ) && (h1<=1.00) ){plm =19.50 ;}
 			if (($('input_support').value == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =20.48 ;}
@@ -498,6 +465,9 @@
 			if (($('input_support').value == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =34.65 ;}
 			if (($('input_support').value == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =36.23 ;}
 			if (($('input_support').value == 'tissu 260g' ) && (h1>=2.51)){plm =37.80 ;}
+
+			hauteur = diametre;
+			largeur = diametre;
 
 			prixproduit = metrage*plm;////prix de la banderole
 		}
@@ -509,7 +479,7 @@
 
 		// prix de l'ensemble de la commande en fonction metrage final /////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////// 440g //
-		
+
 		////////////////////////////////////////////////////////////// tissu 220g //
 		if ($('input_support').value == 'tissu 220g' ) {
 			if (metragefinal < 1.99) {cenatotal = prixtotal;}
@@ -565,23 +535,18 @@
 			bacheType = '- tissu stretch extensible 260g B1'
 		}
 		// fin prix des bâches /////////////////////////////////////////////////////
-		
-		
+
+
 		// ourlet /////////////////////////////////////////////////////
-		var ourlet =0; 
+		var ourlet =0;
 		var perimetrerond = diametre*3.14
 		var perimetrecarre = gauchedroite + hautbas;
 		if($('input_forme').value == 'ronde'){ourlet=4.5*perimetrerond;}
 		if($('input_forme').value == 'rectangulaire'){ourlet=4.5*perimetrecarre;}
-		 
-		
-		
+
 		// prix bâche+ourlet /////////////////////////////////////////////////////
 		var transport = 5;
 		cena=(cenatotal+ourlet+transport)/ilosc;
-		
-
-		
 
 		//////////////////////////////////////////////////////////////// maquette //
 
@@ -601,8 +566,7 @@
 		if ($('input_maquette1').value == 'sansbat') {
 			maquette = '<br />- je ne souhaite pas de BAT';
 		}
-		
-		
+
 		if ($('input_maquette2').value == 'fb') {
 			cena += 29/ilosc;
 			maquette = '<br />- France banderole crée la mise en page';
@@ -618,8 +582,7 @@
 		if ($('input_maquette2').value == 'sansbat') {
 			maquette = '<br<strong></strong> />- je ne souhaite pas de BAT';
 		}
-		
-		
+
 		if ($('input_signature1').value == 'sans signature') {
 			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
 			opis += '<br />- sans signature';
@@ -634,7 +597,6 @@
 		if ($('input_signature2').value == 'signature FB') {
 			opis += '<br />- signature France Banderole';
 		}
-
 
 		/////////////////////////////////////////////////////////// options colis //
 		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
@@ -655,8 +617,6 @@
 			cena += 5.00/ilosc;
 			optliv += '<br />- relais colis';
 		}
-
-		
 
 		/////////////////////////////////////////////////////////// total produit //
 		prixunite = cena;
@@ -875,19 +835,18 @@
 			//////////////////////////////////////////////////////////////////////////
 	  	cena2 = prixunite.replace(".", ",")
 	    //////////////////////////////////////////////////////////////////////////
-			var warning = '';
 			aBox.style.display="none";
 			//////////////////////////////////// 	avertissements, messages d'erreur //
 
-			
-			
+
+
 			//----------------------------------------------------------------- + de 50m
 			if ((largeur >= 50) && ($('input_forme').value == 'rectangulaire')) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> la largeur ne doit pas dépasser 50m';
 				eBox.style.display="block";
 				erreurType=1;
 			}
-			
+
 			//----------------------------------------------------------------- + de 2.59m
 			if ((hauteur >= 2.59) && ($('input_forme').value == 'rectangulaire')) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> la hauteur ne doit pas dépasser 2,59m!';
@@ -901,8 +860,8 @@
 				eBox.style.display="block";
 				erreurType=1;
 			}}
-			
-			
+
+
 			//-----------------------------------------------------------------------nul
 			if ( ((largeur <= 0 ) || (hauteur <= 0 )) && ($('input_forme').value == 'rectangulaire')){
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> SPÉCIFIEZ LES TAILLES EN MÈTRE !';
@@ -922,7 +881,6 @@
 				erreurType=1;
 			}
 
-			aBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><div class="alertIcn"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /></div><div class="alertTxt">'+warning+'</div>';
 			// fin avertissements //////////////////////////////////////////////////////
 			////////////////////////////// formulaire cas particulier erreurType==1 //
 
@@ -940,48 +898,6 @@
 				newopt.innerHTML='-';
 				rabat2='-';
 			}
-
-			///////// envoi formulaire cas particulier erreurType==2 (Thermo-soudure) //
-			if (erreurType==2) {
-				jQuery('#prix_unitaire').html('-');
-				//remise.innerHTML='-';
-				if ( suma < 0 ) {
-					var forfait = 0;
-					forfait = fixstr(forfait);
-					jQuery('#forfait').html('FORFAIT '+forfait+' &euro; - ');
-					if (option>0) {
-						var newoption = parseFloat(option) + parseFloat(forfait);
-						newoption=fixstr(newoption);
-						newoption2 = newoption.replace(".", ",");
-						option2 = newoption2;
-						var newopt = document.getElementById("option");
-						newopt.innerHTML=newoption2+' &euro;';
-						suma = 0;
-						suma=fixstr(suma);
-						suma2 = suma.replace(".", ",");
-						var newtotal = document.getElementById("total");
-						newtotal.innerHTML=suma2+' &euro;';
-					} else {
-						var newoption = parseFloat(forfait);
-						newoption=fixstr(newoption);
-						newoption2 = newoption.replace(".", ",");
-						option2 = newoption2;
-						var newopt = document.getElementById("option");
-						newopt.innerHTML=newoption2+' &euro;';
-						suma = 0;
-						suma=fixstr(suma);
-						suma2 = suma.replace(".", ",");
-						var newtotal = document.getElementById("total");
-						newtotal.innerHTML=suma2+' &euro;';
-					}
-				}
-
-				var rodzaj = "banderole Thermo-soudure";
-				var dodajkoszyk = document.getElementById("cart_form");
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+maquette+optliv+prliv+etiqdesc+'</br>- '+hauteur+' x '+largeur+' m" /><input type="hidden" name="ilosc" value="'+ilosc+'" <span class="warning"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-red.png" class="exclam" alt="attention" /> Merci de vérifier le formulaire avant d\'ENREGISTRER VOTRE DEMANDE DE DEVIS </span><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><button id="submit_cart" type="submit">Suivant  <i class="fa fa-caret-right" aria-hidden="true"></i></button> ';
-			}
-			if (ilosc==''){erreurType=1;}
-			// fin envoi formulaire cas particuliers ///////////////////////////////////
 
 			////////////////////////////////////////////////// livraison le jour même //
 
@@ -1047,7 +963,7 @@
 
 				////////////////////////////////////////////////////// envoi formulaire //
 
-				var rodzaj = "Nappes";
+				var rodzaj = "Nappe";
 				if($('input_forme').value == 'rectangulaire'){
 				var dodajkoszyk = document.getElementById("cart_form");
 				// largeur et hauteur x100 pour un affichage en cm côté admin

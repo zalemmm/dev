@@ -273,6 +273,7 @@ h1 {
   box-sizing: border-box;
   display: inline-block;
   width: 48%;
+  height: 24px;
 }
 
 .reportTopBloc .coll label,
