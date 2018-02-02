@@ -27,23 +27,24 @@
 						<option value="">choisir le support...</option>
 						<optgroup label="&#xf016; Traditionnel" class="trad">
 							<option value="bache 440g">bâche 440g </option>
-							<option value="jet 550">bâche Dickson Jet 550</option>
-							<option value="bache micro perforée M1/B1">bâche micro perforée</option>
+							<option value="jet 550">bâche Dickson Jet 550g</option>
+							<option value="jet 550 enduite" id="revd">bâche 550g enduite</option>
+							<option value="bache micro perforée M1/B1">bâche micro perforée 300g</option>
 							<option value="bache nontissé 150g">bâche nontissé 150g</option>
 						</optgroup>
 						<optgroup label="&#xf06d; Anti feu" class="fyah">
-							<option value="jet 520 M1">bâche Dickson Jet 520 M1</option>
-							<option value="lacopac">bâche Dickson Lacopac M2/B1 </option>
-							<option value="lacopac recto verso">bâche Dickson Lacopac M2/B1 recto/verso </option>
+							<option value="jet 520 M1">bâche Dickson Jet 520g M1</option>
+							<option value="lacopac">bâche Dickson Lacopac 680g M2/B1 </option>
+							<option value="lacopac recto verso">bâche Dickson Lacopac 680g M2/B1 recto/verso </option>
 						</optgroup>
 						<optgroup label="&#xf016; Tissu" class="trad">
 							<option value="tissu 220g">tissu stretch léger 220g B1</option>
 							<option value="tissu 260g">tissu stretch extensible 260g B1</option>
 						</optgroup>
 						<optgroup label="&#xf299; écologique" class="eco">
-							<option value="ecotoile">bâche EcoToile</option>
-							<option value="bache 100% écologique M1">bâche 100% écologique M1</option>
-							<option value="capotoile">Capotoile 320 M1 validé Ecocert Erts</option>
+							<option value="ecotoile">bâche EcoToile 175g</option>
+							<option value="bache 100% écologique M1">bâche 100% écologique 250g M1</option>
+							<option value="capotoile">Capotoile 280g M1 validé Ecocert Erts</option>
 						</optgroup>
 					</select>
 				</li>
@@ -338,20 +339,20 @@
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
 							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
+							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier:</b><br/>
+							<b>France banderole crée votre fichier +19,00€ :</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
                         </span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
 						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +19,00€</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
+						<option value="config">je crée ma maquette en ligne</option>
+                        <option value="fb">France banderole crée la mise en page</option>
 					</select>
 				</li>
 
@@ -676,17 +677,18 @@
 			if (($('input_ext').value == 'ecotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.18 ;}
 			if (($('input_ext').value == 'ecotoile' ) && (h1>=2.51)){plm =7.49 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (h1<=1.00) ){plm =12.45 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.07 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1>=1.61)&&(h1<=2.00))){plm =13.70 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((h1>=2.01)&&(h1<=2.50))){plm =14.32 ;}
-			if (($('input_ext').value == 'jet 550' ) && (h1>=2.51)){plm =14.94 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (h1<=1.00) ){plm =12.45 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.07 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((h1>=1.61)&&(h1<=2.00))){plm =13.70 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((h1>=2.01)&&(h1<=2.50))){plm =14.32 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (h1>=2.51)){plm =14.94 ;}
 			////jet 520 M1
 			if (($('input_ext').value == 'jet 520 M1' ) && (h1<=1.00) ){plm =15.90 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =16.70 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =17.49 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =18.29 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && (h1>=2.51)){plm =19.08 ;}
+
 			////lacopac
 			if (($('input_ext').value == 'lacopac' ) && (h1<=1.00) ){plm =18.15 ;}
 			if (($('input_ext').value == 'lacopac' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =19.06 ;}
@@ -749,11 +751,11 @@
 			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.18 ;}
 			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =7.49 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =12.45 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
-			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =14.94 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (l1<=1.00) ){plm =12.45 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (l1>=2.51)){plm =14.94 ;}
 			////jet 520 M1
 			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
@@ -822,11 +824,11 @@
 			if (($('input_ext').value == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.18 ;}
 			if (($('input_ext').value == 'ecotoile' ) && (l1>=2.51)){plm =7.49 ;}
 			////jet 550
-			if (($('input_ext').value == 'jet 550' ) && (l1<=1.00) ){plm =12.45 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
-			if (($('input_ext').value == 'jet 550' ) && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
-			if (($('input_ext').value == 'jet 550' ) && (l1>=2.51)){plm =14.94 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (l1<=1.00) ){plm =12.45 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
+			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (l1>=2.51)){plm =14.94 ;}
 			////jet 520 M1
 			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
@@ -965,6 +967,34 @@
 			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = prixtotal*0.79;}
 			if (metragefinal > 499.99) {cenatotal = prixtotal*0.78;}
 			bacheType = '- bache Jet 550'
+		}
+		////////////// JET 550 enduite //
+		if ($('input_ext').value == 'jet 550 enduite' ) {
+			if (metragefinal < 1.99) {cenatotal = prixtotal;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = prixtotal*0.99;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = prixtotal*0.98;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = prixtotal*0.97;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = prixtotal*0.96;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = prixtotal*0.95;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = prixtotal*0.94;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = prixtotal*0.93;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = prixtotal*0.92;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = prixtotal*0.91;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = prixtotal*0.90;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = prixtotal*0.89;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = prixtotal*0.88;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = prixtotal*0.87;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = prixtotal*0.86;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = prixtotal*0.85;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = prixtotal*0.84;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = prixtotal*0.83;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = prixtotal*0.82;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = prixtotal*0.81;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = prixtotal*0.80;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = prixtotal*0.79;}
+			if (metragefinal > 499.99) {cenatotal = prixtotal*0.78;}
+			cenatotal = cenatotal-(cenatotal*20/100);
+			bacheType = '- bache 550g enduite'
 		}
 		////////////// JET 520 //
 		if ($('input_ext').value == 'jet 520 M1' ) {
@@ -1351,7 +1381,6 @@
 			opis += '<br />- signature France Banderole';
 		}
 
-
 		/////////////////////////////////////////////////////////// options colis //
 		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 		if (colis == true) {
@@ -1712,6 +1741,22 @@
 			}
 			if ( ($('input_ext').value == 'jet 550') && (largeur > 5) && (hauteur > 5)  ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				erreurType=1;
+			}
+			//------------------------------------------------------------------- 550 enduite
+			if ( ($('input_ext').value == 'jet 550 enduite') && (largeur > 2.5) && (hauteur > 2.5)  ) {
+				warning += '- Votre banderole comportera une thermosoudure invisible à + de 2m<br />';
+				aBox.style.display="block";
+				erreurType=0;
+			}
+			if ( ($('input_ext').value == 'jet 550 enduite') && (largeur > 5) && (hauteur > 5)  ) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
+				eBox.style.display="block";
+				erreurType=1;
+			}
+			if ( ($('input_ext').value == 'jet 550 enduite') && (metraz*ilosc < 29.99)) {
+				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> bache 550g minimum 30m²';
 				eBox.style.display="block";
 				erreurType=1;
 			}

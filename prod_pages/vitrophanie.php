@@ -306,7 +306,7 @@
 			/////////////////////////////////////////////////////////////// options //
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 			if (colis == true) {
-				cena += cena*3/100;
+				if ( !$('revendeur') && !$('revendeurRC') ) {cena += cena*3/100};
 				cedzik += '<br />- colis revendeur';
 			}
 			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();

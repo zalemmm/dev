@@ -158,15 +158,16 @@ function fbshop_head() {
 	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Depliants"}], "action": {"field": "1depliant", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
+	 {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "22", "visibility": "Show"}},
 
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "21", "operator": "isFilled", "value": false}, {"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
@@ -246,20 +247,50 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformdepliants.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Flyers"}], "action": {"field": "1", "visibility": "Show"}},
+	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Depliants"}], "action": {"field": "1depliant", "visibility": "Show"}},
+
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
 
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 135g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 170g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
-    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "depliants 250g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 135g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "32", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 170g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "33", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 250g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "35", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 120µ"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 270µ"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "42", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 350µ"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "43", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "42", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "42", "operator": "equals", "value": "fb"}, {"field": "43", "operator": "equals", "value": "fb"},{"field": "44", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "42", "operator": "equals", "value": "user"}, {"field": "43", "operator": "equals", "value": "user"}, {"field": "44", "operator": "equals", "value": "user"}, {"field": "41", "operator": "equals", "value": "sansbat"}, {"field": "42", "operator": "equals", "value": "sansbat"}, {"field": "43", "operator": "equals", "value": "sansbat"}, {"field": "44", "operator": "equals", "value": "sansbat"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "config"}, {"field": "42", "operator": "equals", "value": "config"}, {"field": "43", "operator": "equals", "value": "config"}, {"field": "44", "operator": "equals", "value": "config"}], "action": {"field": "45", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+
+
+
+
+
+	{"type": "field", "link": "Any", "terms": [{"field": "1depliant", "operator": "isFilled", "value": false}], "action": {"field": "21depliant", "visibility": "Show"}},
+
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 80g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "42depliant", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 135g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "32depliant", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 170g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "33depliant", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 250g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "34depliant", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "32depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41depliant", "operator": "isFilled", "value": false}], "action": {"field": "5depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42depliant", "operator": "isFilled", "value": false}], "action": {"field": "5depliant", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "5depliant", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -524,26 +555,25 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Tissu"}], "action": {"field": "01", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "photocall", "operator": "isFilled", "value": false}], "action": {"field": "valise", "visibility": "Show"}},
-	    {"type": "field", "link": "Any", "terms": [{"field": "valise", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
+	   {"type": "field", "link": "Any", "terms": [{"field": "valise", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
 
 
     {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Comptoir Easy Quick"}], "action": {"field": "0222", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "valise"}], "action": {"field": "022", "visibility": "Show"}},
+	  {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "valise"}], "action": {"field": "022", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Droit"}], "action": {"field": "50", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "01", "operator": "equals", "value": "Courbé"}], "action": {"field": "500", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "022", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "0222", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+
+	  {"type": "field", "link": "Any", "terms": [{"field": "022", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+	  {"type": "field", "link": "Any", "terms": [{"field": "0222", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "50", "operator": "isFilled", "value": false}], "action": {"field": "02", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "500", "operator": "isFilled", "value": false}], "action": {"field": "02", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "02", "operator": "isFilled", "value": false}], "action": {"field": "51", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "02", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+	  {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
   ]);
@@ -563,7 +593,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "double"}], "action": {"field": "24", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "mini"}], "action": {"field": "25", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Mistral"}], "action": {"field": "26", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Changement visuel"}], "action": {"field": "27", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
+
     {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "best-line"},{"field": "22", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "equals", "value": "150x200"},{"field": "23", "operator": "equals", "value": "150x200"}], "action": {"field": "33", "visibility": "Show"}},
     {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "lux-line"},{"field": "23", "operator": "equals", "value": "200x200"}], "action": {"field": "35", "visibility": "Show"}},
@@ -571,13 +603,19 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "34", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "26", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "27", "operator": "equals", "value": "60x160"},{"field": "27", "operator": "equals", "value": "60x200"},{"field": "27", "operator": "equals", "value": "80x200"},{"field": "27", "operator": "equals", "value": "85x200"},{"field": "27", "operator": "equals", "value": "100x200"},{"field": "27", "operator": "equals", "value": "120x200"}], "action": {"field": "36", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "27", "operator": "equals", "value": "150x200"},{"field": "27", "operator": "equals", "value": "150x200"}], "action": {"field": "37", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "27", "operator": "equals", "value": "200x200"}], "action": {"field": "38", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "32", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "36", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "37", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "38", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
-	{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+
     {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
@@ -1113,7 +1151,7 @@ if ($page=='nappes-publicitaires') {
   		$imghead3='kakemonos3';
   		$mini='nappes';
   		$info_title='Nappes publicitaires';
-  		$info_info='<span class="prezHide">la nappe est un support publicitaire pour habiller vos tables lors de vos salons professionnels, expositions ou aussi bien pour décorer votre intérieur. Imprimmé sur du tissu en 220gr ou en 260gr, vous pouvez choisir sa forme ronde carrée ou rectangulaire. Nos nappes ont par défault un ourlet avec une double surpiqûre.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$info_info='<span class="prezHide">la nappe est un support publicitaire pour habiller vos tables lors de vos salons professionnels, expositions ou aussi bien pour décorer votre intérieur. Imprimmé sur du tissu en 220gr ou en 260gr, vous pouvez choisir sa forme ronde carrée ou rectangulaire. Nos nappes ont par défaut un ourlet avec une double surpiqûre.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-nappe-publicitaire/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_nappes_form();
   	}
 
@@ -1356,7 +1394,7 @@ if ($page=='nappes-publicitaires') {
   		$imghead3='kakemonos3';
   		$mini='t';
   		$info_title='Totem publicitaire intérieur et extérieur ';
-  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-totem-meilleur-prix/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-totem-meilleur-prix/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-totem-gabarit-kakemono-tissu/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_totem_form();
   	}
 
@@ -1778,6 +1816,7 @@ function print_devis_verification($products, $prolog, $epilog) {
                 $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
               }
             }
+
           }else{ // si le code est inférieur au minimum d'achat:
           }
 
@@ -2007,6 +2046,7 @@ function print_devis($products, $prolog, $epilog) {
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
   $fb_tablename_users_cr = $prefix."fbs_users_cr";
   $fb_tablename_promo = $prefix."fbs_codepromo";
+  $fb_tablename_shorturl = $prefix."fbs_shorturl";
 	$view .= $prolog;
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 	if (is_cart_not_empty() || isset($_GET['share'])) {
@@ -2189,6 +2229,7 @@ function print_devis($products, $prolog, $epilog) {
     $data = array('Array' => $_SESSION["fbcart"]);
     $query = http_build_query($data);
     $url = urlencode($query);
+    $full = 'votre-panier?share='.$url;
 
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
     <tr><td class="toleft">Frais de port</td><td class="toright">'.$fraisPort.' &euro;</td></tr>
@@ -2202,19 +2243,60 @@ function print_devis($products, $prolog, $epilog) {
 		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
 
     <div class="blocPromo noprint">
-      <p><form name="codePromoForm" id="codePromo" action="" method="post">
+      <p><form name="codePromoForm" id="codePromo" action="'.get_bloginfo('url').'/votre-panier/" method="post">
         <input type="text" name="codeProm" class="promoInput" placeholder="CODE PROMO" /><button type="submit" name="submitCode" class="codePromo"><i class="fa fa-check" aria-hidden="true"></i> Appliquer</button>
       </form></p>
       <p>'.$checkcode.'</p>';
 
+    if (!empty($_SESSION['loggeduser'])){
+      //shorten url
+      //$urlinput=mysqli_real_escape_string($full);
+      $id=rand(10000,99999);
+      $shorturl=base_convert($id,20,36);
+
+
       $login= $_SESSION['loggeduser']->login;
-      if($login =='pocalypse' || $login =='malgoire2' || $login =='samrr' || $login =='qzefr'){
-        $view .= '<p><input type="text" class="promoInput" id="to-copy" value="'.get_bloginfo("url").'/votre-panier?share='. $url.'" /><button  class="codePromo" id="copy" type="button"><i class="fa fa-files-o" aria-hidden="true"></i> Copier URL panier<span class="copiedtext" aria-hidden="true">Copié</span></button>
+      if($login =='pocalypse' || $login =='malgoire2' || $login =='samrr' || $login =='qzefr' || $login =='test'){
+        $result = $wpdb->get_row("SELECT * FROM `$fb_tablename_shorturl` where url='$full'");
+        if (!$result)
+        $wpdb->query("INSERT INTO `$fb_tablename_shorturl` VALUES ('$id','$full','$shorturl')");
+        else $shorturl = $result->short;
+        $view .= '<p>
+        <input type="text" class="promoInput" id="to-copy" value="'.get_bloginfo("url").'/'.$shorturl.'" /><button  class="codePromo" id="copy" type="button"><i class="fa fa-files-o" aria-hidden="true"></i> Copier URL panier<span class="copiedtext" aria-hidden="true">Copié</span></button>
         </p>';
       }
 
-    $view .= '</div>';
+      if(isset($_POST['submitMail'])) {
+        $result = $wpdb->get_row("SELECT * FROM `$fb_tablename_shorturl` where url='$full'");
+        if (!$result)
+        $wpdb->query("INSERT INTO `$fb_tablename_shorturl` VALUES ('$id','$full','$shorturl')");
+        else $shorturl = $result->short;
 
+        $username=$_SESSION['loggeduser']->f_name;
+        $maildest=$_POST['maildest'];
+        $titre= 'Devis France Banderole';
+        $letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour,<br /><br />'.$username.' souhaite partager avec vous un devis enregistré sur notre site. Pour le visualiser, cliquez sur le lien ci-dessous :<br /><br /><a href="'.get_bloginfo("url").'/'.$shorturl.'">'.get_bloginfo("url").'/'.$shorturl.'</a><br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
+        function wpse27856_set_content_type(){
+  			  return "text/html";
+  			}
+  			add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
+  			$header = 'From: France Banderole <information@france-banderole.com>';
+    		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+        wp_mail($maildest, $titre, $letter);
+  			remove_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
+      }
+
+      $view .='<button href="#sharepop" name="shareURL" class="open-popup-link shareURL"><i class="fa fa-share-alt" aria-hidden="true"></i> Partager ce devis</button>
+      <div id="sharepop" class="sharePop mfp-hide">
+        <form name="shareCart" id="shareCart" action="'.get_bloginfo("url").'/votre-panier/" method="post">
+          <p>Vous pouvez partager un lien vers ce devis: en cliquant dessus le destinataire accèdera au contenu de ce panier et pourra, s\'il le souhaite, passer la commande. </p>
+          <input type="email" name="maildest" id="maildest" class="promoInput" placeholder="MAIL DESTINATAIRE" /><button type="submit" name="submitMail" class="codePromo"><i class="fa fa-paper-plane"></i>  Envoyer</button>
+        </form>
+        <a  class="shareFacebook" href="https://www.facebook.com/sharer/sharer.php?u='.urlencode(get_bloginfo("url").'/'.$shorturl).'"><i class="fa fa-facebook-official" aria-hidden="true"></i> partager sur facebook</a>
+      </div>';
+
+    }
+    $view .= '</div>';
 	} else { // si le panier est vide
 		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
@@ -2288,7 +2370,7 @@ function get_plv() {
               <td class="optionstd">
                   <span>OPTIONS:</span>
                   <input type="hidden" name="addtocart2" value="addtocart2" />
-                  <input type="hidden" name="rodzaj" value="PLVEXT ext ' . $p[name] . '" />
+                  <input type="hidden" name="rodzaj" value="PLVEXT ' . $p[name] . '" />
 
                   <div class="">
                   </div>
@@ -2530,6 +2612,72 @@ function get_acc() {
 	return $view;
 }
 
+///////////////////////////////////////////////////////////////////// accessoires
+
+function get_accessoires($cat) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_promo = $prefix."fbs_acc2";
+	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
+
+	$view .= '<div id="explode">';
+	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` WHERE cat='$cat' ORDER BY `order` ASC", ARRAY_A);
+	$licznik = 0;
+	foreach ($promotions as $p) :
+		$licznik++;
+		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
+		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
+		$viewmini = '';
+		$cedd = '';
+		$subtitle = '';
+		$sname = '';
+
+		if ($p[photo_mini]) {
+			if ($p[photo]) {
+				//$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
+        $viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
+			} else {
+				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
+			}
+		}
+
+		if ($p[subname] != '') {
+			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
+			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
+			$sname = $p[subname].'<br />';
+		}
+		$view .= '
+    <div class="explode">
+      <div class="accname prom_title">'.$p[name].'</div>
+      <div class="accmini">'.$viewmini.'</div>
+      <div class="accdesc prom_therest" id="desc'.$licznik.'">'.stripslashes($subtitle.$p[description]).'</div>
+  		<div class="accprice prom_price">'.$n_price.'</div>
+      <div class="accadd">
+        <form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+          <div class="pilosc"  data-trigger="spinner">
+            <input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+            <div class="spinner-controls plvpromo">
+             <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <input type="hidden" name="addtocart2" value="addtocart2" />
+          <input type="hidden" name="rodzaj" value="'.$p[name].'" />
+          <input type="hidden" name="isplv" value="true" />
+          <input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
+          <input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
+
+      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+    		</form>
+      </div>
+    </div>';
+
+		endforeach;
+
+	$view .= '</div>';
+
+	return $view;
+}
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////// validation BAT //
 

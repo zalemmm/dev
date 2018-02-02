@@ -185,23 +185,23 @@
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
            <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
-							si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
-							France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT:</b><br/>
-							Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier:</b><br/>
+            	Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
+            	si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
+            	France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
+            	<b>j’ai mon fichier, je souhaite un BAT +5,00€ :</b><br/>
+            	Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
+            	<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
+            	Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
+            	<b>France banderole crée votre fichier +19,00€ :</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
           </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
            <option value="">fichier d'impression...</option>
 						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +29,00€</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
+						<option value="config">je crée ma maquette en ligne</option>
+                        <option value="fb">France banderole crée la mise en page</option>
           </select>
         </li>
 
@@ -213,20 +213,20 @@
             	Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
             	si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
             	France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
-            	<b>j’ai mon fichier, je souhaite un BAT:</b><br/>
+            	<b>j’ai mon fichier, je souhaite un BAT +5,00€ :</b><br/>
             	Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
-            	<b>Vous créez votre maquette en ligne:</b><br/>
+            	<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
             	Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-            	<b>France banderole crée votre fichier:</b><br/>
+            	<b>France banderole crée votre fichier +19,00€ :</b><br/>
             	Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_61" name="q61_maquette61" onclick="JKakemono.czyscpola(); ">
            <option value="">fichier d'impression...</option>
 						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +29,00€</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
+						<option value="config">je crée ma maquette en ligne</option>
+                        <option value="fb">France banderole crée la mise en page</option>
           </select>
         </li>
 
@@ -882,7 +882,7 @@
     ////////////////////////////////////////////////////////// choix maquette //
     var maquette;
     if (($('input_6').value == 'fb') || ($('input_61').value == 'fb')){
-     cena+=29/ilosc;
+     cena+=19/ilosc;
      maquette = 'France banderole crée la maquette';
     }
     if (($('input_6').value == 'user') || ($('input_61').value == 'user')) {

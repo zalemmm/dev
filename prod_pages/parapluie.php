@@ -102,21 +102,6 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_2">
-          <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText3" style="visibility:hidden;">
-              <b>2 Spots halogène 35w: <span class="highlight">Dès 50,00€</span></b><br/>2 Mini Spot halogène 35W orientables, fournis avec ampoules + transformateurs + cables 220v + support aluminium pince pour se fixer sur le mât du roll-up.<br/>
-            </span>
-          </span>
-
-          <select class="form-dropdown validate[required]" id="input_2" name="q2_option" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir l'option... </option>
-            <option value="1">2 spots hallogène 35w aluminium </option>
-            <option value="0">non merci </option>
-          </select>
-        </li>
-
         <li class="form-line" id="id_50">
           <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
@@ -172,8 +157,8 @@
           <span class="helpButton" onmouseover="tipShow('helpText02');" onmouseout="tipHide('helpText02');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText02" style="visibility:hidden;">
-              <b>tissu 220g B1: <span class="highlight">dès 12€/m²</span></b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
+              <b>tissu 220g B1: <span class="highlight">utilisation occasionnelle</span></b><br /> tissu léger 100% polyester 220g traité retardant au feu B1<br />
+              <b>tissu 260g B1: <span class="highlight">utilisation intensive</span></b><br /> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_02" name="q02_usage" onchange="JKakemono.czyscpola(); ">
@@ -202,8 +187,9 @@
           <span class="helpButton" onmouseover="tipShow('helpText022');" onmouseout="tipHide('helpText022');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText022" style="visibility:hidden;">
-              <b>tissu 220g B1: <span class="highlight">dès 12€/m²</span></b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1: <span class="highlight">dès 16€/m²</span></b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
+              <b>PVC 300µ M1: <span class="highlight">le moins cher !</span></b><br /> visuel imprimé sur pvc souple à scratcher (scratchs fournis) <br />
+              <b>tissu 220g B1: <span class="highlight">utilisation occasionnelle</span></b> Housse en tissu léger 100% polyester 220g traité retardant au feu B1<br />
+              <b>tissu 260g B1: <span class="highlight">utilisation intensive</span></b> Housse tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_022" name="q022_usage" onchange="JKakemono.czyscpola(); ">
@@ -216,19 +202,6 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_51">
-          <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText6" style="visibility:hidden;">
-              <b>2 spots halogènes 150w: <span class="highlight">Dès 66€</span></b><br/>2 Spots halogènes 220v noirs, livrés rapidement avec ampoules et système de fixation exclusif sur nos structures stand tissu pas cher<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_51" name="q51_option" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir l'option... </option>
-            <option value="1">2 spots hallogène 150w noir </option>
-            <option value="0">non merci </option>
-          </select>
-        </li>
 
         <li class="form-line" id="id_6">
           <span class="helpButton" onmouseover="tipShow('helpText7');" onmouseout="tipHide('helpText7');">
@@ -250,22 +223,22 @@
           <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
+							<b>j’ai mon fichier, je ne souhaite pas de BAT :</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
 							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
+							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier:</b><br/>
+							<b>France banderole crée votre fichier +35,00€ :</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
                         </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
             <option value="">fichier d'impression...</option>
 						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +29,00€</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
+						<option value="config">je crée ma maquette en ligne</option>
+                        <option value="fb">France banderole crée la mise en page</option>
           </select>
         </li>
 
@@ -692,10 +665,7 @@ jQuery(document).ready(function(){
     	// cena= (tissu+structure+trans)*1.40;
     	//////////////////////////////////////////////////////////////////////////
 
-    	if ($('input_51').value == '1' ) {
-    		cena += 66;
-    		designation += '<br />- 2 spots hallogène 150w';
-    	}
+
      	if ($('input_6').value == '41' ) {
     		cena += 299+18; ////////// PV + transport
     		designation += '<br />- Valise de transport';
@@ -783,10 +753,7 @@ jQuery(document).ready(function(){
     		valise = 215;
     		designation += '<br />- Valise sans impression';
     	}
-	  if ($('input_2').value == '1' ) {
-    		spot = 50;
-    		designation += '<br />- 2 spots hallogene 35w aluminium';
-    	}
+
 
     	cena = rollup+portedocument+photocall+valise+spot;
 
@@ -856,7 +823,7 @@ jQuery(document).ready(function(){
     //////////////////////////////////////////////////////////// choix maquette //
     var maquette;
     if ($('input_7').value == 'fb') {
-    	cena+=40/ilosc;
+    	cena+=35/ilosc;
     	maquette = 'France banderole crée la maquette';
     }
     if ($('input_7').value == 'config') {

@@ -217,7 +217,25 @@ function get_filesender($products) {
 	$idzamowienia = $_GET['detail'];
 	$user = $_SESSION['loggeduser'];
 	$b = has_uploaded_files($idzamowienia, $user->login);
+	if(($status == 0) OR ($status == 1)) {
+		$to_pay = 1;
+		$need_act = 1;
+	}
 
+	// warnings retour commande  /////////////////////////////////////////////////
+
+	$upload = 0;
+	if((!(has_uploaded_files($idzamowienia,$user->id))) AND ($status != 4) AND ($status != 5) AND ($status != 6)) {
+		$upload = 1;
+		$need_act = 1;
+	}
+	if($need_act == 0) {
+		$ftip = '';
+	} else {
+		if($upload == 1) {
+			$ftip = '<div class="otip ftip noprint"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention"><span class="alertText">Vous n\'avez pas <strong>mis vos<br /> fichiers en ligne</strong>.</span><span class="closeTip"><i class="ion-ios-close-empty" aria-hidden="true"></i></span></div>';
+		}
+	}
 	//if ($user->login == 'schizoos' || $user->login == 'pocalypse') {
 	//	if ($b=="") { $fiText = '<tr class="noFilesTr"><td class="lefttd_none"></td><td colspan="5">Transferer des fichiers! Vous pouvez faire glisser-déposer ici.</td></tr>'; } else { $fiText = ''; }
 	$view .= '
@@ -228,7 +246,7 @@ function get_filesender($products) {
 	                <input type="checkbox" class="toggle" />
 	                <span class="btn btn-success fileinput-button fuselect">
 	                    <span><i class="fa fa-plus" aria-hidden="true"></i> sélectionner le(s) fichier(s)</span>
-	                    <input type="file" name="files[]" multiple />
+	                    <input type="file" name="files[]" multiple />'.$ftip.'
 	                </span>
 	                <button type="submit" class="btn btn-primary start fustart">
 	                    <span><i class="fa fa-upload" aria-hidden="true"></i> Envoyer le(s) fichier(s)</span>
@@ -384,29 +402,18 @@ function get_details() {
 
 	// warnings retour commande  /////////////////////////////////////////////////
 	if($need_act == 0) {
-		$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
+		$ptip = ''; $btip = '';
+		//$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
 	} else {
-		$prolog .= '<div class="box_warning noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_warning.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><strong>CETTE COMMANDE ATTEND DES RETOURS DE VOTRE PART !</strong></p><p><ul>';
-		if($to_pay == 1) {
-			$prolog .= '<li>Vous n\'avez pas <strong>réglé cette commande</strong>.</li>';
-		}
-		if($upload == 1) {
-			$prolog .= '<li>Vous n\'avez pas <strong>mis vos fichiers en ligne</strong>.</li>';
-		}
-		if($bat == 1) {
-			$prolog .= '<li>Vous n\'avez pas <strong>validé votre BAT</strong>.</li>';
-		}
-		$prolog .= '</ul></p>';
 
-		// bouton warning payer
 		if($to_pay == 1) {
-			$prolog .= '<form name="paye" id="payeTop" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payerTop" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
+			$ptip = '<div class="otip ptip noprint"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention"><span class="alertText">Vous n\'avez pas <strong>réglé cette commande</strong>.</span><span class="closeTip"><i class="ion-ios-close-empty" aria-hidden="true"></i></span></div>';
 		}
-		// bouton warning BAT
-		if($bat == 1) {
-			$prolog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_voir_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';		}
 
-		$prolog .= '</td></tr></table></div>';
+		if($bat == 1) {
+			$btip = '<div class="otip btip noprint"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention"><span class="alertText">Vous n\'avez pas <strong>validé votre BAT</strong>.</span><span class="closeTip"><i class="ion-ios-close-empty" aria-hidden="true"></i></span></div>';
+		}
+
 	}
 
 	$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';
@@ -505,30 +512,21 @@ function get_details() {
 			if ($exco->devi == 1) $epilog .= '<a href="#expop" id="but_exporter" class="open-popup-link"><i class="fa fa-print" aria-hidden="true"></i> Exporter ce devis</a>';
 			else $epilog .= '<a href="#expop" id="but_exporter" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Exporter ce devis</a>';
 		}
-		$epilog .= '<span id="but_imprimer" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</span>';
+	}
+
+	//------------------------------------------------- bouton imprimer la facture
+	if ($status==3 || $status==4 || $status==5) {
+		$epilog .= '<a href="javascript:window.print()" id="but_imprimerfacture"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</a>';
 	}
 
 	//------------------------------------------------------------ bouton voir BAT
-	$has_bat = 0;
-	if (($zamowienie->status) > 0) {
-	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$idzamowienia.'-projects';
-	if(file_exists($name))
-	if ($dir = @opendir($name)) {
-	$x=0;
-	    while(($file = readdir($dir))) {
-			if(!is_dir($file) && !in_array($file, array(".",".."))) {
-				if ($x<1) {
-					$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir maquette / BAT </a>';
-					$has_bat = 1;
-					$x=1;
-				} else {
-					$epilog .= '<a style="display: none;" data-lity href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'-projects/'.$file.'">asd</a>';
-				}
-			}
-    	}
-	    closedir($dir);
-  	}
-  }
+	if(has_bat($idzamowienia) AND is_bat_validated($idzamowienia)) {
+		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_vumaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir BAT '.$btip.'</a>';
+  }else	if(has_bat($idzamowienia) AND !is_bat_validated($idzamowienia)) {
+		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Valider BAT '.$btip.'</a>';
+  }else{
+		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_vumaquette deactive"><i class="fa fa-eye" aria-hidden="true"></i> Valider BAT '.$btip.'</a>';
+	}
 
 	//-------------------------------------------------- bouton écrire commentaire
   if ($status!=5 && $status!=6 ) {
@@ -539,13 +537,15 @@ function get_details() {
 
 	//--------------------------------------------------- bouton payer la commande
 	if ($status<2) {
-		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</button></form>';
-	} else {
-		$epilog .= '<span id="but_payer" class="deactive"><i class="fa fa-eur" aria-hidden="true"></i> Payer la commande</span>';
+		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande </button>'.$ptip.'</form>';
+	} else if ($status==7){
+		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> changer méthode paiement </button>'.$ptip.'</form>';
+	}else{
+		$epilog .= '<span id="but_payer" class="deactive"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande</span>';
 	}
 
 	//----------------------------------------------------- bouton suivre le colis
-	if ($status>=4) {
+	if ($status>=4 && $status<=5 && $status!=7) {
 		$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$idzamowienia'");
 		if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
 			if ($ktoryshipping->value == 'tnt') {
@@ -559,20 +559,11 @@ function get_details() {
 				$epilog .= '<a href="http://extranet.geodisciblex.com/extranet/client/corps.php?module=colis&colis='.$zamowienie->tnt.'" target="_blank" id="but_suivre"><i class="fa fa-truck" aria-hidden="true"></i> Suivre le colis</a>';
 			}
 		}
-	} else {
-		if ($status<2) {
-			$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
-		} else {
-			$epilog .= '<a id="but_suivre" class="deactive" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
-		}
-
-	}
-
-	//------------------------------------------------- bouton imprimer la facture
-	if ($status==3 || $status==4 || $status==5) {
-		$epilog .= '<a href="javascript:window.print()" id="but_imprimerfacture"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</a>';
-	} else {
-		$epilog .= '<span id="but_imprimerfacture" class="deactive"><i class="fa fa-print" aria-hidden="true"></i> Imprimer la facture</span>';
+	//------------------------------------------------ bouton adresse de livraison
+	}else if ($status==0 || $status==1 || $status==2 || $status==7){
+		$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
+	}else{
+		$epilog .= '<a id="but_suivre" class="deactive" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
 	}
 
 	//---------------------------------------------- bouton noter france banderole
@@ -586,6 +577,7 @@ function get_details() {
 	}
 
 	if((($status == 1) or ($status == 2) or ($status == 7)) and ((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))))) {
+		//$epilog .= '<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" data-lity id="but_bat"><i class="fa fa-eye" aria-hidden="true"></i> Voir et valider votre BAT</a>';
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/valider-mon-bat?uid='.$idzamowienia.'" id="but_bat"></a>';
 		//$epilog .= '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" id="but_bat"></a>';
 	}
@@ -710,28 +702,22 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 				$licznik++;
 
 				// on recherche dans les descriptions produits les particularités liées à la création de maquette en ligne :
-				$find = '/je crée ma maquette en ligne/';
-				$maquette = preg_match_all($find, $item[description], $resultat);
+				$maquette = preg_match_all('/je crée ma maquette en ligne/', $item[description], $resultat);
 				$maquette = count($resultat[0]);
 
-				$find2 = '/verso/';
-				$rectoverso = preg_match_all($find2, $item[description], $resultat2);
+				$rectoverso = preg_match_all('/verso/', $item[description], $resultat2);
 				$rectoverso = count($resultat2[0]);
 
-				$find3 = '/tissu/';
-				$stand = preg_match_all($find3, $item[description], $resultat3);
+				$stand = preg_match_all('/tissu/i', $item[description], $resultat3);
 				$stand = count($resultat3[0]);
 
-				$find4 = '/Comptoir/';
-				$comptoir = preg_match_all($find4, $item[description], $resultat4);
+				$comptoir = preg_match_all('/Comptoir/', $item[description], $resultat4);
 				$comptoir = count($resultat4[0]);
 
-				$find5 = '/Valise/';
-				$valise = preg_match_all($find5, $item[description], $resultat5);
+				$valise = preg_match_all('/Valise/', $item[description], $resultat5);
 				$valise = count($resultat5[0]);
 
-				$find6 = '/ExpoBag/';
-				$expo = preg_match_all($find6, $item[description], $resultat6);
+				$expo = preg_match_all('/ExpoBag/', $item[description], $resultat6);
 				$expo = count($resultat6[0]);
 
 				// si le client a choisi créer la maquette en ligne, afficher le(s) bouton(s)
@@ -742,27 +728,27 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 					// si c'est un recto verso, afficher 2 boutons
 					if ($rectoverso >= 1) {
 						$view .='<div class="maquetteRV">
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette recto</a><br />
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=1&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette verso</a></div>';
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette recto</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=1&ref='.$licznik.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette verso</a></div>';
 					// si c'est un stand + comptoir
 					}elseif (($stand >= 1) && ($comptoir >= 1)) {
 						$view .='<div class="maquetteRV">
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette stand</a><br />';
-						$view .='<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Comptoir&desc='.$item[description].'&hauteur=102&largeur=172" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> comptoir</a></div>';
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette stand</a><br />';
+						$view .='<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name=Comptoir&desc='.$item[description].'&hauteur=102&largeur=172" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> comptoir</a></div>';
 					// si c'est un stand + valise
 					}elseif (($stand >= 1) && ($valise >= 1)) {
 						$view .='<div class="maquetteRV">
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette stand</a><br />';
-						$view .='<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Valise&desc='.$item[description].'&hauteur=90&largeur=174" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> valise</a></div>';
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> maquette stand</a><br />';
+						$view .='<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name=Valise&desc='.$item[description].'&hauteur=90&largeur=174" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> valise</a></div>';
 					// si c'est un stand expobag
 					}elseif ($expo >= 1) {
 						$view .='<div class="maquetteRV">
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Photocall&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Photocall</a><br />
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=Valise&desc='.$item[description].'&hauteur=90&largeur=174" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> valise</a><br />
-						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name=roll-up&desc='.$item[description].'&hauteur=200&largeur=80" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Roll-ups</a></div>';
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name=Photocall&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Photocall</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name=Valise&desc='.$item[description].'&hauteur=90&largeur=174" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> valise</a><br />
+						<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name=roll-up&desc='.$item[description].'&hauteur=200&largeur=80" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Roll-ups</a></div>';
 					// cas normal, affichage d'un seul bouton "créer la maquette"
 					}else{
-						$view .= '<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>';
+						$view .= '<a class="maquette" href="'.get_bloginfo("template_url").'/config/index.php?number='.$idzamowienia.'&verso=0&ref='.$licznik.'&name='.$item[name].'&desc='.$item[description].'&hauteur='.$item[hauteur].'&largeur='.$item[largeur].'" data-lity id="iframe"><i class="ion-paintbrush" aria-hidden="true"></i> Créer la maquette</a>';
 					}
 					$view .='<span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 
@@ -1596,6 +1582,7 @@ function add_to_db() {
     //--------------------------------------------------------------------------
 
 		$unique_id = random_string();
+		$_SESSION['orderid'] = $unique_id;
 		$data = date('Y-m-d H:i:s');
 		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$fraisPort."', '".$totalHT."', '".$calculTVA."', '".$calculCode."', '".$totalTTC."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','','','')");
 
@@ -1667,19 +1654,24 @@ function add_to_db() {
 				unset($_SESSION['fbcart']);
 			}
 			if ($czyfbrobimakiete == 0) {
-				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
+				$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
 				$lettert = "Fonctionnement général de votre accès client";
 			} elseif  ($czyfbrobimakiete == 2){
-				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Créer votre maquette grâce à notre application en ligne. \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
+				$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Créer votre maquette grâce à notre application en ligne. <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
 				$lettert = "Fonctionnement général de votre accès client";
 			} else {
-				$letter = "Bonjour et bienvenue sur France banderole !\r\n\r\nConservez soigneusement le nom d'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l'évolution de vos devis et commandes.\r\nEn cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l'interface de communication, vous pouvez alors :\r\n- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). \r\n- Envoyer des commentaires directement au service d'infographie de France banderole et lire les réponses.\r\n- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.\r\n- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.\r\n- Suivre l'expédition de votre colis et imprimer vos factures.\r\n\r\nLes délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.\r\nVous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !\r\nDans l'espoir d'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.\r\n\r\nAmicalement,\r\nL'équipe France banderole.\r\nhttps://www.france-banderole.com";
+				$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
 				$lettert = "Fonctionnement général de votre accès client";
 			}
+			function wpse27856_set_content_type(){
+			  return "text/html";
+			}
+			add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
 			$header = 'From: France Banderole <information@france-banderole.com>';
-      		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
-	        //mail($user->email, $lettert, $letter, $header);
-	        wp_mail($user->email, $lettert, $letter);
+  		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+      //mail($user->email, $lettert, $letter, $header);
+      wp_mail($user->email, $lettert, $letter);
+			remove_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
 		}
 
 		//ajout header mail <a href=\'https://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
@@ -1767,7 +1759,7 @@ function add_to_db() {
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////// générer numéro de commande //
 
 function random_string() {
 	global $wpdb;

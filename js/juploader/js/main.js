@@ -72,6 +72,7 @@ $(function () {
             data: "cmdId="+$("#cmdID").val(),
             success: function (response) {
             	if (response == 'ok') {
+                $('.ftip').fadeOut();
             	} else {
             		if ($("#commentArea").length > 0) {
 	            		$("#commentArea").replaceWith(response);

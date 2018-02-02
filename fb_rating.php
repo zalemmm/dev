@@ -165,6 +165,7 @@ function get_rating_page() {
 	    elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
 	    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
 	    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+			elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
 	    else {$lienprod = get_bloginfo('url').'/banderoles';};
 
 			// séparer nom prénom et ne garder que l'initiale du nom------------------
@@ -295,6 +296,7 @@ function get_rating_page() {
     elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
     elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
     elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+		elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
     else {$lienprod = get_bloginfo('url').'/banderoles';};
 
 		// séparer nom prénom et ne garder que l'initiale du nom------------------

@@ -7,11 +7,11 @@ function sprawdzrejestracje() {
 	else {
 		b.style.visibility = "hidden";
 	}
-	
+
 }
 
 function champsReq() {
-	
+
 	var groupe = document.getElementById("cl_group").value;
 	var div_siret = document.getElementById("siret_pick");
 	var div_epub = document.getElementById("epub_pick");
@@ -46,14 +46,8 @@ function fixstr(num) {
 };
 
 function potwierdzregulamin() {
-	var e = document.getElementById('reg_confirm');
 	var b = document.getElementById('paiements_right');
-	if (e.checked) {
-		b.style.visibility = "visible";
-	}
-	else {
-		b.style.visibility = "hidden";
-	}
+	b.style.visibility = "visible";
 	return false;
 }
 

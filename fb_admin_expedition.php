@@ -336,7 +336,7 @@ function fb_admin_expedition() {
 
         file_put_contents( WP_PLUGIN_DIR . '/fbshop/expeditions/ST' . date('dmY') . '.html', $page);
 
-        $to = 'information@france-banderole.com';
+        $to = 'maquette@france-banderole.com';
         $subject = 'Clôture Expéditions du ' .date('d/m/Y');
         $headers = array('Content-Type: text/html; charset=UTF-8','From: FB Expéditions <info@france-banderole.fr>');
 

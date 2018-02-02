@@ -43,20 +43,20 @@
 						<span class="helpText" id="helpTextmaquette1" style="visibility:hidden;">
               <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
 							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
+							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier:</b><br/>
+							<b>France banderole crée votre fichier +19,00€ :</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
                         </span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_maquette1" name="q6_maquette1" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
 						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +29,00€</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
+						<option value="config">je crée ma maquette en ligne</option>
+                        <option value="fb">France banderole crée la mise en page</option>
 					</select>
 				</li>
 
@@ -65,20 +65,20 @@
 						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
               <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
+							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
 							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
+							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier:</b><br/>
+							<b>France banderole crée votre fichier +19,00€ :</b><br/>
 							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
             </span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_maquette2" name="q6_maquette2" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
 						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +29,00€</option>
+						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
+						<option value="config">je crée ma maquette en ligne</option>
+                        <option value="fb">France banderole crée la mise en page</option>
 					</select>
 				</li>
 
@@ -552,7 +552,7 @@
 
 		var maquette='';
 		if ($('input_maquette1').value == 'fb') {
-			cena += 29/ilosc;
+			cena += 19/ilosc;
 			maquette = '<br />- France banderole crée la mise en page';
 		}
 		if ($('input_maquette1').value == 'user') {
@@ -568,7 +568,7 @@
 		}
 
 		if ($('input_maquette2').value == 'fb') {
-			cena += 29/ilosc;
+			cena += 19/ilosc;
 			maquette = '<br />- France banderole crée la mise en page';
 		}
 		if ($('input_maquette2').value == 'user') {
@@ -967,13 +967,13 @@
 				if($('input_forme').value == 'rectangulaire'){
 				var dodajkoszyk = document.getElementById("cart_form");
 				// largeur et hauteur x100 pour un affichage en cm côté admin
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+bacheType+'</br>- '+hauteur*100+' x '+largeur*100+' cm'+opis+maquette+optliv+prliv+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+bacheType+'</br>- H|'+(hauteur*100).toFixed(0)+' x L|'+(largeur*100).toFixed(0)+' cm'+opis+maquette+optliv+prliv+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 				livraisonComp.style.display = 'block';
 				}
 				if($('input_forme').value == 'ronde'){
 				var dodajkoszyk = document.getElementById("cart_form");
 				// largeur et hauteur x100 pour un affichage en cm côté admin
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+bacheType+'</br>- '+diametre*100+' cm / diamètre'+opis+maquette+optliv+prliv+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
+				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+bacheType+'</br>- &empty;|'+(diametre*100).toFixed(0)+' cm'+opis+maquette+optliv+prliv+etiqdesc+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur*100+'" /><input type="hidden" name="largeur" value="'+largeur*100+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 				livraisonComp.style.display = 'block';
 				}
 			}

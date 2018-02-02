@@ -187,7 +187,7 @@
                 <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                   <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-                    • <u><b>France banderole crée votre fichier </u>:</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
+                    • <u><b>France banderole crée votre fichier +35,00€</u> :</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
                     • <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
                   </span>
                 </span>
@@ -423,7 +423,7 @@
       var mur3x6perso=70.52+40; var mur3x6persorv=141+45; var demimurA3x6perso=11.82+25; var demimurA3x6persorv=23.64+30; var demimurB3x6perso=11.82+25; var demimurB3x6persorv=23.64+30; var barredmA3x6perso=50.00; var barredmB3x6perso=25.00; var fronton3x6perso=30.36+20;
       //-------------------------------------------------------------------------4x6
       var structure4x6=530.00; var canopi4x6=155.00; var mur4x6=61.00; var demimurA4x6=24.00; var demimurB4x6=12; var barredmA4x6=50.00; var barredmB4x6=25.00;
-      var mur4x6perso=70.52+50; var mur4x6perso=141+55; var demimurA4x6perso=15.58+30; var demimurA4x6persorv=31.16+35; var demimurB4x6perso=15.58+30; var demimurB4x6persorv=31.16+35; var barredmA4x6perso=50.00; var barredmB4x6perso=25.00; var fronton4x6perso=33.51+20;
+      var mur4x6perso=70.52+50; var mur4x6persorv=141+55; var demimurA4x6perso=15.58+30; var demimurA4x6persorv=31.16+35; var demimurB4x6perso=15.58+30; var demimurB4x6persorv=31.16+35; var barredmA4x6perso=50.00; var barredmB4x6perso=25.00; var fronton4x6perso=33.51+20;
 
       //////////////////////////////////////////////////////////////////////////
 
@@ -876,6 +876,7 @@
       	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso+demimurA4x6perso)*2.5*ilosc;}
       	if ( ($('input_personnalisation').value == 'Full Graphic') && ($('input_option').value == 'Mur supplémentaire + 2x Demi-mur'))
       	{cena+= (fronton4x6perso+mur4x6perso+mur4x6perso+demimurA4x6perso+demimurB4x6perso)*2.5*ilosc;}
+
 		//-------------------------------------------------------------------------4x6 personnalisation recto verso
       	if ( ($('input_personnalisation').value == 'Personnalisation Mur R/V') || ($('input_personnalisation-sans-option').value == 'Personnalisation Mur R/V'))
       	{cena+= (mur4x6persorv)*2.5*ilosc;}
@@ -909,7 +910,7 @@
 
     	//////////////////////////////////////////////////////// choix maquette //
     	if ($('input_maquette').value == 'fb') {
-        cena += 49/ilosc;
+        cena += 35/ilosc;
         opis += '<br />- France banderole crée la maquette';
       }
       if ($('input_maquette').value == 'user') {
@@ -924,7 +925,7 @@
 
       var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
       if (colis == true) {
-        cena += 10.00*ilosc;
+        if ( !$('revendeur') && !$('revendeurRC') ) {cena += 10.00*ilosc;}
         optliv += '<br />- colis revendeur';
       }
       var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();

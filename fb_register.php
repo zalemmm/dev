@@ -1145,11 +1145,16 @@ function get_acces_client() {
 		     $haslo = sha1(md5($hasloodszyfrowane)); // szyfrowanie hasła
 				$wysylanie = $wpdb->query("UPDATE `$fb_tablename_users` SET pass = '$haslo' WHERE email = '$adresemail->email'");
 				if ($wysylanie) {
-	        		$letter = ""._FB_WELCOME.", votre nom d utilisateur est : ".$adresemail->login."\r\n\r\n"._FB_NPASS1." ".$hasloodszyfrowane."\r\n"._FB_NPASS2."\r\n\r\nAmicalement,\r\nL’équipe FRANCE BANDEROLE";
-					$header = 'From: France Banderole <information@france-banderole.com>';
+	        		$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour,<br />Vous pouvez vous connecter dans votre accès client avec les informations ci-dessous :<br /><br />NOM D’UTILISATEUR : '.$adresemail->login.'<br />MOT DE PASSE : '.$hasloodszyfrowane.'<br /><br />Une fois connecté(e), vous pourrez modifier ces données si vous le souhaitez en cliquant sur le bouton "modifier mon compte".<br /><br />Amicalement,<br />L’équipe FRANCE BANDEROLE</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
+							function wpse27856_set_content_type(){
+							  return "text/html";
+							}
+							add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
+							$header = 'From: France Banderole <information@france-banderole.com>';
         			$header .= "\nContent-type: text/plain; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
 			        //mail($adresemail->email, "nouveau mot de passe et nom d utilisateur", $letter, $header);
 			        wp_mail($adresemail->email, "Nouveau mot de passe et nom d utilisateur", $letter);
+							remove_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
     	    		$view .= '<p class="box_info">'._FB_NPASS3.'</p>';
     	    	} else {
     	    		$view .= '<p>'._FB_ERROR.'</p><p><a href="'.get_bloginfo('url').'/acces-client/?resend=pass">'._FB_COFNIJ.'</a></p>';

@@ -35,7 +35,7 @@ function passage_paiement_recu(){
 		<input type="radio" name="modpaiement" value="espece">Espèces<br>
 		<input type="radio" name="modpaiement" value="administratif">Vire administratif<br>
 		<input type="radio" name="modpaiement" value="trente">Paiement à 30j<br>
-		<input type="radio" name="modpaiement" value="soixante">Paiement à 60j<br>
+		<input type="radio" name="modpaiement" value="soixante">Paiement LCR 30 jours fin de mois<br>
 		<p><input type="submit" value="VALIDER" style="margin:5px 0 0 8px;"></p>
 	</form>
 	</div>
@@ -44,11 +44,12 @@ function passage_paiement_recu(){
 
 function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){
 	global $wpdb;
+	global $current_user;
 	/* Nouveau statut à 3 (traitement)*/
   $newstat = '3';
 	$nowadata = date('Y-m-d H:i:s');
 	$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
-
+	$wpuser = $current_user->display_name;
 
   /* Nouveau mode de paiement */
 	$newplat = addslashes($_POST['modpaiement']);
@@ -76,7 +77,7 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 	$tresc = addslashes($cont);
 	$temat = addslashes($topt);
 	$data = date('Y-m-d H:i:s');
-	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')");
+	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole ".$wpuser."', '".$tresc."')");
 
 	$dodawanie_new = $wpdb->query("INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')");
 	$sprawdzcf = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '".$number."'");
@@ -133,12 +134,14 @@ function passage_expedie(){
 
 function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address){
 	global $wpdb;
+	global $current_user;
 	/* On détermine si on est en relais colis, expédition TNT ou retrait atelier */
 	$type_expedition = "";
 	$wheresql = "0";
 	$adresse_relais_colis ="";
 	$unique_id_commande_tmp = $number;
 	$reqtype_expedition = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number'");
+	$wpuser = $current_user->display_name;
 
 	foreach ($reqtype_expedition as $single) :
 		$type = $single->type;
@@ -225,7 +228,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	$temat = addslashes($temat);
 	$data = addslashes($data);
 	$number = $unique_id_commande_tmp;
-	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')");
+	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole ".$wpuser."', '".$tresc."')");
 
 	$dodawanie_new = $wpdb->query("INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')");
 	$sprawdzcf = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '".$number."'");
@@ -288,11 +291,13 @@ function passage_cloture(){
 
 function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address){
 	global $wpdb;
+	global $current_user;
 
 	/* Nouveau statut à 5 (cloturé)*/
   $newstat = '5';
 	$nowadata = date('Y-m-d H:i:s');
 	$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat ), array ( 'unique_id' => $number ) );
+	$wpuser = $current_user->display_name;
 
   /* ENVOI du commentaire "COLIS RECU*/
 	$wheresql = "COLIS RECU";
@@ -312,7 +317,7 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 	//$temat = $topt;
 
 	$data = date('Y-m-d H:i:s');
-	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole', '".$tresc."')");
+	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole ".$wpuser."', '".$tresc."')");
 
 	$dodawanie_new = $wpdb->query("INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')");
 	$sprawdzcf = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '".$number."'");

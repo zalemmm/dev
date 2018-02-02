@@ -1,6 +1,6 @@
 <?php
 //$xlsfile = addslashes($_GET['file']);
-$filename = addslashes($_GET['name']); 
+$filename = addslashes($_GET['name']);
 $barcode = addslashes($_GET['barcode']);
 $number = $_GET['number'];
 
@@ -32,25 +32,31 @@ $count_elt_ko = 0;
 if($liste_bl = extraireBLXLS($path . '/uploaded/' . $number . '/BL.xls')) {
 	global $wpdb;
 	$count_elt = count($liste_bl);
+
+
 	foreach ($liste_bl AS $code_bl) {
-		if($code_bl != 0) {			
-			if($donnees_client = $wpdb->get_row("SELECT * FROM wp_retail WHERE retail_code = '" . $code_bl . "'")) {				
+		if($code_bl != 0) {
+			if($donnees_client = $wpdb->get_row("SELECT * FROM wp_retail WHERE retail_code = '" . $code_bl . "'")) {
+
+				$delko = preg_match('/delko/i', $donnees_client->retail_enseigne, $resultat);
+				$delko = count($resultat[0]);
+
 				echo "<page>";
-				if(is_file(__DIR__.'/tpl/'.$donnees_client->retail_enseigne.'.jpg')) {
-					echo "<img src='".__DIR__."/tpl/".$donnees_client->retail_enseigne.".jpg' />";
+				if($delko >= 1) {
+					echo "<img src='".__DIR__."/tpl/delko.jpg' />";
 				} else {
 					echo "<img src='".__DIR__."/tpl/defaut.jpg' width='100%' />";
-				}								
-								
+				}
+
 				echo "<img style='margin-left: 75px; margin-right: 75px; margin-top: 75px; float: left;' src='".__DIR__ ."/" . $barcode . "' width='250' alt='code barre' />";
-								
-				echo "<p style='font-family: Arial; font-size: 24px; font-weight: bold;'>";				
+
+				echo "<p style='font-family: Arial; font-size: 24px; font-weight: bold;'>";
 				echo $donnees_client->retail_enseigne."<br />".$donnees_client->retail_contact."<br />".$donnees_client->retail_adresse."<br />".$donnees_client->retail_cp."&nbsp;".$donnees_client->retail_ville."<br /><br />TEL : ".$donnees_client->retail_tel;
 				echo "</p></page>";
-				
+
 				$liste_elt_ok .= $code_bl.'<br />';
 				$count_elt_ok++;
-				
+
 			} else {
 				$liste_elt_ko .= $code_bl.'<br />';
 				$count_elt_ko++;
@@ -68,7 +74,7 @@ if($liste_bl = extraireBLXLS($path . '/uploaded/' . $number . '/BL.xls')) {
 	echo '<p>' . $count_elt_ok . ' bons de livraisons imprimés correspondant aux points de vente suivant :</p>';
 	echo '<p>' . $liste_elt_ok . '</p>';
 	echo '<p><strong>Attention !</strong> ' . $count_elt_ko . ' bons de livraisons n\'ont pas pu être imprimé pour cause de référence point de vente erronnée :</p>';
-	echo '<p>' . $liste_elt_ko . '</p>'; 
+	echo '<p>' . $liste_elt_ko . '</p>';
 	echo '</page>';
 
 
@@ -79,4 +85,3 @@ if($liste_bl = extraireBLXLS($path . '/uploaded/' . $number . '/BL.xls')) {
     $pdf->WriteHTML($content);
     $pdf->Output($filename.'.pdf');
 ?>
-

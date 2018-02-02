@@ -46,7 +46,7 @@
 					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>France banderole crée votre fichier :</b><br/>
+							<b>France banderole crée votre fichier +19,00€ :</b><br/>
 							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
 							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
 							<b>Vous créez votre maquette en ligne:</b><br/>
@@ -320,7 +320,7 @@
 			/////////////////////////////////////////////////////////////// options //
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 			if (colis == true) {
-				cena += cena*3/100;
+				if ( !$('revendeur') && !$('revendeurRC') ) {cena += cena*3/100};
 				cedzik += '<br />- colis revendeur';
 			}
 			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();

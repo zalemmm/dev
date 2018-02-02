@@ -24,8 +24,8 @@
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
 							Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-							<b>Vous avez déjà crée la mise en page:</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
+							<b>Vous avez déjà crée la mise en page +5,00€ :</b><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.<br/>
+							<b>Vous créez votre maquette en ligne +19,00€ :</b><br/>
 							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
 						</span>
 					</span>
@@ -297,7 +297,7 @@
 			///////////////////////////////////////////////////////// choix maquette//
 			var ktodaje;
 			if ($('input_6').value == 'fb') {
-				cena+=29/ilosc;
+				cena+=19/ilosc;
 				ktodaje = 'France banderole crée la maquette';
 			}
 			if ($('input_6').value == 'user') {
@@ -311,7 +311,7 @@
 			/////////////////////////////////////////////////////////////// options //
 			var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
 			if (colis == true) {
-				cena += cena*3/100;
+				if ( !$('revendeur') && !$('revendeurRC') ) {cena += cena*3/100};
 				cedzik += '<br />- colis revendeur';
 			}
 			var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();

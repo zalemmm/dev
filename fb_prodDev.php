@@ -154,6 +154,9 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-flyer.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
+  	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Flyers"}], "action": {"field": "1", "visibility": "Show"}},
+	 {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "equals", "value": "Depliants"}], "action": {"field": "1depliant", "visibility": "Show"}},
+
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
 
     {"type": "field", "link": "All", "terms": [{"field": "1", "operator": "equals", "value": "Flyers 80g"}, {"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "44", "visibility": "Show"}},
@@ -170,11 +173,34 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "42", "operator": "equals", "value": "fb"}, {"field": "43", "operator": "equals", "value": "fb"},{"field": "44", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "42", "operator": "equals", "value": "user"}, {"field": "43", "operator": "equals", "value": "user"}, {"field": "44", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "42", "operator": "equals", "value": "fb"}, {"field": "43", "operator": "equals", "value": "fb"},{"field": "44", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "42", "operator": "equals", "value": "user"}, {"field": "43", "operator": "equals", "value": "user"}, {"field": "44", "operator": "equals", "value": "user"}, {"field": "41", "operator": "equals", "value": "sansbat"}, {"field": "42", "operator": "equals", "value": "sansbat"}, {"field": "43", "operator": "equals", "value": "sansbat"}, {"field": "44", "operator": "equals", "value": "sansbat"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "config"}, {"field": "42", "operator": "equals", "value": "config"}, {"field": "43", "operator": "equals", "value": "config"}, {"field": "44", "operator": "equals", "value": "config"}], "action": {"field": "45", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+
+
+
+
+
+	{"type": "field", "link": "Any", "terms": [{"field": "1depliant", "operator": "isFilled", "value": false}], "action": {"field": "21depliant", "visibility": "Show"}},
+
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 80g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "42depliant", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 135g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "32depliant", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 170g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "33depliant", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "1depliant", "operator": "equals", "value": "depliants 250g"}, {"field": "21depliant", "operator": "isFilled", "value": false}], "action": {"field": "34depliant", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "32depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "33depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "34depliant", "operator": "isFilled", "value": false}], "action": {"field": "41depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41depliant", "operator": "isFilled", "value": false}], "action": {"field": "5depliant", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "42depliant", "operator": "isFilled", "value": false}], "action": {"field": "5depliant", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "5depliant", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+
+
+
   ]);
   JotForm.init();
   </script>';
@@ -245,14 +271,17 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotformaffiches.js?v3" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "21", "visibility": "Show"}},
+  	{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 120g"}, {"field": "1", "operator": "equals", "value": "Affiches 150g"}, {"field": "1", "operator": "equals", "value": "Affiches 220g"}], "action": {"field": "21", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Affiches 120g fluo"}], "action": {"field": "22", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "41", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "fb"}, {"field": "41", "operator": "equals", "value": "sansbat"},{"field": "41", "operator": "equals", "value": "user"}, {"field": "45", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "41", "operator": "equals", "value": "config"}], "action": {"field": "45", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "101", "visibility": "Show"}}
 
   ]);
   JotForm.init();
@@ -306,13 +335,47 @@ function fbshop_head() {
 
     {"type": "field", "link": "Any", "terms": [{"field": "71", "operator": "isFilled", "value": false},{"field": "101", "operator": "isFilled", "value": false},{"field": "52", "operator": "isFilled", "value": false},{"field": "53", "operator": "isFilled", "value": false},{"field": "51", "operator": "equals", "value": "pas de fixation"}, {"field": "51", "operator": "equals", "value": "2 tourillons bois et sandows"}, {"field": "51", "operator": "equals", "value": "2 piquets de bois"},{"field": "51", "operator": "equals", "value": "drisse fourreaux H/B"},{"field": "51", "operator": "equals", "value": "drisse périmétrique"}], "action": {"field": "12", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "12", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
   }
+
+
+
+
+  if (is_page('nappes-publicitaires')) {
+  echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
+  echo '
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script>
+  <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-nappes.js?v3" type="text/javascript"></script>
+  <script type="text/javascript">
+  JotForm.setConditions([
+
+    {"type": "field", "link": "All", "terms": [{"field": "support", "operator": "isFilled", "value": false}], "action": {"field": "forme", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "forme", "operator": "equals", "value": "ronde"}], "action": {"field": "maquette1", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "forme", "operator": "equals", "value": "rectangulaire"}], "action": {"field": "maquette2", "visibility": "Show"}},
+    {"type": "field", "link": "All", "terms": [{"field": "maquette1", "operator": "isFilled", "value": false}], "action": {"field": "signature1", "visibility": "Show"}},
+	{"type": "field", "link": "All", "terms": [{"field": "maquette2", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
+
+	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "14rond", "visibility": "Show"}},
+	{"type": "field", "link": "All", "terms": [{"field": "signature1", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}},
+
+	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}},
+	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+	{"type": "field", "link": "All", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+
+
+  ]);
+  JotForm.init();
+  </script>';
+  }
+
 
   if (is_page('stickers')) {
   echo '<script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/prototype.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus.js" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/protoplus-ui.js" type="text/javascript"></script>';
@@ -443,8 +506,9 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "9", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "equals", "value": "Structure seule"}], "action": {"field": "10", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "8", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "10", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -479,8 +543,9 @@ function fbshop_head() {
 
     {"type": "field", "link": "Any", "terms": [{"field": "51", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "7", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "16", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -511,9 +576,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "35", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "33", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "34", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -561,26 +627,31 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "x-screen"}], "action": {"field": "3", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "clipit"}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Extérieur"}], "action": {"field": "2", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "equals", "value": "Kakemono Tissu"}], "action": {"field": "24", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Blizzard"}], "action": {"field": "21", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "equals", "value": "Mistral"}], "action": {"field": "22", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "21", "operator": "isFilled", "value": false}], "action": {"field": "23", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "22", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "23", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "24", "operator": "isFilled", "value": false}], "action": {"field": "25", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "31", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "25", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "31", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "isFilled", "value": false}], "action": {"field": "11", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "11", "operator": "isFilled", "value": false}], "action": {"field": "61", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}},
 
-    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "61", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "14", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "15", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "8", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -591,7 +662,7 @@ function fbshop_head() {
   <script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/cal_kakemono.js?v26032013" type="text/javascript"></script><script src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/js/jotform-akilux.js?v4" type="text/javascript"></script>
   <script type="text/javascript">
   JotForm.setConditions([
-    {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
+   {"type": "field", "link": "Any", "terms": [{"field": "0", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "oeillets"}], "action": {"field": "oeillets", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "4", "operator": "equals", "value": "rislans"}], "action": {"field": "rislans", "visibility": "Show"}},
@@ -601,9 +672,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -624,9 +696,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -647,9 +720,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "rislans", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "crochets", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "13", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -663,9 +737,10 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "1", "operator": "isFilled", "value": false}], "action": {"field": "HD", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "HD", "operator": "isFilled", "value": false}], "action": {"field": "2", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "2", "operator": "isFilled", "value": false}], "action": {"field": "3", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+    {"type": "field", "link": "Any", "terms": [{"field": "3", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "4", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "5", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -775,10 +850,12 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -802,10 +879,12 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -830,10 +909,12 @@ function fbshop_head() {
     {"type": "field", "link": "Any", "terms": [{"field": "4perso", "operator": "equals", "value": "double face"} , {"field": "4perso", "operator": "equals", "value": "sans"}], "action": {"field": "6perso", "visibility": "Show"}},
 
     {"type": "field", "link": "Any", "terms": [{"field": "5", "operator": "isFilled", "value": false}], "action": {"field": "6", "visibility": "Show"}},
+	{"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "signature", "visibility": "Show"}},
     {"type": "field", "link": "Any", "terms": [{"field": "5perso", "operator": "isFilled", "value": false}], "action": {"field": "6perso", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
-    {"type": "field", "link": "Any", "terms": [{"field": "6", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
+	{"type": "field", "link": "Any", "terms": [{"field": "6perso", "operator": "isFilled", "value": false}], "action": {"field": "signature2", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "9", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature2", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}},
+    {"type": "field", "link": "Any", "terms": [{"field": "signature", "operator": "isFilled", "value": false}], "action": {"field": "7", "visibility": "Show"}}
   ]);
   JotForm.init();
   </script>';
@@ -920,11 +1001,6 @@ function generate_page ($page, $pageid) {
   	return $view;
   }
 
-  if ($page=='promotions') {
-  	$view .= get_promotions();
-  	return $view;
-  }
-
   if ($page=='plv') {
   	$view .= get_plv();
   	return $view;
@@ -935,24 +1011,8 @@ function generate_page ($page, $pageid) {
   	return $view;
   }
 
-  if ($page=='buraliste') {
-  	//$view .= get_buraliste();
-  	$view .= get_buralistes();
-  	return $view;
-  }
-
   if ($page=='acc') {
   	$view .= get_acc();
-  	return $view;
-  }
-
-  if ($page=='mma') {
-  	$view .= get_mma();
-  	return $view;
-  }
-
-  if ($page=='acc2') {
-  	$view .= get_acc2();
   	return $view;
   }
 
@@ -968,10 +1028,6 @@ function generate_page ($page, $pageid) {
 
   if ($page=='Kakemonos' || $page=='Oriflammes' || $page=='roll-up' || $page=='Stickers' || $page=='Banderoles' || $page=='cartes' || $page=='affiches' || $page=='cadre-exterieur-bache' || $page=='flyers' || $page=='depliants' || $page=='stand-parapluie' || 'enseignes' || $page=='cadre-exterieur-bache' || $page=='rampe-eclairage-led' || $page=='panneaux-akilux-3mm' || $page=='panneaux-akilux-3_5mm' || $page=='panneaux-akilux-10mm' || $page=='panneaux-forex-1mm' || $page=='panneaux-forex-3mm' || $page=='panneaux-forex-5mm' || $page=='panneaux-dibond' || $page=='PVC-300-microns') {
 
-  	if ($page=='cadre-exterieur-bache') {
-  		$h1name='cadre-exterieur-bache';
-  		$formularz = get_cadre_form();
-  	}
 
   	if ($page=='flyers') {
   		$h1name='Flyers pas cher, impression flyer meilleur prix, Prospectus, tracts, imprimer flyer rapidement papier PEFC et FSC';
@@ -982,12 +1038,6 @@ function generate_page ($page, $pageid) {
   		$info_title='Impression rapide flyers pas cher et prospectus';
   		$info_info='<span class="prezHide">Support de communication incontournable, du Flyers pas cher A5 au prospectus cartonné 350g couché brillant, nos flyers au prix le plus bas sont disponibles en petite quantité pour éviter les gaspillages. Flyers pas cher  A3 - A4 - A5 - A6 - A7. Impression rapide de flyers pas cher recto ou recto/verso. Nous étudions également toutes vos demandes spécifiques. Nous pouvons également réaliser des dimensions de flyer personnalisées pour des carte de voeux etc... Livraison gratuite partout en France métropolitaine</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-papier/" target="_blank" class="notice modal-link" title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_flyers_form();
-  	}
-
-  	if ($page=='rampe-eclairage-led') {
-  		$h1name=' RAMPE ECLAIRAGE LED';
-  		$mini='f21';
-  		$formularz = get_eclairage_form();
   	}
 
   	if ($page=='depliants') {
@@ -1053,6 +1103,21 @@ function generate_page ($page, $pageid) {
   		$info_info='<span class="prezHide">Meilleur prix tentes publicitaires personnalisées pliantes en 30 secondes, système EasyQuick. tente publicitaire professionnelle 2x2m au 3x6m personnalisable, couleurs au choix ou full graphique, choisissez tous les éléments de votre tente personnalisée, mur ou demi-mur, toit et fronton entièrement personnalisables au meilleur tarif pour une utilisation intensive lors de vos manifestations ou évènement sportif. Montage rapide et facile, sac de transport sur roulette offert et livraison gratuite !</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/aide-tente-publicitaire/" target="_blank" class="notice modal-link"  title="tout savoir sur les tentes publicitaires personnalisées"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-tente-publicitaire/" target="_blank" class="notice modal-link"  title="notice technique tente publicitaire"><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-tente-publicitaire/" target="_blank" class="notice modal-link"  title="gabarit tente publicitaire pas cher"><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_tente_exposition_form();
   	}
+
+
+
+if ($page=='nappes-publicitaires') {
+  		$h1name='Nappe publicitaire personnalisée';
+  		$imghead1='kakemonos1';
+  		$imghead2='kakemonos2';
+  		$imghead3='kakemonos3';
+  		$mini='nappes';
+  		$info_title='Nappes publicitaires';
+  		$info_info='<span class="prezHide">la nappe est un support publicitaire pour habiller vos tables lors de vos salons professionnels, expositions ou aussi bien pour décorer votre intérieur. Imprimmé sur du tissu en 220gr ou en 260gr, vous pouvez choisir sa forme ronde carrée ou rectangulaire. Nos nappes ont par défault un ourlet avec une double surpiqûre.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-nappe-publicitaire/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$formularz = get_nappes_form();
+  	}
+
+
 
   	if ($page=='panneaux-akilux-3_5mm') {
   		$h1name='panneaux akilux 3,5mm pas cher, panneau akylux meilleur rapport qualité prix, affiche permis de construire, Akilux 3,5mm, Akylux 600g';
@@ -1291,7 +1356,7 @@ function generate_page ($page, $pageid) {
   		$imghead3='kakemonos3';
   		$mini='t';
   		$info_title='Totem publicitaire intérieur et extérieur ';
-  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarits-en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
+  		$info_info='<span class="prezHide">Le totem publicitaire, un support de communication PLV à forte valeur ajoutée. l impact visuel vertical des totem publicitaires font d eux, un vecteur de communication parfait pour la publicité intérieur sur point de vente, salons professionnels, foire expo... Choisissez le type de totem au meileur prix qu il soit suspendu comme la gamme totem clipit, le totem X-banner ou en extérieur, le kakemono totem Blizzard.</span>  <div class="helpMenu"><a href="'.get_bloginfo("url").'/en-cours/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-lightbulb-o" aria-hidden="true"></i> <span class="textHide">AIDE</span></a>  <a href="'.get_bloginfo("url").'/notice-technique-totem-meilleur-prix/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-wrench" aria-hidden="true"></i> <span class="textHide">Notice technique</span></a> <a href="'.get_bloginfo("url").'/gabarit-totem-gabarit-kakemono-tissu/" target="_blank" class="notice modal-link"  title=""><i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span></a></div>';
   		$formularz = get_totem_form();
   	}
 
@@ -1367,6 +1432,7 @@ function get_votre() {
 	$prefix = $wpdb->prefix;
 	$fb_tablename_order = $prefix."fbs_order";
 
+  $promo = $_POST['codeProm'];
 	/* TEST envoi données */
 
 	if (fb_is_logged()) {
@@ -1492,16 +1558,19 @@ function get_votre() {
 function get_verification() {
 	if (fb_is_logged()) {
 		$prolog = '<h1><i class="fa fa-lock" aria-hidden="true"></i> Votre devis: Verification de la commande</h1><hr />';
-		if (is_cart_not_empty()) {
+		if (is_cart_not_empty() || isset($_GET['share'])) {
 			//echo "///Session=";print_r($_SESSION);
 			$products = $_SESSION['fbcart'];
 			$user = $_SESSION['loggeduser'];
+
+      $promo = $_POST['codeProm'];
+
 			//echo "1///Session=";print_r($_SESSION);
 			//echo "2///User=";print_r($user);
 			$prolog .= '<div class="acces_tab_name_devis">VOTRE COMMANDE</div>';
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
-			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
 			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION</div>';
 			$explode = explode('|', $user->f_address);
@@ -1544,25 +1613,115 @@ function get_verification() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function print_devis_verification($products, $prolog, $epilog) {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_users = $prefix."fbs_users";
-	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+  if(isset($_GET['share'])){ // si les données panier viennent de l'url (share)
+    $string= urldecode($_GET['share']); // on décode les données de l'url
+    parse_str($string, $output); // on extrait le tableau des commandes
+    //print_r($output['Array']);
+    $products = $output['Array'];
+  }else{
+    //print_r($products);
+    $products = $_SESSION['fbcart'];
+  }
+
+  global $wpdb;
+  $prefix = $wpdb->prefix;
+  $fb_tablename_users = $prefix."fbs_users";
+  $fb_tablename_users_cf = $prefix."fbs_users_cf";
+  $fb_tablename_users_cr = $prefix."fbs_users_cr";
+  $fb_tablename_promo = $prefix."fbs_codepromo";
+
 	$view .= $prolog;
-	if (is_cart_not_empty()) {
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth2">Description</th><th>Quantité</th><th>Total</th><th class="nobackground"></th></tr>';
+	if (is_cart_not_empty() || isset($_GET['share'])) {
+    $view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
-		$kosztcalosci = 0;
-		foreach ( $products as $products => $item ) {
+		$totalHT = 0;
+    /////////////////////////////////////////////////////// display items panier
+    foreach ( $products as $products => $item ) {
+      $calculCat = '-';
+      $totalItem = str_replace(',', '.', $item[total]);
+      $prixUnit = str_replace(',', '.', $item[prix]);
+      $totalItem = str_replace('€', '', $totalItem);
+      $prixUnit = str_replace('€', '', $prixUnit);
+      //----------------------------------------------si l'utilisateur est loggé
+      if (!empty($_SESSION['loggeduser'])) {
+  			$uid = $_SESSION['loggeduser']->id;
+
+        $cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
+        //------------------------------------vérification remise par catégories
+        if ($cat) { // s'il existe des remises par catégorie pour ce client
+          foreach($cat as $key => $value) : // pour chaque catégorie
+            if (!empty($value) && $value != '0') { // si valeur différente de 0 existe
+              $prixItem = 0;
+              $prodCat = $item[rodzaj];
+              $find = '/'.$key.'/'; // on recherche le nom de la catégorie dans le panier
+              $trouve = preg_match_all($find, $prodCat, $resultat);
+              $trouve = count($resultat[0]);
+              if($trouve >= 1){ // si on trouve la catégorie, on applique la remise
+                $prixItem += $prixUnit*$item[ilosc];
+                $calculCat = ($prixItem)*($value/100); // calcule la réduction sur le total HT produit x quantité
+                $totalItem = $totalItem-$calculCat;
+                $calculCat = number_format($calculCat, 2);
+                $totalItem = number_format($totalItem, 2);
+                $totalItem = str_replace(',', '', $totalItem);
+              }
+            }
+          endforeach;
+        }
+      }
 			$licznik++;
 			$view .= '
-			<tr><td class="lefttd"><span class="name">'.$item[rodzaj].'</span></td><td>'.$item[ilosc].'</td><td>'.$item[total].'</td><td></td></tr>';
-			$koszttotal = str_replace(',', '.', $item[total]);
-			$kosztcalosci = $kosztcalosci + $koszttotal;
-			$transportcalosci = $transportcalosci + $item[transport];
-  		}
-  		$view .= '</table>';
-    //vérifier s'il y a un rabais pour l'utilisateur//
+			<tr>
+        <td class="lefttd">
+          <span class="name">'.$item[rodzaj].'</span><br />
+          <span class="therest">'.stripslashes($item[opis]).'</span>
+        </td>
+        <td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td>
+        <td><span class="disMob0">Prix unitaire : </span>'.$prixUnit.'</td>
+        <td><span class="disMob0">Option : </span>'.str_replace(',', '.', $item[option]).'</td>
+        <td><span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'</td>
+        <td>
+          <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+            <input type="hidden" name="adfromcart" value="adfromcart" />
+            <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
+            <input type="hidden" name="opis" value="'.$item[opis].'" />
+            <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
+            <input type="hidden" name="prix" value="'.$prixUnit.'" />
+            <input type="hidden" name="option" value="'.$item[option].'" />
+            <input type="hidden" name="remise" value="'.$calculCat.'" />
+            <input type="hidden" name="total" value="'.$totalItem.'" />
+            <input type="hidden" name="largeur" value="'.$item[largeur].'" />
+            <input type="hidden" name="hauteur" value="'.$item[hauteur].'" />
+            <input type="hidden" name="licznik" value="'.$licznik.'" />
+            <button id="adcart" type="submit" title="dupliquer cet article"><i class="fa fa-files-o" aria-hidden="true"></i> Dupliquer</button>
+          </form>
+
+          <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+            <input type="hidden" name="delfromcart" value="delfromcart" />
+            <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
+            <input type="hidden" name="opis" value="'.$item[opis].'" />
+            <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
+            <input type="hidden" name="licznik" value="'.$licznik.'" />
+            <button id="delcart" type="submit" title="supprimer cet article du panier">DEL</button>
+    			</form>
+        </td>
+      </tr>';
+
+			$totalHT = $totalHT + $totalItem;
+			$fraisPort = $fraisPort + $item[transport];
+  	}
+  	$view .= '</table>';
+
+    //--------------------------------------------------------------------------
+    $addtodevis ='';
+    $calculRemise = 0;
+    $calculCode = 0;
+
+    $totalHT = $totalHT + $fraisPort;
+    $calculTVA = $totalHT*0.200;
+    $totalTTC = $totalHT+$calculTVA;
+
+    //------------------------------------------------vérification remise client
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
@@ -1570,28 +1729,90 @@ function print_devis_verification($products, $prolog, $epilog) {
 				$client_remise = $exist_remise->att_value;
 				if (!empty($client_remise) && $client_remise != '0') {
 					$newrabat = $client_remise / 100;
-					$wysokoscrabatu = $kosztcalosci * $newrabat;
-					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
-			  		$wysokoscrabatu = str_replace('.', ',', number_format($wysokoscrabatu, 2));
-					$cremisetd = '<tr><td class="toleft">REMISE ('.$client_remise.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+					$calculRemise = ($totalHT-$calculCode) * $newrabat;
+					$cremisetd = '<tr><td class="toleft">REMISE générale ('.$client_remise.'%)</td><td class="toright">-'.str_replace('.', ',', number_format($calculRemise, 2)).' &euro;</td></tr>';
 				}
 			}
 		}
-    //fin//
-		$kosztcalosci = $kosztcalosci + $transportcalosci;
-		$podatekcalosci = $kosztcalosci*0.200;
-		$totalcalosci = $kosztcalosci+$podatekcalosci;
-		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
-		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
-		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
-		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
+    $checkcode = '';
+    //---------------------------------------------------vérification code promo
+    if(isset($_POST['codeProm'] )) {
+  		$uid = $_SESSION['loggeduser']->id;
+  		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
+
+      if (!empty($_SESSION['loggeduser']) && ($exist_remise)) {
+
+      } else {
+        $products = $_SESSION['fbcart'];
+        $codepromo = $_POST['codeProm'] ;
+        $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+        $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+        $curdate = date("Y-m-d");
+        $promoCat = $reduction->categorie;
+
+        if($codeisindb) { // si le code entré est bien dans la bdd:
+          if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
+            if($curdate > $reduction->date) { // si le code a expiré:
+
+            }else{ //-------------------------------------- si le code est valide:
+
+              if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
+                $prixItem = 0;
+                foreach ( $products as $products => $item ) {
+                  $prixUnit = str_replace(',', '.', $item[prix]);
+                  $prixUnit = str_replace('€', '', $prixUnit);
+          				$prodCat = $item[rodzaj];
+                  $find = '/'.$promoCat.'/';
+          				$trouve = preg_match_all($find, $prodCat, $resultat);
+          				$trouve = count($resultat[0]);
+                  if($trouve >= 1){
+                    $prixItem += $prixUnit*$item[ilosc];
+                  }
+                }
+
+                $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
+                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
+
+              }else{ //--------------si la réduction s'applique à tous les produits:
+                $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.str_replace('.', ',', number_format($calculCode, 2)).' &euro;</td></tr>';
+              }
+            }
+          }else{ // si le code est inférieur au minimum d'achat:
+          }
+
+        }else{ // si le code n'est pas dans la bdd:
+        }
+      }
+    }
+    //--------------------------------------------------------------------------
+
+    $totalHTdeduit = $totalHT + $fraisPort - $calculRemise - $calculCode;
+    $calculTVA = $totalHTdeduit*0.200;
+    $totalTTC = $totalHTdeduit+$calculTVA;
+
+    $calculRemise = str_replace(',', '', number_format($calculRemise, 2));
+    $calculCode = str_replace(',', '', number_format($calculCode, 2));
+		$totalHT = str_replace(',', '', number_format($totalHT, 2));
+		$fraisPort = str_replace(',', '', number_format($fraisPort, 2));
+		$calculTVA = str_replace(',', '', number_format($calculTVA, 2));
+		$totalTTC = str_replace(',', '', number_format($totalTTC, 2));
+
+    //--------------------------------------------------------------------------
+
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
-		'.$cremisetd.'
-		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
+    <tr><td class="toleft">Frais de port</td><td class="toright">'.$fraisPort.' &euro;</td></tr>
+    <tr><td class="toleft">Total ht</td><td class="toright">'.$totalHT.' &euro;</td></tr>
+    '.$addtodevis.'
+    '.$cremisetd.'
+		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$calculTVA.' &euro;</td></tr>
+    <tr><td class="toleft total">total ttc</td><td class="toright total">'.$totalTTC.' &euro;</td></tr>
 		</table>';
+		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
+
+    <div class="blocPromo"><p>'.$checkcode.'</p></div>
+    ';
+
 	} else {
 		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
@@ -1698,17 +1919,21 @@ function get_mode_de_livraison(){
 
 function get_devis() {
 	$products = $_SESSION['fbcart'];
+
+  $promo = $_POST['codeProm'];
+  $_SESSION['codeProm'] = $promo;
+
 	$prolog = '<h1 class="noprint"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier / devis</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
 
-	if (is_cart_not_empty()) {
+	if (is_cart_not_empty() || isset($_GET['share'])) {
 		$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :</div>';
 	}
 	$epilog = '<div id="fbcart_buttons" class="noprint">';
 
-	if (is_cart_not_empty()) {
+	if (is_cart_not_empty() || isset($_GET['share'])) {
 		$epilog .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_supprimer"><i class="fa fa-times-circle" aria-hidden="true"></i>
- Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
+    Vider le panier</a><a href="javascript:window.print()" id="but_imprimer"><i class="fa fa-print" aria-hidden="true"></i> Imprimer ce devis</a>';
 	}
 
 		if($_SESSION['isburaliste']){
@@ -1723,20 +1948,24 @@ function get_devis() {
 
 	$epilog .= '<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>';
 
-	if (is_cart_not_empty()) {
+	if (is_cart_not_empty() || isset($_GET['share'])) {
 		//$epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer"></a>';
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
  		if($relais_colis !== false){
-			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}else{
       // soit l'utilisateur est connecté et il enregistre son panier directement(1),
-      // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2) :
+      // soit il n'est pas connecté et après connexion il est redirigé vers la vérification de la commande(2):
       //1 $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       //2 $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
       if (!empty($_SESSION['loggeduser'])) {
-        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><button id="but_validerdevis" type="submit">Enregistrer le panier <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" />
+        <input type="hidden" name="codeProm" value="'.$promo.'" />
+        <button id="but_validerdevis" type="submit">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }else{
-        $epilog .= '<a href="'.get_bloginfo("url").'/verification/" id="but_continuer">Se connecter et enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+        $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/verification/" method="post"><input type="hidden" name="votrecompte" />
+        <input type="hidden" name="codeProm" value="'.$promo.'" />
+        <button id="but_validerdevis" type="submit">Commander <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }
 
 		}
@@ -1757,21 +1986,68 @@ function contact_advert() {
 ////////////////////////////////////////////////////////////// contenu panier //
 
 function print_devis($products, $prolog, $epilog) {
+
+  if(isset($_GET['share'])){ // si des données panier viennent de l'url (share)
+    $string= urldecode($_GET['share']); // on décode les données de l'url
+    parse_str($string, $output); // on extrait le tableau des produits dans l'url
+    //print_r($output['Array']);
+    if (is_cart_not_empty()) { // si le panier contient déjà des produits
+      $_SESSION['fbcart'] = array_merge($_SESSION['fbcart'], $output['Array']); // on rajoute à la session panier les produits dans l'url
+    }else{ // sinon le panier ne contient que les produits de l'url
+      $_SESSION['fbcart'] = $output['Array'];
+    }
+  }
+
+  //print_r($products);
   $products = $_SESSION['fbcart'];
-	/* fonction de validation du devis */
+
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+  $fb_tablename_users_cr = $prefix."fbs_users_cr";
+  $fb_tablename_promo = $prefix."fbs_codepromo";
+  $fb_tablename_shorturl = $prefix."fbs_shorturl";
 	$view .= $prolog;
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
-	if (is_cart_not_empty()) {
+	if (is_cart_not_empty() || isset($_GET['share'])) {
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th class="nobackground"></th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
-		$kosztcalosci = 0;
+		$totalHT = 0;
     /////////////////////////////////////////////////////// display items panier
 		foreach ( $products as $products => $item ) {
+      $calculCat = '-';
+      $totalItem = str_replace(',', '.', $item[total]);
+      $prixUnit = str_replace(',', '.', $item[prix]);
+      $totalItem = str_replace('€', '', $totalItem);
+      $prixUnit = str_replace('€', '', $prixUnit);
+      //----------------------------------------------si l'utilisateur est loggé
+      if (!empty($_SESSION['loggeduser'])) {
+  			$uid = $_SESSION['loggeduser']->id;
+        $cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
+
+        //------------------------------------vérification remise par catégories
+        if ($cat) { // s'il existe des remises par catégorie pour ce client
+          foreach($cat as $key => $value) : // pour chaque catégorie
+            if (!empty($value) && $value != '0') { // si valeur différente de 0 existe
+              $prixItem = 0;
+              $prodCat = $item[rodzaj];
+              $find = '/'.$key.'/'; // on recherche le nom de la catégorie dans le panier
+              $trouve = preg_match_all($find, $prodCat, $resultat);
+              $trouve = count($resultat[0]);
+              if($trouve >= 1){ // si on trouve la catégorie, on applique la remise
+                $prixItem += $prixUnit*$item[ilosc];
+                $calculCat = ($prixItem)*($value/100); // calcule la réduction sur le total HT produit x quantité
+                $totalItem = $totalItem-$calculCat;
+                $calculCat = number_format($calculCat, 2);
+                $totalItem = number_format($totalItem, 2);
+                $totalItem = str_replace(',', '', $totalItem);
+              }
+            }
+          endforeach;
+        }
+      }
 			$licznik++;
 			$view .= '
 			<tr>
@@ -1779,28 +2055,20 @@ function print_devis($products, $prolog, $epilog) {
           <span class="name">'.$item[rodzaj].'</span><br />
           <span class="therest">'.stripslashes($item[opis]).'</span>
         </td>
-        <td>
-          <span class="disMob0">Quantité : </span>'.$item[ilosc].'
-        </td>
-        <td>
-          <span class="disMob0">Prix unitaire : </span>'.$item[prix].'
-        </td>
-        <td>
-          <span class="disMob0">Option : </span>'.$item[option].'
-        </td>
-        <td>
-          <span class="disMob0">Remise : </span>'.$item[remise].'</td><td><span class="disMob0">Total : </span>'.$item[total].'
-        </td>
+        <td><span class="disMob0">Quantité : </span>'.$item[ilosc].'</td>
+        <td><span class="disMob0">Prix unitaire : </span>'.$prixUnit.'</td>
+        <td><span class="disMob0">Option : </span>'.str_replace(',', '.', $item[option]).'</td>
+        <td><span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'</td>
         <td>
           <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="adfromcart" value="adfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" />
             <input type="hidden" name="opis" value="'.$item[opis].'" />
             <input type="hidden" name="ilosc" value="'.$item[ilosc].'" />
-            <input type="hidden" name="prix" value="'.$item[prix].'" />
+            <input type="hidden" name="prix" value="'.$prixUnit.'" />
             <input type="hidden" name="option" value="'.$item[option].'" />
-            <input type="hidden" name="remise" value="'.$item[remise].'" />
-            <input type="hidden" name="total" value="'.$item[total].'" />
+            <input type="hidden" name="remise" value="'.$calculCat.'" />
+            <input type="hidden" name="total" value="'.$totalItem.'" />
             <input type="hidden" name="largeur" value="'.$item[largeur].'" />
             <input type="hidden" name="hauteur" value="'.$item[hauteur].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
@@ -1817,45 +2085,150 @@ function print_devis($products, $prolog, $epilog) {
     			</form>
         </td>
       </tr>';
-			$koszttotal = str_replace(',', '.', $item[total]);
-			$kosztcalosci = $kosztcalosci + $koszttotal;
-			$transportcalosci = $transportcalosci + $item[transport];
+
+			$totalHT = $totalHT + $totalItem;
+			$fraisPort = $fraisPort + $item[transport];
   	}
   	$view .= '</table>';
 
-    //vérifier si il ya un rabais pour l'utilisateur//
+    //--------------------------------------------------------------------------
+    $addtodevis ='';
+    $calculRemise = 0;
+    $calculCode = 0;
+
+    $totalHT = $totalHT + $fraisPort;
+    $calculTVA = $totalHT*0.200;
+    $totalTTC = $totalHT+$calculTVA;
+
+    //------------------------------------------------si l'utilisateur est loggé
 		if (!empty($_SESSION['loggeduser'])) {
 			$uid = $_SESSION['loggeduser']->id;
+      //----------------------------------------------vérification remise client
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
 			if ($exist_remise) {
 				$client_remise = $exist_remise->att_value;
 				if (!empty($client_remise) && $client_remise != '0') {
 					$newrabat = $client_remise / 100;
-					$wysokoscrabatu = $kosztcalosci * $newrabat;
-					$kosztcalosci = $kosztcalosci - $wysokoscrabatu;
-			  		$wysokoscrabatu = str_replace('.', ',', number_format($wysokoscrabatu, 2));
-					$cremisetd = '<tr><td class="toleft">REMISE ('.$client_remise.'%)</td><td class="toright">'.$wysokoscrabatu.' &euro;</td></tr>';
+					$calculRemise = ($totalHT-$calculCode) * $newrabat;
+					$cremisetd = '<tr><td class="toleft">REMISE Générale ('.$client_remise.'%)</td><td class="toright">-'.number_format($calculRemise, 2).' &euro;</td></tr>';
 				}
 			}
 		}
-    //fin//
 
-		$kosztcalosci = $kosztcalosci + $transportcalosci;
-		$podatekcalosci = $kosztcalosci*0.200;
-		$totalcalosci = $kosztcalosci+$podatekcalosci;
-		$kosztcalosci = str_replace('.', ',', number_format($kosztcalosci, 2));
-		$transportcalosci = str_replace('.', ',', number_format($transportcalosci, 2));
-		$podatekcalosci = str_replace('.', ',', number_format($podatekcalosci, 2));
-		$totalcalosci = str_replace('.', ',', number_format($totalcalosci, 2));
+    //---------------------------------------------------vérification code promo
+    if(isset($_POST['codeProm'] )) {
+  		$uid = $_SESSION['loggeduser']->id;
+  		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
+      if (!empty($_SESSION['loggeduser']) && ($exist_remise)) {
+        $checkcode = '<div class="box_warning">Vous bénéficiez déjà d\'un tarif préférentiel, ce code n\'est pas cumulable avec vos remises client.</div>';
+      } else {
+        $products = $_SESSION['fbcart'];
+        $codepromo = $_POST['codeProm'] ;
+        $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+        $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+        $curdate = date("Y-m-d");
+        $promoCat = $reduction->categorie;
+
+        if($codeisindb) { // si le code entré est bien dans la bdd:
+          if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
+            if($curdate > $reduction->date) { // si le code a expiré:
+              $checkcode = '<div class="box_warning">Code expiré le ' .date("d/m/Y", strtotime("$reduction->date")).'</div>';
+
+            }else{ //-------------------------------------- si le code est valide:
+
+              if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
+                $prixItem = 0;
+
+                foreach ( $products as $products => $item ) {
+                  $prixUnit = str_replace(',', '.', $item[prix]);
+                  $prixUnit = str_replace('€', '', $prixUnit);
+                  $prodCat = $item[rodzaj];
+                  $find = '/'.$promoCat.'/';
+                  $trouve = preg_match_all($find, $prodCat, $resultat);
+                  $trouve = count($resultat[0]);
+                  if($trouve >= 1){
+                    $prixItem += $prixUnit*$item[ilosc];
+                  }
+                }
+
+                $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
+                $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur les produits de type <strong>'.$promoCat.'</strong>, vous économisez <strong>'.number_format($calculCode, 2).' &euro;</strong> sur cette commande!</div>';
+                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.number_format($calculCode, 2).' &euro;</td></tr>';
+
+              }else{ //--------------si la réduction s'applique à tous les produits:
+                $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+                $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur l\'ensemble de votre commande, vous économisez <strong>'.number_format($calculCode, 2).'&euro;</strong>!</div>';
+                $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.number_format($calculCode, 2).' &euro;</td></tr>';
+              }
+            }
+
+          }else{ // si le code est inférieur au minimum d'achat:
+            $checkcode = '<div class="box_warning">Ce code s\'applique à partir de '.$reduction->mini.'&euro; d\'achat!</div>';
+          }
+
+        }else{ // si le code n'est pas dans la bdd:
+          $checkcode = '<div class="box_warning">Code non valide</div>';
+        }
+      }
+    }
+
+    //--------------------------------------------------------------------------
+
+    $totalHTdeduit = $totalHT - $calculRemise - $calculCode;
+    $calculTVA = $totalHTdeduit*0.200;
+    $totalTTC = $totalHTdeduit+$calculTVA;
+
+    $calculRemise = str_replace(',', '', number_format($calculRemise, 2));
+    $calculCode = str_replace(',', '', number_format($calculCode, 2));
+		$totalHT = str_replace(',', '', number_format($totalHT, 2));
+		$fraisPort = str_replace(',', '', number_format($fraisPort, 2));
+		$calculTVA = str_replace(',', '', number_format($calculTVA, 2));
+		$totalTTC = str_replace(',', '', number_format($totalTTC, 2));
+
+    //--------------------------------------------------------------------------
+
+    $data = array('Array' => $_SESSION["fbcart"]);
+    $query = http_build_query($data);
+    $url = urlencode($query);
+    $full = 'votre-panier?share='.$url;
+
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
-		'.$cremisetd.'
-		<tr><td class="toleft">Frais de port</td><td class="toright">'.$transportcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">Total ht</td><td class="toright">'.$kosztcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$podatekcalosci.' &euro;</td></tr>
-		<tr><td class="toleft">total ttc</td><td class="toright"><b>'.$totalcalosci.' &euro;</b></td></tr>
+    <tr><td class="toleft">Frais de port</td><td class="toright">'.$fraisPort.' &euro;</td></tr>
+    <tr><td class="toleft">Total ht</td><td class="toright">'.$totalHT.' &euro;</td></tr>
+    '.$addtodevis.'
+    '.$rebyprod.'
+    '.$cremisetd.'
+		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$calculTVA.' &euro;</td></tr>
+    <tr><td class="toleft total">total ttc</td><td class="toright total">'.$totalTTC.' &euro;</td></tr>
 		</table>';
-		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>';
-	} else {
+		$view .= '<div class="bottomfak onlyprint"><i>Ce devis n\'est donné qu\'à titre indicatif. Il ne saurait se substituer à un devis complet et validé par nos services.<br />Les tarifs applicables sont toujours ceux des devis validés sur notre site web www.france-banderole.com.<br />Si vous souhaitez continuer ce devis gratuit et profiter de ce tarif, merci de bien vouloir vous enregistrer.</i></div>
+
+    <div class="blocPromo noprint">
+      <p><form name="codePromoForm" id="codePromo" action="" method="post">
+        <input type="text" name="codeProm" class="promoInput" placeholder="CODE PROMO" /><button type="submit" name="submitCode" class="codePromo"><i class="fa fa-check" aria-hidden="true"></i> Appliquer</button>
+      </form></p>
+      <p>'.$checkcode.'</p>';
+
+      $login= $_SESSION['loggeduser']->login;
+      if($login =='pocalypse' || $login =='malgoire2' || $login =='samrr' || $login =='qzefr' || $login =='test'){
+        //shorten url
+        //$urlinput=mysqli_real_escape_string($full);
+        $id=rand(10000,99999);
+        $shorturl=base_convert($id,20,36);
+
+        $result = $wpdb->get_row("SELECT * FROM `$fb_tablename_shorturl` where url='$full'");
+        if (!$result)
+        $wpdb->query("INSERT INTO `$fb_tablename_shorturl` VALUES ('$id','$full','$shorturl')");
+        else $shorturl = $result->short;
+
+        $view .= '<p>
+        <input type="text" class="promoInput" id="to-copy" value="'.get_bloginfo("url").'/'.$shorturl.'" /><button  class="codePromo" id="copy" type="button"><i class="fa fa-files-o" aria-hidden="true"></i> Copier URL panier<span class="copiedtext" aria-hidden="true">Copié</span></button>
+        </p>';
+      }
+
+    $view .= '</div>';
+
+	} else { // si le panier est vide
 		$view .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier est vide !</p>';
 	}
 	$view .= $epilog;
@@ -1863,7 +2236,7 @@ function print_devis($products, $prolog, $epilog) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////// plv extérieur //
 
 function get_plv() {
 	global $wpdb;
@@ -1876,79 +2249,21 @@ function get_plv() {
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
   <script type="text/javascript">
-
-		function rushcheckbox24($type) {
-        var rush24 = document.getElementById("rush24"+$type);
-        var rush72 = document.getElementById("rush72"+$type);
-        var fedex0 = document.getElementById("fedex"+$type);
-        var tnt0 = document.getElementById("tnt"+$type);
-        if (rush72.checked == true) {
-            document.getElementById("rush72"+$type).checked = false;
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-        }
-        if (rush24.checked == true) {
-				document.getElementById("rush72"+$type).checked = false;
-              document.getElementById("fedex"+$type).checked = false;
-              document.getElementById("tnt"+$type).checked = true;
-        }
-        if (fedex0.checked) {
-              document.getElementById("fedex"+$type).checked = false;
-				document.getElementById("tnt"+$type).checked = true;
-			}
-		}
-
-		function rushcheckbox72($type) {
-        var rush24 = document.getElementById("rush24"+$type);
-        var rush72 = document.getElementById("rush72"+$type);
-        var fedex0 = document.getElementById("fedex"+$type);
-        var tnt0 = document.getElementById("tnt"+$type);
-        if (rush24.checked == true) {
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-        }
-        if (rush72.checked == true) {
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-        }
-        if (fedex0.checked) {
-            document.getElementById("fedex"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = true;
-			}
-		}
-
-    function TNTClick($type) {
-        if (document.getElementById("tnt"+$type).checked) {
-            document.getElementById("fedex"+$type).checked = false;
-        }else{
-			      document.getElementById("fedex"+$type).checked = true;
-		  }
+  function rushcheckbox24($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush72.checked == true) {
+      rush72.checked = false;
     }
-
-    function FEDClick($type) {
-        if (document.getElementById("fedex"+$type).checked) {
-            document.getElementById("colis"+$type).checked = false;
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("rush72"+$type).checked = false;
-            document.getElementById("relais"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = false;
-        }else{
-						document.getElementById("tnt"+$type).checked = true;
-			}
+  }
+  function rushcheckbox72($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush24.checked == true) {
+      rush24.checked = false;
     }
-
-		function colisrevendeurclick($type){
-  		 /*if (document.getElementById("colis"+$type).checked) {
-  		 	document.getElementById("tnt"+$type).checked = true;
-  			document.getElementById("fedex"+$type).checked = false;
-  		 }*/
-		}
-
-		function refreshBoxs($type){
-		}
-		</script>
+  }
+  </script>
 	';
 
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -1979,33 +2294,38 @@ function get_plv() {
 		}
 
 		$view .=
-      '<form name="cart_form' . $licznik . '" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
+      '<form name="cart_form' . $licznik . '" data-cartform="'.$licznik.'" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
           <tr>
               <td class="lefttd"><span class="prom_title"><b>' . $p[name] . '</b></span><br /><span id="desc' . $licznik . '" class="prom_therest">' . stripslashes($subtitle . $p[description]) . '</span></td>
               <td class="imgtd">' . $viewmini . '<span class="prom_price">a partir de ' . $n_price . '</span></td>
               <td class="optionstd">
                   <span>OPTIONS:</span>
                   <input type="hidden" name="addtocart2" value="addtocart2" />
-                  <input type="hidden" name="rodzaj" value="' . $p[name] . '" />
+                  <input type="hidden" name="rodzaj" value="PLVEXT ext ' . $p[name] . '" />
 
                   <div class="">
                   </div>
                   <div class="plvoptions">
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
-                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="tipShow(\'helpTextrush72' . $licznik . '\');" onmouseout="tipHide(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+                      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="tipShow(\'helpTextrelais' . $licznik . '\');" onmouseout="tipHide(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+
                   </div>
               </td>
               <td class="righttd">
                   <div class="plvmakcon"><div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div><div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div></div>
-                  <div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" /></div>
+                  <div class="pilosc"  data-trigger="spinner">
+                    <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+                    <div class="spinner-controls plvpromo">
+          	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+          	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+          			  	</div>
+                  </div>
                   <input type="hidden" name="isplv" value="true" />
                   <input type="hidden" name="opis1" value="' . $p[subname] . '" /><input type="hidden" name="opis2" value="' . $p[description] . '" />
                   <input type="hidden" name="prix" value="' . $p[price] . '" />' . $cedd . '<input type="hidden" name="transport" value="' . $p[frais] . ' &euro;" />
-                  <button type="submit" class="prom_sub">Ajouter</button>
+                  <button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
               </td>
           </tr>
       </form>';
@@ -2016,7 +2336,7 @@ function get_plv() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////// plv intérieur //
 
 function get_plv_int() {
 	global $wpdb;
@@ -2028,77 +2348,21 @@ function get_plv_int() {
 	$view .= '<table id="promotions_table" cellspacing="0">';
 	$view .= '
   <script type="text/javascript">
-		function rushcheckbox24($type) {
-            var rush24 = document.getElementById("rush24"+$type);
-            var rush72 = document.getElementById("rush72"+$type);
-            var fedex0 = document.getElementById("fedex"+$type);
-            var tnt0 = document.getElementById("tnt"+$type);
-            if (rush72.checked == true) {
-                document.getElementById("rush72"+$type).checked = false;
-                document.getElementById("fedex"+$type).checked = false;
-                document.getElementById("tnt"+$type).checked = true;
-            }
-            if (rush24.checked == true) {
-						document.getElementById("rush72"+$type).checked = false;
-                document.getElementById("fedex"+$type).checked = false;
-                document.getElementById("tnt"+$type).checked = true;
-            }
-            if (fedex0.checked) {
-                document.getElementById("fedex"+$type).checked = false;
-						document.getElementById("tnt"+$type).checked = true;
-					}
-		}
-
-		function rushcheckbox72($type) {
-            var rush24 = document.getElementById("rush24"+$type);
-            var rush72 = document.getElementById("rush72"+$type);
-            var fedex0 = document.getElementById("fedex"+$type);
-            var tnt0 = document.getElementById("tnt"+$type);
-            if (rush24.checked == true) {
-                document.getElementById("rush24"+$type).checked = false;
-                document.getElementById("fedex"+$type).checked = false;
-                document.getElementById("tnt"+$type).checked = true;
-            }
-            if (rush72.checked == true) {
-						document.getElementById("rush24"+$type).checked = false;
-                        document.getElementById("fedex"+$type).checked = false;
-                        document.getElementById("tnt"+$type).checked = true;
-            }
-            if (fedex0.checked) {
-                document.getElementById("fedex"+$type).checked = false;
-						document.getElementById("tnt"+$type).checked = true;
-					  }
-		}
-
-    function TNTClick($type) {
-        if (document.getElementById("tnt"+$type).checked) {
-            document.getElementById("fedex"+$type).checked = false;
-        }else{
-	          document.getElementById("fedex"+$type).checked = true;
-		  }
+  function rushcheckbox24($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush72.checked == true) {
+      rush72.checked = false;
     }
-
-    function FEDClick($type) {
-      if (document.getElementById("fedex"+$type).checked) {
-            document.getElementById("colis"+$type).checked = false;
-            document.getElementById("rush24"+$type).checked = false;
-            document.getElementById("rush72"+$type).checked = false;
-            document.getElementById("relais"+$type).checked = false;
-            document.getElementById("tnt"+$type).checked = false;
-      }else{
-						document.getElementById("tnt"+$type).checked = true;
-			}
+  }
+  function rushcheckbox72($type) {
+    var rush24 = document.getElementById("rush24"+$type);
+    var rush72 = document.getElementById("rush72"+$type);
+    if (rush24.checked == true) {
+      rush24.checked = false;
     }
-
-		function colisrevendeurclick($type){
-					/* if (document.getElementById("colis"+$type).checked) {
-					 	document.getElementById("tnt"+$type).checked = true;
-						document.getElementById("fedex"+$type).checked = false;
-			}*/
-		}
-		function refreshBoxs($type){
-		}
-		</script>
+  }
+  </script>
 	';
 
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
@@ -2127,32 +2391,40 @@ function get_plv_int() {
 			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
 			$sname = $p[subname].'<br />';
 		}
-		$view .= '<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')"><tr><td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
-		<td class="optionstd">
-		<span>OPTIONS:</span>
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="plvoptions">
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="pokazt(\'helpTextcolis' . $licznik . '\');" onmouseout="ukryjt(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24' . $licznik . '\');" onmouseout="ukryjt(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais' . $licznik . '\');" onmouseout="ukryjt(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" checked="checked" id="fedex' . $licznik . '" name="fedex[]" value="" onclick=" FEDClick(' . $licznik . ');" /><label  class="form-label-left" id="label_fedex' . $licznik . '" for="fedex' . $licznik . '">Livraison avec Fedex</label><span class="helpButton" onmouseover="pokazt(\'helpTextfedex' . $licznik . '\');" onmouseout="ukryjt(\'helpTextfedex' . $licznik . '\');"><span class="helpText" id="helpTextfedex' . $licznik . '" style="visibility:hidden;">Livraison gratuite avec Fedex en 7 à 9 jours ouvrés (non compatible avec les délais Rush, et Relais colis).</span></span></span>
-      <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="tnt' . $licznik . '" name="tnt[]" value="" onclick=" TNTClick(' . $licznik . '); " /><label class="form-label-left" id="label_tnt' . $licznik . '" for="tnt' . $licznik . '">Livraison avec TNT</label><span class="helpButton" onmouseover="pokazt(\'helpTexttnt' . $licznik . '\');" onmouseout="ukryjt(\'helpTexttnt' . $licznik . '\');"><span class="helpText" id="helpTexttnt' . $licznik . '" style="visibility:hidden;">Livraison payante avec TNT en 6 à 8 jours ouvrés(non compatible pour un colis hors-norme*)</span></span></span>
-		</div>
-		</td>
-		<td class="righttd">
-		<div class="plvmakcon">
-			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-		</div>
-		<div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /></div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub">Ajouter</button>
-		</td></tr></form>';
+		$view .= '<form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+    <tr>
+      <td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
+  		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
+  		<td class="optionstd">
+    		<span>OPTIONS:</span>
+    		<input type="hidden" name="addtocart2" value="addtocart2" />
+    		<input type="hidden" name="rodzaj" value="PLVint '.$p[name].'" />
+    		<div class="plvoptions">
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="tipShow(\'helpTextrush72' . $licznik . '\');" onmouseout="tipHide(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="tipShow(\'helpTextrelais' . $licznik . '\');" onmouseout="tipHide(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
+
+    		</div>
+    		</td>
+    		<td class="righttd">
+    		<div class="plvmakcon">
+    			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+    			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+    		</div>
+        <div class="pilosc"  data-trigger="spinner">
+          <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+          <div class="spinner-controls plvpromo">
+           <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+           <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+          </div>
+        </div>
+    		<input type="hidden" name="isplv" value="true" />
+    		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
+    		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
+    		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+  		</td>
+    </tr></form>';
 
 	endforeach;
 	$view .= '</table>';
@@ -2171,204 +2443,7 @@ function Change() {
 	}
 }
 
-function get_buralistes() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_buraliste";
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC LIMIT 50", ARRAY_A);
-	$licznik = 0;
-
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-		$change ='';
-
-		if($p[ruban_couleur]!="" && $p[ruban_texte]!=""){
-			$ruban_decla = '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/ruban/css/3d-corner-ribbons.css" />';
-			$ruban = '
-			<div class="ribbon '.$p[ruban_couleur].'">
-			    <div class="banner">
-			        <div class="text">'.$p[ruban_texte].'</div>
-			    </div>
-			</div>
-			';
-		}else{
-			$ruban_decla = '';
-			$ruban = "";
-		}
-
-		if ($p[photo]) {
-			$viewmini1 = '<a rel="shadowbox" width="100%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" alt="'.$p[name].'" width="309px" height="225px;" /></a>';
-		}
-
-
-		if ($p[photo_mini]) {
-				$viewmini2 = '<a rel="shadowbox" width="100%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo_mini].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo_mini].'" alt="'.$p[name].'" width="309px" height="225px;" /></a>';
-		}
-
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-
-		$view .= '
-
-				'.$ruban_decla.'
-
-		<div class="m-row">
-
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/buralistes/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<div class="m-lft">
-			<h1>'.$p[name].'</h1><p>'.$subtitle.stripslashes($p[description]).'</p>
-
-			<div class="m-img-area" style="position:relative;">
-							'.$ruban.'
-
-				<div class="m-img-lft">
-				'.$viewmini1.'</div>
-				<div class="m-img-rgt">'.$viewmini2.'</div>
-				<div class="cb"></div>
-			</div>
-		</div>
-		<div class="m-rgt">
-			<h2><span>'.$n_price.'</span><br>frais de port inclus</h2>'.(($p[reduc]!=""&& $p[reduc]>0)?"<h3> ".$p[reduc]."€ d&rsquo;économie*</h3>":"").'
-			<div class="choice">
-				<h4>Je choisis :</h4>
-
-				<input type="hidden" name="addtocart3" value="addtocart3" />
-				<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-
-				<td class="rightburaliste">
-				<div class="buralistemakcon">
-					<div class="buralistemak">
-					<input type="radio" name="projectmak" value="us" checked="checked" id="us" /> <span>Visuel ci-contre</span>
-					</div>
-					<div class="buralistemak1" >
-						<input type="radio" name="projectmak" value="fb" id="fb" /> <span>Créer votre visuel <span id="madiv'.$licznik.'" style="display:inline-block;">(+27,50 € HT)</span></span>
-						<br><p>Modification du visuel ou création d’un visuel. Un téléconseiller vous contactera sous 72H max</p>
-					</div>
-
-				</div>
-
-				<div class="pilosc"><b>Quantité :</b>
-					<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-					</select>
-
-				</div>
-				<input type="hidden" name="isburaliste" value="true" />
-				<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.strip_shortcodes($p[description]).'" />
-				<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-				<input type="submit" class="prom_sub2" value="Ajouter au panier"></input>
-
-
-				</form><div class="cb"></div>';
-
-				$view .= '<div class="final">
-				<p><a href="/votre-panier/" title="Finaliser votre commande" style="color: #be1700;font-size: 14px;" /><img src="'.get_template_directory_uri().'/img/play.png">Finaliser la commande</a></p>
-				</div>
-
-			</div>
-		</div>
-		<div class="cb"></div></div>';
-
-	endforeach;
-
-	//$view .= '</table>';
-
-	return $view;
-}
-
-function get_buraliste() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_buraliste";
-
-	$view .= '<h1>Buraliste</h1><hr />';
-	$view .= '<img src="//www.france-banderole.com/wp-content/uploads/shopfiles/buraliste/slide.jpg"/>';
-
-
-	$view .= '<table id="promotions_table" cellspacing="0">';
-
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-		$change ='';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a rel="shadowbox" width="75%" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/buraliste/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-
-		$view .= '
-
-		<tr><td class="lefttd"><form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/buraliste/" method="post" onsubmit="return czyilosc('.$licznik.')"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgburaliste">'.$viewmini.'<span class="prom_price2">Avec visuel ci-contre : '.$n_price.' HT (frais de port inclus)</span></td>
-
-		<input type="hidden" name="addtocart3" value="addtocart3" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-
-		<td class="rightburaliste">
-		<div class="buralistemakcon">
-			<div class="buralistemak"><input type="radio" name="projectmak" value="us" checked="checked" onclick="Change()" id="us" /> Visuel ci-contre</div>
-			<div class="buralistemak1" ><input type="radio" name="projectmak" value="fb" onclick="Change()" id="fb" /> Créer votre Visuel</div>
-			<div id="madiv"  style="display:none"><p>+ 27,50€</p></div>
-			<script type="text/javascript">
-Change()
-</script>
-
-		</div>
-
-		<div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /></div>
-		<input type="hidden" name="isburaliste" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub2">Ajouter</button>
-		</form>';
-		$view .= '<form action="'.get_bloginfo("url").'/votre-panier/" method="post">
-		<button type="submit" class="prom_sub3">voir panier</button></td></tr></form>';
-	endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-}
+///////////////////////////////////////////////////////////////////// promotions
 
 function get_acc() {
 	global $wpdb;
@@ -2423,386 +2498,45 @@ function get_acc() {
 			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
 			$sname = $p[subname].'<br />';
 		}
-		$view .= '<tr><td class="lefttd2"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
-		<td class="righttd2">
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
+		$view .= '
+    <tr>
+      <td class="lefttd2"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
+  		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
+  		<td class="optionstd">
+    		<form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+          <span>OPTIONS:</span>
+          <input type="hidden" name="addtocart2" value="addtocart2" />
+          <input type="hidden" name="rodzaj" value="'.$p[name].'" />
+          <div class="plvoptions">
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton" onmouseover="tipShow(\'helpTextcolis' . $licznik . '\');" onmouseout="tipHide(\'helpTextcolis' . $licznik . '\');"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton" onmouseover="tipShow(\'helpTextRush24' . $licznik . '\');" onmouseout="tipHide(\'helpTextRush24' . $licznik . '\');"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton" onmouseover="tipShow(\'helpTextrush72' . $licznik . '\');" onmouseout="tipHide(\'helpTextrush72' . $licznik . '\');"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton" onmouseover="tipShow(\'helpTextrelais' . $licznik . '\');" onmouseout="tipHide(\'helpTextrelais' . $licznik . '\');"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
-		<div class="pilosc2"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select>
-		</div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub2">Ajouter au panier</button>
-		</form></td></tr>';
+          </div>
+          </td>
+          <td class="righttd">
+          <div class="plvmakcon">
+            <div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+            <div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+          </div>
+          <div class="pilosc"  data-trigger="spinner">
+            <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+            <div class="spinner-controls plvpromo">
+             <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <input type="hidden" name="isplv" value="true" />
+          <input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
+          <input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
 
-		endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-}
-
-function get_mma() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_mma";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>Banderole MMA</h1><hr />';
-	$view .= '<table id="promotions_tablemma" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC LIMIT 50", ARRAY_A);
-	$licznik = 0;
-	$compteur = 0;
-	/* $promotions = explode(' ', $p[name]); */
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/mma/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-
-    	if(ereg('200x70',$p[name])) { $style = 'background-color:#cbd0d9';}
-		if(ereg('300x80',$p[name])) { $style = 'background-color:#e1e8f2'; }
-		if(ereg('500x100',$p[name])) { $style = 'background-color:#cbd0d9';}
-		if(ereg('85x308',$p[name])) { $style = 'background-color:#e1e8f2'; }
-		if(ereg('85x351',$p[name])) { $style = 'background-color:#cbd0d9';}
-		if(ereg('A4',$p[name])) { $style = 'background-color:#e1e8f2'; }
-		if(ereg('80x200',$p[name])) { $style = 'background-color:#cbd0d9';}
-
-
-		if (($n_price == 22.00) || ($n_price == 17.00) || (($p[name] == 'Banderole 440g/m² <br/><i> 300x80</i>') && ($n_price == 33.00)) || (($p[name] == 'Kakémono <br/><i> 80x200</i> ') && ($n_price == 50.00)) || (($p[name] == 'Oriflamme aile d\'avion <br/><i> 85x308</i> ') && ($n_price == 93.00))  || (($p[name] == 'Banderole 550g/m²<br/><i> 200x70</i> ') && ($n_price == 33.00))|| ($n_price == 62.00)|| ($n_price == 46.00)  || ($n_price == 115.00) || ($n_price == 105.00) || ($n_price == 130.00) || ($n_price == 154.00) || ($n_price == 139.00) || ($n_price == 85.00) || ($n_price == 24.00) || ($n_price == 73.00) || ($n_price == 46.00) || ($n_price == 38.00) ) {
-		$view .= '<tr style="float:left; margin-right:5px; margin-left:5px"><td style="'.$style.'" class="lefttdmma"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-
-		<td style="'.$style.'" class="righttdmma">
-		<div class="imgtdmma">'.$viewmini.'<span class="prom_pricemma">Tarif : '.$n_price.'</span></div>
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/mma/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocartmma" value="addtocartmma" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="piloscmma"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-      <option value="1">1</option>
-    </select>
-		</div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_submma">Ajouter au panier</button>
-		<div><a href="/votre-panier/" title="Finaliser votre commande" class="prom_submma2" /></a></p>
-		</form></td>
-		</tr>
-		';
-		}
-
-		if (($n_price == 16.00) || ($n_price == 25.00) || ($n_price == 15.00) || ($n_price == 78.00) || ($n_price == 47.00) || ($n_price == 116.00) || ($n_price == 140.00) || ($n_price == 102.00) || ($n_price == 125.00) ||  ($n_price == 68.00) || ($n_price == 28.00) || ($n_price == 41.00) || ($n_price == 78.00) || ($n_price == 20.00) || ($n_price == 41.00) || (($p[name] == 'Banderole 550g/m² <br/><i> 300x80</i> ') && ($n_price == 33.00)) || (($p[name] == 'Banderole 440g/m² <br/><i> 500x100</i> ') && ($n_price == 50.00)) || (($p[name] == 'Oriflamme aile d\'avion <br/><i> 85x351</i> ') && ($n_price == 93.00)) ) {
-		$view .= '<tr style="float:left; margin-right:5px; margin-left:5px"><td style="'.$style.'" class="lefttdmma"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td style="'.$style.'" class="righttdmma">
-		<div class="imgtdmma">'.$viewmini.'<span class="prom_pricemma">Tarif : '.$n_price.'</span></div>
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/mma/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocartmma" value="addtocartmma" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="piloscmma"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-		</div>
-		<input type="hidden" name="mma" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_submma">Ajouter au panier</button>
-		<div style="display:none">
-  		<input name="colis[]" type="checkbox" class="form-checkbox" id="colis" onchange="JKakemono.czyscpola(); " value="" checked="checked" />
-		</div>
-		<div><a href="/votre-panier/" title="Finaliser votre commande" class="prom_submma2" /></a></p>
-		</form></td></tr>';
-		}
-
-  endforeach;
-	$view .= '</table>';
-	return $view;
-}
-
-
-function get_acc2() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_acc2";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-	$view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
-
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc2/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-		$view .= '<tr><td class="lefttd2"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
-		<td class="righttd2">
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-
-		<div class="pilosc2"><b>Quantite:</b>
-		<select name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" size="1">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-</select>
-		</div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub2">Ajouter au panier</button>
-		</form></td></tr>';
+      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+    		</form>
+      </td>
+    </tr>';
 
 		endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-}
-
-
-/* function get_acc() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_acc";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
-	$view .= '<div id="top_images">
-	<img src="'.$plugin_url.'images/slidebaner.jpg" alt=""  style="position:absolute;top:0;left:0;cursor:pointer;" />
-	<div id="banercursor" style="position:absolute;left:0;top:0;width:706px;height:97px;cursor:pointer;z-index:10;"></div>
-	<div id="bannercontainer">
-		<div id="banner">
-    	    <a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-    	</div>
-	</div></div>';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.jpg" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div><div id="top_slideshow">'.get_another_images($pageid).'</div></div>';
-
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo_mini]) {
-			if ($p[photo]) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/'.$p[photo].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p[photo_mini].'" alt="'.$p[name].'" />';
-			}
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-		$view .= '<tr><td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p[description]).'</span></td>
-		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
-		<td class="optionstd">
-		<span>OPTIONS:</span>
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-		<input type="hidden" name="addtocart2" value="addtocart2" />
-		<input type="hidden" name="rodzaj" value="'.$p[name].'" />
-		<div class="plvoptions">
-			<span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24'.$licznik.'" name="rush24" value="1" onchange="rushcheckbox24('.$licznik.');" /><label class="form-label-left" id="label_rush24'.$licznik.'" for="rush24'.$licznik.'">Délai Rush 24/48H</label><span class="helpButton" onmouseover="pokazt(\'helpTextRush24'.$licznik.'\');" onmouseout="ukryjt(\'helpTextRush24'.$licznik.'\');"><span class="helpText" id="helpTextRush24'.$licznik.'" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-			<span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72'.$licznik.'" name="rush72" value="1" onchange="rushcheckbox72('.$licznik.');" /><label class="form-label-left" id="label_rush72'.$licznik.'" for="rush72'.$licznik.'">Délai Rush 72H</label><span class="helpButton" onmouseover="pokazt(\'helpTextrush72'.$licznik.'\');" onmouseout="ukryjt(\'helpTextrush72'.$licznik.'\');"><span class="helpText" id="helpTextrush72'.$licznik.'" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-			<span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais'.$licznik.'" name="relais" value="1" /><label class="form-label-left" id="label_relais'.$licznik.'" for="relais'.$licznik.'">Dépot en relais colis</label><span class="helpButton" onmouseover="pokazt(\'helpTextrelais'.$licznik.'\');" onmouseout="ukryjt(\'helpTextrelais'.$licznik.'\');"><span class="helpText" id="helpTextrelais'.$licznik.'" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-		</div>
-		</td>
-		<td class="righttd">
-		<div class="plvmakcon">
-			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-		</div>
-		<div class="pilosc"><b>Quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /></div>
-		<input type="hidden" name="isplv" value="true" />
-		<input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" />
-		<input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" />
-		<button type="submit" class="prom_sub">Ajouter</button>
-		</form></td></tr>';
-
-		endforeach;
-
-	$view .= '</table>';
-
-	return $view;
-} */
-function get_promotions() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_promo";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-
-	$view .= '<h1>Nos Promotions</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f8.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">Nos Promotions</span><br />Vous trouverez ci-dessous des promotions exceptionnelles étudiées pour le marketing en milieu urbain et évenementiels.</div></div>';
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo`", ARRAY_A);
-	$licznik = 0;
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p[price], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p[photo]) {
-			$viewmini = '<a rel="shadowbox" href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/promotions/'.$p[photo].'"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/promotions/mini/'.$p[photo_mini].'" alt="'.$p[name].'" /></a>';
-		}
-		if ($p[ceddre] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p[ceddre].'" /></div>';
-		}
-		if ($p[subname] != '') {
-			$p[subname] = str_replace('"', '&ldquo;', $p[subname]);
-			$subtitle = '<span class="subtitle">'.$p[subname].'<br /></span>';
-			$sname = $p[subname].'<br />';
-		}
-		$view .= '<tr><td class="lefttd"><span class="prom_title"><b>'.$p[name].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.$subtitle.$p[description].'</span></td><td><span class="prom_price">'.$n_price.'</span></td><td class="imgtd">'.$viewmini.'</td><td class="righttd">
-
-		<form name="cart_form'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post"><input type="hidden" name="addtocart2" value="addtocart2" /><input type="hidden" name="rodzaj" value="'.$p[name].'" /><b>quantite:</b><input type="text" name="ilosc" id="nummo'.$licznik.'" class="inp_ilosc" value="" /><input type="hidden" name="opis1" value="'.$p[subname].'" /><input type="hidden" name="opis2" value="'.$p[description].'" /><input type="hidden" name="prix" value="'.$p[price].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p[frais].' &euro;" /><button type="submit" class="prom_sub" onclick="if (czyilosc('.$licznik.')) {return true;} return false;">Ajouter</button></form></td></tr>';
-	endforeach;
 
 	$view .= '</table>';
 
@@ -2909,11 +2643,6 @@ function get_banderoles_form() {
     return $form;
 }
 
-function get_cadre_form() {
-    $form = file_get_contents(getTplPath('cadres.php'));
-    return $form;
-}
-
 function get_cartes_form() {
     $form = file_get_contents(getTplPath('cartes.php'));
     return $form;
@@ -2921,11 +2650,6 @@ function get_cartes_form() {
 
 function get_depliants_form() {
     $form = file_get_contents(getTplPath('depliants.php'));
-    return $form;
-}
-
-function get_eclairage_form() {
-    $form = file_get_contents(getTplPath('eclairages.php'));
     return $form;
 }
 
@@ -2954,7 +2678,6 @@ function get_totem_form() {
     return $form;
 }
 
-
 function get_parapluie_form() {
     $form = file_get_contents(getTplPath('parapluie.php'));
     return $form;
@@ -2980,7 +2703,6 @@ function get_sticker_lettrage_predecoupe_form() {
     return $form;
 }
 
-
 function get_autocollant_form() {
     $form = file_get_contents(getTplPath('autocollant.php'));
     return $form;
@@ -3001,8 +2723,6 @@ function get_test_rollup_form() {
     return $form;
 }
 
-
-
 function get_oriflammes_form() {
 	$form = file_get_contents(getTplPath('oriflammes.php'));
 	return $form;
@@ -3012,5 +2732,10 @@ function get_tente_exposition_form() {
     $form = file_get_contents(getTplPath('tente-publicitaire-barnum.php'));
     return $form;
 }
+function get_nappes_form() {
+    $form = file_get_contents(getTplPath('nappes-publicitaires.php'));
+    return $form;
+}
+
 
 ?>

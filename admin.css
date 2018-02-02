@@ -23,7 +23,7 @@ input[type="submit"],
   width: auto;
   display: inline-block;
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);
-  background: #32a1cc;
+  background: #26a7d9;
   border: 0;
   border-radius: 3px;
   color: #fff;
@@ -122,7 +122,7 @@ input.delete:hover {
   width: auto;
   padding: 5px;
   border-radius: 3px;
-  background: #32a1cc;
+  background: #26a7d9;
   color: #fff;
   margin-left: 20px;
   text-transform: uppercase;
@@ -348,7 +348,7 @@ select.urs {
   border: 0;
   padding: 5px;
   border-radius: 3px;
-  background: #32a1cc;
+  background: #26a7d9;
   color: #fff;
   cursor: pointer;
   margin-right: 5px;
@@ -373,7 +373,7 @@ select.urs {
 }
 
 .coteClient button.btn3:hover {
-  background: #32a1cc;
+  background: #26a7d9;
 }
 
 .coteClient button.desactive {
@@ -388,7 +388,7 @@ select.urs {
 
 .hl {
   font-weight: 900;
-  color: #32a1cc;
+  color: #26a7d9;
 }
 
 .form-wrap label {
@@ -1140,10 +1140,10 @@ ul.lastMails li {
   color: red;
 }
 
-.stockAlert {
-  background: -webkit-linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
-  background: -moz-linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
-  background: linear-gradient(left, #e29898, #e29898 24%, #E5E5E5 24%, #E5E5E5);
+.stockAlert, .phoneAlert{
+  background: -webkit-linear-gradient(left, #d95f5f, #d95f5f 24%, #fff 24%, #fff);
+  background: -moz-linear-gradient(left, #d95f5f, #d95f5f 24%, #fff 24%, #fff);
+  background: linear-gradient(left, #d95f5f, #d95f5f 24%, #fff 24%, #fff);
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
   box-sizing: border-box;
   display: inline-block;
@@ -1153,13 +1153,36 @@ ul.lastMails li {
   width: 370px;
   height: 80px;
   position: relative;
+  overflow: hidden;
 }
 
+.phoneAlert{
+  background: -webkit-linear-gradient(left, #F9B610, #F9B610 24%, #fff 24%, #fff);
+  background: -moz-linear-gradient(left, #F9B610, #F9B610 24%, #fff 24%, #fff);
+  background: linear-gradient(left, #F9B610, #F9B610 24%, #fff 24%, #fff);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+.phoneAlert .qte{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+input.phoneBtn {
+  width: 90px;
+  font-size: 10px;
+  border-radius:0;
+  margin-bottom: 5px;
+}
+.comm{
+  font-weight: bold;
+  color: #d95f5f;
+}
 .stockAlert h2 {
   display: inline-block;
   width: 80px;
   vertical-align: middle;
-  color: #835151;
+  color: #4f2323;
   line-height: 15px;
 }
 
@@ -1171,13 +1194,15 @@ ul.lastMails li {
 .stockAlert li {
   display: inline-block;
   width: 170px;
+  max-height: 60px;
+  overflow: hidden;
   vertical-align: middle;
 }
 
 .stockAlert .qte {
   text-align: right;
   font-weight: bold;
-  color: #835151;
+  color: #444;
   display: inline-block;
   width: 80px;
   vertical-align: middle;
@@ -1192,7 +1217,7 @@ ul.lastMails li {
   right: 5px;
   font-size: 14px;
   font-weight: normal;
-  color: #835151;
+  color: #444;
   cursor: pointer;
 }
 
@@ -1206,7 +1231,7 @@ ul.lastMails li {
   position: absolute;
   bottom: 15px;
   right: 15px;
-  background: #32a1cc;
+  background: #26a7d9;
   color: #fff;
   cursor: pointer;
   text-transform: uppercase;
@@ -1258,6 +1283,58 @@ tr.grized td {
   margin-bottom: 0;
 }
 .prevnext:hover{
-  background: #32a1cc;
+  background: #26a7d9;
+  color: #fff;
+}
+
+.gostock {
+  text-transform: uppercase;
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #26a7d9;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 7px;
+  text-decoration: none;
+  height: 25px;
+  border: 0;
+  border-radius:3px;
+  vertical-align: middle;
+}
+
+.gostock:hover {
+  background: #ccc;
+}
+
+.formin{
+  display: inline-block;
+  margin-top: 10px;
+
+}
+.formin select {
+  width: 200px;
+  text-transform: uppercase;
+}
+
+#exportStock, #exportJournal{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: #fff;
+  color: #413f3f;
+  font-size: 14px;
+  text-decoration: none;
+  border: 0;
+  height: 40px;
+  padding: 5px 10px;
+  width: auto;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
+}
+
+#exportStock:hover, #exportJournal:hover{
+  background: #ea2a6a;
   color: #fff;
 }

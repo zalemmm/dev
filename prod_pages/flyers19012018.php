@@ -57,7 +57,7 @@
 				<select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir le type de papier...</option>
 					<option value="1">Couché Brillant </option>
-					<!--<option value="2">Couché Satiné</option>-->
+					<option value="2">Couché Satiné</option>
 					<option value="3">Couché Mat</option>
 				</select>
 			</li>
@@ -68,7 +68,7 @@
 				<select class="form-dropdown validate[required]" id="input_33" name="q33_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir le type de papier...</option>
 					<option value="1">Couché Brillant </option>
-					<!--<option value="2">Couché Satiné</option>-->
+					<option value="2">Couché Satiné</option>
 					<option value="3">Couché Mat</option>
 				</select>
 			</li>
@@ -201,24 +201,25 @@
 			<li class="form-line" id="id_5">
 				<select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
 					<option value="">quantité...</option>
+					<option value="10">10 </option>
 					<option value="25">25 </option>
 					<option value="50">50 </option>
 					<option value="100">100 </option>
 					<option value="250">250 </option>
 					<option value="500">500 </option>
 					<option value="1000">1000 </option>
-					<option value="1250">1250 </option>
+					<option value="1500">1500 </option>
 					<option value="2000">2000 </option>
 					<option value="2500">2500 </option>
+					<option value="3000">3000 </option>
 					<option value="5000">5000 </option>
+					<option value="7500">7500 </option>
 					<option value="10000">10000 </option>
 					<option value="15000">15000 </option>
 					<option value="20000">20000 </option>
 					<option value="25000">25000 </option>
 					<option value="30000">30000 </option>
-                    <option value="35000">35000 </option>
 					<option value="40000">40000 </option>
-                    <option value="45000">45000 </option>
 					<option value="50000">50000 </option>
 					<option value="75000">75000 </option>
 					<option value="100000">100000 </option>
@@ -613,1219 +614,158 @@
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 135g') {
-				
-				if ($('input_21').value == '1'){ 
-					opis += '- A7 recto';
-					if (ilosc == '25') { cena1=14.16;}
-					if (ilosc == '50') { cena1=14.89;}
-					if (ilosc == '100') { cena1=15.65;}
-					if (ilosc == '250') { cena1=16.38;}
-					if (ilosc == '500') { cena1=17.14;}
-					if (ilosc == '1000') { cena1=19.37 ;}
-					if (ilosc == '1250') { cena1=19.82;}
-					if (ilosc == '2000') { cena1=19.53;}
-					if (ilosc == '2500') { cena1=19.41;}
-					if (ilosc == '5000') { cena1=20.01;}
-					if (ilosc == '10000') { cena1=26.88;}
-					if (ilosc == '15000') { cena1=34.38;}
-					if (ilosc == '20000') { cena1=42.53;}
-					if (ilosc == '25000') { cena1=62.41;}
-					if (ilosc == '30000') { cena1=69.60;}
-					if (ilosc == '35000') { cena1=76.80;}
-					if (ilosc == '40000') { cena1=83.99;}
-					if (ilosc == '45000') { cena1=103.87;}
-					if (ilosc == '50000') { cena1=111.06;}
-					if (ilosc == '75000') { cena1=159.69;}
-					if (ilosc == '100000') { cena1=208.34;}
-				}
-				if ($('input_21').value == '2')
-					{
-					opis += '- A7 recto/verso';
-					if (ilosc == '25') { cena1=14.16;}
-					if (ilosc == '50') { cena1=14.89;}
-					if (ilosc == '100') { cena1=15.65;}
-					if (ilosc == '250') { cena1=16.38;}
-					if (ilosc == '500') { cena1=17.14;}
-					if (ilosc == '1000') { cena1=19.37 ;}
-					if (ilosc == '1250') { cena1=19.82;}
-					if (ilosc == '2000') { cena1=19.53;}
-					if (ilosc == '2500') { cena1=19.41;}
-					if (ilosc == '5000') { cena1=20.01;}
-					if (ilosc == '10000') { cena1=26.88;}
-					if (ilosc == '15000') { cena1=34.38;}
-					if (ilosc == '20000') { cena1=42.53;}
-					if (ilosc == '25000') { cena1=62.41;}
-					if (ilosc == '30000') { cena1=69.60;}
-					if (ilosc == '35000') { cena1=76.80;}
-					if (ilosc == '40000') { cena1=83.99;}
-					if (ilosc == '45000') { cena1=103.87;}
-					if (ilosc == '50000') { cena1=111.06;}
-					if (ilosc == '75000') { cena1=159.69;}
-					if (ilosc == '100000') { cena1=208.34;}
-					}
-				if ($('input_21').value == '3')
-					{ 
-					opis += '- A6 recto';
-					if (ilosc == '25') { cena1=16.24;}
-					if (ilosc == '50') { cena1=17.09;}
-					if (ilosc == '100') { cena1=17.94;}
-					if (ilosc == '250') { cena1=18.79;}
-					if (ilosc == '500') { cena1=19.66;}
-					if (ilosc == '1000') { cena1=20.82;}
-					if (ilosc == '1250') { cena1=24.58;}
-					if (ilosc == '2000') { cena1=25.33;}
-					if (ilosc == '2500') { cena1=25.79;}
-					if (ilosc == '5000') { cena1=29.24;}
-					if (ilosc == '10000') { cena1=43.62;}
-					if (ilosc == '15000') { cena1=72.03;}
-					if (ilosc == '20000') { cena1=89.12;}
-					if (ilosc == '25000') { cena1=117.48;}
-					if (ilosc == '30000') { cena1=132.54;}
-					if (ilosc == '35000') { cena1=160.91;}
-					if (ilosc == '40000') { cena1=175.96;}
-					if (ilosc == '45000') { cena1=198.42;}
-					if (ilosc == '50000') { cena1=219.39;}
-					if (ilosc == '75000') { cena1=318.77;}
-					if (ilosc == '100000') { cena1=423.63;}
-					}
-				if ($('input_21').value == '4')
-					{ 
-					opis += '- A6 recto/verso';
-					if (ilosc == '25') { cena1=16.24;}
-					if (ilosc == '50') { cena1=17.09;}
-					if (ilosc == '100') { cena1=17.94;}
-					if (ilosc == '250') { cena1=18.79;}
-					if (ilosc == '500') { cena1=19.66;}
-					if (ilosc == '1000') { cena1=20.82;}
-					if (ilosc == '1250') { cena1=24.58;}
-					if (ilosc == '2000') { cena1=25.33;}
-					if (ilosc == '2500') { cena1=25.79;}
-					if (ilosc == '5000') { cena1=29.24;}
-					if (ilosc == '10000') { cena1=43.62;}
-					if (ilosc == '15000') { cena1=72.03;}
-					if (ilosc == '20000') { cena1=89.12;}
-					if (ilosc == '25000') { cena1=117.48;}
-					if (ilosc == '30000') { cena1=132.54;}
-					if (ilosc == '35000') { cena1=160.91;}
-					if (ilosc == '40000') { cena1=175.96;}
-					if (ilosc == '45000') { cena1=198.42;}
-					if (ilosc == '50000') { cena1=219.39;}
-					if (ilosc == '75000') { cena1=318.77;}
-					if (ilosc == '100000') { cena1=423.63;}
-					}
-				if ($('input_21').value == '5'){ 
-					opis += '- A5 recto';
-					if (ilosc == '25') { cena1=21.85;}
-					if (ilosc == '50') { cena1=22.12;}
-					if (ilosc == '100') { cena1=22.65;}
-					if (ilosc == '250') { cena1=24.44 ;}
-					if (ilosc == '500') { cena1=25.74;}
-					if (ilosc == '1000') { cena1=30.13 ;}
-					if (ilosc == '1250') { cena1=31.96;}
-					if (ilosc == '2000') { cena1=34.70;}
-					if (ilosc == '2500') { cena1=36.30;}
-					if (ilosc == '5000') { cena1=45.18;}
-					if (ilosc == '10000') { cena1=86.10;}
-					if (ilosc == '15000') { cena1=129.44;}
-					if (ilosc == '20000') { cena1=175.94;}
-					if (ilosc == '25000') { cena1=212.91;}
-					if (ilosc == '30000') { cena1=249.90;}
-					if (ilosc == '35000') { cena1=296.88;}
-					if (ilosc == '40000') { cena1=332.87;}
-					if (ilosc == '45000') { cena1=368.85;}
-					if (ilosc == '50000') { cena1=415.83;}
-					if (ilosc == '75000') { cena1=606.76;}
-					if (ilosc == '100000') { cena1=808.68;}
-					}
-				if ($('input_21').value == '6')
-					{ 
-					opis += '- A5 recto/verso';
-					if (ilosc == '25') { cena1=21.85;}
-					if (ilosc == '50') { cena1=22.12;}
-					if (ilosc == '100') { cena1=22.65;}
-					if (ilosc == '250') { cena1=24.44 ;}
-					if (ilosc == '500') { cena1=25.74;}
-					if (ilosc == '1000') { cena1=30.13 ;}
-					if (ilosc == '1250') { cena1=31.96;}
-					if (ilosc == '2000') { cena1=34.70;}
-					if (ilosc == '2500') { cena1=36.30;}
-					if (ilosc == '5000') { cena1=45.18;}
-					if (ilosc == '10000') { cena1=86.10;}
-					if (ilosc == '15000') { cena1=129.44;}
-					if (ilosc == '20000') { cena1=175.94;}
-					if (ilosc == '25000') { cena1=212.91;}
-					if (ilosc == '30000') { cena1=249.90;}
-					if (ilosc == '35000') { cena1=296.88;}
-					if (ilosc == '40000') { cena1=332.87;}
-					if (ilosc == '45000') { cena1=368.85;}
-					if (ilosc == '50000') { cena1=415.83;}
-					if (ilosc == '75000') { cena1=606.76;}
-					if (ilosc == '100000') { cena1=808.68;}
-					}
-				if ($('input_21').value == '7')
-					{ 
-					opis += '- A4 recto';
-					if (ilosc == '25') { cena1=25.34;}
-					if (ilosc == '50') { cena1=26.01;}
-					if (ilosc == '100') { cena1=27.33;}
-					if (ilosc == '250') { cena1=31.42 ;}
-					if (ilosc == '500') { cena1=36.58;}
-					if (ilosc == '1000') { cena1=43.85 ;}
-					if (ilosc == '1250') { cena1=47.54;}
-					if (ilosc == '2000') { cena1=54.39;}
-					if (ilosc == '2500') { cena1=58.34;}
-					if (ilosc == '5000') { cena1=91.34;}
-					if (ilosc == '10000') { cena1=174.11;}
-					if (ilosc == '15000') { cena1=248.50;}
-					if (ilosc == '20000') { cena1=338.16;}
-					if (ilosc == '25000') { cena1=408.84;}
-					if (ilosc == '30000') { cena1=479.91;}
-					if (ilosc == '35000') { cena1=572.97;}
-					if (ilosc == '40000') { cena1=640.74;}
-					if (ilosc == '45000') { cena1=712.11;}
-					if (ilosc == '50000') { cena1=805.68;}
-					if (ilosc == '75000') { cena1=1179.03;}
-					if (ilosc == '100000') { cena1=1573.87;}
-					}
-				if ($('input_21').value == '8')
-					{
-					opis += '- A4 recto/verso';
-					if (ilosc == '25') { cena1=25.34;}
-					if (ilosc == '50') { cena1=26.01;}
-					if (ilosc == '100') { cena1=27.33;}
-					if (ilosc == '250') { cena1=31.42 ;}
-					if (ilosc == '500') { cena1=36.58;}
-					if (ilosc == '1000') { cena1=43.85 ;}
-					if (ilosc == '1250') { cena1=47.54;}
-					if (ilosc == '2000') { cena1=54.39;}
-					if (ilosc == '2500') { cena1=58.34;}
-					if (ilosc == '5000') { cena1=91.34;}
-					if (ilosc == '10000') { cena1=174.11;}
-					if (ilosc == '15000') { cena1=248.50;}
-					if (ilosc == '20000') { cena1=338.16;}
-					if (ilosc == '25000') { cena1=408.84;}
-					if (ilosc == '30000') { cena1=479.91;}
-					if (ilosc == '35000') { cena1=572.97;}
-					if (ilosc == '40000') { cena1=640.74;}
-					if (ilosc == '45000') { cena1=712.11;}
-					if (ilosc == '50000') { cena1=805.68;}
-					if (ilosc == '75000') { cena1=1179.03;}
-					if (ilosc == '100000') { cena1=1573.87;}
-					}
-				if ($('input_21').value == '9')
-					{
-					opis += '- Din long recto';
-					if (ilosc == '25') { cena1=20.01;}
-					if (ilosc == '50') { cena1=20.17;}
-					if (ilosc == '100') { cena1=20.47;}
-					if (ilosc == '250') { cena1=21.56;}
-					if (ilosc == '500') { cena1=21.78;}
-					if (ilosc == '1000') { cena1=25.19;}
-					if (ilosc == '1250') { cena1=26.45;}
-					if (ilosc == '2000') { cena1=27.97;}
-					if (ilosc == '2500') { cena1=28.87;}
-					if (ilosc == '5000') { cena1=34.35;}
-					if (ilosc == '10000') { cena1=65.79;}
-					if (ilosc == '15000') { cena1=96.96;}
-					if (ilosc == '20000') { cena1=122.10;}
-					if (ilosc == '25000') { cena1=155.04;}
-					if (ilosc == '30000') { cena1=179.93;}
-					if (ilosc == '35000') { cena1=208.22;}
-					if (ilosc == '40000') { cena1=241.16;}
-					if (ilosc == '45000') { cena1=263.89 ;}
-					if (ilosc == '50000') { cena1=295.88 ;}
-					if (ilosc == '75000') { cena1=430.83;}
-					if (ilosc == '100000') { cena1=572.77 ;}
-					}
-				if ($('input_21').value == '10')
-					{ 
-					opis += '- Din long recto/verso';
-					if (ilosc == '25') { cena1=20.01;}
-					if (ilosc == '50') { cena1=20.17;}
-					if (ilosc == '100') { cena1=20.47;}
-					if (ilosc == '250') { cena1=21.56;}
-					if (ilosc == '500') { cena1=21.78;}
-					if (ilosc == '1000') { cena1=25.19;}
-					if (ilosc == '1250') { cena1=26.45;}
-					if (ilosc == '2000') { cena1=27.97;}
-					if (ilosc == '2500') { cena1=28.87;}
-					if (ilosc == '5000') { cena1=34.35;}
-					if (ilosc == '10000') { cena1=65.79;}
-					if (ilosc == '15000') { cena1=96.96;}
-					if (ilosc == '20000') { cena1=122.10;}
-					if (ilosc == '25000') { cena1=155.04;}
-					if (ilosc == '30000') { cena1=179.93;}
-					if (ilosc == '35000') { cena1=208.22;}
-					if (ilosc == '40000') { cena1=241.16;}
-					if (ilosc == '45000') { cena1=263.89 ;}
-					if (ilosc == '50000') { cena1=295.88 ;}
-					if (ilosc == '75000') { cena1=430.83;}
-					if (ilosc == '100000') { cena1=572.77 ;}
-					}
-				if ($('input_21').value == '11')
-					{ 				
-					opis += '- A3 recto';
-					if (ilosc == '25') { cena1=30.92;}
-					if (ilosc == '50') { cena1=32.34;}
-					if (ilosc == '100') { cena1=35.13;}
-					if (ilosc == '250') { cena1=43.56;}
-					if (ilosc == '500') { cena1=54.33;}
-					if (ilosc == '1000') { cena1=68.72 ;}
-					if (ilosc == '1250') { cena1=75.91;}
-					if (ilosc == '2000') { cena1=106.13;}
-					if (ilosc == '2500') { cena1=113.81;}
-					if (ilosc == '5000') { cena1=178.22;}
-					if (ilosc == '10000') { cena1=339.75;}
-					if (ilosc == '15000') { cena1=510.83;}
-					if (ilosc == '20000') { cena1=694.38;}
-					if (ilosc == '25000') { cena1=863.59;}
-					if (ilosc == '30000') { cena1=1032.81;}
-					if (ilosc == '35000') { cena1=1202.04;}
-					if (ilosc == '40000') { cena1=1371.26;}
-					if (ilosc == '45000') { cena1=1540.48;}
-					if (ilosc == '50000') { cena1=1709.70;}
-					if (ilosc == '75000') { cena1=2555.80;}
-					if (ilosc == '100000') { cena1=3401.90;}
-					}
-				if ($('input_21').value == '12')
-					{ 
-					opis += '- A3 recto/verso';
-					if (ilosc == '25') { cena1=30.92;}
-					if (ilosc == '50') { cena1=32.34;}
-					if (ilosc == '100') { cena1=35.13;}
-					if (ilosc == '250') { cena1=43.56;}
-					if (ilosc == '500') { cena1=54.33;}
-					if (ilosc == '1000') { cena1=68.72 ;}
-					if (ilosc == '1250') { cena1=75.91;}
-					if (ilosc == '2000') { cena1=106.13;}
-					if (ilosc == '2500') { cena1=113.81;}
-					if (ilosc == '5000') { cena1=178.22;}
-					if (ilosc == '10000') { cena1=339.75;}
-					if (ilosc == '15000') { cena1=510.83;}
-					if (ilosc == '20000') { cena1=694.38;}
-					if (ilosc == '25000') { cena1=863.59;}
-					if (ilosc == '30000') { cena1=1032.81;}
-					if (ilosc == '35000') { cena1=1202.04;}
-					if (ilosc == '40000') { cena1=1371.26;}
-					if (ilosc == '45000') { cena1=1540.48;}
-					if (ilosc == '50000') { cena1=1709.70;}
-					if (ilosc == '75000') { cena1=2555.80;}
-					if (ilosc == '100000') { cena1=3401.90;}
-					}
+				if ($('input_21').value == '1'){ opis += '- A7';}
+				if ($('input_21').value == '2'){ opis += '- A7';}
+				if ($('input_21').value == '3'){ opis += '- A6';}
+				if ($('input_21').value == '4'){ opis += '- A6';}
+				if ($('input_21').value == '5'){ opis += '- A5';}
+				if ($('input_21').value == '6'){ opis += '- A5';}
+				if ($('input_21').value == '7'){ opis += '- A4';}
+				if ($('input_21').value == '8'){ opis += '- A4';}
+				if ($('input_21').value == '9'){ opis += '- Din long';}
+				if ($('input_21').value == '10'){ opis += '- Din long';}
+				if ($('input_21').value == '11'){ opis += '- A3';}
+				if ($('input_21').value == '12'){ opis += '- A3';}
+				if (($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5') || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6') || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '11') || ($('input_21').value == '12')) {
 
-					
-			opis += '<br />- 135gr';		
+					cenar=0.22
+					cenarv=0.27
+					if ($('input_21').value == '1'){ cena1=(ilosc/16)*cenar; opis += '<br />- Recto<br />- 135g | Quadri';}
+					if ($('input_21').value == '2'){ cena1=(ilosc/16)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
+					if ($('input_21').value == '3'){ cena1=(ilosc/8)*cenar; opis += '<br />- Recto<br />- 135g | Quadri';}
+					if ($('input_21').value == '4'){ cena1=(ilosc/8)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
+					if ($('input_21').value == '5'){ cena1=(ilosc/4)*cenar; opis += '<br />- Recto<br />- 135g | Quadri';}
+					if ($('input_21').value == '6'){ cena1=(ilosc/4)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
+					if ($('input_21').value == '7'){ cena1=(ilosc/2)*cenar; opis += '<br />- Recto<br />- 135g | Quadri';}
+					if ($('input_21').value == '8'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
+					if ($('input_21').value == '9'){ cena1=(ilosc/6)*cenar; opis += '<br />- Recto<br />- 135g | Quadri';}
+					if ($('input_21').value == '10'){ cena1=(ilosc/6)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
+					if ($('input_21').value == '11'){ cena1=(ilosc/1)*cenar; opis += '<br />- Recto<br />- 135g | Quadri';}
+					if ($('input_21').value == '12'){ cena1=(ilosc/1)*cenarv; opis += '<br />- Recto/verso<br />- 135g | Quadri';}
+					if ((ilosc == '10') || (ilosc == '25') || (ilosc == '50') || (ilosc == '100') || (ilosc == '250')){ cena1*=1.15;}
+					if ((ilosc == '5000') || (ilosc == '7500') || (ilosc == '10000')){ cena1*=0.95;}
+					if ((ilosc == '15000') || (ilosc == '20000')){ cena1*=0.90;}
+					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
+					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
+					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
+				}
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 170g') {
-				if ($('input_21').value == '1'){ 
-					opis += '- A7 recto';
-					if (ilosc == '25') { cena1=15.08;}
-					if (ilosc == '50') { cena1=15.86;}
-					if (ilosc == '100') { cena1=16.66;}
-					if (ilosc == '250') { cena1=17.45;}
-					if (ilosc == '500') { cena1=18.25;}
-					if (ilosc == '1000') { cena1=20.63 ;}
-					if (ilosc == '1250') { cena1=21.20;}
-					if (ilosc == '2000') { cena1=21.17;}
-					if (ilosc == '2500') { cena1=21.18;}
-					if (ilosc == '5000') { cena1=22.48;}
-					if (ilosc == '10000') { cena1=31.24;}
-					if (ilosc == '15000') { cena1=40.77;}
-					if (ilosc == '20000') { cena1=64.27;}
-					if (ilosc == '25000') { cena1=73.45 ;}
-					if (ilosc == '30000') { cena1=82.63;}
-					if (ilosc == '35000') { cena1=104.99;}
-					if (ilosc == '40000') { cena1=114.17 ;}
-					if (ilosc == '45000') { cena1=123.35;}
-					if (ilosc == '50000') { cena1=145.71;}
-					if (ilosc == '75000') { cena1=204.79;}
-					if (ilosc == '100000') { cena1=271.24;}
+				if ($('input_21').value == '1'){ opis += '- A7';}
+				if ($('input_21').value == '2'){ opis += '- A7';}
+				if ($('input_21').value == '3'){ opis += '- A6';}
+				if ($('input_21').value == '4'){ opis += '- A6';}
+				if ($('input_21').value == '5'){ opis += '- A5';}
+				if ($('input_21').value == '6'){ opis += '- A5';}
+				if ($('input_21').value == '7'){ opis += '- A4';}
+				if ($('input_21').value == '8'){ opis += '- A4';}
+				if ($('input_21').value == '9'){ opis += '- Din long';}
+				if ($('input_21').value == '10'){ opis += '- Din long';}
+				if ($('input_21').value == '11'){ opis += '- A3';}
+				if ($('input_21').value == '12'){ opis += '- A3';}
+				if (($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5') || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6') || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '11') || ($('input_21').value == '12')) {
+
+					cenar=0.27
+					cenarv=0.32
+					if ($('input_21').value == '1'){ cena1=(ilosc/16)*cenar; opis += '<br />- Recto<br />- 170g | Quadri';}
+					if ($('input_21').value == '2'){ cena1=(ilosc/16)*cenarv; opis += '<br />- Recto/verso<br />- 170g | Quadri';}
+					if ($('input_21').value == '3'){ cena1=(ilosc/8)*cenar; opis += '<br />- Recto<br />- 170g | Quadri';}
+					if ($('input_21').value == '4'){ cena1=(ilosc/8)*cenarv; opis += '<br />- Recto/verso<br />- 170g | Quadri';}
+					if ($('input_21').value == '5'){ cena1=(ilosc/4)*cenar; opis += '<br />- Recto<br />- 170g | Quadri';}
+					if ($('input_21').value == '6'){ cena1=(ilosc/4)*cenarv; opis += '<br />- Recto/verso<br />- 170 | Quadri';}
+					if ($('input_21').value == '7'){ cena1=(ilosc/2)*cenar; opis += '<br />- Recto<br />- 170g | Quadri';}
+					if ($('input_21').value == '8'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 170g | Quadri';}
+					if ($('input_21').value == '9'){ cena1=(ilosc/6)*cenar; opis += '<br />- Recto<br />- 170g | Quadri';}
+					if ($('input_21').value == '10'){ cena1=(ilosc/6)*cenarv; opis += '<br />- Recto/verso<br />- 170g | Quadri';}
+					if ($('input_21').value == '11'){ cena1=(ilosc/1)*cenar; opis += '<br />- Recto<br />- 170g | Quadri';}
+					if ($('input_21').value == '12'){ cena1=(ilosc/1)*cenarv; opis += '<br />- Recto/verso<br />- 170g | Quadri';}
+					if ((ilosc == '10') || (ilosc == '25') || (ilosc == '50') || (ilosc == '100') || (ilosc == '250')){ cena1*=1.15;}
+					if ((ilosc == '5000') || (ilosc == '7500') || (ilosc == '10000')){ cena1*=0.95;}
+					if ((ilosc == '15000') || (ilosc == '20000')){ cena1*=0.90;}
+					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
+					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
+					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 				}
-				if ($('input_21').value == '2')
-					{
-					opis += '- A7 recto/verso';
-					if (ilosc == '25') { cena1=15.08;}
-					if (ilosc == '50') { cena1=15.86;}
-					if (ilosc == '100') { cena1=16.66;}
-					if (ilosc == '250') { cena1=17.45;}
-					if (ilosc == '500') { cena1=18.25;}
-					if (ilosc == '1000') { cena1=20.63 ;}
-					if (ilosc == '1250') { cena1=21.20;}
-					if (ilosc == '2000') { cena1=21.17;}
-					if (ilosc == '2500') { cena1=21.18;}
-					if (ilosc == '5000') { cena1=22.48;}
-					if (ilosc == '10000') { cena1=31.24;}
-					if (ilosc == '15000') { cena1=40.77;}
-					if (ilosc == '20000') { cena1=64.27;}
-					if (ilosc == '25000') { cena1=73.45 ;}
-					if (ilosc == '30000') { cena1=82.63;}
-					if (ilosc == '35000') { cena1=104.99;}
-					if (ilosc == '40000') { cena1=114.17 ;}
-					if (ilosc == '45000') { cena1=123.35;}
-					if (ilosc == '50000') { cena1=145.71;}
-					if (ilosc == '75000') { cena1=204.79;}
-					if (ilosc == '100000') { cena1=271.24;}
-					}
-				if ($('input_21').value == '3')
-					{ 
-					opis += '- A6 recto';
-					if (ilosc == '25') { cena1=17.56;}
-					if (ilosc == '50') { cena1=18.49;}
-					if (ilosc == '100') { cena1=19.41;}
-					if (ilosc == '250') { cena1=20.34;}
-					if (ilosc == '500') { cena1=21.26;}
-					if (ilosc == '1000') { cena1=25.65;}
-					if (ilosc == '1250') { cena1=26.85;}
-					if (ilosc == '2000') { cena1=28.15;}
-					if (ilosc == '2500') { cena1=28.94;}
-					if (ilosc == '5000') { cena1=33.93;}
-					if (ilosc == '10000') { cena1=59.98;}
-					if (ilosc == '15000') { cena1=85.43;}
-					if (ilosc == '20000') { cena1=114.95;}
-					if (ilosc == '25000') { cena1=140.94;}
-					if (ilosc == '30000') { cena1=164.93;}
-					if (ilosc == '35000') { cena1=192.72;}
-					if (ilosc == '40000') { cena1=218.51;}
-					if (ilosc == '45000') { cena1=238.11;}
-					if (ilosc == '50000') { cena1=263.89;}
-					if (ilosc == '75000') { cena1=382.55;}
-					if (ilosc == '100000') { cena1=508.40;}
-					}
-				if ($('input_21').value == '4')
-					{ 
-					opis += '- A6 recto/verso';
-					if (ilosc == '25') { cena1=17.56;}
-					if (ilosc == '50') { cena1=18.49;}
-					if (ilosc == '100') { cena1=19.41;}
-					if (ilosc == '250') { cena1=20.34;}
-					if (ilosc == '500') { cena1=21.26;}
-					if (ilosc == '1000') { cena1=25.65;}
-					if (ilosc == '1250') { cena1=26.85;}
-					if (ilosc == '2000') { cena1=28.15;}
-					if (ilosc == '2500') { cena1=28.94;}
-					if (ilosc == '5000') { cena1=33.93;}
-					if (ilosc == '10000') { cena1=59.98;}
-					if (ilosc == '15000') { cena1=85.43;}
-					if (ilosc == '20000') { cena1=114.95;}
-					if (ilosc == '25000') { cena1=140.94;}
-					if (ilosc == '30000') { cena1=164.93;}
-					if (ilosc == '35000') { cena1=192.72;}
-					if (ilosc == '40000') { cena1=218.51;}
-					if (ilosc == '45000') { cena1=238.11;}
-					if (ilosc == '50000') { cena1=263.89;}
-					if (ilosc == '75000') { cena1=382.55;}
-					if (ilosc == '100000') { cena1=508.40;}
-					}
-				if ($('input_21').value == '5'){ 
-					opis += '- A5 recto';
-					if (ilosc == '25') { cena1=22.77;}
-					if (ilosc == '50') { cena1=23.10;}
-					if (ilosc == '100') { cena1=23.75;}
-					if (ilosc == '250') { cena1=25.88 ;}
-					if (ilosc == '500') { cena1=27.48;}
-					if (ilosc == '1000') { cena1=33.45 ;}
-					if (ilosc == '1250') { cena1=35.78;}
-					if (ilosc == '2000') { cena1=39.68;}
-					if (ilosc == '2500') { cena1=41.93;}
-					if (ilosc == '5000') { cena1=67.10;}
-					if (ilosc == '10000') { cena1=111.96;}
-					if (ilosc == '15000') { cena1=157.94;}
-					if (ilosc == '20000') { cena1=210.92;}
-					if (ilosc == '25000') { cena1=260.90;}
-					if (ilosc == '30000') { cena1=306.88;}
-					if (ilosc == '35000') { cena1=361.86;}
-					if (ilosc == '40000') { cena1=407.84;}
-					if (ilosc == '45000') { cena1=453.82;}
-					if (ilosc == '50000') { cena1=512.79;}
-					if (ilosc == '75000') { cena1=755.70;}
-					if (ilosc == '100000') { cena1=1004.60;}
-					}
-				if ($('input_21').value == '6')
-					{ 
-					opis += '- A5 recto/verso';
-					if (ilosc == '25') { cena1=22.77;}
-					if (ilosc == '50') { cena1=23.10;}
-					if (ilosc == '100') { cena1=23.75;}
-					if (ilosc == '250') { cena1=25.88 ;}
-					if (ilosc == '500') { cena1=27.48;}
-					if (ilosc == '1000') { cena1=33.45 ;}
-					if (ilosc == '1250') { cena1=35.78;}
-					if (ilosc == '2000') { cena1=39.68;}
-					if (ilosc == '2500') { cena1=41.93;}
-					if (ilosc == '5000') { cena1=67.10;}
-					if (ilosc == '10000') { cena1=111.96;}
-					if (ilosc == '15000') { cena1=157.94;}
-					if (ilosc == '20000') { cena1=210.92;}
-					if (ilosc == '25000') { cena1=260.90;}
-					if (ilosc == '30000') { cena1=306.88;}
-					if (ilosc == '35000') { cena1=361.86;}
-					if (ilosc == '40000') { cena1=407.84;}
-					if (ilosc == '45000') { cena1=453.82;}
-					if (ilosc == '50000') { cena1=512.79;}
-					if (ilosc == '75000') { cena1=755.70;}
-					if (ilosc == '100000') { cena1=1004.60;}
-					}
-				if ($('input_21').value == '7')
-					{ 
-					opis += '- A4 recto';
-					if (ilosc == '25') { cena1=26.50;}
-					if (ilosc == '50') { cena1=27.30;}
-					if (ilosc == '100') { cena1=28.84;}
-					if (ilosc == '250') { cena1=33.63 ;}
-					if (ilosc == '500') { cena1=40.51;}
-					if (ilosc == '1000') { cena1=49.90 ;}
-					if (ilosc == '1250') { cena1=54.61;}
-					if (ilosc == '2000') { cena1=63.83;}
-					if (ilosc == '2500') { cena1=84.86;}
-					if (ilosc == '5000') { cena1=122.40;}
-					if (ilosc == '10000') { cena1=209.92;}
-					if (ilosc == '15000') { cena1=306.88;}
-					if (ilosc == '20000') { cena1=406.84;}
-					if (ilosc == '25000') { cena1=503.80;}
-					if (ilosc == '30000') { cena1=592.76;}
-					if (ilosc == '35000') { cena1=701.72;}
-					if (ilosc == '40000') { cena1=787.68;}
-					if (ilosc == '45000') { cena1=882.65;}
-					if (ilosc == '50000') { cena1=1002.60;}
-					if (ilosc == '75000') { cena1=1482.41;}
-					if (ilosc == '100000') { cena1=1972.21;}
-					}
-				if ($('input_21').value == '8')
-					{
-					opis += '- A4 recto/verso';
-					if (ilosc == '25') { cena1=26.50;}
-					if (ilosc == '50') { cena1=27.30;}
-					if (ilosc == '100') { cena1=28.84;}
-					if (ilosc == '250') { cena1=33.63 ;}
-					if (ilosc == '500') { cena1=40.51;}
-					if (ilosc == '1000') { cena1=49.90 ;}
-					if (ilosc == '1250') { cena1=54.61;}
-					if (ilosc == '2000') { cena1=63.83;}
-					if (ilosc == '2500') { cena1=84.86;}
-					if (ilosc == '5000') { cena1=122.40;}
-					if (ilosc == '10000') { cena1=209.92;}
-					if (ilosc == '15000') { cena1=306.88;}
-					if (ilosc == '20000') { cena1=406.84;}
-					if (ilosc == '25000') { cena1=503.80;}
-					if (ilosc == '30000') { cena1=592.76;}
-					if (ilosc == '35000') { cena1=701.72;}
-					if (ilosc == '40000') { cena1=787.68;}
-					if (ilosc == '45000') { cena1=882.65;}
-					if (ilosc == '50000') { cena1=1002.60;}
-					if (ilosc == '75000') { cena1=1482.41;}
-					if (ilosc == '100000') { cena1=1972.21;}
-					}
-				if ($('input_21').value == '9')
-					{
-					opis += '- Din long recto';
-					if (ilosc == '25') { cena1=20.84;}
-					if (ilosc == '50') { cena1=21.03;}
-					if (ilosc == '100') { cena1=21.40;}
-					if (ilosc == '250') { cena1=22.73;}
-					if (ilosc == '500') { cena1=23.13;}
-					if (ilosc == '1000') { cena1=27.64;}
-					if (ilosc == '1250') { cena1=29.23;}
-					if (ilosc == '2000') { cena1=31.53;}
-					if (ilosc == '2500') { cena1=32.87;}
-					if (ilosc == '5000') { cena1=40.46;}
-					if (ilosc == '10000') { cena1=77.72;}
-					if (ilosc == '15000') { cena1=117.16;}
-					if (ilosc == '20000') { cena1=151.94;}
-					if (ilosc == '25000') { cena1=186.93;}
-					if (ilosc == '30000') { cena1=218.91;}
-					if (ilosc == '35000') { cena1=257.90;}
-					if (ilosc == '40000') { cena1=290.88;}
-					if (ilosc == '45000') { cena1=321.87 ;}
-					if (ilosc == '50000') { cena1=356.86 ;}
-					if (ilosc == '75000') { cena1=528.79;}
-					if (ilosc == '100000') { cena1=703.72 ;}
-					}
-				if ($('input_21').value == '10')
-					{ 
-					opis += '- Din long recto/verso';
-					if (ilosc == '25') { cena1=20.84;}
-					if (ilosc == '50') { cena1=21.03;}
-					if (ilosc == '100') { cena1=21.40;}
-					if (ilosc == '250') { cena1=22.73;}
-					if (ilosc == '500') { cena1=23.13;}
-					if (ilosc == '1000') { cena1=27.64;}
-					if (ilosc == '1250') { cena1=29.23;}
-					if (ilosc == '2000') { cena1=31.53;}
-					if (ilosc == '2500') { cena1=32.87;}
-					if (ilosc == '5000') { cena1=40.46;}
-					if (ilosc == '10000') { cena1=77.72;}
-					if (ilosc == '15000') { cena1=117.16;}
-					if (ilosc == '20000') { cena1=151.94;}
-					if (ilosc == '25000') { cena1=186.93;}
-					if (ilosc == '30000') { cena1=218.91;}
-					if (ilosc == '35000') { cena1=257.90;}
-					if (ilosc == '40000') { cena1=290.88;}
-					if (ilosc == '45000') { cena1=321.87 ;}
-					if (ilosc == '50000') { cena1=356.86 ;}
-					if (ilosc == '75000') { cena1=528.79;}
-					if (ilosc == '100000') { cena1=703.72 ;}
-					}
-				if ($('input_21').value == '11')
-					{ 				
-					opis += '- A3 recto';
-					if (ilosc == '25') { cena1=32.48;}
-					if (ilosc == '50') { cena1=34.14;}
-					if (ilosc == '100') { cena1=37.39;}
-					if (ilosc == '250') { cena1=47.23;}
-					if (ilosc == '500') { cena1=61.35;}
-					if (ilosc == '1000') { cena1=79.86;}
-					if (ilosc == '1250') { cena1=106.60;}
-					if (ilosc == '2000') { cena1=124.52;}
-					if (ilosc == '2500') { cena1=150.29;}
-					if (ilosc == '5000') { cena1=225.75;}
-					if (ilosc == '10000') { cena1=433.06;}
-					if (ilosc == '15000') { cena1=652.57;}
-					if (ilosc == '20000') { cena1=888.05;}
-					if (ilosc == '25000') { cena1=1105.24;}
-					if (ilosc == '30000') { cena1=1322.42;}
-					if (ilosc == '35000') { cena1=1539.61;}
-					if (ilosc == '40000') { cena1=1756.80;}
-					if (ilosc == '45000') { cena1=1973.99;}
-					if (ilosc == '50000') { cena1=2191.17;}
-					if (ilosc == '75000') { cena1=3277.11;}
-					if (ilosc == '100000') { cena1=4363.03;}
-					}
-				if ($('input_21').value == '12')
-					{ 
-					opis += '- A3 recto/verso';
-					if (ilosc == '25') { cena1=32.48;}
-					if (ilosc == '50') { cena1=34.14;}
-					if (ilosc == '100') { cena1=37.39;}
-					if (ilosc == '250') { cena1=47.23;}
-					if (ilosc == '500') { cena1=61.35;}
-					if (ilosc == '1000') { cena1=79.86;}
-					if (ilosc == '1250') { cena1=106.60;}
-					if (ilosc == '2000') { cena1=124.52;}
-					if (ilosc == '2500') { cena1=150.29;}
-					if (ilosc == '5000') { cena1=225.75;}
-					if (ilosc == '10000') { cena1=433.06;}
-					if (ilosc == '15000') { cena1=652.57;}
-					if (ilosc == '20000') { cena1=888.05;}
-					if (ilosc == '25000') { cena1=1105.24;}
-					if (ilosc == '30000') { cena1=1322.42;}
-					if (ilosc == '35000') { cena1=1539.61;}
-					if (ilosc == '40000') { cena1=1756.80;}
-					if (ilosc == '45000') { cena1=1973.99;}
-					if (ilosc == '50000') { cena1=2191.17;}
-					if (ilosc == '75000') { cena1=3277.11;}
-					if (ilosc == '100000') { cena1=4363.03;}
-					}
-			opis += '<br />- 170gr';	
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 250g') {
-				
-				if ($('input_21').value == '1'){ 
-						opis += '- A7 recto';
-					if (ilosc == '25') { cena1=16.22;}
-					if (ilosc == '50') { cena1=17.06;}
-					if (ilosc == '100') { cena1=17.92;}
-					if (ilosc == '250') { cena1=18.77;}
-					if (ilosc == '500') { cena1=19.62;}
-					if (ilosc == '1000') { cena1=21.96;}
-					if (ilosc == '1250') { cena1=22.79;}
-					if (ilosc == '2000') { cena1=23.37;}
-					if (ilosc == '2500') { cena1=23.74;}
-					if (ilosc == '5000') { cena1=26.67;}
-					if (ilosc == '10000') { cena1=39.42;}
-					if (ilosc == '15000') { cena1=65.99;}
-					if (ilosc == '20000') { cena1=81.20;}
-					if (ilosc == '25000') { cena1=107.74;}
-					if (ilosc == '30000') { cena1=116.85;}
-					if (ilosc == '35000') { cena1=139.94;}
-					if (ilosc == '40000') { cena1=153.23 ;}
-					if (ilosc == '45000') { cena1=178.93;}
-					if (ilosc == '50000') { cena1=189.82;}
-					if (ilosc == '75000') { cena1=274.89;}
-					if (ilosc == '100000') { cena1=350.86;}
+				if ($('input_21').value == '1'){ opis += '- A7';}
+				if ($('input_21').value == '2'){ opis += '- A7';}
+				if ($('input_21').value == '3'){ opis += '- A6';}
+				if ($('input_21').value == '4'){ opis += '- A6';}
+				if ($('input_21').value == '5'){ opis += '- A5';}
+				if ($('input_21').value == '6'){ opis += '- A5';}
+				if ($('input_21').value == '7'){ opis += '- A4';}
+				if ($('input_21').value == '8'){ opis += '- A4';}
+				if ($('input_21').value == '9'){ opis += '- Din long';}
+				if ($('input_21').value == '10'){ opis += '- Din long';}
+				if ($('input_21').value == '11'){ opis += '- A3';}
+				if ($('input_21').value == '12'){ opis += '- A3';}
+				if (($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5') || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6') || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '11') || ($('input_21').value == '12')) {
+
+					cenar=0.32
+					cenarv=0.37
+					if ($('input_21').value == '1'){ cena1=(ilosc/16)*cenar; opis += '<br />- Recto<br />- 250g | Quadri';}
+					if ($('input_21').value == '2'){ cena1=(ilosc/16)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
+					if ($('input_21').value == '3'){ cena1=(ilosc/8)*cenar; opis += '<br />- Recto<br />- 250g | Quadri';}
+					if ($('input_21').value == '4'){ cena1=(ilosc/8)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
+					if ($('input_21').value == '5'){ cena1=(ilosc/4)*cenar; opis += '<br />- Recto<br />- 250g | Quadri';}
+					if ($('input_21').value == '6'){ cena1=(ilosc/4)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
+					if ($('input_21').value == '7'){ cena1=(ilosc/2)*cenar; opis += '<br />- Recto<br />- 250g | Quadri';}
+					if ($('input_21').value == '8'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
+					if ($('input_21').value == '9'){ cena1=(ilosc/6)*cenar; opis += '<br />- Recto<br />- 250g | Quadri';}
+					if ($('input_21').value == '10'){ cena1=(ilosc/6)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
+					if ($('input_21').value == '11'){ cena1=(ilosc/1)*cenar; opis += '<br />- Recto<br />- 250g | Quadri';}
+					if ($('input_21').value == '12'){ cena1=(ilosc/1)*cenarv; opis += '<br />- Recto/verso<br />- 250g | Quadri';}
+					if ((ilosc == '10') || (ilosc == '25') || (ilosc == '50') || (ilosc == '100') || (ilosc == '250')){ cena1*=1.15;}
+					if ((ilosc == '5000') || (ilosc == '7500') || (ilosc == '10000')){ cena1*=0.95;}
+					if ((ilosc == '15000') || (ilosc == '20000')){ cena1*=0.90;}
+					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
+					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
+					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 				}
-				if ($('input_21').value == '2')
-					{
-					opis += '- A7 recto/verso';
-					if (ilosc == '25') { cena1=16.22;}
-					if (ilosc == '50') { cena1=17.06;}
-					if (ilosc == '100') { cena1=17.92;}
-					if (ilosc == '250') { cena1=18.77;}
-					if (ilosc == '500') { cena1=19.62;}
-					if (ilosc == '1000') { cena1=21.96;}
-					if (ilosc == '1250') { cena1=22.79;}
-					if (ilosc == '2000') { cena1=23.37;}
-					if (ilosc == '2500') { cena1=23.74;}
-					if (ilosc == '5000') { cena1=26.67;}
-					if (ilosc == '10000') { cena1=39.42;}
-					if (ilosc == '15000') { cena1=65.99;}
-					if (ilosc == '20000') { cena1=81.20;}
-					if (ilosc == '25000') { cena1=107.74;}
-					if (ilosc == '30000') { cena1=116.85;}
-					if (ilosc == '35000') { cena1=139.94;}
-					if (ilosc == '40000') { cena1=153.23 ;}
-					if (ilosc == '45000') { cena1=178.93;}
-					if (ilosc == '50000') { cena1=189.82;}
-					if (ilosc == '75000') { cena1=274.89;}
-					if (ilosc == '100000') { cena1=350.86;}
-					}
-				if ($('input_21').value == '3')
-					{ 
-					opis += '- A6 recto';
-					if (ilosc == '25') { cena1=19.62;}
-					if (ilosc == '50') { cena1=20.66;}
-					if (ilosc == '100') { cena1=21.76;}
-					if (ilosc == '250') { cena1=22.93;}
-					if (ilosc == '500') { cena1=23.75;}
-					if (ilosc == '1000') { cena1=28.44;}
-					if (ilosc == '1250') { cena1=30.17;}
-					if (ilosc == '2000') { cena1=30.57;}
-					if (ilosc == '2500') { cena1=30.95;}
-					if (ilosc == '5000') { cena1=32.69;}
-					if (ilosc == '10000') { cena1=63.97;}
-					if (ilosc == '15000') { cena1=100.26;}
-					if (ilosc == '20000') { cena1=136.45;}
-					if (ilosc == '25000') { cena1=172.73;}
-					if (ilosc == '30000') { cena1=208.92;}
-					if (ilosc == '35000') { cena1=245.20;}
-					if (ilosc == '40000') { cena1=281.39;}
-					if (ilosc == '45000') { cena1=317.67;}
-					if (ilosc == '50000') { cena1=353.86;}
-					if (ilosc == '75000') { cena1=509.30;}
-					if (ilosc == '100000') { cena1=664.73;}
-					}
-				if ($('input_21').value == '4')
-					{ 
-					opis += '- A6 recto/verso';
-					if (ilosc == '25') { cena1=19.62;}
-					if (ilosc == '50') { cena1=20.66;}
-					if (ilosc == '100') { cena1=21.76;}
-					if (ilosc == '250') { cena1=22.93;}
-					if (ilosc == '500') { cena1=23.75;}
-					if (ilosc == '1000') { cena1=28.44;}
-					if (ilosc == '1250') { cena1=30.17;}
-					if (ilosc == '2000') { cena1=30.57;}
-					if (ilosc == '2500') { cena1=30.95;}
-					if (ilosc == '5000') { cena1=32.69;}
-					if (ilosc == '10000') { cena1=63.97;}
-					if (ilosc == '15000') { cena1=100.26;}
-					if (ilosc == '20000') { cena1=136.45;}
-					if (ilosc == '25000') { cena1=172.73;}
-					if (ilosc == '30000') { cena1=208.92;}
-					if (ilosc == '35000') { cena1=245.20;}
-					if (ilosc == '40000') { cena1=281.39;}
-					if (ilosc == '45000') { cena1=317.67;}
-					if (ilosc == '50000') { cena1=353.86;}
-					if (ilosc == '75000') { cena1=509.30;}
-					if (ilosc == '100000') { cena1=664.73;}
-					}
-				if ($('input_21').value == '5'){ 
-					opis += '- A5 recto';
-					if (ilosc == '25') { cena1=23.02;}
-					if (ilosc == '50') { cena1=23.47;}
-					if (ilosc == '100') { cena1=24.34;}
-					if (ilosc == '250') { cena1=27.12;}
-					if (ilosc == '500') { cena1=29.59;}
-					if (ilosc == '1000') { cena1=38.90;}
-					if (ilosc == '1250') { cena1=42.30;}
-					if (ilosc == '2000') { cena1=48.74;}
-					if (ilosc == '2500') { cena1=52.45;}
-					if (ilosc == '5000') { cena1=80.97;}
-					if (ilosc == '10000') { cena1=144.94;}
-					if (ilosc == '15000') { cena1=207.92;}
-					if (ilosc == '20000') { cena1=271.89;}
-					if (ilosc == '25000') { cena1=342.86;}
-					if (ilosc == '30000') { cena1=406.84;}
-					if (ilosc == '35000') { cena1=477.81;}
-					if (ilosc == '40000') { cena1=539.78;}
-					if (ilosc == '45000') { cena1=609.76;}
-					if (ilosc == '50000') { cena1=672.73;}
-					if (ilosc == '75000') { cena1=992.60;}
-					if (ilosc == '100000') { cena1=1313.47;}
-					}
-				if ($('input_21').value == '6')
-					{ 
-					opis += '- A5 recto/verso';
-					if (ilosc == '25') { cena1=23.02;}
-					if (ilosc == '50') { cena1=23.47;}
-					if (ilosc == '100') { cena1=24.34;}
-					if (ilosc == '250') { cena1=27.12;}
-					if (ilosc == '500') { cena1=29.59;}
-					if (ilosc == '1000') { cena1=38.90;}
-					if (ilosc == '1250') { cena1=42.30;}
-					if (ilosc == '2000') { cena1=48.74;}
-					if (ilosc == '2500') { cena1=52.45;}
-					if (ilosc == '5000') { cena1=80.97;}
-					if (ilosc == '10000') { cena1=144.94;}
-					if (ilosc == '15000') { cena1=207.92;}
-					if (ilosc == '20000') { cena1=271.89;}
-					if (ilosc == '25000') { cena1=342.86;}
-					if (ilosc == '30000') { cena1=406.84;}
-					if (ilosc == '35000') { cena1=477.81;}
-					if (ilosc == '40000') { cena1=539.78;}
-					if (ilosc == '45000') { cena1=609.76;}
-					if (ilosc == '50000') { cena1=672.73;}
-					if (ilosc == '75000') { cena1=992.60;}
-					if (ilosc == '100000') { cena1=1313.47;}
-					}
-				if ($('input_21').value == '7')
-					{ 
-					opis += '- A4 recto';
-					if (ilosc == '25') { cena1=27.01;}
-					if (ilosc == '50') { cena1=28.03;}
-					if (ilosc == '100') { cena1=30.03;}
-					if (ilosc == '250') { cena1=36.15;}
-					if (ilosc == '500') { cena1=45.72;}
-					if (ilosc == '1000') { cena1=60.89;}
-					if (ilosc == '1250') { cena1=67.76;}
-					if (ilosc == '2000') { cena1=98.59;}
-					if (ilosc == '2500') { cena1=106.06;}
-					if (ilosc == '5000') { cena1=158.94;}
-					if (ilosc == '10000') { cena1=275.89;}
-					if (ilosc == '15000') { cena1=412.13;}
-					if (ilosc == '20000') { cena1=535.79;}
-					if (ilosc == '25000') { cena1=673.93;}
-					if (ilosc == '30000') { cena1=794.68;}
-					if (ilosc == '35000') { cena1=935.73;}
-					if (ilosc == '40000') { cena1=1052.58;}
-					if (ilosc == '45000') { cena1=1186.82;}
-					if (ilosc == '50000') { cena1=1306.08;}
-					if (ilosc == '75000') { cena1=1941.12;}
-					if (ilosc == '100000') { cena1=2577.26;}
-					}
-				if ($('input_21').value == '8')
-					{
-					opis += '- A4 recto/verso';
-					if (ilosc == '25') { cena1=27.01;}
-					if (ilosc == '50') { cena1=28.03;}
-					if (ilosc == '100') { cena1=30.03;}
-					if (ilosc == '250') { cena1=36.15;}
-					if (ilosc == '500') { cena1=45.72;}
-					if (ilosc == '1000') { cena1=60.89;}
-					if (ilosc == '1250') { cena1=67.76;}
-					if (ilosc == '2000') { cena1=98.59;}
-					if (ilosc == '2500') { cena1=106.06;}
-					if (ilosc == '5000') { cena1=158.94;}
-					if (ilosc == '10000') { cena1=275.89;}
-					if (ilosc == '15000') { cena1=412.13;}
-					if (ilosc == '20000') { cena1=535.79;}
-					if (ilosc == '25000') { cena1=673.93;}
-					if (ilosc == '30000') { cena1=794.68;}
-					if (ilosc == '35000') { cena1=935.73;}
-					if (ilosc == '40000') { cena1=1052.58;}
-					if (ilosc == '45000') { cena1=1186.82;}
-					if (ilosc == '50000') { cena1=1306.08;}
-					if (ilosc == '75000') { cena1=1941.12;}
-					if (ilosc == '100000') { cena1=2577.26;}
-					}
-				if ($('input_21').value == '9')
-					{
-					opis += '- Din long recto';
-					if (ilosc == '25') { cena1=21.01;}
-					if (ilosc == '50') { cena1=21.29;}
-					if (ilosc == '100') { cena1=21.81;}
-					if (ilosc == '250') { cena1=23.58;}
-					if (ilosc == '500') { cena1=24.64;}
-					if (ilosc == '1000') { cena1=31.38;}
-					if (ilosc == '1250') { cena1=33.70;}
-					if (ilosc == '2000') { cena1=37.73;}
-					if (ilosc == '2500') { cena1=40.07;}
-					if (ilosc == '5000') { cena1=60.98;}
-					if (ilosc == '10000') { cena1=99.96;}
-					if (ilosc == '15000') { cena1=145.94;}
-					if (ilosc == '20000') { cena1=191.92;}
-					if (ilosc == '25000') { cena1=235.91;}
-					if (ilosc == '30000') { cena1=279.89;}
-					if (ilosc == '35000') { cena1=321.87;}
-					if (ilosc == '40000') { cena1=365.85;}
-					if (ilosc == '45000') { cena1=412.83;}
-					if (ilosc == '50000') { cena1=456.82 ;}
-					if (ilosc == '75000') { cena1=664.73;}
-					if (ilosc == '100000') { cena1=874.65 ;}
-					}
-				if ($('input_21').value == '10')
-					{ 
-					opis += '- Din long recto/verso';
-					if (ilosc == '25') { cena1=21.01;}
-					if (ilosc == '50') { cena1=21.29;}
-					if (ilosc == '100') { cena1=21.81;}
-					if (ilosc == '250') { cena1=23.58;}
-					if (ilosc == '500') { cena1=24.64;}
-					if (ilosc == '1000') { cena1=31.38;}
-					if (ilosc == '1250') { cena1=33.70;}
-					if (ilosc == '2000') { cena1=37.73;}
-					if (ilosc == '2500') { cena1=40.07;}
-					if (ilosc == '5000') { cena1=60.98;}
-					if (ilosc == '10000') { cena1=99.96;}
-					if (ilosc == '15000') { cena1=145.94;}
-					if (ilosc == '20000') { cena1=191.92;}
-					if (ilosc == '25000') { cena1=235.91;}
-					if (ilosc == '30000') { cena1=279.89;}
-					if (ilosc == '35000') { cena1=321.87;}
-					if (ilosc == '40000') { cena1=365.85;}
-					if (ilosc == '45000') { cena1=412.83;}
-					if (ilosc == '50000') { cena1=456.82 ;}
-					if (ilosc == '75000') { cena1=664.73;}
-					if (ilosc == '100000') { cena1=874.65 ;}
-					}
-				if ($('input_21').value == '11')
-					{ 				
-					opis += '- A3 recto';
-					if (ilosc == '25') { cena1=33.48;}
-					if (ilosc == '50') { cena1=35.59;}
-					if (ilosc == '100') { cena1=39.72;}
-					if (ilosc == '250') { cena1=52.11;}
-					if (ilosc == '500') { cena1=71.47;}
-					if (ilosc == '1000') { cena1=118.83;}
-					if (ilosc == '1250') { cena1=132.18;}
-					if (ilosc == '2000') { cena1=176.27;}
-					if (ilosc == '2500') { cena1=201.97;}
-					if (ilosc == '5000') { cena1=332.88;}
-					if (ilosc == '10000') { cena1=563.77;}
-					if (ilosc == '15000') { cena1=827.67;}
-					if (ilosc == '20000') { cena1=1091.56;}
-					if (ilosc == '25000') { cena1=1354.46;}
-					if (ilosc == '30000') { cena1=1618.35;}
-					if (ilosc == '35000') { cena1=1881.25;}
-					if (ilosc == '40000') { cena1=2144.14;}
-					if (ilosc == '45000') { cena1=2385.05;}
-					if (ilosc == '50000') { cena1=2625.95;}
-					if (ilosc == '75000') { cena1=3902.44;}
-					if (ilosc == '100000') { cena1=5170.93;}
-					}
-				if ($('input_21').value == '12')
-					{ 
-					opis += '- A3 recto/verso';
-					if (ilosc == '25') { cena1=33.48;}
-					if (ilosc == '50') { cena1=35.59;}
-					if (ilosc == '100') { cena1=39.72;}
-					if (ilosc == '250') { cena1=52.11;}
-					if (ilosc == '500') { cena1=71.47;}
-					if (ilosc == '1000') { cena1=118.83;}
-					if (ilosc == '1250') { cena1=132.18;}
-					if (ilosc == '2000') { cena1=176.27;}
-					if (ilosc == '2500') { cena1=201.97;}
-					if (ilosc == '5000') { cena1=332.88;}
-					if (ilosc == '10000') { cena1=563.77;}
-					if (ilosc == '15000') { cena1=827.67;}
-					if (ilosc == '20000') { cena1=1091.56;}
-					if (ilosc == '25000') { cena1=1354.46;}
-					if (ilosc == '30000') { cena1=1618.35;}
-					if (ilosc == '35000') { cena1=1881.25;}
-					if (ilosc == '40000') { cena1=2144.14;}
-					if (ilosc == '45000') { cena1=2385.05;}
-					if (ilosc == '50000') { cena1=2625.95;}
-					if (ilosc == '75000') { cena1=3902.44;}
-					if (ilosc == '100000') { cena1=5170.93;}
-					}
-				
-			opis += '<br />- 250gr';		
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 350g') {
-				if ($('input_21').value == '1'){ 
-						opis += '- A7 recto';
-					if (ilosc == '25') { cena1=20.13;}
-					if (ilosc == '50') { cena1=25.29;}
-					if (ilosc == '100') { cena1=30.56;}
-					if (ilosc == '250') { cena1=35.42;}
-					if (ilosc == '500') { cena1=40.87;}
-					if (ilosc == '1000') { cena1=57.72;}
-					if (ilosc == '1250') { cena1=63.69;}
-					if (ilosc == '2000') { cena1=63.69;}
-					if (ilosc == '2500') { cena1=66.68;}
-					if (ilosc == '5000') { cena1=80.97;}
-					if (ilosc == '10000') { cena1=111.63;}
-					if (ilosc == '15000') { cena1=126.86;}
-					if (ilosc == '20000') { cena1=142.00;}
-					if (ilosc == '25000') { cena1=169.00;}
-					if (ilosc == '30000') { cena1=193.93;}
-					if (ilosc == '35000') { cena1=222.85;}
-					if (ilosc == '40000') { cena1=249.00 ;}
-					if (ilosc == '45000') { cena1=276.00;}
-					if (ilosc == '50000') { cena1=303.00;}
-					if (ilosc == '75000') { cena1=454.00;}
-					if (ilosc == '100000') { cena1=554.00;}
+				if ($('input_21').value == '1'){ opis += '- A7';}
+				if ($('input_21').value == '2'){ opis += '- A7';}
+				if ($('input_21').value == '3'){ opis += '- A6';}
+				if ($('input_21').value == '4'){ opis += '- A6';}
+				if ($('input_21').value == '5'){ opis += '- A5';}
+				if ($('input_21').value == '6'){ opis += '- A5';}
+				if ($('input_21').value == '7'){ opis += '- A4';}
+				if ($('input_21').value == '8'){ opis += '- A4';}
+				if ($('input_21').value == '9'){ opis += '- Din long';}
+				if ($('input_21').value == '10'){ opis += '- Din long';}
+				if ($('input_21').value == '11'){ opis += '- A3';}
+				if ($('input_21').value == '12'){ opis += '- A3';}
+				if (($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5') || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6') || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '11') || ($('input_21').value == '12')) {
+
+					cenar=0.37
+					cenarv=0.42
+					if ($('input_21').value == '1'){ cena1=(ilosc/16)*cenar; opis += '<br />- Recto<br />- 350g | Quadri';}
+					if ($('input_21').value == '2'){ cena1=(ilosc/16)*cenarv; opis += '<br />- Recto/verso<br />- 350g | Quadri';}
+					if ($('input_21').value == '3'){ cena1=(ilosc/8)*cenar; opis += '<br />- Recto<br />- 350g | Quadri';}
+					if ($('input_21').value == '4'){ cena1=(ilosc/8)*cenarv; opis += '<br />- Recto/verso<br />- 350g | Quadri';}
+					if ($('input_21').value == '5'){ cena1=(ilosc/4)*cenar; opis += '<br />- Recto<br />- 350g | Quadri';}
+					if ($('input_21').value == '6'){ cena1=(ilosc/4)*cenarv; opis += '<br />- Recto/verso<br />- 350g | Quadri';}
+					if ($('input_21').value == '7'){ cena1=(ilosc/2)*cenar; opis += '<br />- Recto<br />- 350g | Quadri';}
+					if ($('input_21').value == '8'){ cena1=(ilosc/2)*cenarv; opis += '<br />- Recto/verso<br />- 350g | Quadri';}
+					if ($('input_21').value == '9'){ cena1=(ilosc/6)*cenar; opis += '<br />- Recto<br />- 350g | Quadri';}
+					if ($('input_21').value == '10'){ cena1=(ilosc/6)*cenarv; opis += '<br />- Recto/verso<br />- 350g | Quadri';}
+					if ($('input_21').value == '11'){ cena1=(ilosc/1)*cenar; opis += '<br />- Recto<br />- 350g | Quadri';}
+					if ($('input_21').value == '12'){ cena1=(ilosc/1)*cenarv; opis += '<br />- Recto/verso<br />- 350g | Quadri';}
+					if ((ilosc == '10') || (ilosc == '25') || (ilosc == '50') || (ilosc == '100') || (ilosc == '250')){ cena1*=1.15;}
+					if ((ilosc == '5000') || (ilosc == '7500') || (ilosc == '10000')){ cena1*=0.95;}
+					if ((ilosc == '15000') || (ilosc == '20000')){ cena1*=0.90;}
+					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
+					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
+					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
 				}
-				if ($('input_21').value == '2')
-					{
-					opis += '- A7 recto/verso';
-					if (ilosc == '25') { cena1=20.13;}
-					if (ilosc == '50') { cena1=25.29;}
-					if (ilosc == '100') { cena1=30.56;}
-					if (ilosc == '250') { cena1=35.42;}
-					if (ilosc == '500') { cena1=40.87;}
-					if (ilosc == '1000') { cena1=57.72;}
-					if (ilosc == '1250') { cena1=63.69;}
-					if (ilosc == '2000') { cena1=63.69;}
-					if (ilosc == '2500') { cena1=66.68;}
-					if (ilosc == '5000') { cena1=80.97;}
-					if (ilosc == '10000') { cena1=111.63;}
-					if (ilosc == '15000') { cena1=126.86;}
-					if (ilosc == '20000') { cena1=142.00;}
-					if (ilosc == '25000') { cena1=169.00;}
-					if (ilosc == '30000') { cena1=193.93;}
-					if (ilosc == '35000') { cena1=222.85;}
-					if (ilosc == '40000') { cena1=249.00 ;}
-					if (ilosc == '45000') { cena1=276.00;}
-					if (ilosc == '50000') { cena1=303.00;}
-					if (ilosc == '75000') { cena1=454.00;}
-					if (ilosc == '100000') { cena1=554.00;}
-					}
-				if ($('input_21').value == '3')
-					{ 
-					opis += '- A6 recto';
-					if (ilosc == '25') { cena1=25.35;}
-					if (ilosc == '50') { cena1=30.56;}
-					if (ilosc == '100') { cena1=35.97;}
-					if (ilosc == '250') { cena1=37.23;}
-					if (ilosc == '500') { cena1=39.32;}
-					if (ilosc == '1000') { cena1=43.53;}
-					if (ilosc == '1250') { cena1=45.74;}
-					if (ilosc == '2000') { cena1=45.74;}
-					if (ilosc == '2500') { cena1=46.65;}
-					if (ilosc == '5000') { cena1=49.38;}
-					if (ilosc == '10000') { cena1=103.25;}
-					if (ilosc == '15000') { cena1=141.42;}
-					if (ilosc == '20000') { cena1=179.59;}
-					if (ilosc == '25000') { cena1=219.00;}
-					if (ilosc == '30000') { cena1=258.00;}
-					if (ilosc == '35000') { cena1=298.00;}
-					if (ilosc == '40000') { cena1=338.00;}
-					if (ilosc == '45000') { cena1=378.00;}
-					if (ilosc == '50000') { cena1=417.00;}
-					if (ilosc == '75000') { cena1=670.00;}
-					if (ilosc == '100000') { cena1=838.00;}
-					}
-				if ($('input_21').value == '4')
-					{ 
-					opis += '- A6 recto/verso';
-					if (ilosc == '25') { cena1=25.35;}
-					if (ilosc == '50') { cena1=30.56;}
-					if (ilosc == '100') { cena1=35.97;}
-					if (ilosc == '250') { cena1=37.23;}
-					if (ilosc == '500') { cena1=39.32;}
-					if (ilosc == '1000') { cena1=43.53;}
-					if (ilosc == '1250') { cena1=45.74;}
-					if (ilosc == '2000') { cena1=45.74;}
-					if (ilosc == '2500') { cena1=46.65;}
-					if (ilosc == '5000') { cena1=49.38;}
-					if (ilosc == '10000') { cena1=103.25;}
-					if (ilosc == '15000') { cena1=141.42;}
-					if (ilosc == '20000') { cena1=179.59;}
-					if (ilosc == '25000') { cena1=219.00;}
-					if (ilosc == '30000') { cena1=258.00;}
-					if (ilosc == '35000') { cena1=298.00;}
-					if (ilosc == '40000') { cena1=338.00;}
-					if (ilosc == '45000') { cena1=378.00;}
-					if (ilosc == '50000') { cena1=417.00;}
-					if (ilosc == '75000') { cena1=670.00;}
-					if (ilosc == '100000') { cena1=838.00;}
-					}
-				if ($('input_21').value == '5'){ 
-					opis += '- A5 recto';
-					if (ilosc == '25') { cena1=30.18;}
-					if (ilosc == '50') { cena1=35.38;}
-					if (ilosc == '100') { cena1=40.39;}
-					if (ilosc == '250') { cena1=48.43;}
-					if (ilosc == '500') { cena1=53.50;}
-					if (ilosc == '1000') { cena1=63.86;}
-					if (ilosc == '1250') { cena1=86.00;}
-					if (ilosc == '2000') { cena1=87.00;}
-					if (ilosc == '2500') { cena1=97.00;}
-					if (ilosc == '5000') { cena1=133.00;}
-					if (ilosc == '10000') { cena1=229.00;}
-					if (ilosc == '15000') { cena1=304.00;}
-					if (ilosc == '20000') { cena1=380.00;}
-					if (ilosc == '25000') { cena1=478.00;}
-					if (ilosc == '30000') { cena1=575.00;}
-					if (ilosc == '35000') { cena1=673.00;}
-					if (ilosc == '40000') { cena1=771.00;}
-					if (ilosc == '45000') { cena1=868.00;}
-					if (ilosc == '50000') { cena1=966.00;}
-					if (ilosc == '75000') { cena1=1549.00;}
-					if (ilosc == '100000') { cena1=1937.00;}
-					}
-				if ($('input_21').value == '6')
-					{ 
-					opis += '- A5 recto/verso';
-					if (ilosc == '25') { cena1=30.18;}
-					if (ilosc == '50') { cena1=35.38;}
-					if (ilosc == '100') { cena1=40.39;}
-					if (ilosc == '250') { cena1=48.43;}
-					if (ilosc == '500') { cena1=53.50;}
-					if (ilosc == '1000') { cena1=63.86;}
-					if (ilosc == '1250') { cena1=86.00;}
-					if (ilosc == '2000') { cena1=87.00;}
-					if (ilosc == '2500') { cena1=97.00;}
-					if (ilosc == '5000') { cena1=133.00;}
-					if (ilosc == '10000') { cena1=229.00;}
-					if (ilosc == '15000') { cena1=304.00;}
-					if (ilosc == '20000') { cena1=380.00;}
-					if (ilosc == '25000') { cena1=478.00;}
-					if (ilosc == '30000') { cena1=575.00;}
-					if (ilosc == '35000') { cena1=673.00;}
-					if (ilosc == '40000') { cena1=771.00;}
-					if (ilosc == '45000') { cena1=868.00;}
-					if (ilosc == '50000') { cena1=966.00;}
-					if (ilosc == '75000') { cena1=1549.00;}
-					if (ilosc == '100000') { cena1=1937.00;}
-					}
-				if ($('input_21').value == '7')
-					{ 
-					opis += '- A4 recto';
-					if (ilosc == '25') { cena1=35.00;}
-					if (ilosc == '50') { cena1=40.00;}
-					if (ilosc == '100') { cena1=45.00;}
-					if (ilosc == '250') { cena1=53.00;}
-					if (ilosc == '500') { cena1=61.00;}
-					if (ilosc == '1000') { cena1=84.00;}
-					if (ilosc == '1250') { cena1=127.00;}
-					if (ilosc == '2000') { cena1=128.00;}
-					if (ilosc == '2500') { cena1=147.00;}
-					if (ilosc == '5000') { cena1=263.00;}
-					if (ilosc == '10000') { cena1=424.00;}
-					if (ilosc == '15000') { cena1=564.00;}
-					if (ilosc == '20000') { cena1=704.00;}
-					if (ilosc == '25000') { cena1=887.00;}
-					if (ilosc == '30000') { cena1=1070.00;}
-					if (ilosc == '35000') { cena1=1254.00;}
-					if (ilosc == '40000') { cena1=1436.00;}
-					if (ilosc == '45000') { cena1=1620.00;}
-					if (ilosc == '50000') { cena1=1800.00;}
-					if (ilosc == '75000') { cena1=2766.00;}
-					if (ilosc == '100000') { cena1=3408.00;}
-					}
-				if ($('input_21').value == '8')
-					{
-					opis += '- A4 recto/verso';
-					if (ilosc == '25') { cena1=35.00;}
-					if (ilosc == '50') { cena1=40.00;}
-					if (ilosc == '100') { cena1=45.00;}
-					if (ilosc == '250') { cena1=53.00;}
-					if (ilosc == '500') { cena1=61.00;}
-					if (ilosc == '1000') { cena1=84.00;}
-					if (ilosc == '1250') { cena1=127.00;}
-					if (ilosc == '2000') { cena1=128.00;}
-					if (ilosc == '2500') { cena1=147.00;}
-					if (ilosc == '5000') { cena1=263.00;}
-					if (ilosc == '10000') { cena1=424.00;}
-					if (ilosc == '15000') { cena1=564.00;}
-					if (ilosc == '20000') { cena1=704.00;}
-					if (ilosc == '25000') { cena1=887.00;}
-					if (ilosc == '30000') { cena1=1070.00;}
-					if (ilosc == '35000') { cena1=1254.00;}
-					if (ilosc == '40000') { cena1=1436.00;}
-					if (ilosc == '45000') { cena1=1620.00;}
-					if (ilosc == '50000') { cena1=1800.00;}
-					if (ilosc == '75000') { cena1=2766.00;}
-					if (ilosc == '100000') { cena1=3408.00;}
-					}
-				if ($('input_21').value == '9')
-					{
-					opis += '- Din long recto';
-					if (ilosc == '25') { cena1=34.00;}
-					if (ilosc == '50') { cena1=38.22;}
-					if (ilosc == '100') { cena1=40.95;}
-					if (ilosc == '250') { cena1=44.20;}
-					if (ilosc == '500') { cena1=46.29;}
-					if (ilosc == '1000') { cena1=55.80;}
-					if (ilosc == '1250') { cena1=70.24;}
-					if (ilosc == '2000') { cena1=71.24;}
-					if (ilosc == '2500') { cena1=77.46;}
-					if (ilosc == '5000') { cena1=114.00;}
-					if (ilosc == '10000') { cena1=184.00;}
-					if (ilosc == '15000') { cena1=245.00;}
-					if (ilosc == '20000') { cena1=307.00;}
-					if (ilosc == '25000') { cena1=377.00;}
-					if (ilosc == '30000') { cena1=447.00;}
-					if (ilosc == '35000') { cena1=517.00;}
-					if (ilosc == '40000') { cena1=587.00;}
-					if (ilosc == '45000') { cena1=657.00;}
-					if (ilosc == '50000') { cena1=726.00 ;}
-					if (ilosc == '75000') { cena1=1144.00;}
-					if (ilosc == '100000') { cena1=1422.00 ;}
-					}
-				if ($('input_21').value == '10')
-					{ 
-					opis += '- Din long recto/verso';
-					if (ilosc == '25') { cena1=34.00;}
-					if (ilosc == '50') { cena1=38.22;}
-					if (ilosc == '100') { cena1=40.95;}
-					if (ilosc == '250') { cena1=44.20;}
-					if (ilosc == '500') { cena1=46.29;}
-					if (ilosc == '1000') { cena1=55.80;}
-					if (ilosc == '1250') { cena1=70.24;}
-					if (ilosc == '2000') { cena1=71.24;}
-					if (ilosc == '2500') { cena1=77.46;}
-					if (ilosc == '5000') { cena1=114.00;}
-					if (ilosc == '10000') { cena1=184.00;}
-					if (ilosc == '15000') { cena1=245.00;}
-					if (ilosc == '20000') { cena1=307.00;}
-					if (ilosc == '25000') { cena1=377.00;}
-					if (ilosc == '30000') { cena1=447.00;}
-					if (ilosc == '35000') { cena1=517.00;}
-					if (ilosc == '40000') { cena1=587.00;}
-					if (ilosc == '45000') { cena1=657.00;}
-					if (ilosc == '50000') { cena1=726.00;}
-					if (ilosc == '75000') { cena1=1144.00;}
-					if (ilosc == '100000') { cena1=1422.00;}
-					}
-				if ($('input_21').value == '11')
-					{ 				
-					opis += '- A3 recto';
-					if (ilosc == '25') { cena1=54.00;}
-					if (ilosc == '50') { cena1=66.00;}
-					if (ilosc == '100') { cena1=77.00;}
-					if (ilosc == '250') { cena1=102.00;}
-					if (ilosc == '500') { cena1=107.00;}
-					if (ilosc == '1000') { cena1=169.00;}
-					if (ilosc == '1250') { cena1=325.00;}
-					if (ilosc == '2000') { cena1=330.00;}
-					if (ilosc == '2500') { cena1=400.00;}
-					if (ilosc == '5000') { cena1=332.88;}
-					if (ilosc == '10000') { cena1=751.00;}
-					if (ilosc == '15000') { cena1=1263.00;}
-					if (ilosc == '20000') { cena1=2000.00;}
-					if (ilosc == '25000') { cena1=2541.00;}
-					if (ilosc == '30000') { cena1=3590.00;}
-					if (ilosc == '35000') { cena1=4099.00;}
-					if (ilosc == '40000') { cena1=4600.00;}
-					if (ilosc == '45000') { cena1=5117.00;}
-					if (ilosc == '50000') { cena1=5626.00;}
-					if (ilosc == '75000') { cena1=8631.44;}
-					if (ilosc == '100000') { cena1=10635.93;}
-					}
-				if ($('input_21').value == '12')
-					{ 
-					opis += '- A3 recto/verso';
-					if (ilosc == '25') { cena1=54.00;}
-					if (ilosc == '50') { cena1=66.00;}
-					if (ilosc == '100') { cena1=77.00;}
-					if (ilosc == '250') { cena1=102.00;}
-					if (ilosc == '500') { cena1=107.00;}
-					if (ilosc == '1000') { cena1=169.00;}
-					if (ilosc == '1250') { cena1=325.00;}
-					if (ilosc == '2000') { cena1=330.00;}
-					if (ilosc == '2500') { cena1=400.00;}
-					if (ilosc == '5000') { cena1=332.88;}
-					if (ilosc == '10000') { cena1=751.00;}
-					if (ilosc == '15000') { cena1=1263.00;}
-					if (ilosc == '20000') { cena1=2000.00;}
-					if (ilosc == '25000') { cena1=2541.00;}
-					if (ilosc == '30000') { cena1=3590.00;}
-					if (ilosc == '35000') { cena1=4099.00;}
-					if (ilosc == '40000') { cena1=4600.00;}
-					if (ilosc == '45000') { cena1=5117.00;}
-					if (ilosc == '50000') { cena1=5626.00;}
-					if (ilosc == '75000') { cena1=8631.44;}
-					if (ilosc == '100000') { cena1=10635.93;}
-					}
-			opis += '<br />- 350gr';	
 			}
 
 			//////////////////////////////////////////////////////////////////////////
@@ -1944,85 +884,45 @@
 					if ((ilosc == '75000') || (ilosc == '100000')){ cena*=0.75;}
 				}
 			}
-			/////////////////////////////////////////////////////////// coef/////////////
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '11') ) && (ilosc == '25') ) {cena1*=1.1;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc == '25') ) {cena1*=1.32;} ///////coef 1.1*1.2//////
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '11') ) && (ilosc == '50') ) {cena1*=1.2;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc == '50') ) {cena1*=1.44;} ///////coef 1.2*1.2//////
-
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '11') ) && (ilosc == '100') ) {cena1*=1.3;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc == '100') ) {cena1*=1.56;} ///////coef 1.3*1.2//////
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9')) && (ilosc == '250') ) {cena1*=1.4;}
-			if ( ( ($('input_21').value == '11')) && (ilosc == '250') ) {cena1*=1.5;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') ) && (ilosc == '250') ) {cena1*=1.68;} ///////coef 1.4*1.2//////
-			if ( ( ($('input_21').value == '12')) && (ilosc == '250') ) {cena1*=1.8;} /////coef 1.5*1.2/////
-			
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5') || ($('input_21').value == '9')) && (ilosc == '500') ) {cena1*=1.5;}
-			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7')) && (ilosc == '500') ) {cena1*=1.8;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6') || ($('input_21').value == '10') ) && (ilosc == '500') ) {cena1*=1.8;} ///////coef 1.5*1.2//////
-			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') ) && (ilosc == '500') ) {cena1*=2.16;} /////coef 1.8*1.2/////
-			
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '9')) && (ilosc == '1000') ) {cena1*=1.6;}
-			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '5')) && (ilosc == '1000') ) {cena1*=2;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '10') ) && (ilosc == '1000') ) {cena1*=1.92;} ///////coef 1.6*1.2//////
-			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') ) && (ilosc == '1000') || ($('input_21').value == '6')) {cena1*=2.4;} /////coef 2*1.2/////
-			
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') ) && (ilosc == '1250') ) {cena1*=1.7;}
-			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '9' || ($('input_21').value == '5')) && (ilosc == '1250')) ) {cena1*=2;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4')  ) && (ilosc == '1250') ) {cena1*=2.04;} ///////coef 1.7*1.2//////
-			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') || ($('input_21').value == '6') || ($('input_21').value == '10')) && (ilosc == '1250')) {cena1*=2.4;} /////coef 2*1.2/////
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') ) && (ilosc == '1500') ) {cena1*=1.8;}
-			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '9' || ($('input_21').value == '5')) && (ilosc == '1500')) ) {cena1*=2;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4')  ) && (ilosc == '1500') ) {cena1*=2.16;} ///////coef 1.8*1.2//////
-			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') || ($('input_21').value == '6') || ($('input_21').value == '10')) && (ilosc == '1500')) {cena1*=2.4;} /////coef 2*1.2/////
-			
-			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') ) && (ilosc == '2000') ) {cena1*=1.9;}
-			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '9' || ($('input_21').value == '5')) && (ilosc == '2000')) ) {cena1*=2;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4')  ) && (ilosc == '2000') ) {cena1*=2.28;} ///////coef 1.9*1.2//////
-			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') || ($('input_21').value == '6') || ($('input_21').value == '10')) && (ilosc == '2000')) {cena1*=2.4;} /////coef 2*1.2/////
-			
-			if ((ilosc == '2500') || (ilosc == '5000') || (ilosc == '10000') || (ilosc == '15000') || (ilosc == '20000') || (ilosc == '25000') || (ilosc == '30000') || (ilosc == '35000') || (ilosc == '40000') || (ilosc == '45000') || (ilosc == '50000') || (ilosc == '75000') || (ilosc == '100000') ) {cena1*=2;}
-			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc >= '2500') ) {cena1*=1.2;} ///////coef rv//////
-			
 
 			////////////////////////////////////////////////////////// choix papier //
 			if ($('input_32').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-
-			if ($('input_32').value == '3') {cena=cena1;
+			if ($('input_32').value == '2') {cena=cena1*1.04;
+			opis += '<br />- satiné';
+			}
+			if ($('input_32').value == '3') {cena=cena1*1.08;
 			opis += '<br />- couché mat';
 			}
 			if ($('input_33').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-			
-			if ($('input_33').value == '3') {cena=cena1;
+			if ($('input_33').value == '2') {cena=cena1*1.04;
+			opis += '<br />- satiné';
+			}
+			if ($('input_33').value == '3') {cena=cena1*1.08;
 			opis += '<br />- couché mat';
 			}
 			if ($('input_34').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-			
-			if ($('input_34').value == '3') {cena=cena1;
+			if ($('input_34').value == '2') {cena=cena1*1.04;
+			opis += '<br />- satiné';
+			}
+			if ($('input_34').value == '3') {cena=cena1*1.08;
 			opis += '<br />- couché mat';
 			}
 			if ($('input_35').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-			
-			if ($('input_35').value == '3') {cena=cena1;
+			if ($('input_35').value == '2') {cena=cena1*1.04;
+			opis += '<br />- satiné';
+			}
+			if ($('input_35').value == '3') {cena=cena1*1.08;
 			opis += '<br />- couché mat';
 			}
-			
-			
+
 			opis += '<br />- '+ilosc+' flyers';
 
 			//////////////////////////////////////////////////////// format gabarit //
@@ -2321,28 +1221,28 @@
 			
 			
 				///////////////////////////////////////////// prix transport / quantité //
-			if (ilosc == '10') {transport=0;}
-			if (ilosc == '25') {transport=0;}
-			if (ilosc == '50') {transport=0;}
-			if (ilosc == '100') {transport=0;}
-			if (ilosc == '250') {transport=0;}
-			if (ilosc == '500') {transport=0;}
-			if (ilosc == '1000') {transport=0;}
-			if (ilosc == '1500') {transport=0;}
-			if (ilosc == '2000') {transport=0;}
-			if (ilosc == '2500') {transport=0;}
-			if (ilosc == '3000') {transport=0;}
-			if (ilosc == '5000') {transport=0;}
-			if (ilosc == '7500') {transport=0;}
-			if (ilosc == '10000') {transport=0;}
-			if (ilosc == '15000') {transport=0;}
-			if (ilosc == '20000') {transport=0;}
-			if (ilosc == '25000') {transport=0;}
-			if (ilosc == '30000') {transport=0;}
-			if (ilosc == '40000') {transport=0;}
-			if (ilosc == '50000') {transport=0;}
-			if (ilosc == '75000') {transport=0;}
-			if (ilosc == '100000') {transport=0;}
+			if (ilosc == '10') {transport=7.5;}
+			if (ilosc == '25') {transport=7.5;}
+			if (ilosc == '50') {transport=7.5;}
+			if (ilosc == '100') {transport=7.5;}
+			if (ilosc == '250') {transport=7.5;}
+			if (ilosc == '500') {transport=7.5;}
+			if (ilosc == '1000') {transport=7.5;}
+			if (ilosc == '1500') {transport=7.5;}
+			if (ilosc == '2000') {transport=7.5;}
+			if (ilosc == '2500') {transport=7.5;}
+			if (ilosc == '3000') {transport=7.5;}
+			if (ilosc == '5000') {transport=7.5;}
+			if (ilosc == '7500') {transport=7.5;}
+			if (ilosc == '10000') {transport=9.5;}
+			if (ilosc == '15000') {transport=9.5;}
+			if (ilosc == '20000') {transport=11.5;}
+			if (ilosc == '25000') {transport=11.5;}
+			if (ilosc == '30000') {transport=13.5;}
+			if (ilosc == '40000') {transport=15.5;}
+			if (ilosc == '50000') {transport=17.5;}
+			if (ilosc == '75000') {transport=19.5;}
+			if (ilosc == '100000') {transport=23.5;}
 			/*cena+=transport;*/
 
 			//////////////////////////////////////////////////////////////////////////
@@ -2434,10 +1334,10 @@
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 30;
+					ProdPercent = 15;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 60;
+					ProdPercent = 40;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -2445,10 +1345,10 @@
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 30;
+					DeliPercent = 15;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 60;
+					DeliPercent = 40;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;

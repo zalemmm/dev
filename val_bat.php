@@ -139,8 +139,12 @@ if($total > 1) {
 		.filename {
 			color: #fff;
 			position: fixed;
-			bottom: 0;
-			right: 20px;
+			font-family: "Source Sans Pro", sans-serif;
+			font-size: .75rem;
+			top: 60px;
+			left: 10px;
+			z-index:999;
+
 		}
 		@media(max-width: 780px) {
 			.dis0 {
