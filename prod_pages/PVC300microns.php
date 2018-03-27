@@ -5,7 +5,7 @@
     <div class="form-all">
       <ul class="form-section">
 
-        <li class="form-line" id="id_1">
+        <li class="form-line select" id="id_1">
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir l'impression...</option>
             <option value="recto">Recto </option>
@@ -13,8 +13,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_HD">
-					<span class="helpButton" onmouseover="tipShow('helpTextHD');" onmouseout="tipHide('helpTextHD');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression akilux Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression akilux standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression akilux pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux akilux pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés akilux pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
+        <li class="form-line select" id="id_HD">
+					<span class="helpButton"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression akilux Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression akilux standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression akilux pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux akilux pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés akilux pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
 					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
 						<option value="">choisir qualité d'impression...</option>
 						<option value="HD">Haute définition</option>
@@ -22,7 +22,7 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_2">
+        <li class="form-line select" id="id_2">
           <select class="form-dropdown validate[required]" id="input_2" name="2_usage" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir les fixations...</option>
             <option value="2oeillets">2 oeillets (en haut)</option>
@@ -31,8 +31,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_3">
-          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+        <li class="form-line select" id="id_3">
+          <span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT :</b><br/>
@@ -54,8 +54,8 @@
                         <option value="fb">France banderole crée la mise en page</option>
 					</select>
 				</li>
-                <li class="form-line" id="id_signature">
-                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+                <li class="form-line select" id="id_signature">
+                <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
                         	<b>Logo France Banderole</b><br/>
 							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
@@ -91,7 +91,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
               <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-              <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
+              <span class="helpButton">
                 <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
               </span>
             </span>
@@ -99,7 +99,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
               <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
+              <span class="helpButton">
                 <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles. Vos frais de port seront supprimés de votre devis avant votre paiement.</span>
               </span>
             </span>
@@ -107,7 +107,7 @@
             <span class="optionsleft">
               <label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
               <input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onchange="JKakemono.relaisColischeckbox(); JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
+              <span class="helpButton">
                 <span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
               </span>
             </span>
@@ -115,7 +115,7 @@
             <span class="optionsright">
               <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
               <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onchange="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-              <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
+              <span class="helpButton">
                 <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
               </span>
             </span>
@@ -143,7 +143,7 @@
 					</div>
       </li>
 
-      <li class="form-line" id="id_9a">
+      <li class="form-line select" id="id_9a">
         <div class="form-input-wide">
           <button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
         </div>
@@ -299,12 +299,12 @@
     	}
 
     	if ($('input_1').value == 'rectoverso'){
-    		if (metrage<=0.03){p1=(17+(17*0.3))*metrage;}////// +30% /////
-    		if ((metrage > 0.03) && (metrage <= 0.05)){p1=(15+(15*0.3))*metrage;}//// +30% /////
-    		if ((metrage > 0.05) && (metrage <= 0.08)){p1=(14+(14*0.3))*metrage;}//// +30% /////
-    		if ((metrage > 0.08) && (metrage <= 0.12)){p1=(13+(13*0.3))*metrage;}/// +30% /////
-    		if ((metrage > 0.12) && (metrage <= 0.20)){p1=(12+(12*0.3))*metrage;}// +30% /////
-    		if(0.20<metrage){p1=(11+(11*0.3))*metrage;}////// +30% /////
+    		if (metrage<=0.03){p1=(17+(17*0.4))*metrage;}////// +40% /////
+    		if ((metrage > 0.03) && (metrage <= 0.05)){p1=(15+(15*0.4))*metrage;}//// +40% /////
+    		if ((metrage > 0.05) && (metrage <= 0.08)){p1=(14+(14*0.4))*metrage;}//// +40% /////
+    		if ((metrage > 0.08) && (metrage <= 0.12)){p1=(13+(13*0.4))*metrage;}/// +40% /////
+    		if ((metrage > 0.12) && (metrage <= 0.20)){p1=(12+(12*0.4))*metrage;}// +40% /////
+    		if(0.20<metrage){p1=(11+(11*0.4))*metrage;}////// +40% /////
     		opis += '- PVC 300µ recto/verso';
     	}
 
@@ -491,10 +491,10 @@
         var PorductType = jQuery('.production.active').attr('text-value');
         var DeliveryType = jQuery('.delivery.active').attr('text-value');
         if(PorductType == '2-3' ){
-          ProdPercent = 15;
+          ProdPercent = 20;
           prliv += '<br />- P 2-3J';
         }else if(PorductType =='1-1'){
-          ProdPercent = 40;
+          ProdPercent = 45;
           prliv += '<br />- P 1J';
         }else{
           ProdPercent = 0;
@@ -502,10 +502,10 @@
         }
 
         if(DeliveryType == '2-3'){
-          DeliPercent = 15;
+          DeliPercent = 20;
           prliv += ' / L 2-3J';
         }else if(DeliveryType =='1-1'){
-          DeliPercent = 40;
+          DeliPercent = 45;
           prliv += ' / L 1J';
         }else{
           DeliPercent = 0;
@@ -596,13 +596,8 @@
         eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité et une taille en centimètres';
         eBox.style.display="block";
       }
-      if ( (hauteur > 140) || (largeur > 140) ) {
-        eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
-        eBox.style.display="block";
-        niepokazuj=1;
-      }
-      if ( (hauteur > 100) && (largeur > 100) ) {
-        eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
+      if ( (hauteur > 160) && (largeur > 160) ) {
+        eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos rouleaux ou panneaux font au maximum 160 cm !';
         eBox.style.display="block";
         niepokazuj=1;
       }

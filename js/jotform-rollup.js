@@ -696,7 +696,7 @@ JotForm = {
               imag4.style.backgroundImage="none";
               imag5.style.backgroundImage="none";
 						}
-            
+
             ////////////////mistral
             if ($('input_1').value == 'Mistral') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral200.png), url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
@@ -815,6 +815,17 @@ JotForm = {
             else {
 							imag3.style.backgroundImage="none";
 						}
+
+            if ( !$('revendeur') && !$('revendeurRC') && !$('revendeurRS') ) {
+              $('revd').style.display="none";
+              $('revd1').style.display="none";
+              $('revd2').style.display="none";
+              $('revd3').style.display="none";
+              $('revd4').style.display="none";
+              $('revd5').style.display="none";
+              $('revd6').style.display="none";
+              $('revd7').style.display="none";
+            }
 
 				}
 

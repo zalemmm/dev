@@ -5,8 +5,8 @@
       <div class="form-all">
         <ul class="form-section">
 
-          <li class="form-line" id="id_1">
-            <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Drapeau personnalisé avec une ganse renforcée à gauche et deux demi-lunes en plastique.<br />• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>Drapeau personnalisé livré avec petit mât pvc.<br />• <u><b>Oriflamme aile d’avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>voile personnalisée de forme courbée en haut, droite en bas. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br/>• <u><b>Beachflag goutte d’eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>Voile imprimée en forme de pétale ou goutte d'eau. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br />• <u><b>Windflag rectangulaire</u>: <span class="highlight">Dès 29,00€</span></b><br/>Voile imprimée rectangulaire. Ganse noire teintée masse ou Full graphic à partir de 10 ex. Vendu complet avec son pied.<br /></span></span>
+          <li class="form-line select" id="id_1">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Drapeau personnalisé avec une ganse renforcée à gauche et deux demi-lunes en plastique.<br />• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>Drapeau personnalisé livré avec petit mât pvc.<br />• <u><b>Oriflamme aile d’avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>voile personnalisée de forme courbée en haut, droite en bas. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br/>• <u><b>Beachflag goutte d’eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>Voile imprimée en forme de pétale ou goutte d'eau. Ganse noire élastique renforcée. Vendu avec ou sans pied.<br />• <u><b>Windflag rectangulaire</u>: <span class="highlight">Dès 29,00€</span></b><br/>Voile imprimée rectangulaire. Ganse noire teintée masse ou Full graphic à partir de 10 ex. Vendu complet avec son pied.<br /></span></span>
 
             <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola();">
               <option value="">choisir votre produit...</option>
@@ -20,8 +20,8 @@
 
 
 
-          <li class="form-line" id="id_20">
-            <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>3 dimensions au choix (autre, nous consulter), les drapeaux sont livrés avec des petits mâts en plastique blanc.<br /></span></span>
+          <li class="form-line select" id="id_20">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>drapeaux à agiter</u>: <span class="highlight">Dès 15,90€</span></b><br/>3 dimensions au choix (autre, nous consulter), les drapeaux sont livrés avec des petits mâts en plastique blanc.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_20" name="q20" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir la dimension... </option>
               <option value="25x35">HxL 25x35cm + mât 50cm </option>
@@ -30,8 +30,8 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_21">
-            <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText2" style="visibility:hidden;">• <u><b>oriflamme aile d'avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>4 dimensions au choix, avec les différents formats de voiles imprimées et leurs correspondance une fois montées sur leurs mâts respectifs.<br /></span></span>
+          <li class="form-line select" id="id_21">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText2" style="visibility:hidden;">• <u><b>oriflamme aile d'avion</u>: <span class="highlight">Dès 34,00€</span></b><br/>4 dimensions au choix, avec les différents formats de voiles imprimées et leurs correspondance une fois montées sur leurs mâts respectifs.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_21" name="q21" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir la dimension... </option>
               <option value="oriflamme-54x190">Voile 54x190cm - Monté 54x240cm </option>
@@ -41,8 +41,8 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_22">
-            <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText3" style="visibility:hidden;">• <u><b>Beach Flag goutte d'eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>4 dimensions au choix, avec les différents formats de voiles imprimées et leurs correspondance une fois montées sur leurs mâts respectifs.<br /></span></span>
+          <li class="form-line select" id="id_22">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText3" style="visibility:hidden;">• <u><b>Beach Flag goutte d'eau</u>: <span class="highlight">Dès 34,00€</span></b><br/>4 dimensions au choix, avec les différents formats de voiles imprimées et leurs correspondance une fois montées sur leurs mâts respectifs.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_22" name="q22" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir la dimension... </option>
               <option value="beachflag-72x156">Voile 70x155cm - Monté 72x203cm </option>
@@ -52,8 +52,8 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_23">
-            <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>WindFlag Rectangulaire</u>: <span class="highlight">Dès 91,00€</span></b><br/>3 dimensions au choix, livrés complets, prêt à poser, pied lestable inclus.<br /></span></span>
+          <li class="form-line select" id="id_23">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>WindFlag Rectangulaire</u>: <span class="highlight">Dès 91,00€</span></b><br/>3 dimensions au choix, livrés complets, prêt à poser, pied lestable inclus.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_23" name="q23" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir la dimension... </option>
               <option value="windflag-59x180">Voile 59x180cm - Monté 63x256cm - pied inclus </option>
@@ -63,8 +63,8 @@
           </li>
 
 
-           <li class="form-line" id="id_24">
-            <span class="helpButton" onmouseover="tipShow('helpText24');" onmouseout="tipHide('helpText24');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText24" style="visibility:hidden;">• <u><b>Drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Choisissez votre format horizontal ou vertical<br /></span></span>
+           <li class="form-line select" id="id_24">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText24" style="visibility:hidden;">• <u><b>Drapeaux grand format</u>: <span class="highlight">Dès 23,45€</span></b><br/>Choisissez votre format horizontal ou vertical<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_24" name="q24" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir le format... </option>
               <option value="vertical">vertical </option>
@@ -73,18 +73,19 @@
           </li>
 
 
-          <li class="form-line" id="id_3">
-            <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>kit complet</u>: <span class="highlight">Dès 70,00€</span></b><br/>Tout est inclus, le mât, la voile personnalisée, le sax de transport et le pied au choix.<br />• <u><b>Structure + Voile</u>: <span class="highlight">Dès 53,00€</span></b><br/>Vous serez livré du mât, la voile imprimée, le sax de transport sans pied.<br />• <u><b>Voile imprimée seule</u>: <span class="highlight">Dès 34,00€</span></b><br/>Vous serez livré uniquement d'un voile personnalisée sous film plastique.<br /></span></span>
+          <li class="form-line select" id="id_3">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>kit complet</u>: <span class="highlight">Dès 70,00€</span></b><br/>Tout est inclus, le mât, la voile personnalisée, le sax de transport et le pied au choix.<br />• <u><b>Structure + Voile</u>: <span class="highlight">Dès 53,00€</span></b><br/>Vous serez livré du mât, la voile imprimée, le sax de transport sans pied.<br />• <u><b>Voile imprimée seule</u>: <span class="highlight">Dès 34,00€</span></b><br/>Vous serez livré uniquement d'un voile personnalisée sous film plastique.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_3" name="q3" onclick="JKakemono.czyscpola(); ">
               <option value="">Quels éléments voulez-vous ? </option>
               <option value="Kit complet">Kit complet (structure/voile/pied) </option>
               <option value="Structure + Voile">Structure + Voile </option>
               <option value="Voile seule">Voile seule </option>
+              <option value="Structure seule">Structure seule</option>
             </select>
           </li>
 
-          <li class="form-line" id="id_41">
-            <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>Impression <span class="highlight">recto simple</span></u>:</b><br/>l'impression recto standard avec le verso imprimé traversant par transparence (à l'envers). Impression la plus répandue.<br />• <u><b>Impression <span class="highlight">recto ET verso</span></u>:</b><br/>Votre voile sera composé de 2 voiles imprimées + un occultant au centre, qui permet d'imprimer des recto verso identiques ou différents et entièrement lisibles.<br /><b><span class="highlight">ATTENTION :</span></b> de par sa composition la voile imprimée recto/verso est lourde et doit donc être exposée à de faibles vents !<br /></span></span>
+          <li class="form-line select" id="id_41">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>Impression <span class="highlight">recto simple</span></u>:</b><br/>l'impression recto standard avec le verso imprimé traversant par transparence (à l'envers). Impression la plus répandue.<br />• <u><b>Impression <span class="highlight">recto ET verso</span></u>:</b><br/>Votre voile sera composé de 2 voiles imprimées + un occultant au centre, qui permet d'imprimer des recto verso identiques ou différents et entièrement lisibles.<br /><b><span class="highlight">ATTENTION :</span></b> de par sa composition la voile imprimée recto/verso est lourde et doit donc être exposée à de faibles vents !<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_41" name="q41" onclick="JKakemono.czyscpola(); ">
               <option value="">Quelle impression voulez-vous ?</option>
               <option value="Recto">Recto (verso par transparence) </option>
@@ -92,8 +93,8 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_42">
-            <span class="helpButton" onmouseover="tipShow('helpText7');" onmouseout="tipHide('helpText7');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText7" style="visibility:hidden;">• <u><b>Impression <span class="highlight">recto simple</span></u>:</b><br/>l'impression recto standard avec le verso imprimé traversant par transparence (à l'envers). Impression la plus répandue.<br />• <u><b>Impression <span class="highlight">recto ET verso</span></u>:</b><br/>Votre voile sera composé de 2 voiles imprimées + un occultant au centre, qui permet d'imprimer des recto verso identiques ou différents et entièrement lisibles.<br /><b><span class="highlight">ATTENTION :</span></b> de par sa composition la voile imprimée recto/verso est lourde et doit donc être exposée à de faibles vents !<br /></span></span>
+          <li class="form-line select" id="id_42">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText7" style="visibility:hidden;">• <u><b>Impression <span class="highlight">recto simple</span></u>:</b><br/>l'impression recto standard avec le verso imprimé traversant par transparence (à l'envers). Impression la plus répandue.<br />• <u><b>Impression <span class="highlight">recto ET verso</span></u>:</b><br/>Votre voile sera composé de 2 voiles imprimées + un occultant au centre, qui permet d'imprimer des recto verso identiques ou différents et entièrement lisibles.<br /><b><span class="highlight">ATTENTION :</span></b> de par sa composition la voile imprimée recto/verso est lourde et doit donc être exposée à de faibles vents !<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_42" name="q42" onclick="JKakemono.czyscpola(); ">
               <option value="">Quelle impression voulez-vous ?</option>
               <option value="Recto">Recto (verso par transparence) </option>
@@ -101,8 +102,8 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_43">
-            <span class="helpButton" onmouseover="tipShow('helpText43');" onmouseout="tipHide('helpText43');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText43" style="visibility:hidden;">• <u><b>Drapeaux grand format vertical</u></b><br/>4 dimensions au choix pour un drapeau vertical<br /></span></span>
+          <li class="form-line select" id="id_43">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText43" style="visibility:hidden;">• <u><b>Drapeaux grand format vertical</u></b><br/>4 dimensions au choix pour un drapeau vertical<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_43" name="q43" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir la dimension... </option>
               <option value="250x80cm">250H x 80L cm</option>
@@ -111,8 +112,8 @@
               <option value="500x150cm">500 H x 150L cm</option>
             </select>
           </li>
-          <li class="form-line" id="id_44">
-            <span class="helpButton" onmouseover="tipShow('helpText44');" onmouseout="tipHide('helpText44');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText44" style="visibility:hidden;">• <u><b>Drapeaux grand format Horizontal</u></b><br/>5 dimensions au choix pour un drapeau horizontal<br /></span></span>
+          <li class="form-line select" id="id_44">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText44" style="visibility:hidden;">• <u><b>Drapeaux grand format Horizontal</u></b><br/>5 dimensions au choix pour un drapeau horizontal<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_44" name="q44" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir la dimension... </option>
               <option value="80x120cm">80H x 120L cm</option>
@@ -124,8 +125,8 @@
           </li>
 
 
-          <li class="form-line" id="id_6">
-            <span class="helpButton" onmouseover="tipShow('helpText8');" onmouseout="tipHide('helpText8');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText8" style="visibility:hidden;">• <u><b>Embase platine 8 kg</u><span class="highlight">INT/EXT</span> :</b><br/>platine rectangulaire noire acier 8kg avec poignée de transport. pour oriflamme jusqu'à 3,08m<br />• <u><b>Embase platine 13,5kg</u><span class="highlight">INT/EXT</span> :</b><br/>platine rectangulaire acier 13,5kg avec poignée de transport. pour toutes les tailles de beachflags.<br />• <u><b>Pied 4 branches</u><span class="highlight">INT</span> :</b><br/<br /></span></span>
+          <li class="form-line select" id="id_6">
+            <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText8" style="visibility:hidden;">• <u><b>Embase platine 8 kg</u><span class="highlight">INT/EXT</span> :</b><br/>platine rectangulaire noire acier 8kg avec poignée de transport. pour oriflamme jusqu'à 3,08m<br />• <u><b>Embase platine 13,5kg</u><span class="highlight">INT/EXT</span> :</b><br/>platine rectangulaire acier 13,5kg avec poignée de transport. pour toutes les tailles de beachflags.<br />• <u><b>Pied 4 branches</u><span class="highlight">INT</span> :</b><br/<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
               <option value="">Quel pied voulez-vous ?</option>
               <option value="Embase 8kg">Embase 8kg</option>
@@ -138,21 +139,10 @@
             </select>
           </li>
 
-          <li class="form-line" id="id_8">
-            <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+          <li class="form-line select" id="id_8">
+            <span class="helpButton">
               <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-  						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-                <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-  							Après la réception de votre fichier et de votre paiement, la commande sera mise en production.
-  							si votre fichier ne respecte pas nos spécifications, il sera modifié par notre service PAO et mis en production sans validation de votre part.
-  							France Banderole se décharge de toutes responsabilités en cas de non conformité de votre fichier(couleurs, formats, pixellisations, fonds perdus, fautes orthographiques, etc).<br/>
-  							<b>j’ai mon fichier, je souhaite un BAT +5,00€ :</b><br/>
-  							Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client.<br/>
-  							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-  							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-  							<b>France banderole crée votre fichier +35,00€ :</b><br/>
-  							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-              </span>
+  						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;"></span>
   					</span>
   					<select class="form-dropdown validate[required]" id="input_8" name="q8_maquette8" onchange="JKakemono.czyscpola(); ">
   						<option value="">fichier d'impression...</option>
@@ -163,14 +153,10 @@
   					</select>
           </li>
 
-          <li class="form-line" id="id_signature">
-            <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+          <li class="form-line select" id="id_signature">
+            <span class="helpButton">
               <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-					    <span class="helpText" id="helpTextsignature" style="visibility:hidden;">
-                <b>Logo France Banderole</b><br/>
-							  Si vous choisissez l'option "produit signée" un logo sera imprimé en bas de votre visuel de 11x3 cm <br/>
-                <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-              </span>
+					    <span class="helpText" id="helpTextsignature" style="visibility:hidden;"></span>
   					</span>
   					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
   						<option value="">logo France Banderole ?</option>
@@ -179,7 +165,7 @@
   					</select>
   			  </li>
 
-          <li class="form-line" id="id_9" data-trigger="spinner">
+          <li class="form-line select" id="id_9" data-trigger="spinner">
             <label class="form-label-left label-highlight" id="label_9" for="input_9">quantité :<br /><span class="small">(par visuel)</span></label>
             <input type="text" class="form-textbox validate[required, Numeric]" id="input_9" name="q9_quantite" size="20" value="1" onclick="JKakemono.czyscpola();"  data-rule="quantity" />
   					<div class="spinner-controls">
@@ -196,32 +182,32 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
                 <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked>
-                <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
-                  <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
                 </span>
               </span>
 
               <span class="optionsleft">
-                <label class="form-label-left" id="label_antifeu" for="antifeu">Voile anti-feu<img src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/oriflamme/m1.png"/></label>
+                <label class="form-label-left" id="label_antifeu" for="antifeu">Voile anti-feu B1</label>
                 <input type="checkbox" class="form-checkbox" id="antifeu" name="antifeu[]" value="" onclick="JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="tipShow(\'helpTextantifeu\');" onmouseout="tipHide(\'helpTextantifeu\');">
-                  <span class="helpText" id="helpTextantifeu" style="visibility:hidden;">Voile non inflammable.</span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextantifeu" style="visibility:hidden;">Voile non inflammable B1.</span>
                 </span>
               </span>
 
               <span class="optionsleft">
                 <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
                 <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="tipShow(\'helpTextetiquette\');" onmouseout="tipHide(\'helpTextetiquette\');">
-                  <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
                 </span>
               </span>
 
               <span class="optionsleft">
                 <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
                 <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-                  <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
                 </span>
               </span>
 
@@ -981,7 +967,7 @@
   			optionPied='<br />- Pied 4 branches + bouée';
   		}
   	if ($('input_6').value == 'Pied piquet') {
-  			pied=12;
+  			pied=16;
   			optionPied='<br />- Pied piquet';
   			p3=1.3;
   		}
@@ -1022,7 +1008,7 @@
   		composant='Voile seule'
   		}
   	if ($('input_3').value == 'Structure seule') {
-  		prixHT=structure;
+  		prixHT=(structure*1.5);
   		composant='Structure seule'
   		}
   	if ($('input_1').value == 'windflag') {
@@ -1042,14 +1028,15 @@
 
     ////////////////////////////////////////////////////////// choix maquette //
     var maquette = '';
+    var ktodaje = '';
   	if ($('input_8').value == 'fb') {
   		maquette=35/ilosc;
   		options1=(35*ilosc);
   		ktodaje = '<br />- France banderole crée la maquette';
   	}
   	if ($('input_8').value == 'user') {
-		maquette=5/ilosc;
-		options5=(5*ilosc);
+		  maquette=5/ilosc;
+		  options5=(5*ilosc);
   		ktodaje = '<br />- BAT en ligne';
   	}
 	if ($('input_8').value == 'sansbat') {
@@ -1234,10 +1221,10 @@
   			var PorductType = jQuery('.production.active').attr('text-value');
   			var DeliveryType = jQuery('.delivery.active').attr('text-value');
   			if(PorductType == '2-3' ){
-  				ProdPercent = 15;
+  				ProdPercent = 20;
   				prliv += '- P 2-3J';
   			}else if(PorductType =='1-1'){
-  				ProdPercent = 40;
+  				ProdPercent = 45;
   				prliv += '- P 1J';
   			}else{
   				ProdPercent = 0;
@@ -1245,10 +1232,10 @@
   			}
 
   			if(DeliveryType == '2-3'){
-  				DeliPercent = 15;
+  				DeliPercent = 20;
   				prliv += ' / L 2-3J';
   			}else if(DeliveryType =='1-1'){
-  				DeliPercent = 40;
+  				DeliPercent = 45;
   				prliv += ' / L 1J';
   			}else{
   				DeliPercent = 0;
@@ -1333,6 +1320,8 @@
     	var dodajkoszyk = document.getElementById("cart_form");
     	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="Oriflamme" /><input type="hidden" name="opis" value="- '+designation+' '+formatProd+'<br />- '+composant+optionPied+ktodaje+optliv+etiqdesc+colisr+opis+'<br />'+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
     }
+    /*<div id="submit_cart" type="submit" style="background:#ea2a6a;border:0">Rupture stock</div>
+    <button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button>*/
   });
 });
 

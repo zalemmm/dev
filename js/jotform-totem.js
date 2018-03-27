@@ -631,7 +631,7 @@ JotForm = {
 								preview_info_ul.insert('<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>');
 							}
 						}*/
-            
+
             var imag  = $("preview_imag");
             var imag1 = $("preview_imag1");
             var imag2 = $("preview_imag2");
@@ -652,6 +652,14 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/x-screen180.png)";
               imag2.style.animation="anim .5s 1";
 						}
+
+						if ($('input_1').value == 'Kakemono Tissu') {
+              $('container').style.display="none";
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
+							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/kakemono-tissu.png)";
+              imag2.style.animation="anim .5s 1";
+						}
+
 						if ($('input_1').value == 'clipit') {
               $('container').style.display="none";
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
@@ -688,13 +696,18 @@ JotForm = {
               imag2.style.animation="anim3 .5s 1";
 						}
 
-            // sac
-            //if (($('input_23').value == 'sac')) {
-							//imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/bag.png)";
-              //imag3.style.animation="anim1 .5s 1";
-						//}else{
-              //imag3.style.backgroundImage="none";
-            //}
+            ////////////////////////////////////////////////////////////////////
+            if ( !$('revendeur') && !$('revendeurRC') && !$('revendeurRS') ) {
+              $('revd').style.display="none";
+              $('revd1').style.display="none";
+              $('revd2').style.display="none";
+              $('revd3').style.display="none";
+              $('revd4').style.display="none";
+              $('revd5').style.display="none";
+              $('revd6').style.display="none";
+              $('revd7').style.display="none";
+            }
+
 
 				  }
 //

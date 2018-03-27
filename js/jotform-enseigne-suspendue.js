@@ -605,297 +605,88 @@ JotForm = {
                             all = false;
                         }
 //denisedesign
-                        if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+          if(JotForm.checkValueByOperator(term.operator, term.value, value)){
 						var preview_info_ul = $("preview_info_ul");
 						var podglad = $("preview");
 						if ($('input_1').value) {
 							var preview_info_title = $("preview_info_title");
-							if (preview_info_title) {
-								preview_info_title.innerHTML='';
-								if ($('input_1').value == 'clipit') {
-									preview_info_title.insert('Clip\'it');
-								} else {
-									preview_info_title.insert($('input_1').value);
-								}
-							}
 							podglad.style.visibility="visible";
 						}
-						/*if (term.field>1) {
-							var obecny = $("lista"+term.field);
-							if (obecny) {
-								var mysel = $('input_'+term.field);
-								var rep='<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>';
-								$('lista'+term.field).replace(rep);
-							} else {
-								var mysel = $('input_'+term.field);
-								preview_info_ul.insert('<li id="lista'+term.field+'">'+mysel.options[mysel.selectedIndex].text+'</li>');
-							}
-						}*/
 
-
-
-            var imag = $("preview_imag");
+          var imag  = $("preview_imag");
             var imag1 = $("preview_imag1");
             var imag2 = $("preview_imag2");
             var imag3 = $("preview_imag3");
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
+			
+           
 
-            $('container').style.display="none";
-            imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/bg.png)";
-
-						/////////////////////flyer//////////
-				    if ($('input_0').value == 'Flyers') {
-              $('container').style.display="none";
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/flyerA5.png)";
+			if ($('input_1').value == "Rond") {
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseigne-suspendue/slide/rond.jpg)";
+			  imag2.style.animation="anim .5s 1";
+            }
+            if ($('input_1').value == 'Carré') {
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseigne-suspendue/slide/carre.jpg)";
               imag2.style.animation="anim .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-
-  					/////////////////////depliant//////////
-  					if ($('input_0').value == 'Depliants') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/depliantA5.png)";
-              imag2.style.animation="anim1 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-
-						/////////////////////grammage//////////
-						if (!$('input_1').value == '') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/grammage.png)";
+            }
+            if ($('input_1').value == 'Triangle') {
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseigne-suspendue/slide/triangle.jpg)";
               imag2.style.animation="anim2 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if (!$('input_1depliant').value == '') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/grammage.png)";
-              imag2.style.animation="anim2 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
+            }
+           
+           
 
-						/////////////////////format//////////
-						if (!$('input_21').value == '') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/format-papier.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if ($('input_21depliant').value == 'Din long') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/21x21.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if ($('input_21depliant').value == 'A3') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/A3-A4.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if ($('input_21depliant').value == 'A4') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/A4-A5.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if ($('input_21depliant').value == 'A4 3 volets') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/A4-3volets.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if ($('input_21depliant').value == 'A5') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/flyer/A5-A6.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
+			    }//-------------------------------------------------------------------
 
+        }
+      }catch(e){
+        	//console.error(e);
+    	}
+    });
 
-            /////////////////////mini/////////
-            if (($('input_1').value == 'mini')) {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/mini.png)";
-              imag2.style.animation="anim4 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-						if (($('input_1').value == 'mini') && ($('input_25').value == 'minia4')) {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/minia4.png)";
-              imag2.style.animation="anim1 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-                        if (($('input_1').value == 'mini') && ($('input_25').value == 'minia3')) {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/minia3.png)";
-              imag2.style.animation="anim2 .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-            
-            ////////////////mistral
-            if ($('input_1').value == 'Mistral') {
-							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/mistral200.png), url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/totem/ext.png)";
-              imag2.style.animation="anim .5s 1";
-              imag4.style.backgroundImage="none";
-              imag5.style.backgroundImage="none";
-						}
-
-            ///////////////////////tailles////////////
-            var six       = ($('input_22').value == '60x200') || ($('input_23').value == '60x200');
-            var huit      = ($('input_21').value == '80x200') || ($('input_22').value == '80x200') || ($('input_23').value == '80x200') || ($('input_24').value == '80x200');
-            var huitcinq  = ($('input_22').value == '85x200') || ($('input_23').value == '85x200') || ($('input_24').value == '85x200');
-            var cent      = ($('input_22').value == '100x200') || ($('input_23').value == '100x200') || ($('input_24').value == '100x200');
-            var centvingt = ($('input_22').value == '120x200') || ($('input_23').value == '120x200');
-            var centcinq  = ($('input_22').value == '150x200') || ($('input_23').value == '150x200');
-            var deuxcent  = ($('input_22').value == '200x200');
-            var geant     = ($('input_23').value == '200x300');
-
-            if (six) {
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/60.png)";
-            }
-            if (huit) {
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/80.png)";
-            }
-            if (huitcinq) {
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/85.png)";
-            }
-
-            if (cent && ($('input_1').value == 'first-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first80.png)";
-              imag2.style.animation="anim .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/100.png)";
-            }
-            if (cent && ($('input_1').value == 'best-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best80.png)";
-              imag2.style.animation="anim1 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/100.png)";
-            }
-            if (cent && ($('input_1').value == 'lux-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux80.png)";
-              imag2.style.animation="anim2 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/100.png)";
-            }
-            if (cent && ($('input_1').value == 'double')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/4double80.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/100.png)";
-            }
-
-            if (centvingt && ($('input_1').value == 'first-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first80.png)";
-              imag2.style.animation="anim4 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/120.png)";
-            }
-            if (centvingt && ($('input_1').value == 'best-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best80.png)";
-              imag2.style.animation="anim0 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/120.png)";
-            }
-            if (centvingt && ($('input_1').value == 'lux-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux80.png)";
-              imag2.style.animation="anim1 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/120.png)";
-            }
-
-            if (centcinq && ($('input_1').value == 'first-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/1first80.png)";
-              imag2.style.animation="anim2 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/150.png)";
-            }
-            if (centcinq && ($('input_1').value == 'best-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best80.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/150.png)";
-            }
-
-            if (centcinq && ($('input_1').value == 'lux-line')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3lux80.png)";
-              imag2.style.animation="anim4 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/150.png)";
-            }
-
-            if (deuxcent) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/2best80.png)";
-              imag2.style.animation="anim3 .5s 1";
-              imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/200.png)";
-            }
-            if (geant) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/3luxgeant.png)";
-              imag2.style.animation="anim4 .5s 1";
-              imag4.style.backgroundImage="none";
-            }
-
-            /////////////////bâche//////////////////////
-            if (($('input_31').value == '440g') || ($('input_32').value == '440g') || ($('input_33').value == '440g') || ($('input_34').value == '440g') || ($('input_35').value == '440g')) {
-              imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/440.png)";
-            }
-            if (($('input_31').value == '300µ M1') || ($('input_32').value == '300µ M1') || ($('input_33').value == '300µ M1')) {
-              imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/pvc.png)";
-            }
-            if (($('input_32').value == 'jet 520 M1') || ($('input_33').value == 'jet 520 M1') || ($('input_34').value == 'jet 520 M1') || ($('input_35').value == 'jet 520 M1')) {
-              imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/470.png)";
-            }
-            if (($('input_32').value == '100% écologique M1') || ($('input_33').value == '100% écologique M1')) {
-              imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/eco.png)";
-            }
-            if (($('input_32').value == 'capotoile') || ($('input_33').value == 'capotoile')) {
-              imag5.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/capotoile.png)";
-            }
-		}
-
-//
-
-                }
-
-            }catch(e){
-            	//console.error(e);
-        	}
-        });
-
-        if(condition.type == 'field'){ // Field Condition
-            //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
-            if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
-                if(condition.action.visibility.toLowerCase() == 'show'){
-                    //console.info('Correct: Show field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.showField(condition.action.field);
-                }else{
-                    //console.info('Correct: Hide field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.hideField(condition.action.field);
-                }
+    if(condition.type == 'field'){ // Field Condition
+        //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
+        if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
+            if(condition.action.visibility.toLowerCase() == 'show'){
+                //console.info('Correct: Show field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.showField(condition.action.field);
             }else{
-                if(condition.action.visibility.toLowerCase() == 'show'){
-                    //console.info('Fail: Hide field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.hideField(condition.action.field);
-                }else{
-                    //console.info('Fail: Show field: '+$('label_'+condition.action.field).innerHTML);
-                    JotForm.showField(condition.action.field);
-                }
+                //console.info('Correct: Hide field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.hideField(condition.action.field);
             }
-        }else{ // Page condition
-
-            //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
-            if (JotForm.nextPage) {
-                return;
-            }
-            if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
-
-                //console.info('Correct: Skip To: '+condition.action.skipTo);
-                var sections = $$('.form-section');
-                if(condition.action.skipTo == 'end'){
-                    JotForm.nextPage = sections[sections.length - 1];
-                }else{
-                    JotForm.nextPage = sections[parseInt(condition.action.skipTo.replace('page-', ''), 10)-1];
-                }
-
+        }else{
+            if(condition.action.visibility.toLowerCase() == 'show'){
+                //console.info('Fail: Hide field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.hideField(condition.action.field);
             }else{
-
-                //console.info('Fail: Skip To: page-'+JotForm.currentPage+1);
-
-                JotForm.nextPage = false;
+                //console.info('Fail: Show field: '+$('label_'+condition.action.field).innerHTML);
+                JotForm.showField(condition.action.field);
             }
         }
+    }else{ // Page condition
+
+        //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
+        if (JotForm.nextPage) {
+            return;
+        }
+        if((condition.link.toLowerCase() == 'any' && any) || (condition.link.toLowerCase() == 'all' && all)){
+
+            //console.info('Correct: Skip To: '+condition.action.skipTo);
+            var sections = $$('.form-section');
+            if(condition.action.skipTo == 'end'){
+                JotForm.nextPage = sections[sections.length - 1];
+            }else{
+                JotForm.nextPage = sections[parseInt(condition.action.skipTo.replace('page-', ''), 10)-1];
+            }
+
+        }else{
+
+            //console.info('Fail: Skip To: page-'+JotForm.currentPage+1);
+
+            JotForm.nextPage = false;
+        }
+    }
 
     },
     currentPage: false,
@@ -1667,14 +1458,13 @@ JotForm = {
 
                 input.validateInput = function(){
 
-/*                	if ( (input.readAttribute('type') == "text") && (input.readAttribute('id')=='input_9') ){
-                		var pass1 = $('input_8');
-                		var pass2 = $('input_9');
-                		var suma = ($(pass1).value) * ($(pass2).value);
-                		if ( suma < 5 ) {  }
-                		else { return JotForm.errored(input, "Please retype password correctly!"+suma); }
+                	if ( (input.readAttribute('type') == "password") && (input.readAttribute('id')=='input_4') ){
+                		var pass1 = $('input_3');
+                		var pass2 = $('input_4');
+                		if ($(pass1).value == $(pass2).value) {  }
+                		else { return JotForm.errored(input, "Please retype password correctly!"); }
                 	}
-*/
+
                     if (!JotForm.isVisible(input)) {
                         return true; // if it's hidden then user cannot fill this field then don't validate
                     }
@@ -1733,7 +1523,7 @@ JotForm = {
                             break;
                         case "Alphabetic":
                             if (!reg.alphabetic.test(input.value)) {
-                                return JotForm.errored(input, "This field can only contain letters");
+                                return JotForm.errored(input, "Uniquement chiffres et lettres sans accent sans espace");
                             }
                             break;
                         case "Numeric":

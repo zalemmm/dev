@@ -1,5 +1,5 @@
 <?php
-
+//============================================ méthodes paiement dispo en fonction du type d'utilisateur
 function getPaiementDroits($customer_id) {
 
 	$droits_tbl = array('cb' => 1, 'cheque' => 1, 'virement' => 1, 'trente' => 0, 'soixante' => 0, 'administratif' => 0);
@@ -22,7 +22,85 @@ function getPaiementDroits($customer_id) {
 	return $droits_tbl;
 }
 
+//========================================================== Afficher la facture sur pages virement, cheque etc
+function getCalculs($idzamowienia, $userid) {
+
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_order = $prefix."fbs_order";
+	$fb_tablename_remises = $prefix."fbs_remises";
+	$fb_tablename_remisnew = $prefix."fbs_remisenew";
+	$fb_tablename_prods = $prefix."fbs_prods";
+	$fb_tablename_users = $prefix."fbs_users";
+
+	$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
+	$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
+
+	// -------------------------------------------------------------------adresses
+	$explode = explode('|', $us->f_address);
+	$f_address = $explode['0'];
+	$f_porte = $explode['1'].'<br />';
+	$explode2 = explode('|', $us->l_address);
+	$l_address = $explode2['0'];
+	$l_porte = $explode2['1'].'<br />';
+	$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
+	if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
+		$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
+	} else {
+		$livraison_add = $facture_add;
+	}
+
+	//------------------------------------------------------------------- produits
+	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
+	$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+
+	foreach ( $products as $products => $item ) {
+		$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
+	}
+	$view .= '</table>';
+
+	//------------------------------------------------------------vérifier remises
+	$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
+	if ($czyjestrabat) {
+		$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
+	}
+	//-----------------------------------------vérifier s'il y a une remise client
+	$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
+	if ($exist_remise) {
+		$calculRemise = number_format($exist_remise->remisenew, 2);
+		$insertRemise = '<tr><td class="toleft">Remise Générale</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
+	}
+	//---------------------------------------------vérifier s'il y a un code promo
+	$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+	if ($exist_code->promo > 1) {
+		$calculCode = $exist_code->promo;
+		$calculCode = number_format($calculCode, 2);
+		$insertRemise = '<tr><td class="toleft">REMISE</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+	}
+
+	//----------------------------------------------------------------------------
+	$totalht = str_replace(',', '', $query->totalht);
+	$totalht = $totalht-$calculRemise-$calculCode;
+	$ttotalht = str_replace(',','', number_format($totalht, 2)).' &euro;';
+	//----------------------------------------------------------------------------
+
+	$tfrais = $query->frais.' &euro;';
+	$ttva = $query->tva.' &euro;';
+	$ttotalttc = str_replace(',', '', $query->totalttc).' &euro;';
+	//----------------------------------------------------------------------------
+
+	$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
+
+	$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$insertRemise.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
+
+	$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
+
+	return $view;
+}
+
+//========================= recalculer total en fonction des moyens de paiement (similaire à reorganize ds fb_functions et fb_order)
 function calcOrder($uid) {
+
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_order = $prefix."fbs_order";
@@ -36,10 +114,11 @@ function calcOrder($uid) {
 	if ($products) {
 		foreach ( $products as $products => $item ) {
 			$totalItems = str_replace(',', '.', $item[total]);
-			$totalHT = $totalHT + $totalItems;
+			$totalHT += $totalItems;
 			$fraisPort = $fraisPort + $item[frais];
 		}
-//dodatkowy rabat
+
+		//----------------------------------------------------------vérifier remises
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
@@ -48,8 +127,8 @@ function calcOrder($uid) {
 				$totalHT = $totalHT + $dodatkowyrabat;
 			}
 		}
-//dodatkowy rabat
-//-------------------------------------------vérifier s'il y a une remise client
+
+		//---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
 			$newrabat = $exist_remise->percent / 100;
@@ -57,35 +136,46 @@ function calcOrder($uid) {
 			$totalHT = $totalHT - $calculRemise;
 			$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $calculRemise), array ( 'sku' => $idzamowienia ) );
 		}
-//koniec//
+
+		//-------------------------------------------vérifier s'il y a un code promo
+		$exist_code = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+		if ($exist_code->promo > 1) {
+			$calculCode = $exist_code->promo;
+			echo $calculCode;
+			$totalHT = $totalHT - $calculCode;
+		}
+
+		//--------------------------------------------------------------------------
 		$totalHT = $totalHT + $fraisPort;
-//zmiana podatku TVA
+		//------------------------------------------------------------changement TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
 			if ($czyjesttva->remis == 0) {
 				$calculTVA = 0;
 			} elseif ($czyjesttva->remis == '') {
-			  $calculTVA = $totalHT*0.200;
+				$calculTVA = $totalHT*0.200;
 			} else {
 				$tvapod = $czyjesttva->remis/100;
 				$calculTVA = $totalHT*$tvapod;
 			}
 		} else {
-		  	$calculTVA = $totalHT*0.200;
+			$calculTVA = $totalHT*0.200;
 		}
-//zmiana podatku TVA
-	  $totalTTC = $totalHT+$calculTVA;
-	  $totalHT = number_format($totalHT, 2);
+
+		//--------------------------------------------------------------------------
+		$totalTTC = $totalHT+$calculTVA;
+		$totalHT = $totalHT+$calculRemise+$calculCode; // on rétablit le total ht sans remises dans la bdd
+
+		$totalHT = number_format($totalHT, 2);
 		$fraisPort = number_format($fraisPort, 2);
 		$calculTVA = number_format($calculTVA, 2);
-	  $totalTTC = number_format($totalTTC, 2);
+		$totalTTC = number_format($totalTTC, 2);
 		//$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $fraisPort, 'totalht' => $totalHT, 'tva' => $calculTVA, 'totalttc' => $totalTTC), array ( 'unique_id' => $idzamowienia ) );
 	}
-
 }
 
-
+//=========================================== ajout ou suppression de l'escompte
 function setPaiementFinProd($uid,$pay_method) {
 
 	global $wpdb;
@@ -94,39 +184,44 @@ function setPaiementFinProd($uid,$pay_method) {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_paiement_moy = $prefix."fbs_paiement_moy";
 
-
 	$has_pay_prod = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$uid' AND name = 'Suppression de l\'escompte commercial'");
-	if($has_pay_prod) {
+	if($has_pay_prod) { // s'il y a déjà eu une suppression de l'escompte
 		$pay_percent = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement_moy` WHERE pay_code = '$pay_method'");
-		if($pay_percent->pay_percent_add > 0) {
+
+		if($pay_percent->pay_percent_add > 0) { // si on choisit une méthode de paiement différé
+			// on efface le premier escompte
 			$wpdb->delete($fb_tablename_prods, array('order_id' => $uid, 'name' => 'Suppression de l\'escompte commercial'));
-			calcOrder($uid);
+			//calcOrder($uid);
+
+			// on recalcule l'escompte
 			$order_tmp = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$uid'");
-			$montant_cmd = str_replace(',','',$order_tmp->totalttc);
+			$montant_cmd = str_replace(',','',$order_tmp->totalht);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
-			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';
+			$prod_insert = number_format($prod_total, 2) . ' €';
 			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','')");
 			calcOrder($uid);
-		} else {
+		} else { // si on revient à une méthode de paiement non différé
 			$wpdb->delete($fb_tablename_prods, array('order_id' => $uid, 'name' => 'Suppression de l\'escompte commercial'));
 			calcOrder($uid);
 		}
 
-	} else {
+
+	} else { // s'il n'y a pas déjà eu suppression de l'escompte
 		$pay_percent = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement_moy` WHERE pay_code = '$pay_method'");
-		if($pay_percent->pay_percent_add > 0) {
+		if($pay_percent->pay_percent_add > 0) { // si on choisit une méthode de paiement différé
 			$order_tmp = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$uid'");
-			$montant_cmd = str_replace(',','',$order_tmp->totalttc);
+			$montant_cmd = str_replace(',','',$order_tmp->totalht);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
-			$prod_insert = str_replace('.', ',',number_format($prod_total, 2)) . ' €';
+			$prod_insert = number_format($prod_total, 2) . ' €';
 			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','')");
 			calcOrder($uid);
 		}
 	}
 }
 
-
+//====================================================== choix méthodes paiement
 function get_payement() {
+
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_order = $prefix."fbs_order";
@@ -142,7 +237,7 @@ function get_payement() {
 	$userid = $user->id;
 	$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
 
-if ($query) {
+	if ($query) {
 	if (isset($_POST['addpayment'])) {
 		$metoda = $_POST['paymentmetod'];
 
@@ -151,23 +246,41 @@ if ($query) {
 			$set_statut = $wpdb->query("UPDATE `$fb_tablename_order` SET status = 7 WHERE unique_id='$idzamowienia' AND user='$userid'");
 		}
 
-	 	if ($metoda == 'virement') {
+		//-------------------------------------------------------------------- carte
+	 	if ($metoda == 'carte') {
+			setPaiementFinProd($uid,'carte');
 
-	 		setPaiementFinProd($uid,'virement');
 			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
-			$explode = explode('|', $us->f_address);
-			$f_address = $explode['0'];
-			$f_porte = $explode['1'].'<br />';
-			$explode2 = explode('|', $us->l_address);
-			$l_address = $explode2['0'];
-			$l_porte = $explode2['1'].'<br />';
-			$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-			if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-				$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
-			} else {
-				$livraison_add = $facture_add;
-			}
+			//if(!isset($_SESSION['fbcartsum'])) {
+			$sumaplatnosci = str_replace(",", "", $query->totalttc);
+			$_SESSION['fbcartsum'] = $sumaplatnosci;
+			//}
+			$_SESSION['fbcmd'] = $idzamowienia;
+			//require('/var/www/vhosts/france-banderole.com/cgi-bin/sherlock/call_request.php');
+	 		require('./sherlock/paiement_f_sherlok.php');
+ 		}
+
+		//--------------------------------------------------------------------chèque
+	 	if ($metoda == 'cheque') {
+			setPaiementFinProd($uid,'cheque');
+
+			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
+			$view .= '<div class="noprint">';
+	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
+			$view .= '<div class="cheque_tab_name">Paiement comptant par chèque Bancaire</div>';
+			$view .= '<div class="cheque_tab_con">Imprimez ce Bon de Commande et envoyez votre Reglement accompagné du Bon de Commande à l\'adresse suivante:<br /><br /><span class="colblue">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</span><br /><br />Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
+			$view .= '</div>';
+			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
+
+			$view .= getCalculs($idzamowienia, $userid);
+
+  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le Bon de commande</a></div>';
+ 		}
+
+		//------------------------------------------------------------------virement
+	 	if ($metoda == 'virement') {
+	 		setPaiementFinProd($uid,'virement');
+
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
 	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
@@ -176,62 +289,15 @@ if ($query) {
 			$view .= '</div>';
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
-			foreach ( $products as $products => $item ) {
-				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
-	  	}
+			$view .= getCalculs($idzamowienia, $userid);
 
-			//--------------------------------------------------------vérifier remises
-			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
-			if ($czyjestrabat) {
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
-			}
-			//-------------------------------------vérifier s'il y a une remise client
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-		  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">REMISE CLIENT (% appliqué au montant HT)</span></td><td>-'.$calculRemise.' &euro;</td></tr>';
-			}
-			//-----------------------------------------vérifier s'il y a un code promo
-			$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			if ($exist_code->promo > 1) {
-				$calculCode = $exist_code->promo;
-				$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">CODE PROMO (% aplliqué au montant TTC)</span></td><td>-'.$calculCode.' &euro;</td></tr>';
-			}
-			//------------------------------------------------------------------------
-
-  		$view .= '</table>';
-
-			$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
-
-  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
-  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
-  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
-
-			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
   		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 
+		//---------------------------------------------------------------différé 30j
 		if ($metoda == 'trente') {
 			setPaiementFinProd($uid,'trente');
-	 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
-			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-			$explode = explode('|', $us->f_address);
-			$f_address = $explode['0'];
-			$f_porte = $explode['1'].'<br />';
-			$explode2 = explode('|', $us->l_address);
-			$l_address = $explode2['0'];
-			$l_porte = $explode2['1'].'<br />';
-			$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-			if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-				$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
-			} else {
-				$livraison_add = $facture_add;
-			}
+
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
 	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
@@ -240,61 +306,15 @@ if ($query) {
 			$view .= '</div>';
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
-			foreach ( $products as $products => $item ) {
-				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
-	  	}
+			$view .= getCalculs($idzamowienia, $userid);
 
-			//--------------------------------------------------------vérifier remises
-			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
-			if ($czyjestrabat) {
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
-			}
-			//-------------------------------------vérifier s'il y a une remise client
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-		  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">REMISE CLIENT (% appliqué au montant HT)</span></td><td>-'.$calculRemise.' &euro;</td></tr>';
-			}
-			//-----------------------------------------vérifier s'il y a un code promo
-			$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			if ($exist_code->promo > 1) {
-				$calculCode = $exist_code->promo;
-				$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">CODE PROMO (% aplliqué au montant TTC)</span></td><td>-'.$calculCode.' &euro;</td></tr>';
-			}
-			//------------------------------------------------------------------------
-
-  		$view .= '</table>';
-			$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
-
-  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
-  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
-  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
-
-			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
   		$view .= '<div id="fbcart_buttons3" class="noprint"1 - 2 ou 3 rainages</b></u><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 
+		//---------------------------------------------------------------différé 60j
 		if ($metoda == 'soixante') {
 			setPaiementFinProd($uid,'soixante');
-			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
-			$explode = explode('|', $us->f_address);
-			$f_address = $explode['0'];
-			$f_porte = $explode['1'].'<br />';
-			$explode2 = explode('|', $us->l_address);
-			$l_address = $explode2['0'];
-			$l_porte = $explode2['1'].'<br />';
-			$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-			if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-				$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
-			} else {
-				$livraison_add = $facture_add;
-			}
+
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
 	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
@@ -308,60 +328,15 @@ if ($query) {
 			$view .= '</div>';
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
-			foreach ( $products as $products => $item ) {
-				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
-	  	}
+			$view .= getCalculs($idzamowienia, $userid);
 
-			//--------------------------------------------------------vérifier remises
-			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
-			if ($czyjestrabat) {
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
-			}
-			//-------------------------------------vérifier s'il y a une remise client
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-		  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">REMISE CLIENT (% appliqué au montant HT)</span></td><td>-'.$calculRemise.' &euro;</td></tr>';
-			}
-			//-----------------------------------------vérifier s'il y a un code promo
-			$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			if ($exist_code->promo > 1) {
-				$calculCode = $exist_code->promo;
-				$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">CODE PROMO (% aplliqué au montant TTC)</span></td><td>-'.$calculCode.' &euro;</td></tr>';
-			}
-			//------------------------------------------------------------------------
-
-  		$view .= '</table>';
-			$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
-
-  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
-  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
-  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
-
-			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
   		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
+
+		//----------------------------------------------------- mandat administratif
 		if ($metoda == 'administratif') {
 			setPaiementFinProd($uid,'administratif');
-			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-	 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
-			$explode = explode('|', $us->f_address);
-			$f_address = $explode['0'];
-			$f_porte = $explode['1'].'<br />';
-			$explode2 = explode('|', $us->l_address);
-			$l_address = $explode2['0'];
-			$l_porte = $explode2['1'].'<br />';
-			$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-			if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-				$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
-			} else {
-				$livraison_add = $facture_add;
-			}
+
 			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
 			$view .= '<div class="noprint">';
 	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
@@ -371,119 +346,11 @@ if ($query) {
 			$view .= '</div>';
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p> <p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
-			foreach ( $products as $products => $item ) {
-				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
-	  	}
+			$view .= getCalculs($idzamowienia, $userid);
 
-			//--------------------------------------------------------vérifier remises
-			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
-			if ($czyjestrabat) {
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
-			}
-			//-------------------------------------vérifier s'il y a une remise client
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-		  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">REMISE CLIENT (% appliqué au montant HT)</span></td><td>-'.$calculRemise.' &euro;</td></tr>';
-			}
-			//-----------------------------------------vérifier s'il y a un code promo
-			$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			if ($exist_code->promo > 1) {
-				$calculCode = $exist_code->promo;
-				$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">CODE PROMO (% aplliqué au montant TTC)</span></td><td>-'.$calculCode.' &euro;</td></tr>';
-			}
-			//------------------------------------------------------------------------
-
-  		$view .= '</table>';
-			$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
-
-  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
-  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
-  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
-
-			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 	  	$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le formulaire</a></div>';
 		}
 
-	 	if ($metoda == 'carte') {
-			setPaiementFinProd($uid,'carte');
-			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-			//if(!isset($_SESSION['fbcartsum'])) {
-			$sumaplatnosci = str_replace(",", "", $query->totalttc);
-			$_SESSION['fbcartsum'] = $sumaplatnosci;
-			//}
-			$_SESSION['fbcmd'] = $idzamowienia;
-			//require('/var/www/vhosts/france-banderole.com/cgi-bin/sherlock/call_request.php');
-	 		require('./sherlock/paiement_f_sherlok.php');
- 		}
-	 	if ($metoda == 'cheque') {
-			setPaiementFinProd($uid,'cheque');
-			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
-			$explode = explode('|', $us->f_address);
-			$f_address = $explode['0'];
-			$f_porte = $explode['1'].'<br />';
-			$explode2 = explode('|', $us->l_address);
-			$l_address = $explode2['0'];
-			$l_porte = $explode2['1'].'<br />';
-			$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-			if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-				$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
-			} else {
-				$livraison_add = $facture_add;
-			}
-			$view .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><p>Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</p></td></tr></table></div>';
-			$view .= '<div class="noprint">';
-	 		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
-			$view .= '<div class="cheque_tab_name">Paiement comptant par chèque Bancaire</div>';
-			$view .= '<div class="cheque_tab_con">Imprimez ce Bon de Commande et envoyez votre Reglement accompagné du Bon de Commande à l\'adresse suivante:<br /><br /><span class="colblue">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</span><br /><br />Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
-			$view .= '</div>';
-			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
-
-			$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-			$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
-			foreach ( $products as $products => $item ) {
-				$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
-	  	}
-
-			//--------------------------------------------------------vérifier remises
-			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
-			if ($czyjestrabat) {
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
-			}
-			//-------------------------------------vérifier s'il y a une remise client
-			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
-			if ($exist_remise) {
-				$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">REMISE CLIENT (% appliqué au montant HT)</span></td><td>-'.$calculRemise.' &euro;</td></tr>';
-			}
-			//-----------------------------------------vérifier s'il y a un code promo
-			$exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			if ($exist_code->promo > 1) {
-				$calculCode = $exist_code->promo;
-				$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">CODE PROMO (% aplliqué au montant TTC)</span></td><td>-'.$calculCode.' &euro;</td></tr>';
-			}
-			//------------------------------------------------------------------------
-
-  		$view .= '</table>';
-
-			$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
-
-  		$tfrais = str_replace('.', ',', $query->frais).' &euro;';
-  		$ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-  		$ttva = str_replace('.', ',', $query->tva).' &euro;';
-  		$ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
-  		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
-
-			$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
-  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le Bon de commande</a></div>';
- 		}
 	} else {
 
 		if (isset($_GET['pay'])) {

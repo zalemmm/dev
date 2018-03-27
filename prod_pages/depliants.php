@@ -4,9 +4,9 @@
 	<input type="hidden" name="formID" value="1060900223" />
 	<div class="form-all">
 		<ul class="form-section">
-        
-        <li class="form-line" id="id_0">
-				<span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
+
+        <li class="form-line select" id="id_0">
+				<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
 
 				<select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir...</option>
@@ -15,8 +15,8 @@
 				</select>
 			</li>
 <!--/////////////////////////////////////// flyer-->
-			<li class="form-line" id="id_1">
-				<span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
+			<li class="form-line select" id="id_1">
+				<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
 
 				<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir l'épaisseur...</option>
@@ -31,7 +31,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_21">
+			<li class="form-line select" id="id_21">
 
 				<a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_21" name="q21_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -51,7 +51,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_32">
+			<li class="form-line select" id="id_32">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -62,7 +62,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_33">
+			<li class="form-line select" id="id_33">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_33" name="q33_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -73,7 +73,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_34">
+			<li class="form-line select" id="id_34">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_34" name="q34_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -84,7 +84,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_35">
+			<li class="form-line select" id="id_35">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_35" name="q35_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -95,8 +95,8 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_41">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette41');" onmouseout="tipHide('helpTextmaquette41');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_41">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette41" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -116,8 +116,8 @@
                         <option value="fb">France banderole crée la mise en page +19,00€</option>
 					</select>
 				</li>
-			<li class="form-line" id="id_42">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette42');" onmouseout="tipHide('helpTextmaquette42');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_42">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette42" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -138,8 +138,8 @@
 					</select>
 				</li>
 
-		<li class="form-line" id="id_43">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette43');" onmouseout="tipHide('helpTextmaquette43');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+		<li class="form-line select" id="id_43">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette43" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -160,8 +160,8 @@
 					</select>
 				</li>
 
-			<li class="form-line" id="id_44">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette44');" onmouseout="tipHide('helpTextmaquette44');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_44">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette44" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -183,9 +183,9 @@
 				</li>
 
 
-			<li class="form-line" id="id_45">
+			<li class="form-line select" id="id_45">
 
-				<span class="helpButton" onmouseover="tipShow('helpText45');" onmouseout="tipHide('helpText45');">
+				<span class="helpButton">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpText45" style="visibility:hidden;">
 						Vous avez choisi de créer votre maquette en ligne, veuillez préciser si vous souhaitez voir s'afficher votre gabarit en mode portrait ou paysage.
@@ -198,7 +198,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_5">
+			<li class="form-line select" id="id_5">
 				<select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
 					<option value="">quantité...</option>
 					<option value="25">25 </option>
@@ -224,10 +224,10 @@
 					<option value="100000">100000 </option>
 				</select>
 			</li>
-            
-<!--////////////////////////////////////depliant -->    
 
-			    <li class="form-line" id="id_1depliant">
+<!--////////////////////////////////////depliant -->
+
+			    <li class="form-line select" id="id_1depliant">
 
         <a href="#grammage"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_1depliant" name="q1depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -239,7 +239,7 @@
         </select>
       </li>
 
-      <li class="form-line" id="id_21depliant">
+      <li class="form-line select" id="id_21depliant">
 
         <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_21depliant" name="q21depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -253,7 +253,7 @@
       </li>
 
 
-      <li class="form-line" id="id_32depliant">
+      <li class="form-line select" id="id_32depliant">
 
         <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_32depliant" name="q32depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -264,7 +264,7 @@
         </select>
       </li>
 
-      <li class="form-line" id="id_33depliant">
+      <li class="form-line select" id="id_33depliant">
 
         <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_33depliant" name="q33depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -275,7 +275,7 @@
         </select>
       </li>
 
-      <li class="form-line" id="id_34depliant">
+      <li class="form-line select" id="id_34depliant">
 
         <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_34depliant" name="q34depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -287,8 +287,8 @@
       </li>
 
 
-			<li class="form-line" id="id_41depliant">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette41depliant');" onmouseout="tipHide('helpTextmaquette41depliant');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_41depliant">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette41depliant" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -308,8 +308,8 @@
                         <option value="fb">France banderole crée la mise en page +19,00€</option>
 					</select>
 				</li>
-			<li class="form-line" id="id_42depliant">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette42depliant');" onmouseout="tipHide('helpTextmaquette42depliant');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_42depliant">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette42depliant" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -330,7 +330,7 @@
 					</select>
 				</li>
 
-      <li class="form-line" id="id_5depliant">
+      <li class="form-line select" id="id_5depliant">
 
         <select class="form-dropdown quan validate[required]" id="input_5depliant" name="q5depliant_maquette5depliant" onchange="JKakemono.czyscpola();">
           <option value="">quantité...</option>
@@ -357,10 +357,10 @@
           <option value="75000">75000 </option>
           <option value="100000">100000 </option>
         </select>
-      </li>  
-      
-       <li class="form-line" id="id_signature">
-        	<span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+      </li>
+
+       <li class="form-line select" id="id_signature">
+        	<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
               <b>Logo France Banderole</b><br/>
@@ -373,12 +373,12 @@
 						<option value="signature FB">produit signé</option>
 						<option value="sans signature">produit neutre +5,00 €</option>
 					</select>
-				</li>     
-            
-<!--/////////////////////////////// -->           
-            
-                  
-            
+				</li>
+
+<!--/////////////////////////////// -->
+
+
+
 
 			<li class="form-line optionsformline" id="id_101">
 				<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
@@ -388,7 +388,7 @@
 					<span class="optionsleft">
 						<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 						<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-						<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 						</span>
 					</span>
@@ -396,7 +396,7 @@
 					<span class="optionsleft">
 						<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 						<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-						<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 						</span>
 					</span>
@@ -404,7 +404,7 @@
 					<span class="optionsright">
 						<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 						<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-						<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
 						</span>
 					</span>
@@ -412,7 +412,7 @@
 					<span class="optionsright">
 						<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 						<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-						<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 						</span>
 					</span>
@@ -440,7 +440,7 @@
 
 			</li>
 
-			<li class="form-line" id="id_9a">
+			<li class="form-line select" id="id_9a">
 				<div class="form-input-wide">
 					<button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 				</div>
@@ -571,7 +571,7 @@
 			eBox.innerHTML = '';
 
 			//////////////////////////////////////////////////////////////////////////
-			
+
 			if ($('input_0').value == 'Flyers') {
 			if ($('input_1').value == 'Flyers 80g') {
 				if ($('input_21').value == '1'){ opis += '- A7';}
@@ -613,8 +613,8 @@
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 135g') {
-				
-				if ($('input_21').value == '1'){ 
+
+				if ($('input_21').value == '1'){
 					opis += '- A7 recto';
 					if (ilosc == '25') { cena1=14.16;}
 					if (ilosc == '50') { cena1=14.89;}
@@ -664,7 +664,7 @@
 					if (ilosc == '100000') { cena1=208.34;}
 					}
 				if ($('input_21').value == '3')
-					{ 
+					{
 					opis += '- A6 recto';
 					if (ilosc == '25') { cena1=16.24;}
 					if (ilosc == '50') { cena1=17.09;}
@@ -689,7 +689,7 @@
 					if (ilosc == '100000') { cena1=423.63;}
 					}
 				if ($('input_21').value == '4')
-					{ 
+					{
 					opis += '- A6 recto/verso';
 					if (ilosc == '25') { cena1=16.24;}
 					if (ilosc == '50') { cena1=17.09;}
@@ -713,7 +713,7 @@
 					if (ilosc == '75000') { cena1=318.77;}
 					if (ilosc == '100000') { cena1=423.63;}
 					}
-				if ($('input_21').value == '5'){ 
+				if ($('input_21').value == '5'){
 					opis += '- A5 recto';
 					if (ilosc == '25') { cena1=21.85;}
 					if (ilosc == '50') { cena1=22.12;}
@@ -738,7 +738,7 @@
 					if (ilosc == '100000') { cena1=808.68;}
 					}
 				if ($('input_21').value == '6')
-					{ 
+					{
 					opis += '- A5 recto/verso';
 					if (ilosc == '25') { cena1=21.85;}
 					if (ilosc == '50') { cena1=22.12;}
@@ -763,7 +763,7 @@
 					if (ilosc == '100000') { cena1=808.68;}
 					}
 				if ($('input_21').value == '7')
-					{ 
+					{
 					opis += '- A4 recto';
 					if (ilosc == '25') { cena1=25.34;}
 					if (ilosc == '50') { cena1=26.01;}
@@ -838,7 +838,7 @@
 					if (ilosc == '100000') { cena1=572.77 ;}
 					}
 				if ($('input_21').value == '10')
-					{ 
+					{
 					opis += '- Din long recto/verso';
 					if (ilosc == '25') { cena1=20.01;}
 					if (ilosc == '50') { cena1=20.17;}
@@ -863,7 +863,7 @@
 					if (ilosc == '100000') { cena1=572.77 ;}
 					}
 				if ($('input_21').value == '11')
-					{ 				
+					{
 					opis += '- A3 recto';
 					if (ilosc == '25') { cena1=30.92;}
 					if (ilosc == '50') { cena1=32.34;}
@@ -888,7 +888,7 @@
 					if (ilosc == '100000') { cena1=3401.90;}
 					}
 				if ($('input_21').value == '12')
-					{ 
+					{
 					opis += '- A3 recto/verso';
 					if (ilosc == '25') { cena1=30.92;}
 					if (ilosc == '50') { cena1=32.34;}
@@ -913,13 +913,13 @@
 					if (ilosc == '100000') { cena1=3401.90;}
 					}
 
-					
-			opis += '<br />- 135gr';		
+
+			opis += '<br />- 135gr';
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 170g') {
-				if ($('input_21').value == '1'){ 
+				if ($('input_21').value == '1'){
 					opis += '- A7 recto';
 					if (ilosc == '25') { cena1=15.08;}
 					if (ilosc == '50') { cena1=15.86;}
@@ -969,7 +969,7 @@
 					if (ilosc == '100000') { cena1=271.24;}
 					}
 				if ($('input_21').value == '3')
-					{ 
+					{
 					opis += '- A6 recto';
 					if (ilosc == '25') { cena1=17.56;}
 					if (ilosc == '50') { cena1=18.49;}
@@ -994,7 +994,7 @@
 					if (ilosc == '100000') { cena1=508.40;}
 					}
 				if ($('input_21').value == '4')
-					{ 
+					{
 					opis += '- A6 recto/verso';
 					if (ilosc == '25') { cena1=17.56;}
 					if (ilosc == '50') { cena1=18.49;}
@@ -1018,7 +1018,7 @@
 					if (ilosc == '75000') { cena1=382.55;}
 					if (ilosc == '100000') { cena1=508.40;}
 					}
-				if ($('input_21').value == '5'){ 
+				if ($('input_21').value == '5'){
 					opis += '- A5 recto';
 					if (ilosc == '25') { cena1=22.77;}
 					if (ilosc == '50') { cena1=23.10;}
@@ -1043,7 +1043,7 @@
 					if (ilosc == '100000') { cena1=1004.60;}
 					}
 				if ($('input_21').value == '6')
-					{ 
+					{
 					opis += '- A5 recto/verso';
 					if (ilosc == '25') { cena1=22.77;}
 					if (ilosc == '50') { cena1=23.10;}
@@ -1068,7 +1068,7 @@
 					if (ilosc == '100000') { cena1=1004.60;}
 					}
 				if ($('input_21').value == '7')
-					{ 
+					{
 					opis += '- A4 recto';
 					if (ilosc == '25') { cena1=26.50;}
 					if (ilosc == '50') { cena1=27.30;}
@@ -1143,7 +1143,7 @@
 					if (ilosc == '100000') { cena1=703.72 ;}
 					}
 				if ($('input_21').value == '10')
-					{ 
+					{
 					opis += '- Din long recto/verso';
 					if (ilosc == '25') { cena1=20.84;}
 					if (ilosc == '50') { cena1=21.03;}
@@ -1168,7 +1168,7 @@
 					if (ilosc == '100000') { cena1=703.72 ;}
 					}
 				if ($('input_21').value == '11')
-					{ 				
+					{
 					opis += '- A3 recto';
 					if (ilosc == '25') { cena1=32.48;}
 					if (ilosc == '50') { cena1=34.14;}
@@ -1193,7 +1193,7 @@
 					if (ilosc == '100000') { cena1=4363.03;}
 					}
 				if ($('input_21').value == '12')
-					{ 
+					{
 					opis += '- A3 recto/verso';
 					if (ilosc == '25') { cena1=32.48;}
 					if (ilosc == '50') { cena1=34.14;}
@@ -1217,13 +1217,13 @@
 					if (ilosc == '75000') { cena1=3277.11;}
 					if (ilosc == '100000') { cena1=4363.03;}
 					}
-			opis += '<br />- 170gr';	
+			opis += '<br />- 170gr';
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 250g') {
-				
-				if ($('input_21').value == '1'){ 
+
+				if ($('input_21').value == '1'){
 						opis += '- A7 recto';
 					if (ilosc == '25') { cena1=16.22;}
 					if (ilosc == '50') { cena1=17.06;}
@@ -1273,7 +1273,7 @@
 					if (ilosc == '100000') { cena1=350.86;}
 					}
 				if ($('input_21').value == '3')
-					{ 
+					{
 					opis += '- A6 recto';
 					if (ilosc == '25') { cena1=19.62;}
 					if (ilosc == '50') { cena1=20.66;}
@@ -1298,7 +1298,7 @@
 					if (ilosc == '100000') { cena1=664.73;}
 					}
 				if ($('input_21').value == '4')
-					{ 
+					{
 					opis += '- A6 recto/verso';
 					if (ilosc == '25') { cena1=19.62;}
 					if (ilosc == '50') { cena1=20.66;}
@@ -1322,7 +1322,7 @@
 					if (ilosc == '75000') { cena1=509.30;}
 					if (ilosc == '100000') { cena1=664.73;}
 					}
-				if ($('input_21').value == '5'){ 
+				if ($('input_21').value == '5'){
 					opis += '- A5 recto';
 					if (ilosc == '25') { cena1=23.02;}
 					if (ilosc == '50') { cena1=23.47;}
@@ -1347,7 +1347,7 @@
 					if (ilosc == '100000') { cena1=1313.47;}
 					}
 				if ($('input_21').value == '6')
-					{ 
+					{
 					opis += '- A5 recto/verso';
 					if (ilosc == '25') { cena1=23.02;}
 					if (ilosc == '50') { cena1=23.47;}
@@ -1372,7 +1372,7 @@
 					if (ilosc == '100000') { cena1=1313.47;}
 					}
 				if ($('input_21').value == '7')
-					{ 
+					{
 					opis += '- A4 recto';
 					if (ilosc == '25') { cena1=27.01;}
 					if (ilosc == '50') { cena1=28.03;}
@@ -1447,7 +1447,7 @@
 					if (ilosc == '100000') { cena1=874.65 ;}
 					}
 				if ($('input_21').value == '10')
-					{ 
+					{
 					opis += '- Din long recto/verso';
 					if (ilosc == '25') { cena1=21.01;}
 					if (ilosc == '50') { cena1=21.29;}
@@ -1472,7 +1472,7 @@
 					if (ilosc == '100000') { cena1=874.65 ;}
 					}
 				if ($('input_21').value == '11')
-					{ 				
+					{
 					opis += '- A3 recto';
 					if (ilosc == '25') { cena1=33.48;}
 					if (ilosc == '50') { cena1=35.59;}
@@ -1497,7 +1497,7 @@
 					if (ilosc == '100000') { cena1=5170.93;}
 					}
 				if ($('input_21').value == '12')
-					{ 
+					{
 					opis += '- A3 recto/verso';
 					if (ilosc == '25') { cena1=33.48;}
 					if (ilosc == '50') { cena1=35.59;}
@@ -1521,13 +1521,13 @@
 					if (ilosc == '75000') { cena1=3902.44;}
 					if (ilosc == '100000') { cena1=5170.93;}
 					}
-				
-			opis += '<br />- 250gr';		
+
+			opis += '<br />- 250gr';
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 350g') {
-				if ($('input_21').value == '1'){ 
+				if ($('input_21').value == '1'){
 						opis += '- A7 recto';
 					if (ilosc == '25') { cena1=20.13;}
 					if (ilosc == '50') { cena1=25.29;}
@@ -1577,7 +1577,7 @@
 					if (ilosc == '100000') { cena1=554.00;}
 					}
 				if ($('input_21').value == '3')
-					{ 
+					{
 					opis += '- A6 recto';
 					if (ilosc == '25') { cena1=25.35;}
 					if (ilosc == '50') { cena1=30.56;}
@@ -1602,7 +1602,7 @@
 					if (ilosc == '100000') { cena1=838.00;}
 					}
 				if ($('input_21').value == '4')
-					{ 
+					{
 					opis += '- A6 recto/verso';
 					if (ilosc == '25') { cena1=25.35;}
 					if (ilosc == '50') { cena1=30.56;}
@@ -1626,7 +1626,7 @@
 					if (ilosc == '75000') { cena1=670.00;}
 					if (ilosc == '100000') { cena1=838.00;}
 					}
-				if ($('input_21').value == '5'){ 
+				if ($('input_21').value == '5'){
 					opis += '- A5 recto';
 					if (ilosc == '25') { cena1=30.18;}
 					if (ilosc == '50') { cena1=35.38;}
@@ -1651,7 +1651,7 @@
 					if (ilosc == '100000') { cena1=1937.00;}
 					}
 				if ($('input_21').value == '6')
-					{ 
+					{
 					opis += '- A5 recto/verso';
 					if (ilosc == '25') { cena1=30.18;}
 					if (ilosc == '50') { cena1=35.38;}
@@ -1676,7 +1676,7 @@
 					if (ilosc == '100000') { cena1=1937.00;}
 					}
 				if ($('input_21').value == '7')
-					{ 
+					{
 					opis += '- A4 recto';
 					if (ilosc == '25') { cena1=35.00;}
 					if (ilosc == '50') { cena1=40.00;}
@@ -1751,7 +1751,7 @@
 					if (ilosc == '100000') { cena1=1422.00 ;}
 					}
 				if ($('input_21').value == '10')
-					{ 
+					{
 					opis += '- Din long recto/verso';
 					if (ilosc == '25') { cena1=34.00;}
 					if (ilosc == '50') { cena1=38.22;}
@@ -1776,7 +1776,7 @@
 					if (ilosc == '100000') { cena1=1422.00;}
 					}
 				if ($('input_21').value == '11')
-					{ 				
+					{
 					opis += '- A3 recto';
 					if (ilosc == '25') { cena1=54.00;}
 					if (ilosc == '50') { cena1=66.00;}
@@ -1801,7 +1801,7 @@
 					if (ilosc == '100000') { cena1=10635.93;}
 					}
 				if ($('input_21').value == '12')
-					{ 
+					{
 					opis += '- A3 recto/verso';
 					if (ilosc == '25') { cena1=54.00;}
 					if (ilosc == '50') { cena1=66.00;}
@@ -1825,7 +1825,7 @@
 					if (ilosc == '75000') { cena1=8631.44;}
 					if (ilosc == '100000') { cena1=10635.93;}
 					}
-			opis += '<br />- 350gr';	
+			opis += '<br />- 350gr';
 			}
 
 			//////////////////////////////////////////////////////////////////////////
@@ -1945,52 +1945,52 @@
 				}
 			}
 			/////////////////////////////////////////////////////////// coef/////////////
-			
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '11') ) && (ilosc == '25') ) {cena1*=1.1;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc == '25') ) {cena1*=1.32;} ///////coef 1.1*1.2//////
-			
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '11') ) && (ilosc == '50') ) {cena1*=1.2;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc == '50') ) {cena1*=1.44;} ///////coef 1.2*1.2//////
 
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9') || ($('input_21').value == '11') ) && (ilosc == '100') ) {cena1*=1.3;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc == '100') ) {cena1*=1.56;} ///////coef 1.3*1.2//////
-			
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5')  || ($('input_21').value == '7') || ($('input_21').value == '9')) && (ilosc == '250') ) {cena1*=1.4;}
 			if ( ( ($('input_21').value == '11')) && (ilosc == '250') ) {cena1*=1.5;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') ) && (ilosc == '250') ) {cena1*=1.68;} ///////coef 1.4*1.2//////
 			if ( ( ($('input_21').value == '12')) && (ilosc == '250') ) {cena1*=1.8;} /////coef 1.5*1.2/////
-			
-			
+
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '5') || ($('input_21').value == '9')) && (ilosc == '500') ) {cena1*=1.5;}
 			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7')) && (ilosc == '500') ) {cena1*=1.8;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6') || ($('input_21').value == '10') ) && (ilosc == '500') ) {cena1*=1.8;} ///////coef 1.5*1.2//////
 			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') ) && (ilosc == '500') ) {cena1*=2.16;} /////coef 1.8*1.2/////
-			
-			
+
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') || ($('input_21').value == '9')) && (ilosc == '1000') ) {cena1*=1.6;}
 			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '5')) && (ilosc == '1000') ) {cena1*=2;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '10') ) && (ilosc == '1000') ) {cena1*=1.92;} ///////coef 1.6*1.2//////
 			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') ) && (ilosc == '1000') || ($('input_21').value == '6')) {cena1*=2.4;} /////coef 2*1.2/////
-			
-			
+
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') ) && (ilosc == '1250') ) {cena1*=1.7;}
 			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '9' || ($('input_21').value == '5')) && (ilosc == '1250')) ) {cena1*=2;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4')  ) && (ilosc == '1250') ) {cena1*=2.04;} ///////coef 1.7*1.2//////
 			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') || ($('input_21').value == '6') || ($('input_21').value == '10')) && (ilosc == '1250')) {cena1*=2.4;} /////coef 2*1.2/////
-			
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') ) && (ilosc == '1500') ) {cena1*=1.8;}
 			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '9' || ($('input_21').value == '5')) && (ilosc == '1500')) ) {cena1*=2;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4')  ) && (ilosc == '1500') ) {cena1*=2.16;} ///////coef 1.8*1.2//////
 			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') || ($('input_21').value == '6') || ($('input_21').value == '10')) && (ilosc == '1500')) {cena1*=2.4;} /////coef 2*1.2/////
-			
+
 			if ( ( ($('input_21').value == '1') || ($('input_21').value == '3') ) && (ilosc == '2000') ) {cena1*=1.9;}
 			if ( ( ($('input_21').value == '11')|| ($('input_21').value == '7') || ($('input_21').value == '9' || ($('input_21').value == '5')) && (ilosc == '2000')) ) {cena1*=2;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4')  ) && (ilosc == '2000') ) {cena1*=2.28;} ///////coef 1.9*1.2//////
 			if ( ( ($('input_21').value == '12') || ($('input_21').value == '8') || ($('input_21').value == '6') || ($('input_21').value == '10')) && (ilosc == '2000')) {cena1*=2.4;} /////coef 2*1.2/////
-			
+
 			if ((ilosc == '2500') || (ilosc == '5000') || (ilosc == '10000') || (ilosc == '15000') || (ilosc == '20000') || (ilosc == '25000') || (ilosc == '30000') || (ilosc == '35000') || (ilosc == '40000') || (ilosc == '45000') || (ilosc == '50000') || (ilosc == '75000') || (ilosc == '100000') ) {cena1*=2;}
 			if ( ( ($('input_21').value == '2') || ($('input_21').value == '4') || ($('input_21').value == '6')  || ($('input_21').value == '8') || ($('input_21').value == '10') || ($('input_21').value == '12') ) && (ilosc >= '2500') ) {cena1*=1.2;} ///////coef rv//////
-			
+
 
 			////////////////////////////////////////////////////////// choix papier //
 			if ($('input_32').value == '1') {cena=cena1;
@@ -2003,26 +2003,26 @@
 			if ($('input_33').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-			
+
 			if ($('input_33').value == '3') {cena=cena1;
 			opis += '<br />- couché mat';
 			}
 			if ($('input_34').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-			
+
 			if ($('input_34').value == '3') {cena=cena1;
 			opis += '<br />- couché mat';
 			}
 			if ($('input_35').value == '1') {cena=cena1;
 			opis += '<br />- couché brillant';
 			}
-			
+
 			if ($('input_35').value == '3') {cena=cena1;
 			opis += '<br />- couché mat';
 			}
-			
-			
+
+
 			opis += '<br />- '+ilosc+' flyers';
 
 			//////////////////////////////////////////////////////// format gabarit //
@@ -2052,21 +2052,21 @@
 			}
 
 
-		
-			
-			
-		}	
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+
+		}
+
+
+
+
+
+
+
+
 			 ////////////////////////////////////////////////////////////////////////// depliant
-			 
-		if ($('input_0').value == 'Depliants') {	 
+
+		if ($('input_0').value == 'Depliants') {
       	if ($('input_1depliant').value == 'depliants 80g') {
         if ($('input_21depliant').value == '1'){ opis += '- 19,8x21cm ouvert -> 9,9x21cm fermé';}
         if ($('input_21depliant').value == '2'){ opis += '- A3 ouvert -> A4 fermé';}
@@ -2221,13 +2221,13 @@
 				hauteur = 14.8;
 				largeur = 21;
 			}
-     
-	 
-	 
-	} 
-	 
-	 
-	 
+
+
+
+	}
+
+
+
 	 	//////////////////////////////////////////////////////// choix maquette //
 			var ktodaje;
 
@@ -2246,13 +2246,13 @@
 				cena+=5;
 				ktodaje = 'je crée ma maquette en ligne';
 			}
-			
-		
-			
-      
-	  
-	  
-	  
+
+
+
+
+
+
+
 	  		if (($('input_41depliant').value == 'fb') || ($('input_42depliant').value == 'fb')) {
 				cena+=19;
 				ktodaje = 'France banderole crée la maquette';
@@ -2268,25 +2268,25 @@
 				cena+=5;
 				ktodaje = 'je crée ma maquette en ligne';
 			}
-	  
-	  
-	  
+
+
+
 
       opis += '<br />- '+ktodaje;
-			
-			
-			
+
+
+
 		if ($('input_signature').value == 'sans signature') {
 			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
 			opis += '<br />- sans signature';
 		}
 		if ($('input_signature').value == 'signature FB') {
 			opis += '<br />- signature France Banderole';
-		}	
-			
-			
-		
-			
+		}
+
+
+
+
 
 			/////////////////////////////////////////////////////////////// options //
 
@@ -2308,18 +2308,18 @@
 			cena += 5.00;
 			optliv += '<br />- relais colis';
 		}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
+
+
+
+
+
 				///////////////////////////////////////////// prix transport / quantité //
 			if (ilosc == '10') {transport=0;}
 			if (ilosc == '25') {transport=0;}
@@ -2434,10 +2434,10 @@
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 30;
+					ProdPercent = 20;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 60;
+					ProdPercent = 45;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -2445,10 +2445,10 @@
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 30;
+					DeliPercent = 20;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 60;
+					DeliPercent = 45;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;
@@ -2566,6 +2566,6 @@
 			var dodajkoszyk = document.getElementById("cart_form");
 			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+optliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 		}
-	}); 
+	});
 });
 </script>

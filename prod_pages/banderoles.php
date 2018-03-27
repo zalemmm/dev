@@ -6,33 +6,40 @@
 			<ul class="form-section">
 
 				<!--extérieur---------------------------------------------------------->
-				<li class="form-line" id="id_ext">
-					<span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
+				<li class="form-line select" id="id_ext">
+					<span class="helpButton">
 						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText1" style="visibility:hidden;">
+              <b class="helpeco"><i class="fa fa-envira" aria-hidden="true"></i> <a href="http://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecotoile.pdf" data-lity>EcoToile France banderole</a><sup><i class="fa fa-registered" aria-hidden="true"></i></sup></b>: <span class="highlight"> dès 7,80/m²</span><br />Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="http://dev.france-banderole.com/wp-content/uploads/2012/04/FT_JetUp_en.pdf" data-lity>100% écologique M1</a></b>: <span class="highlight">dès 21,45€/m²</span> Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
+							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/CAPOVERDE-TBR-EN-BREF-SLIDE.pdf" data-lity>Capotoile 320 M1</a></b>: <span class="highlight">dès 24,20€/m²</span> Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a>.<br />
 							<b>Bâche PVC 440g</b>: <span class="highlight">Le moins cher dès 4,90€/m²</span><br/>Pour petite ou moyenne banderole pas cher à courte durée de vie.<br />
 							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_550_en.pdf" data-lity>Dickson Jet 550</a></b>: <span class="highlight">qualité/prix dès 9,80€/m²</span> la bâche française, pour une banderole 100% made in France, résistante dans la durée.<br />
 							<b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-JET_520_en.pdf" data-lity>Dickson Jet 520 M1</a></b>: <span class="highlight">Anti-feu dès 15,30€/m²</span> bâche pvc enduite M1 INT/EXT durable et made in France.<br />
               <b class="helpfr"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <a href="https://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-LACOPACS_en.pdf" data-lity>Dickson Lacopac M2/B1</a></b>: <span class="highlight">R/V dès 19,90€/m²</span> bâche pvc épaisse opaque INT/EXT pour banderole recto verso.<br />
 							<b>bâche micro-perforée</b>: <span class="highlight">dès 6,50€/m²</span><br /> Bâche mesh grille pour banderole résistante au vent sur échafaudage, plage...<br />
 							<b>bâche nontissé 150g</b>: <span class="highlight">légèreté dès 8€/m²</span></b><br/>Toile coton/polyester pour balisage, jupe de palette. courte durée de vie. minimum 24M².<br />
-							<b class="helpeco"><i class="fa fa-envira" aria-hidden="true"></i> <a href="http://www.france-banderole.com/wp-content/uploads/notice/notice-banderole-ecotoile.pdf" data-lity>EcoToile France banderole</a><sup><i class="fa fa-registered" aria-hidden="true"></i></sup></b>: <span class="highlight"> dès 7,80/m²</span><br />Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !<br />
-							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="http://dev.france-banderole.com/wp-content/uploads/2012/04/FT_JetUp_en.pdf" data-lity>100% écologique M1</a></b>: <span class="highlight">dès 21,45€/m²</span> Toile Dickson 100% polyester M1 sans PVC ni phtalate et made in France.<br />
-							<b class="helpeco"><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/fr.png" alt="drapeau français"> <i class="fa fa-envira" aria-hidden="true"></i> <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/CAPOVERDE-TBR-EN-BREF-SLIDE.pdf" data-lity>Capotoile 320 M1</a></b>: <span class="highlight">dès 24,20€/m²</span> Toile 100% éco-conçue de fabrication française, labellisée <a href="https://www.france-banderole.com/wp-content/uploads/2012/04/ECOCERT-ERTS-Attestation-de-conformit%C2%AE-2016-Version-fran%C2%BAaise-CAPOVERDE-TBR.pdf" data-lity>ECOCERT ERTS</a>.<br />
+
 							<b>tissu 220g B1</b>: <span class="highlight">dès 12€/m²</span> tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
 							<b>tissu 260g B1</b>: <span class="highlight">dès 16€/m²</span> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_ext" name="qext_support1" onchange="JKakemono.czyscpola(); ">
 						<option value="">choisir le support...</option>
+              <optgroup label="&#xf299; écologique" class="eco">
+							<option value="ecotoile">bâche EcoToile 175g</option>
+							<option value="bache 100% écologique M1">bâche 100% écologique 250g M1</option>
+							<option value="capotoile">Capotoile 280g M1 validé Ecocert Erts</option>
+						</optgroup>
 						<optgroup label="&#xf016; Traditionnel" class="trad">
-							<option value="bache 440g">bâche 440g </option>
+							<option value="bache 440g">bâche 440g</option>
+              <option value="jet 550 enduite" id="revd">bâche 550g enduite</option>
 							<option value="jet 550">bâche Dickson Jet 550g</option>
-							<option value="jet 550 enduite" id="revd">bâche 550g enduite</option>
 							<option value="bache micro perforée M1/B1">bâche micro perforée 300g</option>
 							<option value="bache nontissé 150g">bâche nontissé 150g</option>
 						</optgroup>
 						<optgroup label="&#xf06d; Anti feu" class="fyah">
+              <option value="bache 450 M1" id="revd1">bâche 450g M1</option>
 							<option value="jet 520 M1">bâche Dickson Jet 520g M1</option>
 							<option value="lacopac">bâche Dickson Lacopac 680g M2/B1 </option>
 							<option value="lacopac recto verso">bâche Dickson Lacopac 680g M2/B1 recto/verso </option>
@@ -41,11 +48,7 @@
 							<option value="tissu 220g">tissu stretch léger 220g B1</option>
 							<option value="tissu 260g">tissu stretch extensible 260g B1</option>
 						</optgroup>
-						<optgroup label="&#xf299; écologique" class="eco">
-							<option value="ecotoile">bâche EcoToile 175g</option>
-							<option value="bache 100% écologique M1">bâche 100% écologique 250g M1</option>
-							<option value="capotoile">Capotoile 280g M1 validé Ecocert Erts</option>
-						</optgroup>
+
 					</select>
 				</li>
 
@@ -95,8 +98,8 @@
 				<div style="clear:both"> </div>
 
 				<!-- option ourlet----------------------------------------------------->
-				<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
+				<li class="form-line select" id="id_31">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText4" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure pour renforcer votre banderole. Recommandé dès 3m² ou longeur supérieure ou égale à 3m.<br />
@@ -116,8 +119,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
+				<li class="form-line select" id="id_32">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText5" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
@@ -133,8 +136,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
+				<li class="form-line select" id="id_33">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText6" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
@@ -151,8 +154,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="tipShow('helpText7');" onmouseout="tipHide('helpText7');">
+				<li class="form-line select" id="id_34">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText7" style="visibility:hidden;">
 							<b>Ourlet de renfort : <span class="highlight">dès 0,50€/m</span></b><br/>Repli de 2,5cm de matière soudé en bordure<br />
@@ -170,8 +173,8 @@
 				</li>
 
 				<!--option fourreaux---------------------------------------------------->
-				<li class="form-line" id="id_41">
-					<span class="helpButton" onmouseover="tipShow('helpText8');" onmouseout="tipHide('helpText8');">
+				<li class="form-line select" id="id_41">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText8" style="visibility:hidden;">
 							<b>qu'est-ce qu'un fourreau : <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
@@ -187,8 +190,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_42">
-					<span class="helpButton" onmouseover="tipShow('helpText9');" onmouseout="tipHide('helpText9');">
+				<li class="form-line select" id="id_42">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText9" style="visibility:hidden;">
 							<b>qu'est-ce qu'un fourreau : <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
@@ -203,8 +206,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_43">
-					<span class="helpButton" onmouseover="tipShow('helpText10');" onmouseout="tipHide('helpText10');">
+				<li class="form-line select" id="id_43">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText10" style="visibility:hidden;">
 							<b>qu'est-ce qu'un fourreau : <span class="highlight">dès 0,75€/m</span></b><br/>Repli de 10cm de matière soudé en bordure, pour laisser passer une drisse (corde), tourillon, piquet de bois. diamètre final 3,5cm<br />
@@ -220,8 +223,8 @@
 				</li>
 
 				<!--option scratch----------------------------------------------------->
-				<li class="form-line" id="id_71">
-					<span class="helpButton" onmouseover="tipShow('helpText71');" onmouseout="tipHide('helpText71');">
+				<li class="form-line select" id="id_71">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText71" style="visibility:hidden;">
 							<b>qu'est-ce qu'une finition scratch : <span class="highlight">dès 2€/m</span></b><br/>
@@ -334,18 +337,9 @@
 				</li>
 
 				<!--maquette----------------------------------------------------------->
-				<li class="form-line" id="id_12">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier +19,00€ :</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-                        </span>
+				<li class="form-line select" id="id_12">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_12" name="q6_maquette12" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
@@ -356,14 +350,10 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_signature">
-        	<span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+        <li class="form-line select" id="id_signature">
+        	<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
-              <b>Logo France Banderole</b><br/>
-						  Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-              <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-            </span>
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -396,35 +386,35 @@
 					<span class="options_single">
 
 						<span class="optionsleft"><label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked /><span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
-								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked /><span class="helpButton">
+								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
-								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsright"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
-								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextrelais" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsright"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsleft roll dis0"><label class="form-label-left" id="label_roll" for="roll">Livrée Roulée</label>
 							<input type="checkbox" class="form-checkbox" id="roll" name="roll[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextroll');" onmouseout="tipHide('helpTextroll');">
+							<span class="helpButton">
 								<span class="helpText" id="helpTextroll" style="visibility:hidden;">Nos banderoles en dessous de 2x2m sont livrées roulées, au delà elles sont pliées pour des raisons de dimensions de colis. La livraison roulée reste disponible en option pour 20€ et un délai d'un jour supplémentaire. </span>
 							</span>
 						</span>
@@ -682,12 +672,21 @@
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((h1>=1.61)&&(h1<=2.00))){plm =13.70 ;}
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((h1>=2.01)&&(h1<=2.50))){plm =14.32 ;}
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (h1>=2.51)){plm =14.94 ;}
+			////450M1
+			if (($('input_ext').value == 'bache 450 M1') && (h1<=1.00)) {plm =12.45*0.8 ;} /////////////jet 550 -20%
+			if (($('input_ext').value == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =13.07*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =13.70*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =14.32*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  && (h1>=2.51)){plm =14.94*0.8 ;}
+
 			////jet 520 M1
 			if (($('input_ext').value == 'jet 520 M1' ) && (h1<=1.00) ){plm =15.90 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =16.70 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =17.49 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =18.29 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && (h1>=2.51)){plm =19.08 ;}
+
+
 
 			////lacopac
 			if (($('input_ext').value == 'lacopac' ) && (h1<=1.00) ){plm =18.15 ;}
@@ -756,6 +755,12 @@
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (l1>=2.51)){plm =14.94 ;}
+			////450M1
+			if (($('input_ext').value == 'bache 450 M1') && (h1<=1.00)) {plm =12.45*0.8 ;} /////////////jet 550 -20%
+			if (($('input_ext').value == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =13.07*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =13.70*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =14.32*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  && (h1>=2.51)){plm =14.94*0.8 ;}
 			////jet 520 M1
 			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
@@ -829,6 +834,12 @@
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
 			if (($('input_ext').value == 'jet 550' || $('input_ext').value == 'jet 550 enduite') && (l1>=2.51)){plm =14.94 ;}
+			////450M1
+			if (($('input_ext').value == 'bache 450 M1') && (h1<=1.00)) {plm =12.45*0.8 ;} /////////////jet 550 -20%
+			if (($('input_ext').value == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =13.07*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =13.70*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =14.32*0.8 ;}
+			if (($('input_ext').value == 'bache 450 M1')  && (h1>=2.51)){plm =14.94*0.8 ;}
 			////jet 520 M1
 			if (($('input_ext').value == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
 			if (($('input_ext').value == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
@@ -968,6 +979,36 @@
 			if (metragefinal > 499.99) {cenatotal = prixtotal*0.78;}
 			bacheType = '- bache Jet 550'
 		}
+
+		////////////// 450 M1//
+		if ($('input_ext').value == 'bache 450 M1' ) {
+			if (metragefinal < 1.99) {cenatotal = prixtotal;}
+			if ((metragefinal > 1.99) && (metragefinal <= 3.99)) {cenatotal = prixtotal*0.99;}
+			if ( (metragefinal > 3.99) && (metragefinal <= 5.99) ) {cenatotal = prixtotal*0.98;}
+			if ( (metragefinal > 5.99) && (metragefinal <= 7.99) ) {cenatotal = prixtotal*0.97;}
+			if ( (metragefinal > 7.99) && (metragefinal <= 9.99) ) {cenatotal = prixtotal*0.96;}
+			if ( (metragefinal > 9.99) && (metragefinal <= 13.99) ) {cenatotal = prixtotal*0.95;}
+			if ( (metragefinal > 13.99) && (metragefinal <= 17.99) ) {cenatotal = prixtotal*0.94;}
+			if ( (metragefinal > 17.99) && (metragefinal <= 23.99) ) {cenatotal = prixtotal*0.93;}
+			if ( (metragefinal > 23.99) && (metragefinal <= 29.99) ) {cenatotal = prixtotal*0.92;}
+			if ( (metragefinal > 29.99) && (metragefinal <= 39.99) ) {cenatotal = prixtotal*0.91;}
+			if ( (metragefinal > 39.99) && (metragefinal <= 49.99) ) {cenatotal = prixtotal*0.90;}
+			if ( (metragefinal > 49.99) && (metragefinal <= 59.99) ) {cenatotal = prixtotal*0.89;}
+			if ( (metragefinal > 59.99) && (metragefinal <= 69.99) ) {cenatotal = prixtotal*0.88;}
+			if ( (metragefinal > 69.99) && (metragefinal <= 79.99) ) {cenatotal = prixtotal*0.87;}
+			if ( (metragefinal > 79.99) && (metragefinal <= 89.99) ) {cenatotal = prixtotal*0.86;}
+			if ( (metragefinal > 89.99) && (metragefinal <= 99.99) ) {cenatotal = prixtotal*0.85;}
+			if ( (metragefinal > 99.99) && (metragefinal <= 149.99) ) {cenatotal = prixtotal*0.84;}
+			if ( (metragefinal > 149.99) && (metragefinal <= 199.99) ) {cenatotal = prixtotal*0.83;}
+			if ( (metragefinal > 199.99) && (metragefinal <= 249.99) ) {cenatotal = prixtotal*0.82;}
+			if ( (metragefinal > 249.99) && (metragefinal <= 299.99) ) {cenatotal = prixtotal*0.81;}
+			if ( (metragefinal > 299.99) && (metragefinal <= 399.99) ) {cenatotal = prixtotal*0.80;}
+			if ( (metragefinal > 399.99) && (metragefinal <= 499.99) ) {cenatotal = prixtotal*0.79;}
+			if (metragefinal > 499.99) {cenatotal = prixtotal*0.78;}
+			bacheType = '- bache 450 M1'
+		}
+
+
 		////////////// JET 550 enduite //
 		if ($('input_ext').value == 'jet 550 enduite' ) {
 			if (metragefinal < 1.99) {cenatotal = prixtotal;}
@@ -1521,10 +1562,10 @@
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 15;
+					ProdPercent = 20;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 40;
+					ProdPercent = 45;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -1532,10 +1573,10 @@
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 15;
+					DeliPercent = 20;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 40;
+					DeliPercent = 45;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;
@@ -1728,7 +1769,7 @@
 				aBox.style.display="block";
 				erreurType=0;
 			}
-			if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (largeur > 5) && (hauteur > 5)) {
+			if ( ($('input_ext').value == 'bache micro perforée M1/B1') && (largeur > 25) && (hauteur > 25)) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
 				eBox.style.display="block";
 				erreurType=1;
@@ -1739,7 +1780,7 @@
 				aBox.style.display="block";
 				erreurType=0;
 			}
-			if ( ($('input_ext').value == 'jet 550') && (largeur > 5) && (hauteur > 5)  ) {
+			if ( ($('input_ext').value == 'jet 550') && (largeur > 25) && (hauteur > 25)  ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
 				eBox.style.display="block";
 				erreurType=1;
@@ -1750,7 +1791,7 @@
 				aBox.style.display="block";
 				erreurType=0;
 			}
-			if ( ($('input_ext').value == 'jet 550 enduite') && (largeur > 5) && (hauteur > 5)  ) {
+			if ( ($('input_ext').value == 'jet 550 enduite') && (largeur > 25) && (hauteur > 25)  ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
 				eBox.style.display="block";
 				erreurType=1;
@@ -1766,7 +1807,7 @@
 				aBox.style.display="block";
 				erreurType=0;
 			}
-			if ( ($('input_ext').value == 'jet 520 M1') && (largeur > 5) && (hauteur > 5) ) {
+			if ( ($('input_ext').value == 'jet 520 M1') && (largeur > 25) && (hauteur > 25) ) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
 				eBox.style.display="block";
 				erreurType=1;
@@ -1777,7 +1818,7 @@
 				aBox.style.display="block";
 				erreurType=0;
 			}
-			if ( ($('input_ext').value == 'lacopac') && (largeur > 5) && (hauteur > 5)) {
+			if ( ($('input_ext').value == 'lacopac') && (largeur > 25) && (hauteur > 25)) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
 				eBox.style.display="block";
 				erreurType=1;
@@ -1799,7 +1840,7 @@
 				aBox.style.display="block";
 				erreurType=0;
 			}
-			if ( ($('input_ext').value == 'bache 440g') && (largeur > 5) && (hauteur > 5)) {
+			if ( ($('input_ext').value == 'bache 440g') && (largeur > 25) && (hauteur > 25)) {
 				eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Hauteur ou Largeur doit être inférieure à 5m!';
 				eBox.style.display="block";
 				erreurType=1;

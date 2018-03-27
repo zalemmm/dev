@@ -6,8 +6,8 @@
 			<ul class="form-section">
 
 				<!--support---------------------------------------------------------->
-				<li class="form-line" id="id_support">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport');" onmouseout="tipHide('helpTextsupport');">
+				<li class="form-line select" id="id_support">
+					<span class="helpButton">
 						<img class="helpImg" src="//www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport" style="visibility:hidden;">
 							<b>tissu 220g B1</b>: tissu stretch léger 100% polyester 220g traité retardant au feu B1<br />
@@ -23,8 +23,8 @@
 
 
 				<!--forme---------------------------------------------------->
-				<li class="form-line" id="id_forme">
-					<span class="helpButton" onmouseover="tipShow('helpText8');" onmouseout="tipHide('helpText8');">
+				<li class="form-line select" id="id_forme">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText8" style="visibility:hidden;">
 							Votre <b>nappe personnalisée</b> peut être de forme ronde, carrée ou rectangulaire
@@ -38,18 +38,9 @@
 				</li>
 
 				<!--maquette----------------------------------------------------------->
-				<li class="form-line" id="id_maquette1">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette1');" onmouseout="tipHide('helpTextmaquette1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette1" style="visibility:hidden;">
-              <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier +19,00€ :</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-                        </span>
+				<li class="form-line select" id="id_maquette1">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_maquette1" name="q6_maquette1" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
@@ -60,18 +51,9 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_maquette2">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette2');" onmouseout="tipHide('helpTextmaquette2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
-              <b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier +19,00€ :</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-            </span>
+        <li class="form-line select" id="id_maquette2">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextmaquetteBis" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_maquette2" name="q6_maquette2" onchange="JKakemono.czyscpola(); ">
 						<option value="">fichier d'impression...</option>
@@ -82,13 +64,9 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_signature1">
-          <span class="helpButton" onmouseover="tipShow('helpTextsignature1');" onmouseout="tipHide('helpTextsignature1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature1" style="visibility:hidden;">
-              <b>Logo France Banderole</b><br/>
-							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-              <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-            </span>
+        <li class="form-line select" id="id_signature1">
+          <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature1" name="qsignature_signature1" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -97,13 +75,9 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_signature2">
-          <span class="helpButton" onmouseover="tipShow('helpTextsignature2');" onmouseout="tipHide('helpTextsignature2');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature2" style="visibility:hidden;">
-	            <b>Logo France Banderole</b><br/>
-							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-	            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-	          </span>
+        <li class="form-line select" id="id_signature2">
+          <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignatureBis" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature2" name="qsignature_signature2" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -142,29 +116,29 @@
 					<span class="options_single">
 
 						<span class="optionsleft"><label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked /><span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
-								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked /><span class="helpButton">
+								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsleft"><label class="form-label-left" id="label_etiquette" for="etiquette">Retrait Colis a L'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
-								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsright"><label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
-								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextrelais" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsright"><label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
@@ -732,10 +706,10 @@
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 15;
+					ProdPercent = 20;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 40;
+					ProdPercent = 45;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -743,10 +717,10 @@
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 15;
+					DeliPercent = 20;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 40;
+					DeliPercent = 45;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;

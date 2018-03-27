@@ -132,24 +132,17 @@ function get_rating_page() {
 			$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
 			if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
 	    elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
-	    elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
+	    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
+			elseif ($prodname->name == 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
+			elseif ($prodname->name == 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif ($prodname->name == 'Affiches 120g'){$lienprod = get_bloginfo('url').'/affiches';}
+			elseif ($prodname->name == 'Affiches 150g'){$lienprod = get_bloginfo('url').'/affiches';}
+			elseif ($prodname->name == 'Affiches 220g'){$lienprod = get_bloginfo('url').'/affiches';}
+			elseif ($prodname->name == 'Affiches 120g fluo'){$lienprod = get_bloginfo('url').'/affiches';}
+			elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
 	    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
 	    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
-	    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
-	    elseif ($prodname->name == 'depliants 80g'){$lienprod = get_bloginfo('url').'/depliants';}
-	    elseif ($prodname->name == 'depliants 135g'){$lienprod = get_bloginfo('url').'/depliants';}
-	    elseif ($prodname->name == 'depliants 170g'){$lienprod = get_bloginfo('url').'/depliants';}
-	    elseif ($prodname->name == 'depliants 250g'){$lienprod = get_bloginfo('url').'/depliants';}
-	    elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
-	    elseif ($prodname->name == 'Flyers 80g'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 135g'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 170g'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 250g'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 350g'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 120µ'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 270µ'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Flyers 350µ'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Affiches 135g'){$lienprod = get_bloginfo('url').'/affiches';}
+			elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
 	    elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
 	    elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
 	    elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
@@ -163,9 +156,15 @@ function get_rating_page() {
 	    elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
 	    elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
 	    elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
-	    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
+	    elseif ($prodname->name == 'Stickers autocollant'){$lienprod = get_bloginfo('url').'/stickers';}
+			elseif ($prodname->name == 'Stickers Lettrage'){$lienprod = get_bloginfo('url').'/stickers';}
+			elseif ($prodname->name == 'Stickers prédécoupé'){$lienprod = get_bloginfo('url').'/stickers';}
+			elseif ($prodname->name == 'Stickers vitrophanie'){$lienprod = get_bloginfo('url').'/stickers';}
+			elseif ($prodname->name == 'Stickers mural'){$lienprod = get_bloginfo('url').'/stickers';}
 	    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
 			elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+			elseif ($prodname->name == 'Cadre tissu'){$lienprod = get_bloginfo('url').'/cadre-tissu';}
+	    elseif ($prodname->name == 'Enseigne stand suspendue'){$lienprod = get_bloginfo('url').'/enseigne-suspendue-textile';}
 	    else {$lienprod = get_bloginfo('url').'/banderoles';};
 
 			// séparer nom prénom et ne garder que l'initiale du nom------------------
@@ -263,24 +262,17 @@ function get_rating_page() {
 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
 		if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
     elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
-    elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
+		elseif ($prodname->name == 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
+		elseif ($prodname->name == 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Affiches 120g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Affiches 150g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Affiches 220g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Affiches 120g fluo'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
     elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
     elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
-    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
-    elseif ($prodname->name == 'depliants 80g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'depliants 135g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'depliants 170g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'depliants 250g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
-    elseif ($prodname->name == 'Flyers 80g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 135g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 170g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 250g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 350g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 120µ'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 270µ'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 350µ'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Affiches 135g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
     elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
     elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
     elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
@@ -294,9 +286,14 @@ function get_rating_page() {
     elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
     elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
     elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
-    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
+		elseif ($prodname->name == 'Stickers Lettrage'){$lienprod = get_bloginfo('url').'/stickers';}
+		elseif ($prodname->name == 'Stickers prédécoupé'){$lienprod = get_bloginfo('url').'/stickers';}
+		elseif ($prodname->name == 'Stickers vitrophanie'){$lienprod = get_bloginfo('url').'/stickers';}
+		elseif ($prodname->name == 'Stickers mural'){$lienprod = get_bloginfo('url').'/stickers';}
     elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
 		elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+		elseif ($prodname->name == 'Cadre tissu'){$lienprod = get_bloginfo('url').'/cadre-tissu';}
+    elseif ($prodname->name == 'Enseigne stand suspendue'){$lienprod = get_bloginfo('url').'/enseigne-suspendue-textile';}
     else {$lienprod = get_bloginfo('url').'/banderoles';};
 
 		// séparer nom prénom et ne garder que l'initiale du nom------------------
@@ -340,7 +337,7 @@ function get_fb_rating() {
 	$czyoceniony = $wpdb->get_row("SELECT * FROM `$fb_tablename_rating` WHERE unique_id = '$idzamowienia'");
 	if (!$czyoceniony) {
 		$view = '<h1>Donnez Votre Avis</h1><hr />';
-		$view .= '<div id="rating"><form name="ratingform" id="ratingform" action="'.get_bloginfo("url").'/avis/" method="post"><input type="hidden" name="addrating" value="'.$idzamowienia.'" />';
+		$view .= '<div id="rating"><form name="ratingform" id="ratingform" action="'.get_bloginfo("url").'/avis_france_banderole/" method="post"><input type="hidden" name="addrating" value="'.$idzamowienia.'" />';
 
 		$view .= '<div class="rating_element" id="raele1">
 			<div class="rating_elcol1">Evaluez le rapport<br />qualité / prix de vos achats:</div>

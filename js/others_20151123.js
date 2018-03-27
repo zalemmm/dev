@@ -39,7 +39,7 @@ function potwierdzregulamin() {
 
 function czyilosc(licznik) {
 	if ( !jQuery('#nummo'+licznik).val() ) {
-		jQuery('#nummo'+licznik).css('background','#EA2A6A');
+		jQuery('#nummo'+licznik).css('background','#FFAAAA');
 		return false;
 	} else {
 		return true;

@@ -197,7 +197,8 @@ cal_autocollant: function(){
 
 },
 //////FIN AUTOCOLLANT/////
-
+cal_enseigne_suspendue: function(){
+},
 
 //////vitrophanie/////
 cal_vitrophanie: function(){

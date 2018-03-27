@@ -713,15 +713,6 @@ JotForm = {
               imag2.style.animation="anim1 .5s 1";
             }
 
-            // spots
-            if (($('input_2').value == '1') || ($('input_51').value == '1')) {
-               imag3.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/spots.png)";
-               imag3.style.animation="anim .5s 1";
-            }
-            else{
-              imag3.style.backgroundImage="none";
-            }
-
             // valise
             if ($('input_6').value == '41') {
                imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valise.png)";
@@ -735,23 +726,7 @@ JotForm = {
                imag4.style.backgroundImage="none";
             }
 
-            // stands parapluie
-            if ($('input_1').value == '2') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/pcourbe3.png)";
-               imag2.style.animation="anim .5s 1";
-            }
-            if ($('input_1').value == '3') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/pcourbe4.png)";
-               imag2.style.animation="anim1 .5s 1";
-            }
-            if ($('input_1').value == '7') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/pdroit3.png)";
-               imag2.style.animation="anim2 .5s 1";
-            }
-            if ($('input_1').value == '8') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/pdroit4.png)";
-               imag2.style.animation="anim3 .5s 1";
-            }
+
           }
 
         }

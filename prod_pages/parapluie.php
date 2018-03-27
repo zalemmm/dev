@@ -5,14 +5,13 @@
     <div class="form-all">
       <ul class="form-section">
 
-        <li class="form-line" id="id_0">
-          <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');">
+        <li class="form-line select" id="id_0">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0" style="visibility:hidden;">
-              <b>Stand tissu EasyQuick: <span class="highlight">Dès 342€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
+              <b>Stand tissu EasyQuick: <span class="highlight">- de 240€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
               <b>Stand ExpoBag: <span class="highlight">Dès 530€</span></b><br/>stand complet avec un mur d'image 200x220cm en bâche PVC 520g M1 ou en tissu 220g B1 avec visuel 220x240cm + 2 roll-up + valise - comptoir d'accueil avec tablette (visuel en tissu 220gr B1 ou en PVC 300µ) + présentoir documents 4 poches.<br/>
-              <b>Stand parapluie révolution: <span class="highlight">Dès 627€</span></b><br/>stand parapluie complet imprimé sur lés pvc anti-feu M1 à monter + valise/comptoir d'accueil + visuel comptoir + 2 spots.<br />
-              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 196€ !!!</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
               <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
             </span>
           </span>
@@ -27,8 +26,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_photocall">
-          <span class="helpButton" onmouseover="tipShow('helpTextphotocall');" onmouseout="tipHide('helpTextphotocall');">
+        <li class="form-line select" id="id_photocall">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextphotocall" style="visibility:hidden;">
               <b>PVC Dickson Jet 520g M1: </b><br/>choissez d'imprimer le visuel du mur d'image sur de la bâche PVC Dickson Jet 520g M1 ou du tissu stretch léger 220g B1.<br />
@@ -43,8 +42,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_valise">
-          <span class="helpButton" onmouseover="tipShow('helpTextvalise');" onmouseout="tipHide('helpTextvalise');">
+        <li class="form-line select" id="id_valise">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpTextvalise" style="visibility:hidden;">
               <b>PVC 300µ: </b><br/>choissez d'imprimer le visuel de votre valise sur du PVC 300µ.<br />Taille finale 140x85cm<br />
@@ -60,11 +59,11 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_01">
-          <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
+        <li class="form-line select" id="id_01">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText1" style="visibility:hidden;">
-              <b>Stand tissu droit: <span class="highlight">Dès 342€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
+              <b>Stand tissu droit: <span class="highlight">Dès 239€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
               <b>Stand tissu courbé: <span class="highlight">Dès 336€ en 3x3</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/>
             </span>
           </span>
@@ -76,8 +75,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_1">
-          <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');">
+        <li class="form-line select" id="id_1">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText2" style="visibility:hidden;">
               <b>stand parapluie 3x3 droit: <span class="highlight">Dès 685€</span></b><br/>225x225cm le stand traditionnel complet polyvalent<br />
@@ -102,11 +101,11 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_50">
-          <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
+        <li class="form-line select" id="id_50">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText4" style="visibility:hidden;">
-              <b>Stand tissu droit recto : <span class="highlight">Dès 342€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
+              <b>Stand tissu droit recto : <span class="highlight">Dès 239€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
               <b>Stand tissu droit recto verso: <span class="highlight">Dès 474€ en 3x3</span></b><br/>le stand tissu meilleur prix en ligne. Disponible de 3x3 (226x226cm)  à 3x8 (226x600cm). le verso est également imprimé sur de la maille extensible 220 ou 260g<br/>
             </span>
           </span>
@@ -136,8 +135,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_500">
-          <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
+        <li class="form-line select" id="id_500">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText5" style="visibility:hidden;">
               <b>Stand tissu courbé recto : <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />
@@ -153,8 +152,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_02">
-          <span class="helpButton" onmouseover="tipShow('helpText02');" onmouseout="tipHide('helpText02');">
+        <li class="form-line select" id="id_02">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText02" style="visibility:hidden;">
               <b>tissu 220g B1: <span class="highlight">utilisation occasionnelle</span></b><br /> tissu léger 100% polyester 220g traité retardant au feu B1<br />
@@ -168,8 +167,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_0222">
-          <span class="helpButton" onmouseover="tipShow('helpText0222');" onmouseout="tipHide('helpText0222');">
+        <li class="form-line select" id="id_0222">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText0222" style="visibility:hidden;">
               <b>tissu 220g B1:</b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
@@ -183,8 +182,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_022">
-          <span class="helpButton" onmouseover="tipShow('helpText022');" onmouseout="tipHide('helpText022');">
+        <li class="form-line select" id="id_022">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText022" style="visibility:hidden;">
               <b>PVC 300µ M1: <span class="highlight">le moins cher !</span></b><br /> visuel imprimé sur pvc souple à scratcher (scratchs fournis) <br />
@@ -203,35 +202,26 @@
         </li>
 
 
-        <li class="form-line" id="id_6">
-          <span class="helpButton" onmouseover="tipShow('helpText7');" onmouseout="tipHide('helpText7');">
+        <li class="form-line select" id="id_6">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText7" style="visibility:hidden;">
-              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 258€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
+              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 196€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
               <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
             </span>
           </span>
           <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
             <option value="">choisir l'option... </option>
-            <option value="41">valise transformable en bank accueil </option>
-            <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
             <option value="0">non merci </option>
+            <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
+            <option value="41">valise transformable en bank accueil </option>
           </select>
         </li>
 
-        <li class="form-line" id="id_7">
-          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+        <li class="form-line select" id="id_7">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-							<b>j’ai mon fichier, je ne souhaite pas de BAT :</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier +35,00€ :</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-                        </span>
+            <span class="helpText" id="helpTextmaquette" style="visibility:hidden;"></span>
           </span>
           <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
             <option value="">fichier d'impression...</option>
@@ -242,13 +232,9 @@
           </select>
         </li>
 
-         <li class="form-line" id="id_signature">
-                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
-                        	<b>Logo France Banderole</b><br/>
-							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-                        </span>
+         <li class="form-line select" id="id_signature">
+          <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -257,7 +243,7 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_8" data-trigger="spinner">
+        <li class="form-line select" id="id_8" data-trigger="spinner">
           <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité :<br /><span class="small">(par visuel)</span></label>
           <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " data-rule="quantity" />
 					<div class="spinner-controls">
@@ -275,25 +261,24 @@
           <span class="optionsleft">
             <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
             <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-            <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
-              <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client.
-              </span>
+            <span class="helpButton">
+              <span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
             </span>
           </span>
 
 					<span class="optionsleft">
             <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
             <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-            <span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
-              <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+            <span class="helpButton">
+              <span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
             </span>
           </span>
 
           <span class="optionsleft">
             <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
             <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-            <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-              <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+            <span class="helpButton">
+              <span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
             </span>
           </span>
 
@@ -314,7 +299,7 @@
           	<h5 class="delivery-delay">Delai Livraison :</h5>
           	<button class="delivery" text-value="3-4" id="l1"></button>
           	<button class="delivery" text-value="2-3" id="l2"></button>
-            <button class="delivery" text-value="1-1" id="l3" style="display: none; float: right;"></button>
+            <button class="delivery" text-value="1-1" id="l3"></button>
           	<input type="hidden" id="delivery-value" value="" />
           </p>
         </div>
@@ -452,10 +437,10 @@ jQuery(document).ready(function(){
       var rodzaj = "Stand Tissu";
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x1 R' ) {
-        scratch = 7.7;
-    		structure = 105.3;
-        tissu220 = 21.39;
-        tissu260 = 28.52;
+        scratch = 7;
+    		structure = 70;
+        tissu220 = 35;
+        tissu260 = 39;
     		designation += '- recto 3x1 Droit';
 
         hauteur = 229;
@@ -463,10 +448,10 @@ jQuery(document).ready(function(){
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x2 R' ) {
-        structure = 120.9;
-        scratch = 9.2;
-        tissu220 = 31.74;
-        tissu260 = 42.32;
+        structure = 80;
+        scratch = 9;
+        tissu220 = 40;
+        tissu260 = 56;
     		designation += '- recto 3x2 Droit';
 
         hauteur = 229;
@@ -474,10 +459,10 @@ jQuery(document).ready(function(){
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x3 R' ) {
-    		structure = 129.6;
-        scratch = 10.6;
-        tissu220 = 41.4;
-        tissu260 = 55.2;
+    		structure = 83;
+        scratch = 10;
+        tissu220 = 39;
+        tissu260 = 65;
     		designation += '- recto 3x3 Droit';
 
         hauteur = 299;
@@ -485,10 +470,10 @@ jQuery(document).ready(function(){
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x4 R' ) {
-    		structure = 165.60;
+    		structure = 114;
         scratch = 12;
-        tissu220 = 51.6;
-        tissu260 = 68.08;
+        tissu220 = 51;
+        tissu260 = 68;
     		designation += '- recto 3x4 Droit';
 
         hauteur = 299;
@@ -496,10 +481,10 @@ jQuery(document).ready(function(){
     	}
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x5 R' ) {
-    		structure = 201.6;
-        scratch = 13.6;
-        tissu220 = 62.1;
-        tissu260 = 82.8;
+    		structure = 140;
+        scratch = 15;
+        tissu220 = 62;
+        tissu260 = 82;
     		designation += '- recto 3x5 Droit';
 
         hauteur = 299;
@@ -508,9 +493,9 @@ jQuery(document).ready(function(){
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x6 R' ) {
     		structure = 300;
-        scratch = 15;
-        tissu220 = 71.76;
-        tissu260 = 95.68;
+        scratch = 20;
+        tissu220 = 71;
+        tissu260 = 95;
     		designation += '- recto 3x6 Droit';
 
         hauteur = 299;
@@ -519,9 +504,9 @@ jQuery(document).ready(function(){
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x7 R' ) {
     		structure = 345;
-        scratch = 16.5;
-        tissu220 = 82.11;
-        tissu260 = 109.48;
+        scratch = 24;
+        tissu220 = 82;
+        tissu260 = 109;
     		designation += '- recto 3x7 Droit';
 
         hauteur = 299;
@@ -530,9 +515,9 @@ jQuery(document).ready(function(){
       //------------------------------------------------------------------------
     	if ($('input_50').value == '3x8 R' ) {
     		structure = 390;
-        scratch = 18;
-        tissu220 = 92.46;
-        tissu260 = 123.28;
+        scratch = 30;
+        tissu220 = 92;
+        tissu260 = 123;
     		designation += '- recto 3x8 Droit';
 
         hauteur = 299;
@@ -653,11 +638,11 @@ jQuery(document).ready(function(){
 
       ////////////////////////////////////////////// total selon tissu choisi //
       if ($('input_02').value == 'tissu 220g' ) {
-        cena = (tissu220+structure+scratch)*1.8+trans;
+        cena = (tissu220+structure+scratch)*1.70+trans;
         designation += '<br />- tissu 220g';
       }
       if ($('input_02').value == 'tissu 260g' ) {
-        cena = (tissu260+structure+scratch)*2.2+trans;
+        cena = (tissu260+structure+scratch)*1.90+trans;
         designation += '<br />- tissu 260g';
       }
 
@@ -671,7 +656,7 @@ jQuery(document).ready(function(){
     		designation += '<br />- Valise de transport';
     	}
     	if ($('input_6').value == 'Comptoir Easy Quick' ) {
-    		cena += ((120+99)*1.4)+10 /////struture+impression X coef + transport;
+    		cena += ((70+40)*1.60)+10 /////struture+impression X coef + transport;
     		designation += '<br />- Comptoir Easy Quick';
     	}
     }
@@ -682,15 +667,15 @@ jQuery(document).ready(function(){
       var rodzaj = "Comptoir";
       designation += '- Comptoir Easy Quick';
 		if ($('input_0222').value == 'tissu 220g' ) {
-    		tissu = 20*4;//4=coeff //
+    		tissu = 20*3;//3=coeff //
     		designation += '<br />- Tissu 220g';
     	}
 		if ($('input_0222').value == 'tissu 260g' ) {
-    		tissu = 26*4;//prix du site x coeff //
+    		tissu =30*3;//prix du site x coeff //
     		designation += '<br />- Tissu 260g';
     	}
 
-      structure = 120*1.40;//1.40 = coeff //
+      structure = 70*1.80;//1.80 = coeff //
       trans = 10;
       cena = tissu + structure + trans + scratch;
       hauteur = 102.4;
@@ -949,10 +934,10 @@ jQuery(document).ready(function(){
       var DeliveryType = jQuery('.delivery.active').attr('text-value');
 
       if(PorductType == '2-3' ){
-        ProdPercent = 15;
+        ProdPercent = 20;
         prliv += '<br />- P 2-3J';
       }else if(PorductType =='1-1'){
-        ProdPercent = 40;
+        ProdPercent = 45;
         prliv += '<br />- P 1J';
       }else{
         ProdPercent = 0;
@@ -960,10 +945,10 @@ jQuery(document).ready(function(){
       }
 
       if(DeliveryType == '2-3'){
-        DeliPercent = 15;
+        DeliPercent = 20;
         prliv += ' / L 2-3J';
       }else if(DeliveryType =='1-1'){
-        DeliPercent = 40;
+        DeliPercent = 45;
         prliv += ' / L 1J';
       }else{
         DeliPercent = 0;

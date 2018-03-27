@@ -616,6 +616,16 @@ function get_inscription2() {
 	$fb_tablename_address8 = $prefix."fbs_address8";
 	$fb_tablename_address9 = $prefix."fbs_address9";
 	$fb_tablename_address10 = $prefix."fbs_address10";
+	$fb_tablename_address11 = $prefix."fbs_address11";
+	$fb_tablename_address12 = $prefix."fbs_address12";
+	$fb_tablename_address13 = $prefix."fbs_address13";
+	$fb_tablename_address14 = $prefix."fbs_address14";
+	$fb_tablename_address15 = $prefix."fbs_address15";
+	$fb_tablename_address16 = $prefix."fbs_address16";
+	$fb_tablename_address17 = $prefix."fbs_address17";
+	$fb_tablename_address18 = $prefix."fbs_address18";
+	$fb_tablename_address19 = $prefix."fbs_address19";
+	$fb_tablename_address20 = $prefix."fbs_address20";
 
 	$goback = $_GET['goback'];
 	if ($goback == '') $goback = $_POST['orderid'];
@@ -641,6 +651,17 @@ function get_inscription2() {
 		$address8 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address8` WHERE user = '".$_SESSION['loggeduser']->id."'");
 		$address9 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address9` WHERE user = '".$_SESSION['loggeduser']->id."'");
 		$address10 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address10` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address11 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address11` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address12 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address12` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address13 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address13` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address14 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address14` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address15 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address15` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address16 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address16` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address17 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address17` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address18 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address18` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address19 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address19` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$address20 = $wpdb->get_row("SELECT * FROM `$fb_tablename_address20` WHERE user = '".$_SESSION['loggeduser']->id."'");
+
 		$count1 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address1` WHERE user = '".$_SESSION['loggeduser']->id."'");
 		$count2 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address2` WHERE user = '".$_SESSION['loggeduser']->id."'");
 		$count3 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address3` WHERE user = '".$_SESSION['loggeduser']->id."'");
@@ -651,7 +672,16 @@ function get_inscription2() {
 		$count8 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address8` WHERE user = '".$_SESSION['loggeduser']->id."'");
 		$count9 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address9` WHERE user = '".$_SESSION['loggeduser']->id."'");
 		$count10 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address10` WHERE user = '".$_SESSION['loggeduser']->id."'");
-
+		$count11 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address11` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count12 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address12` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count13 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address13` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count14 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address14` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count15 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address15` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count16 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address16` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count17 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address17` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count18 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address18` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count19 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address19` WHERE user = '".$_SESSION['loggeduser']->id."'");
+		$count20 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_address20` WHERE user = '".$_SESSION['loggeduser']->id."'");
 
 		// -------------------------------------------formulaire ajouter une adresse
 		if(isset($_POST['ajouterAdresse'])) {
@@ -683,6 +713,26 @@ function get_inscription2() {
 				saveAddress($fb_tablename_address9);
 			}else if($count10==0) {
 				saveAddress($fb_tablename_address10);
+			}else if($count11==0) {
+				saveAddress($fb_tablename_address11);
+			}else if($count12==0) {
+				saveAddress($fb_tablename_address12);
+			}else if($count13==0) {
+				saveAddress($fb_tablename_address13);
+			}else if($count14==0) {
+				saveAddress($fb_tablename_address14);
+			}else if($count15==0) {
+				saveAddress($fb_tablename_address15);
+			}else if($count16==0) {
+				saveAddress($fb_tablename_address16);
+			}else if($count17==0) {
+				saveAddress($fb_tablename_address17);
+			}else if($count18==0) {
+				saveAddress($fb_tablename_address18);
+			}else if($count19==0) {
+				saveAddress($fb_tablename_address19);
+			}else if($count20==0) {
+				saveAddress($fb_tablename_address20);
 			}
 
 				// 2 - on récupère les données modifiées dans le formulaire et on les met à jour dans la table address origine
@@ -718,9 +768,9 @@ function get_inscription2() {
 			}else{
 				$createAddress = $wpdb->query("INSERT INTO `$fb_tablename_address` VALUES (not null, '".$_SESSION['loggeduser']->id."', '".$_POST['orderid']."', '$usertable->f_name', '$usertable->f_comp', '$usertable->f_address', '$usertable->f_code', '$usertable->f_city', '$usertable->f_phone')");
 			}
-		}else if ($_POST['adresse'] == 'adresse0') {
+		} else if ($_POST['adresse'] == 'adresse0') {
 			// adresse0 = user, c'est la table qu'on modifie ici donc dans ce cas précis on change rien
-		}else if ($_POST['adresse'] == 'adresse1') {
+		} else if ($_POST['adresse'] == 'adresse1') {
 			if ($user) {
 				editAddress($address1);
 			}else{
@@ -780,6 +830,66 @@ function get_inscription2() {
 			}else{
 				saveAsNew($address10);
 			}
+		} else if ($_POST['adresse'] == 'adresse11') {
+			if ($user) {
+				editAddress($address11);
+			}else{
+				saveAsNew($address11);
+			}
+		} else if ($_POST['adresse'] == 'adresse12') {
+			if ($user) {
+				editAddress($address12);
+			}else{
+				saveAsNew($address12);
+			}
+		} else if ($_POST['adresse'] == 'adresse13') {
+			if ($user) {
+				editAddress($address13);
+			}else{
+				saveAsNew($address13);
+			}
+		} else if ($_POST['adresse'] == 'adresse14') {
+			if ($user) {
+				editAddress($address14);
+			}else{
+				saveAsNew($address14);
+			}
+		} else if ($_POST['adresse'] == 'adresse15') {
+			if ($user) {
+				editAddress($address15);
+			}else{
+				saveAsNew($address15);
+			}
+		} else if ($_POST['adresse'] == 'adresse16') {
+			if ($user) {
+				editAddress($address16);
+			}else{
+				saveAsNew($address16);
+			}
+		} else if ($_POST['adresse'] == 'adresse17') {
+			if ($user) {
+				editAddress($address17);
+			}else{
+				saveAsNew($address17);
+			}
+		} else if ($_POST['adresse'] == 'adresse18') {
+			if ($user) {
+				editAddress($address18);
+			}else{
+				saveAsNew($address18);
+			}
+		} else if ($_POST['adresse'] == 'adresse19') {
+			if ($user) {
+				editAddress($address19);
+			}else{
+				saveAsNew($address19);
+			}
+		} else if ($_POST['adresse'] == 'adresse20') {
+			if ($user) {
+				editAddress($address20);
+			}else{
+				saveAsNew($address20);
+			}
 		}
 
 		// ----------------------------------------------------supprimer une adresse
@@ -833,6 +943,56 @@ function get_inscription2() {
 			header('Location: '.$_SERVER['REQUEST_URI']);
 			exit();
 		}
+		if(isset($_POST['del11'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address11` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del12'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address12` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del13'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address13` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del14'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address14` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del15'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address15` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del16'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address16` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del17'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address17` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del18'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address18` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del19'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address19` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
+		if(isset($_POST['del20'])) {
+			$clear = $wpdb->query("DELETE FROM `$fb_tablename_address20` WHERE `user` = '".$_SESSION['loggeduser']->id."'");
+			header('Location: '.$_SERVER['REQUEST_URI']);
+			exit();
+		}
 
 		// -----------------------------------------------------modifier une adresse
 		if(isset($_POST['modifierFact'])) {
@@ -876,6 +1036,36 @@ function get_inscription2() {
 		if(isset($_POST['modifier10'])) {
 			editFromBloc($fb_tablename_address10);
 		}
+		if(isset($_POST['modifier11'])) {
+			editFromBloc($fb_tablename_address11);
+		}
+		if(isset($_POST['modifier12'])) {
+			editFromBloc($fb_tablename_address12);
+		}
+		if(isset($_POST['modifier13'])) {
+			editFromBloc($fb_tablename_address13);
+		}
+		if(isset($_POST['modifier14'])) {
+			editFromBloc($fb_tablename_address14);
+		}
+		if(isset($_POST['modifier15'])) {
+			editFromBloc($fb_tablename_address15);
+		}
+		if(isset($_POST['modifier16'])) {
+			editFromBloc($fb_tablename_address16);
+		}
+		if(isset($_POST['modifier17'])) {
+			editFromBloc($fb_tablename_address17);
+		}
+		if(isset($_POST['modifier18'])) {
+			editFromBloc($fb_tablename_address18);
+		}
+		if(isset($_POST['modifier19'])) {
+			editFromBloc($fb_tablename_address19);
+		}
+		if(isset($_POST['modifier20'])) {
+			editFromBloc($fb_tablename_address20);
+		}
 
 		////////////////////////////////////////////// affichage carnet d'adresse //
 		//--------------------------------------------------------------------------
@@ -889,7 +1079,7 @@ function get_inscription2() {
 
 		//--------------------------------------------------------------------------
 		$view .= '
-		<div class="box_warning"><button class="closeButton"><i class="ion-ios-close-empty"></i></button>Nouveau! Votre carnet d\'adresses vous permet de sauvegarder jusqu\'à 10 adresses de livraisons parmis lesquelles vous pourrez faire un choix à chaque commande. </div>
+		<div class="box_warning"><button class="closeButton"><i class="ion-ios-close-empty"></i></button>Nouveau! Votre carnet d\'adresses vous permet de sauvegarder jusqu\'à 20 adresses de livraison.</div>
 		<div class="acces_tab_name2">Commande Nº '.$goback.': choisir une adresse de livraison </div>
 
 			<div class="acces_tab_content2">
@@ -1052,7 +1242,7 @@ function get_inscription2() {
 						if(isset($_POST['edit8'])) {
 							$view .= displayEd($address8, 'editSub8', 'addressForm8', 'modifier8');
 						}else{
-							$view .= displayAd($address8, 'edit5', 'del8', 'adresse 8', 'adresse8');
+							$view .= displayAd($address8, 'edit8', 'del8', 'adresse 8', 'adresse8');
 						}
 					}
 					//----------------------------------------------------------------
@@ -1071,9 +1261,89 @@ function get_inscription2() {
 							$view .= displayAd($address10, 'edit10', 'del10', 'adresse 10', 'adresse10');
 						}
 					}
+					//----------------------------------------------------------------
+					if($count11==1) {
+						if(isset($_POST['edit11'])) {
+							$view .= displayEd($address11, 'editSub11', 'addressForm11', 'modifier11');
+						}else{
+							$view .= displayAd($address11, 'edit11', 'del11', 'adresse 11', 'adresse11');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count12==1) {
+						if(isset($_POST['edit12'])) {
+							$view .= displayEd($address12, 'editSub12', 'addressForm12', 'modifier12');
+						}else{
+							$view .= displayAd($address12, 'edit12', 'del12', 'adresse 12', 'adresse12');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count13==1) {
+						if(isset($_POST['edit13'])) {
+							$view .= displayEd($address13, 'editSub13', 'addressForm13', 'modifier13');
+						}else{
+							$view .= displayAd($address13, 'edit13', 'del13', 'adresse 13', 'adresse13');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count14==1) {
+						if(isset($_POST['edit14'])) {
+							$view .= displayEd($address14, 'editSub14', 'addressForm14', 'modifier14');
+						}else{
+							$view .= displayAd($address14, 'edit14', 'del14', 'adresse 14', 'adresse14');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count15==1) {
+						if(isset($_POST['edit15'])) {
+							$view .= displayEd($address15, 'editSub15', 'addressForm15', 'modifier15');
+						}else{
+							$view .= displayAd($address15, 'edit15', 'del15', 'adresse 15', 'adresse15');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count16==1) {
+						if(isset($_POST['edit16'])) {
+							$view .= displayEd($address16, 'editSub16', 'addressForm16', 'modifier16');
+						}else{
+							$view .= displayAd($address16, 'edit16', 'del16', 'adresse 16', 'adresse16');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count17==1) {
+						if(isset($_POST['edit17'])) {
+							$view .= displayEd($address17, 'editSub17', 'addressForm17', 'modifier17');
+						}else{
+							$view .= displayAd($address17, 'edit17', 'del17', 'adresse 17', 'adresse17');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count18==1) {
+						if(isset($_POST['edit18'])) {
+							$view .= displayEd($address18, 'editSub18', 'addressForm18', 'modifier18');
+						}else{
+							$view .= displayAd($address18, 'edit18', 'del18', 'adresse 18', 'adresse18');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count19==1) {
+						if(isset($_POST['edit19'])) {
+							$view .= displayEd($address19, 'editSub19', 'addressForm19', 'modifier19');
+						}else{
+							$view .= displayAd($address19, 'edit19', 'del19', 'adresse 19', 'adresse19');
+						}
+					}
+					//----------------------------------------------------------------
+					if($count20==1) {
+						if(isset($_POST['edit20'])) {
+							$view .= displayEd($address20, 'editSub20', 'addressForm20', 'modifier20');
+						}else{
+							$view .= displayAd($address20, 'edit20', 'del20', 'adresse 20', 'adresse20');
+						}
+					}
 					//----------------------------------------- fin affichage adresses
 
-				if($count1+$count2+$count3+$count4+$count5+$count6+$count7+$count8+$count9+$count10 < 10) {
+				if($count1+$count2+$count3+$count4+$count5+$count6+$count7+$count8+$count9+$count10+$count11+$count12+$count13+$count14+$count15+$count16+$count17+$count18+$count19+$count20 < 20) {
 					if(isset($_POST['addNew'])) {
 						$view .= '
 							<div class="blocAdresse">

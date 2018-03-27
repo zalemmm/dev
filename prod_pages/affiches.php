@@ -6,7 +6,7 @@
 
       <ul class="form-section">
 
-        <li class="form-line" id="id_1">
+        <li class="form-line select" id="id_1">
 
           <select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
             <option value="">choisir l'épaisseur...</option>
@@ -17,7 +17,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_21">
+        <li class="form-line select" id="id_21">
 
           <select class="form-dropdown validate[required]" id="input_21" name="q21_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
             <option value="">choisir le format...</option>
@@ -31,7 +31,7 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_22">
+        <li class="form-line select" id="id_22">
 
           <select class="form-dropdown validate[required]" id="input_22" name="q22_usage" onchange="getElementById(\'preview_info_ul\').innerHTML=\'\'; JKakemono.czyscpola(); ">
             <option value="">choisir le format...</option>
@@ -46,9 +46,9 @@
 
 
 
-        <li class="form-line" id="id_41">
+        <li class="form-line select" id="id_41">
 
-          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
@@ -70,8 +70,8 @@
                         <option value="fb">France banderole crée la mise en page</option>
 					</select>
 				</li>
-        <li class="form-line" id="id_45">
-          <span class="helpButton" onmouseover="tipShow('helpText45');" onmouseout="tipHide('helpText45');">
+        <li class="form-line select" id="id_45">
+          <span class="helpButton">
             <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
             <span class="helpText" id="helpText45" style="visibility:hidden;">
               Vous avez choisi de créer votre maquette en ligne, veuillez préciser si vous souhaitez voir s'afficher votre gabarit en mode portrait ou paysage.
@@ -86,7 +86,7 @@
 
 
 
-        <li class="form-line" id="id_5">
+        <li class="form-line select" id="id_5">
 
           <select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola(); ">
             <option value="">quantité...</option>
@@ -102,8 +102,8 @@
           </select>
         </li>
 
-         <li class="form-line" id="id_signature">
-                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+         <li class="form-line select" id="id_signature">
+                <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
                         	<b>Logo France Banderole</b><br/>
 							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
@@ -126,7 +126,7 @@
   					<span class="optionsleft">
   						<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
   						<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-  						<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
+  						<span class="helpButton">
   							<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
   						</span>
   					</span>
@@ -134,7 +134,7 @@
   					<span class="optionsleft">
   						<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
   						<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-  						<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
+  						<span class="helpButton">
   							<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
   						</span>
   					</span>
@@ -142,7 +142,7 @@
   					<span class="optionsright">
   						<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
   						<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-  						<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
+  						<span class="helpButton">
   							<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
   						</span>
   					</span>
@@ -150,7 +150,7 @@
   					<span class="optionsright">
   						<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
   						<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-  						<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
+  						<span class="helpButton">
   							<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
   						</span>
   					</span>
@@ -178,7 +178,7 @@
 
   			</li>
 
-        <li class="form-line" id="id_11a">
+        <li class="form-line select" id="id_11a">
   				<div class="form-input-wide">
 
   					<button id="input_11" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
@@ -966,10 +966,10 @@ function AddBusinessDays(weekDaysToAdd) {
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 15;
+					ProdPercent = 20;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 40;
+					ProdPercent = 45;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -977,10 +977,10 @@ function AddBusinessDays(weekDaysToAdd) {
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 15;
+					DeliPercent = 20;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 40;
+					DeliPercent = 45;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;

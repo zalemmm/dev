@@ -4,8 +4,8 @@
 		<div class="form-all">
 			<ul class="form-section">
 
-				<li class="form-line" id="id_1">
-					<span class="helpButton" onmouseover="tipShow('helpTexttype');" onmouseout="tipHide('helpTexttype');">
+				<li class="form-line select" id="id_1">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttype" style="visibility:hidden;">
 							<b><a href="//www.france-banderole.com/wp-content/uploads/notice/notice-roll-up-firstline.pdf" data-lity>kakemono Roll-up FIRSTLINE</a>: <span class="highlight">Dès 24,00€</span></b><br/>le roll-up économique, léger et facile à installer.<br />
@@ -28,8 +28,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_21">
-					<span class="helpButton" onmouseover="tipShow('helpTexttaille1');" onmouseout="tipHide('helpTexttaille1');">
+				<li class="form-line select" id="id_21">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille1" style="visibility:hidden;">
 							<b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
@@ -40,8 +40,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_22">
-					<span class="helpButton" onmouseover="tipShow('helpTexttaille2');" onmouseout="tipHide('helpTexttaille2');">
+				<li class="form-line select" id="id_22">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille2" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b>
 							<br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
@@ -60,8 +60,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_23">
-					<span class="helpButton" onmouseover="tipShow('helpTexttaille3');" onmouseout="tipHide('helpTexttaille3');">
+				<li class="form-line select" id="id_23">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTexttaille3" style="visibility:hidden;">
 						<b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.</span>
 					</span>
@@ -76,8 +76,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_24">
-					<span class="helpButton" onmouseover="tipShow('helpTexttaille4');" onmouseout="tipHide('helpTexttaille4');">
+				<li class="form-line select" id="id_24">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille4" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
@@ -89,8 +89,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_25">
-					<span class="helpButton" onmouseover="tipShow('helpTexttaille5');" onmouseout="tipHide('helpTexttaille5');">
+				<li class="form-line select" id="id_25">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille5" style="visibility:hidden;"><b>Choisissez la taille du roll-up:</b><br/>définissez la largeur de structure du kakemono, en fonction de la gamme, vous achetez des roll-up de 21 à 200cm de large.
 						</span>
@@ -102,8 +102,8 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_26">
-          <span class="helpButton" onmouseover="tipShow('helpText26');" onmouseout="tipHide('helpText26');">
+        <li class="form-line select" id="id_26">
+          <span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpText26" style="visibility:hidden;">infos</span>
 					</span>
@@ -114,11 +114,11 @@
           </select>
         </li>
 
-		<li class="form-line" id="id_27">
-					<span class="helpButton" onmouseover="tipShow('helpTexttaille27');" onmouseout="tipHide('helpTexttaille27');">
+		<li class="form-line select" id="id_27">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTexttaille27" style="visibility:hidden;"><b>Choisissez la taille du visuel à changer:</b>
-							
+
 						</span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_27" name="q27_dimensions" onclick="JKakemono.czyscpola(); ">
@@ -133,9 +133,9 @@
 						<option class="option2" value="200x200">200x200 cm </option>
 					</select>
 				</li>
-		
-        		<li class="form-line" id="id_31">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport1');" onmouseout="tipHide('helpTextsupport1');">
+
+        		<li class="form-line select" id="id_31">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport1" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -148,8 +148,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_32">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport2');" onmouseout="tipHide('helpTextsupport2');">
+				<li class="form-line select" id="id_32">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport2" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -167,8 +167,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_33">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport3');" onmouseout="tipHide('helpTextsupport3');">
+				<li class="form-line select" id="id_33">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport3" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -184,8 +184,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_34">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport4');" onmouseout="tipHide('helpTextsupport4');">
+				<li class="form-line select" id="id_34">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport4" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -203,8 +203,8 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_35">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport5');" onmouseout="tipHide('helpTextsupport5');">
+				<li class="form-line select" id="id_35">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport5" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -217,10 +217,10 @@
 						<option class="option2" value="jet 520 M1">bâche Dickson Jet 520 M1</option>
 					</select>
 				</li>
-                
-                
-                <li class="form-line" id="id_36">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport36');" onmouseout="tipHide('helpTextsupport36');">
+
+
+                <li class="form-line select" id="id_36">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport36" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -237,9 +237,9 @@
 						<option class="option2" value="capotoile">Capotoile 320 M1 validé Ecocert Erts</option>
 					</select>
 				</li>
-                
-               <li class="form-line" id="id_37">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport37');" onmouseout="tipHide('helpTextsupport37');">
+
+        <li class="form-line select" id="id_37">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport37" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -254,8 +254,8 @@
 						<option class="option1" value="100% écologique M1">toile 100% écologique M1</option>
 					</select>
 				</li>
-                 <li class="form-line" id="id_38">
-					<span class="helpButton" onmouseover="tipShow('helpTextsupport38');" onmouseout="tipHide('helpTextsupport38');">
+        <li class="form-line select" id="id_38">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsupport38" style="visibility:hidden;">
 							<b>Bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix.<br/>
@@ -270,23 +270,10 @@
 					</select>
 				</li>
 
-                
-
-				
-
-				<li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+				<li class="form-line select" id="id_6">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-              <b>j’ai mon fichier, je ne souhaite pas de BAT :</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier +19,00€ :</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-            </span>
+						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette6" onclick="JKakemono.czyscpola(); ">
             <option value="">fichier d'impression...</option>
@@ -297,13 +284,9 @@
 					</select>
 				</li>
 
-        <li class="form-line" id="id_signature">
-          <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
-	            <b>Logo France Banderole</b><br/>
-							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-	            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-	          </span>
+        <li class="form-line select" id="id_signature">
+          <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+						<span class="helpText" id="helpTextsignature" style="visibility:hidden;"></span>
 					</span>
 					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
 						<option value="">logo France Banderole ?</option>
@@ -312,7 +295,7 @@
 					</select>
 				</li>
 
-				<li class="form-line" id="id_7" data-trigger="spinner">
+				<li class="form-line select" id="id_7" data-trigger="spinner">
 					<label class="form-label-left label-highlight" id="label_7" for="input_7">quantité :<br /><span class="small">(par visuel)</span></label>
 					<input type="text" class="form-textbox validate[required, Numeric]" id="input_7" name="q7_quantite" size="20" value="1" onclick="JKakemono.czyscpola(); " data-rule="quantity" />
 					<div class="spinner-controls">
@@ -329,32 +312,32 @@
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-							<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
-								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsleft">
 							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
-								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsright">
 							<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 							<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-							<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
-								<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextrelais" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
 						<span class="optionsright">
 							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
+							<span class="helpButton">
+								<span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
 							</span>
 						</span>
 
@@ -381,7 +364,7 @@
 
 				</li>
 
-				<li class="form-line" id="id_9a">
+				<li class="form-line select" id="id_9a">
 					<div class="form-input-wide">
 
 						<button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
@@ -914,12 +897,12 @@
 			}
 
 			// fin mini //////////////////////////////////////////////////////////////
-			
-			
-			
+
+
+
 			////////////////////////////////////////////////////////////////// changement de visuel //
-			
-			
+
+
 			//------------------------------------------------------------------60x160
 			if (($('input_1').value == 'Changement visuel') && ($('input_27').value == '60x160')) {
 				opis += '<br />- 60x160cm + 10cm (marge technique)'
@@ -960,8 +943,8 @@
 				largeur = 60;
 
 			}
-			
-			
+
+
 			//------------------------------------------------------------------80x200
 			if (($('input_1').value == 'Changement visuel') && ($('input_27').value == '80x200')) {
 				opis += '<br />- 80x200cm + 10cm (marge technique)'
@@ -1025,7 +1008,7 @@
 				largeur = 100;
 
 			}
-			
+
 			//------------------------------------------------------------------120x200
 			if (($('input_1').value == 'Changement visuel') && ($('input_27').value == '120x200')) {
 				opis += '<br />- 120x200cm + 10cm (marge technique)'
@@ -1047,7 +1030,7 @@
 				largeur = 120;
 
 			}
-			
+
 			//------------------------------------------------------------------150x200
 			if (($('input_1').value == 'Changement visuel') && ($('input_27').value == '150x200')) {
 				opis += '<br />- 150x200cm + 10cm (marge technique)'
@@ -1091,8 +1074,8 @@
 
 			}
 			//Fin changement de visuel //////////////////////////////////////////////////////////////
-			
-			
+
+
 			/////////////////////////////////////////////////////////////// mistral //
 
 			if ($('input_1').value == 'Mistral'){
@@ -1213,7 +1196,7 @@
 			if ($('input_6').value == 'sansbat') {
 				maquette = 'je ne souhaite pas de BAT';
 			}
-			//////////////////////////////////////////////////////signature
+			///////////////////////////////////////////////////////////// signature //
 			if ($('input_signature').value == 'signature FB') {
 				opis += '<br />- signature France Banderole';
 			}
@@ -1327,10 +1310,10 @@
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 15;
+					ProdPercent = 20;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 40;
+					ProdPercent = 45;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -1338,10 +1321,10 @@
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 15;
+					DeliPercent = 20;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 40;
+					DeliPercent = 45;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;
@@ -1433,8 +1416,8 @@
 				suma=fixstr(suma);
 				suma2 = suma.replace(".", ",");
 				total.innerHTML=suma2+' &euro;';
-				
-				
+
+
 				var niepokazuj = 0;
 				if ( suma < 14.90 ) {
 					var forfait = 14.90 - suma;

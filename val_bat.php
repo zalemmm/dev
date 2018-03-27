@@ -1,6 +1,7 @@
 <?php
 
 $id = $_GET['uid'];
+$rev = $_GET['rev'];
 $cur_img = $_GET['img'];
 if(!(isset($cur_img))) {
 	$cur_img = 0;
@@ -48,7 +49,20 @@ if($total > 1) {
 
 <html>
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--librairie d'icones css-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<?php if ($rev==0) {
+		// pour les clients non revendeurs, script pour interdire le clic droit ?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script>
+		$(document).ready(function() {
+	    $("img").on("contextmenu",function(){
+	       return false;
+	    });
+		});
+		</script>
+	<?php } ?>
+	<!--librairie d'icones css-->
 	<style>
 	  a {
 	  	text-decoration: none;
@@ -94,18 +108,17 @@ if($total > 1) {
 			box-sizing: border-box;
 			position: relative;
 			width: 150px;
-			height: 40px;
+			height: 32px;
 			margin: 0 0 10px 0;
-			padding: .7rem .5rem .5rem;
+			padding: .5rem .5rem .5rem;
 			display: inline-block;
 			cursor: pointer;
-			box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 			background: #32A1CC;
 			border: 1px solid #2b8aaf;
-			border-radius: 3px;
+			border-radius: 20px;
 			color: #fff;
 			font-family: "Source Sans Pro", sans-serif;
-			font-size: .8rem;
+			font-size: .75rem;
 			line-height: .8rem;
 			font-weight: normal;
 			text-align: center;
@@ -118,6 +131,12 @@ if($total > 1) {
 			background: #74c012;
 			border: 1px solid #609f0f;
 			display: block;
+		}
+
+		.bt-suiv,
+		.bt-prev {
+			background-color: transparent;
+			border: 1px solid #fff;
 		}
 
 		.bt-suiv:hover,
@@ -133,7 +152,8 @@ if($total > 1) {
 		}
 		.main img {
 			position: relative;
-			margin-top: 80px;
+			margin-top: -10px;
+			margin-left: -10px;
 			z-index: 20;
 		}
 		.filename {
@@ -141,10 +161,8 @@ if($total > 1) {
 			position: fixed;
 			font-family: "Source Sans Pro", sans-serif;
 			font-size: .75rem;
-			top: 60px;
-			left: 10px;
+			top: 40px;
 			z-index:999;
-
 		}
 		@media(max-width: 780px) {
 			.dis0 {
@@ -168,12 +186,12 @@ if($total > 1) {
 	<div class="btnbar">
 		<div class="prevnext"><?php echo $precedent; ?>	<?php echo $suivant; ?></div>
 		<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
-
+		<p class="filename"><?php	echo $filename; ?></p>
 	</div>
 
 	<div class="main">
 		<?php	echo $img; ?>
-		<p class="filename"><?php	echo $filename; ?></p>
+
 	</div>
 
 

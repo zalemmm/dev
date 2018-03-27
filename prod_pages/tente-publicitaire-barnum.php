@@ -4,8 +4,8 @@
    <input type="hidden" name="formID" value="1060900217" />
         <div class="form-all">
             <ul class="form-section">
-              <li class="form-line" id="id_1">
-                <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');">
+              <li class="form-line select" id="id_1">
+                <span class="helpButton">
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                   <span class="helpText" id="helpText0" style="visibility:hidden;">
                     • <u><b>Tente publicitaire personnalisable</u>: </b><br/>
@@ -27,8 +27,8 @@
               </li>
 
               <!--support-->
-                <li class="form-line" id="id_option">
-                    <span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');">
+                <li class="form-line select" id="id_option">
+                    <span class="helpButton">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                       <span class="helpText" id="helpText1" style="visibility:hidden;">
                         • <u><b>Demi-mur supplémentaire</u>: </b><span class="highlight">Dès 47,00€</span><br/>1/2 mur latéral personnalisable fourni avec barre de suspension.<br />
@@ -50,8 +50,8 @@
                     </select>
                 </li>
 
-                <li class="form-line" id="id_couleur">
-                    <span class="helpButton" onmouseover="tipShow('helpText2');" onmouseout="tipHide('helpText2');">
+                <li class="form-line select" id="id_couleur">
+                    <span class="helpButton">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                       <span class="helpText" id="helpText2" style="visibility:hidden;">
                         • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>Blanc, noir, rouge ou bleu.<br />
@@ -69,8 +69,8 @@
                     </select>
                 </li>
 
-                 <li class="form-line" id="id_couleur-sans-option">
-                    <span class="helpButton" onmouseover="tipShow('helpText3');" onmouseout="tipHide('helpText3');">
+                 <li class="form-line select" id="id_couleur-sans-option">
+                    <span class="helpButton">
                       <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                       <span class="helpText" id="helpText3" style="visibility:hidden;">
                         • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>
@@ -90,8 +90,8 @@
                 </li>
 
 
-               <li class="form-line" id="id_couleur-sans-mur">
-                  <span class="helpButton" onmouseover="tipShow('helpText31');" onmouseout="tipHide('helpText31');">
+               <li class="form-line select" id="id_couleur-sans-mur">
+                  <span class="helpButton">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText31" style="visibility:hidden;">
                       • <u><b>Choisir la couleur de votre barnum PRO</u>: </b><br/>
@@ -110,8 +110,8 @@
                   </select>
               </li>
 
-               <li class="form-line" id="id_personnalisation">
-                  <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');">
+               <li class="form-line select" id="id_personnalisation">
+                  <span class="helpButton">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText4" style="visibility:hidden;">
                       • <u><b>mur de fond personnalisé</u>: </b><span class="highlight">Dès 147,00€</span><br/>mur entier ou mur de fond imprimé en plus de la couleur de base.<br />
@@ -141,8 +141,8 @@
                   </select>
               </li>
 
-              <li class="form-line" id="id_personnalisation-sans-option">
-                  <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');">
+              <li class="form-line select" id="id_personnalisation-sans-option">
+                  <span class="helpButton">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText5" style="visibility:hidden;">
                     • <u><b>mur de fond personnalisé</u>: </b><span class="highlight">Dès 147,00€</span><br/>mur entier ou mur de fond imprimé en plus de la couleur de base.<br />
@@ -167,8 +167,8 @@
                   </select>
               </li>
 
-              <li class="form-line" id="id_personnalisation-sans-mur">
-                  <span class="helpButton" onmouseover="tipShow('helpText6');" onmouseout="tipHide('helpText6');">
+              <li class="form-line select" id="id_personnalisation-sans-mur">
+                  <span class="helpButton">
                     <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
                     <span class="helpText" id="helpText6" style="visibility:hidden;">• <u><b>personnalisation frontons</u>: </b><span class="highlight">Dès 121,00€</span><br/>Personnalisez les 4 frontons de votre tente publicitaire.<br />
                     • <u><b>pas de personnalisation</u>: </b><br/>
@@ -183,10 +183,10 @@
               </li>
 
              <!--maquette-->
-              <li class="form-line" id="id_maquette">
-                <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+              <li class="form-line select" id="id_maquette">
+                <span class="helpButton">
                   <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-                  <span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
+                  <span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
                     • <u><b>France banderole crée votre fichier +35,00€</u> :</b><br/>Vous fournissez<span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
                     • <u><b>Vous avez déjà crée la mise en page:</b></u><br/>Vous envoyez votre propre fichier PDF (une fois votre devis enregistré). Ce dernier sera vérifié gratuitement par notre service d'infographie et, un <span class="highlight"><b>BAT gratuit à valider</b></span> vous sera transmis dans votre accès client.
                   </span>
@@ -218,24 +218,24 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
                 <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-                <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
-                  <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
                 </span>
               </span>
 
               <span class="optionsleft">
                 <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
                 <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onchange="JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="tipShow(\'helpTextetiquette\');" onmouseout="tipHide(\'helpTextetiquette\');">
-                  <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
                 </span>
               </span>
 
               <span class="optionsleft">
                 <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
                 <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
-                  <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
+                <span class="helpButton">
+                  <span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
                 </span>
               </span>
 
@@ -414,10 +414,10 @@
       var mur2x3perso=35.26+10; var mur2x3persorv=70.52+15; var demimurA2x3perso=7.79+10; var demimurA2x3persorv=15.58+15; var demimurB2x3perso=7.79+10; var demimurB2x3persorv=15.58+15; var barredmA2x3perso=25.00; var barredmB2x3perso=25.00; var fronton2x3perso=18.40+10;
       //-------------------------------------------------------------------------3x3
       var structure3x3=220.00; var canopi3x3=29.50; var mur3x3=21.00;	var demimurA3x3=12; var demimurB3x3=12; var barredmA3x3=25.00; var barredmB3x3=25.00;
-      var mur3x3perso=35.26+20; var mur3x3persorv=70.52+25; var demimurA3x3perso=11.82+15; var demimurA3x3persorv=23.64+20; var demimurB3x3perso=11.82+15; var demimurB3x3perso=23.64+20; var barredmA3x3perso=25.00; var barredmB3x3perso=25.00; var fronton3x3perso=22.43+15;
+      var mur3x3perso=35.26+20; var mur3x3persorv=70.52+25; var demimurA3x3perso=11.82+15; var demimurA3x3persorv=23.64+20; var demimurB3x3perso=11.82+15; var demimurB3x3persorv=23.64+20; var barredmA3x3perso=25.00; var barredmB3x3perso=25.00; var fronton3x3perso=22.43+15;
       //-------------------------------------------------------------------------3x4,5
       var structure3x4=253.00; var canopi3x4=55.00; var mur3x4=49.00;	var demimurA3x4=18.75; var demimurB3x4=12; var barredmA3x4=28.00; var barredmB3x4=25.00;
-      var mur3x4perso=54.90+30; var mur3x4persorv=109.80+35; var demimurA3x4perso=11.82+20; var demimurA3x4persorv=23.64+25; var demimurB3x4perso=11.82+20; var demimurB3x4perso=23.64+25; var barredmA3x4perso=28.00; var barredmB3x4perso=25.00; var fronton3x4perso=27.50+15;
+      var mur3x4perso=54.90+30; var mur3x4persorv=109.80+35; var demimurA3x4perso=11.82+20; var demimurA3x4persorv=23.64+25; var demimurB3x4perso=11.82+20; var demimurB3x4persorv=23.64+25; var barredmA3x4perso=28.00; var barredmB3x4perso=25.00; var fronton3x4perso=27.50+15;
       //-------------------------------------------------------------------------3x6
       var structure3x6=341.00; var canopi3x6=70.00; var mur3x6=42.00;	var demimurA3x6=24.00; var demimurB3x6=12; var barredmA3x6=50.00; var barredmB3x6=25.00;
       var mur3x6perso=70.52+40; var mur3x6persorv=141+45; var demimurA3x6perso=11.82+25; var demimurA3x6persorv=23.64+30; var demimurB3x6perso=11.82+25; var demimurB3x6persorv=23.64+30; var barredmA3x6perso=50.00; var barredmB3x6perso=25.00; var fronton3x6perso=30.36+20;
@@ -1038,10 +1038,10 @@
     			var PorductType = jQuery('.production.active').attr('text-value');
     			var DeliveryType = jQuery('.delivery.active').attr('text-value');
     			if(PorductType == '2-3' ){
-    				ProdPercent = 15;
+    				ProdPercent = 20;
     				prliv += '- P 2-3J';
     			}else if(PorductType =='1-1'){
-    				ProdPercent = 40;
+    				ProdPercent = 45;
     				prliv += '- P 1J';
     			}else{
     				ProdPercent = 0;
@@ -1049,10 +1049,10 @@
     			}
 
     			if(DeliveryType == '2-3'){
-    				DeliPercent = 15;
+    				DeliPercent = 20;
     				prliv += ' / L 2-3J';
     			}else if(DeliveryType =='1-1'){
-    				DeliPercent = 40;
+    				DeliPercent = 45;
     				prliv += ' / L 1J';
     			}else{
     				DeliPercent = 0;

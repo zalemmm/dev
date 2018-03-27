@@ -6,8 +6,8 @@
     <div class="form-all">
       <ul class="form-section">
 
-        <li class="form-line" id="id_0">
-          <span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Impression recto</u>: <span class="highlight">Dès 1,13€</span></b><br/>impression 1,2,3, ou quadri akilux une face.<br />• <u><b>Impression recto/verso</u>: <span class="highlight">Dès 1,39€</span></b><br/>impression 1,2,3, ou quadri sur Akylux 2 faces.<br/></span></span>
+        <li class="form-line select" id="id_0">
+          <span class="helpButton"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Impression recto</u>: <span class="highlight">Dès 1,13€</span></b><br/>impression 1,2,3, ou quadri akilux une face.<br />• <u><b>Impression recto/verso</u>: <span class="highlight">Dès 1,39€</span></b><br/>impression 1,2,3, ou quadri sur Akylux 2 faces.<br/></span></span>
           <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir l'impression...</option>
             <option value="recto">Recto </option>
@@ -15,8 +15,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_HD">
-          <span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+        <li class="form-line select" id="id_HD">
+          <span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
 							<b>France banderole crée votre fichier :</b><br/>
@@ -34,7 +34,7 @@
         </li>
 
         <li class="form-line optionsformline4" id="id_4">
-          <span class="helpButton" onmouseover="tipShow('helpText4');" onmouseout="tipHide('helpText4');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</b></u>: <span class="highlight">Dès 0,1€</span><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
+          <span class="helpButton"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">• <u><b>Oeillets en nickel</b></u>: <span class="highlight">Dès 0,1€</span><br/>Oeillet laiton ou nickelé, ne rouille pas.<br />• <u><b>Crochets invisibles</u>: <span class="highlight">Dès 0,1€</span></b><br/>crochet adhésif transparent pour intérieur.<br/>• <u><b>Rislans</u>: <span class="highlight">Dès 0,02€</span></b><br/>mini collier plastique blanc 34x140mm.<br />• <u><b>Double face</u>: <span class="highlight">Dès 0,3€</span></b><br/>4 rectangle Double face au dos dans les coins.<br /></span></span>
           <select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
             <option value="">choisir les fixations...</option>
             <option value="oeillets">oeillets nickels</option>
@@ -78,8 +78,8 @@
           </select>
         </li>
 
-        <li class="form-line" id="id_5">
-          <span class="helpButton" onmouseover="tipShow('helpText5');" onmouseout="tipHide('helpText5');"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>rainage</b></u>: <span class="highlight">Dès 0,25€</span><br/>Le rainage ou rainurage est une suppression ou écrasement de matière pour créer une pliure droite dans un matériau<br />• <u><b>1 - 2 ou 3 rainages</b></u>:<br/><span class="highlight">1 rainage</span> pour panneaux akilux sandwichs,<br /> <span class="highlight">2 rainages</span> pour faire des triptyques,<br /> <span class="highlight">3 rainages </span>pour faire des encadrements.<br /></span></span>
+        <li class="form-line select" id="id_5">
+          <span class="helpButton"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">• <u><b>rainage</b></u>: <span class="highlight">Dès 0,25€</span><br/>Le rainage ou rainurage est une suppression ou écrasement de matière pour créer une pliure droite dans un matériau<br />• <u><b>1 - 2 ou 3 rainages</b></u>:<br/><span class="highlight">1 rainage</span> pour panneaux akilux sandwichs,<br /> <span class="highlight">2 rainages</span> pour faire des triptyques,<br /> <span class="highlight">3 rainages </span>pour faire des encadrements.<br /></span></span>
             <select class="form-dropdown validate[required]" id="input_5" name="5_usage" onclick="JKakemono.czyscpola(); ">
               <option value="">choisir le rainage...</option>
               <option value="1 rainage">1 rainage par panneau</option>
@@ -89,8 +89,8 @@
             </select>
           </li>
 
-           <li class="form-line" id="id_6">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette');" onmouseout="tipHide('helpTextmaquette');">
+           <li class="form-line select" id="id_6">
+					<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
@@ -112,8 +112,8 @@
                         <option value="fb">France banderole crée la mise en page</option>
 					</select>
 				</li>
-                <li class="form-line" id="id_signature">
-                <span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+                <li class="form-line select" id="id_signature">
+                <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
                         	<b>Logo France Banderole</b><br/>
 							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
@@ -149,7 +149,7 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
                 <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-                <span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
+                <span class="helpButton">
                   <span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
                 </span>
               </span>
@@ -157,7 +157,7 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
                 <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-                <span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
+                <span class="helpButton">
                   <span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
                 </span>
               </span>
@@ -165,7 +165,7 @@
               <span class="optionsleft">
                 <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
                 <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-                <span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
+                <span class="helpButton">
                   <span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
                 </span>
               </span>
@@ -247,7 +247,7 @@
 
   </div>
 
-  <script type='text/javascript' src='/wp-content/plugins/fbshop/prod_pages/gestion_checkbox_expedition.js'></script>
+
 
   <script type="text/javascript">
   //////////////////////////////////////////////////// checkboxes livraison //
@@ -555,7 +555,7 @@
         etiqdesc = '<br />- retrait colis a l\'atelier';
         cena-= cena*3/100;
       }
-	  
+
 	  //////////////////////////////////////////////////////signature
 			if ($('input_signature').value == 'signature FB') {
 				opis += '<br />- signature France Banderole';
@@ -563,7 +563,7 @@
 			if ($('input_signature').value == 'sans signature') {
 				if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5*ilosc;};
 				opis += '<br />- sans signature';
-			}	
+			}
 
 
       ///////////////////////////////////////////////////////////// transport //
@@ -689,10 +689,10 @@
         var PorductType = jQuery('.production.active').attr('text-value');
         var DeliveryType = jQuery('.delivery.active').attr('text-value');
         if(PorductType == '2-3' ){
-          ProdPercent = 15;
+          ProdPercent = 20;
           prliv += '<br />- P 2-3J';
         }else if(PorductType =='1-1'){
-          ProdPercent = 40;
+          ProdPercent = 45;
           prliv += '<br />- P 1J';
         }else{
           ProdPercent = 0;
@@ -700,10 +700,10 @@
         }
 
         if(DeliveryType == '2-3'){
-          DeliPercent = 15;
+          DeliPercent = 20;
           prliv += ' / L 2-3J';
         }else if(DeliveryType =='1-1'){
-          DeliPercent = 40;
+          DeliPercent = 45;
           prliv += ' / L 1J';
         }else{
           DeliPercent = 0;

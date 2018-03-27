@@ -641,7 +641,9 @@ JotForm = {
             var imag6 = $("preview_imag6");
             var imag7 = $("preview_imag7");
 						///////////////////////////////
-            if ( !$('revendeur') && !$('revendeurRC') && !$('revendeurRS') ) {$('revd').style.display="none";}
+
+
+
             //--------------------------------------- oeuillets coins par défaut
             if ($('input_ext').value !== "") {
               $('container').style.display="none";
@@ -676,6 +678,11 @@ JotForm = {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/550g.png)";
               imag2.style.animation="anim3 .5s 1";
 						}
+            if ($('input_ext').value == 'bache 450 M1') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/plis.png), url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/450g.png)";
+              imag2.style.animation="anim3 .5s 1";
+						}
+
 						if ($('input_ext').value == 'bache nontissé 150g') {
 							imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/150g.png)";
               imag2.style.animation="anim4 .5s 1";
@@ -804,6 +811,18 @@ JotForm = {
               imag7.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/drissep.png)";
 						}else{
               imag7.style.backgroundImage="none";
+            }
+
+
+            if ( !$('revendeur') && !$('revendeurRC') && !$('revendeurRS') ) {
+              $('revd').style.display="none";
+              $('revd1').style.display="none";
+              $('revd2').style.display="none";
+              $('revd3').style.display="none";
+              $('revd4').style.display="none";
+              $('revd5').style.display="none";
+              $('revd6').style.display="none";
+              $('revd7').style.display="none";
             }
 
 			    }//-------------------------------------------------------------------

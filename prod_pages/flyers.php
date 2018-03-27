@@ -4,19 +4,19 @@
 	<input type="hidden" name="formID" value="1060900223" />
 	<div class="form-all">
 		<ul class="form-section">
-        
-        <li class="form-line" id="id_0">
-				<span class="helpButton" onmouseover="tipShow('helpText0');" onmouseout="tipHide('helpText0');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Flyer A7 A6 A5 A4 A3 DinLong</u> : </b><br/>Flyer recto ou recto/verso - Impression quadri CMJN <br />• <u><b>Dépliant</u> : </b><br/>1 pli ou 2 plis - Impression quadri CMJN<br/></span></span>
+
+        <li class="form-line select" id="id_0">
+				<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">• <u><b>Flyer A7 A6 A5 A4 A3 DinLong</u> : </b><br/>Flyer recto ou recto/verso - Impression quadri CMJN <br />• <u><b>Dépliant</u> : </b><br/>1 pli ou 2 plis - Impression quadri CMJN<br/></span></span>
 
 				<select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir...</option>
 					<option value="Flyers">Flyer</option>
-                    <option value="Depliants">Dépliant</option>
+          <option value="Depliants">Dépliant</option>
 				</select>
 			</li>
 <!--/////////////////////////////////////// flyer-->
-			<li class="form-line" id="id_1">
-				<span class="helpButton" onmouseover="tipShow('helpText1');" onmouseout="tipHide('helpText1');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
+			<li class="form-line select" id="id_1">
+				<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: <span class="highlight">Dès 3,72€ les 500ex</span></b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: <span class="highlight">Dès 4,81€ les 500ex</span></b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: <span class="highlight">Dès 5,91€ les 500ex</span></b><br/>papier flyers légers haut de gamme.<br/>• <u><b>papier 250g/m²</u>: <span class="highlight">Dès 7,00€ les 500ex</span></b><br/>papier flyers épais haut de gamme.<br/>• <u><b>papier 350g/m²</u>: <span class="highlight">Dès 8,09€ les 500ex</span></b><br/>papier flyer cartonné haut de gamme.<br/></span></span>
 
 				<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
 					<option value="">choisir l'épaisseur...</option>
@@ -31,7 +31,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_21">
+			<li class="form-line select" id="id_21">
 
 				<a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_21" name="q21_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -44,8 +44,8 @@
 					<option value="A3">A3 (42 x 29,7 cm)</option>
 				</select>
 			</li>
-			
-            <li class="form-line" id="id_22">
+
+            <li class="form-line select" id="id_22">
 
 				<a href="#impression"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_22" name="q22_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -57,7 +57,7 @@
 
 
 
-			<li class="form-line" id="id_32">
+			<li class="form-line select" id="id_32">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -68,7 +68,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_33">
+			<li class="form-line select" id="id_33">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_33" name="q33_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -79,7 +79,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_34">
+			<li class="form-line select" id="id_34">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_34" name="q34_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -90,7 +90,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_35">
+			<li class="form-line select" id="id_35">
 
 				<a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
 				<select class="form-dropdown validate[required]" id="input_35" name="q35_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -101,8 +101,8 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_41">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette41');" onmouseout="tipHide('helpTextmaquette41');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_41">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette41" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -122,8 +122,8 @@
                         <option value="fb">France banderole crée la mise en page +19,00€</option>
 					</select>
 				</li>
-			<li class="form-line" id="id_42">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette42');" onmouseout="tipHide('helpTextmaquette42');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_42">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette42" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -144,8 +144,8 @@
 					</select>
 				</li>
 
-		<li class="form-line" id="id_43">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette43');" onmouseout="tipHide('helpTextmaquette43');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+		<li class="form-line select" id="id_43">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette43" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -166,8 +166,8 @@
 					</select>
 				</li>
 
-			<li class="form-line" id="id_44">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette44');" onmouseout="tipHide('helpTextmaquette44');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_44">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette44" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -189,9 +189,9 @@
 				</li>
 
 
-			<li class="form-line" id="id_45">
+			<li class="form-line select" id="id_45">
 
-				<span class="helpButton" onmouseover="tipShow('helpText45');" onmouseout="tipHide('helpText45');">
+				<span class="helpButton">
 					<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 					<span class="helpText" id="helpText45" style="visibility:hidden;">
 						Vous avez choisi de créer votre maquette en ligne, veuillez préciser si vous souhaitez voir s'afficher votre gabarit en mode portrait ou paysage.
@@ -204,7 +204,7 @@
 				</select>
 			</li>
 
-			<li class="form-line" id="id_5">
+			<li class="form-line select" id="id_5">
 				<select class="form-dropdown quan validate[required]" id="input_5" name="q5_maquette5" onchange="JKakemono.czyscpola();">
 					<option value="">quantité...</option>
 					<option value="25">25 </option>
@@ -230,12 +230,12 @@
 					<option value="100000">100000 </option>
 				</select>
 			</li>
-            
-<!--////////////////////////////////////depliant -->    
 
-			    <li class="form-line" id="id_1depliant">
+<!--////////////////////////////////////depliant -->
 
-       <span class="helpButton" onmouseover="tipShow('helpText1depliant');" onmouseout="tipHide('helpText1depliant');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1depliant" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: </b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: </b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: </b><br/>papier flyers légers haut de gamme.</span></span>
+			    <li class="form-line select" id="id_1depliant">
+
+       <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1depliant" style="visibility:hidden;">• <u><b>papier 80g/m²</u>: </b><br/>papier type imprimante 80g/m², mat.<br />• <u><b>papier 135g/m²</u>: </b><br/>le meilleur papier flyer pas cher.<br/>• <u><b>papier 170g/m²</u>: </b><br/>papier flyers légers haut de gamme.</span></span>
         <select class="form-dropdown validate[required]" id="input_1depliant" name="q1depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
           <option value="">choisir l'épaisseur...</option>
           <option value="depliants 80g">80g</option>
@@ -245,7 +245,7 @@
         </select>
       </li>
 
-      <li class="form-line" id="id_21depliant">
+      <li class="form-line select" id="id_21depliant">
 
         <a href="#taille"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_21depliant" name="q21depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -259,7 +259,7 @@
       </li>
 
 
-      <li class="form-line" id="id_32depliant">
+      <li class="form-line select" id="id_32depliant">
 
         <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_32depliant" name="q32depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -270,7 +270,7 @@
         </select>
       </li>
 
-      <li class="form-line" id="id_33depliant">
+      <li class="form-line select" id="id_33depliant">
 
         <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_33depliant" name="q33depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -281,7 +281,7 @@
         </select>
       </li>
 
-      <li class="form-line" id="id_34depliant">
+      <li class="form-line select" id="id_34depliant">
 
         <a href="#type"><img class="helpImg" title="Cliquez pour plus d'infos" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"></a>
         <select class="form-dropdown validate[required]" id="input_34depliant" name="q34depliant_usage" onchange="getElementById('preview_info_ul').innerHTML = '';JKakemono.czyscpola();">
@@ -293,8 +293,8 @@
       </li>
 
 
-			<li class="form-line" id="id_41depliant">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette41depliant');" onmouseout="tipHide('helpTextmaquette41depliant');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_41depliant">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette41depliant" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -314,8 +314,8 @@
                         <option value="fb">France banderole crée la mise en page +19,00€</option>
 					</select>
 				</li>
-			<li class="form-line" id="id_42depliant">
-					<span class="helpButton" onmouseover="tipShow('helpTextmaquette42depliant');" onmouseout="tipHide('helpTextmaquette42depliant');"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
+			<li class="form-line select" id="id_42depliant">
+					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextmaquette42depliant" style="visibility:hidden;">
                         	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
 							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
@@ -336,7 +336,7 @@
 					</select>
 				</li>
 
-      <li class="form-line" id="id_5depliant">
+      <li class="form-line select" id="id_5depliant">
 
         <select class="form-dropdown quan validate[required]" id="input_5depliant" name="q5depliant_maquette5depliant" onchange="JKakemono.czyscpola();">
           			<option value="">quantité...</option>
@@ -362,10 +362,10 @@
 					<option value="75000">75000 </option>
 					<option value="100000">100000 </option>
         </select>
-      </li>  
-      
-       <li class="form-line" id="id_signature">
-        	<span class="helpButton" onmouseover="tipShow('helpTextsignature');" onmouseout="tipHide('helpTextsignature');">
+      </li>
+
+       <li class="form-line select" id="id_signature">
+        	<span class="helpButton">
 						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
 						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
               <b>Logo France Banderole</b><br/>
@@ -378,12 +378,12 @@
 						<option value="signature FB">produit signé</option>
 						<option value="sans signature">produit neutre +5,00 €</option>
 					</select>
-				</li>     
-            
-<!--/////////////////////////////// -->           
-            
-                  
-            
+				</li>
+
+<!--/////////////////////////////// -->
+
+
+
 
 			<li class="form-line optionsformline" id="id_101">
 				<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
@@ -393,7 +393,7 @@
 					<span class="optionsleft">
 						<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
 						<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-						<span class="helpButton" onmouseover="tipShow('helpTextAdresse');" onmouseout="tipHide('helpTextAdresse');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
 						</span>
 					</span>
@@ -401,7 +401,7 @@
 					<span class="optionsleft">
 						<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
 						<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-						<span class="helpButton" onmouseover="tipShow('helpTextetiquette');" onmouseout="tipHide('helpTextetiquette');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
 						</span>
 					</span>
@@ -409,7 +409,7 @@
 					<span class="optionsright">
 						<label class="form-label-left" id="label_relais" for="relais">Dépot en relais colis</label>
 						<input type="checkbox" class="form-checkbox" id="relais" name="relais[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-						<span class="helpButton" onmouseover="tipShow('helpTextrelais');" onmouseout="tipHide('helpTextrelais');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextrelais" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span>
 						</span>
 					</span>
@@ -417,7 +417,7 @@
 					<span class="optionsright">
 						<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
 						<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-						<span class="helpButton" onmouseover="tipShow('helpTextcolis');" onmouseout="tipHide('helpTextcolis');">
+						<span class="helpButton">
 							<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span>
 						</span>
 					</span>
@@ -445,7 +445,7 @@
 
 			</li>
 
-			<li class="form-line" id="id_9a">
+			<li class="form-line select" id="id_9a">
 				<div class="form-input-wide">
 					<button id="input_9" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
 				</div>
@@ -565,22 +565,26 @@
 			var rabat      = 0;     var rabat2 = 0;
 			var prliv      = '';
 			var transport  = 0;
-			var P350µ = 0; var P270µ = 0; var P120µ = 0;
+			var P350µ = 0; var P270µ = 0; var P120µ = 0; var P80gr = 0.04; var P135gr = 0.07; var P170gr = 0.08; var P250gr = 0.13; var P350gr = 0.18;
 			var ilosc      = $('input_5').value || $('input_5depliant').value;
 			var opis       = '';
 			var niepokazuj = 0;
 			var option2    = 0;
 			var largeur    = 0;
 			var hauteur    = 0;
+			var clic       =0.05;
+			var cenaFB      ='';
+			var cenaFBfinal      ='';
+			var gr = ''; var p1 =''; var p2 ='';
 			var optliv     = '';
 			var eBox       = document.getElementById('form-button-error2');
 			eBox.innerHTML = '';
 
 			//////////////////////////////////////////////////////////////////////////
-			
+
 			if ($('input_0').value == 'Flyers') {
 			if ($('input_1').value == 'Flyers 80g') {
-				if ($('input_21').value == 'A7'){ 
+				if ($('input_21').value == 'A7'){
 					opis += '- A7 80gr | Quadri';
 					if (ilosc == '25') { cena1=17.29;}
 					if (ilosc == '50') { cena1=17.35;}
@@ -604,9 +608,9 @@
 					if (ilosc == '75000') { cena1=171.00;}
 					if (ilosc == '100000') { cena1=209.00;}
 				}
-				
+
 				if ($('input_21').value == 'A6')
-					{ 
+					{
 					opis += '- A6 80gr | Quadri';
 					if (ilosc == '25') { cena1=18.43;}
 					if (ilosc == '50') { cena1=18.49;}
@@ -630,8 +634,8 @@
 					if (ilosc == '75000') { cena1=220.00;}
 					if (ilosc == '100000') { cena1=272.00;}
 					}
-				
-				if ($('input_21').value == 'A5'){ 
+
+				if ($('input_21').value == 'A5'){
 					opis += '- A5 80gr | Quadri';
 					if (ilosc == '25') { cena1=23.92;}
 					if (ilosc == '50') { cena1=24.58;}
@@ -655,9 +659,9 @@
 					if (ilosc == '75000') { cena1=487.76;}
 					if (ilosc == '100000') { cena1=606.68;}
 					}
-				
+
 				if ($('input_21').value == 'A4')
-					{ 
+					{
 					opis += '- A4 80gr | Quadri';
 					if (ilosc == '25') { cena1=26.34;}
 					if (ilosc == '50') { cena1=26.01;}
@@ -681,7 +685,7 @@
 					if (ilosc == '75000') { cena1=1153.03;}
 					if (ilosc == '100000') { cena1=1420.00;}
 					}
-				
+
 				if ($('input_21').value == 'Dinlong')
 					{
 
@@ -708,9 +712,9 @@
 					if (ilosc == '75000') { cena1=385.00;}
 					if (ilosc == '100000') { cena1=476.00 ;}
 					}
-				
+
 				if ($('input_21').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 80gr | Quadri';
 					if (ilosc == '25') { cena1=39.92;}
 					if (ilosc == '50') { cena1=32.34;}
@@ -734,13 +738,13 @@
 					if (ilosc == '75000') { cena1=2211.80;}
 					if (ilosc == '100000') { cena1=2729.90;}
 					}
-					
+
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 135g') {
-				
-				if ($('input_21').value == 'A7'){ 
+
+				if ($('input_21').value == 'A7'){
 					opis += '- A7 135gr | Quadri';
 					if (ilosc == '25') { cena1=14.16;}
 					if (ilosc == '50') { cena1=14.89;}
@@ -764,9 +768,9 @@
 					if (ilosc == '75000') { cena1=159.69;}
 					if (ilosc == '100000') { cena1=208.34;}
 				}
-				
+
 				if ($('input_21').value == 'A6')
-					{ 
+					{
 					opis += '- A6 135gr | Quadri';
 					if (ilosc == '25') { cena1=16.24;}
 					if (ilosc == '50') { cena1=17.09;}
@@ -790,8 +794,8 @@
 					if (ilosc == '75000') { cena1=318.77;}
 					if (ilosc == '100000') { cena1=423.63;}
 					}
-				
-				if ($('input_21').value == 'A5'){ 
+
+				if ($('input_21').value == 'A5'){
 					opis += '- A5 135gr | Quadri';
 					if (ilosc == '25') { cena1=21.85;}
 					if (ilosc == '50') { cena1=22.12;}
@@ -815,9 +819,9 @@
 					if (ilosc == '75000') { cena1=606.76;}
 					if (ilosc == '100000') { cena1=808.68;}
 					}
-				
+
 				if ($('input_21').value == 'A4')
-					{ 
+					{
 					opis += '- A4 135gr | Quadri';
 					if (ilosc == '25') { cena1=25.34;}
 					if (ilosc == '50') { cena1=26.01;}
@@ -841,7 +845,7 @@
 					if (ilosc == '75000') { cena1=1179.03;}
 					if (ilosc == '100000') { cena1=1573.87;}
 					}
-				
+
 				if ($('input_21').value == 'Dinlong')
 					{
 					opis += '- Din long 135gr | Quadri';
@@ -867,9 +871,9 @@
 					if (ilosc == '75000') { cena1=430.83;}
 					if (ilosc == '100000') { cena1=572.77;}
 					}
-				
+
 				if ($('input_21').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 135gr | Quadri';
 					if (ilosc == '25') { cena1=30.92;}
 					if (ilosc == '50') { cena1=32.34;}
@@ -893,12 +897,12 @@
 					if (ilosc == '75000') { cena1=2555.80;}
 					if (ilosc == '100000') { cena1=3401.90;}
 					}
-	
+
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 170g') {
-				if ($('input_21').value == 'A7'){ 
+				if ($('input_21').value == 'A7'){
 					opis += '- A7 170gr | Quadri';
 					if (ilosc == '25') { cena1=15.08;}
 					if (ilosc == '50') { cena1=15.86;}
@@ -922,9 +926,9 @@
 					if (ilosc == '75000') { cena1=204.79;}
 					if (ilosc == '100000') { cena1=271.24;}
 				}
-				
+
 				if ($('input_21').value == 'A6')
-					{ 
+					{
 					opis += '- A6 170gr | Quadri';
 					if (ilosc == '25') { cena1=17.56;}
 					if (ilosc == '50') { cena1=18.49;}
@@ -948,8 +952,8 @@
 					if (ilosc == '75000') { cena1=382.55;}
 					if (ilosc == '100000') { cena1=508.40;}
 					}
-				
-				if ($('input_21').value == 'A5'){ 
+
+				if ($('input_21').value == 'A5'){
 					opis += '- A5 170gr | Quadri';
 					if (ilosc == '25') { cena1=22.77;}
 					if (ilosc == '50') { cena1=23.10;}
@@ -973,9 +977,9 @@
 					if (ilosc == '75000') { cena1=755.70;}
 					if (ilosc == '100000') { cena1=1004.60;}
 					}
-				
+
 				if ($('input_21').value == 'A4')
-					{ 
+					{
 					opis += '- A4 170gr | Quadri';
 					if (ilosc == '25') { cena1=26.50;}
 					if (ilosc == '50') { cena1=27.30;}
@@ -999,7 +1003,7 @@
 					if (ilosc == '75000') { cena1=1482.41;}
 					if (ilosc == '100000') { cena1=1972.21;}
 					}
-				
+
 				if ($('input_21').value == 'Dinlong')
 					{
 					opis += '- Din long 170gr | Quadri';
@@ -1025,9 +1029,9 @@
 					if (ilosc == '75000') { cena1=528.79;}
 					if (ilosc == '100000') { cena1=703.72 ;}
 					}
-				
+
 				if ($('input_21').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 170gr | Quadri';
 					if (ilosc == '25') { cena1=32.48;}
 					if (ilosc == '50') { cena1=34.14;}
@@ -1056,8 +1060,8 @@
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 250g') {
-				
-				if ($('input_21').value == 'A7'){ 
+
+				if ($('input_21').value == 'A7'){
 						opis += '- A7 250gr | Quadri';
 					if (ilosc == '25') { cena1=16.22;}
 					if (ilosc == '50') { cena1=17.06;}
@@ -1081,9 +1085,9 @@
 					if (ilosc == '75000') { cena1=274.89;}
 					if (ilosc == '100000') { cena1=350.86;}
 				}
-				
+
 				if ($('input_21').value == 'A6')
-					{ 
+					{
 					opis += '- A6 250gr | Quadri';
 					if (ilosc == '25') { cena1=19.62;}
 					if (ilosc == '50') { cena1=20.66;}
@@ -1107,8 +1111,8 @@
 					if (ilosc == '75000') { cena1=509.30;}
 					if (ilosc == '100000') { cena1=664.73;}
 					}
-				
-				if ($('input_21').value == 'A5'){ 
+
+				if ($('input_21').value == 'A5'){
 					opis += '- A5 250gr | Quadri';
 					if (ilosc == '25') { cena1=23.02;}
 					if (ilosc == '50') { cena1=23.47;}
@@ -1132,9 +1136,9 @@
 					if (ilosc == '75000') { cena1=992.60;}
 					if (ilosc == '100000') { cena1=1313.47;}
 					}
-				
+
 				if ($('input_21').value == 'A4')
-					{ 
+					{
 					opis += '- A4 250gr | Quadri';
 					if (ilosc == '25') { cena1=27.01;}
 					if (ilosc == '50') { cena1=28.03;}
@@ -1158,7 +1162,7 @@
 					if (ilosc == '75000') { cena1=1941.12;}
 					if (ilosc == '100000') { cena1=2577.26;}
 					}
-				
+
 				if ($('input_21').value == 'Dinlong')
 					{
 					opis += '- Din long 250gr | Quadri';
@@ -1184,9 +1188,9 @@
 					if (ilosc == '75000') { cena1=664.73;}
 					if (ilosc == '100000') { cena1=874.65 ;}
 					}
-				
+
 				if ($('input_21').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 250gr | Quadri';
 					if (ilosc == '25') { cena1=33.48;}
 					if (ilosc == '50') { cena1=35.59;}
@@ -1210,12 +1214,12 @@
 					if (ilosc == '75000') { cena1=3902.44;}
 					if (ilosc == '100000') { cena1=5170.93;}
 					}
-				
+
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 350g') {
-				if ($('input_21').value == 'A7'){ 
+				if ($('input_21').value == 'A7'){
 						opis += '- A7 350gr | Quadri';
 					if (ilosc == '25') { cena1=20.13;}
 					if (ilosc == '50') { cena1=25.29;}
@@ -1239,9 +1243,9 @@
 					if (ilosc == '75000') { cena1=454.00;}
 					if (ilosc == '100000') { cena1=554.00;}
 				}
-				
+
 				if ($('input_21').value == 'A6')
-					{ 
+					{
 					opis += '- A6 350gr | Quadri';
 					if (ilosc == '25') { cena1=25.35;}
 					if (ilosc == '50') { cena1=30.56;}
@@ -1265,8 +1269,8 @@
 					if (ilosc == '75000') { cena1=670.00;}
 					if (ilosc == '100000') { cena1=838.00;}
 					}
-				
-				if ($('input_21').value == 'A5'){ 
+
+				if ($('input_21').value == 'A5'){
 					opis += '- A5 350gr | Quadri';
 					if (ilosc == '25') { cena1=30.18;}
 					if (ilosc == '50') { cena1=35.38;}
@@ -1290,9 +1294,9 @@
 					if (ilosc == '75000') { cena1=1549.00;}
 					if (ilosc == '100000') { cena1=1937.00;}
 					}
-				
+
 				if ($('input_21').value == 'A4')
-					{ 
+					{
 					opis += '- A4 350gr | Quadri';
 					if (ilosc == '25') { cena1=35.00;}
 					if (ilosc == '50') { cena1=40.00;}
@@ -1316,7 +1320,7 @@
 					if (ilosc == '75000') { cena1=2766.00;}
 					if (ilosc == '100000') { cena1=3408.00;}
 					}
-				
+
 				if ($('input_21').value == 'Dinlong')
 					{
 					opis += '- Din long 350gr | Quadri';
@@ -1342,9 +1346,9 @@
 					if (ilosc == '75000') { cena1=1144.00;}
 					if (ilosc == '100000') { cena1=1422.00 ;}
 					}
-				
+
 				if ($('input_21').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 350gr | Quadri';
 					if (ilosc == '25') { cena1=54.00;}
 					if (ilosc == '50') { cena1=66.00;}
@@ -1368,63 +1372,104 @@
 					if (ilosc == '75000') { cena1=8631.44;}
 					if (ilosc == '100000') { cena1=10635.93;}
 					}
-				
-			}
-			
-			
-			
-			/////////////////////////////////////////////////////////// coef/////////////
-			
-		if ( ($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g') || ($('input_1').value == 'Flyers 170g') || ($('input_1').value == 'Flyers 250g') || ($('input_1').value == 'Flyers 350g') ){
-				
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') || ($('input_21').value == 'A5')  || ($('input_21').value == 'A4') || ($('input_21').value == 'Dinlong') || ($('input_21').value == 'A3') ) && (ilosc == '25') ) {cena1*=1.1;}
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') || ($('input_21').value == 'A5')  || ($('input_21').value == 'A4') || ($('input_21').value == 'Dinlong') || ($('input_21').value == 'A3') ) && (ilosc == '50') ) {cena1*=1.2;}
 
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') || ($('input_21').value == 'A5')  || ($('input_21').value == 'A4') || ($('input_21').value == 'Dinlong') || ($('input_21').value == 'A3') ) && (ilosc == '100') ) {cena1*=1.3;}
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') || ($('input_21').value == 'A5')  || ($('input_21').value == 'A4') || ($('input_21').value == 'Dinlong') ) && (ilosc == '250') ) {cena1*=1.4;}
-			if ( ( ($('input_21').value == 'A3')) && (ilosc == '250') ) {cena1*=1.5;}
-			
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') || ($('input_21').value == 'A5') || ($('input_21').value == 'Dinlong') ) && (ilosc == '500') ) {cena1*=1.5;}
-			if ( ( ($('input_21').value == 'A4')|| ($('input_21').value == 'A3')) && (ilosc == '500') ) {cena1*=1.8;}
-			
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') || ($('input_21').value == 'A5') ) && (ilosc == '1000') ) {cena1*=1.6;}
-			if ( ( ($('input_21').value == 'Dinlong')|| ($('input_21').value == 'A4') || ($('input_21').value == 'A3') ) && (ilosc == '1000') ) {cena1*=2;}
-			
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') ) && (ilosc == '1250') ) {cena1*=1.7;}
-			if ( ( ($('input_21').value == 'A5')|| ($('input_21').value == 'Dinlong') || ($('input_21').value == 'A4') || ($('input_21').value == 'A3') ) && (ilosc == '1250') ) {cena1*=2;}
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') ) && (ilosc == '1500') ) {cena1*=1.8;}
-			if ( ( ($('input_21').value == 'A5')|| ($('input_21').value == 'Dinlong') || ($('input_21').value == 'A4') || ($('input_21').value == 'A3') ) && (ilosc == '1500') ) {cena1*=2;}
-			
-			if ( ( ($('input_21').value == 'A7') || ($('input_21').value == 'A6') ) && (ilosc == '2000') ) {cena1*=1.9;}
-			if ( ( ($('input_21').value == 'A5') || ($('input_21').value == 'Dinlong') || ($('input_21').value == 'A4') || ($('input_21').value == 'A3')) && (ilosc == '2000') ) {cena1*=2;}
-			
-			if ((ilosc == '2500') || (ilosc == '5000') || (ilosc == '10000') || (ilosc == '15000') || (ilosc == '20000') || (ilosc == '25000') || (ilosc == '30000') || (ilosc == '35000') || (ilosc == '40000') || (ilosc == '45000') || (ilosc == '50000') || (ilosc == '75000') || (ilosc == '100000') ) {cena1*=2;}
-			
-		}
-			
+			}
+
+
+			/////////////////////////////////////////////////////////// PRIX FB/////////////
+
+			if ($('input_1').value == 'Flyers 80g') {
+					if ($('input_21').value == 'A7'){ cenaFB=(ilosc/16)*P80gr; clic=(ilosc/16)*0.05; opis += '<br />- 80g | Quadri';}
+					if ($('input_21').value == 'A6'){ cenaFB=(ilosc/8)*P80gr; clic=(ilosc/8)*0.05; opis += '<br />- 80g | Quadri';}
+					if ($('input_21').value == 'A5'){ cenaFB=(ilosc/4)*P80gr; clic=(ilosc/4)*0.05; opis += '<br />- 80g | Quadri';}
+					if ($('input_21').value == 'A4'){ cenaFB=(ilosc/2)*P80gr; clic=(ilosc/2)*0.05; opis += '<br />- 80g | Quadri';}
+					if ($('input_21').value == 'Dinlong'){ cenaFB=(ilosc/6)*P80gr; clic=(ilosc/6)*0.05; opis += '<br />- 80g | Quadri';}
+					if ($('input_21').value == 'A3'){ cenaFB=(ilosc/1)*P80gr; clic=(ilosc/1)*0.05; opis += '<br />- 80g | Quadri';}
+					if ($('input_22').value == 'Recto'){ cenaFBfinal=cenaFB+clic;}
+					if ($('input_22').value == 'Recto Verso'){ cenaFBfinal=cenaFB+(clic*2);}
+			}
+
+			if ($('input_1').value == 'Flyers 135g') {
+					if ($('input_21').value == 'A7'){ cenaFB=(ilosc/16)*P135gr; clic=(ilosc/16)*0.05; opis += '<br />- 135g | Quadri';}
+					if ($('input_21').value == 'A6'){ cenaFB=(ilosc/8)*P135gr; clic=(ilosc/8)*0.05; opis += '<br />- 135g | Quadri';}
+					if ($('input_21').value == 'A5'){ cenaFB=(ilosc/4)*P135gr; clic=(ilosc/4)*0.05; opis += '<br />- 135g | Quadri';}
+					if ($('input_21').value == 'A4'){ cenaFB=(ilosc/2)*P135gr; clic=(ilosc/2)*0.05; opis += '<br />- 135g | Quadri';}
+					if ($('input_21').value == 'Dinlong'){ cenaFB=(ilosc/6)*P135gr; clic=(ilosc/6)*0.05; opis += '<br />- 135g | Quadri';}
+					if ($('input_21').value == 'A3'){ cenaFB=(ilosc/1)*P135gr; clic=(ilosc/1)*0.05; opis += '<br />- 135g | Quadri';}
+					if ($('input_22').value == 'Recto'){ cenaFBfinal=cenaFB+clic;}
+					if ($('input_22').value == 'Recto Verso'){ cenaFBfinal=cenaFB+(clic*2);}
+			}
+		   if ($('input_1').value == 'Flyers 170g') {
+					if ($('input_21').value == 'A7'){ cenaFB=(ilosc/16)*P170gr; clic=(ilosc/16)*0.05; opis += '<br />- 170g | Quadri';}
+					if ($('input_21').value == 'A6'){ cenaFB=(ilosc/8)*P170gr; clic=(ilosc/8)*0.05; opis += '<br />- 170g | Quadri';}
+					if ($('input_21').value == 'A5'){ cenaFB=(ilosc/4)*P170gr; clic=(ilosc/4)*0.05; opis += '<br />- 170g | Quadri';}
+					if ($('input_21').value == 'A4'){ cenaFB=(ilosc/2)*P170gr; clic=(ilosc/2)*0.05; opis += '<br />- 170g | Quadri';}
+					if ($('input_21').value == 'Dinlong'){ cenaFB=(ilosc/6)*P170gr; clic=(ilosc/6)*0.05; opis += '<br />- 170g | Quadri';}
+					if ($('input_21').value == 'A3'){ cenaFB=(ilosc/1)*P170gr; clic=(ilosc/1)*0.05; opis += '<br />- 170g | Quadri';}
+					if ($('input_22').value == 'Recto'){ cenaFBfinal=cenaFB+clic;}
+					if ($('input_22').value == 'Recto Verso'){ cenaFBfinal=cenaFB+(clic*2);}
+			}
+			if ($('input_1').value == 'Flyers 250g') {
+					if ($('input_21').value == 'A7'){ cenaFB=(ilosc/16)*P250gr; clic=(ilosc/16)*0.05; opis += '<br />- 250g | Quadri';}
+					if ($('input_21').value == 'A6'){ cenaFB=(ilosc/8)*P250gr; clic=(ilosc/8)*0.05; opis += '<br />- 250g | Quadri';}
+					if ($('input_21').value == 'A5'){ cenaFB=(ilosc/4)*P250gr; clic=(ilosc/4)*0.05; opis += '<br />- 250g | Quadri';}
+					if ($('input_21').value == 'A4'){ cenaFB=(ilosc/2)*P250gr; clic=(ilosc/2)*0.05; opis += '<br />- 250g | Quadri';}
+					if ($('input_21').value == 'Dinlong'){ cenaFB=(ilosc/6)*P250gr; clic=(ilosc/6)*0.05; opis += '<br />- 250g | Quadri';}
+					if ($('input_21').value == 'A3'){ cenaFB=(ilosc/1)*P250gr; clic=(ilosc/1)*0.05; opis += '<br />- 250g | Quadri';}
+					if ($('input_22').value == 'Recto'){ cenaFBfinal=cenaFB+clic;}
+					if ($('input_22').value == 'Recto Verso'){ cenaFBfinal=cenaFB+(clic*2);}
+			}
+
+			if ($('input_1').value == 'Flyers 350g') {
+					if ($('input_21').value == 'A7'){ cenaFB=(ilosc/16)*P350gr; clic=(ilosc/16)*0.05; opis += '<br />- 350g | Quadri';}
+					if ($('input_21').value == 'A6'){ cenaFB=(ilosc/8)*P350gr; clic=(ilosc/8)*0.05; opis += '<br />- 350g | Quadri';}
+					if ($('input_21').value == 'A5'){ cenaFB=(ilosc/4)*P350gr; clic=(ilosc/4)*0.05; opis += '<br />- 350g | Quadri';}
+					if ($('input_21').value == 'A4'){ cenaFB=(ilosc/2)*P350gr; clic=(ilosc/2)*0.05; opis += '<br />- 350g | Quadri';}
+					if ($('input_21').value == 'Dinlong'){ cenaFB=(ilosc/6)*P350gr; clic=(ilosc/6)*0.05; opis += '<br />- 350g | Quadri';}
+					if ($('input_21').value == 'A3'){ cenaFB=(ilosc/1)*P350gr; clic=(ilosc/1)*0.05; opis += '<br />- 350g | Quadri';}
+					if ($('input_22').value == 'Recto'){ cenaFBfinal=cenaFB+clic;}
+					if ($('input_22').value == 'Recto Verso'){ cenaFBfinal=cenaFB+(clic*2);}
+			}
+			/////////////////////////////////////////////////////////// poids/////////////
+					if ($('input_1').value == 'Flyers 350g') {gr=0.35}
+					if ($('input_1').value == 'Flyers 250g') {gr=0.25}
+					if ($('input_1').value == 'Flyers 170g') {gr=0.17}
+					if ($('input_1').value == 'Flyers 135g') {gr=0.135}
+					if ($('input_1').value == 'Flyers 80g') {gr=0.08}
+
+					if ($('input_21').value == 'A7'){ p1=(ilosc/16)*gr*0.112;}
+					if ($('input_21').value == 'A6'){ p1=(ilosc/8)*gr*0.124;}
+					if ($('input_21').value == 'A5'){ p1=(ilosc/4)*gr*0.151;}
+					if ($('input_21').value == 'A4'){ p1=(ilosc/2)*gr*0.124;}
+					if ($('input_21').value == 'Dinlong'){ p1=(ilosc/6)*gr*0.132;}
+					if ($('input_21').value == 'A3'){ p1=(ilosc/1)*gr*0.121;}
+					if (p1<=1){ p2=7;}
+					if (1<p1<=4){ p2=9;}
+					if (4<p1<=8){ p2=11;}
+					if (8<p1<=12){ p2=12;}
+					if (12<p1){ p2=15;}
+
+
+			/////////////////////////////////////////////////////////// prix  final/////////////
+			if(cenaFBfinal<cena1){ cena=(cenaFBfinal*1.8)+p2;}
+			if(cenaFBfinal>cena1){ cena=(cena1*1.8)+7.00;}
+
 			/////////////////////////////////////////////////////////// recto verso /////////////
-			
-		if ( (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g') || ($('input_1').value == 'Flyers 170g') || ($('input_1').value == 'Flyers 250g') || ($('input_1').value == 'Flyers 350g')) && ($('input_22').value == 'Recto Verso')  ) {cena1*=1.2;}
-		if ( (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g') || ($('input_1').value == 'Flyers 170g') || ($('input_1').value == 'Flyers 250g') || ($('input_1').value == 'Flyers 350g')) && ($('input_22').value == 'Recto')  ) {cena1*=1;}
-		
-		if ( ($('input_1').value == 'Flyers 120µ') && ($('input_22').value == 'Recto Verso')  ) {P120µ=2.42;}	
-		if ( ($('input_1').value == 'Flyers 120µ') && ($('input_22').value == 'Recto')  ) {P120µ=2.38;}	
-			
-		if ( ($('input_1').value == 'Flyers 270µ') && ($('input_22').value == 'Recto Verso')  ) {P270µ=3.85;}	
-		if ( ($('input_1').value == 'Flyers 270µ') && ($('input_22').value == 'Recto')  ) {P270µ=3.38;}	
-		
-		if ( ($('input_1').value == 'Flyers 350µ') && ($('input_22').value == 'Recto Verso')  ) {P350µ=4.78;}	
+
+		if ( (($('input_1').value == 'Flyers 80g') || ($('input_1').value == 'Flyers 135g') || ($('input_1').value == 'Flyers 170g') || ($('input_1').value == 'Flyers 250g') || ($('input_1').value == 'Flyers 350g')) && ($('input_22').value == 'Recto Verso')  ) {cena*=1.2;}
+		/////////////////////////////////////////////////////////////////////////////////////////
+		if ( ($('input_1').value == 'Flyers 120µ') && ($('input_22').value == 'Recto Verso')  ) {P120µ=2.42;}
+		if ( ($('input_1').value == 'Flyers 120µ') && ($('input_22').value == 'Recto')  ) {P120µ=2.38;}
+
+		if ( ($('input_1').value == 'Flyers 270µ') && ($('input_22').value == 'Recto Verso')  ) {P270µ=3.85;}
+		if ( ($('input_1').value == 'Flyers 270µ') && ($('input_22').value == 'Recto')  ) {P270µ=3.38;}
+
+		if ( ($('input_1').value == 'Flyers 350µ') && ($('input_22').value == 'Recto Verso')  ) {P350µ=4.78;}
 		if ( ($('input_1').value == 'Flyers 350µ') && ($('input_22').value == 'Recto')  ) {P350µ=4.73;}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 120µ') {
-				
+
 
 					if ($('input_21').value == 'A7'){ cena1=(ilosc/16)*P120µ; opis += '<br />- A7 120µ | Quadri';}
 					if ($('input_21').value == 'A6'){ cena1=(ilosc/8)*P120µ; opis += '<br />- A6 120µ | Quadri';}
@@ -1439,13 +1484,13 @@
 					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
 					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
 					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
-					
-				
+					cena=cena1;
+
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 270µ') {
-				
+
 					if ($('input_21').value == 'A7'){ cena1=(ilosc/16)*P270µ; opis += '<br />- 270µ | Quadri';}
 					if ($('input_21').value == 'A6'){ cena1=(ilosc/8)*P270µ; opis += '<br />- 270µ | Quadri';}
 					if ($('input_21').value == 'A5'){ cena1=(ilosc/4)*P270µ; opis += '<br />- 270µ | Quadri';}
@@ -1459,12 +1504,13 @@
 					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
 					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
 					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
-				
+					cena=cena1;
+
 			}
 
 			//////////////////////////////////////////////////////////////////////////
 			if ($('input_1').value == 'Flyers 350µ') {
-				
+
 					if ($('input_21').value == '1'){ cena1=(ilosc/16)*P350µ; opis += '<br />- Recto<br />- 350µ | Quadri';}
 					if ($('input_21').value == '3'){ cena1=(ilosc/8)*P350µ; opis += '<br />- Recto<br />- 350µ | Quadri';}
 					if ($('input_21').value == '5'){ cena1=(ilosc/4)*P350µ; opis += '<br />- Recto<br />- 350µ | Quadri';}
@@ -1478,34 +1524,35 @@
 					if ((ilosc == '25000') || (ilosc == '30000')){ cena1*=0.85;}
 					if ((ilosc == '40000') || (ilosc == '50000')){ cena1*=0.80;}
 					if ((ilosc == '75000') || (ilosc == '100000')){ cena1*=0.75;}
-				
+					cena=cena1;
+
 			}
-			
+
 
 
 			////////////////////////////////////////////////////////// impression //
 			if ($('input_22').value == 'Recto') {opis += '<br />- Recto';}
 			if ($('input_22').value == 'Recto Verso') {opis += '<br />- Recto Verso';}
-			
+
 
 			////////////////////////////////////////////////////////// choix papier //
 			if ($('input_32').value == '1') {opis += '<br />- couché brillant';}
 			if ($('input_32').value == '3') {opis += '<br />- couché mat';}
-			
+
 			if ($('input_33').value == '1') {opis += '<br />- couché brillant';}
 			if ($('input_33').value == '3') {opis += '<br />- couché mat';}
-			
+
 			if ($('input_34').value == '1') {opis += '<br />- couché brillant';}
 			if ($('input_34').value == '3') {opis += '<br />- couché mat';}
-			
+
 			if ($('input_35').value == '1') {opis += '<br />- couché brillant';}
 			if ($('input_35').value == '3') {opis += '<br />- couché mat';}
-			
-			cena=cena1;
-			
-			
-			
-			
+
+
+
+
+
+
 			opis += '<br />- '+ilosc+' flyers';
 
 			//////////////////////////////////////////////////////// format gabarit //
@@ -1535,474 +1582,465 @@
 			}
 
 
-		
-			
-			
-		}	
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+
+		}
+
+
+
+
+
+
+
+
 			 ////////////////////////////////////////////////////////////////////////// depliant
-			 
-		if ($('input_0').value == 'Depliants') {	 
+
+		if ($('input_0').value == 'Depliants') {
       	if ($('input_1depliant').value == 'depliants 80g') {
-      			if ($('input_21depliant').value == 'A5'){ 
+      			if ($('input_21depliant').value == 'A5'){
 					opis += '- A5 ouvert -> A6 fermé <br>- 80gr | Quadri';
-					if (ilosc == '25') { cena1=33.18;}
-					if (ilosc == '50') { cena1=33.18;}
-					if (ilosc == '100') { cena1=33.18;}
-					if (ilosc == '250') { cena1=33.18;}
-					if (ilosc == '500') { cena1=32.77;}
-					if (ilosc == '1000') { cena1=33.78;}
-					if (ilosc == '1250') { cena1=45.93;}
-					if (ilosc == '2000') { cena1=51.15;}
-					if (ilosc == '2500') { cena1=54.42;}
-					if (ilosc == '5000') { cena1=70.81;}
-					if (ilosc == '10000') { cena1=112.05;}
-					if (ilosc == '15000') { cena1=154.19;}
-					if (ilosc == '20000') { cena1=202.87;}
-					if (ilosc == '25000') { cena1=245.02;}
-					if (ilosc == '30000') { cena1=287.17;}
-					if (ilosc == '35000') { cena1=341.35;}
-					if (ilosc == '40000') { cena1=388.19;}
-					if (ilosc == '45000') { cena1=420.15;}
-					if (ilosc == '50000') { cena1=474.33;}
-					if (ilosc == '75000') { cena1=685.19;}
-					if (ilosc == '100000') { cena1=913.57;}
+					if (ilosc == '25') { cena=33.18;}
+					if (ilosc == '50') { cena=33.18;}
+					if (ilosc == '100') { cena=33.18;}
+					if (ilosc == '250') { cena=33.18;}
+					if (ilosc == '500') { cena=32.77;}
+					if (ilosc == '1000') { cena=33.78;}
+					if (ilosc == '1250') { cena=45.93;}
+					if (ilosc == '2000') { cena=51.15;}
+					if (ilosc == '2500') { cena=54.42;}
+					if (ilosc == '5000') { cena=70.81;}
+					if (ilosc == '10000') { cena=112.05;}
+					if (ilosc == '15000') { cena=154.19;}
+					if (ilosc == '20000') { cena=202.87;}
+					if (ilosc == '25000') { cena=245.02;}
+					if (ilosc == '30000') { cena=287.17;}
+					if (ilosc == '35000') { cena=341.35;}
+					if (ilosc == '40000') { cena=388.19;}
+					if (ilosc == '45000') { cena=420.15;}
+					if (ilosc == '50000') { cena=474.33;}
+					if (ilosc == '75000') { cena=685.19;}
+					if (ilosc == '100000') { cena=913.57;}
 					}
-				
+
 				if ($('input_21depliant').value == 'A4')
-					{ 
+					{
 					opis += '- A4 ouvert -> A5 fermé <br>- 80gr | Quadri';
-					if (ilosc == '25') { cena1=40.94;}
-					if (ilosc == '50') { cena1=40.94;}
-					if (ilosc == '100') { cena1=40.94;}
-					if (ilosc == '250') { cena1=40.94;}
-					if (ilosc == '500') { cena1=43.73;}
-					if (ilosc == '1000') { cena1=49.13;}
-					if (ilosc == '1250') { cena1=62.32;}
-					if (ilosc == '2000') { cena1=70.48;}
-					if (ilosc == '2500') { cena1=75.80;}
-					if (ilosc == '5000') { cena1=113.88;}
-					if (ilosc == '10000') { cena1=179.61;}
-					if (ilosc == '15000') { cena1=252.80;}
-					if (ilosc == '20000') { cena1=337.44;}
-					if (ilosc == '25000') { cena1=414.97;}
-					if (ilosc == '30000') { cena1=504.88;}
-					if (ilosc == '35000') { cena1=591.20;}
-					if (ilosc == '40000') { cena1=664.22;}
-					if (ilosc == '45000') { cena1=714.22;}
-					if (ilosc == '50000') { cena1=810.55;}
-					if (ilosc == '75000') { cena1=1180.23;}
-					if (ilosc == '100000') { cena1=1573.98;}
+					if (ilosc == '25') { cena=40.94;}
+					if (ilosc == '50') { cena=40.94;}
+					if (ilosc == '100') { cena=40.94;}
+					if (ilosc == '250') { cena=40.94;}
+					if (ilosc == '500') { cena=43.73;}
+					if (ilosc == '1000') { cena=49.13;}
+					if (ilosc == '1250') { cena=62.32;}
+					if (ilosc == '2000') { cena=70.48;}
+					if (ilosc == '2500') { cena=75.80;}
+					if (ilosc == '5000') { cena=113.88;}
+					if (ilosc == '10000') { cena=179.61;}
+					if (ilosc == '15000') { cena=252.80;}
+					if (ilosc == '20000') { cena=337.44;}
+					if (ilosc == '25000') { cena=414.97;}
+					if (ilosc == '30000') { cena=504.88;}
+					if (ilosc == '35000') { cena=591.20;}
+					if (ilosc == '40000') { cena=664.22;}
+					if (ilosc == '45000') { cena=714.22;}
+					if (ilosc == '50000') { cena=810.55;}
+					if (ilosc == '75000') { cena=1180.23;}
+					if (ilosc == '100000') { cena=1573.98;}
 					}
-					
+
 				if ($('input_21depliant').value == 'A4 3 volets')
-					{ 
+					{
 					opis += '- A4 ouvert -> 3 volets 10x21cm fermé <br>- 80gr | Quadri';
-					if (ilosc == '25') { cena1=43.14;}
-					if (ilosc == '50') { cena1=43.14;}
-					if (ilosc == '100') { cena1=43.14;}
-					if (ilosc == '250') { cena1=43.14;}
-					if (ilosc == '500') { cena1=45.59;}
-					if (ilosc == '1000') { cena1=49.13;}
-					if (ilosc == '1250') { cena1=62.32;}
-					if (ilosc == '2000') { cena1=70.48;}
-					if (ilosc == '2500') { cena1=75.80;}
-					if (ilosc == '5000') { cena1=113.88;}
-					if (ilosc == '10000') { cena1=179.61;}
-					if (ilosc == '15000') { cena1=252.80;}
-					if (ilosc == '20000') { cena1=337.44;}
-					if (ilosc == '25000') { cena1=414.97;}
-					if (ilosc == '30000') { cena1=504.88;}
-					if (ilosc == '35000') { cena1=591.20;}
-					if (ilosc == '40000') { cena1=664.22;}
-					if (ilosc == '45000') { cena1=714.22;}
-					if (ilosc == '50000') { cena1=810.55;}
-					if (ilosc == '75000') { cena1=1180.23;}
-					if (ilosc == '100000') { cena1=1573.98;}
+					if (ilosc == '25') { cena=43.14;}
+					if (ilosc == '50') { cena=43.14;}
+					if (ilosc == '100') { cena=43.14;}
+					if (ilosc == '250') { cena=43.14;}
+					if (ilosc == '500') { cena=45.59;}
+					if (ilosc == '1000') { cena=49.13;}
+					if (ilosc == '1250') { cena=62.32;}
+					if (ilosc == '2000') { cena=70.48;}
+					if (ilosc == '2500') { cena=75.80;}
+					if (ilosc == '5000') { cena=113.88;}
+					if (ilosc == '10000') { cena=179.61;}
+					if (ilosc == '15000') { cena=252.80;}
+					if (ilosc == '20000') { cena=337.44;}
+					if (ilosc == '25000') { cena=414.97;}
+					if (ilosc == '30000') { cena=504.88;}
+					if (ilosc == '35000') { cena=591.20;}
+					if (ilosc == '40000') { cena=664.22;}
+					if (ilosc == '45000') { cena=714.22;}
+					if (ilosc == '50000') { cena=810.55;}
+					if (ilosc == '75000') { cena=1180.23;}
+					if (ilosc == '100000') { cena=1573.98;}
 					}
-				
+
 				if ($('input_21depliant').value == 'Din long')
 					{
 					opis += '- 21x21cm ouvert -> 10,5x21cm fermé <br>- 80gr | Quadri';
-					if (ilosc == '25') { cena1=34.02;}
-					if (ilosc == '50') { cena1=34.02;}
-					if (ilosc == '100') { cena1=34.02;}
-					if (ilosc == '250') { cena1=34.02;}
-					if (ilosc == '500') { cena1=34.84;}
-					if (ilosc == '1000') { cena1=36.28;}
-					if (ilosc == '1250') { cena1=45.49;}
-					if (ilosc == '2000') { cena1=51.37;}
-					if (ilosc == '2500') { cena1=55.11;}
-					if (ilosc == '5000') { cena1=74.77;}
-					if (ilosc == '10000') { cena1=127.52;}
-					if (ilosc == '15000') { cena1=180.26;}
-					if (ilosc == '20000') { cena1=233.02;}
-					if (ilosc == '25000') { cena1=298.10;}
-					if (ilosc == '30000') { cena1=356.00;}
-					if (ilosc == '35000') { cena1=414.80;}
-					if (ilosc == '40000') { cena1=470.70;}
-					if (ilosc == '45000') { cena1=526.59;}
-					if (ilosc == '50000') { cena1=582.48 ;}
-					if (ilosc == '75000') { cena1=861.95;}
-					if (ilosc == '100000') { cena1=1141.41 ;}
+					if (ilosc == '25') { cena=34.02;}
+					if (ilosc == '50') { cena=34.02;}
+					if (ilosc == '100') { cena=34.02;}
+					if (ilosc == '250') { cena=34.02;}
+					if (ilosc == '500') { cena=34.84;}
+					if (ilosc == '1000') { cena=36.28;}
+					if (ilosc == '1250') { cena=45.49;}
+					if (ilosc == '2000') { cena=51.37;}
+					if (ilosc == '2500') { cena=55.11;}
+					if (ilosc == '5000') { cena=74.77;}
+					if (ilosc == '10000') { cena=127.52;}
+					if (ilosc == '15000') { cena=180.26;}
+					if (ilosc == '20000') { cena=233.02;}
+					if (ilosc == '25000') { cena=298.10;}
+					if (ilosc == '30000') { cena=356.00;}
+					if (ilosc == '35000') { cena=414.80;}
+					if (ilosc == '40000') { cena=470.70;}
+					if (ilosc == '45000') { cena=526.59;}
+					if (ilosc == '50000') { cena=582.48 ;}
+					if (ilosc == '75000') { cena=861.95;}
+					if (ilosc == '100000') { cena=1141.41 ;}
 					}
-				
+
 				if ($('input_21depliant').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 ouvert -> A4 fermé<br>- 80gr | Quadri';
-					if (ilosc == '25') { cena1=56.67;}
-					if (ilosc == '50') { cena1=56.67;}
-					if (ilosc == '100') { cena1=56.67;}
-					if (ilosc == '250') { cena1=56.67;}
-					if (ilosc == '500') { cena1=65.55;}
-					if (ilosc == '1000') { cena1=75.16;}
-					if (ilosc == '1250') { cena1=101.62;}
-					if (ilosc == '2000') { cena1=130.87;}
-					if (ilosc == '2500') { cena1=125.15;}
-					if (ilosc == '5000') { cena1=182.11;}
-					if (ilosc == '10000') { cena1=302.75;}
-					if (ilosc == '15000') { cena1=423.38;}
-					if (ilosc == '20000') { cena1=537.68;}
-					if (ilosc == '25000') { cena1=691.24;}
-					if (ilosc == '30000') { cena1=825.70;}
-					if (ilosc == '35000') { cena1=955.79;}
-					if (ilosc == '40000') { cena1=2144.14;}
-					if (ilosc == '45000') { cena1=1213.96;}
-					if (ilosc == '50000') { cena1=1343.04;}
-					if (ilosc == '75000') { cena1=1974.90;}
-					if (ilosc == '100000') { cena1=2613.55;}
+					if (ilosc == '25') { cena=56.67;}
+					if (ilosc == '50') { cena=56.67;}
+					if (ilosc == '100') { cena=56.67;}
+					if (ilosc == '250') { cena=56.67;}
+					if (ilosc == '500') { cena=65.55;}
+					if (ilosc == '1000') { cena=75.16;}
+					if (ilosc == '1250') { cena=101.62;}
+					if (ilosc == '2000') { cena=130.87;}
+					if (ilosc == '2500') { cena=125.15;}
+					if (ilosc == '5000') { cena=182.11;}
+					if (ilosc == '10000') { cena=302.75;}
+					if (ilosc == '15000') { cena=423.38;}
+					if (ilosc == '20000') { cena=537.68;}
+					if (ilosc == '25000') { cena=691.24;}
+					if (ilosc == '30000') { cena=825.70;}
+					if (ilosc == '35000') { cena=955.79;}
+					if (ilosc == '40000') { cena=2144.14;}
+					if (ilosc == '45000') { cena=1213.96;}
+					if (ilosc == '50000') { cena=1343.04;}
+					if (ilosc == '75000') { cena=1974.90;}
+					if (ilosc == '100000') { cena=2613.55;}
 					}
 
 
       }
 
       if ($('input_1depliant').value == 'depliants 135g') {
-      			 if ($('input_21depliant').value == 'A5'){ 
+      			 if ($('input_21depliant').value == 'A5'){
 					opis += '- A5 ouvert -> A6 fermé <br>- 135gr | Quadri';
-					if (ilosc == '25') { cena1=29.31;}
-					if (ilosc == '50') { cena1=29.35;}
-					if (ilosc == '100') { cena1=30.26;}
-					if (ilosc == '250') { cena1=32.44;}
-					if (ilosc == '500') { cena1=32.33;}
-					if (ilosc == '1000') { cena1=34.76;}
-					if (ilosc == '1250') { cena1=47.03;}
-					if (ilosc == '2000') { cena1=52.99;}
-					if (ilosc == '2500') { cena1=56.79;}
-					if (ilosc == '5000') { cena1=75.99;}
-					if (ilosc == '10000') { cena1=122.40;}
-					if (ilosc == '15000') { cena1=169.73;}
-					if (ilosc == '20000') { cena1=223.58;}
-					if (ilosc == '25000') { cena1=270.91;}
-					if (ilosc == '30000') { cena1=318.24;}
-					if (ilosc == '35000') { cena1=377.60;}
-					if (ilosc == '40000') { cena1=429.62;}
-					if (ilosc == '45000') { cena1=466.75;}
-					if (ilosc == '50000') { cena1=526.12;}
-					if (ilosc == '75000') { cena1=762.86;}
-					if (ilosc == '100000') { cena1=1017.14;}
+					if (ilosc == '25') { cena=29.31;}
+					if (ilosc == '50') { cena=29.35;}
+					if (ilosc == '100') { cena=30.26;}
+					if (ilosc == '250') { cena=32.44;}
+					if (ilosc == '500') { cena=32.33;}
+					if (ilosc == '1000') { cena=34.76;}
+					if (ilosc == '1250') { cena=47.03;}
+					if (ilosc == '2000') { cena=52.99;}
+					if (ilosc == '2500') { cena=56.79;}
+					if (ilosc == '5000') { cena=75.99;}
+					if (ilosc == '10000') { cena=122.40;}
+					if (ilosc == '15000') { cena=169.73;}
+					if (ilosc == '20000') { cena=223.58;}
+					if (ilosc == '25000') { cena=270.91;}
+					if (ilosc == '30000') { cena=318.24;}
+					if (ilosc == '35000') { cena=377.60;}
+					if (ilosc == '40000') { cena=429.62;}
+					if (ilosc == '45000') { cena=466.75;}
+					if (ilosc == '50000') { cena=526.12;}
+					if (ilosc == '75000') { cena=762.86;}
+					if (ilosc == '100000') { cena=1017.14;}
 					}
-				
+
 				if ($('input_21depliant').value == 'A4')
-					{ 
+					{
 					opis += '- A4 ouvert -> A5 fermé <br>- 135gr | Quadri';
-					if (ilosc == '25') { cena1=32.36;}
-					if (ilosc == '50') { cena1=32.95;}
-					if (ilosc == '100') { cena1=35.02;}
-					if (ilosc == '250') { cena1=40.35;}
-					if (ilosc == '500') { cena1=42.72;}
-					if (ilosc == '1000') { cena1=52.51;}
-					if (ilosc == '1250') { cena1=67.61;}
-					if (ilosc == '2000') { cena1=77.66;}
-					if (ilosc == '2500') { cena1=98.50;}
-					if (ilosc == '5000') { cena1=124.24;}
-					if (ilosc == '10000') { cena1=200.33;}
-					if (ilosc == '15000') { cena1=283.87;}
-					if (ilosc == '20000') { cena1=383.21;}
-					if (ilosc == '25000') { cena1=466.75;}
-					if (ilosc == '30000') { cena1=567.02;}
-					if (ilosc == '35000') { cena1=669.12;}
-					if (ilosc == '40000') { cena1=749.80;}
-					if (ilosc == '45000') { cena1=807.43;}
-					if (ilosc == '50000') { cena1=914.12;}
-					if (ilosc == '75000') { cena1=1335.59;}
-					if (ilosc == '100000') { cena1=1781.12;}
+					if (ilosc == '25') { cena=32.36;}
+					if (ilosc == '50') { cena=32.95;}
+					if (ilosc == '100') { cena=35.02;}
+					if (ilosc == '250') { cena=40.35;}
+					if (ilosc == '500') { cena=42.72;}
+					if (ilosc == '1000') { cena=52.51;}
+					if (ilosc == '1250') { cena=67.61;}
+					if (ilosc == '2000') { cena=77.66;}
+					if (ilosc == '2500') { cena=98.50;}
+					if (ilosc == '5000') { cena=124.24;}
+					if (ilosc == '10000') { cena=200.33;}
+					if (ilosc == '15000') { cena=283.87;}
+					if (ilosc == '20000') { cena=383.21;}
+					if (ilosc == '25000') { cena=466.75;}
+					if (ilosc == '30000') { cena=567.02;}
+					if (ilosc == '35000') { cena=669.12;}
+					if (ilosc == '40000') { cena=749.80;}
+					if (ilosc == '45000') { cena=807.43;}
+					if (ilosc == '50000') { cena=914.12;}
+					if (ilosc == '75000') { cena=1335.59;}
+					if (ilosc == '100000') { cena=1781.12;}
 					}
-					
+
 				if ($('input_21depliant').value == 'A4 3 volets')
-					{ 
+					{
 					opis += '- A4 ouvert -> 3 volets 10x21cm fermé <br>- 135gr | Quadri';
-					if (ilosc == '25') { cena1=34.64;}
-					if (ilosc == '50') { cena1=35.18;}
-					if (ilosc == '100') { cena1=37.23;}
-					if (ilosc == '250') { cena1=42.46;}
-					if (ilosc == '500') { cena1=45.38;}
-					if (ilosc == '1000') { cena1=50.82;}
-					if (ilosc == '1250') { cena1=61.15;}
-					if (ilosc == '2000') { cena1=70.95;}
-					if (ilosc == '2500') { cena1=73.33;}
-					if (ilosc == '5000') { cena1=124.24;}
-					if (ilosc == '10000') { cena1=200.33;}
-					if (ilosc == '15000') { cena1=283.87;}
-					if (ilosc == '20000') { cena1=383.21;}
-					if (ilosc == '25000') { cena1=466.75;}
-					if (ilosc == '30000') { cena1=567.02;}
-					if (ilosc == '35000') { cena1=669.12;}
-					if (ilosc == '40000') { cena1=749.80;}
-					if (ilosc == '45000') { cena1=807.43;}
-					if (ilosc == '50000') { cena1=914.12;}
-					if (ilosc == '75000') { cena1=1335.59;}
-					if (ilosc == '100000') { cena1=1781.12;}
+					if (ilosc == '25') { cena=34.64;}
+					if (ilosc == '50') { cena=35.18;}
+					if (ilosc == '100') { cena=37.23;}
+					if (ilosc == '250') { cena=42.46;}
+					if (ilosc == '500') { cena=45.38;}
+					if (ilosc == '1000') { cena=50.82;}
+					if (ilosc == '1250') { cena=61.15;}
+					if (ilosc == '2000') { cena=70.95;}
+					if (ilosc == '2500') { cena=73.33;}
+					if (ilosc == '5000') { cena=124.24;}
+					if (ilosc == '10000') { cena=200.33;}
+					if (ilosc == '15000') { cena=283.87;}
+					if (ilosc == '20000') { cena=383.21;}
+					if (ilosc == '25000') { cena=466.75;}
+					if (ilosc == '30000') { cena=567.02;}
+					if (ilosc == '35000') { cena=669.12;}
+					if (ilosc == '40000') { cena=749.80;}
+					if (ilosc == '45000') { cena=807.43;}
+					if (ilosc == '50000') { cena=914.12;}
+					if (ilosc == '75000') { cena=1335.59;}
+					if (ilosc == '100000') { cena=1781.12;}
 					}
-				
+
 				if ($('input_21depliant').value == 'Din long')
 					{
 					opis += '- 21x21cm ouvert -> 10,5x21cm fermé <br>- 135gr | Quadri';
-					if (ilosc == '25') { cena1=28.73;}
-					if (ilosc == '50') { cena1=28.99;}
-					if (ilosc == '100') { cena1=30.32;}
-					if (ilosc == '250') { cena1=33.66;}
-					if (ilosc == '500') { cena1=34.94;}
-					if (ilosc == '1000') { cena1=35.57;}
-					if (ilosc == '1250') { cena1=47.67;}
-					if (ilosc == '2000') { cena1=54.59;}
-					if (ilosc == '2500') { cena1=59.11;}
-					if (ilosc == '5000') { cena1=93.64;}
-					if (ilosc == '10000') { cena1=151.16;}
-					if (ilosc == '15000') { cena1=211.45;}
-					if (ilosc == '20000') { cena1=283.87;}
-					if (ilosc == '25000') { cena1=345.17;}
-					if (ilosc == '30000') { cena1=403.61;}
-					if (ilosc == '35000') { cena1=479.71;}
-					if (ilosc == '40000') { cena1=551.21;}
-					if (ilosc == '45000') { cena1=597.62;}
-					if (ilosc == '50000') { cena1=671.87 ;}
-					if (ilosc == '75000') { cena1=984.71;}
-					if (ilosc == '100000') { cena1=1310.50 ;}
+					if (ilosc == '25') { cena=28.73;}
+					if (ilosc == '50') { cena=28.99;}
+					if (ilosc == '100') { cena=30.32;}
+					if (ilosc == '250') { cena=33.66;}
+					if (ilosc == '500') { cena=34.94;}
+					if (ilosc == '1000') { cena=35.57;}
+					if (ilosc == '1250') { cena=47.67;}
+					if (ilosc == '2000') { cena=54.59;}
+					if (ilosc == '2500') { cena=59.11;}
+					if (ilosc == '5000') { cena=93.64;}
+					if (ilosc == '10000') { cena=151.16;}
+					if (ilosc == '15000') { cena=211.45;}
+					if (ilosc == '20000') { cena=283.87;}
+					if (ilosc == '25000') { cena=345.17;}
+					if (ilosc == '30000') { cena=403.61;}
+					if (ilosc == '35000') { cena=479.71;}
+					if (ilosc == '40000') { cena=551.21;}
+					if (ilosc == '45000') { cena=597.62;}
+					if (ilosc == '50000') { cena=671.87 ;}
+					if (ilosc == '75000') { cena=984.71;}
+					if (ilosc == '100000') { cena=1310.50 ;}
 					}
-				
+
 				if ($('input_21depliant').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 ouvert -> A4 fermé<br>- 135gr | Quadri';
-					if (ilosc == '25') { cena1=38.96;}
-					if (ilosc == '50') { cena1=40.60;}
-					if (ilosc == '100') { cena1=44.92;}
-					if (ilosc == '250') { cena1=56.67;}
-					if (ilosc == '500') { cena1=64.65;}
-					if (ilosc == '1000') { cena1=84.05;}
-					if (ilosc == '1250') { cena1=121.14;}
-					if (ilosc == '2000') { cena1=139.11;}
-					if (ilosc == '2500') { cena1=141.79;}
-					if (ilosc == '5000') { cena1=215.09;}
-					if (ilosc == '10000') { cena1=362.27;}
-					if (ilosc == '15000') { cena1=509.46;}
-					if (ilosc == '20000') { cena1=656.66;}
-					if (ilosc == '25000') { cena1=844.03;}
-					if (ilosc == '30000') { cena1=1008.10;}
-					if (ilosc == '35000') { cena1=1175.09;}
-					if (ilosc == '40000') { cena1=1332.59;}
-					if (ilosc == '45000') { cena1=1490.08;}
-					if (ilosc == '50000') { cena1=1647.58;}
-					if (ilosc == '75000') { cena1=2435.04;}
-					if (ilosc == '100000') { cena1=3229.16;}
+					if (ilosc == '25') { cena=38.96;}
+					if (ilosc == '50') { cena=40.60;}
+					if (ilosc == '100') { cena=44.92;}
+					if (ilosc == '250') { cena=56.67;}
+					if (ilosc == '500') { cena=64.65;}
+					if (ilosc == '1000') { cena=84.05;}
+					if (ilosc == '1250') { cena=121.14;}
+					if (ilosc == '2000') { cena=139.11;}
+					if (ilosc == '2500') { cena=141.79;}
+					if (ilosc == '5000') { cena=215.09;}
+					if (ilosc == '10000') { cena=362.27;}
+					if (ilosc == '15000') { cena=509.46;}
+					if (ilosc == '20000') { cena=656.66;}
+					if (ilosc == '25000') { cena=844.03;}
+					if (ilosc == '30000') { cena=1008.10;}
+					if (ilosc == '35000') { cena=1175.09;}
+					if (ilosc == '40000') { cena=1332.59;}
+					if (ilosc == '45000') { cena=1490.08;}
+					if (ilosc == '50000') { cena=1647.58;}
+					if (ilosc == '75000') { cena=2435.04;}
+					if (ilosc == '100000') { cena=3229.16;}
 					}
 
       }
 
       if ($('input_1depliant').value == 'depliants 170g') {
-      		 	if ($('input_21depliant').value == 'A5'){ 
+      		 	if ($('input_21depliant').value == 'A5'){
 					opis += '- A5 ouvert -> A6 fermé <br>- 170gr | Quadri';
-					if (ilosc == '25') { cena1=30.54;}
-					if (ilosc == '50') { cena1=30.62;}
-					if (ilosc == '100') { cena1=31.66;}
-					if (ilosc == '250') { cena1=34.19;}
-					if (ilosc == '500') { cena1=34.37;}
-					if (ilosc == '1000') { cena1=37.95;}
-					if (ilosc == '1250') { cena1=51.18;}
-					if (ilosc == '2000') { cena1=59.19;}
-					if (ilosc == '2500') { cena1=64.41;}
-					if (ilosc == '5000') { cena1=100.78;}
-					if (ilosc == '10000') { cena1=168.10;}
-					if (ilosc == '15000') { cena1=233.38;}
-					if (ilosc == '20000') { cena1=306.82;}
-					if (ilosc == '25000') { cena1=372.10;}
-					if (ilosc == '30000') { cena1=437.38;}
-					if (ilosc == '35000') { cena1=518.98;}
-					if (ilosc == '40000') { cena1=590.38;}
-					if (ilosc == '45000') { cena1=641.38;}
-					if (ilosc == '50000') { cena1=722.98;}
-					if (ilosc == '75000') { cena1=1048.36;}
-					if (ilosc == '100000') { cena1=1397.20;}
+					if (ilosc == '25') { cena=30.54;}
+					if (ilosc == '50') { cena=30.62;}
+					if (ilosc == '100') { cena=31.66;}
+					if (ilosc == '250') { cena=34.19;}
+					if (ilosc == '500') { cena=34.37;}
+					if (ilosc == '1000') { cena=37.95;}
+					if (ilosc == '1250') { cena=51.18;}
+					if (ilosc == '2000') { cena=59.19;}
+					if (ilosc == '2500') { cena=64.41;}
+					if (ilosc == '5000') { cena=100.78;}
+					if (ilosc == '10000') { cena=168.10;}
+					if (ilosc == '15000') { cena=233.38;}
+					if (ilosc == '20000') { cena=306.82;}
+					if (ilosc == '25000') { cena=372.10;}
+					if (ilosc == '30000') { cena=437.38;}
+					if (ilosc == '35000') { cena=518.98;}
+					if (ilosc == '40000') { cena=590.38;}
+					if (ilosc == '45000') { cena=641.38;}
+					if (ilosc == '50000') { cena=722.98;}
+					if (ilosc == '75000') { cena=1048.36;}
+					if (ilosc == '100000') { cena=1397.20;}
 					}
-				
+
 				if ($('input_21depliant').value == 'A4')
-					{ 
+					{
 					opis += '- A4 ouvert -> A5 fermé <br>- 170gr | Quadri';
-					if (ilosc == '25') { cena1=33.81;}
-					if (ilosc == '50') { cena1=34.51;}
-					if (ilosc == '100') { cena1=36.84;}
-					if (ilosc == '250') { cena1=42.88;}
-					if (ilosc == '500') { cena1=46.80;}
-					if (ilosc == '1000') { cena1=59.00;}
-					if (ilosc == '1250') { cena1=75.53;}
-					if (ilosc == '2000') { cena1=103.93;}
-					if (ilosc == '2500') { cena1=113.41;}
-					if (ilosc == '5000') { cena1=159.94;}
-					if (ilosc == '10000') { cena1=256.84;}
-					if (ilosc == '15000') { cena1=363.94;}
-					if (ilosc == '20000') { cena1=491.44;}
-					if (ilosc == '25000') { cena1=598.54;}
-					if (ilosc == '30000') { cena1=727.06;}
-					if (ilosc == '35000') { cena1=857.62;}
-					if (ilosc == '40000') { cena1=961.66;}
-					if (ilosc == '45000') { cena1=1035.10;}
-					if (ilosc == '50000') { cena1=1171.78;}
-					if (ilosc == '75000') { cena1=1712.38;}
-					if (ilosc == '100000') { cena1=2283.58;}
+					if (ilosc == '25') { cena=33.81;}
+					if (ilosc == '50') { cena=34.51;}
+					if (ilosc == '100') { cena=36.84;}
+					if (ilosc == '250') { cena=42.88;}
+					if (ilosc == '500') { cena=46.80;}
+					if (ilosc == '1000') { cena=59.00;}
+					if (ilosc == '1250') { cena=75.53;}
+					if (ilosc == '2000') { cena=103.93;}
+					if (ilosc == '2500') { cena=113.41;}
+					if (ilosc == '5000') { cena=159.94;}
+					if (ilosc == '10000') { cena=256.84;}
+					if (ilosc == '15000') { cena=363.94;}
+					if (ilosc == '20000') { cena=491.44;}
+					if (ilosc == '25000') { cena=598.54;}
+					if (ilosc == '30000') { cena=727.06;}
+					if (ilosc == '35000') { cena=857.62;}
+					if (ilosc == '40000') { cena=961.66;}
+					if (ilosc == '45000') { cena=1035.10;}
+					if (ilosc == '50000') { cena=1171.78;}
+					if (ilosc == '75000') { cena=1712.38;}
+					if (ilosc == '100000') { cena=2283.58;}
 					}
-					
+
 				if ($('input_21depliant').value == 'A4 3 volets')
-					{ 
+					{
 					opis += '- A4 ouvert -> 3 volets 10x21cm fermé <br>- 170gr | Quadri';
-					if (ilosc == '25') { cena1=36.18;}
-					if (ilosc == '50') { cena1=36.82;}
-					if (ilosc == '100') { cena1=39.14;}
-					if (ilosc == '250') { cena1=45.07;}
-					if (ilosc == '500') { cena1=48.67;}
-					if (ilosc == '1000') { cena1=56.82;}
-					if (ilosc == '1250') { cena1=68.67;}
-					if (ilosc == '2000') { cena1=95.95;}
-					if (ilosc == '2500') { cena1=105.18;}
-					if (ilosc == '5000') { cena1=163.00;}
-					if (ilosc == '10000') { cena1=262.96;}
-					if (ilosc == '15000') { cena1=372.10;}
-					if (ilosc == '20000') { cena1=502.66;}
-					if (ilosc == '25000') { cena1=612.82;}
-					if (ilosc == '30000') { cena1=743.38;}
-					if (ilosc == '35000') { cena1=878.02;}
-					if (ilosc == '40000') { cena1=984.10;}
-					if (ilosc == '45000') { cena1=1059.58;}
-					if (ilosc == '50000') { cena1=1199.32;}
-					if (ilosc == '75000') { cena1=1752.16;}
-					if (ilosc == '100000') { cena1=2335.60;}
+					if (ilosc == '25') { cena=36.18;}
+					if (ilosc == '50') { cena=36.82;}
+					if (ilosc == '100') { cena=39.14;}
+					if (ilosc == '250') { cena=45.07;}
+					if (ilosc == '500') { cena=48.67;}
+					if (ilosc == '1000') { cena=56.82;}
+					if (ilosc == '1250') { cena=68.67;}
+					if (ilosc == '2000') { cena=95.95;}
+					if (ilosc == '2500') { cena=105.18;}
+					if (ilosc == '5000') { cena=163.00;}
+					if (ilosc == '10000') { cena=262.96;}
+					if (ilosc == '15000') { cena=372.10;}
+					if (ilosc == '20000') { cena=502.66;}
+					if (ilosc == '25000') { cena=612.82;}
+					if (ilosc == '30000') { cena=743.38;}
+					if (ilosc == '35000') { cena=878.02;}
+					if (ilosc == '40000') { cena=984.10;}
+					if (ilosc == '45000') { cena=1059.58;}
+					if (ilosc == '50000') { cena=1199.32;}
+					if (ilosc == '75000') { cena=1752.16;}
+					if (ilosc == '100000') { cena=2335.60;}
 					}
-				
+
 				if ($('input_21depliant').value == 'Din long')
 					{
 					opis += '- 21x21cm ouvert -> 10,5x21cm fermé <br>- 170gr | Quadri';
-					if (ilosc == '25') { cena1=29.98;}
-					if (ilosc == '50') { cena1=30.30;}
-					if (ilosc == '100') { cena1=31.81;}
-					if (ilosc == '250') { cena1=35.63;}
-					if (ilosc == '500') { cena1=37.33;}
-					if (ilosc == '1000') { cena1=42.32;}
-					if (ilosc == '1250') { cena1=56.31;}
-					if (ilosc == '2000') { cena1=62.31;}
-					if (ilosc == '2500') { cena1=68.64;}
-					if (ilosc == '5000') { cena1=114.34;}
-					if (ilosc == '10000') { cena1=205.95;}
-					if (ilosc == '15000') { cena1=294.58;}
-					if (ilosc == '20000') { cena1=389.15;}
-					if (ilosc == '25000') { cena1=480.22;}
-					if (ilosc == '30000') { cena1=561.82;}
-					if (ilosc == '35000') { cena1=667.90;}
-					if (ilosc == '40000') { cena1=767.86;}
-					if (ilosc == '45000') { cena1=832.12;}
-					if (ilosc == '50000') { cena1=935.14 ;}
-					if (ilosc == '75000') { cena1=1370.68;}
-					if (ilosc == '100000') { cena1=1824.58 ;}
+					if (ilosc == '25') { cena=29.98;}
+					if (ilosc == '50') { cena=30.30;}
+					if (ilosc == '100') { cena=31.81;}
+					if (ilosc == '250') { cena=35.63;}
+					if (ilosc == '500') { cena=37.33;}
+					if (ilosc == '1000') { cena=42.32;}
+					if (ilosc == '1250') { cena=56.31;}
+					if (ilosc == '2000') { cena=62.31;}
+					if (ilosc == '2500') { cena=68.64;}
+					if (ilosc == '5000') { cena=114.34;}
+					if (ilosc == '10000') { cena=205.95;}
+					if (ilosc == '15000') { cena=294.58;}
+					if (ilosc == '20000') { cena=389.15;}
+					if (ilosc == '25000') { cena=480.22;}
+					if (ilosc == '30000') { cena=561.82;}
+					if (ilosc == '35000') { cena=667.90;}
+					if (ilosc == '40000') { cena=767.86;}
+					if (ilosc == '45000') { cena=832.12;}
+					if (ilosc == '50000') { cena=935.14 ;}
+					if (ilosc == '75000') { cena=1370.68;}
+					if (ilosc == '100000') { cena=1824.58 ;}
 					}
-				
+
 				if ($('input_21depliant').value == 'A3')
-					{ 				
+					{
 					opis += '- A3 ouvert -> A4 fermé<br>- 170gr | Quadri';
-					if (ilosc == '25') { cena1=40.86;}
-					if (ilosc == '50') { cena1=42.75;}
-					if (ilosc == '100') { cena1=47.58;}
-					if (ilosc == '250') { cena1=60.40;}
-					if (ilosc == '500') { cena1=71.47;}
-					if (ilosc == '1000') { cena1=108.99;}
-					if (ilosc == '1250') { cena1=136.49;}
-					if (ilosc == '2000') { cena1=176.63;}
-					if (ilosc == '2500') { cena1=170.73;}
-					if (ilosc == '5000') { cena1=277.55;}
-					if (ilosc == '10000') { cena1=486.27;}
-					if (ilosc == '15000') { cena1=695.00;}
-					if (ilosc == '20000') { cena1=903.73;}
-					if (ilosc == '25000') { cena1=1168.07;}
-					if (ilosc == '30000') { cena1=1391.08;}
-					if (ilosc == '35000') { cena1=1636.99;}
-					if (ilosc == '40000') { cena1=1860.33;}
-					if (ilosc == '45000') { cena1=2067.34;}
-					if (ilosc == '50000') { cena1=2313.78;}
-					if (ilosc == '75000') { cena1=3411.70;}
-					if (ilosc == '100000') { cena1=4553.90;}
+					if (ilosc == '25') { cena=40.86;}
+					if (ilosc == '50') { cena=42.75;}
+					if (ilosc == '100') { cena=47.58;}
+					if (ilosc == '250') { cena=60.40;}
+					if (ilosc == '500') { cena=71.47;}
+					if (ilosc == '1000') { cena=108.99;}
+					if (ilosc == '1250') { cena=136.49;}
+					if (ilosc == '2000') { cena=176.63;}
+					if (ilosc == '2500') { cena=170.73;}
+					if (ilosc == '5000') { cena=277.55;}
+					if (ilosc == '10000') { cena=486.27;}
+					if (ilosc == '15000') { cena=695.00;}
+					if (ilosc == '20000') { cena=903.73;}
+					if (ilosc == '25000') { cena=1168.07;}
+					if (ilosc == '30000') { cena=1391.08;}
+					if (ilosc == '35000') { cena=1636.99;}
+					if (ilosc == '40000') { cena=1860.33;}
+					if (ilosc == '45000') { cena=2067.34;}
+					if (ilosc == '50000') { cena=2313.78;}
+					if (ilosc == '75000') { cena=3411.70;}
+					if (ilosc == '100000') { cena=4553.90;}
 					}
 
       }
 
-      
-			/////////////////////////////////////////////////////////// coef/////////////
-			
-		if ( ($('input_1depliant').value == 'depliants 80g') || ($('input_1depliant').value == 'depliants 135g') || ($('input_1depliant').value == 'depliants 170g') ){
-				
-			if ( ( ($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '25') ) {cena1*=1.1;}
-			
-			if ( ( ($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '50') ) {cena1*=1.2;}
 
-			if ( ( ($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '100') ) {cena1*=1.3;}
-			
-			if ( (($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets')) && (ilosc == '250') ) {cena1*=1.4;}
-			if ( ($('input_21depliant').value == 'A3') && (ilosc == '250') ) {cena1*=1.5;}
-			
-			
-			if ( (($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long')) && (ilosc == '500') ) {cena1*=1.5;}
-			if ( (($('input_21depliant').value == 'A4') || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '500') ) {cena1*=1.8;}
-			
-			
-			if (  ($('input_21depliant').value == 'A5') && (ilosc == '1000') ) {cena1*=1.6;}
-			if ( (($('input_21depliant').value == 'Din long')|| ($('input_21depliant').value == 'A4') || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '1000') ) {cena1*=2;}
-			
-			if ( (ilosc == '1250') || (ilosc == '2000') || (ilosc == '2500') || (ilosc == '5000') || (ilosc == '10000') || (ilosc == '15000') || (ilosc == '20000') || (ilosc == '25000') || (ilosc == '30000') || (ilosc == '35000') || (ilosc == '40000') || (ilosc == '45000') || (ilosc == '50000') || (ilosc == '75000') || (ilosc == '100000') ) {cena1*=2;}
-			
+			/////////////////////////////////////////////////////////// coef/////////////
+
+		if ( ($('input_1depliant').value == 'depliants 80g') || ($('input_1depliant').value == 'depliants 135g') || ($('input_1depliant').value == 'depliants 170g') ){
+
+			if ( ( ($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '25') ) {cena*=1.1;}
+
+			if ( ( ($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '50') ) {cena*=1.2;}
+
+			if ( ( ($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '100') ) {cena*=1.3;}
+
+			if ( (($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long') || ($('input_21depliant').value == 'A4')  || ($('input_21depliant').value == 'A4 3 volets')) && (ilosc == '250') ) {cena*=1.4;}
+			if ( ($('input_21depliant').value == 'A3') && (ilosc == '250') ) {cena*=1.5;}
+
+
+			if ( (($('input_21depliant').value == 'A5') || ($('input_21depliant').value == 'Din long')) && (ilosc == '500') ) {cena*=1.5;}
+			if ( (($('input_21depliant').value == 'A4') || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '500') ) {cena*=1.8;}
+
+
+			if (  ($('input_21depliant').value == 'A5') && (ilosc == '1000') ) {cena*=1.6;}
+			if ( (($('input_21depliant').value == 'Din long')|| ($('input_21depliant').value == 'A4') || ($('input_21depliant').value == 'A4 3 volets') || ($('input_21depliant').value == 'A3')) && (ilosc == '1000') ) {cena*=2;}
+
+			if ( (ilosc == '1250') || (ilosc == '2000') || (ilosc == '2500') || (ilosc == '5000') || (ilosc == '10000') || (ilosc == '15000') || (ilosc == '20000') || (ilosc == '25000') || (ilosc == '30000') || (ilosc == '35000') || (ilosc == '40000') || (ilosc == '45000') || (ilosc == '50000') || (ilosc == '75000') || (ilosc == '100000') ) {cena*=2;}
+
 		}
-			
+
 
       ////////////////////////////////////////////////////////// choix papier //
-      if ($('input_32depliant').value == '1') {cena=cena1;
-      opis += '<br />- couché brillant';
+      if ($('input_32depliant').value == '1') { opis += '<br />- couché brillant';
       }
-      if ($('input_32depliant').value == '2') {cena=cena1*1;
-      opis += '<br />- satiné';
+      if ($('input_32depliant').value == '2') {opis += '<br />- satiné';
       }
-      if ($('input_32depliant').value == '3') {cena=cena1*1;
-      opis += '<br />- couché mat';
+      if ($('input_32depliant').value == '3') {opis += '<br />- couché mat';
       }
-      if ($('input_33depliant').value == '1') {cena=cena1;
-      opis += '<br />- couché brillant';
+      if ($('input_33depliant').value == '1') {opis += '<br />- couché brillant';
       }
-      if ($('input_33depliant').value == '2') {cena=cena1*1;
-      opis += '<br />- satiné';
+      if ($('input_33depliant').value == '2') {opis += '<br />- satiné';
       }
-      if ($('input_33depliant').value == '3') {cena=cena1*1;
-      opis += '<br />- couché mat';
+      if ($('input_33depliant').value == '3') {opis += '<br />- couché mat';
       }
-      if ($('input_34depliant').value == '1') {cena=cena1;
-      opis += '<br />- couché brillant';
+      if ($('input_34depliant').value == '1') {opis += '<br />- couché brillant';
       }
-      if ($('input_34depliant').value == '2') {cena=cena1*1;
-      opis += '<br />- satiné';
+      if ($('input_34depliant').value == '2') {opis += '<br />- satiné';
       }
-      if ($('input_34depliant').value == '3') {cena=cena1*1;
-      opis += '<br />- couché mat';
+      if ($('input_34depliant').value == '3') { opis += '<br />- couché mat';
       }
-		cena=cena1
+
 
       opis += '<br />- '+ilosc+' depliants';
 
@@ -2031,13 +2069,13 @@
 				hauteur = 14.8;
 				largeur = 21;
 			}
-     
-	 
-	 
-	} 
-	 
-	 
-	 
+
+
+
+	}
+
+
+
 	 	//////////////////////////////////////////////////////// choix maquette //
 			var ktodaje;
 
@@ -2056,13 +2094,13 @@
 				cena+=5;
 				ktodaje = 'je crée ma maquette en ligne';
 			}
-			
-		
-			
-      
-	  
-	  
-	  
+
+
+
+
+
+
+
 	  		if (($('input_41depliant').value == 'fb') || ($('input_42depliant').value == 'fb')) {
 				cena+=19;
 				ktodaje = 'France banderole crée la maquette';
@@ -2078,25 +2116,25 @@
 				cena+=5;
 				ktodaje = 'je crée ma maquette en ligne';
 			}
-	  
-	  
-	  
+
+
+
 
       opis += '<br />- '+ktodaje;
-			
-			
-			
+
+
+
 		if ($('input_signature').value == 'sans signature') {
 			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
 			opis += '<br />- sans signature';
 		}
 		if ($('input_signature').value == 'signature FB') {
 			opis += '<br />- signature France Banderole';
-		}	
-			
-			
-		
-			
+		}
+
+
+
+
 
 			/////////////////////////////////////////////////////////////// options //
 
@@ -2118,18 +2156,18 @@
 			cena += 5.00;
 			optliv += '<br />- relais colis';
 		}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
+
+
+
+
+
 				///////////////////////////////////////////// prix transport / quantité //
 			if (ilosc == '10') {transport=0;}
 			if (ilosc == '25') {transport=0;}
@@ -2244,10 +2282,10 @@
 				var PorductType = jQuery('.production.active').attr('text-value');
 				var DeliveryType = jQuery('.delivery.active').attr('text-value');
 				if(PorductType == '2-3' ){
-					ProdPercent = 30;
+					ProdPercent = 20;
 					prliv += '<br />- P 2-3J';
 				}else if(PorductType =='1-1'){
-					ProdPercent = 60;
+					ProdPercent = 45;
 					prliv += '<br />- P 1J';
 				}else{
 					ProdPercent = 0;
@@ -2255,10 +2293,10 @@
 				}
 
 				if(DeliveryType == '2-3'){
-					DeliPercent = 30;
+					DeliPercent = 20;
 					prliv += ' / L 2-3J';
 				}else if(DeliveryType =='1-1'){
-					DeliPercent = 60;
+					DeliPercent = 45;
 					prliv += ' / L 1J';
 				}else{
 					DeliPercent = 0;
@@ -2376,6 +2414,6 @@
 			var dodajkoszyk = document.getElementById("cart_form");
 			dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+prliv+optliv+'" /><input type="hidden" name="ilosc" value="1" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
 		}
-	}); 
+	});
 });
 </script>

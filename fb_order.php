@@ -155,8 +155,7 @@ if (isset($_GET['paid']) && isset($_POST[DATA])) {
 	fclose ($fp);
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// vérifier présence BAT
+// ======================================================= vérifier présence BAT
 function has_bat($cmd) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd.'-projects';
 	$has_bat=0;
@@ -177,8 +176,7 @@ function has_bat($cmd) {
 	return $has_bat;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// vérifier BAT validé
+//========================================================== vérifier BAT validé
 function is_bat_validated($cmd) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -192,15 +190,21 @@ function is_bat_validated($cmd) {
 	}
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// vérifier fichiers uploadés
+//=================================================== vérifier fichiers uploadés
 function has_uploaded_files($cmd, $userid) {
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cmd;
 	$fichiers="";
 	if(file_exists($name))
 	if ($dir = @opendir($name)) {
+		// ajout vérification extention pour ignorer le csv
+		// ajout dans la boucle de la dernière condition  && !in_array(pathinfo($file, PATHINFO_EXTENSION), $excludeExtensions)
+		$excludeExtensions = array(
+		    'csv',
+		    'html'
+		);
+
 	  while(($file = readdir($dir))) {
-			if(!is_dir($file) && !in_array($file, array(".",".."))) {
+			if(!is_dir($file) && !in_array($file, array(".","..")) && !in_array(pathinfo($file, PATHINFO_EXTENSION), $excludeExtensions)) {
 				$fichiers.=$file.'<br />';
 			}
     }
@@ -222,7 +226,7 @@ function get_filesender($products) {
 		$need_act = 1;
 	}
 
-	// warnings retour commande  /////////////////////////////////////////////////
+	//--------------------------------------------------- warnings retour commande
 
 	$upload = 0;
 	if((!(has_uploaded_files($idzamowienia,$user->id))) AND ($status != 4) AND ($status != 5) AND ($status != 6)) {
@@ -400,7 +404,7 @@ function get_details() {
 		$need_act = 1;
 	}
 
-	// warnings retour commande  /////////////////////////////////////////////////
+	//--------------------------------------------------- warnings retour commande
 	if($need_act == 0) {
 		$ptip = ''; $btip = '';
 		//$prolog .= '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p>Cette commande n\'attend pas de retours de votre part.</p></td></tr></table></div>';
@@ -425,7 +429,8 @@ function get_details() {
 	// récuprère le dernier commentaire de france banderole
 	// $lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' AND c.author='France Banderole' ORDER BY c.date DESC LIMIT 1");
 
-	// récupère le dernier commentaire ///////////////////////////////////////////
+	//------------------------------------------- récupérer le dernier commentaire
+
 	$lastcomment = $wpdb->get_row("SELECT c.*, DATE_FORMAT(c.date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` as c, `$fb_tablename_order` as o WHERE c.order_id = '$idzamowienia' AND o.user = '$user->id' ORDER BY c.date DESC LIMIT 1");
 
 	// si maquette enregistrée, envoi et affichage du message de confirmation ////
@@ -447,7 +452,7 @@ function get_details() {
 			}
 	}
 
-	// récupérer le status manuel de la commande
+	//---------------------------------- récupérer le status manuel de la commande
 	$checkitup = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia'");
 	$reponse = $checkitup->status_check;
 	$statusCheck = '';
@@ -461,7 +466,7 @@ function get_details() {
 		$statusCheck = '<span class="statusChecked statusVerybad"><i class="fa fa-exclamation-circle" aria-hidden="true" title="votre commande est bloquée !"></i> </span>';
 	}
 
-	// affichage du dernier commentaire //////////////////////////////////////////
+	//------------------------------------------- affichage du dernier commentaire
 	if ($lastcomment) {
 		if (strlen($lastcomment->content) > 250) {
 			$ostcomment = substr($lastcomment->content, 0, 250).'...';
@@ -469,13 +474,17 @@ function get_details() {
 			$ostcomment = $lastcomment->content;
 		}
 		$ostcomment = stripslashes($ostcomment);
-		if ($lastcomment->author != 'France Banderole') {
-			$ostcomment = htmlspecialchars($ostcomment);
+
+		$fb = preg_match_all('/France Banderole/', $lastcomment->author, $result);
+		$fb = count($result[0]);
+
+		if ($fb >= 1) {
+			$ostcomment = nl2br($ostcomment);
 		}
 		$idostcomment = $lastcomment->order_id;
 		$linkcomment = '<a href="'.get_bloginfo("url").'/vos-devis/?comment='.$idzamowienia.'">Lire la suite...'.$statusCheck.'</a>';
 		$epilog .= '<table id="fbcart_lastcomment" border="0" cellspacing="0" class="noprint"><tr><th class="leftth">DATE</th><th class="leftth2">expéditeur</th><th class="leftth3">DERNIER COMMENTAIRE</th><th></th><th></th></tr>';
-		if ($lastcomment->author == 'France Banderole') {
+		if ($fb >= 1) {
 			$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2">'.$lastcomment->author.'</td><td class="lefttd3">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
 		} else {
 			$epilog .= '<tr><td class="lefttd">'.$lastcomment->data.'</td><td class="lefttd2a">'.$lastcomment->author.'</td><td class="lefttd3a">'.stripslashes($ostcomment).'</td><td class="lefttd4" colspan="2">'.$linkcomment.'</td></tr>';
@@ -520,12 +529,16 @@ function get_details() {
 	}
 
 	//------------------------------------------------------------ bouton voir BAT
+	$revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_value = 'compte revendeur' AND uid = '$uid'");
+	if (!$revendeur) $rev = 0;
+	else $rev = 1;
+
 	if(has_bat($idzamowienia) AND is_bat_validated($idzamowienia)) {
-		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_vumaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir BAT '.$btip.'</a>';
+		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?valid=1&uid='.$idzamowienia.'&rev='.$rev.'" class="but_vumaquette"><i class="fa fa-eye" aria-hidden="true"></i> Voir BAT '.$btip.'</a>';
   }else	if(has_bat($idzamowienia) AND !is_bat_validated($idzamowienia)) {
-		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Valider BAT '.$btip.'</a>';
+		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?valid=0&uid='.$idzamowienia.'&rev='.$rev.'" class="but_voiremaquette"><i class="fa fa-eye" aria-hidden="true"></i> Valider BAT '.$btip.'</a>';
   }else{
-		$epilog .= '<a data-lity href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/val_bat.php?uid='.$idzamowienia.'" class="but_vumaquette deactive"><i class="fa fa-eye" aria-hidden="true"></i> Valider BAT '.$btip.'</a>';
+		$epilog .= '<a href="#" class="but_vumaquette deactive"><i class="fa fa-eye" aria-hidden="true"></i> Valider BAT '.$btip.'</a>';
 	}
 
 	//-------------------------------------------------- bouton écrire commentaire
@@ -589,8 +602,7 @@ function get_details() {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////// calcul remises / TVA //
+//======================================== nouveaux calculs après modif commande
 
 function reorganize_votre($idzamowienia) {
 	global $wpdb;
@@ -600,6 +612,7 @@ function reorganize_votre($idzamowienia) {
 	$fb_tablename_remises = $prefix."fbs_remises";
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
 	$totalHT=0;
+
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
@@ -607,7 +620,8 @@ function reorganize_votre($idzamowienia) {
 			$totalHT = $totalHT + $totalItems;
 			$fraisPort = $fraisPort + $item[frais];
 		}
-		//--------------------------------------------------réduction supplémentaire
+
+		//----------------------------------------------------------vérifier remises
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
 			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
@@ -617,7 +631,7 @@ function reorganize_votre($idzamowienia) {
 			}
 		}
 
-		//-------------------------------------------------mise à jour remise client
+		//---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
 			$newrabat = $exist_remise->percent / 100;
@@ -651,14 +665,15 @@ function reorganize_votre($idzamowienia) {
 	  $totalTTC = number_format($totalTTC, 2);
 		//$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $fraisPort, 'totalht' => $totalHT, 'tva' => $calculTVA, 'promo'=>0, 'totalttc' => $totalTTC), array ( 'unique_id' => $idzamowienia ) );
+
 	} else {
 		$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
 	}
 }
 
-//fin calcul ///////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////// afficher détail devis //
+// fin calcul ==================================================================
+//======================================================== afficher détail devis
 
 function print_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia) {
 	global $wpdb;
@@ -675,19 +690,19 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	$uid = $_SESSION['loggeduser']->id;
 	$r = get_inscription2();
 
-	/* un commentaire, le cas échéant mis en lecture */
 	$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$idzamowienia'");
 	if ($newcomment) {
 		$wpdb->query("DELETE FROM `$fb_tablename_comments_new` WHERE value='1' AND order_id='$idzamowienia'");
 	}
 
 	// affichage du devis pour tous les status sauf traitement / expédié / clôturé
-	//////////////////////////////////////////////////////////////////////////////
+
 	if ($statuszamowienia != 3 && $statuszamowienia != 4 && $statuszamowienia != 5) {
 		$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
 		$view .= $prolog;
 		$view .= $epilog;
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
+
 		if ($products) {
 			if (($statuszamowienia < 3) OR ($statuszamowienia == 7)) {
 				$view .= get_filesender($produkty);
@@ -698,10 +713,12 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 			$licznik = 0;
 			$totalHT = 0;
 
+			//------------------------------------------------------------------------
 			foreach ( $products as $products => $item ) {
 				$licznik++;
 
 				// on recherche dans les descriptions produits les particularités liées à la création de maquette en ligne :
+
 				$maquette = preg_match_all('/je crée ma maquette en ligne/', $item[description], $resultat);
 				$maquette = count($resultat[0]);
 
@@ -721,7 +738,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 				$expo = count($resultat6[0]);
 
 				// si le client a choisi créer la maquette en ligne, afficher le(s) bouton(s)
-				////////////////////////////////////////////////////////////////////////////
+
 				if (($maquette >= 1) && ($statuszamowienia != 6)) {
 					$view .= '
 					<tr><td class="lefttd">';
@@ -752,8 +769,8 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 					}
 					$view .='<span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
 
-				// autrement, pas de bouton créer la maquette
-				////////////////////////////////////////////////////////////////////////
+				//--------------------------- autrement, pas de bouton créer la maquette
+
 	      }else{
 					$view .= '
 					<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td class="tdqte"><span class="disMob0">Quantité : </span> '.$item[quantity].'</td><td><span class="disMob0">Prix Unitaire : </span>'.$item[prix].'</td><td class="tdopt"><span class="disMob0">Options : </span>'.$item[prix_option].'</td><td class="tdrem"><span class="disMob0">Remise : </span>'.$item[remise].'</td><td class="tdtotal"><span class="disMob0">Total : </span>'.$item[total].'</td>';
@@ -764,38 +781,42 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 					$view .= '<td class="noprint"></td>';
 				}
 				$view .= '</tr>';
-			}
+			} //-----------------------------------------------------------end foreach
 
-			// Afficher réduction supplémentaire //
+			//-------------------------------------- Afficher réduction supplémentaire
 			$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 			if ($czyjestrabat) {
 				$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 			}
-			// Afficher réduction supplémentaire //
+			//-------------------------------------- Afficher réduction supplémentaire
 	  	$view .= '</table>';
 			$kosztorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
 
 			$addtodevis = '';
-			//---------------------------------------vérifier s'il y a une remise client
+			//-------------------------------------vérifier s'il y a une remise client
 			$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 			if ($exist_remise) {
 		  	$calculRemise = number_format($exist_remise->remisenew, 2);
 				$cremisetd = '<tr><td class="toleft">REMISE générale ('.$exist_remise->percent.'%)</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
 			}
-			//-------------------------------------------vérifier s'il y a un code promo
+			//-----------------------------------------vérifier s'il y a un code promo
 			$exist_code = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
 			if ($exist_code->promo > 1) {
 				$calculCode = $exist_code->promo;
 				$totalHT = $exist_code->totalht;
 				$calculCode = number_format($calculCode, 2);
-				$addtodevis ='<tr><td class="toleft">CODE PROMO </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+				$addtodevis ='<tr><td class="toleft">REMISE </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
 			}
+			//------------------------------------------------------------------------
+		  $totalht = str_replace(',', '', $kosztorder->totalht);
+			$totalht = $totalht-$calculRemise-$calculCode;
+			$ttotalht = str_replace(',','', number_format($totalht, 2)).' &euro;';
 			//------------------------------------------------------------------------
 
  	  	$tfrais = $kosztorder->frais.' &euro;';
-	  	$ttotalht = $kosztorder->totalht.' &euro;';
 	  	$ttva = $kosztorder->tva.' &euro;';
-	  	$ttotalttc = $kosztorder->totalttc.' &euro;';
+	  	$ttotalttc = str_replace(',', '', $kosztorder->totalttc).' &euro;';
+			//------------------------------------------------------------------------
 
 			$user = $_SESSION['loggeduser'];
 			$explode = explode('|', $user->f_address);
@@ -820,15 +841,15 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 
 			$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 			<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
-			<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 			'.$addtodevis.'
 			'.$cremisetd.'
+			<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 			<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
 			<tr><td class="toleft total">total ttc</td><td class="toright total">'.$ttotalttc.'</td></tr>
 			</table>';
 
-			$view .= '<table id="fbcart_address" border="0" cellspacing="0">
-			<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
+			$view .= '<table id="fbcart_address" class="noprint" border="0" cellspacing="0">
+			<tr><th class="leftth =">Adresse de facturation</th><th>Adresse de livraison</th></tr>
 			<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'</td></tr>
 			</table>';
 
@@ -847,8 +868,8 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		//	$view .= $epilog;
 		//		$view .= '<div style="position:relative;float:left;display:inline;width:960px;">'.get_fb_comments().'</div>';
 
-	// affichage du devis pour les status traitement / expédié / clôturé /////////
-	//////////////////////////////////////////////////////////////////////////////
+	//---------- affichage du devis pour les status traitement / expédié / clôturé
+
 	} else {
 		$view .= '<div class="noprint">'.$prolog.'</div>';
 		$view .= '<div class="noprint">'.$epilog.'</div>';
@@ -889,7 +910,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		//---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
-	  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
+	  	$calculRemise = number_format($exist_remise->remisenew, 2);
 			$cremisetd = '<tr><td class="toleft">REMISE générale ('.$exist_remise->percent.'%)</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
 		}
 		//-------------------------------------------vérifier s'il y a un code promo
@@ -897,19 +918,26 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		if ($exist_code->promo > 1) {
 			$calculCode = $exist_code->promo;
 			$totalHT = $exist_code->totalht;
-			$calculCode = str_replace('.', ',', number_format($calculCode, 2));
-			$addtodevis ='<tr><td class="toleft">CODE PROMO </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+			$calculCode = number_format($calculCode, 2);
+			$addtodevis ='<tr><td class="toleft">REMISE </td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
 		}
+
 		//--------------------------------------------------------------------------
-	  $tfrais = str_replace('.', ',', $query->frais).' &euro;';
-	  $ttotalht = str_replace('.', ',', $query->totalht).' &euro;';
-	  $ttva = str_replace('.', ',', $query->tva).' &euro;';
-	  $ttotalttc = str_replace('.', ',', $query->totalttc).' &euro;';
+		$totalht = str_replace(',', '', $query->totalht);
+		$totalht = $totalht-$calculRemise-$calculCode;
+		$ttotalht = str_replace(',','', number_format($totalht, 2)).' &euro;';
+		//--------------------------------------------------------------------------
+
+		$tfrais = $query->frais.' &euro;';
+		$ttva = $query->tva.' &euro;';
+		$ttotalttc = str_replace(',', '', $query->totalttc).' &euro;';
+		//--------------------------------------------------------------------------
+
 		$view .= '<table id="fbcart_check" border="0" cellspacing="0">
 		<tr><td class="toleft">Frais de port</td><td class="toright">'.$tfrais.'</td></tr>
-		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 		'.$addtodevis.'
 		'.$cremisetd.'
+		<tr><td class="toleft">Total ht</td><td class="toright">'.$ttotalht.'</td></tr>
 		<tr><td class="toleft">Montant Tva (20%)</td><td class="toright">'.$ttva.'</td></tr>
 		<tr><td class="toleft total">total ttc</td><td class="toright total">'.$ttotalttc.'</td></tr>
 		</table>';
@@ -945,7 +973,7 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 		}
 		$epilog_1 .= $user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city;
 
-		$view .= '<table id="fbcart_address" border="0" cellspacing="0">
+		$view .= '<table id="fbcart_address" class="noprint" border="0" cellspacing="0">
 		<tr><th class="leftth">Adresse de facturation</th><th>Adresse de livraison</th></tr>
 		<tr><td class="lefttd">'.stripslashes($epilog_1).'</td><td>'.stripslashes($epilog_0).'</td></tr>
 		</table>';
@@ -962,7 +990,9 @@ function print_devis_details($products, $prolog, $epilog, $writable, $statuszamo
 	return $view;
 }
 
-// fin affichage détails ///////////////////////////////////////////////////////
+// fin affichage détails =======================================================
+//============================================= fonction export devis revendeurs
+
 function export_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -1101,8 +1131,7 @@ function export_devis_details($products, $prolog, $epilog, $writable, $statuszam
 	return $view;
 }
 
-// fin affichage détails ///////////////////////////////////////////////////////
-/////////////////////////////////////// compter nombre d'items dans le panier //
+//=========================================compter nombre d'items dans le panier
 
 function getCartCount() {
 	$ret = '0';
@@ -1123,6 +1152,7 @@ function print_votre() {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_comments = $prefix."fbs_comments";
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
+
   if (isset($_POST['annulervosdevis'])) {
 		$ident = $_POST['annulervosdevis'];
 		$anulowany = $wpdb->query("UPDATE `$fb_tablename_order` SET status='6' WHERE unique_id='$ident'");
@@ -1205,31 +1235,31 @@ function print_votre() {
 	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Vos commandes et devis</h1><hr />';
 	$user = $_SESSION['loggeduser'];
 
-	//Récupération des variables
+	//--------------------------------------------------Récupération des variables
 	if ((isset($_GET['archive'])) AND ($_GET['archive'] == 1)) { $archive = 1;	} else { $archive = 0; 	}
 	if (isset($_GET['pagination'])) { $page_act = $_GET['pagination'];	} else { $page_act = 1; }
 
-	//Récupération conditionnelle de la liste des commandes
+	//-----------------------Récupération conditionnelle de la liste des commandes
 
 	$count_old = 0; $count_curr = 0;
 
 	//$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' ORDER BY date DESC");
-	$orders_old = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status = 5");
+	$orders_old = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE (user='$user->id') AND (status = 5 OR status = 6)");
 	$count_old = $wpdb->num_rows;
-	$orders_curr = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC");
+	$orders_curr = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE (user='$user->id') AND (status != 5  AND status != 6) ORDER BY date DESC");
 	$count_curr = $wpdb->num_rows;
 
 	if ($archive) {
-		$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status = 5 ORDER BY date DESC");
+		$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE (user='$user->id') AND (status = 5 OR status = 6) ORDER BY date DESC");
 		//$count_o = $wpdb->num_rows;
 		if ($count_old > 15) {
-			$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status = 5 ORDER BY date DESC LIMIT ". 50*($page_act-1) .", 50");
+			$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE (user='$user->id') AND (status = 5 OR status = 6) ORDER BY date DESC LIMIT ". 50*($page_act-1) .", 50");
 		}
 	} else {
-		$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC");
+		$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE (user='$user->id') AND (status != 5 AND status != 6) ORDER BY date DESC");
 		//$count_o = $wpdb->num_rows;
 		if ($count_curr > 15) {
-			$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC LIMIT ". 50*($page_act-1) .", 50");
+			$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE (user='$user->id') AND (status != 5 AND status != 6) ORDER BY date DESC LIMIT ". 50*($page_act-1) .", 50");
 			//$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5 ORDER BY date DESC");
 		}
 	}
@@ -1244,19 +1274,26 @@ function print_votre() {
 		$view .= '<div class="votre_tab_head">';
 
 		if ($archive) {
-			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_inactive">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_active">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
+			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_inactive">Devis & commandes en cours ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_active">Commandes clôturées ou annulées ('.$count_old.')</div></a>';
 		} else {
-			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
+			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">Devis & commandes en cours ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">Commandes clôturées ou annulées ('.$count_old.')</div></a>';
 		}
 
 		$view .= '<table id="fbcart_votre" cellspacing="0">';
 
-		// on récupère la valeur du check manuel sélectionné pour l'afficher
+		//--------------------------------------fonctionnalité spéciale pour CFACILE
+		$checkttr = '';
+		if (($_SESSION['loggeduser']->login == 'samrr') || ($_SESSION['loggeduser']->login == 'FABREGONMOULET1') || ($_SESSION['loggeduser']->login == 'malgoire2') || ($_SESSION['loggeduser']->login == 'pocalypse')) {
+			$checkttr = '<th></th>';
+		}
 
+		//--------------------------------------------------------------------------
 
-		$view .= '<tr><th class="leftth">Gérer</th><th class="tddesc">DESCRIPTION</th><th>N° DE COMMANDE</th><th>PRIX</th><th>DATE</th><th>état</th></tr>';
+		$view .= '<tr><th class="leftth">Gérer</th><th class="tddesc">DESCRIPTION</th><th>N° DE COMMANDE</th><th>PRIX</th><th>DATE</th><th>état</th>'.$checkttr.'</tr>';
+
+		$inc = 0;
 		foreach ($orders as $o) :
-
+			$inc++;
 			$view .= '<tr>';
 			$view .= '<td class="lefttd">';
 			//if ($o->status != 6) {
@@ -1296,9 +1333,6 @@ function print_votre() {
 					$view .= $p->name.'<br />';
 				}
 			endforeach;
-			//			if (($o->unique_id == $idostcomment)) {
-			//				$view .= '<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idostcomment.'" class="lcomment"></a>';
-			//			}
 
 			$comment_new = '';
 			$newcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments_new` WHERE order_id = '$o->unique_id'");
@@ -1309,12 +1343,41 @@ function print_votre() {
 				}
 			}
 
-			$view .= '</div></td><td><span class="bolder">'.$o->unique_id.'</span></td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td>'.$status.$comment_new.'</td>';
+			$view .= '</div></td><td><span class="bolder">'.$o->unique_id.'</span></td><td>'.str_replace(',','', $o->totalttc).' &euro;</td><td>'.$o->data.'</td><td>'.$status.$comment_new.'</td>';
+
+			//------------------------------------fonctionnalité spéciale pour CFACILE
+
+			if (($_SESSION['loggeduser']->login == 'samrr') || ($_SESSION['loggeduser']->login == 'FABREGONMOULET1') || ($_SESSION['loggeduser']->login == 'malgoire2') || ($_SESSION['loggeduser']->login == 'pocalypse')) {
+
+				if (isset($_POST['oid'])){
+					if ($_POST['uchk'] == 'payed') {
+						$oid = $_POST['oid'];
+						$wpdb->query("UPDATE `$fb_tablename_order` SET user_check='1' WHERE unique_id='$oid'");
+					} else if ($_POST['uchk'] != 'payed'){
+						$oid = $_POST['oid'];
+						$wpdb->query("UPDATE `$fb_tablename_order` SET user_check='0' WHERE unique_id='$oid'");
+					}
+					header('Location: '.$_SERVER['REQUEST_URI']);
+					exit();
+				}
+
+				//echo $o->user_check.' | ';
+				$checked = '';
+
+				if ($o->user_check == 1){
+					$checked = 'checked';
+				}
+				$view .= '<td><form id="ck'.$inc.'" method="post" action=""><input class="ckbox" type="checkbox" name="uchk" value="payed" '.$checked.' onChange="this.parentNode.submit();"><input type="hidden" name="oid" value="'.$o->unique_id.'"></form></td>';
+			}
+
+			//------------------------------------------------------------------------
+
 			$view .= '</tr>';
 		endforeach;
+
 		$view .= '</table>';
 
-		// Pagination si besoin ////////////////////////////////////////////////////
+		//----------------------------------------------------- Pagination si besoin
 
 		if(($archive == 0) AND($count_curr > 50)) {
 
@@ -1351,9 +1414,9 @@ function print_votre() {
 		$view .= '<div class="votre_tab_head">';
 
 		if ($archive) {
-			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_inactive">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_active">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
+			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_inactive">Devis & commandes en cours ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_active">Commandes clôturées ou annulées ('.$count_old.')</div></a>';
 		} else {
-			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">VOS COMMANDES EN COURS ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">VOS ANCIENNES COMMANDES ('.$count_old.')</div></a>';
+			$view .= '<a href="vos-devis?archive=0"><div class="votre_tab_active">Devis & commandes en cours ('.$count_curr.')</div></a><a href="vos-devis?archive=1"><div class="votre_tab_inactive">Commandes clôturées ou annulées ('.$count_old.')</div></a>';
 		}
 
 		if ($archive) {
@@ -1373,7 +1436,7 @@ function print_votre() {
   return $view;
 }
 
-/// boutons status /////////////////////////////////////////////////////////////
+//================================================================== status form
 
 function print_status_form($status, $cmd) {
 	$formatted .= '<div class="stat">';
@@ -1405,7 +1468,7 @@ function print_status_form($status, $cmd) {
 	return $formatted;
 }
 
-////////////////////////////////////////////////////////////////////////////////
+//================================================================= print status
 
 function print_status($status) {
 	$formatted .= '<span class="stat'.$status.'">';
@@ -1437,8 +1500,18 @@ function print_status($status) {
 	return $formatted;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// fonction ajouter à la base de données ///////////////////////////////////////
+//============================================================== check row empty
+
+function isRowEmpty($row){
+  foreach($row as $a){
+    if(!empty($a) || $a !== 0){
+      return false;
+    }
+  }
+  return true;
+}
+
+//============================ fonction ajouter la commande à la base de données
 
 function add_to_db() {
 	global $wpdb;
@@ -1469,6 +1542,7 @@ function add_to_db() {
 
 		$user = $_SESSION['loggeduser'];
     $uid = $_SESSION['loggeduser']->id;
+		$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
 
 		foreach ( $products as $products => $item ) {
 			$calculCat = '-';
@@ -1476,9 +1550,8 @@ function add_to_db() {
       $prixUnit = str_replace(',', '.', $item[prix]);
       $totalItem = str_replace('€', '', $totalItem);
       $prixUnit = str_replace('€', '', $prixUnit);
-			$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
 
-			//------------------------------------vérification remise par catégories
+			//--------------------------------------vérification remise par catégories
 			if ($cat) { // s'il existe des remises par catégorie pour ce client
 				foreach($cat as $key => $value) : // pour chaque catégorie
 					if (!empty($value) && $value != '0') { // si valeur différente de 0 existe
@@ -1515,17 +1588,29 @@ function add_to_db() {
 		//------------------------------------------------vérification remise client
 		$uid = $user->id;
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
-		if ($exist_remise) {
-			$client_remise = $exist_remise->att_value;
-			if (!empty($client_remise) && $client_remise != '0') {
-				$newrabat = $client_remise / 100;
-				$calculRemise = ($totalHT-$calculCode) * $newrabat;
-			}
+		$client_remise = $exist_remise->att_value;
+		if ($exist_remise && $client_remise != 0) {
+			$newrabat = $client_remise / 100;
+			$calculRemise = ($totalHT-$calculCode) * $newrabat;
 		}
+		$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
 
-		//---------------------------s'il n'y a ni remise client ni remise catégorie
-		if (!$exist_remise && !$cat) {
-			//---------------------------------------------------vérification code promo
+		//-------------------------------------------s'il n'y a pas de remise client
+		if ((!$exist_remise || $client_remise == 0) && isRowEmpty($cat)) {
+
+			//-------------------------------------------------------Remises intégrées
+
+      if ($totalHT < 50)  $calculCode = 0;
+      if ($totalHT >= 50) $calculCode = ($totalHT)*(3/100);
+      if ($totalHT > 100) $calculCode = 10;
+      if ($totalHT > 200) $calculCode = 20;
+      if ($totalHT > 400) $calculCode = 30;
+      if ($totalHT > 600) $calculCode = 40;
+      if ($totalHT > 800) $calculCode = 50;
+      if ($totalHT > 1000) $calculCode = 60;
+
+			//-------------------------------------------------vérification code promo
+
 			if(isset($_POST['codeProm'] )) {
 	      $products = $_SESSION['fbcart'];
 	      $codepromo = $_POST['codeProm'] ;
@@ -1542,18 +1627,29 @@ function add_to_db() {
 
 	            if($promoCat !== ('Tous')){ // si la réduction s'applique à une catégorie de produits:
 	              $prixItem = 0;
+								$reducEu = 0;
 	              foreach ( $products as $products => $item ) {
 	        				$prodCat = $item[rodzaj];
 	                $find = '/'.$promoCat.'/';
 	        				$trouve = preg_match_all($find, $prodCat, $resultat);
 	        				$trouve = count($resultat[0]);
+
 	                if($trouve >= 1){
 	                  $prixItem += $item[prix]*$item[ilosc];
+										$reducEu = $reduction->reduction;
 	                }
 	              }
-	              $calculCode = ($prixItem)*($reduction->remise/100); // calcule la réduction sur le total HT des produits de la catégorie
+
+								if($reduction->remise != 0) // si la remise est en pourcentage
+                $calculCode = ($prixItem)*($reduction->remise/100); // calcule le % sur le total HT des produits de la catégorie
+                else // si la remise est en euros
+                $calculCode = $reducEu; // applique la réduction en euros
+
 	            }else{ //--------------si la réduction s'applique à tous les produits:
-	              $calculCode = ($totalHT)*($reduction->remise/100); // calcule la réduction sur le montant TTC moins l'éventuelle remise client
+								if($reduction->remise != 0) // si la remise est en pourcentage
+	              $calculCode = ($totalHT)*($reduction->remise/100); // calcule le % sur le montant HT moins l'éventuelle remise client
+								else // si la remise est en euros
+                $calculCode = $reduction->reduction; // applique la réduction en euros
 	            }
 	          }
 	        }else{ // si le code est inférieur au minimum d'achat:
@@ -1563,7 +1659,6 @@ function add_to_db() {
 	      }
 	    }
 		}
-
 
 		//--------------------------------------------------------------------------
 
@@ -1584,7 +1679,7 @@ function add_to_db() {
 		$unique_id = random_string();
 		$_SESSION['orderid'] = $unique_id;
 		$data = date('Y-m-d H:i:s');
-		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$fraisPort."', '".$totalHT."', '".$calculTVA."', '".$calculCode."', '".$totalTTC."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','','','')");
+		$dodaj_zamowienie = $wpdb->query("INSERT INTO `$fb_tablename_order` VALUES (not null, '".$unique_id."', '".$fraisPort."', '".$totalHT."', '".$calculTVA."', '".$calculCode."', '".$totalTTC."', '".$data."', '".$data."', '".$user->id."', '', '0', '', '','','','','','')");
 
 		//ICI PLACER L'AJOUT A MAILJET
 		createContact($user->email);
@@ -1759,7 +1854,7 @@ function add_to_db() {
 	}
 }
 
-////////////////////////////////////////////////// générer numéro de commande //
+//=================================================== générer numéro de commande
 
 function random_string() {
 	global $wpdb;

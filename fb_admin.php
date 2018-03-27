@@ -151,24 +151,17 @@ function get_ratings($type_prod, $nb_comment=2) {
 		$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$order->user'");
     if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
     elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
-    elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
+    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
+		elseif ($prodname->name == 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
+		elseif ($prodname->name == 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif ($prodname->name == 'Affiches 120g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Affiches 150g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Affiches 220g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Affiches 120g fluo'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
     elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
     elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
-    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
-    elseif ($prodname->name == 'depliants 80g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'depliants 135g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'depliants 170g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'depliants 250g'){$lienprod = get_bloginfo('url').'/depliants';}
-    elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
-    elseif ($prodname->name == 'Flyers 80g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 135g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 170g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 250g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 350g'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 120µ'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 270µ'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Flyers 350µ'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Affiches 135g'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
     elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
     elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
     elseif ($prodname->name == 'Cadre extérieur 100x250cm'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
@@ -182,9 +175,14 @@ function get_ratings($type_prod, $nb_comment=2) {
     elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
     elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
     elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
-    elseif ($prodname->name == 'Vinyles Stickers'){$lienprod = get_bloginfo('url').'/stickers';}
-    elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+    elseif ($prodname->name == 'Stickers Lettrage'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif ($prodname->name == 'Stickers prédécoupé'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif ($prodname->name == 'Stickers vitrophanie'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif ($prodname->name == 'Stickers mural'){$lienprod = get_bloginfo('url').'/stickers';}
     elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+		elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+		elseif ($prodname->name == 'Cadre tissu'){$lienprod = get_bloginfo('url').'/cadre-tissu';}
+    elseif ($prodname->name == 'Enseigne stand suspendue'){$lienprod = get_bloginfo('url').'/enseigne-suspendue-textile';}
     else {$lienprod = get_bloginfo('url').'/banderoles';};
 
     // séparer nom prénom et ne garder que l'initiale du nom--------------------
@@ -206,7 +204,7 @@ function get_ratings($type_prod, $nb_comment=2) {
 	endforeach;
 
 	$view .= '</tbody></table>';
-  $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis?prod_type='.$prod_family.'"><span class="comVoirContent"><i class="fa fa-plus" aria-hidden="true"></i> d\'avis sur ce type de produit</span></a>';
+  $view .= '<a  class="comVoir" href="'.get_bloginfo('url').'/avis_france_banderole?prod_type='.$prod_family.'"><span class="comVoirContent"><i class="fa fa-plus" aria-hidden="true"></i> d\'avis sur ce type de produit</span></a>';
   $view .= '<div class="clear"></div></div>';
 
 	return $view;
@@ -828,28 +826,31 @@ function fbadm_invoice_print($number) {
     //---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
-  		$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
+  		$calculRemise = str_replace(',', '', number_format($exist_remise->remisenew, 2));
   		$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
 		}
     //-------------------------------------------vérifier s'il y a un code promo
     $exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
     if ($exist_code->promo > 1) {
       $calculCode = $exist_code->promo;
-      $calculCode = str_replace('.', ',', number_format($calculCode, 2));
-      $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+      $calculCode = str_replace(',', '', number_format($calculCode, 2));
+      $addtodevis ='<tr><td class="toleft">REMISE</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
     }
     //--------------------------------------------------------------------------
-		$tfrais = str_replace('.', ',', $query->frais).'&nbsp;&euro;';
-		$ttotalht = str_replace('.', ',', $query->totalht).'&nbsp;&euro;';
-		$ttva = str_replace('.', ',', $query->tva).'&nbsp;&euro;';
-		$ttotalttc = str_replace('.', ',', $query->totalttc).'&nbsp;&euro;';
+    $totalht = str_replace(',', '', $query->totalht);
+    $totalht = $totalht-$calculRemise-$calculCode;
+    //--------------------------------------------------------------------------
+		$tfrais = str_replace(',', '', $query->frais).'&nbsp;&euro;';
+		$ttotalht = str_replace(',', '', number_format($totalht, 2)).'&nbsp;&euro;';
+		$ttva = str_replace(',', '', $query->tva).'&nbsp;&euro;';
+		$ttotalttc = str_replace(',', '', $query->totalttc).'&nbsp;&euro;';
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$number."-tva'");
 		if ($czyjesttva) {
 			$procpod = $czyjesttva->remis;
 		} else {
 			$procpod = '20.0';
 		}
-		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr>'.$addtodevis.$cremisetd.'<tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
+		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$addtodevis.$cremisetd.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
 
 		if ($query->payment == 'cheque') { $method = 'CHEQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
@@ -915,28 +916,31 @@ function fbadm_invoice_proprint($number) {
     //---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
-	  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
+	  	$calculRemise = str_replace(',', '', number_format($exist_remise->remisenew, 2));
 	  	$cremisetd = '<tr><td class="toleft">REMISE ('.$exist_remise->percent.'%)</td><td class="toright">-'.$calculRemise.' &euro;</td></tr>';
 		}
     //-------------------------------------------vérifier s'il y a un code promo
     $exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
     if ($exist_code->promo > 1) {
       $calculCode = $exist_code->promo;
-      $calculCode = str_replace('.', ',', number_format($calculCode, 2));
-      $addtodevis ='<tr><td class="toleft">CODE PROMO</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+      $calculCode = str_replace(',', '', number_format($calculCode, 2));
+      $addtodevis ='<tr><td class="toleft">REMISE</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
     }
     //--------------------------------------------------------------------------
-		$tfrais = str_replace('.', ',', $query->frais).'&nbsp;&euro;';
-		$ttotalht = str_replace('.', ',', $query->totalht).'&nbsp;&euro;';
-		$ttva = str_replace('.', ',', $query->tva).'&nbsp;&euro;';
-		$ttotalttc = str_replace('.', ',', $query->totalttc).'&nbsp;&euro;';
+    $totalht = str_replace(',', '', $query->totalht);
+    $totalht = $totalht-$calculRemise-$calculCode;
+    //--------------------------------------------------------------------------
+		$tfrais = str_replace(',', '', $query->frais).'&nbsp;&euro;';
+    $ttotalht = str_replace(',', '', number_format($totalht, 2)).'&nbsp;&euro;';
+		$ttva = str_replace(',', '', $query->tva).'&nbsp;&euro;';
+		$ttotalttc = str_replace(',', '', $query->totalttc).'&nbsp;&euro;';
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$number."-tva'");
 		if ($czyjesttva) {
 			$procpod = $czyjesttva->remis;
 		} else {
 			$procpod = '20.0';
 		}
-		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr><tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr>'.$addtodevis.$cremisetd.'<tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
+		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$addtodevis.$cremisetd.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
 
 		if ($query->payment == 'cheque') { $method = 'CHEQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
@@ -1372,17 +1376,23 @@ function fb_admin_reports_users() {
         $plvext = $_POST['plvext'];
         $sticker = $_POST['sticker'];
         $affiche = $_POST['affiche'];
-        $papier = $_POST['papier'];
+        $carte = $_POST['carte'];
         $nappe = $_POST['nappe'];
+        $susp = $_POST['susp'];
+        $cadre = $_POST['cadre'];
+        $susp = $_POST['susp'];
+        $carte = $_POST['carte'];
+        $depliant = $_POST['depliant'];
+        $flyer = $_POST['flyer'];
 
         $excat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid = ".$where."");
 
         if ($excat) {
           //$update = $wpdb->query("UPDATE `$fb_tablename_users_cr` SET Banderole='$banderole', Roll='$rollup', Totem='$totem', Stand='$stand', Oriflamme='$oriflamme', Forex='$forex', Dibond='$dibond' Akilux='$akilux', PVC='$pvc', Tente='$tente', PLVint='$plvint', PLVext='$plvext', Sticker='$sticker', Affiche='$affiche', Papier='$papier' WHERE uid = ".$where."");
           $wpdb->query("DELETE FROM `$fb_tablename_users_cr` WHERE uid='$where'");
-          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$papier', '$nappe' )");
+          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$carte', '$nappe', '$susp', '$cadre', '$depliant', '$flyer' )");
         } else {
-          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$papier', '$nappe' )");
+          $ajouter = $wpdb->query("INSERT INTO `$fb_tablename_users_cr` VALUES (not null, '$where', '$banderole', '$rollup', '$totem', '$stand', '$oriflamme', '$forex', '$dibond', '$akilux', '$pvc', '$tente', '$plvint', '$plvext', '$sticker', '$affiche', '$carte', '$nappe', '$susp', '$cadre', '$depliant', '$flyer' )");
         }
       }
 
@@ -1468,11 +1478,21 @@ function fb_admin_reports_users() {
           $cd0 = ' checked="checked"';
         }
 
+        //-----------------------------------------------------------annotations
+        $exmemo = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = ".$where." AND att_name = 'memo'");
+        if (!empty($_POST['memotrue']) && $_POST['memotrue'] == 'true'){
+          $memo = $_POST['memo'];
+          if (!$exmemo) {
+            $add = $wpdb->query("INSERT INTO `$fb_tablename_users_cf` VALUES (not null, '$where', 'memo', '$memo')");
+          }else{
+            $up = $wpdb->query("UPDATE `$fb_tablename_users_cf` SET att_value='$memo' WHERE  att_name = 'memo' AND uid = ".$where."");
+          }
+        }
         //-------------------------------------------------blocs adresses client
 
     		echo '<div class="reportTopBloc topBlocA">
           <h2>Adresse de facturation:</h2><br />
-            <form name="fb_view_user" method="post" action="admin.php?page=fb-users">
+          <form name="fb_view_user" method="post" action="admin.php?page=fb-users">
             <input type="hidden" name="action" value="fb_view_user" />
             <input type="hidden" name="fb_view_user_id" value="'.$userinfo->id.'" />
             <input type="submit" name="fb_user_view" class="edit" value="'.$userinfo->login.'">
@@ -1495,6 +1515,16 @@ function fb_admin_reports_users() {
           .$userinfo->l_code.'<br />'
           .$userinfo->l_city.'<br />'
           .$userinfo->l_phone.'
+
+          <h2>Annotations:</h2><br />
+          <form method="post" action="" name="memoForm" style="clear:both;">
+            <textarea name="memo">'.$exmemo->att_value.'</textarea>
+            <input type="hidden" name="memotrue" value="true" />
+            <input type="hidden" name="pokaztab" value="" />
+            <input type="hidden" name="user_name" value="'.$_POST["user_name"].'" />
+            <input type="hidden" name="user_login" value="'.$_POST["user_login"].'" />
+            <input type="submit" class="editAdBtn" value="enregistrer" style="" />
+          </form>
         </div>';
 
         //-----------------------------------------bloc remise générale/couleurs
@@ -1531,6 +1561,7 @@ function fb_admin_reports_users() {
         	  <input type="submit" class="editAdBtn" value="enregistrer" /><input type="hidden" name="client_saveremise" value="true" /><input type="hidden" name="pokaztab" value="" /><input type="hidden" name="user_name" value="'.$_POST["user_name"].'" /><input type="hidden" name="user_login" value="'.$_POST["user_login"].'" />
       		</form>
 
+
     		</div>';
 
         //------------------------------------bloc remises par catégorie produit
@@ -1549,8 +1580,13 @@ function fb_admin_reports_users() {
         $bpe = $cat->PLVext;
         $bsk = $cat->Sticker;
         $baf = $cat->Affiche;
-        $bpa = $cat->Papier;
+        $bpa = $cat->Cartes;
+        $bde = $cat->Depliant;
+        $bfl = $cat->Flyer;
         $bna = $cat->Nappe;
+        $bes = $cat->Enseigne;
+        $bca = $cat->Cadre;
+
         echo '<div class="reportTopBloc topBloc3">
       		<form name="client_remisebycat" id="client_remisebycat" method="post" action="" />
 
@@ -1563,17 +1599,22 @@ function fb_admin_reports_users() {
               <label>forex:</label> <input type="text" name="forex" value="'.$bfx.'" />
               <label>dibond:</label> <input type="text" name="dibond" value="'.$bdd.'" />
               <label>akilux:</label> <input type="text" name="akilux" value="'.$bak.'"  />
+              <label>pvc:</label> <input type="text" name="pvc" value="'.$bpv.'"  />
+              <label>tente:</label> <input type="text" name="tente" value="'.$bte.'" />
+
             </div>
 
             <div class="colr">
-              <label>pvc:</label> <input type="text" name="pvc" value="'.$bpv.'"  />
-              <label>tente:</label> <input type="text" name="tente" value="'.$bte.'" />
               <label>plv-int:</label> <input type="text" name="plvint" value="'.$bpi.'" />
               <label>plv-ext:</label> <input type="text" name="plvext" value="'.$bpe.'" />
               <label>sticker:</label> <input type="text" name="sticker" value="'.$bsk.'" />
               <label>affiche:</label> <input type="text" name="affiche" value="'.$baf.'" />
-              <label>papier:</label> <input type="text" name="papier" value="'.$bpa.'" />
+              <label>carte:</label> <input type="text" name="carte" value="'.$bpa.'" />
+              <label>dépliant:</label> <input type="text" name="depliant" value="'.$bde.'" />
+              <label>flyer:</label> <input type="text" name="flyer" value="'.$bfl.'" />
               <label>nappe:</label> <input type="text" name="nappe" value="'.$bna.'" />
+              <label>susp:</label> <input type="text" name="susp" value="'.$bes.'"  />
+              <label>cadre:</label> <input type="text" name="cadre" value="'.$bca.'" />
             </div>
 
         		<input type="submit" class="editAdBtn" value="enregistrer" /><input type="hidden" name="saveByCat" value="true" /><input type="hidden" name="pokaztab" value="" /><input type="hidden" name="user_name" value="'.$_POST["user_name"].'" /><input type="hidden" name="user_login" value="'.$_POST["user_login"].'" />
@@ -1629,7 +1670,7 @@ function fb_admin_reports_users() {
     		echo '<p></p>';
 
     		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-    		<table>
+    		<table id="userRep">
     		<thead>
     		<tr>
     		<th></th>
@@ -1690,17 +1731,7 @@ function fb_admin_reports_users() {
     		endforeach;
     		echo '<tr><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
     		echo '</tbody></table>';
-    		echo '<script type="text/javascript">
-    			jQuery(function() {
-    			jQuery("#example-1").beautify({
-    			pageSize : 100000,
-    				pagerSize : 7
-    			});
-    			jQuery("#txt_search").keyup(function() {
-    				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-    			});
-    			});
-    	  </script>';
+    		//echo '<script type="text/javascript">jQuery(document).ready(function () {jQuery("#userRep").dynatable();});</script>';
     		//END MODIF
     		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
     	}
@@ -1739,7 +1770,7 @@ function fb_getUsersBySales($sum) {
 	// echo '<thead><tr><th width="5">Lp.</th><th width="5">ID</th><th>Login</th><th>Email</th><th>F. name</th><th>F. Company</th><th>F. Phone</th><th>Orders sum</th><th>Action</th></tr></thead>';
 
 	echo '<div id="example-1" class="beautifulData" style="clear: both;">
-		<table>
+		<table id="userRep">
 		<thead>
 		<tr>
 		<th>Lp.</th>
@@ -1782,17 +1813,7 @@ function fb_getUsersBySales($sum) {
 		}
 	endforeach;
 	echo '</tbody></table>';
-	echo '<script type="text/javascript">
-			jQuery(function() {
-			jQuery("#example-1").beautify({
-			pageSize : 100000,
-				pagerSize : 7
-			});
-			jQuery("#txt_search").keyup(function() {
-				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-			});
-			});
-	</script>';
+	//echo '<script type="text/javascript">jQuery(document).ready(function () {jQuery("#userRep").dynatable();});</script>';
 }
 
 // user reports par recherche //////////////////////////////////////////////////
@@ -1817,7 +1838,7 @@ function fb_getUsersBySearch($search) {
 	if($search_query) {
 
 		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-		<table>
+		<table id="userRep">
 		<thead>
 		<tr>
 		<th>Lp.</th>
@@ -1843,17 +1864,7 @@ function fb_getUsersBySearch($search) {
 	}
 
 	echo '</tbody></table>';
-	echo '<script type="text/javascript">
-			jQuery(function() {
-			jQuery("#example-1").beautify({
-			pageSize : 100000,
-				pagerSize : 7
-			});
-			jQuery("#txt_search").keyup(function() {
-				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-			});
-			});
-	</script>';
+	//echo '<script type="text/javascript">jQuery(document).ready(function () {jQuery("#userRep").dynatable();});</script>';
 	} else {
 		echo '<p>Aucun résultat de recherche trouvé pour la recherche "'.$search.'"</p>';
 	}
@@ -1886,7 +1897,7 @@ function fb_getUsersBySearchOrder($search) {
 	if($search_query) {
 
 		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-		<table>
+		<table id="userRep">
 		<thead>
 		<tr>
 		<th>Lp.</th>
@@ -1912,17 +1923,7 @@ function fb_getUsersBySearchOrder($search) {
 	}
 
 	echo '</tbody></table>';
-	echo '<script type="text/javascript">
-			jQuery(function() {
-			jQuery("#example-1").beautify({
-			pageSize : 100000,
-				pagerSize : 7
-			});
-			jQuery("#txt_search").keyup(function() {
-				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-			});
-			});
-	</script>';
+	//echo '<script type="text/javascript">jQuery(document).ready(function () {jQuery("#userRep").dynatable();});</script>';
 	} else {
 		echo '<p>Aucun résultat de recherche trouvé pour la recherche "'.$search.'"</p>';
 	}
@@ -2044,7 +2045,7 @@ function fb_admin_reports() {
   	if ($orders) {
   		echo '<p><form name="pdf_print_form" action="'.$pdfpath.'pdfer.php" method="post" target="_blank"><input type="hidden" name="e" value="'.$where.'" /><input type="hidden" name="a" value="'.DB_NAME.'" /><input type="hidden" name="b" value="'.DB_USER.'" /><input type="hidden" name="c" value="'.DB_PASSWORD.'" /><input type="hidden" name="d" value="'.DB_HOST.'" /><input type="submit" value="PRINT PDF" /></form></p>';
   		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-  		<table>
+  		<table id="userRep">
   		<thead>
   		<tr>
   		<th></th>
@@ -2090,17 +2091,7 @@ function fb_admin_reports() {
   		endforeach;
   		echo '<tr><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
   		echo '</tbody></table>';
-  		echo '<script type="text/javascript">
-  			jQuery(function() {
-  			jQuery("#example-1").beautify({
-  			pageSize : 100000,
-  				pagerSize : 7
-  			});
-  			jQuery("#txt_search").keyup(function() {
-  				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-  			});
-  			});
-  	</script>';
+  		//echo '<script type="text/javascript">jQuery(document).ready(function () {jQuery("#userRep").dynatable();});</script>';
   		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
   	}
   	}
@@ -2126,7 +2117,7 @@ function fb_admin_reports() {
   	$orders = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_order`".$where." ORDER BY date DESC");
   	if ($orders) {
   		echo '<div id="example-1" class="beautifulData" style="clear: both;">
-  		<table>
+  		<table id="userRep">
   		<thead>
   		<tr>
   		<th></th>
@@ -2178,17 +2169,7 @@ function fb_admin_reports() {
     		echo '<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">TOTAL</td><td style="vertical-align:middle;font-weight:bold;">'.$sumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$sumtotalttc.' &euro;</td></tr>';
     		echo '<tr><td></td><td></td><td></td><td></td><td></td><td style="text-align:center;height:40px;vertical-align:middle;font-weight:bold;">Medium amount of an order:</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumfrais.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtotalht.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtva.' &euro;</td><td style="vertical-align:middle;font-weight:bold;">'.$mediumtotalttc.' &euro;</td></tr>';
     		echo '</tbody></table>';
-    		echo '<script type="text/javascript">
-    			jQuery(function() {
-    			jQuery("#example-1").beautify({
-    			pageSize : 100000,
-    				pagerSize : 7
-    			});
-    			jQuery("#txt_search").keyup(function() {
-    				jQuery("#example-1").beautify("rebuild", { globalFilter : jQuery("#txt_search").val() });
-    			});
-    			});
-    	</script>';
+    		//echo '<script type="text/javascript">jQuery(document).ready(function () {jQuery("#userRep").dynatable();});</script>';
     		echo "<p>France banderole crée la maquette: <b>".$liczmak."</b><br />j’ai déjà crée la maquette: <b>".$liczbezmak."</b></p>";
     	}
   	}
@@ -2203,8 +2184,10 @@ function fbs_admin_head() {
 	echo '<link rel="stylesheet" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
   echo '<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">';
+  echo '<link href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.dynatable.css" rel="stylesheet">';
   echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.increment.js"></script>';
   echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.table2excel.js"></script>';
+  echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.dynatable.js"></script>';
 	if (isset($_GET['fbdet'])) {
   /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script>*/
 
@@ -2533,8 +2516,13 @@ function fb_admin_sales() {
 			}
 		}
 
-    fb_tel_alert();
+    echo '<div>';
     fb_stock_alert();
+    echo '</div>';
+
+    echo '<div>';
+    fb_tel_alert('0');
+    echo '</div>';
 
 		echo '<table class="widefat widecenter"><tr><th><a href="'.$order_link.'">N° COMMANDE</a></th><th><a href="'.$client_link.'">CLIENT</a></th><th>DESCRIPTION</th><th><a href="'.$prix_link.'">PRIX</a></th><th><a href="'.$date_link.'">DATE</a></th><th><a href="'.$etat_link.'">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th></tr>';
 
@@ -2698,7 +2686,7 @@ function fb_admin_sales() {
 					$status = $status.'<br />'.$pay_name->pay_designation;
 				}
 			}
-			echo '</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td'.$stylstatusu.'><span class="statuscol '.$batcolor.'">'.$status.$statusCheck.'</span><span class="updater">'.$updater->last_action.'</span></td><td>'.$maktype.'</td><td>'.$filepath.'</td>
+			echo '</td><td>'.$o->totalttc.' &euro;</td><td>'.$o->data.'</td><td'.$stylstatusu.'><span class="statuscol '.$batcolor.'">'.$status.$statusCheck.'</span><span class="updater">admin'.$updater->last_action.'</span></td><td>'.$maktype.'</td><td>'.$filepath.'</td>
 			<td>'.$czyjostatniruch.'</td><td>'.$czyjostatnikomentarz.'</td>
 
 			<td><form id="viewdet" name="viewdet" action="" method="get"><input type="hidden" name="page" value="fbsh" /><input type="hidden" name="fbdet" value="'.$o->unique_id.'" /><input class="edit" type="submit" value="DETAILS"></form><br />
@@ -3094,12 +3082,15 @@ function fbadm_print_details($number) {
   $fb_tablename_auto = $prefix."fbs_stock_auto";
   $fb_tablename_save = $prefix."fbs_save";
 
+  echo '<div>';
+  fb_tel_alert($number);
+  echo '</div>';
   //----------------------------------------------------------------------------
 	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 	$ktoryuser = $order->user;
 	$tntuser = $order->user;
   $wpuser = $current_user->display_name;
-  ///////////////////////////////////////////////////////////////////////// coms
+
   //---------------------------------------------------------- ajout commentaire
 	if (isset($_POST['addcomment'])) {
 		$tresc = addslashes($_POST['content']);
@@ -3120,21 +3111,29 @@ function fbadm_print_details($number) {
 		$ident = $_POST['delcomment'];
 		$wpdb->query("DELETE FROM `$fb_tablename_comments` WHERE id='$ident' AND order_id='$number'");
 	}
-  /////////////////////////////////////////////////////////////// zone de gauche
-  //------------------------------------------------------------------------ tnt
+
+
+  //------------------------------- traitement au save shipping company & number
   if (isset($_POST['changingtnt'])) {
     $newtnt = $_POST['tntn'];
     $newcompany = $_POST['shippingcompany'];
 
     $apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET tnt='$newtnt' WHERE unique_id='$number'");
     $sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$number'");
+
+    // passer le colis en retrait atelier quand on insère 'ra' dans le champ number
+    if ($newtnt == 'ra' || $newtnt == 'RA') {
+      //$ra = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='yes' WHERE unique_id='$number' AND type='retrait atelier'");
+      $ra = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '" . $number . "', 'retrait atelier', 'yes')");
+    }
+
     if ($sprawdzshipping) {
-        $apd = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$newcompany' WHERE unique_id='$number' AND type='shipping'");
+      $apd = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$newcompany' WHERE unique_id='$number' AND type='shipping'");
     } else {
-        $dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '" . $number . "', 'shipping', '" . $newcompany . "')");
+      $dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '" . $number . "', 'shipping', '" . $newcompany . "')");
     }
   }
-  //----------------------------------------------------------------- save poids
+  //---------------------------- tratitement au save nb colis poids et assurance
   if (isset($_POST['btnSavePoids'])) {
     $poidsColis = $_POST['poids_commende'];
     $hasPoids = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='poids' AND unique_id = '$number'");
@@ -3185,11 +3184,12 @@ function fbadm_print_details($number) {
 		unlink($_POST['projectfile']);
 	}
 
-  //----------------------------------------------------------------- expédition
+  //----------------------------------------génération des fichiers d'expédition
   if (isset($_POST['gettnt'])) {
     /* Nombre de colis */
     $nbcolis = $_POST['nbcolis'];
     $poidsColis = $_POST['poids_commende'];
+    $assurance = $_POST['assurance'];
     $sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='nbcolis' AND unique_id = '$number'");
     if ($sprawdzshipping) {
       $apd = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$nbcolis' WHERE unique_id='$number' AND type='nbcolis'");
@@ -3279,11 +3279,11 @@ function fbadm_print_details($number) {
         $dodajtva = $wpdb->query("INSERT INTO `$fb_tablename_remises` VALUES (not null, '" . $number . "-tva', '" . $zmianatva . "', 'tva')");
       }
       /// changement TVA
-      reorganize_votre($number);
+      reorganize($number);
     }
   }
 
-  //------------------------------------------------------- changement de groupe
+  //------------------------------------------------ changement de groupe client
   $order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
   $uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
 
@@ -3311,7 +3311,7 @@ function fbadm_print_details($number) {
   echo '<div class="form-wrap"><div id="col-container">';
   echo '<div id="col-right">';
 
-  /////////////////////////////////////////////////////gestion groupes client //
+  //------------------------------------------------------gestion groupes client
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Définir le groupe utilisateur:</span></h3><div class="inside">';
 
   //Traitement des données de groupe
@@ -3347,7 +3347,7 @@ function fbadm_print_details($number) {
   echo '</form>';
   echo '<div style="clear:both"></div></div></div></div>';
 
-  /////////////////////////////////////////////////////////// envoyer un mail //
+  //------------------------------------------------------------ envoyer un mail
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Send mail for user:</span></h3><div class="inside">';
   echo '<form name="sendmail" id="sendmail" action="" method="post"><input type="hidden" name="sendmail" /><input type="hidden" name="hiddentopic" value="" /><select name="selmailtopic" onchange="this.form.selmailcontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" style="float:left;width:100%;"><option value="">choisir...</option>';
   foreach ($mails as $ma) :
@@ -3393,7 +3393,7 @@ function fbadm_print_details($number) {
   </script>
   ';
 
-  //////////////////////////////////////////////////// ajouter un commentaire //
+  //------------------------------------------------------ajouter un commentaire
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new comment:</span></h3><div class="inside">';
 
   echo '<form name="newcomm" id="newcomm" action="" method="post"><input type="hidden" name="addcomment" />';
@@ -3427,7 +3427,7 @@ function fbadm_print_details($number) {
   echo '</form>';
   echo '<div style="clear:both"></div></div></div></div>';
 
-  ///////////////////////////////////////// afficher les commentaires publiés //
+  //------------------------------------------ afficher les commentaires publiés
   $comments = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y %H:%i') AS data FROM `$fb_tablename_comments` WHERE order_id = '$number' ORDER BY date DESC", ARRAY_A);
 
   if ($comments) {
@@ -3476,7 +3476,7 @@ function fbadm_print_details($number) {
 
   //--------------------------------------------- afficher l'adresse facturation
 
-	echo '<div id="col-left"><div class="adresses"><div class="adsFact"><h2>Adresse de facturation:</h2><br />';
+	echo '<div id="col-left"><p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh" class="gobackBtn">Go back</a></p><div class="adresses"><div class="adsFact"><h2>Adresse de facturation:</h2><br />';
   $user_siret = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_siret'");
   $user_epub = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$ktoryuser."' AND att_name = 'client_epub'");
 
@@ -3590,13 +3590,31 @@ function fbadm_print_details($number) {
     $formattedSum = '0';
   }
 
+  //---------------------------------------------------------------- annotations
+  $exmemo = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '$ktoryuser' AND att_name = 'memo'");
+
+  if (!empty($_POST['memotrue']) && $_POST['memotrue'] == 'true'){
+    $memo = $_POST['memo'];
+    if (!$exmemo) {
+      $add = $wpdb->query("INSERT INTO `$fb_tablename_users_cf` VALUES (not null, '$ktoryuser', 'memo', '$memo')");
+    }else{
+      $up = $wpdb->query("UPDATE `$fb_tablename_users_cf` SET att_value='$memo' WHERE  att_name = 'memo' AND uid = ".$ktoryuser."");
+    }
+  }
+
+  //-------------------------------------------------------------------affichage
   echo '<div class="blocLeft">
     <h2>Résumé client:</h2><br />
     <p>Commandes finalisées: <span class="hl">' .count($closedorders). '</span></p>
     <p>Première commande: <span class="hl">' .$firstc. '</span></p>
     <p>Dernière commande: <span class="hl">' .$lastc. '</span></p>
     <p>Total commandes HT: <span class="hl">' .$formattedSum. ' €</span></p>
-    <div class="tableau">Derniers produits commandés <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+
+    <form method="post" action="" name="memoForm" style="clear:both;margin-top:10px">
+      <textarea name="memo" style="width:100%" placeholder="Remarques">'.$exmemo->att_value.'</textarea>
+      <input type="hidden" name="memotrue" value="true" />
+      <input type="submit" class="savebutt3" value="save" style="clear:both" />
+    </form>
   </div>
 
   <div class="blocRight">
@@ -3635,9 +3653,6 @@ function fbadm_print_details($number) {
 
   $user = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
   $passw = sha1(md5('tempPass123'));
-
-
-
 
   $count1 = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_save` WHERE login = '$user->login'");
   if ($count1==1) {
@@ -3709,9 +3724,8 @@ function fbadm_print_details($number) {
   if (($order->status > 2) AND ($order->status < 7)) {
       echo '<b>Date on invoice: </b>' . $order->date_modify . '</p>';
   }
-  //$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number'");
+
   $ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number' AND type='shipping'");
-	//mail("contact@tempopasso.com","Record Shipping Company // ","requete="."SELECT * FROM ".$fb_tablename_cf." WHERE unique_id = ".$number."  ");
 
   if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
 		if (strtolower($ktoryshipping->value) == 'tnt') {
@@ -3722,11 +3736,14 @@ function fbadm_print_details($number) {
       $lien_check_status = 'https://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport=' . $order->tnt . '&radiochoixtypeexpedition=NAT';
       $texte_check_status = "TNT";
     }
-    if (strtolower($ktoryshipping->value) == 'ciblex') {
+    if (strtolower($ktoryshipping->value) == 'dpd') {
       $ship1 = '';
       $ship2 = ' selected="selected" ';
       $ship3 = '';
 			$ship4 = '';
+      $lien_check_status = '';
+      $texte_check_status = "DPD";
+      $lien_check_status = 'http://www.dpd.fr/trace/' .$order->tnt;
     }
     if (strtolower($ktoryshipping->value) == 'fedex') {
       $ship1 = '';
@@ -3734,7 +3751,7 @@ function fbadm_print_details($number) {
       $ship3 = ' selected="selected" ';
 			$ship4 = '';
       //$lien_check_status = 'https://www.fedex.com/apps/fedextrack/?action=track&trackingnumber='.$order->tnt.'&cntry_code=fr';
-      $lien_check_status = 'https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS=' .$number;
+      $lien_check_status = 'https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS=' .$order->tnt;
       $texte_check_status = "FEDEX";
     }
 		if (strtolower($ktoryshipping->value) == 'autre') {
@@ -3784,26 +3801,29 @@ function fbadm_print_details($number) {
 
   ////////////////////////////////////////////////// select options livraison //
 	echo '<div class="statusp4">
-  <form name="numertnt" id="numertnt" action="" method="post"><input type="hidden" name="changingtnt" />
-    <p><label for="shippingcompany"><b>Shipping company: </b></label>
+  <form name="numertnt" id="numertnt" action="" method="post">
+  <input type="hidden" name="changingtnt" />
+    <p><label for="shippingcompany"><b>TRANSPORTEUR: </b></label>
       <select name="shippingcompany" id="shippingcompany">
         <option value="0">select...</option>
         <option value="tnt"' . $ship1 . '>TNT</option>
+        <option value="dpd"' . $ship2 . '>DPD</option>
         <option value="Fedex"' . $ship3 . '>FEDEX</option>
 				<option value="autre"' . $ship4 . '>AUTRE</option>
       </select>
     </p>
     <p>
-      <label for="tntn"><b>Number: </b></label>
+      <label for="tntn"><b>N° COLIS: </b></label>
       <input type="text" name="tntn" id="tntn" value="'.$code_tnt_bon.'" />
-      <input type="submit" value="SAVE" class="savebutt4" />
+      <!--<input type="submit" value="SAVE" class="savebutt4" />-->
     </p>
-  </form>
-  <form name="gettntform" id="gettntform" action="" method="post"><input type="hidden" name="gettnt" value="'.$order->unique_id.'" /><input type="hidden" name="tntuser" value="'.$tntuser.'" />
+  <!--</form>
+  <form name="gettntform" id="gettntform" action="" method="post">-->
+    <input type="hidden" name="gettnt" value="'.$order->unique_id.'" /><input type="hidden" name="tntuser" value="'.$tntuser.'" />
     <p>
       <label for="nbcolis">
-        <b>NB COLIS: </b>
-        <input type="text" name="nbcolis" id="nbcolis" value="'.$nbcolis.'" maxlength="6" size="6" />
+        <b>NB COLIS: </b> <input type="text" name="nbcolis" id="nbcolis" value="'.$nbcolis.'" maxlength="6" size="6" />
+        <b class="assu">ASSURANCE:</b> <input type="text" name="assurance" id="assurance" value="'.str_replace(',', '', $order->totalttc).'" maxlength="6" size="6" />
       </label>
     </p>
 
@@ -3955,7 +3975,7 @@ function fbadm_print_details($number) {
     		}
 	    	closedir($dir);
   		}
-		$frais = str_replace('.', ',', $p[frais]);
+		$frais = str_replace(',', '', $p[frais]);
 		if ($p[status] == 0) {
 			$p[name] = '<s style="color:red;">'.$p[name].'</s><br /><small><b>deleted by user!</b></small>';
 			$isdeleted = ' style="background:#ccc;"';
@@ -3970,6 +3990,35 @@ function fbadm_print_details($number) {
     <td><input type="text" name="e_frais'.$p[id].'" value="'.$frais.'" /></td><td>'.$filepath.'</td></tr>';
 
 	endforeach;
+
+  /////////////////////////////////////////////////////////////// générer csv //
+
+  $chemin = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/'.$number.'.csv';
+  $delimiteur = ',';
+
+  // Création du fichier csv produits (le fichier est vide pour le moment)
+  // w+ : consulter http://php.net/manual/fr/function.fopen.php
+
+  if(!file_exists($chemin)) {
+    $destination = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
+
+    if (!is_dir($destination)) {
+      mkdir($destination, 0777, true);
+    }
+
+    $fichier_csv = fopen($chemin, 'w+');
+
+    // Si votre fichier a vocation a être importé dans Excel, pb accents
+    fprintf($fichier_csv, chr(0xEF).chr(0xBB).chr(0xBF));
+    // Boucle foreach sur chaque ligne du tableau
+    foreach($prod as $p){
+      // chaque ligne en cours de lecture est insérée dans le fichier
+      fputcsv($fichier_csv, $p, $delimiteur);
+    }
+
+    // fermeture du fichier csv
+    fclose($fichier_csv);
+  }
 
   ///////////////////////////////////////////// zip des fichiers utilisateurs //
 
@@ -4037,18 +4086,18 @@ function fbadm_print_details($number) {
   //-----------------------------vérifier s'il y a une remise pour l'utilisateur
 	$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$number'");
 	if ($exist_remise) {
-  	$calculRemise = str_replace('.', ',', number_format($exist_remise->remisenew, 2));
-		echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">REMISE ('.$exist_remise->percent.'%):</td><td>-'.str_replace('.', ',', $calculRemise).' &euro;</td></tr>';
+  	$calculRemise = str_replace(',', '', number_format($exist_remise->remisenew, 2));
+		echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">REMISE ('.$exist_remise->percent.'%):</td><td>-'.str_replace(',', '', $calculRemise).' &euro;</td></tr>';
 	}
   //---------------------------------------------vérifier s'il y a un code promo
   $exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$number'");
   if ($exist_code->promo > 1) {
     $calculCode = $exist_code->promo;
-    $calculCode = str_replace('.', ',', number_format($calculCode, 2));
-    echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">CODE PROMO</td><td>-'.$calculCode.' &euro;</td></tr>';
+    $calculCode = str_replace(',', '', number_format($calculCode, 2));
+    echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">PROMO </td><td>-'.$calculCode.' &euro;</td></tr>';
   }
   //----------------------------------------------------------------------------
-	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">FRAIS DE PORT:</td><td colspan="1">'.str_replace('.', ',', $order->frais).' &euro;</td></tr>';
+	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">FRAIS DE PORT:</td><td colspan="1">'.str_replace(',', '', $order->frais).' &euro;</td></tr>';
 	$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$number'");
 	$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$number."-tva'");
 	if ($czyjesttva) {
@@ -4056,16 +4105,20 @@ function fbadm_print_details($number) {
 	} else {
 		$procpod = '20.00';
 	}
+  //----------------------------------------------------------------------------
+  $totalht = str_replace(',', '', $order->totalht);
+  $totalht = $totalht-$calculRemise-$calculCode;
+  //----------------------------------------------------------------------------
 	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">DELAI RUSH OR DISCOUNT (INSERT POSITIVE OR NEGATIVE VALUE):</td><td colspan="1"><input name="totalht2after" type="text" value="'.$czyjestrabat->remis.'" width="5" /> &euro;</td></tr>';
 	echo '<tr><td colspan="6"></td><td colspan="1" style="text-align:right">THE REASON OF ADDING DELAI RUSH OR DISCOUNT:</td><td colspan="2"><input name="totalht2afterreason" type="text" value="'.$czyjestrabat->reason.'" style="width:200px;" /></td></tr>';
 	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TVA %:</td><td colspan="1"><input name="tvaafterreason" type="text" value="'.$procpod.'" width="5" /> %</td></tr>';
-	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL HT:</td><td colspan="1">'.str_replace('.', ',', $order->totalht).' &euro;</td></tr>';
-	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">MONTANT TVA ('.$procpod.'%):</td><td>'.str_replace('.', ',', $order->tva).' &euro;</td></tr>';
-	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL TTC:</td><td colspan="1">'.str_replace('.', ',', $order->totalttc).' &euro;</td></tr>';
+	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL HT:</td><td colspan="1">'.str_replace(',', '', number_format($totalht, 2)).' &euro;</td></tr>';
+	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">MONTANT TVA ('.$procpod.'%):</td><td>'.str_replace(',', '', $order->tva).' &euro;</td></tr>';
+	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL TTC:</td><td colspan="1">'.str_replace(',', '', $order->totalttc).' &euro;</td></tr>';
 	echo '</table>';
 	echo '<input type="submit" value="SAVE" class="savebutt" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form>';
 	echo '</div>';
-	echo '</div><p><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh" class="gobackBtn">Go back</a></p>';
+	echo '</div>';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -4253,10 +4306,10 @@ function fb_admin_plv() {
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	foreach ($promotions as $p) :
-		$n_price = str_replace('.', ',', $p[price]).' &euro;';
-		$n_frais = str_replace('.', ',', $p[frais]).' &euro;';
+		$n_price = str_replace(',', '', $p[price]).' &euro;';
+		$n_frais = str_replace(',', '', $p[frais]).' &euro;';
 		if ($p[ceddre]) {
-			$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
+			$n_ceddre = str_replace(',', '', $p[ceddre]).' &euro;';
 		} else {
 			$n_ceddre = '-';
 		}
@@ -4457,10 +4510,10 @@ function fb_admin_plv_int() {
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	foreach ($promotions as $p) :
-		$n_price = str_replace('.', ',', $p[price]).' &euro;';
-		$n_frais = str_replace('.', ',', $p[frais]).' &euro;';
+		$n_price = str_replace(',', '', $p[price]).' &euro;';
+		$n_frais = str_replace(',', '', $p[frais]).' &euro;';
 		if ($p[ceddre]) {
-			$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
+			$n_ceddre = str_replace(',', '', $p[ceddre]).' &euro;';
 		} else {
 			$n_ceddre = '-';
 		}
@@ -4661,10 +4714,10 @@ function fb_admin_promo() {
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	foreach ($promotions as $p) :
-		$n_price = str_replace('.', ',', $p[price]).' &euro;';
-		$n_frais = str_replace('.', ',', $p[frais]).' &euro;';
+		$n_price = str_replace(',', '', $p[price]).' &euro;';
+		$n_frais = str_replace(',', '', $p[frais]).' &euro;';
 		if ($p[ceddre]) {
-			$n_ceddre = str_replace('.', ',', $p[ceddre]).' &euro;';
+			$n_ceddre = str_replace(',', '', $p[ceddre]).' &euro;';
 		} else {
 			$n_ceddre = '-';
 		}
@@ -4820,8 +4873,12 @@ function fb_admin_acc() {
       <option value="PLVint">PLV-int</option>
       <option value="PLVext">PLV-ext</option>
       <option value="Affiche">Affiche</option>
-      <option value="Papier">Papier</option>
+      <option value="Depliant">Depliant</option>
+      <option value="Flyer">Flyer</option>
+      <option value="Cartes">Cartes</option>
       <option value="Nappe">Nappe</option>
+      <option value="Cadre">Cadre Tissu</option>
+      <option value="Enseigne">Enseigne Suspendue</option>
     </select></p>';
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
@@ -4852,8 +4909,12 @@ function fb_admin_acc() {
       <option value="PLVint">PLV-int</option>
       <option value="PLVext">PLV-ext</option>
       <option value="Affiche">Affiche</option>
-      <option value="Papier">Papier</option>
+      <option value="Depliant">Depliant</option>
+      <option value="Flyer">Flyer</option>
+      <option value="Cartes">Cartes</option>
       <option value="Nappe">Nappe</option>
+      <option value="Cadre">Cadre Tissu</option>
+      <option value="Enseigne">Enseigne Suspendue</option>
     </select></p>';
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
@@ -4869,8 +4930,8 @@ function fb_admin_acc() {
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>Catégorie</th><th>Order</th><th>Action</th></tr></thead>';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_acc` ORDER BY `order` ASC", ARRAY_A);
 	foreach ($promotions as $p) :
-		$n_price = str_replace('.', ',', $p[price]).' &euro;';
-		$n_frais = str_replace('.', ',', $p[frais]).' &euro;';
+		$n_price = str_replace(',', '', $p[price]).' &euro;';
+		$n_frais = str_replace(',', '', $p[frais]).' &euro;';
 
 		$viewmini ='';
 		if ($p[photo]) {
@@ -5649,38 +5710,38 @@ function getFedex($id, $user) {
 	$query_poids = "SELECT value FROM `$fb_tablename_cf` WHERE type='poids' AND unique_id = '$id'";
 	$poids = $wpdb->get_var($query_poids);
 
-    $relais_colis = false;
-    $relais_number = "";
-    $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
-    foreach ($commande_relais as $UN_commande_relais) :
-        $relais = $UN_commande_relais->type;
-        if ($relais == "relais") {
-            $relais_colis = true;
-            $relais_number = $UN_commande_relais->value;
-            break;
-        }
-    endforeach;
+  $relais_colis = false;
+  $relais_number = "";
+  $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
+  foreach ($commande_relais as $UN_commande_relais) :
+      $relais = $UN_commande_relais->type;
+      if ($relais == "relais") {
+          $relais_colis = true;
+          $relais_number = $UN_commande_relais->value;
+          break;
+      }
+  endforeach;
 
-    $colis_revendeur = false;
-    $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
-    foreach ($commande_relais as $UN_commande_relais) :
-        $relais = $UN_commande_relais->type;
-        if ($relais == "revendeur" && $UN_commande_relais->value == "yes") {
-            $colis_revendeur = true;
-            break;
-        }
-    endforeach;
+  $colis_revendeur = false;
+  $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
+  foreach ($commande_relais as $UN_commande_relais) :
+      $relais = $UN_commande_relais->type;
+      if ($relais == "revendeur" && $UN_commande_relais->value == "yes") {
+          $colis_revendeur = true;
+          break;
+      }
+  endforeach;
 
-    /* Nombre de colis */
-    $sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='nbcolis' AND unique_id = '$id'");
-    if ($sprawdzshipping) {
-        $nbcolis = round($sprawdzshipping->value);
-		/* On appelle récursivement cette fonction pour imprimer le nombre d'étiquettes nécessaires au nombre de colis */
-		/* FIn appel récursif A FAIRE */
+  /* Nombre de colis */
+  $sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='nbcolis' AND unique_id = '$id'");
+  if ($sprawdzshipping) {
+      $nbcolis = round($sprawdzshipping->value);
+	/* On appelle récursivement cette fonction pour imprimer le nombre d'étiquettes nécessaires au nombre de colis */
+	/* FIn appel récursif A FAIRE */
 
-    } else {
-        $nbcolis = "1";
-    }
+  } else {
+      $nbcolis = "1";
+  }
 
 
 	/* Construction Fichier plat */
@@ -5858,22 +5919,22 @@ function getFedex($id, $user) {
 
 	/* FIN Construction fichier plat */
 
-    $sum = str_ireplace('cedex', '     ', $sum);
-    //	echo $sum;
+  $sum = str_ireplace('cedex', '     ', $sum);
+  //	echo $sum;
 
-    $myFile = 'tnt/tedip_' . $id . ".csv";
-    //echo 'myFile='.$myFile;
-    $fh = fopen($myFile, 'w') or die("1can't open file");
-    fwrite($fh, $sum);
-    fclose($fh);
-    //$myFile2 = 'tnt/' . $id . ".tem";
-    //$fh2 = fopen($myFile2, 'w') or die("2can't open file");
-    //fwrite($fh2, $sum);
-    //fclose($fh2);
-    //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-    //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
-    echo '<div id="downFiles">
-<a href="download.php?filename=tedip_' . $id . '.csv" id="downTXT">Download txt</a><br />';
+  $myFile = 'tnt/tedip_' . $id . ".csv";
+  //echo 'myFile='.$myFile;
+  $fh = fopen($myFile, 'w') or die("1can't open file");
+  fwrite($fh, $sum);
+  fclose($fh);
+  //$myFile2 = 'tnt/' . $id . ".tem";
+  //$fh2 = fopen($myFile2, 'w') or die("2can't open file");
+  //fwrite($fh2, $sum);
+  //fclose($fh2);
+  //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
+  //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+  echo '<div id="downFiles">
+ <a href="download.php?filename=tedip_' . $id . '.csv" id="downTXT">Download txt</a><br />';
 
 
 //echo '<a href="download.php?filename='.$id.'">Download</a>';
@@ -6493,8 +6554,8 @@ function fb_admin_stock() {
   </tr></thead>';
 
 	foreach ($stock as $s) :
-		//$n_price = str_replace('.', ',', $s[price]).' &euro;';
-		//$n_frais = str_replace('.', ',', $s[frais]).' &euro;';
+		//$n_price = str_replace(',', '', $s[price]).' &euro;';
+		//$n_frais = str_replace(',', '', $s[frais]).' &euro;';
     $auto = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_auto` WHERE code='$s[code]'");
     $fr = $wpdb->get_row("SELECT * FROM `$fb_tablename_fournisseurs` WHERE nom='$s[fournisseur]'");
     $arr = explode('x', $s[volume]);
@@ -6989,7 +7050,7 @@ function fb_stock_traitement($number) {
     $arr = explode("<br />", $text);
     //print_r($arr);
     $desc = $arr[0];
-    echo $desc.'<br />';
+    //echo $desc.'<br />'; //test affichage description produit
 
     // pour chaque description qui matche avec la base stock_auto, on récupère le code barre et on enlève la qté correspondante au stock
     $ga = $wpdb->get_results("SELECT * FROM `$fb_tablename_auto` WHERE designation='$desc'");
@@ -7062,7 +7123,7 @@ function fb_stock_alert() {
 // fin gestion stock ///////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////// fonction alertes rappel
-function fb_tel_alert() {
+function fb_tel_alert($oid) {
   global $wpdb;
   global $current_user;
   $wpuser = $current_user->display_name;
@@ -7070,7 +7131,15 @@ function fb_tel_alert() {
 	$fb_tablename_tel = $prefix."fbs_tel";
   $now = date('d-m-Y');
   $tel = $wpdb->get_results("SELECT * FROM  `$fb_tablename_tel` ORDER BY id desc", ARRAY_A);
-  $location = '/wp-admin/admin.php?page=fbsh';
+
+  if ($oid == 0) { // si l'appel à la fonction vient de la page sales, on redirige sur la page sales après avoir pris l'appel
+    $location = '/wp-admin/admin.php?page=fbsh';
+    $url = get_bloginfo('url').'/wp-admin/admin.php?page=fbsh';
+  }else{ // si l'appel à la fonction vient d'une page détail commande, on redirige sur la page de la commande
+    $location = '/wp-admin/admin.php?page=fbsh&fbdet='.$oid;
+    $url = get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbdet='.$oid;
+  }
+
   if(isset($_POST['subcall'])){
     $telid = $_POST[telid];
     $wpuser = $_POST[wpuser];
@@ -7082,7 +7151,7 @@ function fb_tel_alert() {
     }else{
       ?>
       <script type="text/javascript">
-      document.location.href="<?php bloginfo('url'); ?>/wp-admin/admin.php?page=fbsh";
+      document.location.href="<?php echo $url; ?>";
       </script>
       <?php
     }
@@ -7096,7 +7165,7 @@ function fb_tel_alert() {
     }else{
       ?>
       <script type="text/javascript">
-      document.location.href="<?php bloginfo('url'); ?>/wp-admin/admin.php?page=fbsh";
+      document.location.href="<?php echo $url; ?>";
       </script>
       <?php
     }
@@ -7110,7 +7179,8 @@ function fb_tel_alert() {
     $find = preg_match_all('/admin/', $t[com], $result);
     $find = count($result[0]);
     echo '<div class="stockAlert phoneAlert">
-      <h2><i class="fas fa-phone"></i> Appel<br /><span class="code">'.$heure.'</span></h2>
+      <h2><i class="fas fa-phone-volume"></i> Appel<br /><span class="code">'.$heure.'</span></h2>
+      <audio src="'.get_bloginfo('url').'/wp-content/themes/fb/sms.mp3" autoplay="autoplay"></audio>
       <li>
         <span>Un utilisateur souhaite être rappelé au</span>
         <span class="comm">'.$t[tel].'</span><br />
@@ -7166,15 +7236,17 @@ function fb_admin_promocode() {
   if (isset($_POST['addfr'])) {
     $prcode = $_POST['prcode'];
     $pramount = $_POST['pramount'];
+    $prprice = $_POST['prprice'];
     $prcat = $_POST['prcat'];
     $prmini = $_POST['prmini'];
     $prdate = $_POST['prdate'];
-    $addtodb = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES ('$prcode', '$pramount', '$prcat', '$prmini','$prdate') ");
+    $addtodb = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES ('$prcode', '$pramount', '$prprice', '$prcat', '$prmini','$prdate') ");
   }
   echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Ajouter code promo</span></h3><div class="inside">';
   echo '<form name="newfr" id="newfr" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addfr" value="" />';
   echo '<p>Code: <input class="alignR" type="text" name="prcode" placeholder="code promo" /></p>';
-  echo '<p>Réduction (%): <input class="alignR" type="text" name="pramount" placeholder="réduction" /></p>';
+  echo '<p>Réduction (%): <input class="alignR" type="text" name="pramount" placeholder="réduction en pourcentage" /></p>';
+  echo '<p>Réduction (€): <input class="alignR" type="text" name="prprice" placeholder="ou réduction eu euros" /></p>';
   echo '<p>Catégorie: <select class="alignR" name="prcat">
     <option value="Tous">Tous les produits</option>
     <option value="Banderole">Banderole</option>
@@ -7190,8 +7262,12 @@ function fb_admin_promocode() {
     <option value="PLVint">PLV-int</option>
     <option value="PLVext">PLV-ext</option>
     <option value="Affiche">Affiche</option>
-    <option value="Papier">Papier</option>
+    <option value="Depliant">Depliant</option>
+    <option value="Flyer">Flyer</option>
+    <option value="Cartes">Cartes</option>
     <option value="Nappe">Nappe</option>
+    <option value="Cadre">Cadre Tissu</option>
+    <option value="Enseigne">Enseigne Suspendue</option>
   </select></p>';
   echo '<p>Minimum d\'achat: <input class="alignR" type="text" name="prmini" placeholder="minimum d\'achat HT" /></p>';
   echo '<p>Date d\'expiration: <input class="alignR" type="text" name="prdate" placeholder="AAAA-MM-JJ" /></p>';
@@ -7211,6 +7287,7 @@ function fb_admin_promocode() {
 	echo '<table class="widefat widecenter fixed nopad" id="mywidefat" cellspacing="0"><thead><tr>
     <th>Code</th>
     <th>Réduction (%)</th>
+    <th>Réduction (€)</th>
     <th>Catégorie</th>
     <th>Minimum d\'achat (€)</th>
     <th>Date d\'expiration</th>
@@ -7227,6 +7304,7 @@ function fb_admin_promocode() {
     echo '
         <td>'.$p[code].'</td>
         <td>'.$p[remise].'</td>
+        <td>'.$p[reduction].'</td>
         <td>'.$p[categorie].'</td>
         <td>'.$p[mini].'</td>
         <td>'.$p[date].'</td>

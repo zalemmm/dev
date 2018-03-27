@@ -55,13 +55,17 @@ function get_fb_comments() {
 	$comments = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_comments` WHERE order_id = '$idzamowienia' ORDER BY date DESC", ARRAY_A);
 	if ($comments) {
 	$view .= '<div class="com_list">';
+
 	foreach ($comments as $c) :
 		$c[content] = stripslashes($c[content]);
 		//$c[content]= htmlspecialchars($c[content]);
 		$c[topic] = stripslashes($c[topic]);
 		$c[topic] = htmlspecialchars($c[topic]);
 
-		if ($c[author] == 'France Banderole') {
+		$fb = preg_match_all('/France Banderole/', $c[author], $result);
+		$fb = count($result[0]);
+
+		if ($fb >= 1) {
 			$klasa = ' class="comment_right2"';
 			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c[data].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c[author].'<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;'.$c[topic].'</p>'.nl2br($c[content]).'</div>';
 		} else {
@@ -70,6 +74,7 @@ function get_fb_comments() {
 			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c[data].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c[author].'<p></p>'.nl2br($c[content]).'</div>';
 		}
 	endforeach;
+
 	$view .= '</div>';
 	}
 	$view .= '</div>';

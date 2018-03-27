@@ -416,4 +416,84 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 
 }
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////// nouveaux calculs après modif commande  //
+
+function reorganize($idzamowienia) {
+	global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_order = $prefix."fbs_order";
+	$fb_tablename_prods = $prefix."fbs_prods";
+	$fb_tablename_remises = $prefix."fbs_remises";
+	$fb_tablename_remisnew = $prefix."fbs_remisenew";
+	$totalHT=0;
+
+	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1'", ARRAY_A);
+	if ($products) {
+		foreach ( $products as $products => $item ) {
+			$totalItems = str_replace(',', '.', $item[total]);
+			$totalHT = $totalHT + $totalItems;
+			$fraisPort = $fraisPort + $item[frais];
+		}
+
+		//----------------------------------------------------------vérifier remises
+		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
+		if ($czyjestwtabeli) {
+			if ( ($czyjestwtabeli->remis != '') && ($czyjestwtabeli->remis != '0') ) {
+				$dodatkowyrabat = $czyjestwtabeli->remis;
+				$dodatkowyrabat = str_replace(',', '.', $dodatkowyrabat);
+				$totalHT = $totalHT + $dodatkowyrabat;
+			}
+		}
+
+		//---------------------------------------vérifier s'il y a une remise client
+		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
+		if ($exist_remise) {
+			$newrabat = $exist_remise->percent / 100;
+			$calculRemise = $totalHT * $newrabat;
+			$totalHT = $totalHT - $calculRemise;
+			$zmiana = $wpdb->update($fb_tablename_remisnew, array ( 'remisenew' => $calculRemise), array ( 'sku' => $idzamowienia ) );
+		}
+
+		//-------------------------------------------vérifier s'il y a un code promo
+		$exist_code = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+		if ($exist_code->promo > 1) {
+			$calculCode = $exist_code->promo;
+			echo $calculCode;
+			$totalHT = $totalHT - $calculCode;
+		}
+
+	  //--------------------------------------------------------------------------
+		$totalHT = $totalHT + $fraisPort;
+		//------------------------------------------------------------changement TVA
+		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
+		if ($czyjesttva) {
+			if ($czyjesttva->remis == 0) {
+				$calculTVA = 0;
+			} elseif ($czyjesttva->remis == '') {
+			  $calculTVA = $totalHT*0.200;
+			} else {
+				$tvapod = $czyjesttva->remis/100;
+				$calculTVA = $totalHT*$tvapod;
+			}
+		} else {
+		  	$calculTVA = $totalHT*0.200;
+		}
+
+		//--------------------------------------------------------------------------
+	  $totalTTC = $totalHT+$calculTVA;
+		$totalHT = $totalHT+$calculRemise+$calculCode; // on rétablit le total ht sans remises dans la bdd
+	  $totalHT = number_format($totalHT, 2);
+		$fraisPort = number_format($fraisPort, 2);
+		$calculTVA = number_format($calculTVA, 2);
+	  $totalTTC = number_format($totalTTC, 2);
+		//$nowadata = date('Y-m-d H:i:s');
+		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $fraisPort, 'totalht' => $totalHT, 'tva' => $calculTVA, 'totalttc' => $totalTTC), array ( 'unique_id' => $idzamowienia ) );
+
+	} else {
+		$nowadata = date('Y-m-d H:i:s');
+		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
+	}
+}
+
 ?>

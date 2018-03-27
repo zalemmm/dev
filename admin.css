@@ -8,6 +8,7 @@
 }
 
 #col-left {
+  position: relative;
   width: 72%;
 }
 
@@ -52,9 +53,7 @@ input[type="submit"]:hover,
   margin: 15px 0 0 40px;
 }
 
-.btnSavePoids {
-  float: right;
-}
+
 
 input.edit {
   padding: 0 5px;
@@ -219,7 +218,7 @@ h1 {
   background: #fff;
   display: inline;
   padding: 1rem;
-  height: 250px;
+  height: 300px;
   border: 1px solid #E5E5E5;
   margin: 10px 1% 20px 0;
   font-size: 11px;
@@ -317,6 +316,8 @@ select.urs {
   font-size: 12px;
   line-height: 14px;
   color: black;
+  margin: 0;
+  padding: 0;
 }
 
 .infosClient .widecenter {
@@ -407,10 +408,7 @@ select.urs {
 
 .tableau {
   background: #f6f6f6;
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  padding: .5rem;
 }
 
 .blocRight {
@@ -431,9 +429,7 @@ select.urs {
   font-size: 9px;
 }
 
-input#poids_commende {
-  margin-left: 16px;
-}
+
 
 .widecenter {
   margin-top: 10px;
@@ -492,9 +488,6 @@ input#poids_commende {
   padding: 0 10px 1px;
 }
 
-#nbcolis {
-  margin-top: 4px;
-}
 
 .singlefile {
   font-size: 10px;
@@ -683,18 +676,40 @@ input.radioBtn[type=radio]:checked:before {
 #shippingcompany {
   position: absolute;
   top: 0px;
-  left: 138px;
-  width: 80px;
+  right: 0;
+  width: 155px;
   font-size: 9px;
 }
 
 #tntn {
   position: absolute;
   top: 5px;
-  left: 63px;
+  right: 0;
   width: 155px;
   font-size: 14px;
 }
+
+#nbcolis {
+  margin-top: 4px;
+}
+
+#poids_commende {
+  margin-left: 16px;
+}
+
+.assu{
+  display: inline-block;
+  margin-left: 5px;
+}
+#assurance {
+  margin-top: 4px;
+  float: right;
+}
+
+.btnSavePoids {
+  float: right;
+}
+
 
 #exan {
   position: absolute;
@@ -1181,7 +1196,8 @@ input.phoneBtn {
 .stockAlert h2 {
   display: inline-block;
   width: 80px;
-  vertical-align: middle;
+  vertical-align: top;
+  margin-top: 5px;
   color: #4f2323;
   line-height: 15px;
 }
@@ -1196,7 +1212,7 @@ input.phoneBtn {
   width: 170px;
   max-height: 60px;
   overflow: hidden;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .stockAlert .qte {
@@ -1205,7 +1221,7 @@ input.phoneBtn {
   color: #444;
   display: inline-block;
   width: 80px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .closeButton {
@@ -1337,4 +1353,9 @@ tr.grized td {
 #exportStock:hover, #exportJournal:hover{
   background: #ea2a6a;
   color: #fff;
+}
+
+audio {
+  width: 1px;
+  height: 1px;
 }

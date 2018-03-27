@@ -40,17 +40,29 @@ JotForm = {
         }
     },
 
-    /*--------------------------------------------------------------------------
+
+    /**
      * Initiates the form and all actions
      */
     init: function(callback){
         var ready = function(){
             try {
-                this.getServerURL();
-                callback && callback();
 
+                this.getServerURL();
+
+                callback && callback();
+                if (document.get.mode == "edit" && document.get.sid) {
+                    this.editMode();
+                }
+
+                this.handleFormCollapse();
+                this.handlePages();
+                this.highLightLines();
+                this.setButtonActions();
+                this.initGradingInputs();
                 this.setConditionEvents();
                 this.prePopulations();
+                this.handleRadioButtons();
 
                 $A(document.forms).each(function(form){
                     if (form.name == "form_" + form.id || form.name == "q_form_" + form.id) {
@@ -70,8 +82,49 @@ JotForm = {
         }
     },
 
+    handleRadioButtons: function(){
 
-    /*--------------------------------------------------------------------------
+        $$('.form-radio-other-input').each(function(inp){
+            inp.disable().hint('Other');
+        });
+
+        $$('.form-radio').each(function(radio){
+
+            var id = radio.id.replace(/input_(\d+)_\d+/gim, '$1');
+
+            if(id.match('other_')){
+                id = radio.id.replace(/other_(\d+)/, '$1');
+            }
+
+            if($('other_'+id)){
+                var other = $('other_'+id);
+                var other_input = $('input_'+id);
+
+                radio.observe('click', function(){
+                    if(other.checked){
+                        other_input.enable();
+                        other_input.select();
+                    }else{
+                        other_input.hintClear();
+                        other_input.disable();
+                    }
+                });
+            }
+        });
+    },
+
+
+
+    /**
+     * Returns the extension of a file
+     * @param {Object} filename
+     */
+    getFileExtension: function(filename){
+        return (/[.]/.exec(filename)) ? (/[^.]+$/.exec(filename))[0] : undefined;
+    },
+
+
+    /**
      * Fill fields from the get values
      */
     prePopulations: function(){
@@ -88,8 +141,146 @@ JotForm = {
         });
     },
 
+    /**
+     * Bring the form data for edit mode
+     */
+    editMode: function(){
 
-    /*--------------------------------------------------------------------------
+        new Ajax.Request('server.php', {
+            parameters: {
+                action: 'getSubmissionResults',
+                formID: document.get.sid
+            },
+            evalJSON: 'force',
+            onComplete: function(t){
+                var res = t.responseJSON;
+                if (res.success) {
+                    $H(res.result).each(function(pair){
+                        var qid = pair.key, question = pair.value;
+                        switch (question.type) {
+                            case "control_fileupload":
+                                var file = question.value.split("/");
+                                var filename = file[file.length - 1];
+                                var ext = this.getFileExtension(filename);
+                                if (this.imageFiles.include(ext.toLowerCase())) {
+                                    var clipDiv = new Element('div').setStyle({
+                                        height: '50px',
+                                        width: '50px',
+                                        overflow: 'hidden',
+                                        marginRight: '5px',
+                                        border: '1px solid #ccc',
+                                        background: '#fff',
+                                        cssFloat: 'left'
+                                    });
+                                    var img = new Element("img", {
+                                        src: question.value,
+                                        width: 50
+                                    });
+                                    clipDiv.insert(img);
+                                    $('input_' + qid).insert({
+                                        before: clipDiv
+                                    });
+                                }
+                                var linkContainer = new Element('div');
+                                $('input_' + qid).insert({
+                                    after: linkContainer.insert(new Element('a', {
+                                        href: question.value,
+                                        target: '_blank'
+                                    }).insert(filename.shorten(40)))
+                                });
+                                break;
+                            case "control_scale":
+                            case "control_radio":
+                                var radios = document.getElementsByName("q" + qid + "_" + ((question.type == "control_radio") ? question.name : qid));
+                                $A(radios).each(function(rad){
+                                    if (rad.value == question.value) {
+                                        rad.checked = true;
+                                    }
+                                });
+                                break;
+                            case "control_checkbox":
+                                var checks = $$("#id_" + qid + ' input[type="checkbox"]');
+
+                                $A(checks).each(function(chk){
+                                    if (question.items.include(chk.value)) {
+                                        chk.checked = true;
+                                    }
+                                });
+                                break;
+                            case "control_rating":
+                                $('input_' + qid) && ($('input_' + qid).setRating(question.value));
+                                break;
+                            case "control_grading":
+                                var boxes = document.getElementsByName("q" + qid + "_" + qid + "[]");
+                                $A(boxes).each(function(box, i){
+                                    box.putValue(question.items[i]);
+                                });
+                                break;
+                            case "control_slider":
+                                $('input_' + qid).setSliderValue(question.value);
+                                break;
+                            case "control_range":
+                                $('input_' + qid + "_from").putValue(question.items.from);
+                                $('input_' + qid + "_to").putValue(question.items.to);
+                                break;
+
+                            case "control_matrix":
+
+                                $A(question.items).each(function(item, i){
+                                    if (Object.isString(item)) {
+                                        var els = document.getElementsByName("q" + qid + "_" + question.name + "[" + i + "]");
+                                        $A(els).each(function(el){
+                                            if (el.value == item) {
+                                                el.checked = true;
+                                            }
+                                        });
+                                    } else {
+                                        $A(item).each(function(it, j){
+                                            var els = document.getElementsByName("q" + qid + "_" + question.name + "[" + i + "][]");
+                                            if (els[j].className == "form-checkbox") {
+                                                $A(els).each(function(el){
+                                                    if (el.value == it) {
+                                                        el.checked = true;
+                                                    }
+                                                });
+                                            } else {
+                                                els[j].value = it;
+                                            }
+                                        });
+                                    }
+                                });
+                                break;
+                            case "control_datetime":
+                            case "control_fullname":
+                                $H(question.items).each(function(item){
+                                    $(item.key + "_" + qid) && ($(item.key + "_" + qid).value = item.value);
+                                });
+                                break;
+                            case "control_phone":
+                            case "control_birthdate":
+                            case "control_address":
+                                $H(question.items).each(function(item){
+                                    $('input_' + qid + "_" + item.key) && ($('input_' + qid + "_" + item.key).putValue(item.value));
+                                });
+                                break;
+                            default:
+                                $('input_' + qid) && ($('input_' + qid).putValue(question.value));
+                                break;
+                        }
+                    }.bind(this));
+
+                    $$('input[name="formID"]')[0].insert({
+                        after: new Element('input', {
+                            type: 'hidden',
+                            name: 'editSubmission'
+                        }).putValue(document.get.sid)
+                    });
+
+                }
+            }.bind(this)
+        });
+    },
+    /**
      * add the given condition to conditions array to be used in the form
      * @param {Object} qid id of the field
      * @param {Object} condition condition array
@@ -97,19 +288,34 @@ JotForm = {
     setConditions: function(conditions){
         JotForm.conditions = conditions;
     },
-
-    /*--------------------------------------------------------------------------
+    /**
      * Shows a field
      * @param {Object} field
      */
     showField: function(field){
         if($('id_'+field).visible()){
-          return $('id_'+field);
+            return $('id_'+field);
         }
+        /*
+        $('id_'+field).setStyle({
+            backgroundColor: '#fff'
+        }).show();
+        $('id_'+field).shift({
+            backgroundColor: '#EEEEE0',
+            duration: 2,
+            easing: 'pulse',
+            easingCustom: '2',
+            onEnd: function(e){
+                e.setStyle({
+                    backgroundColor: ''
+                });
+            }
+        });
+        */
         return $('id_'+field).show();
     },
 
-    /*--------------------------------------------------------------------------
+    /**
      * Hides a field
      * @param {Object} field
      */
@@ -129,7 +335,7 @@ JotForm = {
         return $('id_'+field).hide();
     },
 
-    /*--------------------------------------------------------------------------
+    /**
      * Checks the fieldValue by given operator string
      * @param {Object} operator
      * @param {Object} condValue
@@ -165,8 +371,8 @@ JotForm = {
     },
 
     typeCache: {},   // Cahcke the check type results for performance
-
-    /*--------------------------------------------------------------------------
+    /**
+     *
      * @param {Object} id
      */
     getInputType: function(id){
@@ -182,8 +388,8 @@ JotForm = {
         JotForm.typeCache[id] = type;
         return type;
     },
-
-    /*--------------------------------------------------------------------------
+    /**
+     *
      * @param {Object} condition
      */
     checkCondition: function(condition){
@@ -194,6 +400,7 @@ JotForm = {
                 switch(JotForm.getInputType(term.field)){
                     case "checkbox":
                     case "radio":
+
                         if (['isEmpty', 'isFilled'].include(term.operator)) {
                             var filled = $$('#id_'+term.field+' input').collect(function(e){ return e.checked; }).any();
 
@@ -226,45 +433,44 @@ JotForm = {
                         }else{
                             all = false;
                         }
+//denisedesign
+          if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+						var preview_info_ul = $("preview_info_ul");
+						var podglad = $("preview");
+						if ($('input_support').value) {
+							var preview_info_title = $("preview_info_title");
+							podglad.style.visibility="visible";
+						}
 
-                        // -----------------------------------Prod visualisation
-                        if(JotForm.checkValueByOperator(term.operator, term.value, value)){
+            var imag  = $("preview_imag");
+            var imag1 = $("preview_imag1");
+            var imag2 = $("preview_imag2");
+            var imag3 = $("preview_imag3");
+            var imag4 = $("preview_imag4");
+            var imag5 = $("preview_imag5");
 
-              						var preview_info_ul = $("preview_info_ul");
-              						var podglad = $("preview");
-              						if ($('input_support').value) {
-              							var preview_info_title = $("preview_info_title");
-              							podglad.style.visibility="visible";
-              						}
-
-                          var imag  = $("preview_imag");
-                          var imag1 = $("preview_imag1");
-                          var imag2 = $("preview_imag2");
-                          var imag3 = $("preview_imag3");
-                          var imag4 = $("preview_imag4");
-                          var imag5 = $("preview_imag5");
-
-                          if ($('input_support').value !== "") {
-                            $('container').style.display="none";
-                            imag2.style.backgroundImage="none";
-                            imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
-                          }
-                          if ($('input_forme').value == 'rectangulaire') {
-                            imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/rect.png)";
-                            imag2.style.animation="anim .5s 1";
-                          }
-                          if ($('input_forme').value == 'ronde') {
-                            imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/rond.png)";
-                            imag2.style.animation="anim2 .5s 1";
-                          }
-
-                        }
-              //
-                }
-            }catch(e){
-                	//console.error(e);
+            if ($('input_support').value !== "") {
+              $('container').style.display="none";
+              imag2.style.backgroundImage="none";
+              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
             }
-          });
+            if ($('input_forme').value == 'rectangulaire') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/rect.png)";
+              imag2.style.animation="anim .5s 1";
+            }
+            if ($('input_forme').value == 'ronde') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/rond.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+
+
+          }
+//
+        }
+      }catch(e){
+        	//console.error(e);
+    	}
+    });
 
     if(condition.type == 'field'){ // Field Condition
         //console.log("any: %s, all: %s, link: %s", any, all, condition.link.toLowerCase());
@@ -496,7 +702,22 @@ JotForm = {
     /**
      * Highlights the lines when an input is focused
      */
+    highLightLines: function(){
+        // Highlight selected line
+        $$('.form-line').each(function(l, i){
+            l.select('input, select, textarea, div, table div').each(function(i){
+                i.observe('focus', function(){
+                    if (JotForm.isCollapsed(l)) {
+                        JotForm.getCollapseBar(l).run('click');
+                    }
+                    l.addClassName('form-line-active');
 
+                }).observe('blur', function(){
+                    l.removeClassName('form-line-active');
+                });
+            });
+        });
+    },
     /**
      * Gets the container FORM of the element
      * @param {Object} element
@@ -613,6 +834,235 @@ JotForm = {
                 b.innerHTML = b.oldText;
             });
         }, 60);
+    },
+
+    /**
+     * Sets the actions for buttons
+     * * Disables the submit when clicked to prevent double submit.
+     * * Adds confirmation for form reset
+     * * Handles the print button
+     */
+    setButtonActions: function(){
+    /* denisedesign
+        $$('.form-submit-button').each(function(b){
+            b.oldText = b.innerHTML;
+            b.enable(); // enable previously disabled button
+            b.observe('click', function(){
+                setTimeout(function(){
+                    b.innerHTML = "Please wait...";
+                    b.disable();
+                }, 50);
+            });
+        });
+      */
+        $$('.form-submit-reset').each(function(b){
+            b.onclick = function(){
+                if (!confirm('Are you sure you want to clear the form')) {
+                    return false;
+                }
+            };
+        });
+
+        $$('.form-submit-print').each(function(print_button){
+
+            print_button.observe("click", function(){
+                $(print_button.parentNode).hide();
+                window.print();
+                $(print_button.parentNode).show();
+            });
+
+        });
+    },
+    /**
+     * Handles the functionality of control_grading tool
+     */
+    initGradingInputs: function(){
+
+        $$('.form-grading-input').each(function(item){
+            item.observe('blur', function(){
+                var id = item.id.replace(/input_(\d+)_\d+/, "$1");
+                var total = 0;
+
+                $("grade_error_" + id).innerHTML = "";
+
+                $(item.parentNode.parentNode).select(".form-grading-input").each(function(sibling){
+                    var stotal = parseInt(sibling.value, 10) || 0;
+
+                    total += stotal;
+                });
+
+                var allowed_total = parseInt($("grade_total_" + id).innerHTML, 10);
+
+                $("grade_point_" + id).innerHTML = total;
+
+                if (total > allowed_total) {
+                    $("grade_error_" + id).innerHTML = 'Your score should be less than <b>' + allowed_total + '</b>.';
+                }
+            });
+
+        });
+    },
+    /**
+     * Handles the pages of the form
+     */
+    backStack: [],
+    handlePages: function(){
+        var pages = [];
+        $$('.form-pagebreak').each(function(page, i){
+            var section = $(page.parentNode.parentNode);
+            if (i >= 1) {
+                section.hide();
+            } // Hide other pages
+            pages.push(section); // Collect pages
+
+            section.select('.form-pagebreak-next').invoke('observe', 'click', function(){ // When next button clicked
+                if (JotForm.validateAll(JotForm.getForm(section))) {
+
+                    if(JotForm.nextPage){
+                        JotForm.backStack.push(section.hide()); // Hide current
+                        JotForm.nextPage.show();
+
+                    }else if (section.next()) { // If there is a next page
+
+                        JotForm.backStack.push(section.hide()); // Hide current
+                        // This code will be replaced with condition selector
+                        section.next().show(); // Show next page
+                    }
+
+                    JotForm.nextPage = false;
+                }
+            });
+
+            section.select('.form-pagebreak-back').invoke('observe', 'click', function(){ // When back button clicked
+                //console.log('Back Button');
+                section.hide();
+                JotForm.backStack.pop().show();
+                JotForm.nextPage = false;
+
+                /*if (pages[i - 1]) { // If there is a previous page
+                    section.hide(); // Hide current,
+                    // This code will be replaced with condition selector
+                    pages[i - 1].show(); // Show previous
+                }*/
+            });
+
+        });
+
+        // Handle trailing page
+        if (pages.length > 0) {
+            var last = $$('.form-section:last-child')[0];
+
+            // if there is a last page
+            if (last) {
+                pages.push(last); // add it with the other pages
+                last.hide(); // hide it until we open it
+                var li = new Element('li', {
+                    className: 'form-input-wide'
+                });
+                var cont = new Element('div', {
+                    className: 'form-pagebreak'
+                });
+                var backCont = new Element('div', {
+                    className: 'form-pagebreak-back-container'
+                });
+                var back = $$('.form-pagebreak-back-container')[0].select('button')[0];
+
+                back.observe('click', function(){
+                    //console.log('Back Button');
+                    last.hide();
+                    //JotForm.backStack.pop().show();
+                    JotForm.nextPage = false;
+                    /*var i = pages.length - 1;
+                    if (pages[i - 1]) {
+                        last.hide();
+                        pages[i - 1].show();
+                        last.select('.form-pagebreak-next-container').invoke('show');
+                    } else {
+                        last.select('.form-pagebreak-back-container').invoke('hide');
+                    }*/
+                });
+
+                backCont.insert(back);
+                cont.insert(backCont);
+                li.insert(cont);
+                last.insert(li);
+            }
+        }
+
+    },
+    /**
+     * Handles the functionality of Form Collapse tool
+     */
+    handleFormCollapse: function(){
+        var openBar = false;
+        var openCount = 0;
+        $$('.form-collapse-table').each(function(bar){
+            var section = $(bar.parentNode.parentNode);
+            section.setUnselectable();
+
+            if (section.className == "form-section-closed") {
+                section.closed = true;
+            } else {
+                if (!(section.select('.form-collapse-hidden').length > 0)) {
+                    openBar = section;
+                    openCount++;
+                }
+            }
+            bar.observe('click', function(){
+
+                if (section.closed) {
+
+                    section.setStyle('overflow:visible; height:auto');
+                    var h = section.getHeight();
+
+                    if (openBar && openBar != section && openCount <= 1) {
+                        openBar.className = "form-section-closed";
+                        openBar.shift({
+                            height: 60,
+                            duration: 0.5
+                        });
+                        openBar.select('.form-collapse-right-show').each(function(e){
+                            e.addClassName('form-collapse-right-hide').removeClassName('form-collapse-right-show');
+                        });
+                        openBar.closed = true;
+                    }
+                    openBar = section;
+                    section.setStyle('overflow:hidden; height:60px');
+                    // Wait for focus
+                    setTimeout(function(){
+                        section.scrollTop = 0;
+                        section.className = "form-section";
+                    }, 1);
+
+                    section.shift({
+                        height: h,
+                        duration: 0.5,
+                        onEnd: function(e){
+                            e.scrollTop = 0;
+                            e.setStyle("height:auto;");
+                        }
+                    });
+                    section.select('.form-collapse-right-hide').each(function(e){
+                        e.addClassName('form-collapse-right-show').removeClassName('form-collapse-right-hide');
+                    });
+                    section.closed = false;
+                } else {
+
+                    section.scrollTop = 0;
+                    section.shift({
+                        height: 60,
+                        duration: 0.5,
+                        onEnd: function(e){
+                            e.className = "form-section-closed";
+                        }
+                    });
+                    openBar.select('.form-collapse-right-show').each(function(e){
+                        e.addClassName('form-collapse-right-hide').removeClassName('form-collapse-right-show');
+                    });
+                    section.closed = true;
+                }
+            });
+        });
     },
 
 
