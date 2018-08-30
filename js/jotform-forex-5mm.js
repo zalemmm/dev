@@ -604,60 +604,199 @@ JotForm = {
                         }else{
                             all = false;
                         }
+
             //denisedesign
             if(JotForm.checkValueByOperator(term.operator, term.value, value)){
               var preview_info_ul = $("preview_info_ul");
               var podglad = $("preview");
-              if ($('input_1').value) {
+              if ($('input_0').value) {
                 var preview_info_title = $("preview_info_title");
                 if (preview_info_title) {
                   preview_info_title.innerHTML='';
-                  if ($('input_1').value == 'clipit') {
+                  if ($('input_0').value == 'clipit') {
                     preview_info_title.insert('Clip\'it');
                   } else {
-                    preview_info_title.insert($('input_1').value);
+                    preview_info_title.insert($('input_0').value);
                   }
                 }
                 podglad.style.visibility="visible";
               }
 
-
-              if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso')) {
-                $('container').style.display="none";
-                var imag = $("preview_imag");
-                imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/bg.png)";
-                var imag2 = $("preview_imag2");
-                imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/base.png)";
-                imag2.style.animation="anim .5s 1";
-              }
-
-              if (($('input_4').value == 'ventouse') || ($('input_4').value == 'perçage') || ($('input_4perso').value == 'ventouse') || ($('input_4perso').value == 'perçage')){
-                 var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/4trous.png)";
-              }
+			   $('container').style.display="none";
+            var imag = $("preview_imag");
+            imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/bg.png)";
 
 
-              if (($('input_5').value == '2') || ($('input_5perso').value == '2')){
-                 var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/2trous.png)";
-              }
-              if (($('input_5').value == '4') || ($('input_5perso').value == '4')){
-                 var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/4trous.png)";
-              }
-              if (($('input_5').value == '6') || ($('input_5perso').value == '6')){
-                 var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/6trous.png)";
-              }
-              if (($('input_5').value == '8') || ($('input_5perso').value == '8')){
-                 var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/8trous.png)";
-              }
-              if (($('input_5').value == '10') || ($('input_5perso').value == '10')){
-                 var imag = $("preview_imag3");
-                 imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/10trous.png)";
+
+
+
+						if (($('input_0').value == 'recto') ) {
+							var imag = $("preview_imag1");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/dibond.svg)";
+             				 imag.style.animation="anim .5s 1";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/forex5mm/recto.svg)";
+							 imag.style.animation="anim .5s 1";
+							 var imag = $("preview_imag7");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logo.svg)";
+             				 imag.style.animation="anim .5s 1";
+						}
+
+						if (($('input_0').value == 'rectoverso') ) {
+							var imag = $("preview_imag1");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/dibond.svg)";
+             				 imag.style.animation="anim .5s 1";
+							var imag = $("preview_imag2");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/forex5mm/rectoverso.svg)";
+							var imag = $("preview_imag7");
+							imag.style.animation="anim .5s 1";
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logo.svg)";
+             				 imag.style.animation="anim .5s 1";
+						}
+
+						if (($('input_HD').value == 'HD')) {
+							var imag = $("preview_imag3");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/HD.svg)";
+						}
+						if (($('input_HD').value == 'standard')) {
+							var imag = $("preview_imag3");
+							imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/standard.svg)";
+						}
+
+
+////////////////////////////////////////option
+
+ 			if (($('input_4').value == 'sans')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/sans.svg)";
+				 var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/sans.svg)";
+				 var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/sans.svg)";
+
               }
 
+				if (($('input_4').value == 'lamination')){
+				 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/lamination.svg)";
+				  var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/neutre.svg)";
+				   var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/sans.svg)";
+              }
+
+			  if (($('input_4').value == 'pelliculage et perçage')){
+                  var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationpercage.svg)";
+				  var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/neutre.svg)";
+				  var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/4.svg)";
+              }
+
+
+
+             if (($('input_4').value == 'ventouse') || ($('input_4').value == 'perçage')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/sans.svg)";
+				  var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/sans.svg)";
+				  var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/4.svg)";
+              }
+
+			  ////////////////////////////// lamination
+
+			 if (($('input_lamination').value == 'pelliculage brillant') ){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationbrillante.svg)";
+				 var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/brillant.svg)";
+				 var imag = $("preview_imag7");
+				 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logobrillant.svg)";
+             	 imag.style.animation="anim .5s 1";
+              }
+
+			 if (($('input_lamination').value == 'pelliculage mat')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationmat.svg)";
+				 var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/mat.svg)";
+				 var imag = $("preview_imag7");
+				 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logo.svg)";
+             	 imag.style.animation="anim .5s 1";
+              }
+
+			 if (($('input_lamination').value == 'pelliculage laqué anti graffiti')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationgraffiti.svg)";
+				 var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/neutre.svg)";
+				 var imag = $("preview_imag7");
+				 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logo.svg)";
+             	 imag.style.animation="anim .5s 1";
+              }
+
+			   if (($('input_lamination-perçage').value == 'pelliculage brillant')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationbrillante.svg)";
+				  var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/brillant.svg)";
+				  var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/4.svg)";
+				 var imag = $("preview_imag7");
+				 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logobrillant.svg)";
+             	 imag.style.animation="anim .5s 1";
+              }
+
+			 if (($('input_lamination-perçage').value == 'pelliculage mat')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationmat.svg)";
+				  var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/mat.svg)";
+				  var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/4.svg)";
+				 var imag = $("preview_imag7");
+				 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logo.svg)";
+             	 imag.style.animation="anim .5s 1";
+              }
+
+			 if (($('input_lamination-perçage').value == 'pelliculage laqué anti graffiti')){
+                 var imag = $("preview_imag4");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/laminationgraffiti.svg)";
+				  var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/neutre.svg)";
+				  var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/4.svg)";
+				 var imag = $("preview_imag7");
+				 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/logo.svg)";
+             	 imag.style.animation="anim .5s 1";
+              }
+
+
+///////////////////////////////////////////////////////////// perçage
+
+
+              if (($('input_5').value == '2')){
+                 var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/2.svg)";
+              }
+              if (($('input_5').value == '4')){
+                 var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/4.svg)";
+              }
+              if (($('input_5').value == '6')){
+                 var imag = $("preview_imag5");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/6.svg)";
+              }
+              if (($('input_5').value == '8')){
+                 var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/8.svg)";
+              }
+              if (($('input_5').value == '10')){
+                 var imag = $("preview_imag6");
+                 imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseignes/10.svg)";
+              }
             }
 
             }
@@ -1383,7 +1522,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
+                    top: '<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1398,7 +1537,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+        }).insert('<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

@@ -624,16 +624,16 @@ JotForm = {
                   if (($('input_1').value == 'recto') || ($('input_1').value == 'rectoverso')) {
                      $('container').style.display="none";
                      var imag = $("preview_imag");
-                     imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/pvc.png)";
+                     imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/pvc.png)";
                   }
 
                   if ($('input_2').value == '2oeillets') {
                      var imag = $("preview_imag2");
-                     imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/oeuil2.png)";
+                     imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/oeuil2.png)";
                   }
                   if ($('input_2').value == '4oeillets') {
                      var imag = $("preview_imag2");
-                     imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/oeuil4.png)";
+                     imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/oeuil4.png)";
                   }
                   if ($('input_2').value == 'sans') {
                      var imag = $("preview_imag2");
@@ -1363,7 +1363,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
+                    top: '<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1378,7 +1378,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+        }).insert('<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

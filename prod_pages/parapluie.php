@@ -1,1055 +1,456 @@
-<div id="buying">
-  <h3>Votre devis en ligne</h3>
-  <form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_parapluie(); return false;">
-    <input type="hidden" name="formID" value="1060900217" />
-    <div class="form-all">
-      <ul class="form-section">
+<div id="prodApp">
+	<div class="row">
+		<div class="column" id="choicesContainer"> <!--bloc formulaire-->
 
-        <li class="form-line select" id="id_0">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText0" style="visibility:hidden;">
-              <b>Stand tissu EasyQuick: <span class="highlight">- de 240€ en 3x3</span></b><br/>LE meilleur stand parapluie textile 220g ou 260g robuste et facile à monter. Traité retardement feu, livré avec sac de transport à roulettes<br />
-              <b>Stand ExpoBag: <span class="highlight">Dès 530€</span></b><br/>stand complet avec un mur d'image 200x220cm en bâche PVC 520g M1 ou en tissu 220g B1 avec visuel 220x240cm + 2 roll-up + valise - comptoir d'accueil avec tablette (visuel en tissu 220gr B1 ou en PVC 300µ) + présentoir documents 4 poches.<br/>
-              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 196€ !!!</span></b><br/> Comptoir parapluie tissu léger, compact, facile à monter, textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
-              <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
-            </span>
-          </span>
+			<h3>Votre devis en ligne stand</h3>
 
-          <select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir le type</option>
-            <option value="Tissu">stand tissu easy quick</option>
-            <option value="Stand ExpoBag">stand expo’bag</option>
-            <!--<option value="Stand parapluie">stand parapluie révolution avec kit (valise + tablette + spot)</option>-->
-            <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
-            <option value="valise">valise transformable en bank d'accueil + tablette</option>
-          </select>
-        </li>
+			<form class="vueForm" action="" method="post" name="vueForm" id="vueForm" accept-charset="utf-8">
+				<div class="form-all">
+					<ul class="formSection">
 
-        <li class="form-line select" id="id_photocall">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextphotocall" style="visibility:hidden;">
-              <b>PVC Dickson Jet 520g M1: </b><br/>choissez d'imprimer le visuel du mur d'image sur de la bâche PVC Dickson Jet 520g M1 ou du tissu stretch léger 220g B1.<br />
-              <b>tissu stretch léger 220g B1:</b><br/>choissez d'imprimer le visuel du mur d'image sur de la bâche PVC Dickson Jet 520g M1 ou du tissu stretch léger 220g B1.<br />
-            </span>
-          </span>
+						<li class="formSelect">
 
-          <select class="form-dropdown validate[required]" id="input_photocall" name="qphotocall_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir le support du mur d'image</option>
-            <option value="jet 520 M1">bâche PVC 520g M1 / visuel 200x220cm</option>
-            <option value="tissu 220g">tissu 220g B1 / visuel 220x240cm</option>
-          </select>
-        </li>
+							<button type="button" class="toggle" :class="reqProd" @click="toggleProd = !toggleProd">
+								{{ choixProd }} <i class="fa fa-caret-down"></i>
+							</button>
 
-        <li class="form-line select" id="id_valise">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextvalise" style="visibility:hidden;">
-              <b>PVC 300µ: </b><br/>choissez d'imprimer le visuel de votre valise sur du PVC 300µ.<br />Taille finale 140x85cm<br />
-              <b>Tissu 220g B1: </b><br/>choissez d'imprimer le visuel de votre valise sur du tissu stretch léger 220g B1.<br />Taille finale 178x85cm<br />
-            </span>
-          </span>
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleProd">
+									<div @mouseover="hoPw(1,'stand')"     @mouseout="hout(1)" v-tooltip.bottom="$global.stdd" @click="reset(); selectProd('Tissu droit');">
+										<img :src="$global.img+'/parapluie/stand.png'" /><span>stand tissu easy quick droit</span>
+									</div>
+									<div @mouseover="hoPw(1,'courbe')"    @mouseout="hout(1)" v-tooltip.bottom="$global.stdc" @click="reset(); selectProd('Tissu courbe');">
+										<img :src="$global.img+'/parapluie/courbe.png'" /><span>stand tissu easy quick courbé</span>
+									</div>
+									<div @mouseover="hoPw(1,'standexpo')" @mouseout="hout(1)" v-tooltip.bottom="$global.stde" @click="reset(); selectProd('Stand ExpoBag');">
+										<img :src="$global.img+'/parapluie/standexpo2.png'" /><span>stand expo’bag</span>
+									</div>
+									<div @mouseover="hoPw(1,'comptoir')"  @mouseout="hout(1)" v-tooltip.bottom="$global.comp" @click="reset(); selectProd('Comptoir Easy Quick');">
+										<img :src="$global.img+'/parapluie/comptoir2.png'" /><span>comptoir tissu easy quick</span>
+									</div>
+									<div @mouseover="hoPw(1,'valise')"    @mouseout="hout(1)" v-tooltip.bottom="$global.vali" @click="reset(); selectProd('valise');">
+										<img :src="$global.img+'/parapluie/valise2.png'" /><span>valise / bank d'accueil</span>
+									</div>
+								</div>
+							</transition>
 
-          <select class="form-dropdown validate[required]" id="input_valise" name="qvalise_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir le support pour le visuel de la valise</option>
-            <option value="PVC 300µ">PVC 300µ / visuel 140x85cm</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1 / visuel 178x85cm</option>
-            <!--<option value="sans impression">Valise sans impression</option>-->
-          </select>
-        </li>
+						</li>
 
-        <li class="form-line select" id="id_01">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText1" style="visibility:hidden;">
-              <b>Stand tissu droit: <span class="highlight">Dès 239€ en 3x3</span></b><br/>le plus vendu en ligne pour exposition, foire, stand professionnel, mur d'image, fond de scène.<br />
-              <b>Stand tissu courbé: <span class="highlight">Dès 336€ en 3x3</span></b><br/>recherché pour exposer sur de petits stand d'exposition de 9m² ou pour réaliser des photos de groupe, évènement sportif<br/>
-            </span>
-          </span>
+						<li class="formSelect" v-show="courbSize">
 
-          <select class="form-dropdown validate[required]" id="input_01" name="q01_usage" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-            <option value="">choisir le style</option>
-            <option value="Droit">Droit</option>
-            <option value="Courbé">Courbé</option>
-          </select>
-        </li>
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
+							</button>
 
-        <li class="form-line select" id="id_1">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText2" style="visibility:hidden;">
-              <b>stand parapluie 3x3 droit: <span class="highlight">Dès 685€</span></b><br/>225x225cm le stand traditionnel complet polyvalent<br />
-              <b>stand parapluie 3x4 droit: <span class="highlight">Dès 760€</span></b><br/>225x300cm stand parapluie de 3 mètres à monter avec ses lés imprimés.<br/>
-              <b>stand parapluie 3x3 courbé: <span class="highlight">Dès 685€</span></b><br/>225x209cm le stand croubé traditionnel complet <br />
-              <b>stand parapluie 3x4 courbé: <span class="highlight">Dès 760€</span></b><br/>225x280cm stand parapluie courbé de 2,80 mètres à monter avec ses lés imprimés et ses retours.<br/>
-            </span>
-          </span>
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(1,'courbe3');"  @mouseout="hout(1)" v-tooltip.bottom="'227x209 cm'" @click="reset(); selectSize('3x3');">
+										<img :src="$global.img+'/parapluie/courbe3.png'" /><span>Recto Avec Retour 3x3</span>
+									</div>
+									<div @mouseover="hoPw(1,'courbe4');"  @mouseout="hout(1)" v-tooltip.bottom="'227x278 cm'" @click="reset(); selectSize('3x4');">
+										<img :src="$global.img+'/parapluie/courbe4.png'" /><span>Recto Avec Retour 3x4</span>
+									</div>
+								</div>
+							</transition>
 
-          <select class="form-dropdown validate[required]" id="input_1" name="q1_option" onchange="getElementById('preview_info_ul').innerHTML=''; JKakemono.czyscpola(); ">
-           <option value="">choisir les dimensions... </option>
-            <optgroup label="Courbé avec kit complet*">
-              <option value="2">Recto 3x3 </option>
-              <option value="3">Recto 3x4 </option>
-            </optgroup>
-            <optgroup label="Droit avec kit complet*">
-              <option value="7">Recto 3x3 </option>
-              <option value="8">Recto 3x4 </option>
-            </optgroup>
-            <optgroup label="*(Valise comptoir imprimée et tablette + 2 spots)">
-            </optgroup>
-          </select>
-        </li>
+						</li>
 
-        <li class="form-line select" id="id_50">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText4" style="visibility:hidden;">
-              <b>Stand tissu droit recto : <span class="highlight">Dès 239€ en 3x3</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible de 3x1 (226x79cm) à 3x8 (226x600cm). retours (cotés) gauche et droite de 31cm imprimés<br />
-              <b>Stand tissu droit recto verso: <span class="highlight">Dès 474€ en 3x3</span></b><br/>le stand tissu meilleur prix en ligne. Disponible de 3x3 (226x226cm)  à 3x8 (226x600cm). le verso est également imprimé sur de la maille extensible 220 ou 260g<br/>
-            </span>
-          </span>
+						<li class="formSelect" v-show="droitSize">
 
-          <select class="form-dropdown validate[required]" id="input_50" name="q50_option" onChange="JKakemono.czyscpola(); ">
-            <option value="">choisir les dimensions... </option>
-            <optgroup label="Recto Avec Retour">
-              <option value="3x1 R">Recto Avec Retour 3x1 </option>
-              <option value="3x2 R">Recto Avec Retour 3x2 </option>
-              <option value="3x3 R">Recto Avec Retour 3x3 </option>
-              <option value="3x4 R">Recto Avec Retour 3x4 </option>
-              <option value="3x5 R">Recto Avec Retour 3x5 </option>
-              <option value="3x6 R">Recto Avec Retour 3x6 </option>
-              <option value="3x7 R">Recto Avec Retour 3x7 </option>
-              <option value="3x8 R">Recto Avec Retour 3x8 </option>
-            </optgroup>
-            <optgroup label="Recto Verso">
-              <option value="3x1 RV">Recto Verso 3x1 </option>
-              <option value="3x2 RV">Recto Verso 3x2 </option>
-              <option value="3x3 RV">Recto Verso 3x3 </option>
-              <option value="3x4 RV">Recto Verso 3x4 </option>
-              <option value="3x5 RV">Recto Verso 3x5 </option>
-              <option value="3x6 RV">Recto Verso 3x6 </option>
-              <option value="3x7 RV">Recto Verso 3x7 </option>
-              <option value="3x8 RV">Recto Verso 3x8 </option>
-            </optgroup>
-          </select>
-        </li>
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
+							</button>
 
-        <li class="form-line select" id="id_500">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText5" style="visibility:hidden;">
-              <b>Stand tissu courbé recto : <span class="highlight">Dès 688€</span></b><br/>le stand tissu au meilleur rapport qualité prix. Disponible du 3x3 (226x209cm) à 3x4 (226x280cm). retours (cotés) gauche et droite de 31cm imprimés<br />
-              <b>Stand tissu courbé recto verso: <span class="highlight">Dès 1106€</span></b><br/>le meilleur prix stand tissu en ligne. Disponible de 3x3 (226x208cm) à 3x4 (226x280cm). le verso est également imprimé sur de la maille extensible 260g<br/>
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_500" name="q500_option" onChange="JKakemono.czyscpola(); ">
-            <option value="">choisir les dimensions... </option>
-            <optgroup label="Recto Avec Retour">
-              <option value="3">Recto Avec Retour 3x3 </option>
-              <option value="4">Recto Avec Retour 3x4 </option>
-            </optgroup>
-          </select>
-        </li>
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(1,'stand1');" @mouseout="hout(1)" v-tooltip.bottom="'226x79 cm'" @click="reset(); selectSize('3x1 Recto');">
+										<img :src="$global.img+'/parapluie/stand1.png'" /><span>Recto Avec Retour 3x1</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand2');" @mouseout="hout(1)" v-tooltip.bottom="'226x152 cm'" @click="reset(); selectSize('3x2 Recto');">
+										<img :src="$global.img+'/parapluie/stand2.png'" /><span>Recto Avec Retour 3x2</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand3');" @mouseout="hout(1)" v-tooltip.bottom="'226x226 cm'" @click="reset(); selectSize('3x3 Recto');">
+										<img :src="$global.img+'/parapluie/stand3.png'" /><span>Recto Avec Retour 3x3</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand4');" @mouseout="hout(1)" v-tooltip.bottom="'226x300 cm'" @click="reset(); selectSize('3x4 Recto');">
+										<img :src="$global.img+'/parapluie/stand4.png'" /><span>Recto Avec Retour 3x4</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand5');" @mouseout="hout(1)" v-tooltip.bottom="'226x373 cm'" @click="reset(); selectSize('3x5 Recto');">
+										<img :src="$global.img+'/parapluie/stand5.png'" /><span>Recto Avec Retour 3x5</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand6');" @mouseout="hout(1)" v-tooltip.bottom="'226x446 cm'" @click="reset(); selectSize('3x6 Recto');">
+										<img :src="$global.img+'/parapluie/stand6.png'" /><span>Recto Avec Retour 3x6</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand7');" @mouseout="hout(1)" v-tooltip.bottom="'226x520 cm'" @click="reset(); selectSize('3x7 Recto');">
+										<img :src="$global.img+'/parapluie/stand7.png'" /><span>Recto Avec Retour 3x7</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand8');" @mouseout="hout(1)" v-tooltip.bottom="'226x594 cm'" @click="reset(); selectSize('3x8 Recto');">
+										<img :src="$global.img+'/parapluie/stand8.png'" /><span>Recto Avec Retour 3x8</span>
+									</div>
 
-        <li class="form-line select" id="id_02">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText02" style="visibility:hidden;">
-              <b>tissu 220g B1: <span class="highlight">utilisation occasionnelle</span></b><br /> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1: <span class="highlight">utilisation intensive</span></b><br /> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_02" name="q02_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir le tissu</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
-          </select>
-        </li>
+									<div @mouseover="hoPw(1,'stand1');" @mouseout="hout(1)" v-tooltip.bottom="'226x79 cm'" @click="reset(); selectSize('3x1 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand1.png'" /><span>Recto Verso 3x1</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand2');" @mouseout="hout(1)" v-tooltip.bottom="'226x152 cm'" @click="reset(); selectSize('3x2 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand2.png'" /><span>Recto Verso 3x2</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand3');" @mouseout="hout(1)" v-tooltip.bottom="'226x226 cm'" @click="reset(); selectSize('3x3 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand3.png'" /><span>Recto Verso 3x3</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand4');" @mouseout="hout(1)" v-tooltip.bottom="'226x300 cm'" @click="reset(); selectSize('3x4 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand4.png'" /><span>Recto Verso 3x4</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand5');" @mouseout="hout(1)" v-tooltip.bottom="'226x373 cm'" @click="reset(); selectSize('3x5 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand5.png'" /><span>Recto Verso 3x5</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand6');" @mouseout="hout(1)" v-tooltip.bottom="'226x446 cm'" @click="reset(); selectSize('3x6 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand6.png'" /><span>Recto Verso 3x6</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand7');" @mouseout="hout(1)" v-tooltip.bottom="'226x520 cm'" @click="reset(); selectSize('3x7 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand7.png'" /><span>Recto Verso 3x7</span>
+									</div>
+									<div @mouseover="hoPw(1,'stand8');" @mouseout="hout(1)" v-tooltip.bottom="'226x594 cm'" @click="reset(); selectSize('3x8 Recto Verso');">
+										<img :src="$global.img+'/parapluie/stand8.png'" /><span>Recto Verso 3x8</span>
+									</div>
+								</div>
+							</transition>
 
-        <li class="form-line select" id="id_0222">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText0222" style="visibility:hidden;">
-              <b>tissu 220g B1:</b> tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1:</b> tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_0222" name="q0222_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir le tissu</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
-          </select>
-        </li>
-
-        <li class="form-line select" id="id_022">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText022" style="visibility:hidden;">
-              <b>PVC 300µ M1: <span class="highlight">le moins cher !</span></b><br /> visuel imprimé sur pvc souple à scratcher (scratchs fournis) <br />
-              <b>tissu 220g B1: <span class="highlight">utilisation occasionnelle</span></b> Housse en tissu léger 100% polyester 220g traité retardant au feu B1<br />
-              <b>tissu 260g B1: <span class="highlight">utilisation intensive</span></b> Housse tissu extensible 100% polyester 260g traité retardant au feu B1.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_022" name="q022_usage" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir sur support d'impression</option>
-            <option value="PVC 300µ">PVC 300µ M1</option>
-            <option value="tissu 220g">tissu stretch léger 220g B1</option>
-            <option value="tissu 260g">tissu stretch infroissable 260g B1</option>
-            <!--<option value="sans visuel">sans visuel</option>-->
-
-          </select>
-        </li>
+						</li>
 
 
-        <li class="form-line select" id="id_6">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpText7" style="visibility:hidden;">
-              <b>Comptoir tissu EasyQuick: <span class="highlight">Dès 196€</span></b><br/> Comptoir parapluie léger, compact, facile à monter, visuel textile prémonté qui reste en place lorsque la structure est repliée. Livré avec son sac de transport.<br />
-              <b>Valise transformable: <span class="highlight">Dès 269€</span></b><br/> valise à roulettes pouvant contenir un stand parapluie jusqu'à 3x5. Avec sa tablette et un visuel personnalisé, elle se transforme en bank d'accueil.<br />
-            </span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_6" name="q6_option6" onchange="JKakemono.czyscpola(); ">
-            <option value="">choisir l'option... </option>
-            <option value="0">non merci </option>
-            <option value="Comptoir Easy Quick">comptoir tissu easy quick</option>
-            <option value="41">valise transformable en bank accueil </option>
-          </select>
-        </li>
+						<li class="formSelect" v-show="showSupport">
 
-        <li class="form-line select" id="id_7">
-          <span class="helpButton">
-            <img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-            <span class="helpText" id="helpTextmaquette" style="visibility:hidden;"></span>
-          </span>
-          <select class="form-dropdown validate[required]" id="input_7" name="q7_maquette7" onchange="JKakemono.czyscpola(); ">
-            <option value="">fichier d'impression...</option>
-						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
-						<option value="config">je crée ma maquette en ligne</option>
-                        <option value="fb">France banderole crée la mise en page</option>
-          </select>
-        </li>
+							<button type="button" class="toggle" :class="reqSupp" @click="toggleSupp = !toggleSupp">
+								{{ choixSupp }} <i class="fa fa-caret-down"></i>
+							</button>
 
-         <li class="form-line select" id="id_signature">
-          <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature" style="visibility:hidden;"></span>
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSupp" >
+									<div @mouseover="hoPw(9,'tissu stretch léger 220g M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.s220" @click="reset(); selectSupport('tissu 220g');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>tissu stretch léger 220g M1</span>
+									</div>
+									<div @mouseover="hoPw(9,'tissu stretch défroissable 260g M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.s260" @click="reset(); selectSupport('tissu 260g');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>tissu stretch dos noir 260g B1</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" v-show="suppPhotocall">
+
+							<button type="button" class="toggle" :class="reqSupp" @click="toggleSupp = !toggleSupp">
+								Support photocall : {{ choixSupp }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSupp" >
+									<div @mouseover="hoPw(9,'bâche PVC 520g M1 / visuel 200x220cm');" @mouseout="hout(9)" v-tooltip.bottom="$global.b520" @click="reset(); selectSupport('jet 520 M1');" v-show="suppPhotocall">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>bâche PVC 520g M1 / visuel 200x220cm</span>
+									</div>
+									<div @mouseover="hoPw(9,'tissu 220g M1 / visuel 220x240cm');" @mouseout="hout(9)" v-tooltip.bottom="$global.t220" @click="reset(); selectSupport('tissu 220g');" v-show="suppPhotocall">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>tissu 220g M1 / visuel 220x240cm</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+						<li class="formSelect" v-show="suppValise">
+
+							<button type="button" class="toggle" :class="reqSupp2" @click="toggleSupp2 = !toggleSupp2">
+								Support valise : {{ choixSupp2 }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSupp2" >
+									<div @mouseover="hoPw(9,'PVC 300µ / visuel 140x85cm');" @mouseout="hout(9)" v-tooltip.bottom="$global.p300" @click="reset(); selectSupport2('PVC 300µ');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>PVC 300µ / visuel 140x85cm</span>
+									</div>
+									<div @mouseover="hoPw(9,'tissu 220g M1 / visuel 178x85cm');" @mouseout="hout(9)" v-tooltip.bottom="$global.s220" @click="reset(); selectSupport2('tissu 220g');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>tissu 220g M1 / visuel 178x85cm</span>
+									</div>
+
+									<div @mouseover="hoPw(9,'tissu 220g M1 / visuel 178x85cm');" @mouseout="hout(9)" v-tooltip.bottom="$global.s260" @click="reset(); selectSupport2('tissu 260g');" v-show="valiseSeule">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>tissu 260g B1 / visuel 178x85cm</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" v-show="showAcce">
+
+							<button type="button" class="toggle" :class="reqAcce" @click="toggleAcce = !toggleAcce">
+								{{ choixAcce }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleAcce">
+									<div @mouseover="hoPw(2,'');" @mouseout="hout(2)" @click="reset(); selectAcce('sans option');">
+										<i class="fa fa-ban" aria-hidden="true"></i><span>sans options</span>
+									</div>
+									<div @mouseover="hoPw(2,'comptoir');" @mouseout="hout(2)" @click="reset(); selectAcce('Comptoir Easy Quick');">
+										<img :src="$global.img+'/parapluie/comptoir2.png'" /><span>comptoir tissu easy quick</span>
+									</div>
+									<div @mouseover="hoPw(2,'valise');"   @mouseout="hout(2)" @click="reset(); selectAcce('Valise transformable');">
+										<img :src="$global.img+'/parapluie/valise2.png'" /><span>valise / bank d'accueil</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" id="id_maquette" v-show="showMaqt">
+
+							<button type="button" class="toggle" :class="reqMaqt" @click="toggleMaqt = !toggleMaqt">
+								{{ choixMaqt }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleMaqt" >
+									<div @mouseover="hoPw(9,'sans BAT');" @mouseout="hout(9)" v-tooltip.bottom="$global.btn" @click="reset(); selectMaqt('maquette client sans bat');">
+										<i class="bat"><strike>BAT</strike></i> <span class="smalls">j’envoie mon fichier, je ne veux pas de BAT</span>
+									</div>
+									<div @mouseover="hoPw(9,'BAT numérique');" @mouseout="hout(9)" v-tooltip.bottom="$global.bty" @click="reset(); selectMaqt('maquette client bat');">
+										<i class="bat">BAT</i> <span class="smalls">j’envoie mon fichier, je veux un BAT</span>
+									</div>
+									<div @mouseover="hoPw(9,'maquette en ligne');" @mouseout="hout(9)" v-tooltip.bottom="$global.enl" @click="reset(); selectMaqt('maquette en ligne');">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="smalls">je crée ma maquette en ligne</span>
+									</div>
+									<div @mouseover="hoPw(9,'maquette france banderole');" @mouseout="hout(9)" v-tooltip.bottom="$global.mfb2" @click="reset(); selectMaqt('mise en page france banderole');">
+										<i class="fa fa-paint-brush" aria-hidden="true"></i> <span class="smalls">mise en page par france banderole</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" id="id_signature" v-show="showSign">
+
+							<button type="button" class="toggle" :class="reqSign" @click="toggleSign = !toggleSign">
+								{{ choixSign }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSign" >
+									<div @mouseover="hoPw(9,'signature france banderole');" @mouseout="hout(9)" v-tooltip.bottom="$global.psi" @click="reset(); selectSign('signature France Banderole');">
+										<i class="fa fa-pencil" aria-hidden="true"></i><span>produit signé</span>
+									</div>
+									<div @mouseover="hoPw(9,'sans signature');" @mouseout="hout(9)" v-tooltip.bottom="$global.pne" @click="reset(); selectSign('sans signature');">
+										<i class="fa fa-ban" aria-hidden="true"></i><span>produit neutre</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+					</ul> <!-- fin listes déroulantes -->
+
+					<ul class="optionsBlock" v-show="showOptions">
+
+						<li class="optLi optQuantite">
+
+							<div class="qteContainer" :class="reqQtte">
+								<label class="qteLabel" :class="reqQtte">quantité <span class="small">(par visuel)</span></label>
+								<input type="number" min="1" class="qteInput" v-model="qte" @keyup.up="qtePlus" @keyup.down="qteMoins" @click="reset"  />
+
+								<div class="qteBtn" :class="reqQtte">
+									<button type="button" @click="reset(); qteMoins();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+									<button type="button" @click="reset(); qtePlus();"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+								</div>
+							</div>
+
+						</li>
+
+						<li class="optLi optionLivraison">
+
+							<h5 class="optionsTitle">OPTIONS DE LIVRAISON <span class="noDisXS">DISPONIBLES :</span> </h5>
+
+							<div class="optionsCheck">
+
+								<span class="optCheck">
+									<label for="adresse">Livré à votre adresse</label>
+									<input type="checkbox" id="adresse" v-model="adresse" @click="reset" @change="checkAdresse" />
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.lad, offset: 5}"><i class="fa fa-question-circle"></i></span>
+								</span>
+
+								<span class="optCheck">
+									<label for="etiquette">Retrait <span class="noDisXS">colis à l'</span>atelier</label>
+									<input type="checkbox" id="etiquette" v-model="atelier" @click="reset" @change="checkAtelier"/>
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.lat, offset: 5}"><i class="fa fa-question-circle"></i></span>
+							  </span>
+
+								<span class="optCheck">
+									<label for="colis">Colis revendeur</label>
+									<input type="checkbox" id="colis" v-model="colis" @click="reset" />
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.crv, offset: 5}"><i class="fa fa-question-circle"></i></span>
+							  </span>
+
+							</div> <!-- fin bloc check options -->
+
+
+							<div class="delaisBloc">
+
+								<h5 class="delaisTitle"><span class="noDisXS">choisir un </span>délai de Production :</h5>
+								<div class="delaisBtn">
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP1" @click="reset(); selectDeliv('4-5');">
+										Normal 4/5 jours
+									</button>
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP2" @click="reset(); selectDeliv('2-3');">
+										Rapide 2/3 jours
+									</button>
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP3" @click="reset(); selectDeliv('1-1');">
+										Express 1 jour
+									</button>
+								</div>
+
+								<transition name="slideDown">
+									<div class="delaisBloc" v-show="showLiv">
+										<h5 class="delaisTitle"><span class="noDisXS">choisir un </span>délai de Livraison :</h5>
+										<div class="delaisBtn">
+											<button type="button" v-model="delailiv" class="dclic" :class="btnD1" @click="calculer('3-4'); dateEstim();">
+												Normal 3/4 jours
+											</button>
+											<button type="button" v-model="delailiv" class="dclic" :class="btnD2" @click="calculer('2-3'); dateEstim();">
+												Rapide 2/3 jours
+											</button>
+											<button type="button" v-model="delailiv" class="dclic" :class="btnD3" @click="calculer('1-1'); dateEstim();">
+												Express 1 jour
+											</button>
+										</div>
+									</div>
+								</transition>
+
+							</div> <!-- fin bloc boutons délais -->
+						</li> <!-- fin options livraison -->
+					</ul> <!-- fin bloc options -->
+				</div> <!-- fin wrapper form -->
+
+			</form>
+
+			<div v-if="choix"> <!-- debug -->
+				<span>- produit : {{ produit }}</span><br />
+				<span>- dimensions : {{ dimensions }}</span><br />
+				<span>- support : {{ support }} </span><br />
+				<span>- maquette : {{ maquette }} </span><br />
+				<span>- signature : {{ sign }} </span><br />
+				<span>- quantité : {{ qte }} </span><br />
+				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
+				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+			</div>
+
+			<transition name="slideLeft">
+				<div class="delivBlock" v-show="dateLivraison" :key="dateTrigger">
+					<span class="delivDate">
+						Livraison prévue avant le {{ estdate }}
+						<a class="linkUppercase modal-link" :href="$global.url+'/etre-livre-rapidement/'" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
 					</span>
-					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
-						<option value="">logo France Banderole ?</option>
-						<option value="signature FB">produit signé</option>
-						<option value="sans signature">produit neutre +5,00 €</option>
-					</select>
-				</li>
-
-        <li class="form-line select" id="id_8" data-trigger="spinner">
-          <label class="form-label-left label-highlight" id="label_8" for="input_8">quantité :<br /><span class="small">(par visuel)</span></label>
-          <input type="text" class="form-textbox validate[required, Numeric]" id="input_8" name="q8_quantite" size="20" value="1" onchange="JKakemono.czyscpola(); " data-rule="quantity" />
-					<div class="spinner-controls">
-	   			 <a href="javascript:;" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-	   			 <a href="javascript:;" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
-			  	</div>
-        </li>
-
-       <li id="id_16" class="form-line optionsformline">
-
-        <span class="title">OPTIONS DE LIVRAISON DISPONIBLES :</span>
-
-				<span class="options_single">
-
-          <span class="optionsleft">
-            <label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-            <input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-            <span class="helpButton">
-              <span class="helpText" id="helpTextAdresse" style="visibility:hidden;"></span>
-            </span>
-          </span>
-
-					<span class="optionsleft">
-            <label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
-            <input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola(); JKakemono.relaisColischeckbox();" />
-            <span class="helpButton">
-              <span class="helpText" id="helpTextetiquette" style="visibility:hidden;"></span>
-            </span>
-          </span>
-
-          <span class="optionsleft">
-            <label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
-            <input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-            <span class="helpButton">
-              <span class="helpText" id="helpTextcolis" style="visibility:hidden;"></span>
-            </span>
-          </span>
-
-
-				</span>
-        <div class="break-line"></div>
-
-        <p id="production" >
-        	<h5 class="delivery-delay">Delai Production :</h5>
-        	<button class="production" text-value="4-5" id="p1"></button>
-        	<button class="production" text-value="2-3" id="p2"></button>
-          <button class="production" text-value="1-1" id="p3"></button>
-        	<input type="hidden" id="production-value" value=""  onClick="" />
-        </p>
-
-        <div id="delivery-div" style='display:none;'>
-          <p id="delivery" >
-          	<h5 class="delivery-delay">Delai Livraison :</h5>
-          	<button class="delivery" text-value="3-4" id="l1"></button>
-          	<button class="delivery" text-value="2-3" id="l2"></button>
-            <button class="delivery" text-value="1-1" id="l3"></button>
-          	<input type="hidden" id="delivery-value" value="" />
-          </p>
-        </div>
-
-      </li>
-
-        <li id="id_18" class="form-line id_18" style="top:14px">
-            <div class="form-input-wide">
-              <button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
-            </div>
-        </li>
-        <li style="display:none">
-            Should be Empty:
-            <input type="text" name="website" value="" />
-        </li>
-    </ul>
-</div>
-<input type="hidden" id="simple_spc" name="simple_spc" value="1060900217" />
-<script type="text/javascript">
-    document.getElementById("simple_spc").value += "-1060900217";
-</script>
-</form>
-</div>
-<div id="preview">
-  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
-
-  <div id="container">
-
-    <div id="slides">
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-0.jpg" alt="stand exposition salon" title="stand expo pas cher" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-2.jpg" alt="devis en ligne stand expo" title="stand parapluie devis" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/slide/standexpo-3.jpg" alt="stand parapluie pas cher" title="stand exposition personnalisé" /></li>
-      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/devis-en-ligne.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
-    </div>
-  </div>
-
-  <div id="preview_imag"></div>
-  <div id="preview_imag2"></div>
-  <div id="preview_imag3"></div>
-  <div id="preview_imag4"></div>
-  <div id="preview_imag5"></div>
-
-</div>
-
-<div class="dateLivraison">
-  <!--<span id="totaldays"></span>&nbsp;-->
-  <span id="totalamt_16"></span>
-  <span id='estdate_16'></span>
-</div>
-
-<div id="custom_price_unit" >
-
-</div>
-
-<script type="text/javascript">
-////////////////////////////////////////////////////////////////////////////
-function Afficher() {
-divInfo = document.getElementById('delivery-div');
-  if (divInfo.style.display == 'none')
-divInfo.style.display = 'block';
-}
-function Afficher2() {
-	divInfo = document.getElementById('l3');
-	if (divInfo.style.display == 'none')
-	divInfo.style.display = 'block';
-}
-function Masquer2() {
-	divInfo = document.getElementById('l3');
-	if (divInfo.style.display == 'block')
-	divInfo.style.display = 'none';
-}
-function Masquer() {
-divInfo = document.getElementById('delivery-div');
-  if (divInfo.style.display == 'block')
-  divInfo.style.display = 'none';
-}
-
-//////////////////////////////////////////////////// checkboxes livraison //
-jQuery('#adresse').click(function() {
-  if (document.getElementById('adresse').checked) {
-    document.getElementById('etiquette').checked = false;
-  }
-});
-jQuery('#etiquette').click(function() {
-  if (document.getElementById('etiquette').checked) {
-    document.getElementById('adresse').checked = false;
-  }
-});
-
-///////////////////////////////////////////////// calcul des jours ouvrés //
-function AddBusinessDays(weekDaysToAdd) {
-  // fonction jours ouvrés
-  var curdate = new Date();
-  var realDaysToAdd = 0;
-  for(i=0; i<weekDaysToAdd; i++){
-    curdate.setDate(curdate.getDate()+1);
-    var estdt1 = new Date(curdate);
-    var n = curdate.getDay();
-    if (n == '6' || n == '0') {
-      weekDaysToAdd++;
-    }
-    realDaysToAdd++;
-    //check if current day is business day
-  }
-  return realDaysToAdd;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-jQuery(document).ready(function(){
-  jQuery('.delivery , .production').click(function(){
-    var cena           = 0;   var cena2    = 0;
-    var rabat          = 0;   var rabat2   = 0;
-    var suma           = 0;   var suma2    = 0;
-    var tissu220       = 0;   var tissu260 = 0;
-    var scratch        = 0;	  var opis = '';
-    var ktorytyp       = '';
-    var optliv         = '';
-    var designation    = '';
-    var tissu          = '';
-    var structure      = '';
-    var pack           = '';
-    var trans          = '';
-    var prliv          = '';
-    var hauteur        = 0;
-    var largeur        = 0;
-    var date_panier    = '';
-    var eBox           = document.getElementById('form-button-error2');
-    eBox.innerHTML     = '';
-    var ilosc          = $('input_8').value;
-
-    /// stand tissu droit //////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////// recto simple //
-    if ($('input_0').value == 'Tissu') {
-      trans = 15;
-      var rodzaj = "Stand Tissu";
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x1 R' ) {
-        scratch = 7;
-    		structure = 70;
-        tissu220 = 35;
-        tissu260 = 39;
-    		designation += '- recto 3x1 Droit';
-
-        hauteur = 229;
-        largeur = 152;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x2 R' ) {
-        structure = 80;
-        scratch = 9;
-        tissu220 = 40;
-        tissu260 = 56;
-    		designation += '- recto 3x2 Droit';
-
-        hauteur = 229;
-        largeur = 225.5;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x3 R' ) {
-    		structure = 83;
-        scratch = 10;
-        tissu220 = 39;
-        tissu260 = 65;
-    		designation += '- recto 3x3 Droit';
-
-        hauteur = 299;
-        largeur = 299;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x4 R' ) {
-    		structure = 114;
-        scratch = 12;
-        tissu220 = 51;
-        tissu260 = 68;
-    		designation += '- recto 3x4 Droit';
-
-        hauteur = 299;
-        largeur = 369.5;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x5 R' ) {
-    		structure = 140;
-        scratch = 15;
-        tissu220 = 62;
-        tissu260 = 82;
-    		designation += '- recto 3x5 Droit';
-
-        hauteur = 299;
-        largeur = 446.5;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x6 R' ) {
-    		structure = 300;
-        scratch = 20;
-        tissu220 = 71;
-        tissu260 = 95;
-    		designation += '- recto 3x6 Droit';
-
-        hauteur = 299;
-        largeur = 522;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x7 R' ) {
-    		structure = 345;
-        scratch = 24;
-        tissu220 = 82;
-        tissu260 = 109;
-    		designation += '- recto 3x7 Droit';
-
-        hauteur = 299;
-        largeur = 597;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x8 R' ) {
-    		structure = 390;
-        scratch = 30;
-        tissu220 = 92;
-        tissu260 = 123;
-    		designation += '- recto 3x8 Droit';
-
-        hauteur = 299;
-        largeur = 662;
-    	}
-
-      /////////////////////////////////////////////////////////// recto verso //
-    	if ($('input_50').value == '3x1 RV' ) {
-    		structure = 117;
-        scratch = 14;
-        tissu220 = 33.12;
-        tissu260 = 44.16;
-    		designation += '- Recto Verso 3x1 Droit';
-
-        hauteur = 229;
-        largeur = 152;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x2 RV' ) {
-    		structure = 144.3;
-        scratch = 16.9;
-        tissu220 = 53.13;
-        tissu260 = 70.84;
-    		designation += '- Recto Verso 3x2 Droit';
-
-        hauteur = 229;
-        largeur = 225.5;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x3 RV' ) {
-    		structure = 162;
-        scratch = 19.8;
-        tissu220 = 73.14;
-        tissu260 = 97.52;
-    		designation += '- Recto Verso 3x3 Droit';
-
-        hauteur = 299;
-        largeur = 299;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x4 RV' ) {
-    		structure = 208.8;
-        scratch = 22.6;
-        tissu220 = 92.46;
-        tissu260 = 123.28;
-    		designation += '- Recto Verso 3x4 Droit';
-
-        hauteur = 299;
-        largeur = 369.5;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_50').value == '3x5 RV' ) {
-    		structure = 255.6;
-        scratch = 25.6;
-        tissu220 = 113.16;
-        tissu260 = 150.88;
-    		designation += '- Recto Verso 3x5 Droit';
-
-        hauteur = 299;
-        largeur = 446.5;
-    	}
-      //------------------------------------------------------------------------
-      if ($('input_50').value == '3x6 RV' ) {
-        structure = 354;
-        scratch = 28.6;
-        tissu220 = 133.86;
-        tissu260 = 178.48;
-        designation += '- Recto Verso 3x6 Droit';
-
-        hauteur = 299;
-        largeur = 522;
-      }
-      //------------------------------------------------------------------------
-      if ($('input_50').value == '3x7 RV' ) {
-        structure = 408;
-        scratch = 31.5;
-        tissu220 = 153.87;
-        tissu260 = 205.16;
-        designation += '- Recto Verso 3x7 Droit';
-
-        hauteur = 299;
-        largeur = 597;
-      }
-      //------------------------------------------------------------------------
-      if ($('input_50').value == '3x8 RV' ) {
-        structure = 462;
-        scratch = 34.5;
-        tissu220 = 174.57;
-        tissu260 = 232.76;
-        designation += '- Recto Verso 3x8 Droit';
-
-        hauteur = 299;
-        largeur = 662;
-      }
-
-      // stand tissu courbé ////////////////////////////////////////////////////
-    	if ($('input_500').value == '3' ) {
-    		structure = 129.6;
-        scratch = 10.2;
-        tissu220 = 38.64;
-        tissu260 = 51.52;
-    		designation += '- recto 3x3 Courbé';
-
-        hauteur = 299;
-        largeur = 275;
-    	}
-      //------------------------------------------------------------------------
-    	if ($('input_500').value == '4' ) {
-    		structure = 165.6;
-        scratch = 11.6;
-        tissu220 = 48.3;
-        tissu260 = 64.4
-    		designation += '- recto 3x4 Courbé';
-
-        hauteur = 299;
-        largeur = 341.5;
-    	}
-
-      ////////////////////////////////////////////// total selon tissu choisi //
-      if ($('input_02').value == 'tissu 220g' ) {
-        cena = (tissu220+structure+scratch)*1.70+trans;
-        designation += '<br />- tissu 220g';
-      }
-      if ($('input_02').value == 'tissu 260g' ) {
-        cena = (tissu260+structure+scratch)*1.90+trans;
-        designation += '<br />- tissu 260g';
-      }
-
-    	// prix stand tissu //////////////////////////////////////////////////////
-    	// cena= (tissu+structure+trans)*1.40;
-    	//////////////////////////////////////////////////////////////////////////
-
-
-     	if ($('input_6').value == '41' ) {
-    		cena += 299+18; ////////// PV + transport
-    		designation += '<br />- Valise de transport';
-    	}
-    	if ($('input_6').value == 'Comptoir Easy Quick' ) {
-    		cena += ((70+40)*1.60)+10 /////struture+impression X coef + transport;
-    		designation += '<br />- Comptoir Easy Quick';
-    	}
-    }
-
-    // Comptoir Easy Quick seul ////////////////////////////////////////////////
-
-    if ($('input_0').value == 'Comptoir Easy Quick') {
-      var rodzaj = "Comptoir";
-      designation += '- Comptoir Easy Quick';
-		if ($('input_0222').value == 'tissu 220g' ) {
-    		tissu = 20*3;//3=coeff //
-    		designation += '<br />- Tissu 220g';
-    	}
-		if ($('input_0222').value == 'tissu 260g' ) {
-    		tissu =30*3;//prix du site x coeff //
-    		designation += '<br />- Tissu 260g';
-    	}
-
-      structure = 70*1.80;//1.80 = coeff //
-      trans = 10;
-      cena = tissu + structure + trans + scratch;
-      hauteur = 102.4;
-      largeur = 172;
-    }
-
-    // valise seule ////////////////////////////////////////////////////////////
-    if ($('input_0').value == 'valise') {
-      var rodzaj = "Valise";
-      designation += '- Valise ATLAS + Tablette bois';
-  	  scratch =5.5
-  	  trans = 20
-  	  structure = 142*1.40
-  	  cena = tissu + structure + trans + scratch;
-  	  if ($('input_022').value == 'tissu 220g' ) {
-    		tissu = 17.90*4;//4=coeff //
-    		designation += '<br />- Tissu 220g';
-    	}
-  		if ($('input_022').value == 'tissu 260g' ) {
-    		tissu = 23.25*4;//4=coeff //
-    		designation += '<br />- Tissu 260g';
-    	}
-  		if ($('input_022').value == 'PVC 300µ' ) {
-    		tissu = 13.86*2;//2=coeff //
-    		designation += '<br />- PVC 300µ';
-    	}
-  		if ($('input_022').value == 'sans visuel' ) {
-    		tissu = 0;//2=coeff //
-    		designation += '<br />- Sans Impression';
-    	}
-  	  cena = tissu + structure + trans + scratch;
-
-      hauteur = 90;
-      largeur = 174;
-    }
-
-    // Stand expo bag //////////////////////////////////////////////////////////
-    if ($('input_0').value == 'Stand ExpoBag') {
-      var rodzaj = "Stand ExpoBag";
-	    var rollup = 90; var portedocument = 35; var spot = 0; var photocall = 0; var valise = 0;
-
-	  if ($('input_photocall').value == 'jet 520 M1' ) {
-    		photocall = 190;
-    		designation += '- Mur d\'image en bâche 520g M1';
-    	}
-	  if ($('input_photocall').value == 'tissu 220g' ) {
-    		photocall = 205;
-    		designation += '- Mur d\'image en tissu 220g B1';
-    	}
-
-	  if ($('input_valise').value == 'tissu 220g' ) {
-    		valise = 260;
-    		designation += '<br />- Visuel de la valise en tissu 220g B1';
-    	}
-	  if ($('input_valise').value == 'PVC 300µ' ) {
-    		valise = 240;
-    		designation += '<br />- Visuel de la valise en PVC 300µ';
-    	}
-	  if ($('input_valise').value == 'sans impression' ) {
-    		valise = 215;
-    		designation += '<br />- Valise sans impression';
-    	}
-
-
-    	cena = rollup+portedocument+photocall+valise+spot;
-
-      hauteur = 220;
-      largeur = 240;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    ilosc=$('input_8').value;
-
-    if ($('input_0').value == 'Stand parapluie') {
-      trans = 49;
-    	// stand parrapluie courbé ///////////////////////////////////////////////
-    	if ($('input_1').value == '1' ) {
-    		pack = 233;
-    		designation += '<br />- 3x2-courbé recto<br />- 2225(h)x1600(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '2' ) {
-    		pack = 245;
-    		designation += '<br />- 3x3-courbé recto<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '3' ) {
-    		pack = 280;
-    		designation += '<br />- 3x4-courbé recto<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '4' ) {
-    		pack = 269;
-    		designation += '<br />- 3x3-courbé recto verso<br />- 2225(h)x2520(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '5' ) {
-    		pack = 328;
-    		designation += '<br />- 3x4-courbé recto verso<br />- 2225(h)x3010(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-
-    	// stand parrapluie droit ////////////////////////////////////////////////
-    	if ($('input_1').value == '6' ) {
-    		pack = 233;
-    		designation += '<br />- 3x2-droit recto<br />- 2225(h)x1513(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '7' ) {
-    		pack = 245;
-    		designation += '<br />- 3x3-droit recto<br />- 2225(h)x2243(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '8' ) {
-    		pack = 280;
-    		designation += '<br />- 3x4-droit recto<br />- 2225(h)x2973(l) <br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '9' ) {
-    		pack = 269;
-    		designation += '<br />- 3x3-droit recto verso<br />- 2225(h)x2243(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-    	if ($('input_1').value == '10' ) {
-    		pack = 328;
-    		designation += '<br />- 3x4-droit recto verso<br />- 2225(h)x2973(l)<br />- la valise comptoir imprimée et sa tablette<br />- 2 spots halogène 150w';
-    	}
-
-    	// prix stand tissu //////////////////////////////////////////////////////
-    	cena= (pack+trans)*2.35;
-    	//////////////////////////////////////////////////////////////////////////
-    }
-
-    if ($('input_0').value == 'Stand ExpoBag') {javascript: Afficher2();}
-    if ($('input_0').value == 'Tissu') {javascript: Masquer2();}
-    if ($('input_0').value == 'Stand parapluie') {javascript: Masquer2();}
-    if ($('input_0').value == 'Comptoir tissu Easy Quick') {javascript: Masquer2();}
-
-    //////////////////////////////////////////////////////////// choix maquette //
-    var maquette;
-    if ($('input_7').value == 'fb') {
-    	cena+=35/ilosc;
-    	maquette = 'France banderole crée la maquette';
-    }
-    if ($('input_7').value == 'config') {
-      cena+=5/ilosc;
-      maquette = 'je crée ma maquette en ligne';
-    }
-  	if ($('input_7').value == 'user') {
-  				cena+=5/ilosc;
-  				maquette = 'BAT en ligne';
-  	}
-  	if ($('input_7').value == 'sansbat') {
-  				maquette = 'je ne souhaite pas de BAT';
-  	}
-
-
-	  /////////////////////////////////////////////////////////////// signature //
-		if ($('input_signature').value == 'signature FB') {
-			opis += '<br />- signature France Banderole';
-		}
-		if ($('input_signature').value == 'sans signature') {
-			if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5;}
-			opis += '<br />- sans signature';
-		}
-
-  	///////////////////////////////////////////////////////////////// options //
-  	var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-  	var etiqdesc = '';
-  	if (etiquette == true) {
-  		transport=0;
-  		etiqdesc = '<br />- retrait colis a l\'atelier';
-  		cena-= cena*3/100;
-  	}
-  	if (etiquette == false) {
-  		transport=0;
-  	}
-  	var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-  	if (colis == true) {
-			if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 5;}
-			optliv += '<br />- colis revendeur';
-  	}
-
-    /////////////////////////////////////////////////////////// total produit //
-    prixunite = cena;
-    cena=prixunite*ilosc;
-    prixunite=fixstr(prixunite);
-    cena2 = prixunite.replace(".", ",");
-
-    /////////////////////////////////////////////// affichage jours livraison //
-    var myClass = jQuery(this).attr("class");
-
-    var n = myClass.search("production");
-    if (n != -1) {
-      jQuery('.production').prop("disabled",false);
-      jQuery('.production').removeClass('active');
-      jQuery(this).addClass('active');
-      var production = jQuery(this).attr('onClick');
-      jQuery('#production-value').val(Afficher());
-      var production = jQuery(this).attr('text-value');
-      jQuery('#production-value').val(production);
-      jQuery(this).prop("disabled",true);
-    }
-
-    var m = myClass.search("delivery");
-    if (m != -1) {
-      jQuery('.delivery').prop("disabled",false);
-      jQuery('.delivery').removeClass('active');
-      jQuery(this).addClass('active');
-      var delivery = jQuery(this).attr('text-value');
-      jQuery('#delivery-value').val(delivery);
-      jQuery(this).prop("disabled",true);
-
-      jQuery(document).ready(function(){
-        jQuery('.jotform-form select').click(function(){
-          jQuery('#delivery-value').val(Masquer());
-          jQuery('.delivery').prop("disabled",false);
-          jQuery('.production').prop("disabled",false);
-          jQuery('.production').removeClass('active');
-          jQuery(this).addClass('');
-          jQuery('.delivery').removeClass('active');
-          jQuery(this).addClass('active');
-          jQuery('#production-value').prop("disabled",false);
-          jQuery('#delivery-value').prop("disabled",true);
-        });
-      });
-
-      jQuery(document).ready(function(){
-        jQuery('.form-textbox').click(function(){
-          jQuery('#delivery-value').val(Masquer());
-          jQuery('.delivery').prop("disabled",false);
-          jQuery('.production').prop("disabled",false);
-          jQuery('.production').removeClass('active');
-          jQuery(this).addClass('');
-          jQuery('.delivery').removeClass('active');
-          jQuery(this).addClass('active');
-          jQuery('#production-value').prop("disabled",false);
-          jQuery('#delivery-value').prop("disabled",true);
-        });
-      });
-
-      jQuery(document).ready(function(){
-        jQuery('.form-checkbox').click(function(){
-          jQuery('#delivery-value').val(Masquer());
-          jQuery('.delivery').prop("disabled",false);
-          jQuery('.production').prop("disabled",false);
-          jQuery('.production').removeClass('active');
-          jQuery(this).addClass('');
-          jQuery('.delivery').removeClass('active');
-          jQuery(this).addClass('active');
-          jQuery('#production-value').prop("disabled",false);
-          jQuery('#delivery-value').prop("disabled",true);
-        });
-      });
-    }
-
-    var production      = jQuery('#production-value').val();
-    var delivery        = jQuery('#delivery-value').val();
-
-    if(production && delivery){
-      // Calculate price
-      var ProdPercent = '';
-      var DeliPercent = '';
-      var PorductType = jQuery('.production.active').attr('text-value');
-      var DeliveryType = jQuery('.delivery.active').attr('text-value');
-
-      if(PorductType == '2-3' ){
-        ProdPercent = 20;
-        prliv += '<br />- P 2-3J';
-      }else if(PorductType =='1-1'){
-        ProdPercent = 45;
-        prliv += '<br />- P 1J';
-      }else{
-        ProdPercent = 0;
-        prliv += '<br />- P 4-5J';
-      }
-
-      if(DeliveryType == '2-3'){
-        DeliPercent = 20;
-        prliv += ' / L 2-3J';
-      }else if(DeliveryType =='1-1'){
-        DeliPercent = 45;
-        prliv += ' / L 1J';
-      }else{
-        DeliPercent = 0;
-        prliv += ' / L 3-4J';
-      }
-
-      var price_unit = parseFloat(prixunite);
-      var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-      var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-      var finalPrice           = calculatedTotalPrice + price_unit;
-
-      //////////////////////////////////////////////////////// Calculate Days //
-      var prod_first_val  = parseInt(production[0]);
-      var prod_second_val = parseInt(production[2]);
-      var deli_first_val  = parseInt(delivery[0]);
-      var deli_second_val = parseInt(delivery[2]);
-
-      var totalProduction = prod_first_val + deli_first_val;
-      var totalDelivery   = prod_second_val + deli_second_val;
-      if(totalProduction == totalDelivery){
-        jQuery('#totaldays').text("Total jours " + totalProduction);
-        var days = totalProduction;
-      }else{
-        jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-        var days = totalDelivery;
-      }
-
-      var curdate = new Date();
-      var curhour = curdate.getHours();
-      // ajout 1 jour ouvré de délai sur commande après 12h
-      if (curhour >= 12) {
-        var daystoadd = AddBusinessDays(days+1);
-      }else{
-        var daystoadd = AddBusinessDays(days);
-      }
-
-      curdate.setDate(curdate.getDate()+daystoadd);
-      var estdt = new Date(curdate);
-      var month = estdt.getMonth()+1;
-      var day = estdt.getDate();
-      var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-      if(jQuery('#id_16').css('display') != 'none') {
-        jQuery('#estdate_16').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-      }
-
-      var finalPrice1=fixstr(finalPrice);
-      finalPrice2 = finalPrice1.replace(".", ",");
-
-      jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-      jQuery('#remise').html(rabat2);
-
-    }
-
-    //////////////////////////////////////////////////////// prix avec délais //
-    prixunite = finalPrice1;
-    cena=prixunite*ilosc;
-
-    ////////////////////////////////////////////////////////////////// remise //
-    var total = document.getElementById("total");
-    var remise = document.getElementById("remise");
-
-    prixunite=fixstr(prixunite);
-    transport=0;
-
-    ////////////////////////////////////////////////////////////////////////////
-    cena2 = prixunite.replace(".", ",")
-    ////////////////////////////////////////////////////////////////////////////
-
-    var erreurType = 0;
-
-    if (erreurType==1) {
-    	prix.innerHTML='-';
-    	remise.innerHTML='-';
-    	total.innerHTML='-';
-    }
-
-    // livraison le jour même //////////////////////////////////////////////////
-    if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-    	livraisonrapide.style.display = 'block';
-    }
-    else {livraisonrapide.style.display = 'none';}
-    ////////////////////////////////////////////////////////////////////////////
-
-    if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-      suma=cena-rabat;
-      suma=fixstr(suma);
-      suma2 = suma.replace(".", ",");
-      total.innerHTML=suma2+' &euro;';
-
-      if (ilosc.empty()){
-        eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Merci de spécifier une quantité';
-        eBox.style.display="block";
-      }
-
-			////////////////////////////////////////////////////// envoi formulaire //
-
-    	var dodajkoszyk = document.getElementById("cart_form");
-    	dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+designation+'<br />- '+maquette+optliv+opis+etiqdesc+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="-" /><input type="hidden" name="remise" value="'+rabat2+'" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
-      livraisonComp.style.display = 'block';
-		}
-	}); // fin prod/delivery click function
-}); // fin jq doc ready
-
-</script>
+				</div>
+			</transition>
+
+		</div> <!-- fin bloc formulaire #buying -->
+
+		<!--bloc preview-->
+		<div class="column" id="previewContainer">
+			<div id="previewImg">
+
+				<transition name="slideDown">
+					<div id="container" v-if="slideContainer">
+						<ul id="slides">
+
+							<li><img :src="$global.img+'/parapluie/slide/standexpo-0.jpg'" alt="stand exposition salon" title="stand expo pas cher" /></li>
+				      <li><img :src="$global.img+'/parapluie/slide/standexpo-2.jpg'" alt="devis en ligne stand expo" title="stand parapluie devis" /></li>
+				      <li><img :src="$global.img+'/parapluie/slide/standexpo-3.jpg'" alt="stand parapluie pas cher" title="stand exposition personnalisé" /></li>
+
+						</ul>
+					</div>
+				</transition>
+
+				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag1" :style="bg1" v-show="pr1"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag2" :style="bg2" v-show="pr2"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag3" :style="bg3" v-show="pr3"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag4" :style="bg4" v-show="pr4"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag5" :style="bg5" v-show="pr5"></div></transition>
+				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
+					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
+				</div></transition>
+
+				<div class="helpMenu">
+					<a :href="$global.url+'/aide-stand-parapluie/'" class="notice modal-link" title="aide produit">
+						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+					</a>
+					<a :href="$global.url+'/notice-technique-stand-parapluie-tissu-expo/'" class="notice modal-link"  title="notices techniques">
+						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+					</a>
+					<a :href="$global.url+'/gabarit-stand-parapluie-tissu/'" class="notice modal-link"  title="gabarits maquette">
+						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+					</a>
+				</div>
+
+			</div>
+
+			<div id="estimation" :class="reqEstm">
+
+				<div id="estimationTitre" :class="reqEstm">
+					<span class="estimationData">PRIX UNITAIRE</span>
+					<span class="estimationData">OPTION</span>
+					<span class="estimationData">TOTAL H.T.</span>
+				</div>
+
+				<div id="estimationPrix">
+					<span class="estimationData" id="prix_unitaire">{{ prixUnit   }} </span>
+					<span class="estimationData" id="option">       {{ prixOption }} </span>
+					<span class="estimationData" id="total">        {{ prixTotal  }} </span>
+				</div>
+
+				<div id="estimationInfos">
+					<div id="livraisonrapide" v-show="livraisonrapide">
+						<img :src="$global.img+'/livraison_rapide/liv-rapide.jpg'" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/>
+					</div>
+
+					<div id="livraisonComp" v-show="livraisonComp">
+						<span id="forfait">{{ forfait }}</span>
+						<span v-html="message"></span>
+					</div>
+
+					<transition name="slideDown">
+						<form name="cartData" id="cartData" action="../votre-panier/" method="post" v-show="ajoutPanier">
+							<input type="hidden" name="addtocart" value="addtocart" />
+							<input type="hidden" name="rodzaj"    v-model="inputProd" />
+							<input type="hidden" name="opis"      v-model="inputDesc" />
+							<input type="hidden" name="ilosc"     v-model="inputQte" />
+							<input type="hidden" name="prix"      v-model="inputPrix" />
+							<input type="hidden" name="option"    v-model="inputOption" />
+							<input type="hidden" name="remise"    v-model="inputRemise" />
+							<input type="hidden" name="total"     v-model="inputTotal" />
+							<input type="hidden" name="transport" v-model="inputTransport" />
+							<input type="hidden" name="hauteur"   v-model="hauteur" />
+							<input type="hidden" name="largeur"   v-model="largeur" />
+							<input type="hidden" name="reference" v-model="prodref" />
+
+							<button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button>
+						</form>
+					</transition>
+
+					<transition name="slideDown">
+						<div class="formError" :class="errorColor" v-html="errorMessage" v-show="formError" :key="errorTrigger"></div>
+					</transition>
+
+				</div>
+			</div> <!-- fin bloc estimation -->
+
+		</div>  <!-- fin bloc image #previewContainer -->
+
+	</div>
+</div> <!-- fin bloc app  -->
+
+<!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
+<script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
+<script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.parapluie.js?v=2.5"></script>

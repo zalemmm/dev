@@ -171,7 +171,7 @@ function fb_admin_expedition() {
     ob_start();
     createTable();
     global $wpdb;
-	$code_fin_expedition = '99999999';
+	  $code_fin_expedition = '99999999';
     $prefix = $wpdb->prefix;
     $fb_tablename_order = $prefix . "fbs_order";
     $fb_tablename_prods = $prefix . "fbs_prods";
@@ -248,12 +248,13 @@ function fb_admin_expedition() {
                             $fb_tablename_order = 'wp_fbs_order';
                             $fb_tablename_topic = 'wp_fbs_topic';
                             $fb_tablename_mails = 'wp_fbs_mails';
+                            $fb_tablename_sms = 'wp_fbs_sms';
                             $fb_tablename_comments = 'wp_fbs_comments';
                             $fb_tablename_comments_new = 'wp_fbs_comments_new';
                             $fb_tablename_cf = 'wp_fbs_cf';
                             $fb_tablename_users = 'wp_fbs_users';
                             $fb_tablename_address = 'wp_fbs_address';
-                            traitement_passage_expedie($number, $fb_tablename_order, $fb_tablename_topic, $fb_tablename_mails, $fb_tablename_comments, $fb_tablename_comments_new, $fb_tablename_cf, $fb_tablename_users, $fb_tablename_address);
+                            traitement_passage_expedie($number, $fb_tablename_order, $fb_tablename_topic, $fb_tablename_mails, $fb_tablename_sms, $fb_tablename_comments, $fb_tablename_comments_new, $fb_tablename_cf, $fb_tablename_users, $fb_tablename_address);
                             addMsg('Ancien statut: ', $stat['text'], $stat['style'], 2);
                             addMsg("Passage au process : ", "Commande Expédiée", "style='color:green; width:150px;'", 2);
                             addMsg("green_tick.png", "", " style='float: right;width:150px;'", 8);
@@ -268,12 +269,13 @@ function fb_admin_expedition() {
                                     $fb_tablename_order = 'wp_fbs_order';
                                     $fb_tablename_topic = 'wp_fbs_topic';
                                     $fb_tablename_mails = 'wp_fbs_mails';
+                                    $fb_tablename_sms = 'wp_fbs_sms';
                                     $fb_tablename_comments = 'wp_fbs_comments';
                                     $fb_tablename_comments_new = 'wp_fbs_comments_new';
                                     $fb_tablename_cf = 'wp_fbs_cf';
                                     $fb_tablename_users = 'wp_fbs_users';
                                     $fb_tablename_address = 'wp_fbs_address';
-                                    traitement_passage_expedie($number, $fb_tablename_order, $fb_tablename_topic, $fb_tablename_mails, $fb_tablename_comments, $fb_tablename_comments_new, $fb_tablename_cf, $fb_tablename_users, $fb_tablename_address);
+                                    traitement_passage_expedie($number, $fb_tablename_order, $fb_tablename_topic, $fb_tablename_mails, $fb_tablename_sms, $fb_tablename_comments, $fb_tablename_comments_new, $fb_tablename_cf, $fb_tablename_users, $fb_tablename_address);
 
                                 } elseif ($sColis < $colis) {
                                     archive($code, $colis, $sColis+1, 1);

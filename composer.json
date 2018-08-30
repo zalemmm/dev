@@ -1,5 +1,7 @@
 {
     "require": {
-        "phpoffice/phpspreadsheet": "^1.0"
+        "phpoffice/phpspreadsheet": "^1.0",
+        "mikehaertl/phpwkhtmltopdf": "^2.3",
+        "aftership/aftership-php-sdk": "^5.1"
     }
 }

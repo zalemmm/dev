@@ -455,11 +455,93 @@ JotForm = {
               imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/totem/int.png)";
             }
             if ($('input_forme').value == 'rectangulaire') {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/rect.png)";
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre.png)";
               imag2.style.animation="anim .5s 1";
             }
             if ($('input_forme').value == 'ronde') {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/rond.png)";
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '0') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '10') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond1.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '20') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond2.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '30') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond3.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '40') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond4.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '50') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond5.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '60') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond6.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '70') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond7.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '80') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond8.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee_rond').value == '90') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/napperond9.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			
+			
+			if ($('input_retombee').value == '0') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '10') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre1.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '20') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre2.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '30') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre3.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '40') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre4.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '50') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre5.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '60') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre6.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '70') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre7.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '80') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre8.png)";
+              imag2.style.animation="anim2 .5s 1";
+            }
+			if ($('input_retombee').value == '90') {
+              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/nappe/nappecarre9.png)";
               imag2.style.animation="anim2 .5s 1";
             }
 

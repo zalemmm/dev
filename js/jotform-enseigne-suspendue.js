@@ -619,23 +619,23 @@ JotForm = {
             var imag3 = $("preview_imag3");
             var imag4 = $("preview_imag4");
             var imag5 = $("preview_imag5");
-			
-           
+
+
 
 			if ($('input_1').value == "Rond") {
-              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseigne-suspendue/slide/rond.jpg)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseigne-suspendue/slide/rond.jpg)";
 			  imag2.style.animation="anim .5s 1";
             }
             if ($('input_1').value == 'Carré') {
-              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseigne-suspendue/slide/carre.jpg)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseigne-suspendue/slide/carre.jpg)";
               imag2.style.animation="anim .5s 1";
             }
             if ($('input_1').value == 'Triangle') {
-              imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/enseigne-suspendue/slide/triangle.jpg)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/enseigne-suspendue/slide/triangle.jpg)";
               imag2.style.animation="anim2 .5s 1";
             }
-           
-           
+
+
 
 			    }//-------------------------------------------------------------------
 
@@ -1360,7 +1360,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
+                    top: '<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1375,7 +1375,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+        }).insert('<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

@@ -49,6 +49,19 @@ $(function () {
         dataType: 'json',
         context: $('#fileupload')[0]
     }).done(function (result) {
+        //-------------------------- bloquer l'affichage des fichiers json & csv
+        $.each(result, function( index, objects ) {
+          var x;
+          for (x in objects) {
+              if (objects[x].name.endsWith('.json')){
+                objects.splice(x, 1);
+              }
+              if (objects[x].name.endsWith('.csv')){
+                objects.splice(x, 1);
+              }
+          }
+        });
+        //----------------------------------------------------------------------
         $(this).fileupload('option', 'done').call(this, null, {result: result});
     });
 

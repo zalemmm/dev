@@ -1,1611 +1,390 @@
-<div id="buying">
-	<h3>Votre devis en ligne</h3>
-	<!-- <a href="http://www.france-banderole.com/enseignes/"><<<pRetour enseignes</a> -->
-	<form class="jotform-form" action="" method="post" name="form_1060900217" id="1060900217" accept-charset="utf-8" onsubmit="JKakemono.cal_forex3mm(); return false;">
-		<input type="hidden" name="formID" value="1060900217" />
-		<div class="form-all">
-			<ul class="form-section">
+<div id="prodApp">
+	<div class="row">
+		<div class="column" id="choicesContainer"> <!--bloc formulaire-->
 
-				<li class="form-line select" id="id_0">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText0" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_0" name="q0_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir l'impression</option>
-						<option value="recto">Recto </option>
-						<option value="rectoverso">Recto/Verso </option>
-					</select>
-				</li>
+			<h3>Votre devis en ligne Forex 3mm</h3>
 
-				<li class="form-line select" id="id_HD">
-					<span class="helpButton"><img class="helpImg"  src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpTextHD" style="visibility:hidden;">• <span class="highlight"><u><b>Impression forex Haute définition :</b></u></span><br/>impression directe UV HD 1200x1200Dpi. Pour une impression akylux parfaite même de très près.<br />• <span class="highlight"><u><b>Impression forex standard :</b></u></span><br/>impression directe UV 600x600Dpi. Pour une impression forex pas cher de très bonne qualité à 1 mètre.<a href="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher-big.jpg" title="impression Haute définition panneaux forex pas cher"><img class="" title="impressio HD panneaux akylux pas cher" alt="panneaux imprimés forex pas cher" src="http://www.france-banderole.com/wp-content/uploads/2016/12/impression-HD-panneaux-akylux-pas-cher.jpg"></a><br/></span></span>
-					<select class="form-dropdown validate[required]" id="input_HD" name="qHD_maquette" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir qualité d'impression...</option>
-						<option value="HD">Haute définition</option>
-						<option value="standard">Standard</option>
-					</select>
-				</li>
+			<form class="vueForm" action="" method="post" name="vueForm" id="vueForm" accept-charset="utf-8">
+				<div class="form-all">
+					<ul class="formSection">
 
-				<li class="form-line select" id="id_1">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText1" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_1" name="q1_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la dimension</option>
-						<option value="60x40">60x40cm </option>
-						<option value="60x78">60x78cm </option>
-						<option value="100x50">100x50cm</option>
-						<option value="150x75">150x75cm</option>
-						<option value="200x100">200x100cm</option>
-						<option value="200x150">200x150cm</option>
-						<option value="300x150">300x150cm</option>
-						<option value="personnalisée">Taille Personnalisée</option>
-					</select>
-				</li>
+						<li class="formSelect">
 
-				<li class="form-line select" id="id_32">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_32" name="q32_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la quantité</option>
-						<option class="select-alt" value="1">1</option>
-						<option value="2">2</option>
-						<option class="select-alt" value="3">3</option>
-						<option value="4">4</option>
-						<option class="select-alt" value="5">5</option>
-						<option value="6">6</option>
-						<option class="select-alt" value="7">7</option>
-						<option value="8">8</option>
-						<option class="select-alt" value="9">9</option>
-						<option value="10">10</option>
-						<option class="select-alt" value="11">11</option>
-						<option value="12">12</option>
-						<option class="select-alt" value="13">13</option>
-						<option value="14">14</option>
-						<option class="select-alt" value="15">15</option>
-						<option value="16">16</option>
-						<option class="select-alt" value="17">17</option>
-						<option value="18">18</option>
-						<option class="select-alt" value="19">19</option>
-						<option value="20">20</option>
-						<option class="select-alt" value="40">40</option>
-						<option value="60">60</option>
-						<option class="select-alt" value="80">80</option>
-						<option value="100">100</option>
-						<option class="select-alt" value="150">150</option>
-						<option value="200">200</option>
-						<option class="select-alt" value="300">300</option>
-						<option value="400">400</option>
-						<option class="select-alt" value="500">500</option>
-						<option value="750">750</option>
-						<option class="select-alt" value="1000">1000</option>
-						<option value="1500">1500</option>
-						<option class="select-alt" value="2000">2000</option>
-						<option value="3000">3000</option>
-						<option class="select-alt" value="4000">4000</option>
-						<option value="5000">5000</option>
-						<option class="select-alt" value="7500">7500</option>
-						<option value="10000">10000</option>
-					</select>
-				</li>
+							<button type="button" class="toggle" :class="reqProd" @click="toggleProd = !toggleProd">
+								{{ choixProd }} <i class="fa fa-caret-down"></i>
+							</button>
 
-				<li class="form-line select" id="id_32perso">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText32perso" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_32perso" name="q32perso_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la quantité</option>
-						<option class="select-alt" value="1">1</option>
-						<option value="2">2</option>
-						<option class="select-alt" value="3">3</option>
-						<option value="4">4</option>
-						<option class="select-alt" value="5">5</option>
-						<option value="6">6</option>
-						<option class="select-alt" value="7">7</option>
-						<option value="8">8</option>
-						<option class="select-alt" value="9">9</option>
-						<option value="10">10</option>
-						<option class="select-alt" value="11">11</option>
-						<option value="12">12</option>
-						<option class="select-alt" value="13">13</option>
-						<option value="14">14</option>
-						<option class="select-alt" value="15">15</option>
-						<option value="16">16</option>
-						<option class="select-alt" value="17">17</option>
-						<option value="18">18</option>
-						<option class="select-alt" value="19">19</option>
-						<option value="20">20</option>
-						<option class="select-alt" value="40">40</option>
-						<option value="60">60</option>
-						<option class="select-alt" value="80">80</option>
-						<option value="100">100</option>
-						<option class="select-alt" value="150">150</option>
-						<option value="200">200</option>
-						<option class="select-alt" value="300">300</option>
-						<option value="400">400</option>
-						<option class="select-alt" value="500">500</option>
-						<option value="750">750</option>
-						<option class="select-alt" value="1000">1000</option>
-						<option value="1500">1500</option>
-						<option class="select-alt" value="2000">2000</option>
-						<option value="3000">3000</option>
-						<option class="select-alt" value="4000">4000</option>
-						<option value="5000">5000</option>
-						<option class="select-alt" value="7500">7500</option>
-						<option value="10000">10000</option>
-					</select>
-				</li>
-				<li class="form-line select" id="id_4">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_4" name="4_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la fixation</option>
-						<option value="double face">double face (4 adhésifs)</option>
-						<option value="ventouse">ventouse + perçage</option>
-						<option value="perçage">perçage</option>
-						<option value="sans">pas de fixations</option>
-					</select>
-				</li>
-				<li class="form-line select" id="id_4perso">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText4perso" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_4perso" name="4perso_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir la fixation</option>
-						<option value="double face">double face (4 adhésifs)</option>
-						<option value="ventouse">ventouse + perçage</option>
-						<option value="perçage">perçage</option>
-						<option value="sans">pas de fixations</option>
-					</select>
-				</li>
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleProd">
+									<div @mouseover="hoPw(9,'impression recto standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('recto standard');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Standard Recto</span>
+									</div>
+									<div @mouseover="hoPw(9,'impression recto/verso standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('recto/verso standard');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Standard Recto/Verso</span>
+									</div>
+									<div @mouseover="hoPw(9,'impression recto hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('recto hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Haute Déf. Recto</span>
+									</div>
+									<div @mouseover="hoPw(9,'impression recto/verso hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('recto/verso hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Haute Déf. Recto/Verso</span>
+									</div>
+								</div>
+							</transition>
 
-				<li class="form-line select" id="id_5">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_5" name="5_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir le perçage</option>
-						<option value="2">2 trous</option>
-						<option value="4">4 trous </option>
-						<option value="6">6 trous </option>
-						<option value="8">8 trous </option>
-						<option value="10">10 trous </option>
-					</select>
-				</li>
-				<li class="form-line select" id="id_5perso">
-					<span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png"><span class="helpText" id="helpText5perso" style="visibility:hidden;">infos </span></span>
-					<select class="form-dropdown validate[required]" id="input_5perso" name="5perso_usage" onclick="JKakemono.czyscpola(); ">
-						<option value="">choisir le perçage</option>
-						<option value="2">2 trous</option>
-						<option value="4">4 trous </option>
-						<option value="6">6 trous </option>
-						<option value="8">8 trous </option>
-						<option value="10">10 trous </option>
-					</select>
-				</li>
+						</li>
 
-				<li class="form-line select" id="id_6">
-					<span class="helpButton">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette" style="visibility:hidden;">
-                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique:</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne:</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier:</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-                        </span>
+
+						<li class="formSelect" v-show="showOpts">
+
+							<button type="button" class="toggle" :class="reqOpts" @click="toggleOpts = !toggleOpts">
+								{{ choixOpts }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleOpts">
+									<div @mouseover="hoPw(9,'sans option');" @mouseout="hout(9)" @click="reset(); selectOpts('sans');">
+										<i class="fa fa-ban" aria-hidden="true"></i><span>sans option</span>
+									</div>
+									<div @mouseover="hoPw(9,'perçage');" @mouseout="hout(9)" v-tooltip.bottom="$global.prca" @click="reset(); selectOpts('perçage');">
+										<i class="fa fa-circle" aria-hidden="true"></i><span>perçage</span>
+									</div>
+									<div @mouseover="hoPw(9,'pelliculage');" @mouseout="hout(9)" v-tooltip.bottom="$global.lami" @click="reset(); selectOpts('lamination');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>pelliculage</span>
+									</div>
+									<div @mouseover="hoPw(9,'pelliculage + perçage');" @mouseout="hout(9)" v-tooltip.bottom="$global.lami" @click="reset(); selectOpts('pelliculage et perçage');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i> <i class="fa fa-circle" aria-hidden="true"></i><span>pelliculage + perçage</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+						<li class="formSelect" v-show="showLami">
+
+							<button type="button" class="toggle" :class="reqLami" @click="toggleLami = !toggleLami">
+								{{ choixLami }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleLami">
+									<div @mouseover="hoPw(3,'brillant');"   @mouseout="hout(3)" v-tooltip.bottom="$global.pbri" @click="reset(); selectLami('pelliculage brillant', 'brillant');">
+										<img :src="$global.img+'/enseignes/brillant.svg'" /><span>pelliculage brillant</span>
+									</div>
+									<div @mouseover="hoPw(3,'mat');"  @mouseout="hout(9)" v-tooltip.bottom="$global.pmat" @click="reset(); selectLami('pelliculage mat', 'mat');">
+										<img :src="$global.img+'/enseignes/mat.svg'" /><span>pelliculage mat</span>
+									</div>
+									<div @mouseover="hoPw(3,'neutre');"  @mouseout="hout(3)" v-tooltip.bottom="$global.pgrf" @click="reset(); selectLami('pelliculage laqué anti graffiti', 'neutre');">
+										<img :src="$global.img+'/enseignes/neutre.svg'" /></i><span>pelliculage anti graffiti</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+						<li class="formSelect" v-show="showPers">
+
+							<button type="button" class="toggle" :class="reqPers" @click="togglePers = !togglePers">
+								{{ choixPers }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="togglePers" >
+
+									<div @mouseover="hoPw(4,'2');"  @mouseout="hout(4)" @click="reset(); selectPers('2');">
+										<i class="fa fa-circle" aria-hidden="true"></i><span>2 trous</span>
+									</div>
+									<div @mouseover="hoPw(4,'4');"  @mouseout="hout(4)" @click="reset(); selectPers('4');">
+										<i class="fa fa-circle" aria-hidden="true"></i><span>4 trous</span>
+									</div>
+									<div @mouseover="hoPw(4,'6');"  @mouseout="hout(4)" @click="reset(); selectPers('6');">
+										<i class="fa fa-circle" aria-hidden="true"></i><span>6 trous</span>
+									</div>
+									<div @mouseover="hoPw(4,'8');"  @mouseout="hout(4)" @click="reset(); selectPers('8');">
+										<i class="fa fa-circle" aria-hidden="true"></i><span>8 trous</span>
+									</div>
+									<div @mouseover="hoPw(4,'10');" @mouseout="hout(4)" @click="reset(); selectPers('10');">
+										<i class="fa fa-circle" aria-hidden="true"></i><span>10 trous</span>
+									</div>
+
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" id="id_maquette" v-show="showMaqt">
+
+							<button type="button" class="toggle" :class="reqMaqt" @click="toggleMaqt = !toggleMaqt">
+								{{ choixMaqt }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleMaqt" >
+									<div @mouseover="hoPw(9,'sans BAT');" @mouseout="hout(9)" v-tooltip.bottom="$global.btn" @click="reset(); selectMaqt('maquette client sans bat');">
+										<i class="bat"><strike>BAT</strike></i> <span class="smalls">j’envoie mon fichier, je ne veux pas de BAT</span>
+									</div>
+									<div @mouseover="hoPw(9,'BAT numérique');" @mouseout="hout(9)" v-tooltip.bottom="$global.bty" @click="reset(); selectMaqt('maquette client bat');">
+										<i class="bat">BAT</i> <span class="smalls">j’envoie mon fichier, je veux un BAT</span>
+									</div>
+									<div @mouseover="hoPw(9,'maquette en ligne');" @mouseout="hout(9)" v-tooltip.bottom="$global.enl" @click="reset(); selectMaqt('maquette en ligne');">
+										<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="smalls">je crée ma maquette en ligne</span>
+									</div>
+									<div @mouseover="hoPw(9,'maquette france banderole');" @mouseout="hout(9)" v-tooltip.bottom="$global.mfb" @click="reset(); selectMaqt('mise en page france banderole');">
+										<i class="fa fa-paint-brush" aria-hidden="true"></i> <span class="smalls">mise en page par france banderole</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" id="id_signature" v-show="showSign">
+
+							<button type="button" class="toggle" :class="reqSign" @click="toggleSign = !toggleSign">
+								{{ choixSign }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSign" >
+									<div @mouseover="hoPw(9,'signature france banderole');" @mouseout="hout(9)" v-tooltip.bottom="$global.psi" @click="reset(); selectSign('signature France Banderole');">
+										<i class="fa fa-pencil" aria-hidden="true"></i><span>produit signé</span>
+									</div>
+									<div @mouseover="hoPw(9,'sans signature');" @mouseout="hout(9)" v-tooltip.bottom="$global.pne" @click="reset(); selectSign('sans signature');">
+										<i class="fa fa-ban" aria-hidden="true"></i><span>produit neutre</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+					</ul> <!-- fin listes déroulantes -->
+
+					<ul class="optionsBlock" v-show="showOptions">
+
+						<li class="optLi optQuantite">
+
+							<div class="qteContainer" :class="reqQtte">
+								<label class="qteLabel" :class="reqQtte">quantité <span class="small">(par visuel)</span></label>
+								<input type="number" min="1" class="qteInput" v-model="qte" @keyup.up="qtePlus" @keyup.down="qteMoins" @click="reset"  />
+
+								<div class="qteBtn" :class="reqQtte">
+									<button type="button" @click="reset(); qteMoins();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+									<button type="button" @click="reset(); qtePlus();"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+								</div>
+							</div>
+
+						</li>
+
+						<li class="optLi optSize" v-show="optionSize">
+							<div class="sizeContainer" :class="reqHaut">
+								<label class="sizeLabel" :class="reqHaut">hauteur <span class="small">(en cm)</span></label>
+								<input type="text" placeholder="ex: 150" class="sizeInput" v-model.number="hauteur" @click="reset" @keyup="checkSize('hauteur', $event.target.value)"/>
+							</div>
+
+							<div class="sizeContainer" :class="reqLarg">
+								<label class="sizeLabel" :class="reqLarg">largeur <span class="small">(en cm)</span></label>
+								<input type="text" placeholder="ex: 80" class="sizeInput" v-model.number="largeur" @click="reset" @keyup="checkSize('largeur', $event.target.value)"/>
+							</div>
+						</li>
+
+						<transition name="slideLeft"><li class="formSelect fieldError" v-show="showEsize">{{ errorSize }}</li></transition>
+
+						<li class="optLi optionLivraison">
+
+							<h5 class="optionsTitle">OPTIONS DE LIVRAISON <span class="noDisXS">DISPONIBLES :</span> </h5>
+
+							<div class="optionsCheck">
+
+								<span class="optCheck">
+									<label for="adresse">Livré à votre adresse</label>
+									<input type="checkbox" id="adresse" v-model="adresse" @click="reset" @change="checkAdresse" />
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.lad, offset: 5}"><i class="fa fa-question-circle"></i></span>
+								</span>
+
+								<span class="optCheck">
+									<label for="etiquette">Retrait <span class="noDisXS">colis à l'</span>atelier</label>
+									<input type="checkbox" id="etiquette" v-model="atelier" @click="reset" @change="checkAtelier"/>
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.lat, offset: 5}"><i class="fa fa-question-circle"></i></span>
+							  </span>
+
+								<span class="optCheck">
+									<label for="relais">Grand format livré entier</label>
+									<input type="checkbox" id="relais" v-model="palette" @click="reset" @change="checkPalette" />
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.gfe, offset: 5}"><i class="fa fa-question-circle"></i></span>
+							  </span>
+
+								<span class="optCheck">
+									<label for="colis">Colis revendeur</label>
+									<input type="checkbox" id="colis" v-model="colis" @click="reset" />
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.crv, offset: 5}"><i class="fa fa-question-circle"></i></span>
+							  </span>
+
+							</div> <!-- fin bloc check options -->
+
+
+							<div class="delaisBloc">
+
+								<h5 class="delaisTitle"><span class="noDisXS">choisir un </span>délai de Production :</h5>
+								<div class="delaisBtn">
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP1" @click="reset(); selectDeliv('4-5');">
+										Normal 4/5 jours
+									</button>
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP2" @click="reset(); selectDeliv('2-3');">
+										Rapide 2/3 jours
+									</button>
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP3" @click="reset(); selectDeliv('1-1');">
+										Express 1 jour
+									</button>
+								</div>
+
+								<transition name="slideDown">
+									<div class="delaisBloc" v-show="showLiv">
+										<h5 class="delaisTitle"><span class="noDisXS">choisir un </span>délai de Livraison :</h5>
+										<div class="delaisBtn">
+											<button type="button" v-model="delailiv" class="dclic" :class="btnD1" @click="calculer('3-4'); dateEstim();">
+												Normal 3/4 jours
+											</button>
+											<button type="button" v-model="delailiv" class="dclic" :class="btnD2" @click="calculer('2-3'); dateEstim();">
+												Rapide 2/3 jours
+											</button>
+											<button type="button" v-model="delailiv" class="dclic" :class="btnD3" @click="calculer('1-1'); dateEstim();">
+												Express 1 jour
+											</button>
+										</div>
+									</div>
+								</transition>
+
+							</div> <!-- fin bloc boutons délais -->
+						</li> <!-- fin options livraison -->
+					</ul> <!-- fin bloc options -->
+				</div> <!-- fin wrapper form -->
+
+			</form>
+
+			<div v-if="choix"> <!-- debug -->
+				<span>- produit : {{ produit }}</span><br />
+				<span>- dimensions : {{ dimensions }}</span><br />
+				<span>- support : {{ support }} </span><br />
+				<span>- maquette : {{ maquette }} </span><br />
+				<span>- signature : {{ sign }} </span><br />
+				<span>- quantité : {{ qte }} </span><br />
+				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
+				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+			</div>
+
+			<transition name="slideLeft">
+				<div class="delivBlock" v-show="dateLivraison" :key="dateTrigger">
+					<span class="delivDate">
+						Livraison prévue avant le {{ estdate }}
+						<a class="linkUppercase modal-link" :href="$global.url+'/etre-livre-rapidement/'" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
 					</span>
-					</span>
-					<select class="form-dropdown validate[required]" id="input_6" name="q6_maquette" onclick="JKakemono.czyscpola(); ">
-						<option value="">fichier d'impression...</option>
-						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT +5,00€</option>
-						<option value="config">je crée ma maquette en ligne +5,00€</option>
-                        <option value="fb">France banderole crée la mise en page +19,00€</option>
-					</select>
-				</li>
-				<li class="form-line select" id="id_6perso">
-					<span class="helpButton">
-						<img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextmaquette2" style="visibility:hidden;">
-                        	<b>j’ai mon fichier, je ne souhaite pas de BAT:</b><br/>
-							Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).<br/>
-							<b>j’ai mon fichier, je souhaite un BAT numérique +5,00€ :</b><br/>
-							Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d'infographie et, un <span class="highlight"><b>BAT à valider</b></span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT numérique en ligne<br/>
-							<b>Vous créez votre maquette en ligne +5,00€ :</b><br/>
-							Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes.<br />
-							<b>France banderole crée votre fichier +19,00€ :</b><br/>
-							Vous fournissez <span class="highlight"><b> de 1 à 6 éléments séparés</b></span> et un explicatif sur votre souhait. Notre équipe d'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.<br/>
-                        </span>
-					</span>
-					</span>
-					<select class="form-dropdown validate[required]" id="input_6perso" name="q6perso_maquette" onclick="JKakemono.czyscpola(); ">
-						<option value="">fichier d'impression...</option>
-						<option value="sansbat">j’ai mon fichier, je ne souhaite pas de BAT</option>
-						<option value="user">j’ai mon fichier, je souhaite un BAT</option>
-						<option value="config">je crée ma maquette en ligne</option>
-                        <option value="fb">France banderole crée la mise en page</option>
-					</select>
-				</li>
+				</div>
+			</transition>
 
-                <li class="form-line select" id="id_signature">
-                <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature" style="visibility:hidden;">
-                        	<b>Logo France Banderole</b><br/>
-							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-                        </span>
-					</span>
-					<select class="form-dropdown validate[required] optionsignature" id="input_signature" name="qsignature_signature" onchange="JKakemono.czyscpola(); ">
-						<option value="">logo France Banderole ?</option>
-						<option value="signature FB">produit signé</option>
-						<option value="sans signature">produit neutre +5,00 €</option>
-					</select>
-				</li>
-                 <li class="form-line select" id="id_signature2">
-                <span class="helpButton"><img class="helpImg" src="http://www.france-banderole.com/wp-content/plugins/fbshop/images/question.png">
-						<span class="helpText" id="helpTextsignature2" style="visibility:hidden;">
-                        	<b>Logo France Banderole</b><br/>
-							Si vous choisissez l'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/>
-                            <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png" alt="signature France Banderole">
-                        </span>
-					</span>
-					<select class="form-dropdown validate[required] optionsignature" id="input_signature2" name="qsignature_signature2" onchange="JKakemono.czyscpola(); ">
-						<option value="">logo France Banderole ?</option>
-						<option value="signature FB">produit signé</option>
-						<option value="sans signature">produit neutre +5,00 €</option>
-					</select>
-				</li>
+		</div> <!-- fin bloc formulaire #buying -->
+
+		<!--bloc preview-->
+		<div class="column" id="previewContainer">
+			<div id="previewImg">
+
+				<transition name="slideDown">
+					<div id="container" v-if="slideContainer">
+						<ul id="slides">
+
+							<li><img :src="$global.img+'/enseignes/slide/test-1.jpg'" alt="commencez votre devis en ligne" /></li>
+				      <li><img :src="$global.img+'/enseignes/slide/test-2.jpg'" alt="commencez votre devis en ligne" /></li>
+				     	<li><img :src="$global.img+'/banderole/slide/test-3.png'" alt="commencez votre devis en ligne" /></li>
+
+						</ul>
+					</div>
+				</transition>
+
+				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag1" :style="bg1" v-show="pr1"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag2" :style="bg2" v-show="pr2"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag3" :style="bg3" v-show="pr3"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag4" :style="bg4" v-show="pr4"></div></transition>
+				<transition name="slideLeft"><div class="preview_imag5" :style="bg5" v-show="pr5"></div></transition>
+				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
+					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
+				</div></transition>
+
+				<div class="helpMenu">
+					<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
+						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+					</a>
+					<a :href="$global.url+'/notice-en-cours/'" class="notice modal-link"  title="notices techniques">
+						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+					</a>
+					<a :href="$global.url+'/gabarit-forex-3mm/'" class="notice modal-link"  title="gabarits maquette">
+						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+					</a>
+				</div>
+
+			</div>
 
 
-				<li id="id_9" class="form-line optionsformline3">
-					<label class="form-label-left label-highlight" id="label_9" for="input_9">taille <strong><br /><span class="highlight small">(centimètres)</span></span></strong>:</label>
-					<input type="text" class="form-textbox validate[required, Numeric]" placeholder="hauteur" id="input_9" name="q9_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmLeft highlight">CM</span><span class="heusepar">x</span><input type="text" class="form-textbox2 validate[required, Numeric]" placeholder="largeur" id="input_10" name="q10_taile" size="20" value="1" onclick="JKakemono.czyscpola(); " /><span class="cmRight highlight">CM</span><span class="cmLeft highlight">CM</span><span class="llar">[hauteur]</span><span class="lhau">[largeur]</span>
-				</li>
 
-				<li id="id_7" class="form-line optionsformline">
-					<span class="title">OPTIONS DE LIVRAISON <span class="splitorhide">DISPONIBLES :</span> </span>
+			<div id="estimation" :class="reqEstm">
 
-					<span class="options_single">
 
-						<span class="optionsleft">
-							<label class="form-label-left" id="label_adresse" for="adresse">Livré à l'adresse de votre choix</label>
-							<input type="checkbox" class="form-checkbox" id="adresse" name="adresse[]" checked />
-							<span class="helpButton">
-								<span class="helpText" id="helpTextAdresse" style="visibility:hidden;">Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client. </span>
-							</span>
-						</span>
 
-						<span class="optionsleft">
-							<label class="form-label-left" id="label_etiquette" for="etiquette">Retrait colis à l'Atelier</label>
-							<input type="checkbox" class="form-checkbox" id="etiquette" name="etiquette[]" value="" onclick="JKakemono.czyscpola();" />
-							<span class="helpButton">
-								<span class="helpText" id="helpTextetiquette" style="visibility:hidden;">Retrait de votre commande à l'atelier de Vitrolles.</span>
-							</span>
-						</span>
+				<div id="estimationTitre" :class="reqEstm">
+					<span class="estimationData">PRIX UNITAIRE</span>
+					<span class="estimationData">OPTION</span>
+					<span class="estimationData">TOTAL H.T.</span>
+				</div>
 
-						<span class="optionsleft">
-							<label class="form-label-left" id="label_colis" for="colis">Colis revendeur</label>
-							<input type="checkbox" class="form-checkbox" id="colis" name="colis[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton">
-								<span class="helpText" id="helpTextcolis" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client</span>
-							</span>
-						</span>
+				<div id="estimationPrix">
+					<span class="estimationData" id="prix_unitaire">{{ prixUnit   }} </span>
+					<span class="estimationData" id="option">       {{ prixOption }} </span>
+					<span class="estimationData" id="total">        {{ prixTotal  }} </span>
+				</div>
 
-						<span class="optionsleft">
-							<label class="form-label-left" id="label_palette" for="palette">Grand format livré entier</label>
-							<input type="checkbox" class="form-checkbox" id="palette" name="palette[]" value="" onclick="JKakemono.colisRevendeurcheckbox(); JKakemono.czyscpola(); " />
-							<span class="helpButton">
-								<span class="helpText" id="helpTextpalette" style="visibility:hidden;"><strong><u>Forfait palettisation:</u></strong> <span class="highlight">dès 240€ HT</span><br />
-								Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.</span>
-							</span>
-						</span>
-
-					</span>
-
-					<div class="break-line"></div>
-
-					<p id="production" >
-						<h5 class="delivery-delay">Delai Production :</h5>
-						<button class="production" text-value="4-5" id="p1"></button>
-						<button class="production" text-value="2-3" id="p2"></button>
-						<button class="production" text-value="1-1" id="p3"></button>
-						<input type="hidden" id="production-value" value=""  onClick="" />
-					</p>
-
-					<div id="delivery-div" style='display:none;'>
-						<p id="delivery" >
-							<h5 class="delivery-delay">Delai Livraison :</h5>
-							<button class="delivery" text-value="3-4" id="l1"></button>
-							<button class="delivery" text-value="2-3" id="l2"></button>
-							<button class="delivery" text-value="1-1" id="l3"></button>
-							<input type="hidden" id="delivery-value" value="" />
-						</p>
+				<div id="estimationInfos">
+					<div id="livraisonrapide" v-show="livraisonrapide">
+						<img :src="$global.img+'/livraison_rapide/liv-rapide.jpg'" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/>
 					</div>
 
-					</li>
+					<div id="livraisonComp" v-show="livraisonComp">
+						<span id="forfait">{{ forfait }}</span>
+						<span v-html="message"></span>
+					</div>
 
+					<transition name="slideDown">
+						<form name="cartData" id="cartData" action="../votre-panier/" method="post" v-show="ajoutPanier">
+							<input type="hidden" name="addtocart" value="addtocart" />
+							<input type="hidden" name="rodzaj"    v-model="inputProd" />
+							<input type="hidden" name="opis"      v-model="inputDesc" />
+							<input type="hidden" name="ilosc"     v-model="inputQte" />
+							<input type="hidden" name="prix"      v-model="inputPrix" />
+							<input type="hidden" name="option"    v-model="inputOption" />
+							<input type="hidden" name="remise"    v-model="inputRemise" />
+							<input type="hidden" name="total"     v-model="inputTotal" />
+							<input type="hidden" name="transport" v-model="inputTransport" />
+							<input type="hidden" name="hauteur"   v-model="inputHauteur" />
+							<input type="hidden" name="largeur"   v-model="inputLargeur" />
+							<input type="hidden" name="reference" v-model="prodref" />
 
-					<li id="id_18" class="form-line id_18">
-						<div class="form-input-wide">
-							<button id="input_18" type="submit" class="form-submit-button" style="display: none;">Submit Form</button>
-						</div>
-					</li>
-					<li style="display:none">
-						Should be Empty:
-						<input type="text" name="website" value="" />
-					</li>
-				</ul>
+							<button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button>
+						</form>
+					</transition>
+
+					<transition name="slideDown">
+						<div class="formError" v-html="errorMessage" v-show="formError" :key="errorTrigger"></div>
+					</transition>
+					<transition name="slideDown">
+						<div class="formWarng" v-html="warngMessage" v-show="formWarng" :key="warngTrigger"></div>
+					</transition>
+
+				</div>
 			</div>
-			<input type="hidden" id="simple_spc" name="simple_spc" value="1060900217" />
-			<script type="text/javascript">
-			document.getElementById("simple_spc").value += "-1060900217";
-			</script>
-		</form>
-	</div>
-	<div id="preview">
-
-		  <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/arrow.png" alt="arrow" class="arrow" />
-
-		  <div id="container">
-
-		    <div id="slides">
-		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/slide/test-1.jpg" alt="commencez votre devis en ligne" /></li>
-		      <li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/enseignes/slide/test-2.jpg" alt="commencez votre devis en ligne" /></li>
-		     	<li><img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/banderole/slide/test-3.png" alt="commencez votre devis en ligne" /></li>
-		    </div>
-		  </div>
-
-		  <div id="preview_imag"></div>
-		  <div id="preview_imag2"></div>
-		  <div id="preview_imag3"></div>
-		  <div id="preview_imag4"></div>
-		  <div id="preview_imag5"></div>
+		</div>  <!-- fin bloc image #previewContainer -->
 
 	</div>
-
-	<div class="dateLivraison">
-		<!--<span id="totaldays"></span>&nbsp;-->
-		<span id="totalamt_7"></span>
-		<span id='estdate_7' class="delivery-date"></span>
-	</div>
-
-	<div id="custom_price_unit" >
-
-</div>
-
-<script type="text/javascript">
-	////////////////////////////////////////////////////// checkboxes livraison //
-	jQuery('#adresse').click(function() {
-		if (document.getElementById('adresse').checked) {
-			document.getElementById('etiquette').checked = false;
-		}
-	});
-	jQuery('#etiquette').click(function() {
-		if (document.getElementById('etiquette').checked) {
-			document.getElementById('adresse').checked = false;
-		}
-	});
-	jQuery('#palette').click(function() {
-		if (document.getElementById('palette').checked) {
-			document.getElementById('etiquette').checked = false;
-		}
-	});
-	jQuery('#etiquette').click(function() {
-		if (document.getElementById('etiquette').checked) {
-			document.getElementById('palette').checked = false;
-		}
-	});
-
-	//////////////////////////////////////////////////////////////////////////////
-	function Afficher()	{
-		divliv = document.getElementById('livraisonrapide');
-		if (divliv.style.display == 'none')
-		divliv.style.display = 'block';
-	}
-	function Afficher()	{
-		divInfo = document.getElementById('delivery-div');
-		if (divInfo.style.display == 'none')
-		divInfo.style.display = 'block';
-	}
-	function Masquer()	{
-		divInfo = document.getElementById('delivery-div');
-		if (divInfo.style.display == 'block')
-		divInfo.style.display = 'none';
-	}
-
-	/////////////////////////////////////////////////// calcul des jours ouvrés //
-	function AddBusinessDays(weekDaysToAdd) {
-	  // fonction jours ouvrés
-	  var curdate = new Date();
-	  var realDaysToAdd = 0;
-	  for(i=0; i<weekDaysToAdd; i++){
-	    curdate.setDate(curdate.getDate()+1);
-	    var estdt1 = new Date(curdate);
-	    var n = curdate.getDay();
-	    if (n == '6' || n == '0') {
-	      weekDaysToAdd++;
-	    }
-	    realDaysToAdd++;
-	    //check if current day is business day
-	  }
-	  return realDaysToAdd;
-	}
-
-	//////////////////////////////////////////////////////////////////////////////
-	jQuery(document).ready(function(){
-		jQuery('.delivery , .production').click(function(){
-		var cena           = 0; var cena2=0; var cena1=0; var cenar=0; var cenarv=0; prixunite=0;
-		var suma           = 0; var suma2=0;
-		var rabat          = 0; var rabat2=0;
-		var transport      = 0;
-		var ilosc          = 0;
-		var ktorytyp       = '';
-		var cedzik         = '';
-		var prliv          = '';
-		var date_panier    = '';
-		var dodatkowaopcja = '';
-		var opis           = '';
-		var erreurType     = 0;
-		var option2        = 0;
-		var largeur      = 0;
-		var hauteur       = 0;
-		var pu             = 0; var fixations=0; var percage=0; var puoption=0; var maquette=0; var tarifventouse=0; var fixationsventouse=0; nbtrou=0;
-		var eBox           = document.getElementById('form-button-error2');
-		eBox.innerHTML     = '';
-		var ilosc          = ($('input_32').value) || ($('input_32perso').value);
-
-		//////////////////////////////////////////////////////////////////////////
-		ilosc = $('input_32').value;
-		largeur = ($('input_10').value);
-		largeur = largeur.replace(',','.');
-		largeur = fixstr(largeur);
-		$('input_10').value = largeur;
-		hauteur = ($('input_9').value);
-		hauteur = hauteur.replace(',','.');
-		hauteur = fixstr(hauteur);
-		$('input_9').value = hauteur;
-
-		/////////////////////////////////////////////////// Forex 3mm recto 60x40/////
-
-		if (($('input_0').value == 'recto') && ($('input_1').value == '60x40')){
-			opis += '- Forex 3mm recto <br />- 60x40cm';
-			if ($('input_32').value == '1'){pu=12.96; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=12.96; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=10.80; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=10.80; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=9.72; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=9.72; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=9.72; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=8.64; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=8.64; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=8.64; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=8.64; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=7.34; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=7.34; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=7.34; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=7.34; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=6.48; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=6.48; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=6.48; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=6.48; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=6.48; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=6.84; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=6.84; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=6.16; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=6.16; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=6.16; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=5.47; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=5.47; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=5.47; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=5.47; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=4.65; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=4.65; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=4.65; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=4.65; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=4.10; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=4.10; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=4.10; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=4.10; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=4.10; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0.24; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 40;
-			largeur = 60;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 60x40/////
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x40')){
-			opis += '- Forex 3mm recto/verso <br />- 60x40cm ';
-			if ($('input_32').value == '1'){pu=19.87; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=19.87; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=16.56; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=16.56; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=14.90; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=14.90; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=14.90; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=13.25; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=13.25; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=13.25; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=13.25; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=11.26; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=11.26; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=11.26; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=11.26; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=9.94; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=9.94; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=9.94; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=9.94; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=9.94; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=8.64; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=8.64; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=7.78; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=7.78; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=7.78; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=6.91; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=6.91; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=6.91; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=6.91; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=5.88; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=5.88; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=5.88; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=5.88; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=5.18; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=5.18; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=5.18; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=5.18; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=5.18; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0.24; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 40;
-			largeur = 60;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto 60x78/////
-		if (($('input_0').value == 'recto') && ($('input_1').value == '60x78')){
-			opis += '- Forex 3mm recto <br />- 60x78cm';
-			if ($('input_32').value == '1'){pu=12.96*1.8; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=12.96*1.8; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=10.80*1.8; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=10.80*1.8; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=9.72*1.8; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=9.72*1.8; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=9.72*1.8; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=8.64*1.8; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=8.64*1.8; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=8.64*1.8; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=8.64*1.8; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=7.34*1.8; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=7.34*1.8; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=7.34*1.8; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=7.34*1.8; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=6.48*1.8; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=6.48*1.8; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=6.48*1.8; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=6.48*1.8; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=6.48*1.8; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=6.84*1.8; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=6.84*1.8; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=6.16*1.8; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=6.16*1.8; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=6.16*1.8; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=5.47*1.8; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=5.47*1.8; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=5.47*1.8; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=5.47*1.8; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=4.65*1.8; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=4.65*1.8; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=4.65*1.8; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=4.65*1.8; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=4.10*1.8; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=4.10*1.8; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=4.10*1.8; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=4.10*1.8; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=4.10*1.8; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0.48; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 60;
-			largeur = 78;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 60x78/////
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '60x78')){
-			opis += '- Forex 3mm recto/verso <br />- 60x78cm ';
-			if ($('input_32').value == '1'){pu=19.87*1.8; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=19.87*1.8; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=16.56*1.8; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=16.56*1.8; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=14.90*1.8; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=14.90*1.8; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=14.90*1.8; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=13.25*1.8; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=13.25*1.8; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=13.25*1.8; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=13.25*1.8; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=11.26*1.8; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=11.26*1.8; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=11.26*1.8; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=11.26*1.8; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=9.94*1.8; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=9.94*1.8; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=9.94*1.8; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=9.94*1.8; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=9.94*1.8; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=8.64*1.8; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=8.64*1.8; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=7.78*1.8; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=7.78*1.8; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=7.78*1.8; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=6.91*1.8; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=6.91*1.8; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=6.91*1.8; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=6.91*1.8; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=5.88*1.8; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=5.88*1.8; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=5.88*1.8; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=5.88*1.8; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=5.18*1.8; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=5.18*1.8; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=5.18*1.8; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=5.18*1.8; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=5.18*1.8; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0.48; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 60;
-			largeur = 78;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto 100x50 UV //
-		if (($('input_0').value == 'recto') && ($('input_1').value == '100x50')){
-			opis += '- Forex 3mm recto <br />- 100x50cm';
-			if ($('input_32').value == '1'){pu=22.50; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=20.25; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=19.35; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=18.00; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=17.10; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=16.20; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=15.30; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=15.30; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=14.40; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=14.40; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=13.50; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=13.50; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=13.50; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=12.60; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=12.60; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=12.60; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=11.70; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=11.70; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=10.80; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=10.80; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=12.26; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=11.40; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=10.83; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=10.26; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=9.69; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=9.69; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=9.12; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=9.12; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=8.55; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=8.55; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=8.55; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=7.98; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=7.98; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=7.98; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=7.41; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=7.41; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=6.84; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=6.84; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0.5; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 50;
-			largeur = 100;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 100x50 UV //
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '100x50')){
-			opis += '- Forex 3mm recto/verso <br />- 100x50cm';
-			if ($('input_32').value == '1'){pu=34.50; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=31.05; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=29.67; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=27.60; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=26.22; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=24.84; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=23.46; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=23.46; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=22.08; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=22.08; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=20.70; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=20.70; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=20.70; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=19.32; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=19.32; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=19.32; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=17.94; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=17.94; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=16.56; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=16.20; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=15.48; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=14.40; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=13.68; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=12.96; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=12.24; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=12.24; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=11.52; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=11.52; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=10.80; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=10.80; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=10.80; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=10.08; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=10.08; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=10.08; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=9.36; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=9.36; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=8.64; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=8.64; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0.5; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 50;
-			largeur = 100;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto 150x75 UV //
-
-		if (($('input_0').value == 'recto') && ($('input_1').value == '150x75')){
-			opis += '- Forex 3mm recto <br />- 150x75cm';
-			if ($('input_32').value == '1'){pu=50.63; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=45.56; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=43.54; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=40.50; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=38.48; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=36.45; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=34.43; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=34.43; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=32.40; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=32.40; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=30.38; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=30.38; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=30.38; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=28.35; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=28.35; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=28.35; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=26.33; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=26.33; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=24.30; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=24.30; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '20'){pu=28.86; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=27.57; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=25.65; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=24.37; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=23.09; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=21.80; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=21.80; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=20.52; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=20.52; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=19.24; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=19.24; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=19.24; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=17.96; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=17.96; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=17.96; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=16.67; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=16.67; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=15.39; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=15.39; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*1.12; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 75;
-			largeur = 150;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 150x75 UV //
-
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '150x75')){
-			opis += '- Forex 3mm recto/verso <br />- 150x75cm';
-			if ($('input_32').value == '1'){pu=77.63; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=69.86; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=66.76; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=32.10; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=59.00; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=55.89; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=52.79; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=52.79; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=49.68; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=49.68; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=46.58; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=46.58; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=46.58; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=43.47; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=43.47; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=43.47; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=40.37; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=40.37; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=37.26; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=36.45; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=34.83; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=32.40; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=30.78; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=29.16; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=27.54; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=27.54; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=25.92; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=25.92; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=24.30; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=24.30; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=24.30; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=22.68; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=22.68; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=22.68; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=21.06; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=21.06; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=19.44; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=19.44; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*1.12; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 75;
-			largeur = 150;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto 200x100 UV //
-
-		if (($('input_0').value == 'recto') && ($('input_1').value == '200x100')){
-			opis += '- Forex 3mm recto <br />- 200x100cm';
-			if ($('input_32').value == '1'){pu=75.60; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=73.80; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=72.00; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=64.80; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=63.00; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=61.20; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=57.60; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=57.60; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=55.80; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=54.00; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=52.20; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=50.40; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=48.60; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=46.80; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=45.00; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=45.00; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=43.20; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=43.20; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=41.40; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=41.40; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '20'){pu=46.74; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=45.60; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=41.04; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=39.90; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=38.76; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=36.48; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=36.48; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=35.34; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=34.20; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=33.06; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=31.92; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=30.78; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=29.64; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=28.50; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=28.50; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=27.36; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=27.36; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=26.22; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=26.22; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*2; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 100;
-			largeur = 200;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 200x100 //
-
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x100')){
-			opis += '- Forex 3mm recto/verso <br />- 200x100cm';
-			if ($('input_32').value == '1'){pu=115.92; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=113.16; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=110.40; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=99.36; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=96.60; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=93.94; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=88.32; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=88.32; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=85.56; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=82.80; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=80.04; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=77.28; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=74.52; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=71.76; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=69.00; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=69.00; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=66.24; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=66.24; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=63.48; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=59.04; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=57.60; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=51.84; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=50.40; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=48.96; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=46.08; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=46.08; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=44.64; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=43.20; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=41.76; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=40.32; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=38.88; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=37.44; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=36.00; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=36.00; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=34.56; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=34.56; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=33.12; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=33.12; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*2; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 100;
-			largeur = 200;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto 200x150 //
-
-		if (($('input_0').value == 'recto') && ($('input_1').value == '200x150')){
-			opis += '- Forex 3mm recto <br />- 200x150cm';
-			if ($('input_32').value == '1'){pu=116.10; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=110.70; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=108.00; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=97.20; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=94.50; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=91.80; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=89.10; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=86.40; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=83.70; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=81.00; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=78.30; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=75.60; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=72.90; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=70.20; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=67.50; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=67.50; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=64.80; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=64.80; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=62.10; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=62.10; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '20'){pu=70.11; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=68.40; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=61.56; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=59.85; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=58.14; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=56.43; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=54.72; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=53.01; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=51.30; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=49.59; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=47.88; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=46.17; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=44.46; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=42.75; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=42.75; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=41.04; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=41.04; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=39.33; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=39.33; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*3; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 150;
-			largeur = 200;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 200x150 UV //
-
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '200x150')){
-			opis += '- Forex 3mm recto/verso <br />- 200x150cm';
-			if ($('input_32').value == '1'){pu=178.02; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=169.74; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=165.60; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=149.04; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=144.90; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=140.76; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=136.62; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=132.48; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=128.34; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=124.20; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=120.06; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=115.92; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=111.78; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=107.64; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=103.50; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=103.50; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=99.36; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=99.36; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=95.22; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=88.56; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=86.40; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=77.76; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=75.60; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=73.44; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=71.28; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=69.12; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=66.96; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=64.80; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=62.64; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=60.48; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=58.32; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=56.16; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=54.00; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=54.00; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=51.84; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=51.84; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=49.68; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=49.68; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*3; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 150;
-			largeur = 200;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto 300x150/////
-
-		if (($('input_0').value == 'recto') && ($('input_1').value == '300x150')){
-			opis += '- Forex 3mm recto <br />- 300x150cm ';
-			if ($('input_32').value == '1'){pu=162.00; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=157.95; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=153.90; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=141.75; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=133.65; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=129.60; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=121.50; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=113.40; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=113.40; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=101.25; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=101.25; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=97.20; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=97.20; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=89.10; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=89.10; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=85.05; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=85.05; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=81.00; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=81.00; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=81.00; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '20'){pu=100.04; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=97.47; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=89.78; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=84.65; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=82.08; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=76.95; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=71.82; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=71.82; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=64.13; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=64.13; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=61.56; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=61.56; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=56.43; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=56.43; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=53.87; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=53.87; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=51.30; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=51.30; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=51.30; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*4.5; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 150;
-			largeur = 300;
-		}
-		/////////////////////////////////////////////////// Forex 3mm recto/verso 300x150 //
-
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == '300x150')){
-			opis += '- Forex 3mm recto/verso <br />- 300x150cm';
-			if ($('input_32').value == '1'){pu=248.40; opis += '<br />- 1 exemplaire';}
-			if ($('input_32').value == '2'){pu=242.19; opis += '<br />- 2 exemplaires';}
-			if ($('input_32').value == '3'){pu=235.98; opis += '<br />- 3 exemplaires';}
-			if ($('input_32').value == '4'){pu=217.35; opis += '<br />- 4 exemplaires';}
-			if ($('input_32').value == '5'){pu=204.93; opis += '<br />- 5 exemplaires';}
-			if ($('input_32').value == '6'){pu=198.72; opis += '<br />- 6 exemplaires';}
-			if ($('input_32').value == '7'){pu=186.30; opis += '<br />- 7 exemplaires';}
-			if ($('input_32').value == '8'){pu=173.88; opis += '<br />- 8 exemplaires';}
-			if ($('input_32').value == '9'){pu=173.88; opis += '<br />- 9 exemplaires';}
-			if ($('input_32').value == '10'){pu=155.25; opis += '<br />- 10 exemplaires';}
-			if ($('input_32').value == '11'){pu=155.25; opis += '<br />- 11 exemplaires';}
-			if ($('input_32').value == '12'){pu=149.04; opis += '<br />- 12 exemplaires';}
-			if ($('input_32').value == '13'){pu=149.04; opis += '<br />- 13 exemplaires';}
-			if ($('input_32').value == '14'){pu=136.62; opis += '<br />- 14 exemplaires';}
-			if ($('input_32').value == '15'){pu=136.62; opis += '<br />- 15 exemplaires';}
-			if ($('input_32').value == '16'){pu=130.41; opis += '<br />- 16 exemplaires';}
-			if ($('input_32').value == '17'){pu=130.41; opis += '<br />- 17 exemplaires';}
-			if ($('input_32').value == '18'){pu=124.20; opis += '<br />- 18 exemplaires';}
-			if ($('input_32').value == '19'){pu=124.20; opis += '<br />- 19 exemplaires';}
-			if ($('input_32').value == '20'){pu=124.20; opis += '<br />- 20 exemplaires';}
-			if ($('input_32').value == '40'){pu=123.12; opis += '<br />- 40 exemplaires';}
-			if ($('input_32').value == '60'){pu=113.40; opis += '<br />- 60 exemplaires';}
-			if ($('input_32').value == '80'){pu=106.92; opis += '<br />- 80 exemplaires';}
-			if ($('input_32').value == '100'){pu=103.68; opis += '<br />- 100 exemplaires';}
-			if ($('input_32').value == '150'){pu=97.20; opis += '<br />- 150 exemplaires';}
-			if ($('input_32').value == '200'){pu=90.72; opis += '<br />- 200 exemplaires';}
-			if ($('input_32').value == '300'){pu=90.72; opis += '<br />- 300 exemplaires';}
-			if ($('input_32').value == '400'){pu=81.00; opis += '<br />- 400 exemplaires';}
-			if ($('input_32').value == '500'){pu=81.00; opis += '<br />- 500 exemplaires';}
-			if ($('input_32').value == '750'){pu=77.76; opis += '<br />- 750 exemplaires';}
-			if ($('input_32').value == '1000'){pu=77.76; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32').value == '1500'){pu=71.28; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32').value == '2000'){pu=71.28; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32').value == '3000'){pu=68.04; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32').value == '4000'){pu=68.04; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32').value == '5000'){pu=64.80; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32').value == '7500'){pu=64.80; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32').value == '10000'){pu=64.80; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*4.5; ////grammage x m²///
-			poidstotal = poids*ilosc;
-
-			hauteur = 150;
-			largeur = 300;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto personnalisée //
-
-		if (($('input_0').value == 'recto') && ($('input_1').value == 'personnalisée')){
-			opis += '- Forex 3mm recto <br />- Taille Personnalisée';
-			if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
-			if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
-			if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
-			if ($('input_32perso').value == '4'){pu=0; opis += '<br />- 4 exemplaires';}
-			if ($('input_32perso').value == '5'){pu=0; opis += '<br />- 5 exemplaires';}
-			if ($('input_32perso').value == '6'){pu=0; opis += '<br />- 6 exemplaires';}
-			if ($('input_32perso').value == '7'){pu=0; opis += '<br />- 7 exemplaires';}
-			if ($('input_32perso').value == '8'){pu=0; opis += '<br />- 8 exemplaires';}
-			if ($('input_32perso').value == '9'){pu=0; opis += '<br />- 9 exemplaires';}
-			if ($('input_32perso').value == '10'){pu=0; opis += '<br />- 10 exemplaires';}
-			if ($('input_32perso').value == '11'){pu=0; opis += '<br />- 11 exemplaires';}
-			if ($('input_32perso').value == '12'){pu=0; opis += '<br />- 12 exemplaires';}
-			if ($('input_32perso').value == '13'){pu=0; opis += '<br />- 13 exemplaires';}
-			if ($('input_32perso').value == '14'){pu=0; opis += '<br />- 14 exemplaires';}
-			if ($('input_32perso').value == '15'){pu=0; opis += '<br />- 15 exemplaires';}
-			if ($('input_32perso').value == '16'){pu=0; opis += '<br />- 16 exemplaires';}
-			if ($('input_32perso').value == '17'){pu=0; opis += '<br />- 17 exemplaires';}
-			if ($('input_32perso').value == '18'){pu=0; opis += '<br />- 18 exemplaires';}
-			if ($('input_32perso').value == '19'){pu=0; opis += '<br />- 19 exemplaires';}
-			if ($('input_32perso').value == '20'){pu=0; opis += '<br />- 20 exemplaires';}
-			if ($('input_32perso').value == '40'){pu=0; opis += '<br />- 40 exemplaires';}
-			if ($('input_32perso').value == '60'){pu=0; opis += '<br />- 60 exemplaires';}
-			if ($('input_32perso').value == '80'){pu=0; opis += '<br />- 80 exemplaires';}
-			if ($('input_32perso').value == '100'){pu=0; opis += '<br />- 100 exemplaires';}
-			if ($('input_32perso').value == '150'){pu=0; opis += '<br />- 150 exemplaires';}
-			if ($('input_32perso').value == '200'){pu=0; opis += '<br />- 200 exemplaires';}
-			if ($('input_32perso').value == '300'){pu=0; opis += '<br />- 300 exemplaires';}
-			if ($('input_32perso').value == '400'){pu=0; opis += '<br />- 400 exemplaires';}
-			if ($('input_32perso').value == '500'){pu=0; opis += '<br />- 500 exemplaires';}
-			if ($('input_32perso').value == '750'){pu=0; opis += '<br />- 750 exemplaires';}
-			if ($('input_32perso').value == '1000'){pu=0; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32perso').value == '1500'){pu=0; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32perso').value == '2000'){pu=0; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32perso').value == '3000'){pu=0; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32perso').value == '4000'){pu=0; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32perso').value == '5000'){pu=0; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0; ////grammage x m²///
-			poidstotal = poids*ilosc;
-		}
-
-		/////////////////////////////////////////////////// Forex 3mm recto/verso personnalisée/////
-
-		if (($('input_0').value == 'rectoverso') && ($('input_1').value == 'personnalisée')){
-			opis += '- Forex 3mm recto/verso <br />- Taille Personnalisée';
-			if ($('input_32perso').value == '1'){pu=0; opis += '<br />- 1 exemplaire';}
-			if ($('input_32perso').value == '2'){pu=0; opis += '<br />- 2 exemplaires';}
-			if ($('input_32perso').value == '3'){pu=0; opis += '<br />- 3 exemplaires';}
-			if ($('input_32perso').value == '4'){pu=0; opis += '<br />- 4 exemplaires';}
-			if ($('input_32perso').value == '5'){pu=0; opis += '<br />- 5 exemplaires';}
-			if ($('input_32perso').value == '6'){pu=0; opis += '<br />- 6 exemplaires';}
-			if ($('input_32perso').value == '7'){pu=0; opis += '<br />- 7 exemplaires';}
-			if ($('input_32perso').value == '8'){pu=0; opis += '<br />- 8 exemplaires';}
-			if ($('input_32perso').value == '9'){pu=0; opis += '<br />- 9 exemplaires';}
-			if ($('input_32perso').value == '10'){pu=0; opis += '<br />- 10 exemplaires';}
-			if ($('input_32perso').value == '11'){pu=0; opis += '<br />- 11 exemplaires';}
-			if ($('input_32perso').value == '12'){pu=0; opis += '<br />- 12 exemplaires';}
-			if ($('input_32perso').value == '13'){pu=0; opis += '<br />- 13 exemplaires';}
-			if ($('input_32perso').value == '14'){pu=0; opis += '<br />- 14 exemplaires';}
-			if ($('input_32perso').value == '15'){pu=0; opis += '<br />- 15 exemplaires';}
-			if ($('input_32perso').value == '16'){pu=0; opis += '<br />- 16 exemplaires';}
-			if ($('input_32perso').value == '17'){pu=0; opis += '<br />- 17 exemplaires';}
-			if ($('input_32perso').value == '18'){pu=0; opis += '<br />- 18 exemplaires';}
-			if ($('input_32perso').value == '19'){pu=0; opis += '<br />- 19 exemplaires';}
-			if ($('input_32perso').value == '20'){pu=0; opis += '<br />- 20 exemplaires';}
-			if ($('input_32perso').value == '40'){pu=0; opis += '<br />- 40 exemplaires';}
-			if ($('input_32perso').value == '60'){pu=0; opis += '<br />- 60 exemplaires';}
-			if ($('input_32perso').value == '80'){pu=0; opis += '<br />- 80 exemplaires';}
-			if ($('input_32perso').value == '100'){pu=0; opis += '<br />- 100 exemplaires';}
-			if ($('input_32perso').value == '150'){pu=0; opis += '<br />- 150 exemplaires';}
-			if ($('input_32perso').value == '200'){pu=0; opis += '<br />- 200 exemplaires';}
-			if ($('input_32perso').value == '300'){pu=0; opis += '<br />- 300 exemplaires';}
-			if ($('input_32perso').value == '400'){pu=0; opis += '<br />- 400 exemplaires';}
-			if ($('input_32perso').value == '500'){pu=0; opis += '<br />- 500 exemplaires';}
-			if ($('input_32perso').value == '750'){pu=0; opis += '<br />- 750 exemplaires';}
-			if ($('input_32perso').value == '1000'){pu=0; opis += '<br />- 1000 exemplaires';}
-			if ($('input_32perso').value == '1500'){pu=0; opis += '<br />- 1500 exemplaires';}
-			if ($('input_32perso').value == '2000'){pu=0; opis += '<br />- 2000 exemplaires';}
-			if ($('input_32perso').value == '3000'){pu=0; opis += '<br />- 3000 exemplaires';}
-			if ($('input_32perso').value == '4000'){pu=0; opis += '<br />- 4000 exemplaires';}
-			if ($('input_32perso').value == '5000'){pu=0; opis += '<br />- 5000 exemplaires';}
-			if ($('input_32perso').value == '7500'){pu=0; opis += '<br />- 7500 exemplaires';}
-			if ($('input_32perso').value == '10000'){pu=0; opis += '<br />- 10000 exemplaires';}
-			poids = 1.6*0; ////grammage x m²///
-			poidstotal = poids*ilosc;
-		}
-
-		///////////////////////////////////////////////////////////// fixations //
-		if (($('input_4').value == 'ventouse') || ($('input_4perso').value == 'ventouse')){fixationsventouse=0.2; opis += '<br />- ventouse + perçage';} ////prix 1 ventouse/////
-		if (($('input_4').value == 'double face') || ($('input_4perso').value == 'double face')){fixations=0.3; opis += '<br />- double face';}
-		////perçage/////
-		if (($('input_5').value == '2') || ($('input_5perso').value == '2')){percage=0.4; nbtrou=2; opis += '<br />- 2 trous';}
-		if (($('input_5').value == '4') || ($('input_5perso').value == '4')){percage=0.8; nbtrou=4; opis += '<br />- 4 trous';}
-		if (($('input_5').value == '6') || ($('input_5perso').value == '6')){percage=1.2; nbtrou=6; opis += '<br />- 6 trous';}
-		if (($('input_5').value == '8') || ($('input_5perso').value == '8')){percage=1.6; nbtrou=8; opis += '<br />- 8 trous';}
-		if (($('input_5').value == '10') || ($('input_5perso').value == '10')){percage=2; nbtrou=10; opis += '<br />- 10 trous';}
-
-		tarifventouse = (fixationsventouse*nbtrou) ////prix x ventouses/////
-
-		//////////////////////////////////////////////////////// choix maquette //
-		if ($('input_6').value == 'fb') {
-			maquette=19;
-			opis += '<br />- France banderole crée la maquette';
-		}
-		if ($('input_6perso').value == 'fb') {
-			opis += '<br />- France banderole crée la maquette';
-		}
-		if (($('input_6').value == 'user') || ($('input_6perso').value == 'user')) {
-			opis += '<br />- BAT en ligne';
-			maquette=5;
-		}
-		if (($('input_6').value == 'config') || ($('input_6perso').value == 'config') ) {
-			maquette=5;
-			opis += '<br />- je crée ma maquette en ligne';
-		}
-		if ($('input_6').value == 'sansbat') {
-				opis += '<br />- je ne souhaite pas de BAT';
-			}
-
-		///////////////////////////////////////////////////////// tarif unitaire//
-		puoption = pu+fixations+percage+tarifventouse;
-		puoption2 = puoption+(maquette/ilosc);
-		////total/////
-		cena = (puoption*ilosc)+maquette;
-
-		//////////////////////////////////////////////////////////////////// HD //
-		if ($('input_HD').value == 'HD') {HD = cena*0.30; cena += HD; opis += '<br />- HD';}
-		if ($('input_HD').value == 'standard') {opis += '<br />- Standard';}
-		////FIN HD///
-
-		//////////////////////////////////////////////////////signature
-			if ($('input_signature').value == 'signature FB') {
-				opis += '<br />- signature France Banderole';
-			}
-			if ($('input_signature').value == 'sans signature') {
-				if ( !$('revendeur') && !$('revendeurRS') ) {cena+= 5*ilosc;};
-				opis += '<br />- sans signature';
-			}
-		////////////////////////////////////////////////////////////// options //
-		var colis = $$('#colis').collect(function(e){ return e.checked; }).any();
-		if (colis == true) {
-			if ( !$('revendeur') && !$('revendeurRC') ) {cena+= 2*ilosc;}
-			cedzik += '<br />- colis revendeur';
-		}
-
-		var relais = $$('#relais').collect(function(e){ return e.checked; }).any();
-		if (relais == true) {
-			cena += 5.00;
-			cedzik += '<br />- relais colis';
-		}
-
-		var etiquette = $$('#etiquette').collect(function(e){ return e.checked; }).any();
-		if (etiquette == true) {
-			transport=0;
-			cena -= cena*3/100;
-			cedzik += '<br />- retrait colis a l\'atelier';
-		}
-
-		var palette = $$('#palette').collect(function(e){ return e.checked; }).any();
-		if (palette == true) {
-			cena += 240;
-			cedzik += '<br />- forfait palettisation';
-		}
-
-		///////////////////////////////////////////////////////////// transport //
-		if (poidstotal <= 1) {prixtransport=4.80;}
-		if ((poidstotal > 1) && (poidstotal <= 2)) {prixtransport=5.1;}
-		if ((poidstotal > 2) && (poidstotal <= 3)) {prixtransport=5.67;}
-		if ((poidstotal > 3) && (poidstotal <= 4)) {prixtransport=5.63;}
-		if ((poidstotal > 4) && (poidstotal <= 5)) {prixtransport=6.88;}
-		if ((poidstotal > 5) && (poidstotal <= 6)) {prixtransport=7.99;}
-		if ((poidstotal > 6) && (poidstotal <= 7)) {prixtransport=7.99;}
-		if ((poidstotal > 7) && (poidstotal <= 10)) {prixtransport=9.30;}
-		if ((poidstotal > 10) && (poidstotal <= 15)) {prixtransport=11.93;}
-		if ((poidstotal > 15) && (poidstotal <= 20)) {prixtransport=14.93;}
-		if ((poidstotal > 20) && (poidstotal <= 25)) {prixtransport=18.82;}
-		if ((poidstotal > 25) && (poidstotal <= 30)) {prixtransport=20.56;}
-		if ((poidstotal > 30) && (poidstotal <= 40)) {prixtransport=25.64;}
-		if ((poidstotal > 40) && (poidstotal <= 50)) {prixtransport=33.73;}
-		if ((poidstotal > 50) && (poidstotal <= 60)) {prixtransport=42.14;}
-		if ((poidstotal > 60) && (poidstotal <= 70)) {prixtransport=47.71;}
-		if ((poidstotal > 70) && (poidstotal <= 80)) {prixtransport=55.26;}
-		if ((poidstotal > 80) && (poidstotal <= 90)) {prixtransport=62.12;}
-		if ((poidstotal > 90) && (poidstotal <= 100)) {prixtransport=68.54;}
-		if (poidstotal > 100) {prixtransport=69.26;}
-		prixtransport2 = prixtransport*0.4;
-		transport = prixtransport + prixtransport2;
-
-		////////////////////////////////////////////////////////// taille perso //
-		if($('input_1').value == 'personnalisée') {transport = 0};
-
-		prixunite = cena;
-		cena=prixunite*ilosc;
-
-		prixunite=fixstr(prixunite);
-		cena2 = prixunite.replace(".", ",");
-
-		///////////////////////////////////////////// affichage jours livraison //
-		var myClass = jQuery(this).attr("class");
-		var erreurType = 0;
-
-		var n = myClass.search("production");
-		if (n != -1) {
-			jQuery('.production').prop("disabled",false);
-			jQuery('.production').removeClass('active');
-			jQuery(this).addClass('active');
-			var production = jQuery(this).attr('onClick');
-			jQuery('#production-value').val(Afficher());
-			var production = jQuery(this).attr('text-value');
-			jQuery('#production-value').val(production);
-			jQuery(this).prop("disabled",true);
-		}
-
-		var m = myClass.search("delivery");
-		if (m != -1) {
-			jQuery('.delivery').prop("disabled",false);
-			jQuery('.delivery').removeClass('active');
-			jQuery(this).addClass('active');
-			var delivery = jQuery(this).attr('text-value');
-			jQuery('#delivery-value').val(delivery);
-			jQuery(this).prop("disabled",true);
-
-
-			jQuery(document).ready(function(){
-				jQuery('.jotform-form select').click(function(){
-					jQuery('#delivery-value').val(Masquer());
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.production').prop("disabled",false);
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('');
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					jQuery(production-value).prop("disabled",false);
-					jQuery(delivery-value).prop("disabled",true);
-				});
-			});
-
-			jQuery(document).ready(function(){
-				jQuery('.form-textbox').click(function(){
-					jQuery('#delivery-value').val(Masquer());
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.production').prop("disabled",false);
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('');
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					jQuery(production-value).prop("disabled",false);
-					jQuery(delivery-value).prop("disabled",true);
-				});
-			});
-
-			jQuery(document).ready(function(){
-				jQuery('.form-textbox2').click(function(){
-					jQuery('#delivery-value').val(Masquer());
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.production').prop("disabled",false);
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('');
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					jQuery(production-value).prop("disabled",false);
-					jQuery(delivery-value).prop("disabled",true);
-				});
-			});
-
-			jQuery(document).ready(function(){
-				jQuery('.form-checkbox').click(function(){
-					jQuery('#delivery-value').val(Masquer());
-					jQuery('.delivery').prop("disabled",false);
-					jQuery('.production').prop("disabled",false);
-					jQuery('.production').removeClass('active');
-					jQuery(this).addClass('');
-					jQuery('.delivery').removeClass('active');
-					jQuery(this).addClass('active');
-					jQuery(production-value).prop("disabled",false);
-					jQuery(delivery-value).prop("disabled",true);
-				});
-			});
-		}
-
-		var production      = jQuery('#production-value').val();
-		var delivery        = jQuery('#delivery-value').val();
-
-		if(production && delivery){
-			// Calculate price
-			var ProdPercent = '';
-			var DeliPercent = '';
-			var PorductType = jQuery('.production.active').attr('text-value');
-			var DeliveryType = jQuery('.delivery.active').attr('text-value');
-			if(PorductType == '2-3' ){
-				ProdPercent = 20;
-				prliv += '<br />- P 2-3J';
-			}else if(PorductType =='1-1'){
-				ProdPercent = 45;
-				prliv += '<br />- P 1J';
-			}else{
-				ProdPercent = 0;
-				prliv += '<br />- P 4-5J';
-			}
-
-			if(DeliveryType == '2-3'){
-				DeliPercent = 20;
-				prliv += ' / L 2-3J';
-			}else if(DeliveryType =='1-1'){
-				DeliPercent = 45;
-				prliv += ' / L 1J';
-			}else{
-				DeliPercent = 0;
-				prliv += ' / L 3-4J';
-			}
-
-			var price_unit = parseFloat(prixunite);
-			var totalPercente        = parseInt(DeliPercent) + parseInt(ProdPercent);
-			var calculatedTotalPrice = (price_unit) * (totalPercente)/100;
-			var finalPrice           = (calculatedTotalPrice + price_unit)/ilosc;
-
-			////////////////////////////////////////////////////// Calculate Days //
-			var prod_first_val  = parseInt(production[0]);
-			var prod_second_val = parseInt(production[2]);
-			var deli_first_val  = parseInt(delivery[0]);
-			var deli_second_val = parseInt(delivery[2]);
-
-			var totalProduction = prod_first_val + deli_first_val;
-			var totalDelivery   = prod_second_val + deli_second_val;
-			if(totalProduction == totalDelivery){
-				jQuery('#totaldays').text("Total jours " + totalProduction);
-				var days = totalProduction;
-			}else{
-				jQuery('#totaldays').text("Total jours "+totalProduction+'/'+totalDelivery);
-				var days = totalDelivery;
-			}
-
-			var curdate = new Date();
-			var curhour = curdate.getHours();
-			// ajout 1 jour ouvré de délai sur commande après 12h
-			if (curhour >= 12) {
-				var daystoadd = AddBusinessDays(days+1);
-			}else{
-				var daystoadd = AddBusinessDays(days);
-			}
-
-			curdate.setDate(curdate.getDate()+daystoadd);
-			var estdt = new Date(curdate);
-			var month = estdt.getMonth()+1;
-			var day = estdt.getDate();
-			var output = day + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '' : '') + estdt.getFullYear();
-
-			if(jQuery('#id_7').css('display') != 'none') {
-				jQuery('#estdate_7').html('Date de livraison max : '+output+'  <a class="linkUppercase modal-link" href="//www.france-banderole.com/etre-livre-rapidement/" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a>');
-			}
-
-			finalPrice1=fixstr(finalPrice);
-			finalPrice2 = finalPrice1.replace(".", ",");
-
-
-			jQuery('#prix_unitaire').html(finalPrice2+' &euro;');
-			jQuery('#remise').html(rabat2);
-		}
-
-		////////////////////////////////////////////////////// prix avec délais //
-		prixunite = finalPrice1;
-		cena=prixunite*ilosc;
-
-		//////////////////////////////////////////////////////////////// remise //
-		var prix = document.getElementById("prix_unitaire");
-		var total = document.getElementById("total");
-		var remise = document.getElementById("remise");
-
-		prixunite=fixstr(prixunite);
-		transport=0;
-
-		//////////////////////////////////////////////////////////////////////////
-		cena2 = prixunite.replace(".", ",");
-		//////////////////////////////////////////////////////////////////////////
-
-		if (erreurType==1) {
-			prix.innerHTML='-';
-			remise.innerHTML='-';
-			total.innerHTML='-';
-		}
-
-		///////////livraison le jour même////////
-		if ((DeliveryType == '1-1') && (PorductType == '1-1')){
-			livraisonrapide.style.display = 'block';
-		}
-		else {livraisonrapide.style.display = 'none';}
-		/////////////////////////////////////////
-
-		if ((erreurType==0) && ((DeliveryType == '2-3') || (DeliveryType == '1-1') || (DeliveryType == '3-4'))){
-			suma=cena-rabat;
-			suma=fixstr(suma);
-			suma2 = suma.replace(".", ",");
-			total.innerHTML=suma2+' &euro;';
-
-			if (option==0) {
-				option2 = '-';
-				var opt = document.getElementById("option");
-				opt.innerHTML='-';
-			}
-
-			////////////////////////////////////////////////// envoi formulaire //
-			var rodzaj = "Forex 3mm";
-			var dodajkoszyk = document.getElementById("cart_form");
-
-			if($('input_1').value == 'personnalisée') {
-				///////////////////////////////////// avertissements, messages d'erreur //
-				/*if ( (hauteur > 140) || (largeur > 140) ) {
-					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
-					eBox.style.display="block";
-					erreur=1;
-				}
-
-				if ( (hauteur > 100) && (largeur > 100) ) {
-					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> Attention nos panneaux font au maximum 140x100cm!';
-					eBox.style.display="block";
-					erreur=1;
-				}*/
-
-				prix.innerHTML='-';
-				total.innerHTML='-';
-
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'<br />- '+largeur+' x '+hauteur+' cm <span style="+color:#F00+">ENREGISTRER VOTRE PANIER POUR UNE REPONSE DANS LES 12H MAX</span> <input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="REPONSE DANS LES 12H MAX" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="ENREGISTREZ VOTRE DEVIS" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
-			};
-
-			if($('input_1').value != 'personnalisée') {
-				if ( suma < 29 ) {
-					var forfait = 29 - suma;
-					forfait = fixstr(forfait);
-					eBox.innerHTML = '<button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button> FORFAIT '+forfait+' &euro;<br />';
-					if (option>0) {
-						var newoption = parseFloat(option) + parseFloat(forfait);
-						newoption=fixstr(newoption);
-						newoption2 = newoption.replace(".", ",");
-						option2 = newoption2;
-						var newopt = document.getElementById("option");
-						newopt.innerHTML=newoption2+' &euro;';
-						suma = 29;
-						suma=fixstr(suma);
-						suma2 = suma.replace(".", ",");
-						var newtotal = document.getElementById("total");
-						newtotal.innerHTML=suma2+' &euro;';
-					} else {
-						var newoption = parseFloat(forfait);
-						newoption=fixstr(newoption);
-						newoption2 = newoption.replace(".", ",");
-						option2 = newoption2;
-						var newopt = document.getElementById("option");
-						newopt.innerHTML=newoption2+' &euro;';
-						suma = 29;
-						suma=fixstr(suma);
-						suma2 = suma.replace(".", ",");
-						var newtotal = document.getElementById("total");
-						newtotal.innerHTML=suma2+' &euro;';
-					}
-				}
-				dodajkoszyk.innerHTML = '<input type="hidden" name="addtocart" value="addtocart" /><input type="hidden" name="rodzaj" value="'+rodzaj+'" /><input type="hidden" name="opis" value="'+opis+cedzik+prliv+'" /><input type="hidden" name="ilosc" value="'+ilosc+'" /><input type="hidden" name="prix" value="'+cena2+' &euro;" /><input type="hidden" name="option" value="'+option2+'" /><input type="hidden" name="remise" value="-" /><input type="hidden" name="total" value="'+suma2+' &euro;" /><input type="hidden" name="transport" value="'+transport+' &euro;" /><input type="hidden" name="hauteur" value="'+hauteur+'" /><input type="hidden" name="largeur" value="'+largeur+'" /><button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button> ';
-
-			};
-		}
-
-	});
-});
-</script>
+</div> <!-- fin bloc app  -->
+
+<!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
+<script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
+<script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.forex3.js?v=2.5"></script>

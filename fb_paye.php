@@ -10,14 +10,24 @@ function getPaiementDroits($customer_id) {
 	$fb_tablename_users_cf = $prefix."fbs_users_cf";
 
 	$user_group = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$customer_id."' AND att_name = 'client_groupe'");
+
 	if($user_group) {
+		$pad = $p30 = $p60 = 0;
+
+		$pdiff30 = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$customer_id."' AND att_name = 'pdiff30'");
+		$pdiff60 = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$customer_id."' AND att_name = 'pdiff60'");
+		$pdiffad = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE uid = '".$customer_id."' AND att_name = 'pdiffad'");
+		if ($pdiff30) $p30 = $pdiff30->att_value;
+		if ($pdiff60) $p60 = $pdiff60->att_value;
+		if ($pdiffad) $pad = $pdiffad->att_value;
+
 		$group_paiement = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement` WHERE code = '".$user_group->att_value."'");
 		$droits_tbl['cb'] = $group_paiement->cb;
 		$droits_tbl['cheque'] = $group_paiement->cheque;
 		$droits_tbl['virement'] = $group_paiement->virement;
-		$droits_tbl['trente'] = $group_paiement->trente;
-		$droits_tbl['soixante'] = $group_paiement->soixante;
-		$droits_tbl['administratif'] = $group_paiement->mandat;
+		$droits_tbl['trente'] = $p30;
+		$droits_tbl['soixante'] = $p60;
+		$droits_tbl['administratif'] = $pad;
 	}
 	return $droits_tbl;
 }
@@ -55,7 +65,7 @@ function getCalculs($idzamowienia, $userid) {
 	$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 
 	foreach ( $products as $products => $item ) {
-		$view .= '<tr><td class="lefttd"><span class="name">'.$item[name].'</span><br /><span class="therest">'.$item[description].'</span></td><td>'.$item[quantity].'</td><td>'.$item[prix].'</td><td>'.$item[prix_option].'</td><td>'.$item[remise].'</td><td>'.$item[total].'</td></tr>';
+		$view .= '<tr><td class="lefttd"><span class="name">'.$item['name'].'</span><br /><span class="therest">'.$item['description'].'</span></td><td>'.$item['quantity'].'</td><td>'.$item['prix'].'</td><td>'.$item['prix_option'].'</td><td>'.$item['remise'].'</td><td>'.$item['total'].'</td></tr>';
 	}
 	$view .= '</table>';
 
@@ -113,11 +123,12 @@ function calcOrder($uid) {
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$uid' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
-			$totalItems = str_replace(',', '.', $item[total]);
+			$totalItems = str_replace(',', '.', $item['total']);
 			$totalHT += $totalItems;
-			$fraisPort = $fraisPort + $item[frais];
+			$fraisPort = $fraisPort + $item['frais'];
 		}
-
+		//--------------------------------------------------------------------------
+		$totalHT = $totalHT + $fraisPort;
 		//----------------------------------------------------------vérifier remises
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
 		if ($czyjestwtabeli) {
@@ -145,8 +156,6 @@ function calcOrder($uid) {
 			$totalHT = $totalHT - $calculCode;
 		}
 
-		//--------------------------------------------------------------------------
-		$totalHT = $totalHT + $fraisPort;
 		//------------------------------------------------------------changement TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
@@ -198,7 +207,7 @@ function setPaiementFinProd($uid,$pay_method) {
 			$montant_cmd = str_replace(',','',$order_tmp->totalht);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
 			$prod_insert = number_format($prod_total, 2) . ' €';
-			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','')");
+			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','','','')");
 			calcOrder($uid);
 		} else { // si on revient à une méthode de paiement non différé
 			$wpdb->delete($fb_tablename_prods, array('order_id' => $uid, 'name' => 'Suppression de l\'escompte commercial'));
@@ -213,7 +222,7 @@ function setPaiementFinProd($uid,$pay_method) {
 			$montant_cmd = str_replace(',','',$order_tmp->totalht);
 			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
 			$prod_insert = number_format($prod_total, 2) . ' €';
-			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','')");
+			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','','','')");
 			calcOrder($uid);
 		}
 	}
@@ -258,6 +267,7 @@ function get_payement() {
 			$_SESSION['fbcmd'] = $idzamowienia;
 			//require('/var/www/vhosts/france-banderole.com/cgi-bin/sherlock/call_request.php');
 	 		require('./sherlock/paiement_f_sherlok.php');
+			//$set_statut = $wpdb->query("UPDATE `$fb_tablename_order` SET status = 2 WHERE unique_id='$idzamowienia' AND user='$userid'");
  		}
 
 		//--------------------------------------------------------------------chèque
@@ -397,18 +407,31 @@ function get_payement() {
 			}
 			if($paiement_tbl['trente']) {
 				$view .= '<div class="paiements_right_con">
-				<input type="radio" name="paymentmetod" value="trente" /> <span class="payement_underline nomb">Paiement différé à 30 jours net <br /> date de facture</span>
+				<input type="radio" name="paymentmetod" value="trente" /> <span class="payement_underline nomb">Paiement différé par LCR à 30 jours <br /> date de facture</span>
 				<span class="pay_image"><img src="'.$images_url.'pay_diff.png" alt="Paiement 30 jours" /></span>
 				<span class="pay_carte_info pc30">Ce mode de paiement implique la suppression de l\'escompte commercial de 5% sur nos tarifs en ligne.</span>
 				<button id="but_conf_pay" type="submit" class="p30"><i class="fa fa-check" aria-hidden="true"></i> Payer</button>
 				</div>';
+			}else{ // paiement 30j désactivé :
+				$view .= '<div class="paiements_right_con" id="p30">
+				<span class="helpPay" id="help30" style="visibility:hidden;">Pour activer ce mode de paiement veuillez en faire la demande au service commercial au 0442.401.401</span>
+				<input type="radio" name="paymentmetod" value="trente" class="radiod" /> <span class="payement_underline nomb gray">Paiement différé par LCR à 30 jours <br /> date de facture</span>
+				<span class="pay_image"><img src="'.$images_url.'pay_diff_alt.png" alt="Paiement 30 jours" /></span>
+				</div>';
 			}
 			if($paiement_tbl['soixante']) {
 				$view .= '<div class="paiements_right_con">
-				<input type="radio" name="paymentmetod" value="soixante" /> <span class="payement_underline nomb">Paiement par LCR 30 jours<br /> fin de mois</span>
+				<input type="radio" name="paymentmetod" value="soixante" /> <span class="payement_underline nomb">Paiement différé par LCR à 60 jours<br /> date de facture</span>
 				<span class="pay_image"><img src="'.$images_url.'pay_diff.png" alt="Paiement 60 jours" /></span>
 				<span class="pay_carte_info pc60">Ce mode de paiement implique la suppression de l\'escompte commercial de 5% sur nos tarifs en ligne.</span>
 				<button id="but_conf_pay" type="submit" class="p60"><i class="fa fa-check" aria-hidden="true"></i> Payer</button>
+				</div>';
+			}else{ // paiement 60j désactivé :
+				$view .= '<div class="paiements_right_con" id="p60">
+				<span class="helpPay" id="help60" style="visibility:hidden;">Pour activer ce mode de paiement veuillez en faire la demande au service commercial au 0442.401.401</span>
+				<input type="radio" name="paymentmetod" value="soixante" class="radiod" /> <span class="payement_underline nomb gray">Paiement différé par LCR à 60 jours<br /> date de facture</span>
+				<span class="pay_image"><img src="'.$images_url.'pay_diff_alt.png" alt="Paiement 30 jours" /></span>
+
 				</div>';
 			}
 			if($paiement_tbl['administratif']) {
@@ -417,6 +440,13 @@ function get_payement() {
 				<span class="pay_image"><img src="'.$images_url.'pay_diff.png" alt="Mandat administratif" /></span>
 				<span class="pay_carte_info pcAD">Ce mode de paiement implique la suppression de l\'escompte commercial de 5% sur nos tarifs en ligne.</span>
 				<button id="but_conf_pay" type="submit" class="pad"><i class="fa fa-check" aria-hidden="true"></i> Payer</button>
+				</div>';
+			}else{ // paiement admin désactivé :
+				$view .= '<div class="paiements_right_con" id="pad">
+				<span class="helpPay" id="helpad" style="visibility:hidden;">Pour activer ce mode de paiement veuillez en faire la demande au service commercial au 0442.401.401</span>
+				<input type="radio" name="paymentmetod" value="administratif" class="radiod" /> <span class="payement_underline nomb gray">Paiement par mandat administratif <br /> différé 25 jours</span>
+				<span class="pay_image"><img src="'.$images_url.'pay_diff_alt.png" alt="Paiement 30 jours" /></span>
+
 				</div>';
 			}
 

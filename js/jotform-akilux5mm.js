@@ -625,30 +625,30 @@ JotForm = {
 
             $('container').style.display="none";
             var imag = $("preview_imag");
-            imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/bg.png)";
+            imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/bg.png)";
 
             if (($('input_0').value == 'recto') || ($('input_0').value == 'rectoverso') ) {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/base.png)";
               imag.style.animation="anim .5s 1";
             }
-            
+
 
             if ($('input_5').value == 'pas de rainage') {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base.png)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/base.png)";
             }
             if ($('input_5').value == '1 rainage') {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base1.png)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/base1.png)";
             }
             if ($('input_5').value == '2 rainages') {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base2.png)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/base2.png)";
             }
             if ($('input_5').value == '3 rainages') {
               var imag = $("preview_imag2");
-              imag.style.backgroundImage="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/base3.png)";
+              imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/akilux/base3.png)";
             }
 
 
@@ -657,126 +657,126 @@ JotForm = {
 				    	/////////////////////sans rainage recto//////////
 						/*if ($('input_0').value == 'recto') {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r.jpg) no-repeat";
 						}
 
 										/////sans rainage recto standard////
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s.jpg) no-repeat";
 						}
 
 																/////sans rainage recto standard fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double.jpg) no-repeat";
 						}
 									/////sans rainage recto HD////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd.jpg) no-repeat";
 						}
 																/////sans rainage recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double.jpg) no-repeat";
 						}
 						/////////////////////sans rainage rectoverso//////////
 						if ($('input_0').value == 'rectoverso') {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r.jpg) no-repeat";
 						}
 
 										/////sans rainage rectoverso standard////
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s.jpg) no-repeat";
 						}
 
 																/////sans rainage rectoverso standard fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double.jpg) no-repeat";
 						}
 									/////sans rainage rectoverso HD////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd.jpg) no-repeat";
 						}
 																/////sans rainage rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double.jpg) no-repeat";
 						}
 
 
@@ -789,46 +789,46 @@ JotForm = {
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double-1r.jpg) no-repeat";
 						}
 									/////1 rainage recto HD////
 																/////1 rainage recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double-1r.jpg) no-repeat";
 						}
 						/////////////////////1 rainage rectoverso//////////
 										/////1 rainage rectoverso standard////
@@ -836,46 +836,46 @@ JotForm = {
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double-1r.jpg) no-repeat";
 						}
 									/////1 rainage rectoverso HD////
 																/////1 rainage rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet-1r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '1 rainage')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double-1r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double-1r.jpg) no-repeat";
 						}
 
 /////////////////////2 rainages//////////
@@ -886,46 +886,46 @@ JotForm = {
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double-2r.jpg) no-repeat";
 						}
 									/////2 rainages recto HD////
 																/////2 rainages recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double-2r.jpg) no-repeat";
 						}
 						/////////////////////2 rainages rectoverso//////////
 										/////2 rainages rectoverso standard////
@@ -933,46 +933,46 @@ JotForm = {
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double-2r.jpg) no-repeat";
 						}
 									/////2 rainages rectoverso HD////
 																/////2 rainages rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet-2r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '2 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double-2r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double-2r.jpg) no-repeat";
 						}
 
 
@@ -984,46 +984,46 @@ JotForm = {
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets') && ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-oeillet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-rislan-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-crochet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-s-double-3r.jpg) no-repeat";
 						}
 									/////3 rainages recto HD////
 																/////3 rainages recto HD fixation////
 
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-oeillet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-rislan-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-crochet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'recto') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-r-hd-double-3r.jpg) no-repeat";
 						}
 						/////////////////////3 rainages rectoverso//////////
 										/////3 rainages rectoverso standard////
@@ -1031,46 +1031,46 @@ JotForm = {
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-oeillet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-rislan-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-crochet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'standard') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-s-double-3r.jpg) no-repeat";
 						}
 									/////3 rainages rectoverso HD////
 																/////3 rainages rectoverso HD fixation////
 
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'sans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'oeillets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-oeillet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'rislans')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-rislan-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'crochets')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-crochet-3r.jpg) no-repeat";
 						}
 						if (($('input_0').value == 'rectoverso') && ($('input_HD').value == 'HD') && ($('input_4').value == 'double face')&& ($('input_5').value == '3 rainages')) {
 							var imag = $("preview_imag");
-							imag.style.background="url(https://www.france-banderole.com/wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double-3r.jpg) no-repeat";
+							imag.style.background="url(../wp-content/plugins/fbshop/images/akilux/5mm/akilux5mm-rv-hd-double-3r.jpg) no-repeat";
 						}*/
 					}
 
@@ -1798,7 +1798,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
+                    top: '<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1813,7 +1813,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+        }).insert('<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

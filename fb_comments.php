@@ -67,7 +67,7 @@ function get_fb_comments() {
 
 		if ($fb >= 1) {
 			$klasa = ' class="comment_right2"';
-			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c[data].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c[author].'<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;'.$c[topic].'</p>'.nl2br($c[content]).'</div>';
+			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c[data].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c[author].'<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;'.$c[topic].'</p>'.html_entity_decode(nl2br($c[content])).'</div>';
 		} else {
 			$c[content]= htmlspecialchars($c[content]);
 			$klasa = ' class="comment_right"';

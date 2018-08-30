@@ -633,7 +633,7 @@ JotForm = {
 								var imag = $("preview_imag");
 								podglad.style.visibility="visible";
 								if (term.field==0) {
-									imag.style.background="url('https://www.france-banderole.com/wp-content/plugins/fbshop/images/panneau/akilux-10mm-2.jpg') no-repeat";
+									imag.style.background="url('../wp-content/plugins/fbshop/images/panneau/akilux-10mm-2.jpg') no-repeat";
 								}
 
 								if (term.field == 1) {
@@ -811,7 +811,7 @@ JotForm = {
 								var podglad = $("preview");
 								podglad.style.visibility="visible";
 								if (term.field==10) {
-									imag.style.background="url('https://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+$('input_10').value+".jpg') no-repeat";
+									imag.style.background="url('../wp-content/plugins/fbshop/images/"+folder+"/"+$('input_10').value+".jpg') no-repeat";
 								}
 								var obecny1 = $("lista1");
 								if (obecny1) {
@@ -837,7 +837,7 @@ JotForm = {
 								var podglad = $("preview");
 								podglad.style.visibility="visible";
 								if (term.field==10) {
-									imag.style.background="url('https://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/"+$('input_10').value+".jpg') no-repeat";
+									imag.style.background="url('../wp-content/plugins/fbshop/images/"+folder+"/"+$('input_10').value+".jpg') no-repeat";
 								}
 								var obecny1 = $("lista1");
 								if (obecny1) {
@@ -905,7 +905,7 @@ JotForm = {
 								var podglad2 = $("preview2");
 								podglad2.style.display="block";
 								if (term.field==12) {
-									imag2.style.background="url('https://www.france-banderole.com/wp-content/plugins/fbshop/images/"+folder+"/panneaux_"+$('input_12').value+".jpg') no-repeat";
+									imag2.style.background="url('../wp-content/plugins/fbshop/images/"+folder+"/panneaux_"+$('input_12').value+".jpg') no-repeat";
 								}
 								var obecny3 = $("lista3");
 								if (obecny3) {

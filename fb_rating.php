@@ -8,20 +8,20 @@ function get_rating_home() {
 	$fb_tablename_order = $prefix."fbs_order";
 	$rates = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` WHERE exist = 'true' ORDER BY date DESC LIMIT 2", ARRAY_A);
 	foreach ($rates as $r) :
-		$licz = strlen($r[comment]);
+		$licz = strlen($r['comment']);
 	    if ($licz>=120) {
-			$tnij = substr($r[comment],0,90);
+			$tnij = substr($r['comment'],0,90);
         	$txt = $tnij."...";
         } else {
-			$txt = $r[comment];
+			$txt = $r['comment'];
 		}
-		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 12;
+		$singlerate = (($r['fir'] + $r['sec'] + $r['thi'])/3); $singlerate = (round($singlerate, 0)) * 12;
 		echo '<div class="singlerate">
 		<div class="singlerate_content">'.stripslashes($txt).'</div>
 		<div class="singlerate_rate">
 			<ul class="star-rating4"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul>
 		</div>
-		<div class="singlerate_date">'.$r[data].'</div>
+		<div class="singlerate_date">'.$r['data'].'</div>
 		</div>';
 	endforeach;
 }

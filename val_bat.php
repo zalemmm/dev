@@ -3,6 +3,8 @@
 $id = $_GET['uid'];
 $rev = $_GET['rev'];
 $cur_img = $_GET['img'];
+$valid = $_GET['valid'];
+
 if(!(isset($cur_img))) {
 	$cur_img = 0;
 }
@@ -36,11 +38,11 @@ if ($dir = @opendir($name)) {
 if($total > 1) {
 	if($cur_img > 1) {
 		if($cur_img != $total) {
-			$suivant = '<a class="bt-suiv" href="val_bat.php?uid='.$id.'&img='. ($cur_img+1) .'"><span class="dis0">Suivant</span> <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+			$suivant = '<a class="bt-suiv" href="val_bat.php?valid='.$valid.'&uid='.$id.'&img='. ($cur_img+1) .'"><span class="dis0">Suivant</span> <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 		}
-		$precedent = '<a class="bt-prev" href="val_bat.php?uid='.$id.'&img='. ($cur_img-1) .'"><i class="fa fa-caret-left" aria-hidden="true"></i> <span class="dis0">Précédent</span></a> ';
+		$precedent = '<a class="bt-prev" href="val_bat.php?valid='.$valid.'&uid='.$id.'&img='. ($cur_img-1) .'"><i class="fa fa-caret-left" aria-hidden="true"></i> <span class="dis0">Précédent</span></a> ';
 	} else {
-		$suivant = '<a class="bt-suiv" href="val_bat.php?uid='.$id.'&img=2"><span class="dis0">Suivant</span>  <i class="fa fa-caret-right" aria-hidden="true"></i></a><p class="helptext"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> votre commande comprend plusieurs maquettes, cliquez sur<br />suivant pour vérifier chaque fichier avant de valider votre BAT <i class="fa fa-caret-right" aria-hidden="true"></i></p>';
+		$suivant = '<a class="bt-suiv" href="val_bat.php?valid='.$valid.'&uid='.$id.'&img=2"><span class="dis0">Suivant</span>  <i class="fa fa-caret-right" aria-hidden="true"></i></a><p class="helptext"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> votre commande comprend plusieurs maquettes, cliquez sur<br />suivant pour vérifier chaque fichier avant de valider votre BAT <i class="fa fa-caret-right" aria-hidden="true"></i></p>';
 	}
 }
 
@@ -50,10 +52,9 @@ if($total > 1) {
 <html>
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-	<?php if ($rev==0) {
-		// pour les clients non revendeurs, script pour interdire le clic droit ?>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<?php if ($rev==0) {	// pour les clients non revendeurs, script pour interdire le clic droit ?>
 		<script>
 		$(document).ready(function() {
 	    $("img").on("contextmenu",function(){
@@ -62,7 +63,8 @@ if($total > 1) {
 		});
 		</script>
 	<?php } ?>
-	<!--librairie d'icones css-->
+
+
 	<style>
 	  a {
 	  	text-decoration: none;
@@ -104,7 +106,8 @@ if($total > 1) {
 
 		.bt-suiv,
 		.bt-prev,
-		.bt-validBAT {
+		.bt-validBAT,
+		.bt-printBAT {
 			box-sizing: border-box;
 			position: relative;
 			width: 150px;
@@ -134,13 +137,18 @@ if($total > 1) {
 		}
 
 		.bt-suiv,
-		.bt-prev {
+		.bt-prev,
+		.bt-printBAT {
 			background-color: transparent;
 			border: 1px solid #fff;
+		}
+		.bt-printBAT {
+			margin-left: 10px;
 		}
 
 		.bt-suiv:hover,
 		.bt-prev:hover,
+		.bt-printBAT:hover,
 		.bt-validBAT:hover {
 			background-color: #EA2A6A;
 		  border: 1px solid #db1657;
@@ -152,7 +160,7 @@ if($total > 1) {
 		}
 		.main img {
 			position: relative;
-			margin-top: -10px;
+			margin-top: 63px;
 			margin-left: -10px;
 			z-index: 20;
 		}
@@ -180,18 +188,31 @@ if($total > 1) {
 			}
 		}
 
+		@media print {
+		 .noprint {
+			 display: none;
+		 }
+		 .print {
+			 display: block;
+		 }
+		}
+
 	</style>
 </head>
 <body>
-	<div class="btnbar">
+	<div class="btnbar noprint">
 		<div class="prevnext"><?php echo $precedent; ?>	<?php echo $suivant; ?></div>
-		<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
-		<p class="filename"><?php	echo $filename; ?></p>
+
+		<?php if ($valid == 0) { ?>
+			<a href="https://www.france-banderole.com/valider-mon-bat?uid=<?php echo $id; ?>&accepte=1" target="_top" class="bt-validBAT"><i class="fa fa-check" aria-hidden="true"></i> Valider mon BAT</a>
+		<?php } ?>
+
+		<a href="javascript:window.print()" title="imprimer" class="bt-printBAT"><i class="fa fa-print"></i> Imprimer</a>
+		<p class="filename print"><?php	echo $filename; ?></p>
 	</div>
 
-	<div class="main">
+	<div id="main" class="main">
 		<?php	echo $img; ?>
-
 	</div>
 
 

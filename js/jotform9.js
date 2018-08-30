@@ -631,27 +631,27 @@ JotForm = {
             var imag5 = $("preview_imag5");
 
             $('container').style.display="none";
-            imag.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/bg.png)";
+            imag.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/bg.png)";
 
             // choix du type de stand
             if ($('input_0').value == 'Tissu') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand.png)";
+               imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand.png)";
                imag2.style.animation="anim .5s 1";
             }
             if ($('input_0').value == 'Stand ExpoBag') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standexpo.png)";
+               imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/standexpo.png)";
                imag2.style.animation="anim1 .5s 1";
             }
             if ($('input_0').value == 'Stand parapluie') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standkit.png)";
+               imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/standkit.png)";
                imag2.style.animation="anim2 .5s 1";
             }
             if ($('input_0').value == 'Comptoir Easy Quick') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/compteasy.png)";
+               imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/compteasy.png)";
                imag2.style.animation="anim3 .5s 1";
             }
             if ($('input_0').value == 'valise') {
-               imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valiseSeule.png)";
+               imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/valiseSeule.png)";
                imag2.style.animation="anim4 .5s 1";
             }
 
@@ -661,65 +661,65 @@ JotForm = {
             var courbe = $('input_01').value == 'Courbé';
 
             if (droit) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/standp.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/standp.png)";
               imag2.style.animation="anim1 .5s 1";
             }
             if (courbe) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/courbe1.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/courbe1.png)";
               imag2.style.animation="anim2 .5s 1";
             }
 
             // stands tissu droits
             if (droit && ($('input_50').value == '3x1 R') || ($('input_50').value == '3x1 RV')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand1.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand1.png)";
               imag2.style.animation="anim .5s 1";
             }
             if (droit && ($('input_50').value == '3x2 R') || ($('input_50').value == '3x2 RV')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand2.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand2.png)";
               imag2.style.animation="anim1 .5s 1";
             }
             if (droit && ($('input_50').value == '3x3 R') || ($('input_50').value == '3x3 RV')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand3.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand3.png)";
               imag2.style.animation="anim2 .5s 1";
             }
             if (droit && ($('input_50').value == '3x4 R') || ($('input_50').value == '3x4 RV')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand4.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand4.png)";
               imag2.style.animation="anim3 .5s 1";
             }
             if (droit && ($('input_50').value == '3x5 R') || ($('input_50').value == '3x5 RV')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand5.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand5.png)";
               imag2.style.animation="anim4 .5s 1";
             }
             if (droit && ($('input_50').value == '3x6 R')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand6.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand6.png)";
               imag2.style.animation="anim .5s 1";
             }
             if (droit && ($('input_50').value == '3x7 R')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand7.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand7.png)";
               imag2.style.animation="anim1 .5s 1";
             }
             if (droit && ($('input_50').value == '3x8 R')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/stand8.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/stand8.png)";
               imag2.style.animation="anim2 .5s 1";
             }
 
             // stands tissu courbés
             if (courbe && ($('input_500').value == '3')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/courbe3.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/courbe3.png)";
               imag2.style.animation="anim3 .5s 1";
             }
             if (courbe && ($('input_500').value == '4')) {
-              imag2.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/courbe4.png)";
+              imag2.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/courbe4.png)";
               imag2.style.animation="anim1 .5s 1";
             }
 
             // valise
             if ($('input_6').value == '41') {
-               imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/valise.png)";
+               imag4.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/valise.png)";
                imag4.style.animation="anim1 .5s 1";
             }
             else if ($('input_6').value == 'Comptoir Easy Quick') {
-               imag4.style.backgroundImage="url(//www.france-banderole.com/wp-content/plugins/fbshop/images/parapluie/comptoir.png)";
+               imag4.style.backgroundImage="url(../wp-content/plugins/fbshop/images/parapluie/comptoir.png)";
                imag4.style.animation="anim2 .5s 1";
             }
             else{
@@ -1453,7 +1453,7 @@ JotForm = {
             var collapse = JotForm.getCollapseBar(input);
             if (!collapse.errored) {
                 collapse.select(".form-collapse-mid")[0].insert({
-                    top: '<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
+                    top: '<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> '
                 }).setStyle({
                     color: 'red'
                 });
@@ -1468,7 +1468,7 @@ JotForm = {
 
         container.insert(new Element('div', {
             className: 'form-error-message'
-        }).insert('<img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
+        }).insert('<img src="../wp-content/themes/fb/images/exclamation-octagon.png" class="exclam" alt="attention" /> ' + message));
 
         return false;
     },

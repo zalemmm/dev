@@ -43,7 +43,7 @@ function fixstr(num) {
 	var nacs=(nacent<10?'0':'')+nacent;
 	if (naint+nacent==0) sign=1;
 	return (sign==1?'':'-')+nais+'.'+nacs;
-};
+}
 
 function potwierdzregulamin() {
 	var b = document.getElementById('paiements_right');

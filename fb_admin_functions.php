@@ -8,19 +8,10 @@ Statuts des commandes:
 	4>expédié
 	5>cloturé
 	6>annulées
-
-Statuts des règlements:
-	carte>Carte bleue
-	cheque>Chèque
-	bancaire>Vire bancaire
-	administratif>Vire administratif
-	espece>Espèce
-	trente>Paiement sous 30 jours
-	soixante>Paiement sous 60 jours
+	7>paiment en traitement
 */
-
+//======================================== fonctions changement statuts commande
 ////////////////////////////////////////////////////////////// status 2: payé //
-////////////////////////////////////////////////////////////////////////////////
 
 function passage_paiement_recu(){
 	echo '
@@ -42,20 +33,20 @@ function passage_paiement_recu(){
 	';
 }
 
-function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){
+function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){
 	global $wpdb;
 	global $current_user;
-	/* Nouveau statut à 3 (traitement)*/
+	//-------------------------------------------- Nouveau statut à 3 (traitement)
   $newstat = '3';
 	$nowadata = date('Y-m-d H:i:s');
 	$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
 	$wpuser = $current_user->display_name;
 
-  /* Nouveau mode de paiement */
+  //--------------------------------------------------- Nouveau mode de paiement
 	$newplat = addslashes($_POST['modpaiement']);
 	$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET payment='$newplat' WHERE unique_id='$number'");
 
-  /* ENVOI du commentaire "RECU PAIEMENT XXX*/
+  //----------------------------------------- ENVOI du commentaire RECU PAIEMENT
 	$wheresql = "RECU PAIEMENT ";
     if($newplat=="cheque") $wheresql .= "CHEQUE";
     if($newplat=="carte") $wheresql .= "CB";
@@ -68,9 +59,9 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
     $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%'ORDER BY content ASC", ARRAY_A);
     if ($topics) {
 		foreach ($topics as $t) :
-			$cont = stripslashes($t[content]);
+			$cont = stripslashes($t['content']);
 			$cont= htmlspecialchars($cont);
-			$topt = stripslashes($t[topic]);
+			$topt = stripslashes($t['topic']);
 			$topt = htmlspecialchars($topt);
 		endforeach;
 	}
@@ -87,17 +78,19 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 		$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')");
 	}
 
-  /* ENVOI de l'email "Paiement de votre commande"*/
-  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'Paiement de votre commande'", ARRAY_A);
-	foreach ($mails as $ma) :
-		$con = stripslashes($ma[content]);
-		$con = htmlspecialchars($con);
-		$top = stripslashes($ma[topic]);
-		$top = htmlspecialchars($top);
-	endforeach;
+	//----------------------------------------------récupération mail & tel client
 	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 	$ktoryuser = $order->user;
 	$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
+
+  //-------------------------------- ENVOI de l'email Paiement de votre commande
+  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'Paiement de votre commande'", ARRAY_A);
+	foreach ($mails as $ma) :
+		$con = stripslashes($ma['content']);
+		$con = htmlspecialchars($con);
+		$top = stripslashes($ma['topic']);
+		$top = htmlspecialchars($top);
+	endforeach;
 
 	/* On remplace NNNNN dans le message par le no de comande */
 	$con = str_replace("NNNNN",$number,$con);
@@ -109,16 +102,24 @@ function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablen
 
 	mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
 
-	// ajout du mail à la bdd
+	//----------------------------------------------------- ajout du mail à la bdd
 	$checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
   $getmail = $checkmail->last_mail;
 
 	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
 	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
+
+	//------------------------------------------------------------------ envoi SMS
+	/*$sms = $wpdb->get_results("SELECT * FROM `$fb_tablename_sms` WHERE topic LIKE 'Commande en traitement'", ARRAY_A);
+	foreach ($sms as $s) :
+		$content = stripslashes($s[content]);
+	endforeach;
+
+	$content = str_replace("NNNNN",$number,$content);
+	send_sms($uzyt->f_phone, $content);*/
 }
 
 /////////////////////////////////////////////////////////// status 4: expédié //
-////////////////////////////////////////////////////////////////////////////////
 
 function passage_expedie(){
 	echo '
@@ -132,10 +133,11 @@ function passage_expedie(){
 	';
 }
 
-function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address){
+function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address){
 	global $wpdb;
 	global $current_user;
-	/* On détermine si on est en relais colis, expédition TNT ou retrait atelier */
+
+	// On détermine si on est en relais colis, expédition TNT ou retrait atelier
 	$type_expedition = "";
 	$wheresql = "0";
 	$adresse_relais_colis ="";
@@ -153,6 +155,10 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		}elseif($type == 'shipping' && strtolower($valeur) == 'fedex'){
 			$type_expedition = 'fedex';
 			$wheresql = "Colis expédié FEDEX + Suivi";
+			break;
+		}elseif($type == 'shipping' && strtolower($valeur) == 'dpd'){
+			$type_expedition = 'dpd';
+			$wheresql = "Colis expédié DPD + Suivi";
 			break;
 		}elseif($type == 'relais' && $valeur != ''){
 			$type_expedition = 'relais';
@@ -172,7 +178,7 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	endforeach;
 
 	if($type_expedition == 'relais'){
-		/*Récupération de l'adresse du relais colis*/
+		//-------------------------------- Récupération de l'adresse du relais colis
 		$userZZ = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$number'");
 		$adresse_relais_colis = '
 								'.$userZZ->l_name .'
@@ -182,36 +188,31 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 								'.$userZZ->l_city;
 	}
 
-	/* Récupration du numéro du relais colis si disponible */
-	if($type_expedition == 'relais' || $type_expedition == 'tnt' || strtolower($type_expedition) == 'fedex' || $type_expedition == 'autre'){
+	//------------------------ Récupration du numéro du relais colis si disponible
+	if($type_expedition == 'relais' || $type_expedition == 'tnt' || strtolower($type_expedition) == 'fedex' || $type_expedition == 'dpd' || $type_expedition == 'autre'){
 		$numberTNT_commande = $wpdb->get_row("SELECT tnt FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 		if($numberTNT_commande->tnt !="" && (strtolower($type_expedition) == 'tnt' || $type_expedition == 'relais') ){
-			$adresse_relais_colis .='
-			Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
-			http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport='.$numberTNT_commande->tnt.'&radiochoixtypeexpedition=NAT
-			';
+			$adresse_relais_colis .='Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur: http://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport='.$numberTNT_commande->tnt.'&radiochoixtypeexpedition=NAT';
 		}elseif($numberTNT_commande->tnt !="" && strtolower($type_expedition) == 'fedex'){
-			$adresse_relais_colis .='
-			Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:
-			https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$number.'
-			';
+			$adresse_relais_colis .='Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur:	https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS='.$number;
+		}elseif($numberTNT_commande->tnt !="" && strtolower($type_expedition) == 'dpd'){
+			$adresse_relais_colis .='	Vous pourrez suivre son acheminement dès ce soir en cliquant sur ce lien ou en recopiant cette adresse dans votre navigateur: http://e-trace.ils-consult.fr/dpd-webtrace/webtrace.aspx?sdg_landnr=250&sdg_mandnr=013&sdg_lfdnr='.$numberTNT_commande->tnt.'&cmd=SDG_SEARCH';
 		}
 	}
 
-	/* Nouveau statut à 4 (expedie)*/
+	//----------------------------------------------- Nouveau statut à 4 (expedie)
   $newstat = '4';
 	$nowadata = date('Y-m-d H:i:s');
 	$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat ), array ( 'unique_id' => $number ) );
 
-  /* ENVOI du commentaire d'expedition */
-	//$wheresql = "COLIS RELAIS COLIS";
+  //------------------------------------------ ENVOI du commentaire d'expedition
 
   $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
   if ($topics) {
 		foreach ($topics as $t) :
-			$cont = stripslashes($t[content]);
+			$cont = stripslashes($t['content']);
 			$cont= htmlspecialchars($cont);
-			$topt = stripslashes($t[topic]);
+			$topt = stripslashes($t['topic']);
 			$topt = htmlspecialchars($topt);
 		endforeach;
 	}
@@ -238,17 +239,19 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 		$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')");
 	}
 
-  /* ENVOI de l'email "Colis expédié"*/
-  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
-	foreach ($mails as $ma) :
-		$con = stripslashes($ma[content]);
-		$con = htmlspecialchars($con);
-		$top = stripslashes($ma[topic]);
-		$top = htmlspecialchars($top);
-	endforeach;
+	//---------------------------------------------récupération mail et tel client
 	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 	$ktoryuser = $order->user;
 	$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
+
+  //------------------------------------------- ENVOI de l'email "Colis expédié"
+  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
+	foreach ($mails as $ma) :
+		$con = stripslashes($ma['content']);
+		$con = htmlspecialchars($con);
+		$top = stripslashes($ma['topic']);
+		$top = htmlspecialchars($top);
+	endforeach;
 
 	// On remplace XXXXX dans le message par l'adresse du relais colis, YYYYY par le numéro de suivi, NNNNN par le n° de commande
 	$con = str_replace("XXXXX",$adresse_relais_colis,$con);
@@ -266,16 +269,24 @@ function traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_to
 	// EN PROD:
 	mail($uzyt->email, stripslashes($temat), stripslashes($zawar), $header);
 
-	// ajout du mail à la bdd
+	//----------------------------------------------------- ajout du mail à la bdd
 	$checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
   $getmail = $checkmail->last_mail;
 
 	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
 	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
+
+	//------------------------------------------------------------------ envoi SMS
+/*	$sms = $wpdb->get_results("SELECT * FROM `$fb_tablename_sms` WHERE topic LIKE 'Commande expédiée'", ARRAY_A);
+	foreach ($sms as $s) :
+		$content = stripslashes($s[content]);
+	endforeach;
+
+	$content = str_replace("NNNNN",$number,$content);
+	send_sms($uzyt->f_phone, $content);*/
 }
 
 /////////////////////////////////////////////////////////// status 5: clôturé //
-////////////////////////////////////////////////////////////////////////////////
 
 function passage_cloture(){
 	echo '
@@ -305,9 +316,9 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
   $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE '".$wheresql."%' ORDER BY content ASC", ARRAY_A);
   if ($topics) {
 		foreach ($topics as $t) :
-			$cont = stripslashes($t[content]);
+			$cont = stripslashes($t['content']);
 			$cont= htmlspecialchars($cont);
-			$topt = stripslashes($t[topic]);
+			$topt = stripslashes($t['topic']);
 			$topt = htmlspecialchars($topt);
 		endforeach;
 	}
@@ -331,9 +342,9 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
   $wheresql = "Votre avis sur France Banderole";
 	$mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE '".$wheresql."%'", ARRAY_A);
 	foreach ($mails as $ma) :
-		$con = stripslashes($ma[content]);
+		$con = stripslashes($ma['content']);
 		$con = htmlspecialchars($con);
-		$top = stripslashes($ma[topic]);
+		$top = stripslashes($ma['topic']);
 		$top = htmlspecialchars($top);
 	endforeach;
 	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
@@ -413,11 +424,9 @@ function traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_to
 
 	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
 	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
-
 }
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////// nouveaux calculs après modif commande  //
+//======================================== nouveaux calculs après modif commande
 
 function reorganize($idzamowienia) {
 	global $wpdb;
@@ -431,10 +440,12 @@ function reorganize($idzamowienia) {
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
-			$totalItems = str_replace(',', '.', $item[total]);
+			$totalItems = str_replace(',', '.', $item['total']);
 			$totalHT = $totalHT + $totalItems;
-			$fraisPort = $fraisPort + $item[frais];
+			$fraisPort = $fraisPort + $item['frais'];
 		}
+		//--------------------------------------------------------------------------
+	 	$totalHT = $totalHT + $fraisPort;
 
 		//----------------------------------------------------------vérifier remises
 		$czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
@@ -463,8 +474,6 @@ function reorganize($idzamowienia) {
 			$totalHT = $totalHT - $calculCode;
 		}
 
-	  //--------------------------------------------------------------------------
-		$totalHT = $totalHT + $fraisPort;
 		//------------------------------------------------------------changement TVA
 		$czyjesttva = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '".$idzamowienia."-tva'");
 		if ($czyjesttva) {
@@ -494,6 +503,32 @@ function reorganize($idzamowienia) {
 		$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'status' => '6', 'date_modify' => $nowadata), array ( 'unique_id' => $idzamowienia ) );
 	}
+}
+
+//==================================================================== envoi sms
+
+function send_sms($mobile, $smscontent) {
+	$isMobile = preg_match('/^(\+33|0)(6|7)/', $mobile); // Si le numéro commence par +33 ou 0 suivi de 6 ou 7
+	$notInter = preg_match('/^(0)(6|7)/', $mobile); // si le numéro n'est pas au format internationnal (+33)
+
+	if ($notInter) {
+		$phone =  substr_replace($mobile, '+33', 0, 1);
+	}else{
+		$phone  = $mobile;
+	}
+
+	$sms = array(
+		'number_to' => $phone,
+		'message' => $smscontent,
+	);
+
+	if ($isMobile) {
+		twl_send_sms( $sms );
+		$view = '<p class="pgood">sms envoyé au '.$phone.'</p>';
+	}	else {
+		$view = '<p class="palert">le n° enregistré n\'est pas un mobile</p>';
+	}
+	return $view;
 }
 
 ?>

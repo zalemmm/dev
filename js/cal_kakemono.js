@@ -310,6 +310,10 @@ cal_dibond: function(){
 
 },
 
+cal_komadur: function(){
+
+},
+
 ///////FIN Dibond///////////////
 
 ///////DEBUT tente///////////////
