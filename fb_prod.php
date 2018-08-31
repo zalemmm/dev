@@ -9,14 +9,15 @@ function getTplPath($page = false) {
 }
 
 function recursive_array_search($needle,$haystack) {
-
-  foreach($haystack as $key=>$value) {
-    $current_key=$key;
-    /*if($needle===$value OR (is_array($value) && recursive_array_search($needle,$value) !== false)) {
+  if (is_array($haystack) || is_object($haystack)) {
+    foreach($haystack as $key=>$value) {
+      $current_key=$key;
+      /*if($needle===$value OR (is_array($value) && recursive_array_search($needle,$value) !== false)) {
+          return $current_key;
+      }*/
+    	if(@strpos( $value, $needle ) OR (is_array($value) && recursive_array_search($needle,$value) !== false)) {
         return $current_key;
-    }*/
-  	if(@strpos( $value, $needle ) OR (is_array($value) && recursive_array_search($needle,$value) !== false)) {
-      return $current_key;
+      }
     }
   }
   return false;

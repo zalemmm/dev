@@ -3151,16 +3151,16 @@ function fb_admin_sales_shipped() {
   		$toclose = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE status = 4");
 
   		foreach ($toclose as $tc) :
-        $uid = $tc->unique_id;
-        $paid = $tc->payment;
+        $uid   = $tc->unique_id;
+        $paid  = $tc->payment;
         $total = str_replace(',', '', $tc->totalht);
         //if (!empty($tc['payment'])) {
 
         if($total < 500 && ($paid == 'carte') ||  ($paid == 'cheque') ||  ($paid == 'bancaire') ||  ($paid == 'espece')) {
 
-          $transp = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type = 'shipping' AND unique_id = $uid");
+          $transp  = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type = 'shipping' AND unique_id = $uid");
           $shipper = $transp->value;
-
+          $livred  = 0;
           $shipped = 0;
 
           echo '<div>';
@@ -3172,24 +3172,32 @@ function fb_admin_sales_shipped() {
 
             $livred = preg_match_all('/Votre colis a (.*) livr/ui', $str, $result);
     				$livred = count($result[0]);
-            $livred1 = preg_match_all('/Colis livr/ui', $str, $result1);
-    				$livred1 = count($result1[0]);
+          }
 
-            if ($livred  >= 1) {
-              $shipped = 1;
-              echo $tc->tnt.' colis livré - clôture commande '.$uid.' total HT: '.$total.'€ transporteur: '.$shipper.' | <a href="'.$href.'" target="blank">CHECK</a>';
-            }else{
-              echo $tc->tnt.' colis en transit - stand by commande '.$uid.' total HT: '.$total.'€ transporteur: '.$shipper.' | <a href="'.$href.'" target="blank">CHECK</a>';
-            }
+          if($shipper == 'dpd') {
+            $href = 'http://e-trace.ils-consult.fr/dpd-webtrace/webtrace.aspx?sdg_landnr=250&sdg_mandnr=013&sdg_lfdnr='.$tc->tnt.'&cmd=SDG_SEARCH';
+            $url = get_data($href);
+            $str = utf8_encode($url);
 
-          }else if($shipper == 'dpd') {
-            $shipped = 0;
+            $livred = preg_match_all('/Le colis est livr/ui', $str, $result);
+    				$livred = count($result[0]);
+          }
+
+          /*if ($shipper == 'autre') {
+
+          }*/
+
+          if ($livred  >= 1) {
+            $shipped = 1;
+            echo $tc->tnt.' colis livré - clôture commande '.$uid.' total HT: '.$total.'€ transporteur: '.$shipper.' | <a href="'.$href.'" target="blank">CHECK</a>';
+
           }else{
             $shipped = 0;
+            echo $tc->tnt.' colis en transit - stand by commande '.$uid.' total HT: '.$total.'€ transporteur: '.$shipper.' | <a href="'.$href.'" target="blank">CHECK</a>';
           }
 
           if($shipped == 1) {
-            echo 'on peut passer en cloturé';
+            echo ' on peut passer en cloturé';
             traitement_passage_cloture($tc->unique_id,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address);
       			//$deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE order_id='".$tc->unique_id."'");
       			//$deleting = $wpdb->query("DELETE FROM `$fb_tablename_order` WHERE unique_id='".$tc->unique_id."'");

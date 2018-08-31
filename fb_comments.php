@@ -57,21 +57,21 @@ function get_fb_comments() {
 	$view .= '<div class="com_list">';
 
 	foreach ($comments as $c) :
-		$c[content] = stripslashes($c[content]);
+		$c['content'] = stripslashes($c['content']);
 		//$c[content]= htmlspecialchars($c[content]);
-		$c[topic] = stripslashes($c[topic]);
-		$c[topic] = htmlspecialchars($c[topic]);
+		$c['topic'] = stripslashes($c['topic']);
+		$c['topic'] = htmlspecialchars($c['topic']);
 
-		$fb = preg_match_all('/France Banderole/', $c[author], $result);
+		$fb = preg_match_all('/France Banderole/', $c['author'], $result);
 		$fb = count($result[0]);
 
 		if ($fb >= 1) {
 			$klasa = ' class="comment_right2"';
-			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c[data].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c[author].'<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;'.$c[topic].'</p>'.html_entity_decode(nl2br($c[content])).'</div>';
+			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c['data'].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c['author'].'<p class="sujet"><span class="comm_title2">Sujet:</span>&nbsp;'.$c['topic'].'</p>'.html_entity_decode(nl2br($c['content'])).'</div>';
 		} else {
-			$c[content]= htmlspecialchars($c[content]);
+			$c['content']= htmlspecialchars($c['content']);
 			$klasa = ' class="comment_right"';
-			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c[data].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c[author].'<p></p>'.nl2br($c[content]).'</div>';
+			$view .= '<div'.$klasa.'><span class="comm_title2">Date:</span>&nbsp;'.$c['data'].'<span class="comm_title3">Expediteur:</span>&nbsp;'.$c['author'].'<p></p>'.nl2br($c['content']).'</div>';
 		}
 	endforeach;
 

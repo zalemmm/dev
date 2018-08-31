@@ -542,9 +542,9 @@ function get_details() {
 	if ($status<2) {
 		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande </button>'.$ptip.'</form>';
 	} else if ($status==7){
-		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> changer méthode paiement </button>'.$ptip.'</form>';
+		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payed" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> changer méthode paiement </button>'.$ptip.'</form>';
 	}else{
-		$epilog .= '<div id="#paye"><button id="but_payer" class="deactive"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande</button></div>';
+		$epilog .= '<div id="paye"><button id="but_payer" class="deactive"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande</button></div>';
 	}
 
 	//----------------------------------------------------- bouton suivre le colis
@@ -1344,6 +1344,8 @@ function print_votre() {
 	$fb_tablename_comments = $prefix."fbs_comments";
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
 
+
+
   if (isset($_POST['annulervosdevis'])) {
 		$ident = $_POST['annulervosdevis'];
 		$anulowany = $wpdb->query("UPDATE `$fb_tablename_order` SET status='6' WHERE unique_id='$ident'");
@@ -1379,13 +1381,16 @@ function print_votre() {
 			$view .= '<p>'._FB_404.'</p>';
 		}
   } else {
+		$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Vos commandes et devis</h1><hr />';
+
 		$user = $_SESSION['loggeduser'];
 		$order_list = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE user='$user->id' AND status != 5");
 		$count_pay = 0;
 		$count_files = 0;
 		$count_bat = 0;
 		$total_count = 0;
-		$alert_content = '<div class="box_info noprint"><table><tr><td><img src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pict_info.png" /></td><td><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><strong>CERTAINES DE VOS COMMANDES ATTENDENT DES RETOURS DE VOTRE PART</strong></p><p><ul>';
+		$alert_content = '<div class="box_info noprint"><button class="closeButton"><i class="ion-ios-close-empty"></i></button>
+		<strong><i class="fa fa-warning"></i> COMMANDE(S) EN ATTENTE RETOURS DE VOTRE PART : </strong>';
 
 		foreach($order_list AS $order_row) {
 		$idzamowienia = $order_row->unique_id;
@@ -1413,17 +1418,17 @@ function print_votre() {
 		}
 
 		if($need_act == 1) {
-			$alert_content .= '<li><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'">Commande n°'.$idzamowienia.'</a></li>';
+			$alert_content .= '<a class="attente" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'">n°'.$idzamowienia.'</a> ';
 			$total_count++;
 		}
 	}
 
 	if($total_count != 0) {
-		$alert_content .= '</ul></td></tr></table></div>';
+		$alert_content .= '</div>';
 		$view .= $alert_content;
 	}
 
-	$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Vos commandes et devis</h1><hr />';
+
 	$user = $_SESSION['loggeduser'];
 
 	//--------------------------------------------------Récupération des variables
@@ -1456,12 +1461,17 @@ function print_votre() {
 	}
 
 	if ($orders) {
-		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
-			<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a>
-			<a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>
- 			Se déconnecter </a></div>';
+		$view .= '<div id="votre"><div class="votre_compte">
+		<span class="votreCompte">Bonjour, '.stripslashes($user->f_name).'!</span>
+		<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a>
+		<a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>	Se déconnecter </a>
+		</div>';
 
 		$view .= '</div>';
+
+
+
+
 		$view .= '<div class="votre_tab_head">';
 
 		if ($archive) {
@@ -1597,8 +1607,11 @@ function print_votre() {
 		}
 
 	} else if (($count_curr != 0) OR ($count_old != 0)) {
-		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.stripslashes($user->f_name).'!</div>
-					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i>Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>Se deconnecter</a></div>';
+		$view .= '<div id="votre"><div class="votre_compte">
+		<span class="votreCompte">Bonjour, '.stripslashes($user->f_name).'!</span>
+		<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i>Modifier mon compte</a>
+		<a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i>Se deconnecter</a>
+		</div>';
 
 		$view .= '</div>';
 
@@ -1619,9 +1632,12 @@ function print_votre() {
 		$view .= '</div>';
 
 	} else {
-		$view .= '<div id="votre"><div class="votre_tab_name">Bonjour, '.$user->f_name.'!</div>
-					<div class="votre_tab_content"><a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a><a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i> Se deconnecter</a></div>
-				  </div><div class="box_warning" style="clear:both;top:15px">'._FB_NZAM.'</div></div>';
+		$view .= '<div id="votre"><div class="votre_compte">
+		<span class="votreCompte">Bonjour, '.stripslashes($user->f_name).'!</span>
+		<a href="'.get_bloginfo("url").'/inscription/" id="votre_mod"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier mon compte</a>
+		<a href="'.get_bloginfo("url").'/?logout=true" id="votre_dec"><i class="fa fa-times-circle" aria-hidden="true"></i> Se deconnecter</a></div>
+		</div>
+		<div class="box_warning" style="clear:both;top:15px">'._FB_NZAM.'</div></div>';
 	}
   }
   return $view;
