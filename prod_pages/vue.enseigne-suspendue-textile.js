@@ -481,26 +481,26 @@ new Vue({
 
 
         if (this.produit == 'Enseigne suspendue ronde') {
-
-        	if (this.dimensions == 'Diamètre 152cm - Hauteur 76cm')  {structure=99;  m2tissu= (1.60*3.15)*1.25*2; this.prodref = '20170270';}//////circonférence x hauteur (en fonction de la laize soit 2.50/2) x 2(int/ext)
-        	if (this.dimensions == 'Diamètre 305cm - Hauteur 61cm')  {structure=137; m2tissu= (3.10*3.15)*1.25*2; this.prodref = '20170271';}
-        	if (this.dimensions == 'Diamètre 610cm - Hauteur 122cm') {structure=386; m2tissu= (6.2*3.15)*1.25*2;  this.prodref = '20170272';}
+          // circonférence x hauteur (en fonction de la laize soit 2.50/2) x 2(int/ext)
+        	if (this.dimensions == '∅|152 x H|76 cm')  {structure=99;  m2tissu= (1.60*3.15)*1.25*2; this.prodref = '20170270';}
+        	if (this.dimensions == '∅|305 x H|61 cm')  {structure=137; m2tissu= (3.10*3.15)*1.25*2; this.prodref = '20170271';}
+        	if (this.dimensions == '∅|610 x H|122 cm') {structure=386; m2tissu= (6.2*3.15)*1.25*2;  this.prodref = '20170272';}
 
         }
 
       	if (this.produit == 'Enseigne suspendue carree') {
 
-        	if (this.dimensions == 'Largeur 244cm - Hauteur 107cm') {structure=176; m2tissu= (2.50*1.25)*4*2; this.prodref = '20170273';}
-        	if (this.dimensions == 'Largeur 488cm - Hauteur 122cm') {structure=296; m2tissu= (5*1.25)*4*2;    this.prodref = '20170274';}
-        	if (this.dimensions == 'Largeur 610cm - Hauteur 122cm') {structure=570; m2tissu= (6.2*1.25)*4*2;  this.prodref = '20170275';}
+        	if (this.dimensions == 'L|244 x H|107 cm') {structure=176; m2tissu= (2.50*1.25)*4*2; this.prodref = '20170273';}
+        	if (this.dimensions == 'L|488 x H|122 cm') {structure=296; m2tissu= (5*1.25)*4*2;    this.prodref = '20170274';}
+        	if (this.dimensions == 'L|610 x H|122 cm') {structure=570; m2tissu= (6.2*1.25)*4*2;  this.prodref = '20170275';}
 
         }
 
       	if (this.produit == 'Enseigne suspendue triangle') {
 
-        	if (this.dimensions == 'Largeur 305cm - Hauteur 107cm') {structure=155; m2tissu= (3.10*1.25)*3*2; this.prodref = '20170276';}
-        	if (this.dimensions == 'Largeur 463cm - Hauteur 107cm') {structure=207; m2tissu= (4.70*1.25)*3*2; this.prodref = '20170277';}
-        	if (this.dimensions == 'Largeur 610cm - Hauteur 122cm') {structure=411; m2tissu= (6.20*1.25)*3*2; this.prodref = '20170278';}
+        	if (this.dimensions == 'L|305 x H|107 cm') {structure=155; m2tissu= (3.10*1.25)*3*2; this.prodref = '20170276';}
+        	if (this.dimensions == 'L|463 x H|107 cm') {structure=207; m2tissu= (4.70*1.25)*3*2; this.prodref = '20170277';}
+        	if (this.dimensions == 'L|610 x H|122 cm') {structure=411; m2tissu= (6.20*1.25)*3*2; this.prodref = '20170278';}
 
         }
 

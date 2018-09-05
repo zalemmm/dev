@@ -152,7 +152,6 @@ function calcOrder($uid) {
 		$exist_code = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
 		if ($exist_code->promo > 1) {
 			$calculCode = $exist_code->promo;
-			echo $calculCode;
 			$totalHT = $totalHT - $calculCode;
 		}
 

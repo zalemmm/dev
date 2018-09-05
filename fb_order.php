@@ -440,7 +440,7 @@ function get_details() {
 
 	/*$prolog .= '<h1 class="noprint"><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Devis detail (Nº '.$idzamowienia.')</h1><hr class="noprint" />';*/
 	$prolog .= '
-	<div class="acces_tab_name_devis noprint">MON DEVIS <span class="disno480">Nº '.$idzamowienia.'</span><span class="etat">'.print_status($zamowienie->status).'</span></div>';
+	<div class="acces_tab_name_devis noprint"><span class="disno480">MON DEVIS </span>Nº '.$idzamowienia.'<span class="etat"><span class="statt disno480">status</span> <span class="point1"></span><span class="point2"></span><span class="point3"></span><span class="curstatus">'.print_status($zamowienie->status).'</span></span></div>';
 	$prolog .= '<div id="expop" class="devisPop mfp-hide">
 	'.export_devis_details($products, $prolog, $epilog, $writable, $statuszamowienia).'
 	<button onclick="print(\'#expop\');" id="print" class="noprint" title="imprimer"><i class="fa fa-print"></i></button></div>';
@@ -520,9 +520,9 @@ function get_details() {
 
 	//-------------------------------------------------- bouton écrire commentaire
   if ($status!=5 && $status!=6 ) {
-		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</a>';
+		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment"><i class="fa fa-pencil" aria-hidden="true"></i> Écrire un commentaire</a>';
 	} else {
-		$epilog .= '<span id="but_comment" class="deactive"><i class="fa fa-pencil" aria-hidden="true"></i> écrire un commentaire</span>';
+		$epilog .= '<span id="but_comment" class="deactive"><i class="fa fa-pencil" aria-hidden="true"></i> Écrire un commentaire</span>';
 	}
 
 	//------------------------------------------------------------ bouton voir BAT
@@ -542,7 +542,7 @@ function get_details() {
 	if ($status<2) {
 		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande </button>'.$ptip.'</form>';
 	} else if ($status==7){
-		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payed" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> changer méthode paiement </button>'.$ptip.'</form>';
+		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payed" type="submit"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Changer méthode paiement </button>'.$ptip.'</form>';
 	}else{
 		$epilog .= '<div id="paye"><button id="but_payer" class="deactive"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Payer la commande</button></div>';
 	}
@@ -566,9 +566,9 @@ function get_details() {
 		}
 	//------------------------------------------------ bouton adresse de livraison
 	}else if ($status==0 || $status==1 || $status==2 || $status==7){
-		$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> adresse de livraison</a>';
+		$epilog .= '<a id="but_suivre" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> Adresse de livraison</a>';
 	}else{
-		$epilog .= '<a id="but_suivre" class="deactive"  href="#"><i class="fa fa-truck"></i> adresse de livraison</a>';
+		$epilog .= '<a id="but_suivre" class="deactive"  href="#"><i class="fa fa-truck"></i> Adresse de livraison</a>';
 	}
 
 	if((($status == 1) or ($status == 2) or ($status == 7)) and ((has_bat($idzamowienia)) AND (!(is_bat_validated($idzamowienia))))) {

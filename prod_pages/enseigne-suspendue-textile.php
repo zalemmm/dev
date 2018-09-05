@@ -39,34 +39,34 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'Diamètre 152cm Hauteur 76cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Diamètre 152cm - Hauteur 76cm');" v-if="szrond">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Diamètre 152cm - Hauteur 76cm</span>
+									<div @mouseover="hoPw(9,'Diamètre 152cm Hauteur 76cm');"  @mouseout="hout(9)" @click="reset(); selectSize('∅|152 x H|76 cm');" v-if="szrond">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>∅|152 x H|76 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'Diamètre 305cm Hauteur 61cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Diamètre 305cm - Hauteur 61cm');" v-if="szrond">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Diamètre 305cm - Hauteur 61cm</span>
+									<div @mouseover="hoPw(9,'Diamètre 305cm Hauteur 61cm');"  @mouseout="hout(9)" @click="reset(); selectSize('∅|305 x H|61 cm');" v-if="szrond">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>∅|305 x H|61 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'Diamètre 610cm Hauteur 122cm');" @mouseout="hout(9)" @click="reset(); selectSize('Diamètre 610cm - Hauteur 122cm');" v-if="szrond">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Diamètre 610cm - Hauteur 122cm</span>
-									</div>
-
-									<div @mouseover="hoPw(9,'Largeur 244cm Hauteur 107cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Largeur 244cm - Hauteur 107cm');" v-if="szcarre">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Largeur 244cm - Hauteur 107cm</span>
-									</div>
-									<div @mouseover="hoPw(9,'Largeur 488cm Hauteur 122cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Largeur 488cm - Hauteur 122cm');" v-if="szcarre">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Largeur 488cm - Hauteur 122cm</span>
-									</div>
-									<div @mouseover="hoPw(9,'Largeur 610cm Hauteur 122cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Largeur 610cm - Hauteur 122cm');" v-if="szcarre">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Largeur 610cm - Hauteur 122cm</span>
+									<div @mouseover="hoPw(9,'Diamètre 610cm Hauteur 122cm');" @mouseout="hout(9)" @click="reset(); selectSize('∅|610 x H|122 cm');" v-if="szrond">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>∅|610 x H|122 cm</span>
 									</div>
 
-									<div @mouseover="hoPw(9,'Largeur 305cm Hauteur 107cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Largeur 305cm - Hauteur 107cm');" v-if="sztriangle">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Largeur 305cm - Hauteur 107cm</span>
+									<div @mouseover="hoPw(9,'Largeur 244cm Hauteur 107cm');"  @mouseout="hout(9)" @click="reset(); selectSize('L|244 x H|107 cm');" v-if="szcarre">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>L|244 x H|107 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'Largeur 463cm Hauteur 107cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Largeur 463cm - Hauteur 107cm');" v-if="sztriangle">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Largeur 463cm - Hauteur 107cm</span>
+									<div @mouseover="hoPw(9,'Largeur 488cm Hauteur 122cm');"  @mouseout="hout(9)" @click="reset(); selectSize('L|488 x H|122 cm');" v-if="szcarre">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>L|488 x H|122 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'Largeur 610cm Hauteur 122cm');"  @mouseout="hout(9)" @click="reset(); selectSize('Largeur 610cm - Hauteur 122cm');" v-if="sztriangle">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Largeur 610cm - Hauteur 122cm</span>
+									<div @mouseover="hoPw(9,'Largeur 610cm Hauteur 122cm');"  @mouseout="hout(9)" @click="reset(); selectSize('L|610 x H|122 cm');" v-if="szcarre">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>L|610 x H|122 cm</span>
+									</div>
+
+									<div @mouseover="hoPw(9,'Largeur 305cm Hauteur 107cm');"  @mouseout="hout(9)" @click="reset(); selectSize('L|305 x H|107 cm');" v-if="sztriangle">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>L|305 x H|107 cm</span>
+									</div>
+									<div @mouseover="hoPw(9,'Largeur 463cm Hauteur 107cm');"  @mouseout="hout(9)" @click="reset(); selectSize('L|463 x H|107 cm');" v-if="sztriangle">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>L|463 x H|107 cm</span>
+									</div>
+									<div @mouseover="hoPw(9,'Largeur 610cm Hauteur 122cm');"  @mouseout="hout(9)" @click="reset(); selectSize('L|610 x H|122 cm');" v-if="sztriangle">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>L|610 x H|122 cm</span>
 									</div>
 								</div>
 							</transition>
