@@ -1898,15 +1898,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 19;
+          cena += 29;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 5;
+          cena += 4;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 5;
+          cena += 6;
           this.modmaq = 'je crée ma maquette en ligne / '+this.choixForm;
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1926,17 +1926,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*3/100;
+          cena-= cena*6/100;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5.00;
+          cena += 6.00;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -1951,12 +1951,12 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 60;
-          else if (this.delaiprod == '1-1') ProdPercent = 150;
+          if      (this.delaiprod == '2-3') ProdPercent = 45;
+          else if (this.delaiprod == '1-1') ProdPercent = 99;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 60;
-          else if (this.delailiv == '1-1')  DeliPercent = 150;
+          if      (this.delailiv == '2-3')  DeliPercent = 45;
+          else if (this.delailiv == '1-1')  DeliPercent = 99;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);

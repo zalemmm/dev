@@ -205,14 +205,13 @@ function has_uploaded_files($cmd, $userid) {
 	if ($dir = @opendir($name)) {
 		// ajout vérification extention pour ignorer le csv
 		// ajout dans la boucle de la dernière condition  && !in_array(pathinfo($file, PATHINFO_EXTENSION), $excludeExtensions)
-		$excludeExtensions = array(
-		    'csv',
-				'json'
-		);
+
+		$filetype = pathinfo($file, PATHINFO_EXTENSION);
+		$exclude = array('json','csv');
 
 	  while(($file = readdir($dir))) {
-			if(!is_dir($file) && !in_array($file, array(".","..")) && !in_array(pathinfo($file, PATHINFO_EXTENSION), $excludeExtensions)) {
-				$fichiers.=$file.'<br />';
+			if(!is_dir($file) && !in_array($file, array(".","..")) && !in_array(strtolower($filetype), $exclude)) {
+				$fichiers .= $file.'<br />';
 			}
     }
 	    closedir($dir);

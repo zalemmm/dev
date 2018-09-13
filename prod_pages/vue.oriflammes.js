@@ -854,14 +854,14 @@ new Vue({
       		}
 
       		if (this.dimensions == '85x245') {
-      			structure = 13;
+      			structure = 15;
       			p2=0.89;
             this.hauteur = 245;
             this.largeur = 85;
       		}
 
       		if (this.dimensions == '85x298') {
-      			structure = 15;
+      			structure = 16;
       			p2=1.05;
             this.hauteur = 298;
             this.largeur = 85;
@@ -1026,14 +1026,14 @@ new Vue({
       		}
 
       		if (this.dimensions == '106x257') {
-      			structure = 19;
+      			structure = 16;
       			p2=1.05;
             this.hauteur = 257;
             this.largeur = 106;
       		}
 
       		if (this.dimensions == '125x402') {
-      			structure = 24;
+      			structure = 22;
       			p2=1.25;
             this.hauteur = 402;
             this.largeur = 125;
@@ -1298,15 +1298,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          maquette = 35/this.qte;
+          maquette = 29/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          maquette = 5/this.qte;
+          maquette = 4/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          maquette = 5/this.qte;
+          maquette = 6/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1326,10 +1326,10 @@ new Vue({
 
         if (this.produit == 'beachflag' || this.produit == 'oriflamme' || this.produit == 'windflag') {
           //-------------------------------------------------------------- MARGE
-          if (this.qte == 1)   marge = (prixHT*53)/100;
-          if (this.qte >= 2 && this.qte <= 5) marge = (prixHT*52)/100;
-          if (this.qte >= 6 && this.qte <= 9) marge = (prixHT*36)/100;
-          if (this.qte >= 10)  marge = (prixHT*33)/100;
+          if (this.qte == 1)   marge = (prixHT*50)/100;
+          if (this.qte >= 2 && this.qte <= 5) marge = (prixHT*47)/100;
+          if (this.qte >= 6 && this.qte <= 9) marge = (prixHT*39)/100;
+          if (this.qte >= 10)  marge = (prixHT*35)/100;
 
           prixunite = (prixHT+marge+maquette);
           cena=prixunite*this.qte;
@@ -1348,7 +1348,7 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena -= cena*3/100;
+          cena -= cena*6/100;
           this.retrait = 'retrait colis atelier';
         }
 
@@ -1358,13 +1358,13 @@ new Vue({
         }*/
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2*this.qte;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5*this.qte;}
           this.optliv = ' / colis revendeur';
         }
 
         if (this.antifeu == true) {
-          cena += (cena*30)/100;
-          options4 = (cena*30)/100;
+          cena += (cena*40)/100;
+          options4 = (cena*40)/100;
           this.optliv = ' / Voile anti-feu';
         }
 
@@ -1403,11 +1403,11 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
+          if      (this.delaiprod == '2-3') ProdPercent = 25;
           else if (this.delaiprod == '1-1') ProdPercent = 60;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
+          if      (this.delailiv == '2-3')  DeliPercent = 25;
           else if (this.delailiv == '1-1')  DeliPercent = 60;
           else                              DeliPercent = 0;
 

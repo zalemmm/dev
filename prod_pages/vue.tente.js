@@ -287,7 +287,7 @@ new Vue({
         this.showMaqt = false;
         this.showSign = false;
 
-        if (this.impression == 'Mur' || this.impression == 'Mur R/V') {
+        if (this.impression == 'Mur de fond' || this.impression == 'Mur de fond R/V') {
           this.bg3 = {backgroundImage: 'url('+this.$global.img+'/tente/print-fd.png)'};
           this.bg5 = {backgroundImage: 'none'};
 
@@ -297,7 +297,7 @@ new Vue({
           this.toggleMaqt = true;
           this.choixMaqt = 'votre maquette (fichier d\'impression)';
 
-        } else if (this.impression == 'Mur et demi-mur' || this.impression == 'Mur et demi-mur R/V') {
+        } else if (this.impression == 'Murs et demi-murs' || this.impression == 'Murs et demi-murs R/V') {
           this.bg3 = {backgroundImage: 'url('+this.$global.img+'/tente/print-fd.png)'};
           this.bg5 = {backgroundImage: 'url('+this.$global.img+'/tente/print-'+this.murs+'.png)'};
 
@@ -307,15 +307,19 @@ new Vue({
           this.toggleMaqt = true;
           this.choixMaqt = 'votre maquette (fichier d\'impression)';
 
-        } else if (this.impression == 'Full Graphic'  || this.impression == 'Full Graphic R/V') {
+        } else if (this.impression == 'Fronton') {
+          this.bg3 = {backgroundImage: 'url('+this.$global.img+'/tente/print-x.png)'};
+          this.bg5 = {backgroundImage: 'none'};
 
-          if (this.murs == 'x') {
-            this.bg3 = {backgroundImage: 'url('+this.$global.img+'/tente/print-x.png)'};
-            this.bg5 = {backgroundImage: 'none'};
-          } else {
-            this.bg3 = {backgroundImage: 'url('+this.$global.img+'/tente/print-fd.png),url('+this.$global.img+'/tente/print-x.png)'};
-            this.bg5 = {backgroundImage: 'url('+this.$global.img+'/tente/print-'+this.murs+'.png)'};
-          }
+          // afficher le champ suivant et indiquer qu'il est requis :
+          this.showMaqt = true;
+          this.reqMaqt = 'required';
+          this.toggleMaqt = true;
+          this.choixMaqt = 'votre maquette (fichier d\'impression)';
+
+        } else if (this.impression == 'Full Graphic'  || this.impression == 'Full Graphic R/V') {
+          this.bg3 = {backgroundImage: 'url('+this.$global.img+'/tente/print-fd.png),url('+this.$global.img+'/tente/print-x.png)'};
+          this.bg5 = {backgroundImage: 'url('+this.$global.img+'/tente/print-'+this.murs+'.png)'};
 
           // afficher le champ suivant et indiquer qu'il est requis :
           this.showMaqt = true;
@@ -636,13 +640,13 @@ new Vue({
 
         //------------------------------------------------ prix impression recto
 
-        if (this.impression == 'Mur')                                                                 cena+= (murperso)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur' && this.choixMurs == '1x Demi-mur')                  cena+= (murperso+demimurAperso)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur' && this.choixMurs == '2x Demi-mur')                  cena+= (murperso+demimurAperso+demimurAperso)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur' && this.choixMurs == '1x Mur sup')                   cena+= (murperso+murperso)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur' && this.choixMurs == '2x Mur sup')                   cena+= (murperso+murperso+murperso)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur' && this.choixMurs == '1x Mur sup + 1x Demi-mur')     cena+= (murperso+murperso+demimurAperso)*2.5*this.qte;
-        if (this.impression == 'Full Graphic' && this.choixMurs == 'sans mur')                        cena+= (frontonperso)*2.5*this.qte;
+        if (this.impression == 'Mur de fond')                                                                 cena+= (murperso)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs' && this.choixMurs == '1x Demi-mur')                  cena+= (murperso+demimurAperso)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs' && this.choixMurs == '2x Demi-mur')                  cena+= (murperso+demimurAperso+demimurAperso)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs' && this.choixMurs == '1x Mur sup')                   cena+= (murperso+murperso)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs' && this.choixMurs == '2x Mur sup')                   cena+= (murperso+murperso+murperso)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs' && this.choixMurs == '1x Mur sup + 1x Demi-mur')     cena+= (murperso+murperso+demimurAperso)*2.5*this.qte;
+        if (this.impression == 'Fronton')                                                             cena+= (frontonperso)*2.5*this.qte;
         if (this.impression == 'Full Graphic' && this.choixMurs == 'sans option')                     cena+= (frontonperso+murperso)*2.5*this.qte;
         if (this.impression == 'Full Graphic' && this.choixMurs == '1x Mur sup')                      cena+= (frontonperso+murperso+murperso)*2.5*this.qte;
         if (this.impression == 'Full Graphic' && this.choixMurs == '2x Mur sup')                      cena+= (frontonperso+murperso+murperso+murperso)*2.5*this.qte;
@@ -652,12 +656,12 @@ new Vue({
 
   		  //------------------------------------------ prix impression recto verso
 
-        if (this.impression == 'Mur R/V')                                                             cena+= (murpersorv)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur R/V' && this.choixMurs == '1x Demi-mur')       	      cena+= (murpersorv+demimurApersorv)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur R/V' && this.choixMurs == '2x Demi-mur')       	      cena+= (murpersorv+demimurApersorv+demimurApersorv)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur R/V' && this.choixMurs == '1x Mur sup')               cena+= (murpersorv+murpersorv)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur R/V' && this.choixMurs == '2x Mur sup')               cena+= (murpersorv+murpersorv+murpersorv)*2.5*this.qte;
-        if (this.impression == 'Mur et demi-mur R/V' && this.choixMurs == '1x Mur sup + 1x Demi-mur') cena+= (murpersorv+murpersorv+demimurApersorv)*2.5*this.qte;
+        if (this.impression == 'Mur de fond R/V')                                                             cena+= (murpersorv)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs R/V' && this.choixMurs == '1x Demi-mur')       	      cena+= (murpersorv+demimurApersorv)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs R/V' && this.choixMurs == '2x Demi-mur')       	      cena+= (murpersorv+demimurApersorv+demimurApersorv)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs R/V' && this.choixMurs == '1x Mur sup')               cena+= (murpersorv+murpersorv)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs R/V' && this.choixMurs == '2x Mur sup')               cena+= (murpersorv+murpersorv+murpersorv)*2.5*this.qte;
+        if (this.impression == 'Murs et demi-murs R/V' && this.choixMurs == '1x Mur sup + 1x Demi-mur') cena+= (murpersorv+murpersorv+demimurApersorv)*2.5*this.qte;
         if (this.impression == 'Full Graphic R/V' && this.choixMurs == 'sans mur')                    cena+= (frontonperso)*2.5*this.qte;
         if (this.impression == 'Full Graphic R/V' && this.choixMurs == 'sans option')        	        cena+= (frontonperso+murpersorv)*2.5*this.qte;
         if (this.impression == 'Full Graphic R/V' && this.choixMurs == '1x Mur sup')       	          cena+= (frontonperso+murpersorv+murpersorv)*2.5*this.qte;
@@ -669,15 +673,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 35/this.qte;
+          cena += 39/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 5/this.qte;
+          cena += 4/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 5/this.qte;
+          cena += 6/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -687,7 +691,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 10;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -697,19 +701,19 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*2/100;
+          cena-= cena*6/100;
           this.retrait = 'retrait colis atelier';
         } else {
           cena+= 39*this.qte; // prix transport
         }
 
         if (this.relais == true) {
-          cena += 5.00/this.qte;
+          cena += 6.00/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -725,12 +729,12 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
-          else if (this.delaiprod == '1-1') ProdPercent = 45;
+          if      (this.delaiprod == '2-3') ProdPercent = 25;
+          else if (this.delaiprod == '1-1') ProdPercent = 40;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
-          else if (this.delailiv == '1-1')  DeliPercent = 45;
+          if      (this.delailiv == '2-3')  DeliPercent = 25;
+          else if (this.delailiv == '1-1')  DeliPercent = 40;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);
@@ -845,15 +849,23 @@ new Vue({
           }
 
           genImg(); // générer l'image produit et l'ajouter au formulaire
+          var desc = '';
+          if      (this.choixMurs == '1x Demi-mur')              desc = 'Mur fond + 1 demi-mur';
+          else if (this.choixMurs == '2x Demi-mur')              desc = 'Mur fond + 2 demi-murs';
+          else if (this.choixMurs == '1x Mur sup')               desc = 'Mur fond + 1 mur latéral';
+          else if (this.choixMurs == '2x Mur sup')               desc = 'Mur fond + 2 murs latéraux';
+          else if (this.choixMurs == '1x Mur sup + 1x Demi-mur') desc = 'Mur fond + 1 mur latéral + 1 demi-mur';
+          else if (this.choixMurs == 'sans option')              desc = 'Mur fond seulement';
+          else if (this.choixMurs == 'sans mur')                 desc = 'Aucun mur';
 
           // ---------------------------------------- données envoyées au panier
           var dprod = this.delaiprod;  if (this.delaiprod == '1-1') dprod = '1';
           var dliv  = this.delailiv;   if (this.delailiv  == '1-1') dliv  = '1';
 
           if (this.impression == 'Pas de personnalisation') {
-            this.inputDesc = '- '+this.produit+'<br>- '+this.choixMurs+'<br>- '+this.impression+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
+            this.inputDesc = '- '+this.produit+'<br>- '+desc+'<br>- Personnalisation '+this.impression+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
           } else {
-            this.inputDesc = '- '+this.produit+'<br>- '+this.choixMurs+'<br>- '+this.impression+'<br>- '+this.modmaq+'<br>- '+this.sign+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
+            this.inputDesc = '- '+this.produit+'<br>- '+desc+'<br>- Personnalisation '+this.impression+'<br>- '+this.modmaq+'<br>- '+this.sign+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
           }
 
           this.inputProd      = rodzaj;

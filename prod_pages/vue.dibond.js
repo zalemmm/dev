@@ -532,7 +532,7 @@ new Vue({
         var gauchedroite       = this.hauteur*2;
 
         //---------------------------------------------------------------- poids
-        pu= 0.0045*metraz;
+        pu= 0.0049*metraz;
 
         poids = 4.20*metraz; // grammage x m²
         poidstotal = poids*this.qte;
@@ -556,50 +556,50 @@ new Vue({
         //------------------------------------------------------------lamination
 
         if (this.choixLami == 'pelliculage brillant') {
-          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0012);
-          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0012);
-          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0012);
-          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0012);
-          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0012;
-          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0012;
-          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0012);
-          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0012;
+          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0015);
+          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0015);
+          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0015);
+          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0015);
+          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0015;
+          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0015;
+          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0015);
+          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0015;
         }
 
         if (this.choixLami == 'pelliculage mat') {
-          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0014);
-          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0014);
-          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0014);
-          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0014);
-          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0014;
-          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0014;
-          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0014);
-          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0014;
+          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0020);
+          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0020);
+          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0020);
+          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0020);
+          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0020;
+          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0020;
+          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0020);
+          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0020;
         }
 
         if (this.choixLami == 'pelliculage laqué anti graffiti') {
-          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0024);
-          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0024);
-          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0024);
-          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0024);
-          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0024;
-          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0024;
-          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0024);
-          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0024;
+          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0030);
+          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0030);
+          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0030);
+          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0030);
+          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0030;
+          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0030;
+          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0030);
+          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0030;
         }
 
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          maquette = 19;
+          maquette = 22;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          maquette = 5;
+          maquette = 4;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          maquette = 5;
+          maquette = 6;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -614,7 +614,7 @@ new Vue({
   			cena = (puoption*this.qte)+maquette;
 
         // -------------------------------------------------------------------HD
-        if (this.produit == 'recto hd' || this.produit == 'recto/verso hd') {prixHD = cena*0.40; cena += prixHD;}
+        if (this.produit == 'recto hd' || this.produit == 'recto/verso hd') {prixHD = cena*0.50; cena += prixHD;}
 
         // ----------------------------------------------------------- SIGNATURE
 
@@ -629,24 +629,24 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*3/100;
+          cena-= cena*6/100;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5.00;
+          cena += 6.00;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
           this.optliv = ' / colis revendeur';
         }
 
         var palet = '';
     		if (this.palette == true) {
-    			if (this.largeur+this.hauteur > 200 && this.largeur+this.hauteur <= 300) {cena += 90;}
-    			if (this.largeur+this.hauteur > 300 && this.largeur+this.hauteur <= 400) {cena += 160;}
+    			if (this.largeur+this.hauteur > 200 && this.largeur+this.hauteur <= 300) {cena += 99;}
+    			if (this.largeur+this.hauteur > 300 && this.largeur+this.hauteur <= 400) {cena += 180;}
     			if (this.largeur+this.hauteur > 400) {cena += 240;}
     			palet = ' / forfait palettisation';
     		}
@@ -673,7 +673,7 @@ new Vue({
     		if (poidstotal > 90 && poidstotal <= 100) prixtransport = 68.54;
     		if (poidstotal > 100)                     prixtransport = 69.26;
 
-    		prixtransport2 = prixtransport*0.4;
+    		prixtransport2 = prixtransport*0.5;
     		transport = prixtransport + prixtransport2;
 
     		var iloscmetrow1 = metraz*this.qte;
@@ -692,11 +692,11 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
+          if      (this.delaiprod == '2-3') ProdPercent = 25;
           else if (this.delaiprod == '1-1') ProdPercent = 45;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
+          if      (this.delailiv == '2-3')  DeliPercent = 25;
           else if (this.delailiv == '1-1')  DeliPercent = 45;
           else                              DeliPercent = 0;
 

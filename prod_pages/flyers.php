@@ -81,9 +81,9 @@
 									<div @mouseover="hoPw(9,'Couché Brillant')" @mouseout="hout(9)" @click="reset(); selectLami('couché brillant')">
 										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Couché Brillant</span>
 									</div>
-			            <div @mouseover="hoPw(9,'Couché Satiné')"   @mouseout="hout(9)" @click="reset(); selectLami('couché satiné')">
+			            <!--<div @mouseover="hoPw(9,'Couché Satiné')"   @mouseout="hout(9)" @click="reset(); selectLami('couché satiné')">
 										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Couché Satiné</span>
-									</div>
+									</div>-->
 									<div @mouseover="hoPw(9,'Couché Mat')"      @mouseout="hout(9)" @click="reset(); selectLami('couché mat')">
 										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Couché Mat</span>
 									</div>

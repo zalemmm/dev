@@ -604,17 +604,17 @@ new Vue({
     			metrage = largeur*h1;
 
     			// tissu 220g
-    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =15.50 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =16.48 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =17.45 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =18.43 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =19.40 ;}
+    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =22.90 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =23.50 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =25.00 ;}
     			// tissu 260g
-    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =25.50 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =28.08 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.65 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =30.23 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =31.80 ;}
+    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =31.00 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =35.00 ;}
 
     			prixproduit = metrage*plm;
 
@@ -623,17 +623,17 @@ new Vue({
     			metrage = longueur*l1;
 
     			// tissu 220g
-    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =15.50 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =16.48 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =17.45 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =18.43 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =19.40 ;}
+    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =22.90 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =23.50 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =25.00 ;}
     			// tissu 260g
-    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =25.50 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =28.08 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.65 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =30.23 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =31.80 ;}
+    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =31.00 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =35.00 ;}
 
     			prixproduit = metrage*plm;
 
@@ -642,17 +642,17 @@ new Vue({
     			metrage = longueur*l1;
 
     			// tissu 220g
-    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =15.50 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =16.48 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =17.45 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =18.43 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =19.40 ;}
+    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =22.90 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =23.50 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =25.00 ;}
     			// tissu 260g
-    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =25.50 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =28.08 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.65 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =30.23 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =31.80 ;}
+    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =31.00 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =35.00 ;}
 
     			prixproduit = metrage*plm; // prix de la nappe
     		}
@@ -664,18 +664,18 @@ new Vue({
     			metrage = diametre*h1;
 
     			// tissu 220g
-    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =15.50 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =16.48 ;}
-    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =17.45 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =18.43 ;}
-    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =19.40 ;}
+    			if (this.support == 'tissu 220g' && (h1<=1.00))             {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.01 && h1<=1.60)) {plm =21.00 ;}
+    			if (this.support == 'tissu 220g' && (h1>=1.61 && h1<=2.00)) {plm =22.90 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.01 && h1<=2.50)) {plm =23.50 ;}
+    			if (this.support == 'tissu 220g' && (h1>=2.51))             {plm =25.00 ;}
 
     			// tissu 260g
-    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =25.50 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =28.08 ;}
-    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.65 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =30.23 ;}
-    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =31.80 ;}
+    			if (this.support == 'tissu 260g' && (h1<=1.00))             {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.01 && h1<=1.60)) {plm =27.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=1.61 && h1<=2.00)) {plm =29.90 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.01 && h1<=2.50)) {plm =31.00 ;}
+    			if (this.support == 'tissu 260g' && (h1>=2.51))             {plm =35.00 ;}
 
     			prixproduit = metrage*plm; // prix de la nappe
     		}
@@ -755,15 +755,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 19/this.qte;
+          cena += 22/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 5/this.qte;
+          cena += 4/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 5/this.qte;
+          cena += 6/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -783,17 +783,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*3/100;
+          cena-= cena*6/100;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5/this.qte;
+          cena += 6/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -810,11 +810,11 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
+          if      (this.delaiprod == '2-3') ProdPercent = 25;
           else if (this.delaiprod == '1-1') ProdPercent = 45;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
+          if      (this.delailiv == '2-3')  DeliPercent = 25;
           else if (this.delailiv == '1-1')  DeliPercent = 45;
           else                              DeliPercent = 0;
 

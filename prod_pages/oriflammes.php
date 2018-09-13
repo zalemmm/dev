@@ -101,9 +101,9 @@
 									<div @mouseover="hoTx(2,'a2','Voile: 59x180 cm Monté: 63x256 cm');"  @mouseout="hout(2)" @click="reset(); selectSize('59x180');">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>Voile 59x180 Monté 63x256</span>
 									</div>
-									<div @mouseover="hoTx(2,'a5','Voile: 80x280 cm Monté: 80x410 cm');"  @mouseout="hout(2)" @click="reset(); selectSize('80x280');">
+									<!--<div @mouseover="hoTx(2,'a5','Voile: 80x280 cm Monté: 80x410 cm');"  @mouseout="hout(2)" @click="reset(); selectSize('80x280');">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>Voile 80x280 Monté 80x410</span>
-									</div>
+									</div>-->
 									<div @mouseover="hoTx(2,'a6','voile: 100x350 cm Monté: 100x530 cm');" @mouseout="hout(2)" @click="reset(); selectSize('100x350');">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>Voile 100x350 Monté 100x530</span>
 									</div>

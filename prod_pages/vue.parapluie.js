@@ -588,7 +588,7 @@ new Vue({
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x1 Recto' ) {
             scratch = 7;
-        		structure = 70;
+        		structure = 75;
             tissu220 = 35;
             tissu260 = 39;
         		designation = 'recto 3x1 Droit';
@@ -598,7 +598,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x2 Recto' ) {
-            structure = 80;
+            structure = 85;
             scratch = 9;
             tissu220 = 40;
             tissu260 = 56;
@@ -609,7 +609,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x3 Recto' ) {
-        		structure = 83;
+        		structure = 88;
             scratch = 10;
             tissu220 = 39;
             tissu260 = 65;
@@ -620,7 +620,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x4 Recto' ) {
-        		structure = 114;
+        		structure = 119;
             scratch = 12;
             tissu220 = 51;
             tissu260 = 68;
@@ -632,7 +632,7 @@ new Vue({
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x5 Recto' ) {
             pied = 30;
-        		structure = 140;
+        		structure = 145;
             scratch = 15;
             tissu220 = 62;
             tissu260 = 82;
@@ -644,7 +644,7 @@ new Vue({
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x6 Recto' ) {
             pied = 30;
-        		structure = 300;
+        		structure = 310;
             scratch = 20;
             tissu220 = 71;
             tissu260 = 95;
@@ -656,7 +656,7 @@ new Vue({
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x7 Recto' ) {
             pied = 30;
-        		structure = 345;
+        		structure = 360;
             scratch = 24;
             tissu220 = 82;
             tissu260 = 109;
@@ -668,7 +668,7 @@ new Vue({
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x8 Recto' ) {
             pied = 30;
-        		structure = 390;
+        		structure = 420;
             scratch = 30;
             tissu220 = 92;
             tissu260 = 123;
@@ -680,7 +680,7 @@ new Vue({
 
           /////////////////////////////////////////////////////////// recto verso //
         	if (this.dimensions == '3x1 Recto Verso' ) {
-        		structure = 117;
+        		structure = 125;
             scratch = 14;
             tissu220 = 33.12;
             tissu260 = 44.16;
@@ -691,7 +691,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x2 Recto Verso' ) {
-        		structure = 144.3;
+        		structure = 150;
             scratch = 16.9;
             tissu220 = 53.13;
             tissu260 = 70.84;
@@ -702,7 +702,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x3 Recto Verso' ) {
-        		structure = 162;
+        		structure = 170;
             scratch = 19.8;
             tissu220 = 73.14;
             tissu260 = 97.52;
@@ -713,7 +713,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x4 Recto Verso' ) {
-        		structure = 208.8;
+        		structure = 220;
             scratch = 22.6;
             tissu220 = 92.46;
             tissu260 = 123.28;
@@ -725,7 +725,7 @@ new Vue({
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x5 Recto Verso' ) {
             pied = 30;
-        		structure = 255.6;
+        		structure = 270;
             scratch = 25.6;
             tissu220 = 113.16;
             tissu260 = 150.88;
@@ -737,7 +737,7 @@ new Vue({
           //------------------------------------------------------------------------
           if (this.dimensions == '3x6 Recto Verso' ) {
             pied = 30;
-            structure = 354;
+            structure = 375;
             scratch = 28.6;
             tissu220 = 133.86;
             tissu260 = 178.48;
@@ -749,7 +749,7 @@ new Vue({
           //------------------------------------------------------------------------
           if (this.dimensions == '3x7 Recto Verso' ) {
             pied = 30;
-            structure = 408;
+            structure = 440;
             scratch = 31.5;
             tissu220 = 153.87;
             tissu260 = 205.16;
@@ -761,7 +761,7 @@ new Vue({
           //------------------------------------------------------------------------
           if (this.dimensions == '3x8 Recto Verso' ) {
             pied = 30;
-            structure = 462;
+            structure = 485;
             scratch = 34.5;
             tissu220 = 174.57;
             tissu260 = 232.76;
@@ -773,7 +773,7 @@ new Vue({
 
           // stand tissu courbé ////////////////////////////////////////////////////
         	if (this.dimensions == '3x3' ) {
-        		structure = 129.6;
+        		structure = 135;
             scratch = 10.2;
             tissu220 = 38.64;
             tissu260 = 51.52;
@@ -784,7 +784,7 @@ new Vue({
         	}
           //------------------------------------------------------------------------
         	if (this.dimensions == '3x4' ) {
-        		structure = 165.6;
+        		structure = 180;
             scratch = 11.6;
             tissu220 = 48.3;
             tissu260 = 64.4;
@@ -796,11 +796,11 @@ new Vue({
 
           ////////////////////////////////////////////// total selon tissu choisi //
           if (this.support == 'tissu 220g' ) {
-            cena = (tissu220+structure+scratch+pied)*1.70+trans;
+            cena = (tissu220+structure+scratch+pied)*1.75+trans;
             support = 'tissu 220g';
           }
           if (this.support == 'tissu 260g' ) {
-            cena = (tissu260+structure+scratch+pied)*1.90+trans;
+            cena = (tissu260+structure+scratch+pied)*1.95+trans;
             support = 'tissu 260g';
           }
 
@@ -809,11 +809,11 @@ new Vue({
 
 
          	if (this.accessoire == 'Valise transformable' ) {
-        		cena += 299+18; // PV + transport
+        		cena += 259+18; // PV + transport
         		accss = 'Valise ATLAS + Tablette (réf: 20170230)';
         	}
         	if (this.accessoire == 'Comptoir Easy Quick' ) {
-        		cena += ((70+40)*1.60)+10; // struture+impression X coef + transport;
+        		cena += ((70+40)*1.70)+10; // struture+impression X coef + transport;
         		accss = 'Comptoir Easy Quick (réf: 20170231)';
         	}
           if (this.accessoire == 'sans option' ) {
@@ -828,16 +828,16 @@ new Vue({
           designation = 'Comptoir Easy Quick';
 
     		  if (this.support == 'tissu 220g' ) {
-        		tissu = 20*3;//3=coeff //
+        		tissu = 25*3;//3=coeff //
         		support = 'Tissu 220g';
         	}
     		  if (this.support == 'tissu 260g' ) {
-        		tissu =30*3;//prix du site x coeff //
+        		tissu =35*3;//prix du site x coeff //
         		support = 'Tissu 260g';
         	}
 
           this.prodref = '20170231';
-          structure = 70*1.80;//1.80 = coeff //
+          structure = 70*1.90;//1.80 = coeff //
           trans = 10;
           cena = tissu + structure + trans + scratch;
           this.hauteur = 102.4;
@@ -851,15 +851,15 @@ new Vue({
           designation = 'Valise ATLAS + Tablette';
 
       	  if (this.support2 == 'tissu 220g' ) {
-        		tissu = 17.90*4;//4=coeff //
+        		tissu = 25.00*4;//4=coeff //
         		support = 'Tissu 220g';
         	}
       		if (this.support2 == 'tissu 260g' ) {
-        		tissu = 23.25*4;//4=coeff //
+        		tissu = 30.00*4;//4=coeff //
         		support = 'Tissu 260g';
         	}
       		if (this.support2 == 'PVC 300µ' ) {
-        		tissu = 13.86*2;//2=coeff //
+        		tissu = 15.00*2;//2=coeff //
         		support = 'PVC 300µ';
         	}
       		if (this.support2 == 'sans visuel' ) {
@@ -914,15 +914,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 35/this.qte;
+          cena += 29/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 5/this.qte;
+          cena += 4/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 5/this.qte;
+          cena += 6/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -932,7 +932,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 10;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -942,17 +942,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*3/100;
+          cena-= cena*6/100;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5.00/this.qte;
+          cena += 6.00/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 10;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -968,11 +968,11 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
+          if      (this.delaiprod == '2-3') ProdPercent = 25;
           else if (this.delaiprod == '1-1') ProdPercent = 45;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
+          if      (this.delailiv == '2-3')  DeliPercent = 25;
           else if (this.delailiv == '1-1')  DeliPercent = 45;
           else                              DeliPercent = 0;
 

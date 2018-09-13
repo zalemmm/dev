@@ -890,14 +890,14 @@ new Vue({
         // ---------------------------------------------------------------- MINI
 
         if (this.dimensions == 'A4'){
-          cena=24;
+          cena=21;
           this.hauteur = 29.7;
           this.largeur = 21;
           this.prodref = '20170115';
         }
 
         if (this.dimensions == 'A3'){
-          cena=29;
+          cena=26;
           this.hauteur = 42;
           this.largeur = 29.7;
           this.prodref = '20170116';
@@ -1181,15 +1181,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 19/this.qte;
+          cena += this.$globals.maqFB/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 5/this.qte;
+          cena += this.$globals.maqBAT/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 5/this.qte;
+          cena += this.$globals.maqONL/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1199,7 +1199,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$globals.opSIGN;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1209,17 +1209,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*3/100;
+          cena-= cena*this.$globals.livRAT;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5.00/this.qte;
+          cena += this.$globals.livREL/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$globals.livREV;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -1236,12 +1236,12 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
-          else if (this.delaiprod == '1-1') ProdPercent = 45;
+          if      (this.delaiprod == '2-3') ProdPercent = this.$globals.prod23;
+          else if (this.delaiprod == '1-1') ProdPercent = this.$globals.prod11;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
-          else if (this.delailiv == '1-1')  DeliPercent = 45;
+          if      (this.delailiv == '2-3')  DeliPercent = this.$globals.livr23;
+          else if (this.delailiv == '1-1')  DeliPercent = this.$globals.livr11;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);

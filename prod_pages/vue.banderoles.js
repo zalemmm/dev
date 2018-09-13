@@ -960,62 +960,62 @@ new Vue({
     		if (perteH < perteL){
     			metrage = this.largeur*h1;
     			////bache 440g
-    			if ((this.support == 'bache 440g' ) && (h1<=1.00) ){plm =6.45 ;}
-    			if ((this.support == 'bache 440g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.77 ;}
-    			if ((this.support == 'bache 440g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.10 ;}
-    			if ((this.support == 'bache 440g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.42 ;}
-    			if ((this.support == 'bache 440g' ) && (h1>=2.51)){plm =7.74 ;}
+    			if ((this.support == 'bache 440g' ) && (h1<=1.00) ){plm =6.99 ;}
+    			if ((this.support == 'bache 440g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.99 ;}
+    			if ((this.support == 'bache 440g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.35 ;}
+    			if ((this.support == 'bache 440g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =8.00 ;}
+    			if ((this.support == 'bache 440g' ) && (h1>=2.51)){plm =8.50 ;}
     			////bache nontisse 150g
-    			if ((this.support == 'bache nontisse 150g' ) && (h1<=1.00) ){plm =6.45*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.77*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.10*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.42*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && (h1>=2.51)){plm =7.74*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && (h1<=1.00) ){plm =6.99*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.99*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.35*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =8.00*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && (h1>=2.51)){plm =8.50*1.05 ;}
 
     			////ecotoile
-    			if ((this.support == 'ecotoile' ) && (h1<=1.00) ){plm =6.24 ;}
-    			if ((this.support == 'ecotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =6.55 ;}
-    			if ((this.support == 'ecotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =6.86 ;}
-    			if ((this.support == 'ecotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.18 ;}
-    			if ((this.support == 'ecotoile' ) && (h1>=2.51)){plm =7.49 ;}
+    			if ((this.support == 'ecotoile' ) && (h1<=1.00) ){plm =6.70 ;}
+    			if ((this.support == 'ecotoile' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =6.70 ;}
+    			if ((this.support == 'ecotoile' ) && ((h1>=1.61)&&(h1<=2.00))){plm =9.00 ;}
+    			if ((this.support == 'ecotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =9.00 ;}
+    			if ((this.support == 'ecotoile' ) && (h1>=2.51)){plm =9.50 ;}
     			////jet 550
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (h1<=1.00) ){plm =12.45 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((h1>=1.01)&&(h1<=1.60)) ){plm =13.07 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((h1>=1.61)&&(h1<=2.00))){plm =13.70 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((h1>=2.01)&&(h1<=2.50))){plm =14.32 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (h1>=2.51)){plm =14.94 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (h1<=1.00) ){plm =14.00 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((h1>=1.01)&&(h1<=1.60)) ){plm =14.00 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((h1>=1.61)&&(h1<=2.00))){plm =14.70 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((h1>=2.01)&&(h1<=2.50))){plm =15.50 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (h1>=2.51)){plm =15.90 ;}
     			////450M1
-    			if ((this.support == 'bache 450 M1') && (h1<=1.00)) {plm =12.45*0.8 ;} /////////////jet 550 -20%
-    			if ((this.support == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =13.07*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =13.70*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =14.32*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  && (h1>=2.51)){plm =14.94*0.8 ;}
+    			if ((this.support == 'bache 450 M1') && (h1<=1.00)) {plm =14.00*0.6 ;} /////////////jet 550 -40%
+    			if ((this.support == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =14.00*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =14.70*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =15.50*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  && (h1>=2.51)){plm =15.90*0.6 ;}
 
     			////jet 520 M1
-    			if ((this.support == 'jet 520 M1' ) && (h1<=1.00) ){plm =15.90 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =16.70 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =17.49 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =18.29 ;}
-    			if ((this.support == 'jet 520 M1' ) && (h1>=2.51)){plm =19.08 ;}
+    			if ((this.support == 'jet 520 M1' ) && (h1<=1.00) ){plm =16.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =16.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =17.50 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =18.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && (h1>=2.51)){plm =19.50 ;}
 
     			////lacopac
-    			if ((this.support == 'lacopac' ) && (h1<=1.00) ){plm =18.15 ;}
-    			if ((this.support == 'lacopac' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =19.06 ;}
-    			if ((this.support == 'lacopac' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.97 ;}
-    			if ((this.support == 'lacopac' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.87 ;}
-    			if ((this.support == 'lacopac' ) && (h1>=2.51)){plm =21.78 ;}
+    			if ((this.support == 'lacopac' ) && (h1<=1.00) ){plm =19.00 ;}
+    			if ((this.support == 'lacopac' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =19.50 ;}
+    			if ((this.support == 'lacopac' ) && ((h1>=1.61)&&(h1<=2.00))){plm =19.99 ;}
+    			if ((this.support == 'lacopac' ) && ((h1>=2.01)&&(h1<=2.50))){plm =20.99 ;}
+    			if ((this.support == 'lacopac' ) && (h1>=2.51)){plm =21.99 ;}
     			////lacopac recto verso
-    			if ((this.support == 'lacopac recto verso' ) && (h1<=1.00) ){plm =24.15 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =25.36 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((h1>=1.61)&&(h1<=2.00))){plm =26.57 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((h1>=2.01)&&(h1<=2.50))){plm =27.77 ;}
-    			if ((this.support == 'lacopac recto verso' ) && (h1>=2.51)){plm =28.98 ;}
+    			if ((this.support == 'lacopac recto verso' ) && (h1<=1.00) ){plm =25.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =25.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((h1>=1.61)&&(h1<=2.00))){plm =27.50 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((h1>=2.01)&&(h1<=2.50))){plm =29.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && (h1>=2.51)){plm =30.00 ;}
     			////bache micro perforee M1
-    			if ((this.support == 'bache micro perforee M1' ) && (h1<=1.00) ){plm =8.91 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =9.36 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =9.80 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =10.25 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && (h1>=2.51)){plm =10.69 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && (h1<=1.00) ){plm =8.50 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =8.50 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((h1>=1.61)&&(h1<=2.00))){plm =9.20 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((h1>=2.01)&&(h1<=2.50))){plm =9.99 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && (h1>=2.51)){plm =10.99 ;}
     			////bache 100% écologique M1
     			if ((this.support == 'bache 100% écologique M1' ) && (h1<=1.00) ){plm =18.69 ;}
     			if ((this.support == 'bache 100% écologique M1' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =19.62 ;}
@@ -1029,17 +1029,17 @@ new Vue({
     			if ((this.support == 'capotoile' ) && ((h1>=2.01)&&(h1<=2.50))){plm =28.64 ;}
     			if ((this.support == 'capotoile' ) && (h1>=2.51)){plm =29.88 ;}
     			////tissu 220g
-    			if ((this.support == 'tissu 220g' ) && (h1<=1.00) ){plm =19.50 ;}
-    			if ((this.support == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =20.48 ;}
-    			if ((this.support == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =21.45 ;}
-    			if ((this.support == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =22.43 ;}
-    			if ((this.support == 'tissu 220g' ) && (h1>=2.51)){plm =23.40 ;}
+    			if ((this.support == 'tissu 220g' ) && (h1<=1.00) ){plm =21.00 ;}
+    			if ((this.support == 'tissu 220g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =21.00 ;}
+    			if ((this.support == 'tissu 220g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =22.90 ;}
+    			if ((this.support == 'tissu 220g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =23.50 ;}
+    			if ((this.support == 'tissu 220g' ) && (h1>=2.51)){plm =25.00 ;}
     			////tissu 260g
-    			if ((this.support == 'tissu 260g' ) && (h1<=1.00) ){plm =31.50 ;}
-    			if ((this.support == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =33.08 ;}
-    			if ((this.support == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =34.65 ;}
-    			if ((this.support == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =36.23 ;}
-    			if ((this.support == 'tissu 260g' ) && (h1>=2.51)){plm =37.80 ;}
+    			if ((this.support == 'tissu 260g' ) && (h1<=1.00) ){plm =27.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((h1>=1.01)&&(h1<=1.60)) ){plm =27.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =29.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =31.00 ;}
+    			if ((this.support == 'tissu 260g' ) && (h1>=2.51)){plm =35.00 ;}
 
     			prixproduit = metrage*plm;
     		}
@@ -1047,59 +1047,59 @@ new Vue({
     		else if (perteH > perteL){
     			metrage = this.hauteur*l1;
     			////bache 440g
-    			if ((this.support == 'bache 440g' ) && (l1<=1.00) ){plm =6.45 ;}
-    			if ((this.support == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =6.77 ;}
-    			if ((this.support == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =7.10 ;}
-    			if ((this.support == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.42 ;}
-    			if ((this.support == 'bache 440g' ) && (l1>=2.51)){plm =7.74 ;}
+    			if ((this.support == 'bache 440g' ) && (l1<=1.00) ){plm =6.99 ;}
+    			if ((this.support == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =6.99 ;}
+    			if ((this.support == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =7.35 ;}
+    			if ((this.support == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =8.00 ;}
+    			if ((this.support == 'bache 440g' ) && (l1>=2.51)){plm =8.50 ;}
     			////bache nontisse 150g
-    			if ((this.support == 'bache nontisse 150g' ) && (h1<=1.00) ){plm =6.45*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.77*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.10*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.42*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && (h1>=2.51)){plm =7.74*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && (h1<=1.00) ){plm =6.99*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.99*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.35*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =8.00*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && (h1>=2.51)){plm =8.50*1.05 ;}
     			////ecotoile
-    			if ((this.support == 'ecotoile' ) && (l1<=1.00) ){plm =6.24 ;}
-    			if ((this.support == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =6.55 ;}
-    			if ((this.support == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =6.86 ;}
-    			if ((this.support == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.18 ;}
-    			if ((this.support == 'ecotoile' ) && (l1>=2.51)){plm =7.49 ;}
+    			if ((this.support == 'ecotoile' ) && (l1<=1.00) ){plm =6.70 ;}
+    			if ((this.support == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =6.70 ;}
+    			if ((this.support == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.00 ;}
+    			if ((this.support == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.00 ;}
+    			if ((this.support == 'ecotoile' ) && (l1>=2.51)){plm =9.50 ;}
     			////jet 550
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1<=1.00) ){plm =12.45 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1>=2.51)){plm =14.94 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1<=1.00) ){plm =14.00 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.01)&&(l1<=1.60)) ){plm =14.00 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =14.70 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =15.50 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1>=2.51)){plm =15.90 ;}
     			////450M1
-    			if ((this.support == 'bache 450 M1') && (h1<=1.00)) {plm =12.45*0.8 ;} /////////////jet 550 -20%
-    			if ((this.support == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =13.07*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =13.70*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =14.32*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  && (h1>=2.51)){plm =14.94*0.8 ;}
+    			if ((this.support == 'bache 450 M1') && (h1<=1.00)) {plm =14.00*0.6 ;} /////////////jet 550 -40%
+    			if ((this.support == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =14.00*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =14.70*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =15.50*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  && (h1>=2.51)){plm =15.90*0.6 ;}
     			////jet 520 M1
-    			if ((this.support == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =17.49 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =18.29 ;}
-    			if ((this.support == 'jet 520 M1' ) && (l1>=2.51)){plm =19.08 ;}
+    			if ((this.support == 'jet 520 M1' ) && (l1<=1.00) ){plm =16.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =17.50 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =18.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && (l1>=2.51)){plm =19.50 ;}
     			////lacopac
-    			if ((this.support == 'lacopac' ) && (l1<=1.00) ){plm =18.15 ;}
-    			if ((this.support == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.06 ;}
-    			if ((this.support == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.97 ;}
-    			if ((this.support == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.87 ;}
-    			if ((this.support == 'lacopac' ) && (l1>=2.51)){plm =21.78 ;}
+    			if ((this.support == 'lacopac' ) && (l1<=1.00) ){plm =19.00 ;}
+    			if ((this.support == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.50 ;}
+    			if ((this.support == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.99 ;}
+    			if ((this.support == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.99 ;}
+    			if ((this.support == 'lacopac' ) && (l1>=2.51)){plm =21.99 ;}
     			////lacopac recto verso
-    			if ((this.support == 'lacopac recto verso' ) && (l1<=1.00) ){plm =24.15 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =25.36 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =26.57 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =27.77 ;}
-    			if ((this.support == 'lacopac recto verso' ) && (l1>=2.51)){plm =28.98 ;}
+    			if ((this.support == 'lacopac recto verso' ) && (l1<=1.00) ){plm =25.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =25.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =27.50 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =29.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && (l1>=2.51)){plm =30.00 ;}
     			////bache micro perforee M1
-    			if ((this.support == 'bache micro perforee M1' ) && (l1<=1.00) ){plm =8.91 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =9.36 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.80 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =10.25 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && (l1>=2.51)){plm =10.69 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && (l1<=1.00) ){plm =8.50 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.50 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.20 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.99 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && (l1>=2.51)){plm =10.99 ;}
     			////bache 100% écologique M1
     			if ((this.support == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =18.69 ;}
     			if ((this.support == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.62 ;}
@@ -1113,17 +1113,17 @@ new Vue({
     			if ((this.support == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =28.64 ;}
     			if ((this.support == 'capotoile' ) && (l1>=2.51)){plm =29.88 ;}
     			////tissu 220g
-    			if ((this.support == 'tissu 220g' ) && (l1<=1.00) ){plm =19.50 ;}
-    			if ((this.support == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =20.48 ;}
-    			if ((this.support == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =21.45 ;}
-    			if ((this.support == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =22.43 ;}
-    			if ((this.support == 'tissu 220g' ) && (l1>=2.51)){plm =23.40 ;}
+    			if ((this.support == 'tissu 220g' ) && (l1<=1.00) ){plm =21.00 ;}
+    			if ((this.support == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =21.00 ;}
+    			if ((this.support == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =22.90 ;}
+    			if ((this.support == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =23.50 ;}
+    			if ((this.support == 'tissu 220g' ) && (l1>=2.51)){plm =25.00 ;}
     			////tissu 260g
-    			if ((this.support == 'tissu 260g' ) && (l1<=1.00) ){plm =31.50 ;}
-    			if ((this.support == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =33.08 ;}
-    			if ((this.support == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =34.65 ;}
-    			if ((this.support == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =36.23 ;}
-    			if ((this.support == 'tissu 260g' ) && (l1>=2.51)){plm =37.80 ;}
+    			if ((this.support == 'tissu 260g' ) && (l1<=1.00) ){plm =27.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =27.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =29.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =31.00 ;}
+    			if ((this.support == 'tissu 260g' ) && (l1>=2.51)){plm =35.00 ;}
 
     			prixproduit = metrage*plm;
     		}
@@ -1131,60 +1131,60 @@ new Vue({
     		else if(perteH == perteL){
     			metrage = this.hauteur*l1;
     			////bache 440g
-    			if ((this.support == 'bache 440g' ) && (l1<=1.00) ){plm =6.45 ;}
-    			if ((this.support == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =6.77 ;}
-    			if ((this.support == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =7.10 ;}
-    			if ((this.support == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.42 ;}
-    			if ((this.support == 'bache 440g' ) && (l1>=2.51)){plm =7.74 ;}
+    			if ((this.support == 'bache 440g' ) && (l1<=1.00) ){plm =6.99 ;}
+    			if ((this.support == 'bache 440g' ) && ((l1>=1.01)&&(l1<=1.60))){plm =6.99 ;}
+    			if ((this.support == 'bache 440g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =7.35 ;}
+    			if ((this.support == 'bache 440g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =8.00 ;}
+    			if ((this.support == 'bache 440g' ) && (l1>=2.51)){plm =8.50 ;}
     			////bache nontisse 150g
-    			if ((this.support == 'bache nontisse 150g' ) && (h1<=1.00) ){plm =6.45*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.77*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.10*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =7.42*1.05 ;}
-    			if ((this.support == 'bache nontisse 150g' ) && (h1>=2.51)){plm =7.74*1.05;}
+    			if ((this.support == 'bache nontisse 150g' ) && (h1<=1.00) ){plm =6.99*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.01)&&(h1<=1.60))){plm =6.99*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=1.61)&&(h1<=2.00))){plm =7.35*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && ((h1>=2.01)&&(h1<=2.50))){plm =8.00*1.05 ;}
+    			if ((this.support == 'bache nontisse 150g' ) && (h1>=2.51)){plm =8.50*1.05;}
 
     			////ecotoile
-    			if ((this.support == 'ecotoile' ) && (l1<=1.00) ){plm =6.24 ;}
-    			if ((this.support == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =6.55 ;}
-    			if ((this.support == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =6.86 ;}
-    			if ((this.support == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =7.18 ;}
-    			if ((this.support == 'ecotoile' ) && (l1>=2.51)){plm =7.49 ;}
+    			if ((this.support == 'ecotoile' ) && (l1<=1.00) ){plm =6.70 ;}
+    			if ((this.support == 'ecotoile' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =6.70 ;}
+    			if ((this.support == 'ecotoile' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.00 ;}
+    			if ((this.support == 'ecotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.00 ;}
+    			if ((this.support == 'ecotoile' ) && (l1>=2.51)){plm =9.50 ;}
     			////jet 550
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1<=1.00) ){plm =12.45 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.01)&&(l1<=1.60)) ){plm =13.07 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =13.70 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =14.32 ;}
-    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1>=2.51)){plm =14.94 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1<=1.00) ){plm =14.00 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.01)&&(l1<=1.60)) ){plm =14.00 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=1.61)&&(l1<=2.00))){plm =14.70 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && ((l1>=2.01)&&(l1<=2.50))){plm =15.50 ;}
+    			if ((this.support == 'jet 550' || this.support == 'jet 550 enduite') && (l1>=2.51)){plm =15.90 ;}
     			////450M1
-    			if ((this.support == 'bache 450 M1') && (h1<=1.00)) {plm =12.45*0.8 ;} /////////////jet 550 -20%
-    			if ((this.support == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =13.07*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =13.70*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =14.32*0.8 ;}
-    			if ((this.support == 'bache 450 M1')  && (h1>=2.51)){plm =14.94*0.8 ;}
+    			if ((this.support == 'bache 450 M1') && (h1<=1.00)) {plm =14.00*0.6 ;} /////////////jet 550 -40%
+    			if ((this.support == 'bache 450 M1') && ((h1>=1.01)&&(h1<=1.60))) {plm =14.00*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  && ((h1>=1.61)&&(h1<=2.00))){plm =14.70*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  &&((h1>=2.01)&&(h1<=2.50))){plm =15.50*0.6 ;}
+    			if ((this.support == 'bache 450 M1')  && (h1>=2.51)){plm =15.90*0.6 ;}
     			////jet 520 M1
-    			if ((this.support == 'jet 520 M1' ) && (l1<=1.00) ){plm =15.90 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.70 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =17.49 ;}
-    			if ((this.support == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =18.29 ;}
-    			if ((this.support == 'jet 520 M1' ) && (l1>=2.51)){plm =19.08 ;}
+    			if ((this.support == 'jet 520 M1' ) && (l1<=1.00) ){plm =16.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =16.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =17.50 ;}
+    			if ((this.support == 'jet 520 M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =18.90 ;}
+    			if ((this.support == 'jet 520 M1' ) && (l1>=2.51)){plm =19.50 ;}
     			////lacopac
-    			if ((this.support == 'lacopac' ) && (l1<=1.00) ){plm =18.15 ;}
-    			if ((this.support == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.06 ;}
-    			if ((this.support == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.97 ;}
-    			if ((this.support == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.87 ;}
-    			if ((this.support == 'lacopac' ) && (l1>=2.51)){plm =21.78 ;}
+    			if ((this.support == 'lacopac' ) && (l1<=1.00) ){plm =19.00 ;}
+    			if ((this.support == 'lacopac' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.50 ;}
+    			if ((this.support == 'lacopac' ) && ((l1>=1.61)&&(l1<=2.00))){plm =19.99 ;}
+    			if ((this.support == 'lacopac' ) && ((l1>=2.01)&&(l1<=2.50))){plm =20.99 ;}
+    			if ((this.support == 'lacopac' ) && (l1>=2.51)){plm =21.99 ;}
     			////lacopac recto verso
-    			if ((this.support == 'lacopac recto verso' ) && (l1<=1.00) ){plm =24.15 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =25.36 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =26.57 ;}
-    			if ((this.support == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =27.77 ;}
-    			if ((this.support == 'lacopac recto verso' ) && (l1>=2.51)){plm =28.98 ;}
+    			if ((this.support == 'lacopac recto verso' ) && (l1<=1.00) ){plm =25.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =25.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((l1>=1.61)&&(l1<=2.00))){plm =27.50 ;}
+    			if ((this.support == 'lacopac recto verso' ) && ((l1>=2.01)&&(l1<=2.50))){plm =29.00 ;}
+    			if ((this.support == 'lacopac recto verso' ) && (l1>=2.51)){plm =30.00 ;}
     			////bache micro perforee M1
-    			if ((this.support == 'bache micro perforee M1' ) && (l1<=1.00) ){plm =8.91 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =9.36 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.80 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =10.25 ;}
-    			if ((this.support == 'bache micro perforee M1' ) && (l1>=2.51)){plm =10.69 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && (l1<=1.00) ){plm =8.50 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =8.50 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=1.61)&&(l1<=2.00))){plm =9.20 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && ((l1>=2.01)&&(l1<=2.50))){plm =9.99 ;}
+    			if ((this.support == 'bache micro perforee M1' ) && (l1>=2.51)){plm =10.99 ;}
     			////bache 100% écologique M1
     			if ((this.support == 'bache 100% écologique M1' ) && (l1<=1.00) ){plm =18.69 ;}
     			if ((this.support == 'bache 100% écologique M1' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =19.62 ;}
@@ -1198,17 +1198,17 @@ new Vue({
     			if ((this.support == 'capotoile' ) && ((l1>=2.01)&&(l1<=2.50))){plm =28.64 ;}
     			if ((this.support == 'capotoile' ) && (l1>=2.51)){plm =29.88 ;}
     			////tissu 220g
-    			if ((this.support == 'tissu 220g' ) && (l1<=1.00) ){plm =19.50 ;}
-    			if ((this.support == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =20.48 ;}
-    			if ((this.support == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =21.45 ;}
-    			if ((this.support == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =22.43 ;}
-    			if ((this.support == 'tissu 220g' ) && (l1>=2.51)){plm =23.40 ;}
+    			if ((this.support == 'tissu 220g' ) && (l1<=1.00) ){plm =21.00 ;}
+    			if ((this.support == 'tissu 220g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =21.00 ;}
+    			if ((this.support == 'tissu 220g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =22.90 ;}
+    			if ((this.support == 'tissu 220g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =23.50 ;}
+    			if ((this.support == 'tissu 220g' ) && (l1>=2.51)){plm =25.00 ;}
     			////tissu 260g
-    			if ((this.support == 'tissu 260g' ) && (l1<=1.00) ){plm =31.50 ;}
-    			if ((this.support == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =33.08 ;}
-    			if ((this.support == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =34.65 ;}
-    			if ((this.support == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =36.23 ;}
-    			if ((this.support == 'tissu 260g' ) && (l1>=2.51)){plm =37.80 ;}
+    			if ((this.support == 'tissu 260g' ) && (l1<=1.00) ){plm =27.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((l1>=1.01)&&(l1<=1.60)) ){plm =27.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((l1>=1.61)&&(l1<=2.00))){plm =29.90 ;}
+    			if ((this.support == 'tissu 260g' ) && ((l1>=2.01)&&(l1<=2.50))){plm =31.00 ;}
+    			if ((this.support == 'tissu 260g' ) && (l1>=2.51)){plm =35.00 ;}
 
     			prixproduit = metrage*plm; //prix de la banderole
     		}
@@ -1708,15 +1708,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 19/this.qte;
+          cena += 22/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 5/this.qte;
+          cena += 4/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 5/this.qte;
+          cena += 6/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1737,22 +1737,22 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*3/100;
+          cena-= cena*6/100;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5/this.qte;
+          cena += 6/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
           this.optliv = ' / colis revendeur';
         }
 
         if (this.roll == true) {
-    			cena += 20/this.qte;
+    			cena += 29/this.qte;
     			this.roule = ' /  livrée roulée';
     		}
 
@@ -1769,11 +1769,11 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 20;
+          if      (this.delaiprod == '2-3') ProdPercent = 25;
           else if (this.delaiprod == '1-1') ProdPercent = 45;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
+          if      (this.delailiv == '2-3')  DeliPercent = 25;
           else if (this.delailiv == '1-1')  DeliPercent = 45;
           else                              DeliPercent = 0;
 

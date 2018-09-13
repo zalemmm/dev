@@ -16,7 +16,7 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleProd">
-									<div @mouseover="hoPw(1, produit+'-det1')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
+									<div @mouseover="hoPw(1,'det1')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
 										<img :src="$global.img+'/roll-up/1first.png'" /><span>firstline</span>
 									</div>
 									<div @mouseover="hoPw(1,'2best')"    @mouseout="hout(1)" v-tooltip.bottom="$global.besl" @click="reset(); selectProd('bestline');">
@@ -365,11 +365,11 @@
 				<transition name="slideDown">
 					<div id="container" v-if="slideContainer">
 						<ul id="slides">
-							<li><img :src="$global.img+'/roll-up/slide/rollup-5.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-4.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-5.jpg'" alt="roll-up pas cher"  title="devis en ligne roll-up" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-4.jpg'" alt="kakemono roll-up"  title="roll-up sur mesure" /></li>
 							<li><img :src="$global.img+'/roll-up/slide/rollup-3.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-0.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-1.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-0.jpg'" alt="roll-up pas cher"  title="devis en ligne roll-up" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-1.jpg'" alt="kakemono roll-up"  title="roll-up sur mesure" /></li>
 							<li><img :src="$global.img+'/roll-up/slide/rollup-2.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
 							<li><img :src="$global.img+'/banderole/slide/devis-en-ligne.png'" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
 						</ul>
@@ -394,80 +394,79 @@
 				</div></transition>
 
 				<div class="imgBar" v-show="selectFirst">
-					<img :src="$global.img+'/roll-up/'+produit+'-det1.jpg'" alt="" @mouseover="selectImg('det1')">
-					<img :src="$global.img+'/roll-up/'+produit+'-detv.jpg'" alt="" @mouseover="selectImg('detv')">
-					<img :src="$global.img+'/roll-up/'+produit+'-det2.jpg'" alt="" @mouseover="selectImg('det2')">
-					<img :src="$global.img+'/roll-up/'+produit+'-det3.jpg'" alt="" @mouseover="selectImg('det3')">
-					<img :src="$global.img+'/roll-up/'+produit+'-det4.jpg'" alt="" @mouseover="selectImg('det4')">
+					<img :src="$global.img+'/roll-up/det1.jpg'" alt="" @mouseover="selectImg('det1')">
+					<img :src="$global.img+'/roll-up/detv.jpg'" alt="" @mouseover="selectImg('detv')">
+					<img :src="$global.img+'/roll-up/det2.jpg'" alt="" @mouseover="selectImg('det2')">
+					<img :src="$global.img+'/roll-up/det3.jpg'" alt="" @mouseover="selectImg('det3')">
+					<img :src="$global.img+'/roll-up/det4.jpg'" alt="" @mouseover="selectImg('det4')">
 				</div>
-				<div class="helpMenu">
-					<a :href="$global.url+'/aide-rollup/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-technique-roll-up/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-roll-up/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
-
 
 			</div>
 
-
-
-			<div id="estimation" :class="reqEstm">
-
-				<div id="estimationTitre" :class="reqEstm">
-					<span class="estimationData">PRIX UNITAIRE</span>
-					<span class="estimationData">OPTION</span>
-					<span class="estimationData">TOTAL H.T.</span>
-				</div>
-
-				<div id="estimationPrix">
-					<span class="estimationData" id="prix_unitaire">{{ prixUnit   }} </span>
-					<span class="estimationData" id="option">       {{ prixOption }} </span>
-					<span class="estimationData" id="total">        {{ prixTotal  }} </span>
-				</div>
-
-				<div id="estimationInfos">
-					<div id="livraisonrapide" v-show="livraisonrapide">
-						<img :src="$global.img+'/livraison_rapide/liv-rapide.jpg'" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/>
-					</div>
-
-					<div id="livraisonComp" v-show="livraisonComp">
-						<span id="forfait">{{ forfait }}</span>
-						<span v-html="message"></span>
-					</div>
-
-					<transition name="slideDown">
-						<form name="cartData" id="cartData" action="../votre-panier/" method="post" v-show="ajoutPanier">
-							<input type="hidden" name="addtocart" value="addtocart" />
-							<input type="hidden" name="rodzaj"    v-model="inputProd" />
-							<input type="hidden" name="opis"      v-model="inputDesc" />
-							<input type="hidden" name="ilosc"     v-model="inputQte" />
-							<input type="hidden" name="prix"      v-model="inputPrix" />
-							<input type="hidden" name="option"    v-model="inputOption" />
-							<input type="hidden" name="remise"    v-model="inputRemise" />
-							<input type="hidden" name="total"     v-model="inputTotal" />
-							<input type="hidden" name="transport" v-model="inputTransport" />
-							<input type="hidden" name="hauteur"   v-model="hauteur" />
-							<input type="hidden" name="largeur"   v-model="largeur" />
-							<input type="hidden" name="reference" v-model="prodref" />
-
-							<button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button>
-						</form>
-					</transition>
-
-					<transition name="slideDown">
-						<div class="formError" :class="errorColor" v-html="errorMessage" v-show="formError" :key="errorTrigger"></div>
-					</transition>
-
-				</div>
+			<div class="helpMenu">
+				<a :href="$global.url+'/aide-rollup/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-technique-roll-up/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-roll-up/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
 			</div>
+
 		</div>  <!-- fin bloc image #previewContainer -->
 
+		<div id="estimation" :class="reqEstm">
+
+			<div id="estimationTitre" :class="reqEstm">
+				<span class="estimationData">PRIX UNITAIRE</span>
+				<span class="estimationData">OPTION</span>
+				<span class="estimationData">TOTAL H.T.</span>
+			</div>
+
+			<div id="estimationPrix">
+				<span class="estimationData" id="prix_unitaire">{{ prixUnit   }} </span>
+				<span class="estimationData" id="option">       {{ prixOption }} </span>
+				<span class="estimationData" id="total">        {{ prixTotal  }} </span>
+			</div>
+
+			<div id="estimationInfos">
+				<div id="livraisonrapide" v-show="livraisonrapide">
+					<img :src="$global.img+'/livraison_rapide/liv-rapide.jpg'" alt="Impression et livraison le jour meme !" title="Imprimer et livrer le jour-même"/>
+				</div>
+
+				<div id="livraisonComp" v-show="livraisonComp">
+					<span id="forfait">{{ forfait }}</span>
+					<span v-html="message"></span>
+				</div>
+
+				<transition name="slideDown">
+					<form name="cartData" id="cartData" action="../votre-panier/" method="post" v-show="ajoutPanier">
+						<input type="hidden" name="addtocart" value="addtocart" />
+						<input type="hidden" name="rodzaj"    v-model="inputProd" />
+						<input type="hidden" name="opis"      v-model="inputDesc" />
+						<input type="hidden" name="ilosc"     v-model="inputQte" />
+						<input type="hidden" name="prix"      v-model="inputPrix" />
+						<input type="hidden" name="option"    v-model="inputOption" />
+						<input type="hidden" name="remise"    v-model="inputRemise" />
+						<input type="hidden" name="total"     v-model="inputTotal" />
+						<input type="hidden" name="transport" v-model="inputTransport" />
+						<input type="hidden" name="hauteur"   v-model="hauteur" />
+						<input type="hidden" name="largeur"   v-model="largeur" />
+						<input type="hidden" name="reference" v-model="prodref" />
+
+						<button id="submit_cart" type="submit"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ajouter au panier</button>
+					</form>
+				</transition>
+
+				<transition name="slideDown">
+					<div class="formError" :class="errorColor" v-html="errorMessage" v-show="formError" :key="errorTrigger"></div>
+				</transition>
+
+			</div>
+		</div>
+		</div>
 	</div>
 </div> <!-- fin bloc app  -->
 
@@ -475,4 +474,4 @@
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
 <script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.4"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-upNew.js?v=2.4"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-up.js?v=2.4"></script>

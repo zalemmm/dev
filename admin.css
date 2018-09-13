@@ -2,6 +2,14 @@
   display: none !important;
 }
 
+.pink {
+  font-weight: bold;
+  color: #ea2a6a;
+  line-height: 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
 #col-right {
   width: 27%;
   margin-top: 30px;
@@ -435,7 +443,10 @@ select.urs {
   font-size: 9px;
 }
 
-
+#mywidefat input.checkbox {
+  width: 15px;
+  font-size: 9px;
+}
 
 .widecenter {
   margin-top: 10px;

@@ -3,20 +3,39 @@
 //================================================================================================//
 
 var shared = { // variables globales
-  //---------------------------------------------------------------------- paths
+  //---------------------------------------------------------------------- PATHS
   url: 'https://www.france-banderole.com',
   local: 'http://localhost:8000/wordpress',
   img: '../wp-content/plugins/fbshop/images',
+
+  //----------------------------------------------------------------------- PRIX
+
+  // maquettes
+  maqFB: 22,     // maquette France Banderole
+  maqBAT: 4,     // maquette client BAT
+  maqONL: 6,     // maquette en ligne
+  opSIGN: 5,     // option signature
+
+  // options livraison
+  livRAT: 6/100, // retrait atelier
+  livREL: 6,     // relais Colis
+  livREV: 5,     // colis revendeur
+
+  // délais production / livraison
+  prod23: 25,    // prod 2-3j 25 40 20 40
+  prod11: 45,    // prod 1j
+  livr23: 25,    // livr 2-3j
+  livr11: 45,    // livr 1j
 
   //------------------------------- tooltips communs à toutes les pages produits
   // sans bat
   btn: '<b>j\'envoie mon fichier, je ne souhaite pas de BAT:</b>Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).',
   // avec bat
-  bty: '<b>j\'envoie mon fichier, je souhaite un BAT numérique: +5,00€</b> Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d\'infographie et un <span class="highlight">BAT à valider</span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT',
+  bty: '<b>j\'envoie mon fichier, je souhaite un BAT numérique: +4€</b> Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d\'infographie et un <span class="highlight">BAT à valider</span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT',
   // maquette en ligne
-  enl: '<b>vous créez votre maquette en ligne: +5,00€</b> Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes. <span class="highlight">Attention</span> cet outil est prévu pour des compositions simples et un nombre d\'images importées limité (5 max). Il est conçu pour être utilisé sur PC/Mac avec un navigateur récent et une <span class="highlight">résolution d\'écran minimum de 1280x720 pixels.</span>',
+  enl: '<b>vous créez votre maquette en ligne: +6€</b> Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes. <span class="highlight">Attention</span> cet outil  est conçu pour être utilisé sur PC/Mac avec un navigateur récent et une <span class="highlight">résolution d\'écran minimum de 1280x720 pixels.</span>',
   // maquette fb à 19 €
-  mfb: '<b>france banderole crée votre fichier: +19,00€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
+  mfb: '<b>france banderole crée votre fichier: +22€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
   // maquette fb à 35 €
   mfb2: '<b>france banderole crée votre fichier: +35,00€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
   // signature fb :
@@ -33,7 +52,7 @@ var shared = { // variables globales
   crv: 'Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client',
   // livraison roulée :
   roll: 'Nos banderoles en dessous de 2x2m sont livrées roulées, au delà elles sont pliées pour des raisons de dimensions de colis. La livraison roulée reste disponible en option pour 20€ et un délai d\'un jour supplémentaire.',
-  gfe: '<b>Forfait palettisation: dès 240€ HT</b> Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.',
+  gfe: '<b>Forfait palettisation: dès 99€ HT</b> Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.',
 
   //--------------------------------------------textes tooltips types de support
 
@@ -48,7 +67,7 @@ var shared = { // variables globales
   p300: '<b>PVC 300µ M1: le moins cher !</b> visuel imprimé sur pvc souple à scratcher (scratchs fournis).',
   b300: '<b>PVC 300µ M1: le moins cher !</b> visuel imprimé sur pvc souple.',
 
-  // p. banderole avec prix au m2
+  // support banderole avec prix au m2
   ecotm2: '<b>écotoile france banderole: dès 7,80/<sub>m</sub>²</b> Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !',
   becom2: '<b>toile 100% écologique M1: dès 21,45€/<sub>m</sub>²</b> Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.',
   capom2: '<b>capotoile 320 M1: dès 24,20€/<sub>m</sub>²</b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS à base de bouchons de bouteille recyclés.',
@@ -265,7 +284,7 @@ jQuery(document).ready(function ($) {
   // fonction globale ($)                                            zoom images
   //============================================================================
 
-  $('.preview_imag1')
+  $('#zoomImg')
     .on('mouseover', function(){
       $('#zoomImg').css({'transform': 'scale(2.5)', 'transition': '.2s'});
   })
