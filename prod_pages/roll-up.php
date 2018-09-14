@@ -16,7 +16,7 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleProd">
-									<div @mouseover="hoPw(1, produit+'-det1')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
+									<div @mouseover="hoPw(1,'1first')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
 										<img :src="$global.img+'/roll-up/1first.png'" /><span>firstline</span>
 									</div>
 									<div @mouseover="hoPw(1,'2best')"    @mouseout="hout(1)" v-tooltip.bottom="$global.besl" @click="reset(); selectProd('bestline');">
@@ -346,6 +346,17 @@
 
 			</form>
 
+			<div v-if="choix"> <!-- debug -->
+				<span>- produit : {{ produit }}</span><br />
+				<span>- dimensions : {{ dimensions }}</span><br />
+				<span>- support : {{ support }} </span><br />
+				<span>- maquette : {{ maquette }} </span><br />
+				<span>- signature : {{ sign }} </span><br />
+				<span>- quantité : {{ qte }} </span><br />
+				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
+				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+			</div>
+
 			<transition name="slideLeft">
 				<div class="delivBlock" v-show="dateLivraison" :key="dateTrigger">
 					<span class="delivDate">
@@ -377,14 +388,7 @@
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
-				<transition name="slideLeft" mode="out-in">
-					<div class="preview_imag1" :style="bg1" v-show="pr1" >
-						<video v-show="calqueVideo" width="100%" height="auto" ref="vidElm">
-							<source :src="this.$global.img+'/roll-up/rollup.m4v'" type="video/mp4">
-						</video>
-						<img   v-show="calqueImage" :src="detImg" alt="détail rollup" id="zoomImg" style="cursor: zoom-in" />
-					</div>
-				</transition>
+				<transition name="slideLeft"><div class="preview_imag1" :style="bg1" v-show="pr1"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag2" :style="bg2" v-show="pr2"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag3" :style="bg3" v-show="pr3"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag4" :style="bg4" v-show="pr4"></div></transition>
@@ -393,13 +397,6 @@
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
 
-				<div class="imgBar" v-show="selectFirst">
-					<img :src="$global.img+'/roll-up/'+produit+'-det1.jpg'" alt="" @mouseover="selectImg('det1')">
-					<img :src="$global.img+'/roll-up/'+produit+'-detv.jpg'" alt="" @mouseover="selectImg('detv')">
-					<img :src="$global.img+'/roll-up/'+produit+'-det2.jpg'" alt="" @mouseover="selectImg('det2')">
-					<img :src="$global.img+'/roll-up/'+produit+'-det3.jpg'" alt="" @mouseover="selectImg('det3')">
-					<img :src="$global.img+'/roll-up/'+produit+'-det4.jpg'" alt="" @mouseover="selectImg('det4')">
-				</div>
 				<div class="helpMenu">
 					<a :href="$global.url+'/aide-rollup/'" class="notice modal-link" title="aide produit">
 						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
@@ -475,4 +472,4 @@
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
 <script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.4"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-upNew.js?v=2.4"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-up.js?v=2.4"></script>

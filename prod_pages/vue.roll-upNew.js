@@ -218,11 +218,10 @@ new Vue({
 
         // masquer le slider pour afficher le produit choisi :
         this.slideContainer = false; // slider désactivé
-        this.pr0 =   // calques bg et produit activés
-        this.prH = this.pr1 = this.pr2 = this.pr3 = this.pr4 = this.pr5 = false; // autres calques désactivés
-        this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
+        this.pr0 = this.pr1 = true;  // calques bg et produit activés
+        this.prH = this.pr2 = this.pr3 = this.pr4 = this.pr5 = false; // autres calques désactivés
+        //this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
         this.bg2 = {backgroundImage: 'none'}; //
-        this.selectFirst = true;
 
         // ----------------------------------------------------------- FIRSTLINE
         if (this.produit == 'firstline') {
@@ -234,9 +233,9 @@ new Vue({
 
           this.calqueVideo = false;
           this.calqueImage = true;
-          this.detImg = this.$global.img+'/roll-up/'+this.produit+'-det1.jpg';
+          this.detImg = this.$global.img+'/roll-up/det1.jpg';
 
-
+          this.selectFirst = true;
 
 
         // ------------------------------------------------------------ BESTLINE
@@ -311,7 +310,6 @@ new Vue({
 
         this.prH = false;          // cacher preview
         this.pr2 = true;           // calque dimensions activé
-
 
         if (this.produit == 'firstline') { // cas particulier firstline: 1 seul chois support et dimensions
           // afficher/masquer les champs
@@ -404,7 +402,7 @@ new Vue({
         v.play();
 
       } else {
-        this.detImg = this.$global.img+'/roll-up/'+this.produit+'-'+value+'.jpg';
+        this.detImg = this.$global.img+'/roll-up/'+value+'.jpg';
         this.calqueImage = true;
         this.calqueVideo = false;
         v.pause();
@@ -959,14 +957,14 @@ new Vue({
         // ---------------------------------------------------------------- MINI
 
         if (this.dimensions == 'A4'){
-          cena=21;
+          cena=24;
           this.hauteur = 29.7;
           this.largeur = 21;
           this.prodref = '20170115';
         }
 
         if (this.dimensions == 'A3'){
-          cena=26;
+          cena=29;
           this.hauteur = 42;
           this.largeur = 29.7;
           this.prodref = '20170116';
@@ -1250,15 +1248,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += this.$global.maqFB/this.qte;
+          cena += 19/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += this.$global.maqBAT/this.qte;
+          cena += 5/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += this.$global.maqONL/this.qte;
+          cena += 5/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1268,7 +1266,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1278,17 +1276,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*this.$global.livRAT;
+          cena-= cena*3/100;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += this.$global.livREL/this.qte;
+          cena += 5.00/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$global.livREV;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 2;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -1305,12 +1303,12 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = this.$global.prod23;
-          else if (this.delaiprod == '1-1') ProdPercent = this.$global.prod11;
+          if      (this.delaiprod == '2-3') ProdPercent = 20;
+          else if (this.delaiprod == '1-1') ProdPercent = 45;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = this.$global.livr23;
-          else if (this.delailiv == '1-1')  DeliPercent = this.$global.livr11;
+          if      (this.delailiv == '2-3')  DeliPercent = 20;
+          else if (this.delailiv == '1-1')  DeliPercent = 45;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);

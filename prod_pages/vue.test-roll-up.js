@@ -94,6 +94,8 @@ new Vue({
       mistralSize: false,
       choixSupport: false,
 
+      selectFirst: false,
+
       showMaqt: false,
       showSign: false,
       showOptions: false,
@@ -127,7 +129,12 @@ new Vue({
       pr5: false,
       prH: false,
       calqueTexte: false,
+      calqueVideo: false,
+      calqueImage: false,
       calqueContent: '',
+      zi: '',
+      ifvid: '',
+      detImg: '',
 
       // déclancheurs d'annimations :
       imgTrigger : false,
@@ -170,7 +177,8 @@ new Vue({
       errorColor: '',
       prixUnit: '-',
       prixOption: '-',
-      prixTotal: '-'
+      prixTotal: '-',
+      translateX: Number
 
   }, // fin DATA
 
@@ -180,6 +188,8 @@ new Vue({
   //---------------------------------------------------------------------------------------------//
 
   mounted: function () {
+      //window.addEventListener('mousemove', this.panImg);
+
       // si client revendeur : afficher les options supplémentaires
       if ( document.getElementById('revendeur')) this.swRvd = true;
       else this.swRvd = false;
@@ -208,10 +218,11 @@ new Vue({
 
         // masquer le slider pour afficher le produit choisi :
         this.slideContainer = false; // slider désactivé
-        this.pr0 = this.pr1 = true;  // calques bg et produit activés
-        this.prH = this.pr2 = this.pr3 = this.pr4 = this.pr5 = false; // autres calques désactivés
+        this.pr0 =   // calques bg et produit activés
+        this.prH = this.pr1 = this.pr2 = this.pr3 = this.pr4 = this.pr5 = false; // autres calques désactivés
         this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
-        this.bg2 = {backgroundImage: 'url('+this.$global.img+'/roll-up/w200.png)'}; //
+        this.bg2 = {backgroundImage: 'none'}; //
+        this.selectFirst = true;
 
         // ----------------------------------------------------------- FIRSTLINE
         if (this.produit == 'firstline') {
@@ -220,7 +231,13 @@ new Vue({
           this.bestSize = this.luxSize = this.doubleSize = this.miniSize = this.mistralSize = false;
 
           // afficher/masquer les images
-          this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/1first.png)'};
+
+          this.calqueVideo = false;
+          this.calqueImage = true;
+          this.detImg = this.$global.img+'/roll-up/'+this.produit+'-det1.jpg';
+
+
+
 
         // ------------------------------------------------------------ BESTLINE
         }else if(this.produit == 'bestline') {
@@ -257,7 +274,7 @@ new Vue({
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/mini.png)'};
-          this.bg2 = {backgroundImage: 'none'}; //
+
         // ------------------------------------------------------------- MISTRAL
         }else if (this.produit == 'mistral') {
           // afficher/masquer les champs
@@ -266,7 +283,7 @@ new Vue({
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/totem/mistral200.png)'};
-          this.bg2 = {backgroundImage: 'none'}; //
+
         // -------------------------------------------------------------- VISUEL
         }else if (this.produit == 'visuel') {
           // afficher/masquer les champs
@@ -275,7 +292,6 @@ new Vue({
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/visuel.png)'};
-          this.bg2 = {backgroundImage: 'none'}; //
         }
 
         // afficher le champ suivant et indiquer qu'il est requis :
@@ -295,6 +311,7 @@ new Vue({
 
         this.prH = false;          // cacher preview
         this.pr2 = true;           // calque dimensions activé
+
 
         if (this.produit == 'firstline') { // cas particulier firstline: 1 seul chois support et dimensions
           // afficher/masquer les champs
@@ -376,6 +393,60 @@ new Vue({
         this.showOptions = true;
     },
 
+    // fonction affichage détails images :
+    //==========================================================================
+    selectImg: function(value) {
+      var v = this.$refs.vidElm;
+
+      if (value == 'detv') {
+        this.calqueImage = false;
+        this.calqueVideo = true;
+        v.play();
+
+      } else {
+        this.detImg = this.$global.img+'/roll-up/'+this.produit+'-'+value+'.jpg';
+        this.calqueImage = true;
+        this.calqueVideo = false;
+        v.pause();
+      }
+
+      this.pr2 = this.pr3 = this.pr4 = this.pr5 = false;
+    },
+
+    // fonction affichage détails images :
+    //==========================================================================
+    zoomIn: function() {
+        this.zi = {
+          transform: 'scale(2)',
+          transition: '0.5s'
+        };
+    },
+
+    // fonction affichage détails images :
+    //==========================================================================
+    zoomOut: function() {
+        this.zi = {
+          transform: 'scale(1)',
+          top:  0,
+          left: 0,
+          transition: '0.5s'
+
+        };
+    },
+
+    // fonction affichage détails images :
+    //==========================================================================
+    panImg: function(event) {
+/*        x = event.clientX;
+        y = event.clientY;
+        console.log(x);
+        console.log(y);
+
+        var offsetElt = document.getElementById('zoomImg');
+        offsetElt.style.top = (y + 20) + 'px';
+        offsetElt.style.left = (x + 20) + 'px';*/
+    },
+
     // fonctions hover :                                    HOVER texte OU image
     //==========================================================================
     // (calque) passe la valeur numérique du calque preview,
@@ -399,8 +470,8 @@ new Vue({
         this.bgH = {backgroundImage: 'none'};
       } else {           // hover image
         this.calqueTexte = false;
-        this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
-        this.bgH = {backgroundImage: 'url('+this.$global.img+'/roll-up/'+src+'.png)'};
+        //this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
+        this.bgH = {backgroundImage: 'url('+this.$global.img+'/roll-up/'+src+'.jpg)'};
       }
     },
 
@@ -423,7 +494,7 @@ new Vue({
       this.calqueTexte = true;
       this.calqueContent = txt;
 
-      this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
+      //this.bg0 = {backgroundImage: 'url('+this.$global.img+'/roll-up/bg.png)'};
       this.bgH = {backgroundImage: 'url('+this.$global.img+'/roll-up/'+src+'.png)'};
     },
 
@@ -548,10 +619,9 @@ new Vue({
         var metraz             = 0;   var image;
         var metrazzaokraglony  = 0;
         var metrazzaokraglony1 = 0;
-        var prixsupport        = 0;
-        var poids              = '';                                           ////poids total
-        var p1                 = '';                                           ////poids du support
-        var p2                 = '';                                           ////poids du structure
+        var poids              = '';  // poids total
+        var p1                 = '';  // poids du support
+        var p2                 = '';  // poids du structure
         var metrage            = 0;
         var structure          = 0;
         var fp                 = '';
@@ -560,7 +630,6 @@ new Vue({
         var rabat              = 0;
         var suma               = 0;
         var finalPrice         = '';   var finalPrice1 = '';  var finalPrice2 = '';
-        var date_panier        = '';
         var option             = '';
 
         // ----------------------------------------------------------- FIRSTLINE
@@ -1181,15 +1250,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 22/this.qte;
+          cena += this.$global.maqFB1/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 4/this.qte;
+          cena += this.$global.maqBAT/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 6/this.qte;
+          cena += this.$global.maqONL/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1199,7 +1268,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1209,17 +1278,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*6/100;
+          cena-= cena*this.$global.livRAT;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5.00/this.qte;
+          cena += this.$global.livREL/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$global.livREV;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -1236,12 +1305,12 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 25;
-          else if (this.delaiprod == '1-1') ProdPercent = 40;
+          if      (this.delaiprod == '2-3') ProdPercent = this.$global.prodB23;
+          else if (this.delaiprod == '1-1') ProdPercent = this.$global.prodB11;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 20;
-          else if (this.delailiv == '1-1')  DeliPercent = 40;
+          if      (this.delailiv == '2-3')  DeliPercent = this.$global.livrB23;
+          else if (this.delailiv == '1-1')  DeliPercent = this.$global.livrB11;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);
@@ -1319,7 +1388,7 @@ new Vue({
               newoption2 = newoption.replace(".", ",");
               option2 = newoption2;
 
-              this.prixOption = newoption2 +' €' ;
+              this.prixOption = newoption2;
 
               suma = 14.90;
               suma = fixstr(suma);
@@ -1333,7 +1402,7 @@ new Vue({
               newoption2 = newoption.replace(".", ",");
               option2 = newoption2;
 
-              this.prixOption = newoption2 +' €' ;
+              this.prixOption = newoption2;
 
               suma = 14.90;
               suma = fixstr(suma);

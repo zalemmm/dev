@@ -11,7 +11,8 @@ var shared = { // variables globales
   //----------------------------------------------------------------------- PRIX
 
   // maquettes
-  maqFB: 22,     // maquette France Banderole
+  maqFB1: 22,    // maquette France Banderole base
+  maqFB2: 35,    // maquette France Banderole cas particuliers
   maqBAT: 4,     // maquette client BAT
   maqONL: 6,     // maquette en ligne
   opSIGN: 5,     // option signature
@@ -21,37 +22,55 @@ var shared = { // variables globales
   livREL: 6,     // relais Colis
   livREV: 5,     // colis revendeur
 
-  // délais production / livraison
-  prod23: 25,    // prod 2-3j 25 40 20 40
-  prod11: 45,    // prod 1j
-  livr23: 25,    // livr 2-3j
-  livr11: 45,    // livr 1j
+  // délais production / livraison base
+  prodA23: 25,    // prod 2-3j 25 40 20 40
+  prodA11: 45,    // prod 1j
+  livrA23: 25,    // livr 2-3j
+  livrA11: 45,    // livr 1j
+
+  // délais production / livraison cas particuliers
+  prodB23: 25,    // prod 2-3j
+  prodB11: 40,    // prod 1j
+  livrB23: 20,    // livr 2-3j
+  livrB11: 40,    // livr 1j
 
   //------------------------------- tooltips communs à toutes les pages produits
   // sans bat
   btn: '<b>j\'envoie mon fichier, je ne souhaite pas de BAT:</b>Après la réception de votre fichier et de votre paiement, la commande sera mise directement en production. Si votre fichier ne respecte pas nos spécifications, il sera automatiquement adapté par notre service infographie. Supprimer le BAT décharge France Banderole de toutes responsabilités en cas de non conformité de votre fichier (couleur, format, pixellisation, fond perdu, faute orthographique, etc).',
+
   // avec bat
   bty: '<b>j\'envoie mon fichier, je souhaite un BAT numérique: +4€</b> Vous envoyez votre propre fichier (une fois votre devis enregistré). Ce dernier sera contrôlé par notre service d\'infographie et un <span class="highlight">BAT à valider</span> vous sera transmis dans votre accès client. Votre production commence après la validation de ce BAT',
+
   // maquette en ligne
   enl: '<b>vous créez votre maquette en ligne: +6€</b> Dans le détail de votre commande vous aurez accès à notre outil de personnalisation en ligne. Simple et axé sur les fonctionnalités essentielles, il vous permettra de composer en quelques clics une maquette aux bonnes dimensions avec vos éléments personnels (logos, images...), du texte et un large choix de polices, couleurs, formes. <span class="highlight">Attention</span> cet outil  est conçu pour être utilisé sur PC/Mac avec un navigateur récent et une <span class="highlight">résolution d\'écran minimum de 1280x720 pixels.</span>',
-  // maquette fb à 19 €
+
+  // maquette fb à 22 €
   mfb: '<b>france banderole crée votre fichier: +22€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
+
   // maquette fb à 35 €
-  mfb2: '<b>france banderole crée votre fichier: +35,00€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
+  mfb2: '<b>france banderole crée votre fichier: +35€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
+
   // signature fb :
   psi: '<b>logo france banderole</b> Si vous choisissez l\'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/> <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png">',
+
   // produit neutre :
   pne: '<b>produit neutre: +5€</b> Aucun logo ni référence à France Banderole sur votre produit',
   // livraison adresse :
+
   lad: 'Pour être livré directement chez vous ou à votre adresse professionnelle. Par défaut votre adresse de facturation sera utilisée, mais vous pourrez spécifier une adresse de livraison dans votre accès client.',
+
   // retrait atelier :
   lat: 'Retrait de votre commande à l\'atelier de Vitrolles.',
+
   // relais colis
   lre: 'Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.',
+
   // colis revendeur :
   crv: 'Vous permet d’avoir une expédition neutre sans étiquetage France banderole. Vous pouvez également transmettre un bon de livraison personnalisé dans votre accès client',
-  // livraison roulée :
+
+  // livraison roulée / palletisation :
   roll: 'Nos banderoles en dessous de 2x2m sont livrées roulées, au delà elles sont pliées pour des raisons de dimensions de colis. La livraison roulée reste disponible en option pour 20€ et un délai d\'un jour supplémentaire.',
+
   gfe: '<b>Forfait palettisation: dès 99€ HT</b> Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.',
 
   //--------------------------------------------textes tooltips types de support
@@ -213,7 +232,6 @@ var shared = { // variables globales
   i120: '',
   i270: '',
   i350: '',
-
 };
 
 //================================================================================================//

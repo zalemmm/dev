@@ -3781,8 +3781,9 @@ function fbadm_print_details($number) {
   echo '<div id="col-right">';
 
   //------------------------------------------------------------- envoyer un SMS
-  echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>SMS</span></h3><div class="inside">';
+  echo '<div id="postsms" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>SMS</span></h3><div class="inside">';
   echo '<form name="sendsms" id="sendsms" action="" method="post"><input type="hidden" name="sendsms" /><input type="hidden" name="hiddentopic" value="" /><select name="selsmstopic" onchange="this.form.selsmscontent.innerHTML = this.value; this.form.hiddentopic.value = this.options[selectedIndex].text;" style="float:left;width:100%;"><option value="">choisir...</option>';
+
   foreach ($sms as $ma) :
     $con = stripslashes($ma['content']);
     $con = htmlspecialchars($con);
@@ -3799,16 +3800,20 @@ function fbadm_print_details($number) {
   $getsms = $checksms->value;
 
   if (isset($_POST['sendsms'])) {
-    $lastsms = '<li>'.date('d-m-Y H:i'). ' ' .$_POST['selsmscontent'].'</li>';
-    $allsms  = $lastsms.$getsms;
-    if (!$checksms) {
-      $add = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$number','sms','$lastsms')");
-    }else{
-      $up = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$allsms' WHERE type='sms' AND unique_id = '$number'");
-    }
 
     $sms = stripslashes($_POST['selsmscontent']);
     echo send_sms($uzyt->f_phone, $sms);
+
+    $lastsms = '<li>'.date('d-m-Y H:i'). ' ' .$_POST['hiddentopic'].'</li>';
+    $allsms  = $lastsms.$getsms;
+    if (!$checksms) {
+      $addDB = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$number','sms','$lastsms')");
+    }else{
+      $upDB = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$allsms' WHERE type='sms' AND unique_id = '$number'");
+    }
+
+    header('Location: '.$_SERVER['REQUEST_URI']);
+    exit();
   }
   echo '<div class="histo">HISTORIQUE <button class="voirPlus2">+</button>/<button class="voirMoins2">-</button></div> <ul class="lastSms">'.$getsms.'</ul> ';
   echo '<div style="clear:both"></div></div></div></div>

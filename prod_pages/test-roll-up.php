@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="column" id="choicesContainer"> <!--bloc formulaire-->
 
-			<h3>Votre devis en ligne tente publicitaire</h3>
+			<h3>Votre devis en ligne Roll-up</h3>
 
 			<form class="vueForm" action="" method="post" name="vueForm" id="vueForm" accept-charset="utf-8">
 				<div class="form-all">
@@ -16,25 +16,33 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleProd">
-									<div @mouseover="hoPw(2,'Blanc1')" @mouseout="hout(2)" v-tooltip.bottom="$global.tent" @click="reset(); selectProd('Blanc');">
-										<img :src="$global.img+'/tente/Blanc1.png'" /><span>Blanc</span>
+									<div @mouseover="hoPw(1, produit+'-det1')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
+										<img :src="$global.img+'/roll-up/1first.png'" /><span>firstline</span>
 									</div>
-									<div @mouseover="hoPw(2,'Noir1')"  @mouseout="hout(2)" v-tooltip.bottom="$global.tent" @click="reset(); selectProd('Noir');">
-										<img :src="$global.img+'/tente/Noir1.png'" /><span>Noir</span>
+									<div @mouseover="hoPw(1,'2best')"    @mouseout="hout(1)" v-tooltip.bottom="$global.besl" @click="reset(); selectProd('bestline');">
+										<img :src="$global.img+'/roll-up/2best.png'" /><span>bestline</span>
 									</div>
-									<div @mouseover="hoPw(2,'Rouge1')" @mouseout="hout(2)" v-tooltip.bottom="$global.tent" @click="reset(); selectProd('Rouge');">
-										<img :src="$global.img+'/tente/Rouge1.png'" /><span>Rouge</span>
+									<div @mouseover="hoPw(1,'3lux')"     @mouseout="hout(1)" v-tooltip.bottom="$global.luxl" @click="reset(); selectProd('luxline');">
+										<img :src="$global.img+'/roll-up/3lux.png'" /><span>luxline</span>
 									</div>
-									<div @mouseover="hoPw(2,'Bleu1')"  @mouseout="hout(2)" v-tooltip.bottom="$global.tent" @click="reset(); selectProd('Bleu');">
-										<img :src="$global.img+'/tente/Bleu1.png'" /><span>Bleu</span>
+									<div @mouseover="hoPw(1,'4double')"  @mouseout="hout(1)" v-tooltip.bottom="$global.dobl" @click="reset(); selectProd('double');">
+										<img :src="$global.img+'/roll-up/4double.png'" /><span>double</span>
+									</div>
+									<div @mouseover="hoPw(1,'mini')"     @mouseout="hout(1)" v-tooltip.bottom="$global.mini" @click="reset(); selectProd('mini');">
+										<img :src="$global.img+'/roll-up/mini.png'" /><span>mini</span>
+									</div>
+									<div @mouseover="hoPw(1,'6mistral')" @mouseout="hout(1)" v-tooltip.bottom="$global.mist" @click="reset(); selectProd('mistral');">
+										<img :src="$global.img+'/roll-up/6mistral.png'" /><span>extérieur mistral</span>
+									</div>
+									<div @mouseover="hoPw(1,'visuel')"    @mouseout="hout(1)" v-tooltip.bottom="$global.visu" @click="reset(); selectProd('visuel');">
+										<img :src="$global.img+'/roll-up/visuel.png'" /><span>remplacer visuel</span>
 									</div>
 								</div>
 							</transition>
 
 						</li>
 
-
-						<li class="formSelect" v-show="showSize">
+						<li class="formSelect" v-show="firstSize">
 
 							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
 								{{ choixSize }} <i class="fa fa-caret-down"></i>
@@ -42,103 +50,167 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoTx(3,'2m','2x2 m');"  @mouseout="hout(3)" @click="reset(); selectSize('2x2');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Tente 2x2 m</span>
+									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('80x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
 									</div>
-									<div @mouseover="hoTx(3,'2m','2x3 m');"  @mouseout="hout(3)" @click="reset(); selectSize('2x3');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Tente 2x3 m</span>
-									</div>
-									<div @mouseover="hoTx(3,'3m','3x3 m');"  @mouseout="hout(3)" @click="reset(); selectSize('3x3');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Tente 3x3 m</span>
-									</div>
-									<div @mouseover="hoTx(3,'3m','3x4.5 m');"@mouseout="hout(3)" @click="reset(); selectSize('3x4');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Tente 3x4.5 m</span>
-									</div>
-									<div @mouseover="hoTx(3,'3m','3x6 m');"  @mouseout="hout(3)" @click="reset(); selectSize('3x6');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>Tente 3x6 m</span>
-									</div>
-
 								</div>
 							</transition>
 
 						</li>
 
-						<li class="formSelect" v-show="showMurs">
+						<li class="formSelect" v-show="bestSize">
 
-							<button type="button" class="toggle" :class="reqMurs" @click="toggleMurs = !toggleMurs">
-								{{ choixMurs }} <i class="fa fa-caret-down"></i>
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
 							</button>
 
 							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="toggleMurs">
-
-									<div @mouseover="hoPw(4,produit+'-b')"  @mouseout="hout(4)" v-tooltip.bottom="$global.mur1" @click="reset(); selectMurs('1x Demi-mur','b');">
-										<img :src="$global.img+'/tente/'+produit+'-b.png'" /><span>1 Demi-mur supplémentaire</span>
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(9,'60x160 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x160');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>60x160 cm</span>
 									</div>
-									<div @mouseover="hoPw(4,produit+'-bb')" @mouseout="hout(4)" v-tooltip.bottom="$global.mur1" @click="reset(); selectMurs('2x Demi-mur','bb');">
-										<img :src="$global.img+'/tente/'+produit+'-bb.png'" /><span>2 Demi-mur supplémentaires</span>
+									<div @mouseover="hoPw(9,'60x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>60x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(4,produit+'-a')"  @mouseout="hout(4)" v-tooltip.bottom="$global.mur2" @click="reset(); selectMurs('1x Mur sup','a');">
-										<img :src="$global.img+'/tente/'+produit+'-a.png'" /><span>1 Mur supplémentaire</span>
+									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('80x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(4,produit+'-aa')"  @mouseout="hout(4)" v-tooltip.bottom="$global.mur2" @click="reset(); selectMurs('2x Mur sup','aa');">
-										<img :src="$global.img+'/tente/'+produit+'-aa.png'" /><span>2 Murs supplémentaires</span>
+									<div @mouseover="hoPw(9,'85x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('85x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>85x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(4,produit+'-ab')" @mouseout="hout(4)" v-tooltip.bottom="$global.mur3" @click="reset(); selectMurs('1x Mur sup + 1x Demi-mur','ab');">
-										<img :src="$global.img+'/tente/'+produit+'-ab.png'" /><span>1 Mur + 1 Demi-mur supplémentaires</span>
+									<div @mouseover="hoPw(9,'100x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('100x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>100x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(1,'')" @mouseout="hout(1)" v-tooltip.bottom="$global.murx" @click="reset(); selectMurs('sans mur','x');">
-										<i class="fa fa-times" aria-hidden="true"></i><span>Supprimer le mur de fond</span>
+									<div @mouseover="hoPw(9,'120x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('120x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>120x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(4,'')" @mouseout="hout(4)" v-tooltip.bottom="$global.murf" @click="reset(); selectMurs('sans option','fd');">
-										<i class="fa fa-ban" aria-hidden="true"></i><span>Sans option</span>
+									<div @mouseover="hoPw(9,'150x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('150x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>150x200 cm</span>
 									</div>
-
+									<div @mouseover="hoPw(9,'200x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('200x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>200x200 cm</span>
+									</div>
 								</div>
 							</transition>
 
 						</li>
 
-						<li class="formSelect" v-show="showPrint">
+						<li class="formSelect" v-show="luxSize">
 
-							<button type="button" class="toggle" :class="reqPrint" @click="togglePrint = !togglePrint">
-								{{ choixPrint }} <i class="fa fa-caret-down"></i>
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
 							</button>
 
 							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="togglePrint">
-
-									<div @mouseover="hoPw(3,'print-fd')"  @mouseout="hout(3)" v-tooltip.bottom="$global.pmfd" @click="reset(); selectPrint('Mur');" v-if="bgwall">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Mur de fond</span>
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('80x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
 									</div>
-									<div @mouseover="hoDb(3,'print-fd',5,'print-'+murs);" @mouseout="hout(3);" v-tooltip.bottom="$global.pmdm" @click="reset(); selectPrint('Mur et demi-mur');"  v-if="walls">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Mur(s) et demi-mur(s)</span>
+									<div @mouseover="hoPw(9,'100x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('100x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>100x200 cm</span>
 									</div>
-									<div @mouseover="hoDb(3,'print-fd',5,'print-'+murs,'print-x');" @mouseout="hout(3);" v-tooltip.bottom="$global.pful" @click="reset(); selectPrint('Full Graphic');" v-if="bgwall">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Full Graphic</span>
+									<div @mouseover="hoPw(9,'120x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('120x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>120x200 cm</span>
 									</div>
-									<div class="empty" v-if="walls">
-
+									<div @mouseover="hoPw(9,'150x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('150x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>150x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(3,'print-fd')"   @mouseout="hout(3)" v-tooltip.bottom="$global.gmfd" @click="reset(); selectPrint('Mur R/V');" v-if="bgwall">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Mur de fond Int/Ext</span>
-									</div>
-									<div @mouseover="hoDb(3,'print-fd',5,'print-'+murs);" @mouseout="hout(3);" v-tooltip.bottom="$global.gmdm" @click="reset(); selectPrint('Mur et demi-mur R/V');" v-if="walls">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Mur(s) et demi-mur(s) Int/Ext</span>
-									</div>
-									<div @mouseover="hoDb(3,'print-fd',5,'print-'+murs,'print-x');" @mouseout="hout(3);" v-tooltip.bottom="$global.gful" @click="reset(); selectPrint('Full Graphic R/V');" v-if="bgwall">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Full Graphic Int/Ext</span>
-									</div>
-									<div @mouseover="hoPw(3,'print-x')"   @mouseout="hout(3)" v-tooltip.bottom="$global.pfro" @click="reset(); selectPrint('Full Graphic');" v-if="nowalls">
-										<i class="fa fa-paint-brush" aria-hidden="true"></i><span>Fronton</span>
-									</div>
-									<div @mouseover="hoPw(3,'')" @mouseout="hout(3)" v-tooltip.bottom="$global.pnop" @click="reset(); selectPrint('Pas de personnalisation');">
-										<i class="fa fa-ban" aria-hidden="true"></i><span>Pas d'impression</span>
+									<div @mouseover="hoPw(9,'200x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('200x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>200x200 cm</span>
 									</div>
 								</div>
 							</transition>
 
 						</li>
+
+						<li class="formSelect" v-show="doubleSize">
+
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(9,'80x200 cm');"   @mouseout="hout(9)" @click="reset(); selectSize('80x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
+									</div>
+									<div  @mouseover="hoPw(9,'100x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('100x200');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>100x200 cm</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" v-show="miniSize">
+
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(9,'mini a4');" @mouseout="hout(9)" @click="reset(); selectSize('A4');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>Mini roll-up A4 (21x29cm)</span>
+									</div>
+									<div @mouseover="hoPw(9,'mini a3');" @mouseout="hout(9)" @click="reset(); selectSize('A3');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>Mini Roll-up A3 (29x42cm)</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" v-show="mistralSize">
+
+							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
+								{{ choixSize }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSize">
+									<div @mouseover="hoPw(9,'80x200 1 visuel');" @mouseout="hout(9)" @click="reset(); selectSize('80x200 1 visuel');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm (Recto/verso 1 visuel)</span>
+									</div>
+									<div @mouseover="hoPw(9,'80x200 2 visuels');" @mouseout="hout(9)" @click="reset(); selectSize('80x200 2 visuels');">
+										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm (Recto/verso 2 visuels)</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
+
+						<li class="formSelect" v-show="choixSupport">
+
+							<button type="button" class="toggle" :class="reqSupp" @click="toggleSupp = !toggleSupp">
+								{{ choixSupp }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="toggleSupp" >
+									<div @mouseover="hoPw(9,'bâche 440g');" @mouseout="hout(9)" v-tooltip.bottom="$global.b440" @click="reset(); selectSupport('440g');">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>bâche 440g</span>
+									</div>
+									<div @mouseover="hoPw(9,'Dickson Jet 520 M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.b520" @click="reset(); selectSupport('jet 520 M1');" v-if="notfirst">
+										<div class="cornfire"><i class="fa fa-fire-extinguisher" aria-hidden="true"></i></div>
+										<i class="fa fa-sticky-note fared" aria-hidden="true"></i><span>Dickson Jet 520 M1</span>
+									</div>
+									<div @mouseover="hoPw(9,'100% écologique M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.beco" @click="reset(); selectSupport('100% écologique M1');" v-if="notfirst && opeco">
+										<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
+										<i class="fa fa-sticky-note fagreen" aria-hidden="true"></i><span>100% écologique M1</span>
+									</div>
+									<div @mouseover="hoPw(9,'Capotoile 320 M1 Ecocert');" @mouseout="hout(9)" v-tooltip.bottom="$global.capo" @click="reset(); selectSupport('capotoile');" v-if="notfirst && opcapo">
+										<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
+										<i class="fa fa-sticky-note fagreen" aria-hidden="true"></i><span>Capotoile 320 M1 Ecocert</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
 
 						<li class="formSelect" id="id_maquette" v-show="showMaqt">
 
@@ -154,9 +226,9 @@
 									<div @mouseover="hoPw(9,'BAT numérique');" @mouseout="hout(9)" v-tooltip.bottom="$global.bty" @click="reset(); selectMaqt('maquette client bat');">
 										<i class="bat">BAT</i> <span class="smalls">j’envoie mon fichier, je veux un BAT</span>
 									</div>
-									<!--<div @mouseover="hoPw(9,'maquette en ligne');" @mouseout="hout(9)" v-tooltip.bottom="$global.enl" @click="reset(); selectMaqt('maquette en ligne');">
+									<div @mouseover="hoPw(9,'maquette en ligne');" @mouseout="hout(9)" v-tooltip.bottom="$global.enl" @click="reset(); selectMaqt('maquette en ligne');">
 										<i class="fa fa-pencil-square-o" aria-hidden="true"></i> <span class="smalls">je crée ma maquette en ligne</span>
-									</div>-->
+									</div>
 									<div @mouseover="hoPw(9,'maquette france banderole');" @mouseout="hout(9)" v-tooltip.bottom="$global.mfb" @click="reset(); selectMaqt('mise en page france banderole');">
 										<i class="fa fa-paint-brush" aria-hidden="true"></i> <span class="smalls">mise en page par france banderole</span>
 									</div>
@@ -221,6 +293,12 @@
 							  </span>
 
 								<span class="optCheck">
+									<label for="relais"><span class="noDisXS">Dépot en </span>Relais Colis</label>
+									<input type="checkbox" id="relais" v-model="relais" @click="reset" @change="checkRelais" />
+									<span  class="opHelp" v-tooltip.bottom="{content: $global.lre, offset: 5}"><i class="fa fa-question-circle"></i></span>
+							  </span>
+
+								<span class="optCheck">
 									<label for="colis">Colis revendeur</label>
 									<input type="checkbox" id="colis" v-model="colis" @click="reset" />
 									<span  class="opHelp" v-tooltip.bottom="{content: $global.crv, offset: 5}"><i class="fa fa-question-circle"></i></span>
@@ -239,7 +317,7 @@
 									<button type="button" v-model="delaiprod" class="dclic" :class="btnP2" @click="reset(); selectDeliv('2-3');">
 										Rapide 2/3 jours
 									</button>
-									<button type="button" v-model="delaiprod" class="dclic desactive" :class="btnP3">
+									<button type="button" v-model="delaiprod" class="dclic" :class="btnP3" @click="reset(); selectDeliv('1-1');">
 										Express 1 jour
 									</button>
 								</div>
@@ -268,17 +346,6 @@
 
 			</form>
 
-			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
-			</div>
-
 			<transition name="slideLeft">
 				<div class="delivBlock" v-show="dateLivraison" :key="dateTrigger">
 					<span class="delivDate">
@@ -292,24 +359,32 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
 					<div id="container" v-if="slideContainer">
 						<ul id="slides">
-
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-0.jpg'" alt="tente forum association" title="tente pub économique" /></li>
-							<li><img :src="$global.img+'/tente/slide/tente-barnum-4.jpg'" alt="tente forum association" title="tente pub économique" /></li>
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-1.jpg'" alt="tente publicitaire pas cher" title="tente pub économique" /></li>
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-3.jpg'" alt="tente barnum pas cher" title="barnum bas prix" /></li>
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-2.jpg'" alt="barnum tente plublicitaire pas cher" title="tente publicitaire discount" /></li>
-				      <li><img :src="$global.img+'/banderole/slide/devis-en-ligne'.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-5.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-4.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-3.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-0.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-1.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+							<li><img :src="$global.img+'/roll-up/slide/rollup-2.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
+							<li><img :src="$global.img+'/banderole/slide/devis-en-ligne.png'" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
 						</ul>
 					</div>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
-				<transition name="slideLeft"><div class="preview_imag1" :style="bg1" v-show="pr1"></div></transition>
+				<transition name="slideLeft" mode="out-in">
+					<div class="preview_imag1" :style="bg1" v-show="pr1" >
+						<video v-show="calqueVideo" width="100%" height="auto" ref="vidElm">
+							<source :src="this.$global.img+'/roll-up/rollup.m4v'" type="video/mp4">
+						</video>
+						<img   v-show="calqueImage" :src="detImg" alt="détail rollup" id="zoomImg" style="cursor: zoom-in" />
+					</div>
+				</transition>
 				<transition name="slideLeft"><div class="preview_imag2" :style="bg2" v-show="pr2"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag3" :style="bg3" v-show="pr3"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag4" :style="bg4" v-show="pr4"></div></transition>
@@ -318,7 +393,29 @@
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
 
+				<div class="imgBar" v-show="selectFirst">
+					<img :src="$global.img+'/roll-up/'+produit+'-det1.jpg'" alt="" @mouseover="selectImg('det1')">
+					<img :src="$global.img+'/roll-up/'+produit+'-detv.jpg'" alt="" @mouseover="selectImg('detv')">
+					<img :src="$global.img+'/roll-up/'+produit+'-det2.jpg'" alt="" @mouseover="selectImg('det2')">
+					<img :src="$global.img+'/roll-up/'+produit+'-det3.jpg'" alt="" @mouseover="selectImg('det3')">
+					<img :src="$global.img+'/roll-up/'+produit+'-det4.jpg'" alt="" @mouseover="selectImg('det4')">
+				</div>
+				<div class="helpMenu">
+					<a :href="$global.url+'/aide-rollup/'" class="notice modal-link" title="aide produit">
+						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+					</a>
+					<a :href="$global.url+'/notice-technique-roll-up/'" class="notice modal-link"  title="notices techniques">
+						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+					</a>
+					<a :href="$global.url+'/gabarit-roll-up/'" class="notice modal-link"  title="gabarits maquette">
+						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+					</a>
+				</div>
+
+
 			</div>
+
+
 
 			<div id="estimation" :class="reqEstm">
 
@@ -327,6 +424,7 @@
 					<span class="estimationData">OPTION</span>
 					<span class="estimationData">TOTAL H.T.</span>
 				</div>
+
 				<div id="estimationPrix">
 					<span class="estimationData" id="prix_unitaire">{{ prixUnit   }} </span>
 					<span class="estimationData" id="option">       {{ prixOption }} </span>
@@ -367,14 +465,14 @@
 					</transition>
 
 				</div>
-			</div> <!-- fin bloc estimation -->
+			</div>
 		</div>  <!-- fin bloc image #previewContainer -->
 
 	</div>
 </div> <!-- fin bloc app  -->
 
-<script src="../wp-content/plugins/fbshop/js/vue.js"></script>
-<!--<script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>-->
+<!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
+<script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
 <script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.4"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.tente.js?v=2.4"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.test-roll-up.js?v=2.4"></script>
