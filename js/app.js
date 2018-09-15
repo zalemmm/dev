@@ -1020,7 +1020,7 @@ new Vue({
               opis += '<br />- signature France Banderole';
             }
             if (this.sign == 'sans signature') {
-              if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+              if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN;}
               opis += '<br />- sans signature';
             }
 

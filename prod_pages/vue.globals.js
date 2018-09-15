@@ -9,30 +9,27 @@ var shared = { // variables globales
   img: '../wp-content/plugins/fbshop/images',
 
   //----------------------------------------------------------------------- PRIX
+  opSIGN: 5,     // option signature
 
   // maquettes
   maqFB1: 22,    // maquette France Banderole base
-  maqFB2: 35,    // maquette France Banderole cas particuliers
+  maqFB2: 29,    // maquette France Banderole (stand, enseigne susp...)
+  maqFB3: 39,    // maquette France Banderole (tentes...)
   maqBAT: 4,     // maquette client BAT
   maqONL: 6,     // maquette en ligne
-  opSIGN: 5,     // option signature
 
   // options livraison
   livRAT: 6/100, // retrait atelier
   livREL: 6,     // relais Colis
   livREV: 5,     // colis revendeur
+  livROL: 29,    // livraison roulée
 
-  // délais production / livraison base
-  prodA23: 25,    // prod 2-3j 25 40 20 40
+  // délais production / livraison base (excepté roll-up, tentes, oriflammes)
+  prodA23: 25,    // prod 2-3j
   prodA11: 45,    // prod 1j
   livrA23: 25,    // livr 2-3j
   livrA11: 45,    // livr 1j
 
-  // délais production / livraison cas particuliers
-  prodB23: 25,    // prod 2-3j
-  prodB11: 40,    // prod 1j
-  livrB23: 20,    // livr 2-3j
-  livrB11: 40,    // livr 1j
 
   //------------------------------- tooltips communs à toutes les pages produits
   // sans bat
@@ -47,8 +44,8 @@ var shared = { // variables globales
   // maquette fb à 22 €
   mfb: '<b>france banderole crée votre fichier: +22€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
 
-  // maquette fb à 35 €
-  mfb2: '<b>france banderole crée votre fichier: +35€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
+  // maquette fb à 29 €
+  mfb2: '<b>france banderole crée votre fichier: +29€</b> Vous fournissez <span class="highlight">de 1 à 6 éléments séparés</span> et un explicatif sur votre souhait. Notre équipe d\'infographie crée votre maquette et vous envoie un premier BAT. Si vous souhaitez une composition plus complexe, une recherche graphique ou création de logo, contactez notre service commercial.',
 
   // signature fb :
   psi: '<b>logo france banderole</b> Si vous choisissez l\'option "produit signé" un petit logo sera imprimé en bas de votre visuel <br/> <img src="//www.france-banderole.com/wp-content/plugins/fbshop/images/signature.png">',

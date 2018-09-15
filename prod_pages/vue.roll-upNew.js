@@ -1266,7 +1266,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1304,11 +1304,11 @@ new Vue({
           var DeliPercent = '';
 
           if      (this.delaiprod == '2-3') ProdPercent = 20;
-          else if (this.delaiprod == '1-1') ProdPercent = 45;
+          else if (this.delaiprod == '1-1') ProdPercent = this.$global.prodA11;
           else                              ProdPercent = 0;
 
           if      (this.delailiv == '2-3')  DeliPercent = 20;
-          else if (this.delailiv == '1-1')  DeliPercent = 45;
+          else if (this.delailiv == '1-1')  DeliPercent = this.$global.livrA11;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);

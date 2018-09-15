@@ -647,9 +647,9 @@ function reorganize_votre($idzamowienia) {
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
-			$totalItems = str_replace(',', '.', $item[total]);
+			$totalItems = str_replace(',', '.', $item['total']);
 			$totalHT = $totalHT + $totalItems;
-			$fraisPort = $fraisPort + $item[frais];
+			$fraisPort = $fraisPort + $item['frais'];
 		}
 		//--------------------------------------------------------------------------
 		$totalHT = $totalHT + $fraisPort;

@@ -673,15 +673,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 39/this.qte;
+          cena += this.$global.maqFB3/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 4/this.qte;
+          cena += this.$global.maqBAT/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 6/this.qte;
+          cena += this.$global.maqONL/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -701,19 +701,19 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*6/100;
+          cena-= cena*this.$global.livRAT;
           this.retrait = 'retrait colis atelier';
         } else {
           cena+= 39*this.qte; // prix transport
         }
 
         if (this.relais == true) {
-          cena += 6.00/this.qte;
+          cena += this.$global.livREL/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$global.livREV;}
           this.optliv = ' / colis revendeur';
         }
 

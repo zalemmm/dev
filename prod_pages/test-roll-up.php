@@ -16,25 +16,25 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleProd">
-									<div @mouseover="hoPw(1, produit+'-det1')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
+									<div @mouseover="hoPw(1, 'firstline-det1.jpg')"   @mouseout="hout(1)" v-tooltip.bottom="$global.firl" @click="reset(); selectProd('firstline');">
 										<img :src="$global.img+'/roll-up/1first.png'" /><span>firstline</span>
 									</div>
-									<div @mouseover="hoPw(1,'2best')"    @mouseout="hout(1)" v-tooltip.bottom="$global.besl" @click="reset(); selectProd('bestline');">
+									<div @mouseover="hoPw(1,'2best.png')"    @mouseout="hout(1)" v-tooltip.bottom="$global.besl" @click="reset(); selectProd('bestline');">
 										<img :src="$global.img+'/roll-up/2best.png'" /><span>bestline</span>
 									</div>
-									<div @mouseover="hoPw(1,'3lux')"     @mouseout="hout(1)" v-tooltip.bottom="$global.luxl" @click="reset(); selectProd('luxline');">
+									<div @mouseover="hoPw(1,'3lux.png')"     @mouseout="hout(1)" v-tooltip.bottom="$global.luxl" @click="reset(); selectProd('luxline');">
 										<img :src="$global.img+'/roll-up/3lux.png'" /><span>luxline</span>
 									</div>
-									<div @mouseover="hoPw(1,'4double')"  @mouseout="hout(1)" v-tooltip.bottom="$global.dobl" @click="reset(); selectProd('double');">
+									<div @mouseover="hoPw(1,'4double.png')"  @mouseout="hout(1)" v-tooltip.bottom="$global.dobl" @click="reset(); selectProd('double');">
 										<img :src="$global.img+'/roll-up/4double.png'" /><span>double</span>
 									</div>
-									<div @mouseover="hoPw(1,'mini')"     @mouseout="hout(1)" v-tooltip.bottom="$global.mini" @click="reset(); selectProd('mini');">
+									<div @mouseover="hoPw(1,'mini.png')"     @mouseout="hout(1)" v-tooltip.bottom="$global.mini" @click="reset(); selectProd('mini');">
 										<img :src="$global.img+'/roll-up/mini.png'" /><span>mini</span>
 									</div>
-									<div @mouseover="hoPw(1,'6mistral')" @mouseout="hout(1)" v-tooltip.bottom="$global.mist" @click="reset(); selectProd('mistral');">
+									<div @mouseover="hoPw(1,'6mistral.png')" @mouseout="hout(1)" v-tooltip.bottom="$global.mist" @click="reset(); selectProd('mistral');">
 										<img :src="$global.img+'/roll-up/6mistral.png'" /><span>extérieur mistral</span>
 									</div>
-									<div @mouseover="hoPw(1,'visuel')"    @mouseout="hout(1)" v-tooltip.bottom="$global.visu" @click="reset(); selectProd('visuel');">
+									<div @mouseover="hoPw(1,'visuel.png')"    @mouseout="hout(1)" v-tooltip.bottom="$global.visu" @click="reset(); selectProd('visuel');">
 										<img :src="$global.img+'/roll-up/visuel.png'" /><span>remplacer visuel</span>
 									</div>
 								</div>
@@ -42,7 +42,7 @@
 
 						</li>
 
-						<li class="formSelect" v-show="firstSize">
+						<li class="formSelect" v-show="showSize">
 
 							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
 								{{ choixSize }} <i class="fa fa-caret-down"></i>
@@ -50,131 +50,40 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('80x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
-									</div>
-								</div>
-							</transition>
-
-						</li>
-
-						<li class="formSelect" v-show="bestSize">
-
-							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
-								{{ choixSize }} <i class="fa fa-caret-down"></i>
-							</button>
-
-							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'60x160 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x160');">
+									<div @mouseover="hoPw(9,'60x160 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x160');"  v-show="best || first">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>60x160 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'60x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x200');">
+									<div @mouseover="hoPw(9,'60x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x200');"  v-show="best">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>60x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('80x200');">
+									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('80x200');"  v-show="best || lux || double">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'85x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('85x200');">
+									<div @mouseover="hoPw(9,'85x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('85x200');"  v-show="best">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>85x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'100x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('100x200');">
+									<div @mouseover="hoPw(9,'100x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('100x200');" v-show="best || lux || double">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>100x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'120x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('120x200');">
+									<div @mouseover="hoPw(9,'120x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('120x200');" v-show="best || lux">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>120x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'150x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('150x200');">
+									<div @mouseover="hoPw(9,'150x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('150x200');" v-show="best || lux">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>150x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'200x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('200x200');">
+									<div @mouseover="hoPw(9,'200x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('200x200');" v-show="best || lux">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>200x200 cm</span>
 									</div>
-								</div>
-							</transition>
-
-						</li>
-
-						<li class="formSelect" v-show="luxSize">
-
-							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
-								{{ choixSize }} <i class="fa fa-caret-down"></i>
-							</button>
-
-							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)" @click="reset(); selectSize('80x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
-									</div>
-									<div @mouseover="hoPw(9,'100x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('100x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>100x200 cm</span>
-									</div>
-									<div @mouseover="hoPw(9,'120x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('120x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>120x200 cm</span>
-									</div>
-									<div @mouseover="hoPw(9,'150x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('150x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>150x200 cm</span>
-									</div>
-									<div @mouseover="hoPw(9,'200x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('200x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>200x200 cm</span>
-									</div>
-								</div>
-							</transition>
-
-						</li>
-
-						<li class="formSelect" v-show="doubleSize">
-
-							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
-								{{ choixSize }} <i class="fa fa-caret-down"></i>
-							</button>
-
-							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'80x200 cm');"   @mouseout="hout(9)" @click="reset(); selectSize('80x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
-									</div>
-									<div  @mouseover="hoPw(9,'100x200 cm');" @mouseout="hout(9)" @click="reset(); selectSize('100x200');">
-										<i class="fa fa-expand" aria-hidden="true"></i><span>100x200 cm</span>
-									</div>
-								</div>
-							</transition>
-
-						</li>
-
-
-						<li class="formSelect" v-show="miniSize">
-
-							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
-								{{ choixSize }} <i class="fa fa-caret-down"></i>
-							</button>
-
-							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'mini a4');" @mouseout="hout(9)" @click="reset(); selectSize('A4');">
+									<div @mouseover="hoPw(9,'mini a4');"     @mouseout="hout(9)" @click="reset(); selectSize('A4');"      v-show="min">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>Mini roll-up A4 (21x29cm)</span>
 									</div>
-									<div @mouseover="hoPw(9,'mini a3');" @mouseout="hout(9)" @click="reset(); selectSize('A3');">
+									<div @mouseover="hoPw(9,'mini a3');"     @mouseout="hout(9)" @click="reset(); selectSize('A3');"      v-show="min">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>Mini Roll-up A3 (29x42cm)</span>
 									</div>
-								</div>
-							</transition>
-
-						</li>
-
-
-						<li class="formSelect" v-show="mistralSize">
-
-							<button type="button" class="toggle" :class="reqSize" @click="toggleSize = !toggleSize">
-								{{ choixSize }} <i class="fa fa-caret-down"></i>
-							</button>
-
-							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'80x200 1 visuel');" @mouseout="hout(9)" @click="reset(); selectSize('80x200 1 visuel');">
+									<div @mouseover="hoPw(9,'80x200 1 visuel');"  @mouseout="hout(9)" @click="reset(); selectSize('80x200 1 visuel');"  v-show="mist">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm (Recto/verso 1 visuel)</span>
 									</div>
-									<div @mouseover="hoPw(9,'80x200 2 visuels');" @mouseout="hout(9)" @click="reset(); selectSize('80x200 2 visuels');">
+									<div @mouseover="hoPw(9,'80x200 2 visuels');" @mouseout="hout(9)" @click="reset(); selectSize('80x200 2 visuels');" v-show="mist">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm (Recto/verso 2 visuels)</span>
 									</div>
 								</div>
@@ -183,7 +92,7 @@
 						</li>
 
 
-						<li class="formSelect" v-show="choixSupport">
+						<li class="formSelect" v-show="showSupp">
 
 							<button type="button" class="toggle" :class="reqSupp" @click="toggleSupp = !toggleSupp">
 								{{ choixSupp }} <i class="fa fa-caret-down"></i>
@@ -474,5 +383,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.4"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.test-roll-up.js?v=2.4"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.test-roll-up.js?v=2.5"></script>

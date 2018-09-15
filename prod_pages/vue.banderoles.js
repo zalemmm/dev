@@ -1708,15 +1708,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 22/this.qte;
+          cena += this.$global.maqFB1/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 4/this.qte;
+          cena += this.$global.maqBAT/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 6/this.qte;
+          cena += this.$global.maqONL/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1727,7 +1727,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1737,22 +1737,22 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*6/100;
+          cena-= cena*this.$global.livRAT;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 6/this.qte;
+          cena += this.$global.livREL/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$global.livREV;}
           this.optliv = ' / colis revendeur';
         }
 
         if (this.roll == true) {
-    			cena += 29/this.qte;
+    			cena += this.$global.livROL/this.qte;
     			this.roule = ' /  livrée roulée';
     		}
 
@@ -1769,12 +1769,12 @@ new Vue({
           var ProdPercent = '';
           var DeliPercent = '';
 
-          if      (this.delaiprod == '2-3') ProdPercent = 25;
-          else if (this.delaiprod == '1-1') ProdPercent = 45;
+          if      (this.delaiprod == '2-3') ProdPercent = this.$global.prodA23;
+          else if (this.delaiprod == '1-1') ProdPercent = this.$global.prodA11;
           else                              ProdPercent = 0;
 
-          if      (this.delailiv == '2-3')  DeliPercent = 25;
-          else if (this.delailiv == '1-1')  DeliPercent = 45;
+          if      (this.delailiv == '2-3')  DeliPercent = this.$global.livrA23;
+          else if (this.delailiv == '1-1')  DeliPercent = this.$global.livrA11;
           else                              DeliPercent = 0;
 
           var price_unit = parseFloat(prixunite);
@@ -2015,7 +2015,7 @@ new Vue({
 
           }else{ // si autre bache, affichage des finitions :
 
-            this.details = this.oeillets+' '+this.choixSpce+' <br>- '+this.ourlets+'  <br>- '+this.fourreaux+' '+this.scratch+' <br>- '+this.fixation+' '+this.choixFxqt;
+            this.details = this.oeillets+' '+this.choixSpce+' <br>- '+this.ourlets+'  <br>- '+this.fourreaux+' <br>- '+this.scratch+' <br>- '+this.fixation+' '+this.choixFxqt;
           }
 
           this.inputDesc = '- '+this.support+'<br>- H|'+this.inputHauteur+'cm x L|'+this.inputLargeur+'cm <br>- '+this.details+' <br>- '+this.modmaq+'<br>- '+this.sign+'<br>- '+this.retrait+this.optliv+this.roule+'<br>- P '+dprod+'J / L '+dliv+'J';

@@ -43,23 +43,51 @@ new Vue({
       choix : false, // passer à true pour debug : affiche les modifications à la sélection des options
 
       // valeurs par défaut (value) : champs select
-      produit: '',
+      produit:    '',
       dimensions: '',
-      support: '',
-      maquette: '',
-      sign: '',
+      support:    '',
+      maquette:   '',
+      sign:       '',
 
       // valeurs par défaut (value) : autre champs
-      choixProd : 'choisir votre modèle de roll-up',
-      choixSize : 'choisir les dimensions',
-      choixSupp : 'choisir le support',
-      choixMaqt : 'votre maquette (fichier d\'impression)',
-      choixSign : 'logo france banderole ?',
+      choixProd: 'choisir votre modèle de roll-up',
+      choixSize: 'choisir les dimensions',
+      choixSupp: 'choisir le support',
+      choixMaqt: 'votre maquette (fichier d\'impression)',
+      choixSign: 'logo france banderole ?',
+
+      // valeurs par défaut de visibilité des blocs :
+      toggleProd: true,
+      toggleSize: true,
+      toggleSupp: true,
+      toggleMaqt: true,
+      toggleSign: true,
+
+      showSize:    false,
+      showSupp:    false,
+      showMaqt:    false,
+      showSign:    false,
+      showOptions: false,
+      showLiv:     false,
+
+      // options individuelles
+      first: false,
+      best:  false,
+      lux:   false,
+      double:false,
+      min:   false,
+      mist:  false,
+
+      notfirst: false,
+      opeco:    false,
+      opcapo:   false,
+
+      // bloc options
       qte: 1,
       adresse: true,
       atelier: false,
-      relais: false,
-      colis: false,
+      relais:  false,
+      colis:   false,
       delaiprod: '',
       delailiv: '',
 
@@ -79,36 +107,11 @@ new Vue({
       btnD2: 'inactive',
       btnD3: 'inactive',
 
-      // valeurs par défaut de visibilité des blocs :
-      toggleProd: true,
-      toggleSize: true,
-      toggleSupp: true,
-      toggleMaqt: true,
-      toggleSign: true,
-
-      firstSize: false,
-      bestSize: false,
-      luxSize: false,
-      doubleSize: false,
-      miniSize: false,
-      mistralSize: false,
-      choixSupport: false,
-
-      showMaqt: false,
-      showSign: false,
-      showOptions: false,
-      showLiv: false,
-
-      // options individuelles
-      notfirst: false,
-      opeco: false,
-      opcapo: false,
-
-      dateLivraison: false,
+      dateLivraison:   false,
       livraisonrapide: false,
-      livraisonComp: false,
-      formError: false,
-      ajoutPanier: false,
+      livraisonComp:   false,
+      formError:       false,
+      ajoutPanier:     false,
 
       // valeurs par défaut : calques images
       slideContainer: true,
@@ -130,10 +133,10 @@ new Vue({
       calqueContent: '',
 
       // déclancheurs d'annimations :
-      imgTrigger : false,
+      imgTrigger :   false,
       hoverTrigger : false,
-      dateTrigger: false,
-      errorTrigger: false,
+      dateTrigger:   false,
+      errorTrigger:  false,
 
       // valeurs par défaut variables destinées au panier :
       inputProd : '',
@@ -202,8 +205,8 @@ new Vue({
 
         // champs réinitialisés + masqués si l'utilisateur revient sur son choix produit :
         this.dimensions = this.support = ''; // on réinitialise les valeurs liées support & size au changement de produit
-        this.choixSupport = false;
-        this.firstSize = this.bestSize = this.luxSize = this.doubleSize = this.miniSize = this.mistralSize = false;
+
+        this.first = this.best = this.lux = this.double = this.min = this.mist = false;
         this.details = '';
 
         // masquer le slider pour afficher le produit choisi :
@@ -216,8 +219,7 @@ new Vue({
         // ----------------------------------------------------------- FIRSTLINE
         if (this.produit == 'firstline') {
           // afficher/masquer les champs
-          this.firstSize = true;
-          this.bestSize = this.luxSize = this.doubleSize = this.miniSize = this.mistralSize = false;
+          this.first = true;
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/1first.png)'};
@@ -225,8 +227,7 @@ new Vue({
         // ------------------------------------------------------------ BESTLINE
         }else if(this.produit == 'bestline') {
           // afficher/masquer les champs
-          this.bestSize = true;
-          this.firstSize = this.luxSize = this.doubleSize = this.miniSize = this.mistralSize = false;
+          this.best = true;
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/2best.png)'};
@@ -234,8 +235,7 @@ new Vue({
         // ------------------------------------------------------------- LUXLINE
         }else if (this.produit == 'luxline') {
           // afficher/masquer les champs
-          this.luxSize = true;
-          this.firstSize = this.bestSize = this.doubleSize = this.miniSize = this.mistralSize = false;
+          this.lux = true;
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/3lux.png)'};
@@ -243,8 +243,7 @@ new Vue({
         // -------------------------------------------------------------- DOUBLE
         }else if (this.produit == 'double') {
           // afficher/masquer les champs
-          this.doubleSize = true;
-          this.firstSize = this.bestSize = this.luxSize = this.miniSize = this.mistralSize = false;
+          this.double = true;
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/4double.png)'};
@@ -252,26 +251,29 @@ new Vue({
         // ---------------------------------------------------------------- MINI
         }else if (this.produit == 'mini') {
           // afficher/masquer les champs
-          this.miniSize = true;
-          this.firstSize = this.bestSize = this.luxSize = this.doubleSize = this.mistralSize = false;
+          this.min = true;
+          this.support = 'na';
+          this.showSupp = false;
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/mini.png)'};
           this.bg2 = {backgroundImage: 'none'}; //
+
         // ------------------------------------------------------------- MISTRAL
         }else if (this.produit == 'mistral') {
           // afficher/masquer les champs
-          this.mistralSize = true;
-          this.firstSize = this.bestSize = this.luxSize = this.doubleSize = this.miniSize = false;
+          this.mist = true;
+          this.support = 'na';
+          this.showSupp = false;
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/totem/mistral200.png)'};
           this.bg2 = {backgroundImage: 'none'}; //
+
         // -------------------------------------------------------------- VISUEL
         }else if (this.produit == 'visuel') {
           // afficher/masquer les champs
-          this.bestSize = true; // mêmes options size que pour le bestilne
-          this.firstSize = this.luxSize = this.doubleSize = this.miniSize = this.mistralSize = false;
+          this.best = true; // mêmes options size que pour le bestilne
 
           // afficher/masquer les images
           this.bg1 = {backgroundImage: 'url('+this.$global.img+'/roll-up/visuel.png)'};
@@ -279,6 +281,7 @@ new Vue({
         }
 
         // afficher le champ suivant et indiquer qu'il est requis :
+        this.showSize = true;
         this.reqSize = 'required';
         this.toggleSize = true;
         this.choixSize = 'choisir les dimensions';
@@ -296,21 +299,17 @@ new Vue({
         this.prH = false;          // cacher preview
         this.pr2 = true;           // calque dimensions activé
 
-        if (this.produit == 'firstline') { // cas particulier firstline: 1 seul chois support et dimensions
-          // afficher/masquer les champs
-          this.choixSupport = true;
-          this.notfirst = this.opeco = this.opcapo = false;
+        if (this.produit == 'mini' || this.produit == 'mistral'){ // cas particulier mini & mistral : pas de choix support
 
-        }else if (this.produit == 'mini' || this.produit == 'mistral'){ // cas particulier mini & mistral : pas de choix support
-          // afficher/masquer les champs
-          this.support = 'na';
-          this.choixSupport = false;
           this.showMaqt = true;
+          this.reqMaqt = 'required';
+          this.toggleMaqt = true;
+          this.choixMaqt = 'votre maquette (fichier d\'impression)';
 
         }else{
           // afficher/masquer les champs
-          this.choixSupport = true;
-          this.notfirst = this.opeco = this.opcapo = true;
+          if (this.produit == 'firstline')  this.notfirst = this.opeco = this.opcapo = false;
+          else                              this.notfirst = this.opeco = this.opcapo = true;
 
           // afficher/masquer les images
           if (this.dimensions == "100x200" || this.dimensions == "120x200" || this.dimensions == "150x200" || this.dimensions == "200x200") {
@@ -327,13 +326,12 @@ new Vue({
           if(this.dimensions == "150x200" || this.dimensions == "150x200") this.opcapo = false;
           if(this.dimensions == "200x200") this.opcapo = this.opeco = false;
 
+          // afficher le champ suivant et indiquer qu'il est requis :
+          this.showSupp = true;
+          this.reqSupp = 'required';
+          this.toggleSupp = true;
+          this.choixSupp = 'choisir le support';
         }
-
-        // afficher le champ suivant et indiquer qu'il est requis :
-        this.reqSupp = 'required';
-        this.toggleSupp = true;
-        this.choixSupp = 'choisir le support';
-
     }, // fin fonction choix dimensions
 
     // fonction affichage champs formulaire :            au choix support validé
@@ -560,7 +558,6 @@ new Vue({
         var rabat              = 0;
         var suma               = 0;
         var finalPrice         = '';   var finalPrice1 = '';  var finalPrice2 = '';
-        var date_panier        = '';
         var option             = '';
 
         // ----------------------------------------------------------- FIRSTLINE
@@ -1181,15 +1178,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          cena += 22/this.qte;
+          cena += this.$global.maqFB1/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          cena += 4/this.qte;
+          cena += this.$global.maqBAT/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          cena += 6/this.qte;
+          cena += this.$global.maqONL/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1199,7 +1196,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1209,17 +1206,17 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*6/100;
+          cena -= cena*this.$global.livRAT;
           this.retrait = 'retrait colis atelier';
         }
 
         if (this.relais == true) {
-          cena += 5.00/this.qte;
+          cena += this.$global.livREL/this.qte;
           this.retrait = 'relais colis';
         }
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$global.livREV;}
           this.optliv = ' / colis revendeur';
         }
 
@@ -1319,7 +1316,7 @@ new Vue({
               newoption2 = newoption.replace(".", ",");
               option2 = newoption2;
 
-              this.prixOption = newoption2 +' €' ;
+              this.prixOption = newoption2;
 
               suma = 14.90;
               suma = fixstr(suma);
@@ -1333,7 +1330,7 @@ new Vue({
               newoption2 = newoption.replace(".", ",");
               option2 = newoption2;
 
-              this.prixOption = newoption2 +' €' ;
+              this.prixOption = newoption2;
 
               suma = 14.90;
               suma = fixstr(suma);
@@ -1349,13 +1346,7 @@ new Vue({
           var dprod = this.delaiprod;  if (this.delaiprod == '1-1') dprod = '1';
           var dliv  = this.delailiv;   if (this.delailiv  == '1-1') dliv  = '1';
 
-          if (this.produit == 'mini' || this.produit == 'mistral') {
-            this.details = this.details;
-          } else {
-            this.details = '<br>- '+this.support+' '+this.details;
-          }
-
-          this.inputDesc = '- '+this.produit+' '+this.dimensions+' '+this.details+'<br>- '+this.modmaq+'<br>- '+this.sign+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
+          this.inputDesc = '- '+this.produit+' '+this.dimensions+'<br>- '+this.support+' '+this.details+'<br>- '+this.modmaq+'<br>- '+this.sign+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
 
           this.inputProd      = 'Roll-up';
           this.inputQte       = this.qte;

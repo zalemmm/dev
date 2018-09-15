@@ -1298,15 +1298,15 @@ new Vue({
         // ------------------------------------------------------------ MAQUETTE
 
         if (this.maquette == 'mise en page france banderole') {
-          maquette = 29/this.qte;
+          maquette = this.$global.maqFB2/this.qte;
           this.modmaq = 'France banderole crée la mise en page';
         }
         if (this.maquette == 'maquette client bat') {
-          maquette = 4/this.qte;
+          maquette = this.$global.maqBAT/this.qte;
           this.modmaq = 'BAT en ligne';
         }
         if (this.maquette == 'maquette en ligne') {
-          maquette = 6/this.qte;
+          maquette = this.$global.maqONL/this.qte;
           this.modmaq = 'je crée ma maquette en ligne';
         }
         if (this.maquette == 'maquette client sans bat') {
@@ -1338,7 +1338,7 @@ new Vue({
         // ----------------------------------------------------------- SIGNATURE
 
         if (this.sign == 'sans signature') {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= 5*this.qte;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRS') ) {cena+= this.$global.opSIGN*this.qte;}
         }
 
         // ------------------------------------------------------------- OPTIONS
@@ -1348,7 +1348,7 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena -= cena*6/100;
+          cena -= cena*this.$global.livRAT;
           this.retrait = 'retrait colis atelier';
         }
 
@@ -1358,7 +1358,7 @@ new Vue({
         }*/
 
         if (this.colis == true) {
-          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= 5*this.qte;}
+          if ( !document.getElementById('revendeur') && !document.getElementById('revendeurRC') ) {cena+= this.$global.livREV*this.qte;}
           this.optliv = ' / colis revendeur';
         }
 
