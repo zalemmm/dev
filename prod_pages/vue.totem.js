@@ -967,17 +967,19 @@ new Vue({
 
           produit = 'Totem Tissu';
 
-          if (this.support    == 'tissu 220g')          {pm2 = 2.16;}
-          if (this.support    == 'tissu 260g')          {pm2 = 2.51;}
+          if (this.support    == 'tissu 220g')          {pm2 = 2.90;}
+          if (this.support    == 'tissu 260g')          {pm2 = 4.50;}
 
-          if (this.dimensions == '60x230 recto')        {structure = 40; m2 =(0.612*2.28)*1.5; p1=6.85;  this.hauteur = 230; this.largeur = 60;  this.prodref = '20170600';}
-          if (this.dimensions == '60x230 recto/verso')  {structure = 40; m2 =(0.612*2.28)*2;   p1=6.85;  this.hauteur = 230; this.largeur = 60;  this.prodref = '20170600';}
-          if (this.dimensions == '90x230 recto')        {structure = 70; m2 =(0.917*2.28)*1.5; p1=8.85;  this.hauteur = 230; this.largeur = 90;  this.prodref = '20170601';}
-          if (this.dimensions == '90x230 recto/verso')  {structure = 70; m2 =(0.917*2.28)*2;   p1=8.85;  this.hauteur = 230; this.largeur = 90;  this.prodref = '20170601';}
-          if (this.dimensions == '120x230 recto')       {structure = 85; m2 =(1.222*2.28)*1.5; p1=11;    this.hauteur = 230; this.largeur = 120; this.prodref = '20170602';}
-          if (this.dimensions == '120x230 recto/verso') {structure = 85; m2 =(1.222*2.28)*2;   p1=11;    this.hauteur = 230; this.largeur = 120; this.prodref = '20170602';}
-          if (this.dimensions == '150x230 recto')       {structure = 98; m2 =(1.526*2.28)*1.5; p1=13.60; this.hauteur = 230; this.largeur = 150; this.prodref = '20170603';}
-          if (this.dimensions == '150x230 recto/verso') {structure = 98; m2 =(1.526*2.28)*2;   p1=13.60; this.hauteur = 230; this.largeur = 150; this.prodref = '20170603';}
+          if (this.dimensions == '60x230 recto')        {structure = 38; m2 =(0.612*2.28)*1.5; p1=6.85;  this.hauteur = 230; this.largeur = 60;  this.prodref = '20170600';}
+          if (this.dimensions == '60x230 recto/verso')  {structure = 38; m2 =(0.612*2.28)*2;   p1=6.85;  this.hauteur = 230; this.largeur = 60;  this.prodref = '20170600';}
+          if (this.dimensions == '80x230 recto')        {structure = 56.50; m2 =(0.917*2.28)*1.5; p1=7.6;  this.hauteur = 230; this.largeur = 80;  this.prodref = '20170601';}
+          if (this.dimensions == '80x230 recto/verso')  {structure = 56.50; m2 =(0.917*2.28)*2;   p1=7.6;  this.hauteur = 230; this.largeur = 80;  this.prodref = '20170601';}
+          if (this.dimensions == '100x230 recto')       {structure = 64.50; m2 =(1.202*2.28)*1.5; p1=8.8;    this.hauteur = 230; this.largeur = 100; this.prodref = '20170605';}
+    		  if (this.dimensions == '100x230 recto')       {structure = 64.50; m2 =(1.202*2.28)*1.5; p1=8.8;    this.hauteur = 230; this.largeur = 100; this.prodref = '20170605';}
+          if (this.dimensions == '120x230 recto')       {structure = 73; m2 =(1.222*2.28)*1.5; p1=11;    this.hauteur = 230; this.largeur = 120; this.prodref = '20170602';}
+          if (this.dimensions == '120x230 recto/verso') {structure = 73; m2 =(1.222*2.28)*2;   p1=11;    this.hauteur = 230; this.largeur = 120; this.prodref = '20170602';}
+          if (this.dimensions == '150x230 recto')       {structure = 79; m2 =(1.526*2.28)*1.5; p1=13.60; this.hauteur = 230; this.largeur = 150; this.prodref = '20170603';}
+          if (this.dimensions == '150x230 recto/verso') {structure = 79; m2 =(1.526*2.28)*2;   p1=13.60; this.hauteur = 230; this.largeur = 150; this.prodref = '20170603';}
 
           imp=(3*m2)+15; // impresion + couture
           tissu=pm2*m2;  // tissu

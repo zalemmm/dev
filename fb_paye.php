@@ -258,15 +258,80 @@ function get_payement() {
 	 	if ($metoda == 'carte') {
 			setPaiementFinProd($uid,'carte');
 
+			//---------------------------------------- prep data pour paiment scellius
+
+			// montant de la transaction
 			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
-			//if(!isset($_SESSION['fbcartsum'])) {
-			$sumaplatnosci = str_replace(",", "", $query->totalttc);
-			$_SESSION['fbcartsum'] = $sumaplatnosci;
-			//}
-			$_SESSION['fbcmd'] = $idzamowienia;
-			//require('/var/www/vhosts/france-banderole.com/cgi-bin/sherlock/call_request.php');
-	 		require('./sherlock/paiement_f_sherlok.php');
-			//$set_statut = $wpdb->query("UPDATE `$fb_tablename_order` SET status = 2 WHERE unique_id='$idzamowienia' AND user='$userid'");
+			$paiement = str_replace(",", "", $query->totalttc);
+			$amount = str_replace(".", "", $paiement); // le total à payer doit être envoyé sans décimales ex: 2050 pour 20,50€
+			$_SESSION['fbcartsum'] = $paiement; //!
+
+			// infos client / commande
+			$_SESSION['fbcmd'] = $idzamowienia; //!
+			$userinfo = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
+			$usermail = $userinfo->email;
+
+			// au basculement test/prod, penser à modifier aussi la clé test/prod dans fb_paye_done.php
+
+			//--------------------------------- connexion au serveur de paiement test
+			/*$mid = '002001000000002';
+			$key = '002001000000002_KEY1';
+			$kv  = '1';
+			$payUrl = 'https://payment-webinit-simu.scellius.labanquepostale.fr/paymentInit';*/
+
+			//---------------------------------- connexion au serveur de paiement prod
+			$mid = '218000016820001';
+			$key = 'IR8-7bNnndylXdh9iybVvndxUkbPcFpBA8Cflwsci4w';
+			$kv  = '2';
+			$payUrl = 'https://payment-webinit.scellius.labanquepostale.fr/paymentInit';
+
+			// page appelée au paiement effectué
+			$returnUrl = get_bloginfo("url").'/wp-content/plugins/fbshop/fb_paye_done.php/?paid='.$_SESSION['fbcmd'];
+			$autoUrl   = get_bloginfo("url").'/wp-content/plugins/fbshop/fb_paye_done.php/?paid='.$_SESSION['fbcmd'];
+
+			// envoi des données
+			$data = 'orderId='.$idzamowienia.'|customerId='.$userid.'|merchantWalletId='.$userid.'|customerEmail='.$usermail.'|amount='.$amount. '|currencyCode=978|paypageData.bypassReceiptPage=true|keyVersion='.$kv.'|merchantId='.$mid.'|normalReturnUrl='.$returnUrl.'|automaticResponseUrl='.$autoUrl.'|fraudData.bypass3DS=ALL|paymentMeanBrandList=VISA,VISA_ELECTRON,VPAY,MASTERCARD,MAESTRO,CB|'; // encodage utf8 ?  utf8_encode()
+			// signature
+			$sign = hash_hmac('sha256', $data, $key);
+
+			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
+			//if ($setorder->status < '2' || $setorder->status == '7') { // si la commande est en attente ou paiment en traitement
+
+			$view .= '
+				<form method="post" action="'.$payUrl.'" target="scellius" name="paycb">
+					<input type="hidden" name="Data" value="'.$data.'">
+					<input type="hidden" name="InterfaceVersion" value="HP_2.18">
+					<input type="hidden" name="Seal" value="'.$sign.'">
+					<input type="hidden" name="SealAlgorithm" value="HMAC-SHA-256">
+				</form>
+
+	      <div class="ifcont">
+					<iframe name="scellius" id="scellius" src="" frameborder="0" width="100%" height="100%"marginheight="0" marginwidth="0" scrolling="no"></iframe>
+				  <div id="ifLoad">
+						<i class="fa fa-circle-o-notch fa-spin" style="font-size:100px"></i>
+						<div class="loadingMessage">Vous avez choisi le paiement par carte bancaire, veuillez patienter...</div>
+					</div>
+				</div>
+				<script>
+				  window.onload = function(){  document.forms["paycb"].submit();}
+				  document.getElementById("scellius").onload = (function(){ document.getElementById("ifLoad").style.display = "none"; })
+				</script>';
+
+			/*} else { // si la commande est en statut payé, traitement, expédiée, clôturée
+				$view .= '<div class="box_info center">
+					<h2><i class="fa fa-info-circle"></i></h2>
+					<span>Cette commande a déjà été réglée !</span>
+				</div>';
+			}*/
+			/*<div id="paiements_left_con">
+
+			<label for="accepte" class="checkbox2"><img class="cartes" src="'.$images_url.'pay_carte.png" alt="Carte" /> <span class="noDisXS"><i class="fa fa-lock" aria-hidden="true"></i> Sécurisé par formulaire SSL avec La Banque Postale.</span></label>
+			<button id="suivant_reg" type="submit"><i class="fa fa-check"></i> Payer <span class="noDisXS">par Carte Bancaire</span></button>
+
+			</div>*/
+
+	 		//require('./sherlock/paiement_f_sherlok.php'); // appel sherlock commenté le 20.09.2018
+			//$set_statut = $wpdb->query("UPDATE `$fb_tablename_order` SET status = 2 WHERE unique_id='$idzamowienia' AND user='$userid'"); //déjà en com
  		}
 
 		//--------------------------------------------------------------------chèque
@@ -378,7 +443,7 @@ function get_payement() {
 			$view .= '<div id="paiements">';
 			$view .= '
 			<div id="paiements_left_con">
-				<form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><label for="accepte" class="checkbox2"><span class="textHide">En accédant aux méthodes de paiement, </span>vous reconnaissez avoir lu et accepter les <a href="'.get_bloginfo("url").'/cgv/" class="modal-link conditio">conditions générales de vente</a>.</label><button id="suivant_reg" type="submit"><i class="fa fa-check" aria-hidden="true"></i> Accepter</button></form>
+				<form name="regulamin" id="regulamin" action="" method="post" onsubmit="potwierdzregulamin(); return false;"><label for="accepte" class="checkbox2"><span class="noDisXS">En accédant aux méthodes de paiement, </span>vous reconnaissez avoir lu et accepter les <a href="'.get_bloginfo("url").'/cgv/" class="modal-link conditio">conditions générales de vente</a>.</label><button id="suivant_reg" type="submit"><i class="fa fa-check" aria-hidden="true"></i> Accepter</button></form>
 			</div>';
 			$view .= '<div id="paiements_right"'.$styl.'>
 			<form id="paymetod" name="paymetod" action="" method="post">
@@ -391,7 +456,7 @@ function get_payement() {
 				$view .= '<div class="paiements_right_con">
 				<input type="radio" name="paymentmetod" value="carte" checked="checked" /> <span class="payement_underline">Paiement comptant par carte bleue</span>
 				<span class="pay_image"><img src="'.$images_url.'pay_carte.png" alt="Carte" /></span>
-				<span class="pay_carte_info"><i class="fa fa-lock" aria-hidden="true"></i> Sécurisé par formulaire SSL avec LCL</span>
+				<span class="pay_carte_info"><i class="fa fa-lock" aria-hidden="true"></i> Sécurisé par formulaire SSL<br>avec La Banque Postale</span>
 				<button id="but_conf_pay" type="submit" class="pcb"><i class="fa fa-check" aria-hidden="true"></i> Payer</button>
 				</div>';
 			}

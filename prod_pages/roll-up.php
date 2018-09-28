@@ -50,13 +50,13 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleSize">
-									<div @mouseover="hoPw(9,'60x160 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x160');"  v-show="best || first">
+									<div @mouseover="hoPw(9,'60x160 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x160');"  v-show="best">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>60x160 cm</span>
 									</div>
 									<div @mouseover="hoPw(9,'60x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('60x200');"  v-show="best">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>60x200 cm</span>
 									</div>
-									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('80x200');"  v-show="best || lux || double">
+									<div @mouseover="hoPw(9,'80x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('80x200');"  v-show="best  || first || lux || double">
 										<i class="fa fa-expand" aria-hidden="true"></i><span>80x200 cm</span>
 									</div>
 									<div @mouseover="hoPw(9,'85x200 cm');"  @mouseout="hout(9)"  @click="reset(); selectSize('85x200');"  v-show="best">

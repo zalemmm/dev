@@ -330,7 +330,7 @@ new Vue({
         } else {
           this.bg3 = this.bg5 = {backgroundImage: 'none'};
 
-          this.maquette = 'maquette client sans bat';
+          this.choixMaqt = this.maquette = 'maquette client sans bat';
           this.modmaq = 'je ne souhaite pas de BAT';
           this.sign = 'signature France Banderole';
           this.reqQtte = 'required';
@@ -863,7 +863,7 @@ new Vue({
           var dliv  = this.delailiv;   if (this.delailiv  == '1-1') dliv  = '1';
 
           if (this.impression == 'Pas de personnalisation') {
-            this.inputDesc = '- '+this.produit+'<br>- '+desc+'<br>- Personnalisation '+this.impression+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
+            this.inputDesc = '- '+this.produit+'<br>- '+desc+'<br>- '+this.impression+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
           } else {
             this.inputDesc = '- '+this.produit+'<br>- '+desc+'<br>- Personnalisation '+this.impression+'<br>- '+this.modmaq+'<br>- '+this.sign+'<br>- '+this.retrait+this.optliv+'<br>- P '+dprod+'J / L '+dliv+'J';
           }

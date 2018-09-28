@@ -10,156 +10,79 @@ $fb_tablename_mails = $prefix."fbs_mails";
 $fb_tablename_cf = $prefix."fbs_cf";
 
 //////////////////////////////////////////////////////// Si paiement effectué //
+
 if (isset($_GET['paid'])) {
-	$logfile="/home/frbanderolecom/www/sherlock/log/logfile.log";
-	// Ouverture du fichier de log en append
-	$fp=fopen($logfile, "a");
-	fwrite( $fp, "test_point_1: true\n");
-	fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
-	fwrite( $fp, "-------------------------------------------\n");
-	fclose ($fp);
-}
+	//----------------- Récupération de la réponse serveur scillius banque postale
 
-if (isset($_GET['paid']) && isset($_POST[DATA])) {
-	// RÈcupÈration de la variable cryptÈe DATA
-	$message="message=".$_POST[DATA];
+	$data = $_POST['Data'];
+	$seal = $_POST['Seal'];
+	//$encode = $_POST['Encode'];
+	//$interfaceVersion = $_POST['InterfaceVersion'];
 
-	// Initialisation du chemin du fichier de log (‡ modifier)
-  //   ex :
-  //    -> Windows : $logfile="c:\\repertoire\\log\\logfile.txt";
-  //    -> Unix    : $logfile="/home/repertoire/log/logfile.txt";
-  //
-	$logfile="/home/frbanderolecom/www/sherlock/log/logfile.log";
-	// Ouverture du fichier de log en append
-	$fp=fopen($logfile, "a");
-	fwrite( $fp, "test_point_1: true\n");
+	$dat = preg_split('/(\||=)/', $data,-1, PREG_SPLIT_NO_EMPTY); // split received data
+	echo '<pre>';	print_r($dat); echo '</pre>';
 
-	// Initialisation du chemin du fichier pathfile (‡ modifier)
-  //   ex :
-  //    -> Windows : $pathfile="pathfile=c:\\repertoire\\pathfile"
-  //    -> Unix    : $pathfile="pathfile=/home/repertoire/pathfile"
+	$responseCode         = $dat[11]; // 00 = paiement accepté / 05 = refusé / 34 = fraude / 75 = nb max tentatives /
+	                                  // 90 = service temp indisponible / 97 = delai expiré / 99 = pb temp serveur scillius
+	$acquirerReponseCode  = $dat[19];
+	$guaranteeIndicator   = $dat[25];
+	$transactionDateTime  = $dat[13];
+	$transactionReference = $dat[15];
+	$amount               = $dat[21];
+	$orderId              = $dat[43];
 
-	$pathfile="pathfile=/home/frbanderolecom/www/sherlock/param/pathfile";
-	fwrite( $fp, "test_point_2: true\n");
+	echo 'code réponse: '	.$responseCode.'<br>';
+	echo 'code acquerreur: '	.$acquirerReponseCode.'<br>';
+	echo 'indicateur de garantie: '	.$guaranteeIndicator.'<br>';
+	echo 'date: ' .$transactionDateTime.'<br>';
 
-	//Initialisation du chemin de l'executable response (‡ modifier)
-	//ex :
-	//-> Windows : $path_bin = "c:\\repertoire\\bin\\response"
-	//-> Unix    : $path_bin = "/home/repertoire/bin/response"
-	//
 
-	$path_bin = "/home/frbanderolecom/www/sherlock/bin/response";
-	fwrite( $fp, "test_point_3: true\n");
+	//------------------------------------------------------vérification signature
 
-	// Appel du binaire response
-	$result=exec("$path_bin $pathfile $message");
-	fwrite( $fp, "test_point_4: true\n");
+	// Tout d’abord vous devez vérifier la sécurité du message retourné en recalculant le Seal selon la même méthode que celle utilisée pour la requête. Ensuite, comparez le champ Seal calculé avec celui de la réponse Scellius.
 
-	//	Sortie de la fonction : !code!error!v1!v2!v3!...!v29
-	//		- code=0	: la fonction retourne les donnÈes de la transaction dans les variables v1, v2, ...
-	//				: Ces variables sont dÈcrites dans le GUIDE DU PROGRAMMEUR
-	//		- code=-1 	: La fonction retourne un message d'erreur dans la variable error
+	$key = '002001000000002_KEY1'; //'IR8-7bNnndylXdh9iybVvndxUkbPcFpBA8Cflwsci4w';
+	$sign = hash_hmac('sha256', $data, $key);
 
-	//	on separe les differents champs et on les met dans une variable tableau
-	$tableau = explode ("!", $result);
-	fwrite( $fp, "test_point_5: true\n");
+	// Si les Seal sont identiques, vous poursuivez en traitant la réponse de paiement contenue dans le champ Data.
+	if ($sign == $seal) {
+		echo 'le seal correspond <br/>';
 
-	$code = $tableau[1];
-	$error = $tableau[2];
-	$merchant_id = $tableau[3];
-	$merchant_country = $tableau[4];
-	$amount = $tableau[5];
-	$transaction_id = $tableau[6];
-	$payment_means = $tableau[7];
-	$transmission_date= $tableau[8];
-	$payment_time = $tableau[9];
-	$payment_date = $tableau[10];
-	$response_code = $tableau[11];
-	$payment_certificate = $tableau[12];
-	$authorisation_id = $tableau[13];
-	$currency_code = $tableau[14];
-	$card_number = $tableau[15];
-	$cvv_flag = $tableau[16];
-	$cvv_response_code = $tableau[17];
-	$bank_response_code = $tableau[18];
-	$complementary_code = $tableau[19];
-	$complementary_info= $tableau[20];
-	$return_context = $tableau[21];
-	$caddie = $tableau[22];
-	$receipt_complement = $tableau[23];
-	$merchant_language = $tableau[24];
-	$language = $tableau[25];
-	$customer_id = $tableau[26];
-	$order_id = $tableau[27];
-	$customer_email = $tableau[28];
-	$customer_ip_address = $tableau[29];
-	$capture_day = $tableau[30];
-	$capture_mode = $tableau[31];
-	$data = $tableau[32];
+		if ($responseCode == '00') { // si le paiement est validé, passer au status payé
 
-	//  analyse du code retour
-	if (( $code == "" ) && ( $error == "" )) {
-	  fwrite($fp, "erreur appel response\n");
-  	echo "executable response non trouve $path_bin\n";
-		fwrite( $fp, "test_order_id: $order_id\n");
-		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
- 	} elseif ( $code != 0 ) {  //	Erreur, sauvegarde le message d'erreur
-    fwrite($fp, " API call error.\n");
-    fwrite($fp, "Error message :  $error\n");
-		fwrite( $fp, "test_order_id: $order_id\n");
-		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
- 	} else {
-		// OK, Sauvegarde des champs de la réponse
-		fwrite( $fp, "test_order_id: $order_id\n");
-		fwrite( $fp, "session_order_id: ".$_SESSION['fbcmd']."\n");
-		fwrite( $fp, "merchant_id : $merchant_id\n");
-		fwrite( $fp, "merchant_country : $merchant_country\n");
-		fwrite( $fp, "amount : $amount\n");
-		fwrite( $fp, "transaction_id : $transaction_id\n");
-		fwrite( $fp, "transmission_date: $transmission_date\n");
-		fwrite( $fp, "payment_means: $payment_means\n");
-		fwrite( $fp, "payment_time : $payment_time\n");
-		fwrite( $fp, "payment_date : $payment_date\n");
-		fwrite( $fp, "response_code : $response_code\n");
-		fwrite( $fp, "payment_certificate : $payment_certificate\n");
-		fwrite( $fp, "authorisation_id : $authorisation_id\n");
-		fwrite( $fp, "currency_code : $currency_code\n");
-		fwrite( $fp, "card_number : $card_number\n");
-		fwrite( $fp, "cvv_flag: $cvv_flag\n");
-		fwrite( $fp, "cvv_response_code: $cvv_response_code\n");
-		fwrite( $fp, "bank_response_code: $bank_response_code\n");
-		fwrite( $fp, "complementary_code: $complementary_code\n");
-		fwrite( $fp, "complementary_info: $complementary_info\n");
-		fwrite( $fp, "return_context: $return_context\n");
-		fwrite( $fp, "caddie : $caddie\n");
-		fwrite( $fp, "receipt_complement: $receipt_complement\n");
-		fwrite( $fp, "merchant_language: $merchant_language\n");
-		fwrite( $fp, "language: $language\n");
-		fwrite( $fp, "customer_id: $customer_id\n");
-		fwrite( $fp, "order_id: $order_id\n");
-		fwrite( $fp, "customer_email: $customer_email\n");
-		fwrite( $fp, "customer_ip_address: $customer_ip_address\n");
-		fwrite( $fp, "capture_day: $capture_day\n");
-		fwrite( $fp, "capture_mode: $capture_mode\n");
-		fwrite( $fp, "data: $data\n");
-		if($bank_response_code=='00') {
+			echo 'Paiement validé.
+			<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$orderId.'">Retour à votre commande</a> <br/>';
+			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$orderId'");
 
-			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$order_id'");
-			// si status attente/attente paiment ou paiement en traitement - passer au statut 2 payé
 			if ($setorder->status < '2' || $setorder->status == '7') {
-				$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='2' WHERE unique_id='$order_id'");
-				$paydate = $payment_date.' '.$payment_time;
-				//---------------------------------enregistrement de la date de paiement
-				$adpd = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$order_id', 'paydate', '$paydate')");
-
-				if (!$apdejt) {
-					echo 'Erreur appel response. Contactez l\'administrateur.';
-				}
+				// si status attente/attente paiment ou paiement en traitement - passer au statut 2 payé
+				$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='2' WHERE unique_id='$orderId'");
+				// enregistrement de la date de paiement
+				$adpd = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$orderId', 'paydate', '$transactionDateTime')");
 			}
+
+		} else if ($responseCode == '05') { // si le paiement est refusé
+			  echo 'Le paiement a été refusé par votre établissement bancaire, veuillez choisir un autre moyen de paiement.
+				<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$orderId.'">Retour à votre commande</a> <br/>';
+
+		} else if ($responseCode == '34') {
+			  echo 'Autorisation refusée pour cause de fraude présumée.
+				<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$orderId.'">Retour à votre commande</a> <br/>';
+
+		} else if ($responseCode == '75') {
+			  echo 'Les informations saisies ne sont pas correctes et le nombre de tentatives max est atteint : veuillez prendre contact avec notre service client.
+				<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$orderId.'">Retour à votre commande</a> <br/>';
+
+		} else {
+		  	echo 'Le service de paiement de la Banque Postale est momentanément indisponible, veuillez renouveler l\'opération dans quelques minutes
+				<a href="'.get_bloginfo("url").'/vos-devis/?detail='.$orderId.'">Retour à votre commande</a> <br/>';
 		}
+
+	//Dans le cas contraire, vous devez stopper le traitement, vérifier la clé secrète et/ou l’algorithme utilisés et si besoin contacter le support technique.
+	} else {
+		echo 'Autorisation refusée pour cause de fraude présumée.';
 	}
-	fwrite( $fp, "-------------------------------------------\n");
-	fclose ($fp);
+
 }
 
 // ======================================================= vérifier présence BAT
@@ -647,9 +570,9 @@ function reorganize_votre($idzamowienia) {
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1'", ARRAY_A);
 	if ($products) {
 		foreach ( $products as $products => $item ) {
-			$totalItems = str_replace(',', '.', $item['total']);
+			$totalItems = str_replace(',', '.', $item[total]);
 			$totalHT = $totalHT + $totalItems;
-			$fraisPort = $fraisPort + $item['frais'];
+			$fraisPort = $fraisPort + $item[frais];
 		}
 		//--------------------------------------------------------------------------
 		$totalHT = $totalHT + $fraisPort;
@@ -1342,8 +1265,6 @@ function print_votre() {
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_comments = $prefix."fbs_comments";
 	$fb_tablename_comments_new = $prefix."fbs_comments_new";
-
-
 
   if (isset($_POST['annulervosdevis'])) {
 		$ident = $_POST['annulervosdevis'];

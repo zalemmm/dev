@@ -29,10 +29,7 @@
   }
 
 
-  .cookie-notice-container {
-    visibility: hidden !important;
-  }
-
+  .cookie-notice-container,
   #wphead,
   #adminmenu,
   #adminmenuwrap,

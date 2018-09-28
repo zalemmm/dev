@@ -127,8 +127,11 @@
 									<div @mouseover="hoPw(9,'60x230 recto');"  @mouseout="hout(9)" @click="reset(); selectSize('60x230 recto');">
 										<i class="fa fa-expand" aria-hidden="true"></i></i><span>60x230 cm recto</span>
 									</div>
-									<div @mouseover="hoPw(9,'90x230 recto');"  @mouseout="hout(9)" @click="reset(); selectSize('90x230 recto');">
-										<i class="fa fa-expand" aria-hidden="true"></i></i><span>90x230 cm recto</span>
+									<div @mouseover="hoPw(9,'80x230 recto');"  @mouseout="hout(9)" @click="reset(); selectSize('80x230 recto');">
+										<i class="fa fa-expand" aria-hidden="true"></i></i><span>80x230 cm recto</span>
+									</div>
+									<div @mouseover="hoPw(9,'100x230 recto');" @mouseout="hout(9)" @click="reset(); selectSize('100x230 recto');">
+										<i class="fa fa-expand" aria-hidden="true"></i></i><span>100x230 cm recto</span>
 									</div>
 									<div @mouseover="hoPw(9,'120x230 recto');" @mouseout="hout(9)" @click="reset(); selectSize('120x230 recto');">
 										<i class="fa fa-expand" aria-hidden="true"></i></i><span>120x230 cm recto</span>
@@ -140,8 +143,11 @@
 									<div @mouseover="hoPw(9,'60x230 recto/verso');"  @mouseout="hout(9)" @click="reset(); selectSize('60x230 recto/verso');">
 										<i class="fa fa-expand" aria-hidden="true"></i></i><span>60x230 cm recto/verso</span>
 									</div>
-									<div @mouseover="hoPw(9,'90x230 recto/verso');"  @mouseout="hout(9)" @click="reset(); selectSize('90x230 recto/verso');">
-										<i class="fa fa-expand" aria-hidden="true"></i></i><span>90x230 cm recto/verso</span>
+									<div @mouseover="hoPw(9,'80x230 recto/verso');"  @mouseout="hout(9)" @click="reset(); selectSize('80x230 recto/verso');">
+										<i class="fa fa-expand" aria-hidden="true"></i></i><span>80x230 cm recto/verso</span>
+									</div>
+									<div @mouseover="hoPw(9,'100x230 recto/verso');" @mouseout="hout(9)" @click="reset(); selectSize('100x230 recto/verso');">
+										<i class="fa fa-expand" aria-hidden="true"></i></i><span>100x230 cm recto/verso</span>
 									</div>
 									<div @mouseover="hoPw(9,'120x230 recto/verso');" @mouseout="hout(9)" @click="reset(); selectSize('120x230 recto/verso');">
 										<i class="fa fa-expand" aria-hidden="true"></i></i><span>120x230 cm recto/verso</span>
@@ -549,5 +555,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.2"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.totem.js?v=2.3"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.totem.js?v=2.5"></script>

@@ -238,7 +238,7 @@ new Vue({
 
   mounted: function () {
       // si client revendeur : afficher les options supplémentaires
-      if ( document.getElementById('revendeur')) this.swRvd = true;
+      if ( document.getElementById('rev') || document.getElementById('revendeur') || document.getElementById('revendeurRC') || document.getElementById('revendeurRS')) this.swRvd = true;
       else this.swRvd = false;
   },
 

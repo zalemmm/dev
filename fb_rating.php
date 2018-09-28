@@ -8,20 +8,20 @@ function get_rating_home() {
 	$fb_tablename_order = $prefix."fbs_order";
 	$rates = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` WHERE exist = 'true' ORDER BY date DESC LIMIT 2", ARRAY_A);
 	foreach ($rates as $r) :
-		$licz = strlen($r['comment']);
+		$licz = strlen($r[comment]);
 	    if ($licz>=120) {
-			$tnij = substr($r['comment'],0,90);
+			$tnij = substr($r[comment],0,90);
         	$txt = $tnij."...";
         } else {
-			$txt = $r['comment'];
+			$txt = $r[comment];
 		}
-		$singlerate = (($r['fir'] + $r['sec'] + $r['thi'])/3); $singlerate = (round($singlerate, 0)) * 12;
+		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 12;
 		echo '<div class="singlerate">
 		<div class="singlerate_content">'.stripslashes($txt).'</div>
 		<div class="singlerate_rate">
 			<ul class="star-rating4"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul>
 		</div>
-		<div class="singlerate_date">'.$r['data'].'</div>
+		<div class="singlerate_date">'.$r[data].'</div>
 		</div>';
 	endforeach;
 }
@@ -176,11 +176,11 @@ function get_rating_page() {
 
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
-			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
-	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r['comment']).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
+			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
+	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 			} else {
-			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
-	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r['comment']).'</td></tr>';
+			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
+	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 			}
 
 		endforeach;
@@ -206,9 +206,9 @@ function get_rating_page() {
 	$thi = 0;
 	foreach ($rates as $r) :
 		$licznik++;
-		$fir = $fir + $r['fir'];
-		$sec = $sec + $r['sec'];
-		$thi = $thi + $r['thi'];
+		$fir = $fir + $r[fir];
+		$sec = $sec + $r[sec];
+		$thi = $thi + $r[thi];
 	endforeach;
 	$gen = ((($fir + $sec + $thi)/$licznik)/3); $gen = (round($gen, 0)) *30;
 	$fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
@@ -305,11 +305,11 @@ function get_rating_page() {
 
 		$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 		if($reponses) {
-		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
-<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r['comment']).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
+		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
+<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 		} else {
-		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
-<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r['comment']).'</td></tr>';
+		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
+<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
 		}
 
 
@@ -363,7 +363,7 @@ function get_fb_rating() {
 		$view .= '<div class="rating_element2">
 				<span>Laissez un commentaire:</span>
 				<textarea name="content" id="textarearating" rows="10" cols="10">'.$tresc.'</textarea>
-				<input class="but_ratingsubmit" type="submit" onclick="return validaterating();" value="Donnez votre avis" />
+				<input class="but_ratingsubmit" type="submit" onclick="return validaterating();" value="donnez votre avis" />
 			</div>';
 		$view .= '<div class="form-error-message-rating"><img src="//www.france-banderole.com/wp-content/themes/fb/images/exclamation-octagon.png" align="left" style="margin-right:5px;"> Veuillez remplir tous les champs du formulaire.</div>';
 		$view .= '</form></div>';

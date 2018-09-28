@@ -13,7 +13,7 @@ function fbs_plugin_init() {
 	$siteurl = get_option('siteurl');
 	define('FBSHOP_FOLDER', dirname(plugin_basename(__FILE__)));
 	define('FBSHOP_URL', WP_PLUGIN_DIR . '/' . FBSHOP_FOLDER);
-  //	fbs_install();
+//	fbs_install();
 	add_action('wp_head', 'fbshop_head');
 	date_default_timezone_set(get_option('timezone_string'));
 	include(FBSHOP_URL . '/fb_para_mailjet.php');
@@ -42,7 +42,6 @@ function register_cart() {
 	if( (isset($_SESSION['fbcart'])) && ($_GET['cart'] == 'clear') ) {
 		$_SESSION['fbcart'] = 0;
 	}
-
 	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart'])) {
 		$products = $_SESSION['fbcart'];
@@ -55,7 +54,6 @@ function register_cart() {
 		//header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		//exit;
 	}
-
 	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart2'])) {
 		$products = $_SESSION['fbcart'];

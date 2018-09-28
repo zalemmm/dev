@@ -1614,7 +1614,7 @@ function get_plv() {
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
 	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
 
-	$view .= '<table id="promotions_table" cellspacing="0">';
+
 	$view .= '
   <script type="text/javascript">
   function rushcheckbox24($type) {
@@ -1636,6 +1636,9 @@ function get_plv() {
 
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	$licznik = 0;
+
+  $view .= '<div id="plvLayout">';
+
 	foreach ($promotions as $p) :
 		$licznik++;
 		$n_price = str_replace('.', ',',  number_format($p['price'], 2)).' &euro;';
@@ -1666,44 +1669,49 @@ function get_plv() {
 			$sname = $p['subname'].'<br />';
 		}
 
-		$view .=
-    '<form name="cart_form' . $licznik . '" data-cartform="'.$licznik.'" class="prom_form" action="' . get_bloginfo("url") . '/votre-panier/" method="post" onsubmit="return czyilosc(' . $licznik . ')">
-      <tr>
-        <td class="lefttd"><span class="prom_title"><b>' . $p['name'] . '</b></span><br /><span id="desc' . $licznik . '" class="prom_therest">' . stripslashes($subtitle . $p['description']) . '</span></td>
-        <td class="imgtd">' . $viewmini . '<span class="prom_price">a partir de ' . $n_price . '</span></td>
-        <td class="optionstd">
-          <span>OPTIONS:</span>
-          <input type="hidden" name="addtocart2" value="addtocart2" />
-          <input type="hidden" name="rodzaj" value="PLVEXT ' . $p['name'] . '" />
+    $view .= '
+    <div class="plvItem">
+      <div class="accname prom_title">'.$p['name'].'</div>
+      <div class="accmini imgtd">'.$viewmini.'</div>
+      <div class="accdesc prom_therest" id="desc'.$licznik.'">'.stripslashes($subtitle.$p['description']).'</div>
+  		<div class="accprice prom_price">'.$n_price.' <span class="plusopt">+ options:</span></div>
+      <div class="accadd">
+        <form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
 
-          <div class="">
+          <div class="sqdf">
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
           </div>
-          <div class="plvoptions">
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-          </div>
-        </td>
 
-        <td class="righttd">
-          <div class="plvmakcon"><div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div><div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div></div>
+          <div class="plvmakcon">
+      			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+      			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+      		</div>
+
           <div class="pilosc"  data-trigger="spinner">
-            <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+            <input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
             <div class="spinner-controls plvpromo">
-  	   			 <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-  	   			 <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
-  			  	</div>
+             <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+            </div>
           </div>
+
+          <input type="hidden" name="addtocart2" value="addtocart2" />
+          <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
           <input type="hidden" name="isplv" value="true" />
-          <input type="hidden" name="opis1" value="' . $p['subname'] . '" /><input type="hidden" name="opis2" value="' . $p['description'] . '" /><input type="hidden" name="prix" value="' . $p['price'] . ' &euro;" />' . $cedd . '<input type="hidden" name="transport" value="' . $p['frais'] . ' &euro;" /><input type="hidden" name="image" value="'.$base64.'" />
-          <button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
-        </td>
-      </tr>
-    </form>';
+          <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
+      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+    		</form>
+      </div>
+    </div>';
 
 	endforeach;
-	$view .= '</table>';
+
+  $view .= '</div>';
+
 	return $view;
 }
 
@@ -1717,7 +1725,7 @@ function get_plv_int() {
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
 	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
-	$view .= '<table id="promotions_table" cellspacing="0">';
+
 	$view .= '
   <script type="text/javascript">
   function rushcheckbox24($type) {
@@ -1739,6 +1747,9 @@ function get_plv_int() {
 
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	$licznik = 0;
+
+  $view .= '<div id="plvLayout">';
+
 	foreach ($promotions as $p) :
 		$licznik++;
 		$n_price = str_replace('.', ',',  number_format($p['price'], 2)).' &euro;';
@@ -1767,43 +1778,50 @@ function get_plv_int() {
 			$subtitle = '<span class="subtitle">'.$p['subname'].'<br /></span>';
 			$sname = $p['subname'].'<br />';
 		}
-		$view .= '<form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-    <tr>
-      <td class="lefttd"><span class="prom_title"><b>'.$p['name'].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p['description']).'</span></td>
-  		<td class="imgtd">'.$viewmini.'<span class="prom_price">a partir de '.$n_price.'</span></td>
-  		<td class="optionstd">
-    		<span>OPTIONS:</span>
-    		<input type="hidden" name="addtocart2" value="addtocart2" />
-    		<input type="hidden" name="rodzaj" value="PLVint '.$p['name'].'" />
-    		<div class="plvoptions">
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-          <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
-    		</div>
-    		</td>
-    		<td class="righttd">
-    		<div class="plvmakcon">
-    			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-    			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-    		</div>
-        <div class="pilosc"  data-trigger="spinner">
-          <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
-          <div class="spinner-controls plvpromo">
-           <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-           <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+    $view .= '
+    <div class="plvItem">
+      <div class="accname prom_title">'.$p['name'].'</div>
+      <div class="accmini imgtd">'.$viewmini.'</div>
+      <div class="accdesc prom_therest" id="desc'.$licznik.'">'.stripslashes($subtitle.$p['description']).'</div>
+  		<div class="accprice prom_price">'.$n_price.' <span class="plusopt">+ options:</span></div>
+      <div class="accadd">
+        <form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+
+          <div class="sqdf">
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
           </div>
-        </div>
-    		<input type="hidden" name="isplv" value="true" />
-    		<input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-    		<input type="hidden" name="prix" value="'.$p['price'].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p['frais'].'" /><input type="hidden" name="image" value="'.$base64.'" />
-    		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
-  		</td>
-    </tr></form>';
+
+          <div class="plvmakcon">
+      			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+      			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+      		</div>
+
+          <div class="pilosc"  data-trigger="spinner">
+            <input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+            <div class="spinner-controls plvpromo">
+             <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
+             <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <input type="hidden" name="addtocart2" value="addtocart2" />
+          <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
+          <input type="hidden" name="isplv" value="true" />
+          <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
+      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
+    		</form>
+      </div>
+    </div>';
 
 	endforeach;
-	$view .= '</table>';
+
+	$view .= '</div>';
+
 	return $view;
 }
 
@@ -1850,6 +1868,9 @@ function get_acc() {
 	';
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	$licznik = 0;
+
+  $view .= '<div id="plvLayout">';
+
 	foreach ($promotions as $p) :
 		$licznik++;
 		$n_price = str_replace('.', ',',  number_format($p['price'], 2)).' &euro;';
@@ -1879,47 +1900,49 @@ function get_acc() {
 			$subtitle = '<span class="subtitle">'.$p['subname'].'<br /></span>';
 			$sname = $p['subname'].'<br />';
 		}
-		$view .= '
-    <tr>
-      <td class="lefttd2"><span class="prom_title"><b>'.$p['name'].'</b></span><br /><span id="desc'.$licznik.'" class="prom_therest">'.stripslashes($subtitle.$p['description']).'</span></td>
-  		<td class="imgtd">'.$viewmini.'<span class="prom_price">Tarif : '.$n_price.'</span></td>
-  		<td class="optionstd">
-    		<form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-          <span>OPTIONS:</span>
-          <input type="hidden" name="addtocart2" value="addtocart2" />
-          <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
-          <div class="plvoptions">
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
 
+    $view .= '
+    <div class="plvItem">
+      <div class="accname prom_title">'.$p['name'].'</div>
+      <div class="accmini imgtd">'.$viewmini.'</div>
+      <div class="accdesc prom_therest" id="desc'.$licznik.'">'.stripslashes($subtitle.$p['description']).'</div>
+  		<div class="accprice prom_price">'.$n_price.' <span class="plusopt">+ options:</span></div>
+      <div class="accadd">
+        <form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
+
+          <div class="sqdf">
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
+            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
           </div>
-          </td>
-          <td class="righttd">
+
           <div class="plvmakcon">
-            <div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-            <div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-          </div>
+      			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
+      			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
+      		</div>
+
           <div class="pilosc"  data-trigger="spinner">
-            <b>Quantité:</b><input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
+            <input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
             <div class="spinner-controls plvpromo">
              <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
              <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
             </div>
           </div>
+
+          <input type="hidden" name="addtocart2" value="addtocart2" />
+          <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
           <input type="hidden" name="isplv" value="true" />
           <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" />'.$cedd.'<input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /><input type="hidden" name="image" value="'.$base64.'" />
-
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
       		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
     		</form>
-      </td>
-    </tr>';
+      </div>
+    </div>';
 
 		endforeach;
 
-	$view .= '</table>';
+	$view .= '</div>';
 
 	return $view;
 }
