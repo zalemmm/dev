@@ -40,7 +40,7 @@ new Vue({
 
   data: {
 
-      choix : false, // passer à true pour debug : affiche les modifications à la sélection des options
+      choix : true, // passer à true pour debug : affiche les modifications à la sélection des options
 
       // valeurs par défaut (value) : champs select
       produit: '',
@@ -1438,23 +1438,48 @@ new Vue({
             cena = cena1;
           }
 
-          // formats A ---------------------------------------------------------
-          if (this.dimensions != 'Din long' && this.choixForm == 'portrait') {
-            this.hauteur = 119;
-            this.largeur = 84;
+          //--------------------------------------------------------- dimensions
+          var petit = '';
+          var grand = '';
+
+          // -------------------------------------------------------------------
+          if (this.dimensions == 'Din long') {
+            petit = 10.5;
+            grand = 21;
           }
-          if (this.dimensions != 'Din long' && this.choixForm == 'paysage')  {
-            this.hauteur = 84;
-            this.largeur = 119;
+          // -------------------------------------------------------------------
+          if (this.dimensions == 'A3') {
+            petit = 29.7;
+            grand = 42;
           }
-          // formats DIN -------------------------------------------------------
-          if (this.dimensions == 'Din long' && this.choixForm == 'portrait') {
-            this.hauteur = 21;
-            this.largeur = 10;
+          // -------------------------------------------------------------------
+          if (this.dimensions == 'A4') {
+            petit = 21;
+            grand = 29.7;
           }
-          if (this.dimensions == 'Din long' && this.choixForm == 'paysage')  {
-            this.hauteur = 10;
-            this.largeur = 21;
+          // -------------------------------------------------------------------
+          if (this.dimensions == 'A5') {
+            petit = 14.8;
+            grand = 21;
+          }
+          // -------------------------------------------------------------------
+          if (this.dimensions == 'A6') {
+            petit = 10.5;
+            grand = 14.8;
+          }
+          // -------------------------------------------------------------------
+          if (this.dimensions == 'A7') {
+            petit = 7.4;
+            grand = 10.5;
+          }
+
+          // disposition -------------------------------------------------------
+          this.hauteur = grand;
+          this.largeur = petit;
+
+          if (this.choixForm == 'paysage')  {
+            this.hauteur = petit;
+            this.largeur = grand;
           }
 
         } // fin flyers
@@ -1869,7 +1894,7 @@ new Vue({
 
           // -------------------------------------------------------------------
           if (this.dimensions == 'Din long') {
-            this.hauteur = 19.8;
+            this.hauteur = 21;
             this.largeur = 21;
           }
           // -------------------------------------------------------------------
@@ -1878,12 +1903,7 @@ new Vue({
             this.largeur = 42;
           }
           // -------------------------------------------------------------------
-          if (this.dimensions == 'A4') {
-            this.hauteur = 21;
-            this.largeur = 29.7;
-          }
-          // -------------------------------------------------------------------
-          if (this.dimensions == 'A4 3 volets') {
+          if (this.dimensions == 'A4' || this.dimensions == 'A4 3 volets') {
             this.hauteur = 21;
             this.largeur = 29.7;
           }

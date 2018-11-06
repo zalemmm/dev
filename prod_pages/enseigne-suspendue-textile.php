@@ -222,14 +222,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -245,6 +238,18 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-technique-enseigne-textile-suspendue/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarits-enseignes-suspendues/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
@@ -268,18 +273,6 @@
 				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
-
-				<div class="helpMenu">
-					<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-technique-enseigne-textile-suspendue/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarits-enseignes-suspendues/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
 
 			</div>
 

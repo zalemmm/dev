@@ -8,20 +8,20 @@ function get_rating_home() {
 	$fb_tablename_order = $prefix."fbs_order";
 	$rates = $wpdb->get_results("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` WHERE exist = 'true' ORDER BY date DESC LIMIT 2", ARRAY_A);
 	foreach ($rates as $r) :
-		$licz = strlen($r[comment]);
+		$licz = strlen($r['comment']);
 	    if ($licz>=120) {
-			$tnij = substr($r[comment],0,90);
+			$tnij = substr($r['comment'],0,90);
         	$txt = $tnij."...";
         } else {
-			$txt = $r[comment];
+			$txt = $r['comment'];
 		}
-		$singlerate = (($r[fir] + $r[sec] + $r[thi])/3); $singlerate = (round($singlerate, 0)) * 12;
+		$singlerate = (($r['fir'] + $r['sec'] + $r['thi'])/3); $singlerate = (round($singlerate, 0)) * 12;
 		echo '<div class="singlerate">
 		<div class="singlerate_content">'.stripslashes($txt).'</div>
 		<div class="singlerate_rate">
 			<ul class="star-rating4"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul>
 		</div>
-		<div class="singlerate_date">'.$r[data].'</div>
+		<div class="singlerate_date">'.$r['data'].'</div>
 		</div>';
 	endforeach;
 }
@@ -133,15 +133,10 @@ function get_rating_page() {
 			if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
 	    elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
 	    elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
-			elseif ($prodname->name == 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
-			elseif ($prodname->name == 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
-	    elseif ($prodname->name == 'Affiches 120g'){$lienprod = get_bloginfo('url').'/affiches';}
-			elseif ($prodname->name == 'Affiches 150g'){$lienprod = get_bloginfo('url').'/affiches';}
-			elseif ($prodname->name == 'Affiches 220g'){$lienprod = get_bloginfo('url').'/affiches';}
-			elseif ($prodname->name == 'Affiches 120g fluo'){$lienprod = get_bloginfo('url').'/affiches';}
-			elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
-	    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
-	    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
+			elseif (substr($prodname->name, 0, 9) === 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
+			elseif (substr($prodname->name, 0, 6) === 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
+	    elseif (substr($prodname->name, 0, 8) === 'Affiches'){$lienprod = get_bloginfo('url').'/affiches';}
+			elseif (substr($prodname->name, 0, 6) === 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
 			elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
 	    elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
 	    elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
@@ -156,13 +151,13 @@ function get_rating_page() {
 	    elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
 	    elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
 	    elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
-	    elseif ($prodname->name == 'Stickers autocollant'){$lienprod = get_bloginfo('url').'/stickers';}
-			elseif ($prodname->name == 'Stickers Lettrage'){$lienprod = get_bloginfo('url').'/stickers';}
-			elseif ($prodname->name == 'Stickers prédécoupé'){$lienprod = get_bloginfo('url').'/stickers';}
-			elseif ($prodname->name == 'Stickers vitrophanie'){$lienprod = get_bloginfo('url').'/stickers';}
-			elseif ($prodname->name == 'Stickers mural'){$lienprod = get_bloginfo('url').'/stickers';}
-	    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+	    elseif (substr($prodname->name, 0, 7) === 'Sticker'){$lienprod = get_bloginfo('url').'/stickers';}
+	    elseif (substr($prodname->name, 0, 5) === 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
 			elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+	    elseif ($prodname->name == 'Stand Tissu'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+	    elseif ($prodname->name == 'Comptoir'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+	    elseif ($prodname->name == 'Valise'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+	    elseif ($prodname->name == 'Stand ExpoBag'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
 			elseif ($prodname->name == 'Cadre tissu'){$lienprod = get_bloginfo('url').'/cadre-tissu';}
 	    elseif ($prodname->name == 'Enseigne stand suspendue'){$lienprod = get_bloginfo('url').'/enseigne-suspendue-textile';}
 	    else {$lienprod = get_bloginfo('url').'/banderoles';};
@@ -176,11 +171,11 @@ function get_rating_page() {
 
 			$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 			if($reponses) {
-			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
-	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
+			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
+	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r['comment']).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 			} else {
-			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
-	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
+			$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
+	<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r['comment']).'</td></tr>';
 			}
 
 		endforeach;
@@ -206,9 +201,9 @@ function get_rating_page() {
 	$thi = 0;
 	foreach ($rates as $r) :
 		$licznik++;
-		$fir = $fir + $r[fir];
-		$sec = $sec + $r[sec];
-		$thi = $thi + $r[thi];
+		$fir = $fir + $r['fir'];
+		$sec = $sec + $r['sec'];
+		$thi = $thi + $r['thi'];
 	endforeach;
 	$gen = ((($fir + $sec + $thi)/$licznik)/3); $gen = (round($gen, 0)) *30;
 	$fir = ($fir / $licznik); $fir = (round($fir, 0)) *20;
@@ -263,15 +258,10 @@ function get_rating_page() {
 		if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
     elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
     elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
-		elseif ($prodname->name == 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
-		elseif ($prodname->name == 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Affiches 120g'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Affiches 150g'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Affiches 220g'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Affiches 120g fluo'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
-    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
-    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
+		elseif (substr($prodname->name, 0, 9) === 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
+		elseif (substr($prodname->name, 0, 6) === 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif (substr($prodname->name, 0, 8) === 'Affiches'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif (substr($prodname->name, 0, 6) === 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
 		elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
     elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
     elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
@@ -286,12 +276,13 @@ function get_rating_page() {
     elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
     elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
     elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
-		elseif ($prodname->name == 'Stickers Lettrage'){$lienprod = get_bloginfo('url').'/stickers';}
-		elseif ($prodname->name == 'Stickers prédécoupé'){$lienprod = get_bloginfo('url').'/stickers';}
-		elseif ($prodname->name == 'Stickers vitrophanie'){$lienprod = get_bloginfo('url').'/stickers';}
-		elseif ($prodname->name == 'Stickers mural'){$lienprod = get_bloginfo('url').'/stickers';}
-    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+    elseif (substr($prodname->name, 0, 7) === 'Sticker'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif (substr($prodname->name, 0, 5) === 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
 		elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+    elseif ($prodname->name == 'Stand Tissu'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+    elseif ($prodname->name == 'Comptoir'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+    elseif ($prodname->name == 'Valise'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+    elseif ($prodname->name == 'Stand ExpoBag'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
 		elseif ($prodname->name == 'Cadre tissu'){$lienprod = get_bloginfo('url').'/cadre-tissu';}
     elseif ($prodname->name == 'Enseigne stand suspendue'){$lienprod = get_bloginfo('url').'/enseigne-suspendue-textile';}
     else {$lienprod = get_bloginfo('url').'/banderoles';};
@@ -305,11 +296,11 @@ function get_rating_page() {
 
 		$reponses = $wpdb->get_row("SELECT *, DATE_FORMAT(date, '%d/%m/%Y') AS data FROM `$fb_tablename_reponses` WHERE r_id='$r[id]'");
 		if($reponses) {
-		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
-<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r[comment]).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
+		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
+<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td><p>'.stripslashes($r['comment']).'</p><div class="review_answer"><p><strong>France Banderole, le '.$reponses->data.' :</strong><br />'.stripslashes($reponses->content).'</p></div></td></tr>';
 		} else {
-		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r[data].'
-<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r[comment]).'</td></tr>';
+		$view .= '<tr><td class="lefttd">par '.$prenom.' '.$nom.'<br />'.$r['data'].'
+<br />ACHAT :<br /><a href= '.$lienprod.'>'.$prodname->name.'</a><br /></td><td class="lefttd2"><ul class="star-rating2"><li class="current-rating" style="width:'.$singlerate.'px;"></li><li><span class="one-star">1</span></li><li><span class="two-stars">2</span></li><li><span class="three-stars">3</span></li><li><span class="four-stars">4</span></li><li><span class="five-stars">5</span></li></ul></td><td>'.stripslashes($r['comment']).'</td></tr>';
 		}
 
 

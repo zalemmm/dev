@@ -265,6 +265,33 @@
 
 						</li>
 
+						<li class="formSelect" v-show="showPers">
+
+							<button type="button" class="toggle" :class="reqPers" @click="togglePers = !togglePers">
+								{{ choixPers }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="togglePers" >
+
+									<div @mouseover="hoPw(4,'2');"  @mouseout="hout(4)" @click="reset(); selectPers('2');">
+										<i class="fa fa-circle" style="color:red"></i><span>Rouge</span>
+									</div>
+									<div @mouseover="hoPw(4,'4');"  @mouseout="hout(4)" @click="reset(); selectPers('4');">
+										<i class="fa fa-circle" style="color:blue"></i><span>Bleu</span>
+									</div>
+									<div @mouseover="hoPw(4,'6');"  @mouseout="hout(4)" @click="reset(); selectPers('6');">
+										<i class="fa fa-circle" style="color:green"></i><span>Vert</span>
+									</div>
+									<div @mouseover="hoPw(4,'8');"  @mouseout="hout(4)" @click="reset(); selectPers('8');">
+										<i class="fa fa-circle" style="color:white"></i><span>Blanc</span>
+									</div>
+
+								</div>
+							</transition>
+
+						</li>
+
 					</ul> <!-- fin listes déroulantes -->
 
 					<ul class="optionsBlock" v-show="showOptions">
@@ -356,14 +383,8 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span><br />
+				<span v-html="hauteur"></span> x <span v-html="largeur"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -379,19 +400,27 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-en-cours/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-papier/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-
-							<li><img :src="$global.img+'/papier/flyerA5.png'" alt="flyer" /></li>
-					  	<li><img :src="$global.img+'/papier/depliantA5.png'" alt="dépliant" /></li>
-							<li><img :src="$global.img+'/slidedefault/1.png'" alt="commencez votre devis en ligne" /></li>
-							<li><img :src="$global.img+'/slidedefault/2.png'" alt="commencez votre devis en ligne" /></li>
-
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/papier/flyerA5.png'" alt="flyer" /></li>
+				  	<li><img :src="$global.img+'/papier/depliantA5.png'" alt="dépliant" /></li>
+						<li><img :src="$global.img+'/slidedefault/1.png'" alt="commencez votre devis en ligne" /></li>
+						<li><img :src="$global.img+'/slidedefault/2.png'" alt="commencez votre devis en ligne" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -404,17 +433,6 @@
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
 
-				<div class="helpMenu">
-					<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-en-cours/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-papier/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
 			</div>
 
 			<div id="estimation" :class="reqEstm">
@@ -476,5 +494,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.flyers.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.7"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.flyers.js?v=2.7"></script>

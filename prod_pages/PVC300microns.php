@@ -16,18 +16,36 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleProd">
-									<div @mouseover="hoPw(9,'impression recto standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('recto standard');">
-										<img :src="$global.img+'/akilux/pvc.png'" /><span>Standard Recto</span>
+									<div @mouseover="hoTx(1,'enseigne-impression-standard','impression Directe UV Standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('standard');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Directe UV Standard</span>
 									</div>
-									<div @mouseover="hoPw(9,'impression recto/verso standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('recto/verso standard');">
-										<img :src="$global.img+'/akilux/pvc.png'" /><span>Standard Recto/Verso</span>
+									<div @mouseover="hoTx(1,'enseigne-impression-uv-hd','impression Directe uv hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('uv hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Directe UV HD</span>
 									</div>
-									<div @mouseover="hoPw(9,'impression recto hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('recto hd');">
-										<img :src="$global.img+'/akilux/pvc.png'" /><span>Haute Déf. Recto</span>
+									<div @mouseover="hoTx(1,'enseigne-impression-photo-hd','impression photo hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxph" @click="reset(); selectProd('photo hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Photo HD</span>
 									</div>
-									<div @mouseover="hoPw(9,'impression recto/verso hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('recto/verso hd');">
-										<img :src="$global.img+'/akilux/pvc.png'" /><span>Haute Déf. Recto/Verso</span>
+								</div>
+							</transition>
+
+						</li>
+
+						<li class="formSelect" v-show="showPrint">
+
+							<button type="button" class="toggle" :class="reqPrint" @click="togglePrint = !togglePrint">
+								{{ choixPrint }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="togglePrint">
+
+									<div @mouseover="hoPw(9,'Recto')"       @mouseout="hout(9)" @click="reset(); selectPrint('Recto')">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Recto</span>
 									</div>
+									<div @mouseover="hoPw(9,'Recto/Verso')" @mouseout="hout(9)" @click="reset(); selectPrint('Recto/Verso')">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Recto/Verso</span>
+									</div>
+
 								</div>
 							</transition>
 
@@ -205,14 +223,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -231,15 +242,11 @@
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-
-							<li><img :src="$global.img+'/akilux/slide/test-1.jpg'" alt="commencez votre devis en ligne" /></li>
-				      <li><img :src="$global.img+'/akilux/slide/test-2.jpg'" alt="commencez votre devis en ligne" /></li>
-				     	<li><img :src="$global.img+'/banderole/slide/test-3.png'" alt="commencez votre devis en ligne" /></li>
-
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/akilux/slide/test-1.jpg'" alt="commencez votre devis en ligne" /></li>
+			      <li><img :src="$global.img+'/akilux/slide/test-2.jpg'" alt="commencez votre devis en ligne" /></li>
+			     	<li><img :src="$global.img+'/banderole/slide/test-3.png'" alt="commencez votre devis en ligne" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -315,5 +322,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.pvc300.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.pvc300.js?v=2.6"></script>

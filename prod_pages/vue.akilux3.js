@@ -40,144 +40,148 @@ new Vue({
 
   data: {
 
-      choix : false, // passer à true pour debug : affiche les modifications à la sélection des options
+    choix : false, // passer à true pour debug : affiche les modifications à la sélection des options
 
-      // valeurs par défaut (value) : champs select
-      produit: '',
-      dimensions: '',
-      support: '',
-      maquette: '',
-      sign: '',
+    // valeurs par défaut (value) : champs select
+    produit: '',
+    dimensions: '',
+    support: '',
+    maquette: '',
+    sign: '',
 
-      // valeurs par défaut (value) : autre champs
-      choixProd : 'choisir l\'impression',
-      choixOpts : '',
-      choixRain : '',
-      choixMaqt : '',
-      choixSign : '',
-      choixPers : '',
-      qte: 1,
-      adresse: true,
-      atelier: false,
-      relais: false,
-      colis: false,
-      palette: false,
-      delaiprod: '',
-      delailiv: '',
+    // valeurs par défaut (value) : autre champs
+    choixProd : 'choisir l\'impression',
+    choixOpts : '',
+    choixPrint: '',
+    choixRain : '',
+    choixMaqt : '',
+    choixSign : '',
+    choixPers : '',
+    qte: 1,
+    adresse: true,
+    atelier: false,
+    relais: false,
+    colis: false,
+    palette: false,
+    delaiprod: '',
+    delailiv: '',
 
-      // valeurs par défaut : classes
-      reqProd: 'required',
-      reqHaut: '',
-      reqLarg: '',
-      reqRain: '',
-      reqMaqt: '',
-      reqSign: '',
-      reqQtte: '',
-      reqEstm: '',
-      reqOpts: '',
-      reqPers: '',
+    // valeurs par défaut : classes
+    reqProd: 'required',
+    reqHaut: '',
+    reqLarg: '',
+    reqPrint: '',
+    reqRain: '',
+    reqMaqt: '',
+    reqSign: '',
+    reqQtte: '',
+    reqEstm: '',
+    reqOpts: '',
+    reqPers: '',
 
-      btnP1: 'inactive',
-      btnP2: 'inactive',
-      btnP3: 'inactive',
-      btnD1: 'inactive',
-      btnD2: 'inactive',
-      btnD3: 'inactive',
+    btnP1: 'inactive',
+    btnP2: 'inactive',
+    btnP3: 'inactive',
+    btnD1: 'inactive',
+    btnD2: 'inactive',
+    btnD3: 'inactive',
 
-      // valeurs par défaut de visibilité des blocs :
-      toggleProd: true,
-      toggleOpts: true,
-      toggleRain: true,
-      toggleMaqt: true,
-      toggleSign: true,
-      togglePers: true,
+    // valeurs par défaut de visibilité des blocs :
+    toggleProd: true,
+    togglePrint: true,
+    toggleOpts: true,
+    toggleRain: true,
+    toggleMaqt: true,
+    toggleSign: true,
+    togglePers: true,
 
-      showRain: false,
-      showOpts: false,
-      showMaqt: false,
-      showSign: false,
-      showPers: false,
-      showOptions: false,
-      showLiv: false,
-      showEsize: false,
-      errorSize: false,
-      optionSize: true,
+    showPrint: false,
+    showRain: false,
+    showOpts: false,
+    showMaqt: false,
+    showSign: false,
+    showPers: false,
+    showOptions: false,
+    showLiv: false,
+    showEsize: false,
+    errorSize: false,
+    optionSize: true,
 
-      swRvd: false,
-      nb: '',
-      rislans: false,
-      faicon: 'fa-circle-o',
+    swRvd: false,
+    nb: '',
+    rislans: false,
+    faicon: 'fa-circle-o',
 
-      dateLivraison: false,
-      livraisonrapide: false,
-      livraisonComp: false,
-      formError: false,
-      formWarng: false,
-      ajoutPanier: false,
+    dateLivraison: false,
+    livraisonrapide: false,
+    livraisonComp: false,
+    formError: false,
+    formWarng: false,
+    ajoutPanier: false,
 
-      // valeurs par défaut : calques images
-      slideContainer: true,
-      bg0: {backgroundImage: 'none'},
-      bg1: {backgroundImage: 'none'},
-      bg2: {backgroundImage: 'none'},
-      bg3: {backgroundImage: 'none'},
-      bg4: {backgroundImage: 'none'},
-      bg5: {backgroundImage: 'none'},
-      bgH: {backgroundImage: 'none'},
-      pr0: false,
-      pr1: false,
-      pr2: false,
-      pr3: false,
-      pr4: false,
-      pr5: false,
-      prH: false,
-      calqueTexte: false,
-      calqueContent: '',
+    // valeurs par défaut : calques images
+    slideContainer: true,
+    bg0: {backgroundImage: 'none'},
+    bg1: {backgroundImage: 'none'},
+    bg2: {backgroundImage: 'none'},
+    bg3: {backgroundImage: 'none'},
+    bg4: {backgroundImage: 'none'},
+    bg5: {backgroundImage: 'none'},
+    bgH: {backgroundImage: 'none'},
+    pr0: false,
+    pr1: false,
+    pr2: false,
+    pr3: false,
+    pr4: false,
+    pr5: false,
+    prH: false,
+    calqueTexte: false,
+    calqueContent: '',
 
-      // déclancheurs d'annimations :
-      imgTrigger : false,
-      hoverTrigger : false,
-      dateTrigger: false,
-      errorTrigger: false,
-      warngTrigger: false,
+    // déclancheurs d'annimations :
+    imgTrigger : false,
+    hoverTrigger : false,
+    dateTrigger: false,
+    errorTrigger: false,
+    warngTrigger: false,
 
-      // valeurs par défaut variables destinées au panier :
-      inputProd : '',
-      inputDesc: '',
-      inputQte: '',
-      inputPrix: '',
-      inputOption: '',
-      inputRemise: '',
-      inputTotal: '',
-      inputTransport: '',
-      inputHauteur: '',
-      inputLargeur: '',
+    // valeurs par défaut variables destinées au panier :
+    inputProd : '',
+    inputDesc: '',
+    inputQte: '',
+    inputPrix: '',
+    inputOption: '',
+    inputRemise: '',
+    inputTotal: '',
+    inputTransport: '',
+    inputHauteur: '',
+    inputLargeur: '',
 
-      designation: '',
-      details: '',
-      modmaq: '',
-      optliv: '',
-      retrait: '',
-      prliv: '',
-      cena2: 0,
-      rabat2: 0,
-      suma2: 0,
-      transport: 0,
-      hauteur: '',
-      largeur: '',
-      prodref: '',
+    designation: '',
+    details: '',
+    modmaq: '',
+    optliv: '',
+    retrait: '',
+    prliv: '',
+    cena2: 0,
+    rabat2: 0,
+    suma2: 0,
+    transport: 0,
+    hauteur: '',
+    largeur: '',
+    prodref: '',
 
-      // valeurs par défaut bloc de droite :  prix et infos
-      estdate: '',
-      forfait: '',
-      message: 'livraison comprise',
-      erreurType: 0,
-      errorMessage: '',
-      warngMessage: '',
-      errorColor: '',
-      prixUnit: '-',
-      prixOption: '-',
-      prixTotal: '-'
+    // valeurs par défaut bloc de droite :  prix et infos
+    estdate: '',
+    forfait: '',
+    message: 'livraison comprise',
+    erreurType: 0,
+    errorMessage: '',
+    warngMessage: '',
+    errorColor: '',
+    prixUnit: '-',
+    prixOption: '-',
+    prixTotal: '-'
 
   }, // fin DATA
 
@@ -214,12 +218,26 @@ new Vue({
         this.bg1 = {backgroundImage: 'url('+this.$global.img+'/akilux/base.png)'};
 
         // afficher le champ suivant et indiquer qu'il est requis :
+        this.showPrint = true;
+        this.reqPrint = 'required';
+        this.togglePrint = true;
+        this.choixPrint = 'choisir l\'impression';
+
+    }, // fin fonction choix produit
+
+    // fonction affichage champs formulaire :         au choix impression validé
+    //==========================================================================
+    selectPrint: function(value) {
+        this.choixPrint = value;
+        this.togglePrint = false;
+        this.reqPrint = '';
+
+        // afficher le champ suivant et indiquer qu'il est requis :
         this.showOpts = true;
         this.reqOpts = 'required';
         this.toggleOpts = true;
         this.choixOpts = 'choisir une option';
-
-    }, // fin fonction choix produit
+    },
 
     // fonction affichage champs formulaire :            au choix options validé
     //==========================================================================
@@ -528,7 +546,9 @@ new Vue({
         metraz                 = (this.largeur * this.hauteur)/10000;         // métrage
         metraz                 = fixstr(metraz);
 
-        if (this.produit == 'recto standard' || this.produit == 'recto hd') {
+        //-----------------------------------------------------------Recto/Verso
+
+        if (this.choixPrint == 'Recto') {
 
           if (metraz <=0.24)                   metraz2 = 0.24;
   				if (metraz > 0.24 && metraz <= 0.48) metraz2 = 0.48;
@@ -542,7 +562,7 @@ new Vue({
   				poidstotal = metragetotal*0.45;	// m² total x grammage
         }
 
-        if (this.produit == 'recto/verso standard' || this.produit == 'recto/verso hd') {
+        if (this.choixPrint == 'Recto/Verso') {
 
           if (metraz <=0.24)                   metraz2 = 0.24;
   				if (metraz > 0.24 && metraz <= 0.48) metraz2 = 0.48;
@@ -753,7 +773,8 @@ new Vue({
   			cena = puoption+maquette;
 
         // -------------------------------------------------------------------HD
-        if (this.produit == 'recto hd' || this.produit == 'recto/verso hd') {prixHD = cena*0.35; cena += prixHD;}
+        if (this.produit == 'uv hd')    {prixHD = cena*0.35; cena += prixHD;}
+        if (this.produit == 'photo hd') {prixHD = cena*0.90; cena += prixHD;}
 
         // ----------------------------------------------------------- SIGNATURE
 
@@ -998,7 +1019,7 @@ new Vue({
           this.inputHauteur = this.hauteur;
           this.inputLargeur = this.largeur;
 
-          this.inputDesc = '- '+this.produit+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixOpts+' '+this.choixPers+ ' <br>- '+this.choixRain+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+palet+' <br>- P '+dprod+'J / L '+dliv+'J';
+          this.inputDesc = '- '+this.produit+' '+this.choixPrint+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixOpts+' '+this.choixPers+ ' <br>- '+this.choixRain+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+palet+' <br>- P '+dprod+'J / L '+dliv+'J';
 
           this.inputProd      = 'Akilux 3mm';
           this.inputQte       = this.qte;

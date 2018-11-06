@@ -70,9 +70,14 @@ var shared = { // variables globales
 
   gfe: '<b>Forfait palettisation: dès 99€ HT</b> Vous souhaitez que votre panneau publicitaire soit livré en un seul morceau le plus grand possible.',
 
+  // lestage
+  lst: '<b>Option lestage<b>',
+
   //--------------------------------------------textes tooltips types de support
 
   b440: '<b>bâche 440g:</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix',
+  b450: '<b>bâche 450g M1</b> ',
+  b550: '<b>bâche 550g enduite</b>',
   b520: '<b>dickson jet 520 M1:</b> bâche pvc enduite anti-feu M1 durable et made in France.',
   beco: '<b>toile 100% écologique M1:</b> Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.',
   capo: '<b>capotoile 320 M1:</b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS à base de bouchons de bouteille recyclés.',
@@ -181,8 +186,9 @@ var shared = { // variables globales
 
   //--------------------------------------------------------- tooltips enseignes
 
-  fxhd: '<b>Impression Haute définition :</b> impression directe UV HD 1200x1200Dpi. Pour une impression parfaite même de très près.',
-  fxsd: '<b>Impression standard :</b> impression directe UV 600x600Dpi. Pour une impression pas cher de très bonne qualité à 1 mètre.',
+  fxsd: '<b>Directe UV Standard :</b> impression directe UV 600x600 Dpi. Pour une impression pas cher de très bonne qualité à 1 mètre.',
+  fxhd: '<b>Directe UV HD :</b> impression directe UV HD 1200x1200 Dpi. Pour une impression parfaite même à 50 cm.',
+  fxph: '<b>vinyle contrecollé qualité photo Haute Définition :</b> impression UHD latex en 1440x1440 Dpi sur vinyle et contrecollage pour une impression qualité photo même à 10 cm.',
   prca: '<b>Perçage:</b>	Nous perçons votre panneau forex pour faciliter sa pose.',
   lami: '<b>Pelliculage:</b> Nous posons un film de protecttion sur votre panneau forex. Ce pelliculage offre à votre support d’impression une protection optimale contre les éléments climatiques (abrasion, UV, rayures, vandalisme…). Vous aurez le choix entre une pelliculage brillant, mate, ou anti graffiti',
   pbri: '<b>Pelliculage brillant:</b> Le pelliculage brillant offre des couleurs plus vives et plus éclatantes.',
@@ -229,6 +235,16 @@ var shared = { // variables globales
   i120: '',
   i270: '',
   i350: '',
+
+  //------------------------------------------------------- tooltips lettrage 3d
+  l3ds: '', // lettrage 3d standard
+  l3dl: '', // lettrage 3d lumineux
+
+  lpvc: '',
+  plex: '',
+  ldib: '',
+
+
 };
 
 //================================================================================================//
@@ -271,7 +287,7 @@ function saveBlobAsFile(blob, fileName) {
 // fonction globale :                                      générer image produit
 //==============================================================================
 function genImg() {
-  $('.helpMenu').css('display','none');
+  /*$('.helpMenu').css('display','none');*/
 
     var clone = document.getElementById('previewImg').cloneNode(true);
     clone.setAttribute("style", "width: 160px; height: 160px; padding: 0;");
@@ -301,7 +317,7 @@ jQuery(document).ready(function ($) {
 
   $('#zoomImg')
     .on('mouseover', function(){
-      $('#zoomImg').css({'transform': 'scale(2.5)', 'transition': '.2s'});
+      $('#zoomImg').css({'transform': 'scale(3)', 'transition': '.2s'});
   })
     .on('mouseout', function(){
       $('#zoomImg').css({'transform': 'scale(1)', 'transition': '.2s'});

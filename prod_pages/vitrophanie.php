@@ -179,14 +179,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -205,14 +198,10 @@
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-
-							<li><img :src="$global.img+'/slidedefault/1.png'" alt="commencez votre devis autocollant en ligne" /></li>
-				      <li><img :src="$global.img+'/slidedefault/2.png'" alt="commencez votre devis sticker en ligne" /></li>
-
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/slidedefault/1.png'" alt="commencez votre devis autocollant en ligne" /></li>
+			      <li><img :src="$global.img+'/slidedefault/2.png'" alt="commencez votre devis sticker en ligne" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>

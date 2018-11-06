@@ -1,4 +1,5 @@
 <div id="prodApp">
+
 	<div class="row">
 		<div class="column" id="choicesContainer"> <!--bloc formulaire-->
 
@@ -34,7 +35,7 @@
 									<div @mouseover="hoPw(1,'6mistral')" @mouseout="hout(1)" v-tooltip.bottom="$global.mist" @click="reset(); selectProd('mistral');">
 										<img :src="$global.img+'/roll-up/6mistral.png'" /><span>extérieur mistral</span>
 									</div>
-									<div @mouseover="hoPw(1,'visuel')"    @mouseout="hout(1)" v-tooltip.bottom="$global.visu" @click="reset(); selectProd('visuel');">
+									<div @mouseover="hoPw(1,'visuel')"   @mouseout="hout(1)" v-tooltip.bottom="$global.visu" @click="reset(); selectProd('visuel');">
 										<img :src="$global.img+'/roll-up/visuel.png'" /><span>remplacer visuel</span>
 									</div>
 								</div>
@@ -103,6 +104,10 @@
 									<div @mouseover="hoPw(9,'bâche 440g');" @mouseout="hout(9)" v-tooltip.bottom="$global.b440" @click="reset(); selectSupport('440g');">
 										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>bâche 440g</span>
 									</div>
+									<div @mouseover="hoPw(9,'bâche 450g M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.b450" @click="reset(); selectSupport('450 M1');" v-if="swRvd">
+										<div class="cornfire"><i class="fa fa-fire-extinguisher" aria-hidden="true"></i></div>
+										<i class="fa fa-sticky-note fared" aria-hidden="true"></i><span>bâche 450g M1</span>
+									</div>
 									<div @mouseover="hoPw(9,'Dickson Jet 520 M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.b520" @click="reset(); selectSupport('jet 520 M1');" v-if="notfirst">
 										<div class="cornfire"><i class="fa fa-fire-extinguisher" aria-hidden="true"></i></div>
 										<i class="fa fa-sticky-note fared" aria-hidden="true"></i><span>Dickson Jet 520 M1</span>
@@ -111,10 +116,10 @@
 										<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
 										<i class="fa fa-sticky-note fagreen" aria-hidden="true"></i><span>100% écologique M1</span>
 									</div>
-									<div @mouseover="hoPw(9,'Capotoile 320 M1 Ecocert');" @mouseout="hout(9)" v-tooltip.bottom="$global.capo" @click="reset(); selectSupport('capotoile');" v-if="notfirst && opcapo">
+									<!--<div @mouseover="hoPw(9,'Capotoile 320 M1 Ecocert');" @mouseout="hout(9)" v-tooltip.bottom="$global.capo" @click="reset(); selectSupport('capotoile');" v-if="notfirst && opcapo">
 										<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
 										<i class="fa fa-sticky-note fagreen" aria-hidden="true"></i><span>Capotoile 320 M1 Ecocert</span>
-									</div>
+									</div>-->
 								</div>
 							</transition>
 
@@ -256,14 +261,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -279,21 +277,30 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/aide-rollup/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-technique-roll-up/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-roll-up/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
 
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-							<li><img :src="$global.img+'/roll-up/slide/rollup-5.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-4.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-3.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-0.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-1.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
-							<li><img :src="$global.img+'/roll-up/slide/rollup-2.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
-							<li><img :src="$global.img+'/banderole/slide/devis-en-ligne.png'" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/roll-up/slide/rollup-5.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
+						<li><img :src="$global.img+'/roll-up/slide/rollup-4.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+						<li><img :src="$global.img+'/roll-up/slide/rollup-3.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
+						<li><img :src="$global.img+'/roll-up/slide/rollup-0.jpg'" alt="roll-up pas cher" title="devis en ligne roll-up" /></li>
+						<li><img :src="$global.img+'/roll-up/slide/rollup-1.jpg'" alt="kakemono roll-up" title="roll-up sur mesure" /></li>
+						<li><img :src="$global.img+'/roll-up/slide/rollup-2.jpg'" alt="kakemono pas cher" title="kakemonos rollups promo" /></li>
+						<li><img :src="$global.img+'/banderole/slide/devis-en-ligne.png'" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -305,23 +312,7 @@
 				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
-
-				<div class="helpMenu">
-					<a :href="$global.url+'/aide-rollup/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-technique-roll-up/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-roll-up/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
-
-
 			</div>
-
-
 
 			<div id="estimation" :class="reqEstm">
 
@@ -369,6 +360,9 @@
 					<transition name="slideDown">
 						<div class="formError" :class="errorColor" v-html="errorMessage" v-show="formError" :key="errorTrigger"></div>
 					</transition>
+					<transition name="slideDown">
+						<div class="formWarng" v-html="warngMessage" v-show="formWarng" :key="warngTrigger"></div>
+					</transition>
 
 				</div>
 			</div>
@@ -380,5 +374,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-up.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-up.js?v=2.6"></script>

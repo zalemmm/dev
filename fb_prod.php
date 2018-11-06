@@ -532,7 +532,31 @@ function generate_page ($page, $pageid) {
     else if ($page=='test-banderoles') $formularz = get_test_banderoles_form();
 	}
 
-   if ($page=='cadre-tissu') {
+  if ($page=='fixations-banderoles') {
+		$h1name='Fixations pour Banderole - bache publicitaire - bâche imprimée';
+		$imghead1='kakemonos1';
+		$imghead2='kakemonos2';
+		$imghead3='kakemonos3';
+		$mini='f1';
+		$info_title='Fixations Banderole publicitaire - bâche imprimée - banderole géante ';
+		$info_info='<span class="prezHide">France Banderole fabricant de banderoles publicitaires, impression numerique au meilleur prix. Les baches publicitaires s’adaptent à toutes vos communications : événementiel, exposition, échafaudage, foire ou salon… banderole pour intérieur (Anti-feu M2,M1), ou banderole spécial extérieur, la banderole se positionne facilement. Impression sur bache en qualité photo. Toutes nos banderoles sont fabriquées en France, et sont recyclables ou écologiques. Banderoles livrées le jour même chez vous ou au choix de 24/48H à 7/9 jours</span>';
+		$formularz = get_fix_form();
+	}
+
+  if ($page=='structure-cadre-banderole') {
+		$h1name='Structure et cadre pour banderole publicitaire';
+		$imghead1='kakemonos1';
+		$imghead2='kakemonos2';
+		$imghead3='kakemonos3';
+		$mini='picto-structure-banderole';
+		$info_title='Structure et cadre pour banderole publicitaire';
+		$info_info='<span class="prezHide"> L’enseigne ou cadre mural sera l’outil le plus adapté pour une meuilleure visibilté de votre activité, boutique, magasin, atelier ou usine.
+Visible de loin , sa structure en aluminium peut atteindre 20 mètres de large.
+Vous pourrez l’équiper d’une banderole publicitaire pour une installation en extérieur ou en intérieur.</span>';
+		$formularz = get_structure_form();
+	}
+
+  if ($page=='cadre-tissu') {
 		$h1name='cadre tissu - cadre textile - cadre tissu tendu - cadres textile tendu - cadre textile mural interieur';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
@@ -543,8 +567,7 @@ function generate_page ($page, $pageid) {
 		$formularz = get_cadre_form();
 	}
 
-
-	 if ($page=='enseigne-suspendue-textile') {
+	if ($page=='enseigne-suspendue-textile') {
 		$h1name='enseigne suspendue tissu pour stand - enseigne tissu suspendue géante - enseigne textile salon pro';
 		$imghead1='kakemonos1';
 		$imghead2='kakemonos2';
@@ -553,6 +576,29 @@ function generate_page ($page, $pageid) {
 		$info_title='Enseigne suspendue textile pas cher - suspension tissu publicitaire';
 		$info_info='<span class="prezHide">France Banderole fabricant d’enseigne suspendue textile géante au meilleur prix. L’enseigne textile suspendue embellit un stand et vous démarque sur un salon professionnel ou en magasin. Elle permet de vous localiser rapidement, et peut aussi agrémenter un hall d’entreprise. l’enseigne textile est fabriquée ronde, carrée, triangulaire ou sur mesure, et permet d’apporter la meilleure finition à un espace publicitaire. <b>Enseigne suspendue livrée complète, avec sac de transport + système de fixation, prêt à poser</b>. </span>';
 		$formularz = get_enseigne_suspendue_form();
+	}
+
+	if ($page=='habillage-cloison-de-stand') {
+		$h1name='Habillage cloison de stand modulaire salon professionnel - habillage cloison stand exposition';
+		$imghead1='kakemonos1';
+		$imghead2='kakemonos2';
+		$imghead3='kakemonos3';
+		$mini='cloison-stand';
+		$info_title='Habillage cloison de stand modulaire salon professionnel, stand exposition, foire...';
+		$info_info='<span class="prezHide">Mise en place <b>rapide et économique</b>, l’habillage de cloison de stand modulaire lors de vos salons professionnels, location de stand sur une exposition ou foire professionnelle finalise l’<b>impact visuel du stand</b>. L’habillage cloison de stand est fabriqué en Tissu spécial <b>anti-feu M1</b> 220Gr et est imprimé en Latex HD pour permettre à votre espace de vente de profiter de toute la hauteur des supports de communication. jusqu’à 250cm de haut et sur la longueur que vous souhaitez <b>sans raccord</b>. France Banderole : habillage cloison de stand pas cher au meilleur prix</span>';
+		$formularz = get_cloison_form();
+	}
+
+
+	if ($page=='lettrage-3d') {
+		$h1name='Habillage cloison de stand';
+		$imghead1='kakemonos1';
+		$imghead2='kakemonos2';
+		$imghead3='kakemonos3';
+		$mini='lettrage3d';
+		$info_title='Lettrage 3D';
+		$info_info='<span class="prezHide"> </span>';
+		$formularz = get_lettrage3d_form();
 	}
 
 
@@ -721,7 +767,7 @@ function get_votre() {
 		if (!(isset($_POST['logme']))) {
 
       //si vous avez fait des paiements et l'utilisateur connecté hors cours
-    	if (isset($_GET['paid']) && isset($_POST[DATA])) {
+    	/*if (isset($_GET['paid']) && isset($_POST[DATA])) {
       	// RÈcupÈration de la variable cryptÈe DATA
       	$message="message=".$_POST[DATA];
       	$pathfile="pathfile=/home/frbanderolecom/www/sherlock/param/pathfile";
@@ -816,7 +862,7 @@ function get_votre() {
       			}
       		}
       	}
-    	}
+    	}*/
 
 			$view .= get_acces_panel(0);
 		}
@@ -836,7 +882,6 @@ function get_verification() {
 			$user = $_SESSION['loggeduser'];
       $promo = $_POST['codeProm'];
 
-			$prolog .= '<div class="acces_tab_name_devis">VOTRE COMMANDE</div>';
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
 			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
@@ -963,7 +1008,7 @@ function print_devis_verification($products, $prolog, $epilog) {
         <td><span class="disMob0">Option : </span>'.str_replace(',', '.', $item['option']).'</td>
         <td><span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'</td>
         <td>
-          <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+          <form name="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="adfromcart" value="adfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" />
             <input type="hidden" name="opis" value="'.$item['opis'].'" />
@@ -977,16 +1022,16 @@ function print_devis_verification($products, $prolog, $epilog) {
             <input type="hidden" name="reference" value="'.$item['reference'].'" />
             <input type="hidden" name="image" value="'.$item['image'].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
-            <button id="adcart" type="submit" title="dupliquer cet article"><i class="fa fa-files-o" aria-hidden="true"></i> Dupliquer</button>
+            <button class="adcart" type="submit" title="dupliquer cet article"><i class="fa fa-files-o" aria-hidden="true"></i> Dupliquer</button>
           </form>
 
-          <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+          <form name="delcart_form" class="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="delfromcart" value="delfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" />
             <input type="hidden" name="opis" value="'.$item['opis'].'" />
             <input type="hidden" name="ilosc" value="'.$item['ilosc'].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
-            <button id="delcart" type="submit" title="supprimer cet article du panier">DEL</button>
+            <button class="delcart" type="submit" title="supprimer cet article du panier">DEL</button>
     			</form>
         </td>
       </tr>';
@@ -1033,13 +1078,13 @@ function print_devis_verification($products, $prolog, $epilog) {
     }else{
 
       if ($totalHT < 50)   $calculCode = 0;
-      if ($totalHT >= 50)  $calculCode = ($totalHT)*(3/100);
+      if ($totalHT >= 50)  $calculCode = ($totalHT)*(2/100);
       if ($totalHT > 100)  $calculCode = 10;
-      if ($totalHT > 200)  $calculCode = 20;
-      if ($totalHT > 400)  $calculCode = 30;
-      if ($totalHT > 600)  $calculCode = 40;
-      if ($totalHT > 800)  $calculCode = 50;
-      if ($totalHT > 1000) $calculCode = 60;
+      if ($totalHT > 200)  $calculCode = 15;
+      if ($totalHT > 400)  $calculCode = 20;
+      if ($totalHT > 600)  $calculCode = 25;
+      if ($totalHT > 800)  $calculCode = 30;
+      if ($totalHT > 1000) $calculCode = 40;
 
       if ($calculCode != 0)
       $addtodevis ='<tr><td class="toleft">REMISE</td><td class="toright">-'.number_format($calculCode, 2).' &euro;</td></tr>';
@@ -1150,9 +1195,6 @@ function get_devis() {
 	$prolog = '<h1 class="noprint"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Votre panier / devis</h1><hr class="noprint" />';
 	$prolog .= get_mode_de_livraison();
 
-	if (is_cart_not_empty() || isset($_GET['share'])) {
-		$prolog .= '<div class="acces_tab_name_devis noprint">MON DEVIS :</div>';
-	}
 	$epilog = '<div id="fbcart_buttons" class="noprint">';
 
 	if (is_cart_not_empty() || isset($_GET['share'])) {
@@ -1235,7 +1277,7 @@ function print_devis($products, $prolog, $epilog) {
 	if (is_cart_not_empty() || isset($_GET['share'])) {
 
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" width="350" height="200" alt="france banderole" class="logoprint2" /></td><td style="font-size:11px;float:right;text-align:right;margin-top:35px;">&nbsp;</td></tr><tr><td colspan="2" style="text-align:center;padding:20px 0;font-weight:bold;font-size:13px;">Votre devis: Inscription</td></tr></table></div>';
-		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th class="cartQte">Quantité</th><th>Prix U.</th><th>Option</th><th>Remise</th><th>Total</th><th></th></tr>';
 		$licznik = 0;
 		$totalHT = 0;
     $fraisPort = 0;
@@ -1300,7 +1342,7 @@ function print_devis($products, $prolog, $epilog) {
         <td><span class="disMob0">Remise : </span>'.$calculCat.'</td><td><span class="disMob0">Total : </span>'.$totalItem.'</td>
 
         <td>
-          <form name="adcart_form" id="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+          <form name="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="adfromcart" value="adfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" />
             <input type="hidden" name="opis" value="'.$item['opis'].'" />
@@ -1314,16 +1356,16 @@ function print_devis($products, $prolog, $epilog) {
             <input type="hidden" name="reference" value="'.$item['reference'].'" />
             <input type="hidden" name="image" value="'.$item['image'].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
-            <button id="adcart" type="submit" title="dupliquer cet article"><i class="fa fa-files-o" aria-hidden="true"></i> Dupliquer</button>
+            <button class="adcart" type="submit" title="dupliquer cet article"><i class="fa fa-files-o" aria-hidden="true"></i> Dupliquer</button>
           </form>
 
-          <form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
+          <form name="delcart_form" class="adcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post">
             <input type="hidden" name="delfromcart" value="delfromcart" />
             <input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" />
             <input type="hidden" name="opis" value="'.$item['opis'].'" />
             <input type="hidden" name="ilosc" value="'.$item['ilosc'].'" />
             <input type="hidden" name="licznik" value="'.$licznik.'" />
-            <button id="delcart" type="submit" title="supprimer cet article du panier">DEL</button>
+            <button class="delcart" type="submit" title="supprimer cet article du panier">DEL</button>
     			</form>
         </td>
 
@@ -1372,48 +1414,48 @@ function print_devis($products, $prolog, $epilog) {
       if ($totalHT < 50) {
         $calculCode = 0;
         $miss = 50-$totalHT;
-        $checkRem = 'Quel dommage ! il manque juste <strong>' .number_format($miss, 2).'€</strong> à votre commande pour bénéficier de <strong>3%</strong> de réduction!';
+        $checkRem = '<div class="checkRem">Quel dommage ! il manque juste <strong>' .number_format($miss, 2).'€</strong> à votre commande pour bénéficier de <strong>3%</strong> de réduction!</div>';
       }
       if ($totalHT >= 50) {
-        $calculCode = ($totalHT)*(3/100);
+        $calculCode = ($totalHT)*(2/100);
         $miss = 100-$totalHT;
-        $checkRem = 'Félicitations, vous avez franchi le premier palier et bénéficiez maintenant d\'une remise de <strong>3%</strong> sur cette commande ! <br />
-        Ajoutez seulement <strong>' .number_format($miss, 2).'€</strong> à cette commande pour obtenir <strong>10€</strong> de réduction !';
+        $checkRem = '<div class="checkRem">Félicitations, vous avez franchi le premier palier et bénéficiez maintenant d\'une remise de <strong>2%</strong> sur cette commande ! <br />
+        Ajoutez seulement <strong>' .number_format($miss, 2).'€</strong> à cette commande pour obtenir <strong>10€</strong> de réduction !</div>';
       }
       if ($totalHT > 100) {
         $calculCode = 10;
         $miss = 200-$totalHT;
-        $checkRem = 'Bravo ! Vous bénéficiez déjà d\'une remise de <strong>10€</strong> sur cette commande ! <br />
-        Plus que <strong>' .number_format($miss, 2).' € </strong>pour gagner <strong>20€</strong> de réduction !';
+        $checkRem = '<div class="checkRem">Bravo ! Vous bénéficiez déjà d\'une remise de <strong>10€</strong> sur cette commande ! <br />
+        Plus que <strong>' .number_format($miss, 2).' € </strong>pour gagner <strong>15€</strong> de réduction !</div>';
       }
       if ($totalHT > 200) {
-        $calculCode = 20;
+        $calculCode = 15;
         $miss = 400-$totalHT;
-        $checkRem = 'c\'est fait ! Vous avez obtenu une remise de <strong>20€</strong> sur cette belle commande ! <br />
-        Il manque seulement <strong>' .number_format($miss, 2).'€</strong> pour arriver à  <strong>30€</strong> de réduction !<br />
-		    Rien d\'autre à commander ?';
+        $checkRem = '<div class="checkRem">C\'est fait ! Vous avez obtenu une remise de <strong>15€</strong> sur cette belle commande ! <br />
+        Il manque seulement <strong>' .number_format($miss, 2).'€</strong> pour arriver à  <strong>20€</strong> de réduction !<br />
+		    Rien d\'autre à commander ?</div>';
       }
       if ($totalHT > 400) {
-        $calculCode = 30;
+        $calculCode = 20;
         $miss = 600-$totalHT;
-        $checkRem = 'Félicitations, vous bénéficiez maintenant d\'une remise de <strong>30€</strong> sur votre commande ! <br />
-        Seulement <strong>' .number_format($miss, 2).'€</strong> de plus et vous bénéficierez de <strong>40€</strong> de réduction !';
+        $checkRem = '<div class="checkRem">Félicitations, vous bénéficiez maintenant d\'une remise de <strong>20€</strong> sur votre commande ! <br />
+        Seulement <strong>' .number_format($miss, 2).'€</strong> de plus et vous bénéficierez de <strong>25€</strong> de réduction !</div>';
       }
       if ($totalHT > 600) {
-        $calculCode = 40;
+        $calculCode = 25;
         $miss = 800-$totalHT;
-        $checkRem = 'C\'est cadeau ! Vous avez déjà gagné une remise de <strong>40€</strong> sur cette belle commande ! <br />
-        Encore 1 article à <strong>' .number_format($miss, 2).'€</strong> pour avoir <strong>50€</strong> de réduction !';
+        $checkRem = '<div class="checkRem">C\'est cadeau ! Vous avez déjà gagné une remise de <strong>25€</strong> sur cette belle commande ! <br />
+        Encore 1 article à <strong>' .number_format($miss, 2).'€</strong> pour avoir <strong>30€</strong> de réduction !</div>';
       }
       if ($totalHT > 800) {
-        $calculCode = 50;
+        $calculCode = 30;
         $miss = 1000-$totalHT;
-        $checkRem = 'Bravo ! Vous atteignez la remise de <strong>50€</strong> sur votre commande ! <br />
-        Ajoutez encore  <strong>' .number_format($miss, 2).'€</strong> à ce panier pour atteindre <strong>60€</strong> de réduction !';
+        $checkRem = '<div class="checkRem">Bravo ! Vous atteignez la remise de <strong>30€</strong> sur votre commande ! <br />
+        Ajoutez encore  <strong>' .number_format($miss, 2).'€</strong> à ce panier pour atteindre <strong>40€</strong> de réduction !</div>';
       }
       if ($totalHT > 1000) {
-        $calculCode = 60;
-        $checkRem = 'Félicitations !! Vous bénéficiez de <strong>60€</strong> de remise sur cette commande !';
+        $calculCode = 40;
+        $checkRem = '<div class="checkRem">Félicitations !! Vous bénéficiez de <strong>40€</strong> de remise sur cette commande !</div>';
       }
 
       if ($calculCode != 0)
@@ -1496,8 +1538,7 @@ function print_devis($products, $prolog, $epilog) {
 
     //--------------------------------------------------------------------------
 
-    $view .= '</table>
-    <div class="checkRem">'.$checkRem.'</div>';
+    $view .= '</table>'.$checkRem;
 
     //--------------------------------------------------------------------------
 
@@ -1702,7 +1743,7 @@ function get_plv() {
           <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
           <input type="hidden" name="isplv" value="true" />
           <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].'" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
       		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
     		</form>
       </div>
@@ -1812,7 +1853,7 @@ function get_plv_int() {
           <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
           <input type="hidden" name="isplv" value="true" />
           <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].'" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
       		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
     		</form>
       </div>
@@ -1934,7 +1975,7 @@ function get_acc() {
           <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
           <input type="hidden" name="isplv" value="true" />
           <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].'" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
       		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
     		</form>
       </div>
@@ -1998,7 +2039,7 @@ function get_accessoires($cat) {
           <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
           <input type="hidden" name="isplv" value="true" />
           <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].' &euro;" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
+          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].'" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
       		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
     		</form>
       </div>
@@ -2119,6 +2160,16 @@ function get_banderoles_form() {
     return $form;
 }
 
+function get_fix_form() {
+    $form = file_get_contents(getTplPath('fixations-banderoles.php'));
+    return $form;
+}
+
+function get_structure_form() {
+    $form = file_get_contents(getTplPath('structure-cadre-banderole.php'));
+    return $form;
+}
+
 function get_cartes_form() {
     $form = file_get_contents(getTplPath('cartes.php'));
     return $form;
@@ -2228,6 +2279,14 @@ function get_enseigne_suspendue_form() {
     return $form;
 }
 
+function get_cloison_form() {
+    $form = file_get_contents(getTplPath('habillage-cloison-de-stand.php'));
+    return $form;
+}
 
+function get_lettrage3d_form() {
+    $form = file_get_contents(getTplPath('lettrage-3d.php'));
+    return $form;
+}
 
 ?>

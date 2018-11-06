@@ -12,20 +12,6 @@ shared.install = function () {
 
 Vue.use(shared);
 
-//================================================================================================//
-//                                          INSTANCE VUE.JS                                       //
-//================================================================================================//
-// Chaque page produit est maintenant composée d'un template html et d'un fichier .js semblable à celui-ci qui en gère le comportement. Il n'y a plus d'autres dépendances  (telles que jotform, cal_kakemono etc.) excepté vue.globals.js qui rassemble les variables et fonctions communes à toutes les pages. l'application ci dessous se découpe ainsi :
-
-// 0- EL: définit un <div> sur lequel cette application vue.js vient se greffer. Ici ce dernier (#prodApp) engloble tout le html de la page produit.
-// 1- DATA: instancie et définit les valeurs par défaut des variables utilisées dans le template html via des attributs spéciaux (v-model, v-show et attributs commmençant par ':' ex. ':class')
-// 2- MOUNTED: sorte de "document ready": une fois l'instance de vue créée et avant d'y apporter des modifications avec les methodes, on peut ici définir par ex un état de la vue en fonction d'une condition préalable. ex: client revendeur ou pas
-// 3- METHODS: ce sont les fonctions permettant d'agir sur les DATA et d'en modifier la valeur. elles sont lancées DEPUIS LE HTML avec des directives (@click, @change etc.) Les méthodes sont déployées dans l'ordre de l'évolution du formulaire: des actions et animations à la sélection des options jusqu'au calcul des tarifs.
-
-// IMPORTANT : une variable destinée au fonctionnement interne d'une fonction, (ex. metragefinal dans la méthode de calcul) peut être définie comme avant par un var maVariable = '';
-// PAR CONTRE si une variable est destinée à être utilisée dans plusieurs fonctions de cette page, ou dans le html: ex les variables comme 'produit','dimensions' qui sont à la fois dans les méthodes select et calcul du panier, il faut les définir ci-dessous dans DATA. On accède aux variables définies dans data ainsi : 'this.maVariable' ici (ou juste 'maVariable' ds le html)
-// des VARIABLES GLOBALES sont définies dans le fichier vue.globals.js, notamment pour les url et les textes d'aides (tooltips) qui sont ainsi centralisés : celles-ci sont accessibles depuis n'importe quelle page produit et sont appelées sous la forme 'this.$global.maVariable' ici (ou '$global.maVariable' dans le html)
-
 new Vue({
 
   //---------------------------------------------------------------------------------------------//
@@ -56,6 +42,8 @@ new Vue({
       choixMaqt : '',
       choixSign : '',
       choixPers : '',
+      choixPrint : '',
+
       qte: 1,
       adresse: true,
       atelier: false,
@@ -67,6 +55,7 @@ new Vue({
 
       // valeurs par défaut : classes
       reqProd: 'required',
+      reqPrint: '',
       reqHaut: '',
       reqLarg: '',
       reqLami: '',
@@ -77,6 +66,8 @@ new Vue({
       reqOpts: '',
       reqPers: '',
 
+      selectFirst: false,
+
       btnP1: 'inactive',
       btnP2: 'inactive',
       btnP3: 'inactive',
@@ -86,6 +77,7 @@ new Vue({
 
       // valeurs par défaut de visibilité des blocs :
       toggleProd: true,
+      togglePrint: true,
       toggleOpts: true,
       toggleLami: true,
       toggleMaqt: true,
@@ -93,6 +85,7 @@ new Vue({
       togglePers: true,
 
       showLami: false,
+      showPrint: false,
       showOpts: false,
       showMaqt: false,
       showSign: false,
@@ -130,7 +123,13 @@ new Vue({
       pr5: false,
       prH: false,
       calqueTexte: false,
+      calqueVideo: false,
+      calqueImage: false,
       calqueContent: '',
+      zi: '',
+      ifvid: '',
+      detImg: '',
+      imgZoom: 'enseigne-impression-standard',
 
       // déclancheurs d'annimations :
       imgTrigger : false,
@@ -210,14 +209,38 @@ new Vue({
         this.prH = this.pr2 = this.pr3 = this.pr4 = this.pr5 = false; // autres calques désactivés
         this.bg0 = {backgroundImage: 'url('+this.$global.img+'/enseignes/bg.png)'};
         this.bg1 = {backgroundImage: 'url('+this.$global.img+'/enseignes/dibond.svg)'};
+        this.bg2 = {backgroundImage: 'none'};
+
+        this.selectFirst = true;
+        this.calqueVideo = false;
+        this.calqueImage = true;
+
+        if (this.produit == 'standard') this.imgZoom = 'enseigne-impression-standard';
+        if (this.produit == 'uv hd')    this.imgZoom = 'enseigne-impression-uv-hd';
+        if (this.produit == 'photo hd') this.imgZoom = 'enseigne-impression-photo-hd';
+
+
+        // afficher le champ suivant et indiquer qu'il est requis :
+        this.showPrint = true;
+        this.reqPrint = 'required';
+        this.togglePrint = true;
+        this.choixPrint = 'choisir l\'impression';
+
+    }, // fin fonction choix produit
+
+    // fonction affichage champs formulaire :         au choix impression validé
+    //==========================================================================
+    selectPrint: function(value) {
+        this.choixPrint = value;
+        this.togglePrint = false;
+        this.reqPrint = '';
 
         // afficher le champ suivant et indiquer qu'il est requis :
         this.showOpts = true;
         this.reqOpts = 'required';
         this.toggleOpts = true;
         this.choixOpts = 'choisir une option';
-
-    }, // fin fonction choix produit
+    },
 
     // fonction affichage champs formulaire :            au choix options validé
     //==========================================================================
@@ -324,6 +347,26 @@ new Vue({
         this.showOptions = true;
     },
 
+    // fonction affichage détails images :
+    //==========================================================================
+    selectImg: function(value) {
+      var v = this.$refs.vidElm;
+
+      if (value == 'detv') {
+        this.calqueImage = false;
+        this.calqueVideo = true;
+        v.play();
+
+      } else {
+        this.detImg = this.$global.img+'/enseignes/'+value+'.jpg';
+        this.calqueImage = true;
+        this.calqueVideo = false;
+        v.pause();
+      }
+
+      this.pr2 = this.pr3 = this.pr4 = this.pr5 = false;
+    },
+
     // fonctions hover :                                    HOVER texte OU image
     //==========================================================================
     // (calque) passe la valeur numérique du calque preview,
@@ -372,7 +415,7 @@ new Vue({
       this.calqueContent = txt;
 
       this.bg0 = {backgroundImage: 'url('+this.$global.img+'/enseignes/bg.png)'};
-      this.bgH = {backgroundImage: 'url('+this.$global.img+'/enseignes/'+src+'.svg)'};
+      this.bgH = {backgroundImage: 'url('+this.$global.img+'/enseignes/'+src+'.jpg)'};
     },
 
 
@@ -521,6 +564,7 @@ new Vue({
         var nbtrou         = 0;  var fixationsventouse = 0;
         var option2        = 0;  var prixHD            = 0;
         var pu             = 0;  var fixations         = 0;
+        var rectoverso     = 0;
 
         //----------------------------------------------------------------------
         metraz                 = this.largeur * this.hauteur;         // métrage
@@ -538,7 +582,7 @@ new Vue({
         poidstotal = poids*this.qte;
 
         //---------------------------------------------------------- recto/verso
-        if (this.produit == 'recto/verso standard' || this.produit == 'recto/verso hd')  {rectoverso = pu*0.5; pu += rectoverso;}
+        if (this.choixPrint == 'Recto/Verso') {rectoverso = pu*0.4; pu += rectoverso;}
 
         //------------------------------------------------------------ fixations
         if (this.fixation == 'ventouse')    fixationsventouse=0.2;
@@ -556,36 +600,36 @@ new Vue({
         //------------------------------------------------------------lamination
 
         if (this.choixLami == 'pelliculage brillant') {
-          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0008);
-          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0008);
-          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0008);
-          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0008);
-          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0008;
-          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0008;
-          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0008);
-          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0008;
+          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0015);
+          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0015);
+          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0015);
+          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0015);
+          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0015;
+          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0015;
+          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0015);
+          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0015;
         }
 
         if (this.choixLami == 'pelliculage mat') {
-          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0010);
-          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0010);
-          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0010);
-          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0010);
-          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0010;
-          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0010;
-          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0010);
-          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0010;
+          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0020);
+          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0020);
+          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0020);
+          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0020);
+          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0020;
+          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0020;
+          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0020);
+          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0020;
         }
 
         if (this.choixLami == 'pelliculage laqué anti graffiti') {
-          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0018);
-          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0018);
-          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0018);
-          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0018);
-          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0018;
-          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0018;
-          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0018);
-          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0018;
+          if (this.hauteur < 150  && this.largeur  < 150 && this.largeur <= this.hauteur) Prixlamination = 150*(this.largeur*0.0025);
+          if (this.hauteur < 150  && this.largeur  < 150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0025);
+          if (this.hauteur < 150  && this.largeur >= 150)                                 Prixlamination = 150*(this.largeur*0.0025);
+          if (this.largeur < 150  && this.hauteur >= 150)                                 Prixlamination = 150*(this.hauteur*0.0025);
+          if (this.hauteur < 150  && this.largeur == 150)                                 Prixlamination = metraz*0.0025;
+          if (this.largeur < 150  && this.hauteur == 150)                                 Prixlamination = metraz*0.0025;
+          if (this.hauteur < 150  && this.largeur <  150 && this.hauteur <= this.largeur) Prixlamination = 150*(this.hauteur*0.0025);
+          if (this.hauteur >= 150 && this.largeur >= 150)                                 Prixlamination = metraz*0.0025;
         }
 
         // ------------------------------------------------------------ MAQUETTE
@@ -614,7 +658,8 @@ new Vue({
   			cena = (puoption*this.qte)+maquette;
 
         // -------------------------------------------------------------------HD
-        if (this.produit == 'recto hd' || this.produit == 'recto/verso hd') {prixHD = cena*0.40; cena += prixHD;}
+        if (this.produit == 'uv hd'    || this.produit == 'uv hd')    {prixHD = cena*0.35; cena += prixHD;}
+        if (this.produit == 'photo hd' || this.produit == 'photo hd') {prixHD = cena*0.65; cena += prixHD;}
 
         // ----------------------------------------------------------- SIGNATURE
 
@@ -645,9 +690,9 @@ new Vue({
 
         var palet = '';
     		if (this.palette == true) {
-    			if (this.largeur+this.hauteur > 200 && this.largeur+this.hauteur <= 300) {cena += 99;}
-    			if (this.largeur+this.hauteur > 300 && this.largeur+this.hauteur <= 400) {cena += 180;}
-    			if (this.largeur+this.hauteur > 400) {cena += 240;}
+    			if (this.largeur+this.hauteur > 200 && this.largeur+this.hauteur <= 299) {cena += 140;}
+    			if (this.largeur+this.hauteur > 299 && this.largeur+this.hauteur <= 399) {cena += 210;}
+    			if (this.largeur+this.hauteur > 399) {cena += 240;}
     			palet = ' / forfait palettisation';
     		}
 
@@ -755,10 +800,10 @@ new Vue({
           this.erreurType=1;
 
         } else if (this.choixMaqt == 'votre maquette (fichier d\'impression)') {
-          this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez une option maquette';
+          this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez choisir une option maquette';
 
         } else if (this.choixSign == 'logo france banderole ?') {
-          this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez une option signature';
+          this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez choisir une option signature';
 
         }else if (this.hauteur == '' || isNaN(this.hauteur)) {
           this.errorMessage='<i class="fa fa-warning"></i> veuillez entrer une hauteur';
@@ -856,7 +901,7 @@ new Vue({
           this.inputHauteur = this.hauteur;
           this.inputLargeur = this.largeur;
 
-          this.inputDesc = '- '+this.produit+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixLami+' <br>- '+this.nb+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+palet+' <br>- P '+dprod+'J / L '+dliv+'J';
+          this.inputDesc = '- '+this.produit+' '+this.choixPrint+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixLami+' <br>- '+this.nb+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+palet+' <br>- P '+dprod+'J / L '+dliv+'J';
 
           this.inputProd      = 'Forex 3mm';
           this.inputQte       = this.qte;

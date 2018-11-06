@@ -48,7 +48,7 @@ function register_cart() {
     	if (!is_array($products)) {
 			$products = array();
 		}
-		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur'], reference=>$_POST['reference'], image=>$_POST['image']);
+		$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$_POST['opis'], 'ilosc'=>$_POST['ilosc'], 'prix'=>$_POST['prix'], 'option'=>$_POST['option'], 'remise'=>$_POST['remise'], 'total'=>$_POST['total'], 'transport'=>$_POST['transport'], 'hauteur'=>$_POST['hauteur'], 'largeur'=>$_POST['largeur'], 'reference'=>$_POST['reference'], 'image'=>$_POST['image']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
 		//header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
@@ -149,9 +149,9 @@ function register_cart() {
 			$total = $total + 3;
 			$opis .= '- relais colis<br />';
 		}
-		$prix2 = number_format($prix, 2, '.', '').' &euro;';
-		$total = number_format($total, 2, '.', '').' &euro;';
-		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$opis, ilosc=>$_POST['ilosc'], prix=>$prix2, option=>'-', remise=>'-', total=>$total, transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur'], reference=>$_POST['reference'], image=>$_POST['image']);
+		$prix2 = number_format($prix, 2, '.', '');
+		$total = number_format($total, 2, '.', '');
+		$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$opis, 'ilosc'=>$_POST['ilosc'], 'prix'=>$prix2, 'option'=>'-', 'remise'=>'-', 'total'=>$total, 'transport'=>$_POST['transport'], 'hauteur'=>$_POST['hauteur'], 'largeur'=>$_POST['largeur'], 'reference'=>$_POST['reference'], 'image'=>$_POST['image']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
@@ -253,8 +253,8 @@ function register_cart() {
 			$total = $total + 3;
 			$opis .= '- relais colis<br />';
 		}
-		$prix2 = number_format($prix, 2, '.', '').' &euro;';
-		$total = number_format($total, 2, '.', '').' &euro;';
+		$prix2 = number_format($prix, 2, '.', '');
+		$total = number_format($total, 2, '.', '');
 		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$opis, ilosc=>$_POST['ilosc'], prix=>$prix2, option=>'-', remise=>'-', total=>$total, transport=>$_POST['transport']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
@@ -287,9 +287,9 @@ function register_cart() {
 
 		$ilosc = $_POST['ilosc'];
 		$total = $ilosc * $prix;
-		$prix2 = number_format($prix, 2, '.', '').' &euro;';
-		$total = number_format($total, 2, '.', '').' &euro;';
-		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$opis, ilosc=>$_POST['ilosc'], prix=>$prix2, option=>'-', remise=>'-', total=>$total, transport=>$_POST['transport']);
+		$prix2 = number_format($prix, 2, '.', '');
+		$total = number_format($total, 2, '.', '');
+		$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$opis, 'ilosc'=>$_POST['ilosc'], 'prix'=>$prix2, 'option'=>'-', 'remise'=>'-', 'total'=>$total, 'transport'=>$_POST['transport']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
@@ -318,7 +318,7 @@ function register_cart() {
 		foreach ( $products as $key => $item ) {
 			$licznik++;
 			if ( $licznik == $_POST['licznik'] ){
-				$product = array(rodzaj=>$_POST['rodzaj'], opis=>$_POST['opis'], ilosc=>$_POST['ilosc'], prix=>$_POST['prix'], option=>$_POST['option'], remise=>$_POST['remise'], total=>$_POST['total'], transport=>$_POST['transport'], hauteur=>$_POST['hauteur'], largeur=>$_POST['largeur'], reference=>$_POST['reference'], image=>$_POST['image'] );
+				$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$_POST['opis'], 'ilosc'=>$_POST['ilosc'], 'prix'=>$_POST['prix'], 'option'=>$_POST['option'], 'remise'=>$_POST['remise'], 'total'=>$_POST['total'], 'transport'=>$_POST['transport'], 'hauteur'=>$_POST['hauteur'], 'largeur'=>$_POST['largeur'], 'reference'=>$_POST['reference'], 'image'=>$_POST['image'] );
 				array_push($products, $product);
 			}
 		}
@@ -571,15 +571,15 @@ function get_newsletter_un() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$nlet = $prefix."nlet_users";
-	if (isset($_POST[potw]) && $_POST[potw] != 'no') {
+	if (isset($_POST['potw']) && $_POST['potw'] != 'no') {
 		$usun = $wpdb->query("DELETE FROM `$nlet` WHERE email='$_POST[potw]'");
 		if ($usun) {
 			_e('Vous avez bien été désinscrit de notre newsletter, veuillez nous excuser de la gêne occasionnée.');
 		}
-	} elseif (isset($_GET[unsubscribe])) {
+	} elseif (isset($_GET['unsubscribe'])) {
 		$czyistnieje = $wpdb->get_row("SELECT * FROM `$nlet` WHERE email = '".str_replace('3214a8', '@', $_GET[unsubscribe])."'");
 		if ($czyistnieje) {
-			echo '<p>Etes-vous sûr(e) de vouloir vous désinscrire ?</p><div style="float:left;display:inline;margin-right:10px;"><form name="form" id="formuns" method="post" action=""><input type="hidden" name="potw" value="'.str_replace('3214a8', '@', $_GET[unsubscribe]).'" /><input type="submit" value="OUI" /></form></div><div style="float:left;display:inline;"><form name="form" id="formuns2" method="post" action="'.get_bloginfo("url").'"><input type="hidden" name="potw" value="no" /><input type="submit" value="NON" /></form></div>';
+			echo '<p>Etes-vous sûr(e) de vouloir vous désinscrire ?</p><div style="float:left;display:inline;margin-right:10px;"><form name="form" id="formuns" method="post" action=""><input type="hidden" name="potw" value="'.str_replace('3214a8', '@', $_GET['unsubscribe']).'" /><input type="submit" value="OUI" /></form></div><div style="float:left;display:inline;"><form name="form" id="formuns2" method="post" action="'.get_bloginfo("url").'"><input type="hidden" name="potw" value="no" /><input type="submit" value="NON" /></form></div>';
 		} else {
 			_e('Sorry, no posts matched your criteria.1');
 		}

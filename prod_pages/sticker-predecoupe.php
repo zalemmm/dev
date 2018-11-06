@@ -30,6 +30,28 @@
 
 						</li>
 
+						<li class="formSelect" v-show="showPrint">
+
+							<button type="button" class="toggle" :class="reqPrint" @click="togglePrint = !togglePrint">
+								{{ choixPrint }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="togglePrint">
+									<div @mouseover="hoTx(1,'enseigne-impression-standard','impression Directe UV Standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectPrint('standard');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Directe UV Standard</span>
+									</div>
+									<div @mouseover="hoTx(1,'enseigne-impression-uv-hd','impression Directe uv hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectPrint('uv hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Directe UV HD</span>
+									</div>
+									<div @mouseover="hoTx(1,'enseigne-impression-photo-hd','impression photo hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxph2" @click="reset(); selectPrint('photo hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Photo HD</span>
+									</div>
+								</div>
+							</transition>
+
+						</li>
+
 
 						<li class="formSelect" v-show="showLami">
 
@@ -228,14 +250,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -254,14 +269,10 @@
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-
-							<li><img :src="$global.img+'/slidedefault/1.png'" alt="commencez votre devis autocollant en ligne" /></li>
-				      <li><img :src="$global.img+'/slidedefault/2.png'" alt="commencez votre devis sticker en ligne" /></li>
-
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/slidedefault/1.png'" alt="commencez votre devis autocollant en ligne" /></li>
+			      <li><img :src="$global.img+'/slidedefault/2.png'" alt="commencez votre devis sticker en ligne" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -337,5 +348,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.sticker-predecoupe.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.7"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.sticker-predecoupe.js?v=2.7"></script>

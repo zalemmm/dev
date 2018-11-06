@@ -264,14 +264,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -287,20 +280,28 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-technique-cadre-textile/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-cadre-tissu/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-
-							<li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-1.jpg'" alt="fabricant cadre textile" title="impression cadre textile tissu tendu" /></li>
-			  			<li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-2.jpg'" alt="impression cadre textile" title="cloison cadre textile stand professionnel"  /></li>
-			  			<li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-3.jpg'" alt="cadre tissu tendu pas cher" title="cloison textile salon pro pas cher"  /></li>
-			        <li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-4.jpg'" alt="mur textile tendu stand salon" title="cadre textile stand pro meilleur prix"  /></li>
-			        <li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-5.jpg'" alt="habillage stand salon pro" title="habillage stand pro cadre textile tendu"  /></li>
-
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-1.jpg'" alt="fabricant cadre textile" title="impression cadre textile tissu tendu" /></li>
+		  			<li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-2.jpg'" alt="impression cadre textile" title="cloison cadre textile stand professionnel"  /></li>
+		  			<li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-3.jpg'" alt="cadre tissu tendu pas cher" title="cloison textile salon pro pas cher"  /></li>
+		        <li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-4.jpg'" alt="mur textile tendu stand salon" title="cadre textile stand pro meilleur prix"  /></li>
+		        <li><img :src="$global.img+'/cadre-tissu/slide/cadre-tissu-5.jpg'" alt="habillage stand salon pro" title="habillage stand pro cadre textile tendu"  /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -312,18 +313,6 @@
 				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
-
-				<div class="helpMenu">
-					<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-technique-cadre-textile/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-cadre-tissu/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
 
 			</div>
 

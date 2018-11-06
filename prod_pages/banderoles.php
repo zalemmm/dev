@@ -35,15 +35,15 @@
 											<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
 											<img :src="$global.img+'/banderole/eco.png'" /><span>100% éco. 250g M1</span>
 										</div>
-										<div class="clEco" @mouseover="hoPw(1,'capotoile')"@mouseout="hout(1)" v-tooltip.bottom="$global.capom2" @click="reset(); selectSupport('capotoile');" v-if="swEco || swFeu">
+										<!--<div class="clEco" @mouseover="hoPw(1,'capotoile')"@mouseout="hout(1)" v-tooltip.bottom="$global.capom2" @click="reset(); selectSupport('capotoile');" v-if="swEco || swFeu">
 											<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
 											<img :src="$global.img+'/banderole/capotoile.png'" /><span>Capotoile 280g M1 Ecocert</span>
-										</div>
+										</div>-->
 
 										<div class="clNml" @mouseover="hoPw(1,'440g')"     @mouseout="hout(1)" v-tooltip.bottom="$global.b440m2" @click="reset(); selectSupport('bache 440g');" v-if="swNml">
 											<img :src="$global.img+'/banderole/440g.png'" /><span>bâche 440g</span>
 										</div>
-										<div class="clNml" @mouseover="hoPw(1,'550g')"     @mouseout="hout(1)" @click="reset(); selectSupport('jet 550 enduite');" v-if="swNml && swRvd"> <!-- cacher aux non revendeurs-->
+										<div class="clNml" @mouseover="hoPw(1,'550g')"     @mouseout="hout(1)" v-tooltip.bottom="$global.b550" @click="reset(); selectSupport('jet 550 enduite');" v-if="swNml && swRvd"> <!-- cacher aux non revendeurs-->
 											<img :src="$global.img+'/banderole/550g.png'" /><span>bâche 550g enduite</span>
 										</div>
 										<div class="clNml" @mouseover="hoPw(1,'jet550')"   @mouseout="hout(1)" v-tooltip.bottom="$global.b550m2" @click="reset(); selectSupport('jet 550');" v-if="swNml">
@@ -56,7 +56,7 @@
 											<img :src="$global.img+'/banderole/150g.png'" /><span>nontissé 150g</span>
 										</div>
 
-										<div class="clFeu" @mouseover="hoPw(1,'450g')"     @mouseout="hout(1)" @click="reset(); selectSupport('bache 450 M1');" v-if="swFeu && swRvd"> <!-- cacher aux non revendeurs -->
+										<div class="clFeu" @mouseover="hoPw(1,'450g')"     @mouseout="hout(1)" v-tooltip.bottom="$global.b450"    @click="reset(); selectSupport('bache 450 M1');" v-if="swFeu && swRvd"> <!-- cacher aux non revendeurs -->
 											<div class="cornfire"><i class="fa fa-fire-extinguisher" aria-hidden="true"></i></div>
 											<img :src="$global.img+'/banderole/450g.png'" /><span>bâche 450g M1</span>
 										</div>
@@ -430,7 +430,7 @@
 									<span  class="opHelp" v-tooltip.bottom="{content: $global.crv, offset: 5}"><i class="fa fa-question-circle"></i></span>
 							  </span>
 
-								<span class="optCheck" v-show="showRoll">
+								<span class="optCheck high" v-show="showRoll">
 									<label for="roll">Livrée roulée</label>
 									<input type="checkbox" id="roll" v-model="roll" @click="reset"  @change="checkRoll" />
 									<span  class="opHelp" v-tooltip.bottom="{content: $global.roll, offset: 5}"><i class="fa fa-question-circle"></i></span>
@@ -477,14 +477,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -500,10 +493,21 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/banderole/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/choisir-sa-bache/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-banderole/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
-
 					<ul id="slides" v-if="slideContainer">
 						<li><img :src="$global.img+'/banderole/slide/banderole-1.jpg'" alt="banderole pas cher" title="bâche imprimée meilleur prix" /></li>
 						<li><img :src="$global.img+'/banderole/slide/banderole-3.jpg'" alt="banderole sur mesure"  title="impression grand format pas cher"/></li>
@@ -512,7 +516,6 @@
 						<li><img :src="$global.img+'/banderole/slide/banderole-2.jpg'" alt="banderole sur mesure"  title="impression grand format pas cher"/></li>
 						<li><img :src="$global.img+'/banderole/slide/banderole-0.jpg'" alt="bâche imprimée" title="banderoles évènements"/></li>
 					</ul>
-
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -524,18 +527,6 @@
 				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
-
-				<div class="helpMenu">
-					<a :href="$global.url+'/banderole/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/choisir-sa-bache/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-banderole/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
 
 			</div>
 
@@ -599,5 +590,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.2"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.banderoles.js?v=2.4"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.banderoles.js?v=2.6"></script>

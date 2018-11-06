@@ -16,18 +16,36 @@
 
 							<transition name="slideDown">
 								<div class="boutonsSelect" v-show="toggleProd">
-									<div @mouseover="hoPw(9,'impression recto standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('recto standard');">
-										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Standard Recto</span>
+									<div @mouseover="hoTx(1,'enseigne-impression-standard','impression Directe UV Standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('standard'); selectImg('enseigne-impression-standard');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Directe UV Standard</span>
 									</div>
-									<div @mouseover="hoPw(9,'impression recto/verso standard')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxsd" @click="reset(); selectProd('recto/verso standard');">
-										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Standard Recto/Verso</span>
+									<div @mouseover="hoTx(1,'enseigne-impression-uv-hd','impression Directe uv hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('uv hd','enseigne-impression-uv-hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Directe UV HD</span>
 									</div>
-									<div @mouseover="hoPw(9,'impression recto hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('recto hd');">
-										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Haute Déf. Recto</span>
+									<div @mouseover="hoTx(1,'enseigne-impression-photo-hd','impression photo hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxph" @click="reset(); selectProd('photo hd'); selectImg('enseigne-impression-photo-hd');">
+										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Photo HD</span>
 									</div>
-									<div @mouseover="hoPw(9,'impression recto/verso hd')" @mouseout="hout(9)" v-tooltip.bottom="$global.fxhd" @click="reset(); selectProd('recto/verso hd');">
-										<img :src="$global.img+'/enseignes/dibond.svg'" /><span>Haute Déf. Recto/Verso</span>
+								</div>
+							</transition>
+
+						</li>
+
+						<li class="formSelect" v-show="showPrint">
+
+							<button type="button" class="toggle" :class="reqPrint" @click="togglePrint = !togglePrint">
+								{{ choixPrint }} <i class="fa fa-caret-down"></i>
+							</button>
+
+							<transition name="slideDown">
+								<div class="boutonsSelect" v-show="togglePrint">
+
+									<div @mouseover="hoPw(9,'Recto')"       @mouseout="hout(9)" @click="reset(); selectPrint('Recto')">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Recto</span>
 									</div>
+			            <div @mouseover="hoPw(9,'Recto/Verso')" @mouseout="hout(9)" @click="reset(); selectPrint('Recto/Verso')">
+										<i class="fa fa-sticky-note" aria-hidden="true"></i><span>Recto/Verso</span>
+									</div>
+
 								</div>
 							</transition>
 
@@ -261,14 +279,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -284,22 +295,38 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-en-cours/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-komadur/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
-
-							<li><img :src="$global.img+'/enseignes/slide/test-1.jpg'" alt="commencez votre devis en ligne" /></li>
-				      <li><img :src="$global.img+'/enseignes/slide/test-2.jpg'" alt="commencez votre devis en ligne" /></li>
-				     	<li><img :src="$global.img+'/banderole/slide/test-3.png'" alt="commencez votre devis en ligne" /></li>
-
-						</ul>
-					</div>
+					<ul id="slides" v-if="slideContainer">
+						<li><img :src="$global.img+'/enseignes/slide/thumbnail.jpg'" alt="devis pose enseignes" /></li>
+						<li><img :src="$global.img+'/enseignes/slide/test-1.jpg'" alt="commencez votre devis en ligne" /></li>
+			      <li><img :src="$global.img+'/enseignes/slide/test-2.jpg'" alt="commencez votre devis en ligne" /></li>
+			     	<li><img :src="$global.img+'/banderole/slide/test-3.png'" alt="commencez votre devis en ligne" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
-				<transition name="slideLeft"><div class="preview_imag1" :style="bg1" v-show="pr1"></div></transition>
+				<transition name="slideLeft" mode="out-in">
+					<div class="preview_imag1" :style="bg1" v-show="pr1">
+						<video v-show="calqueVideo" width="100%" height="auto" ref="vidElm">
+							<source :src="this.$global.img+'/roll-up/rollup.m4v'" type="video/mp4">
+						</video>
+						<img   v-show="calqueImage" :src="detImg" alt="" id="zoomImg" style="cursor: zoom-in" />
+					</div>
+				</transition>
 				<transition name="slideLeft"><div class="preview_imag2" :style="bg2" v-show="pr2"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag3" :style="bg3" v-show="pr3"></div></transition>
 				<transition name="slideLeft"><div class="preview_imag4" :style="bg4" v-show="pr4"></div></transition>
@@ -308,17 +335,10 @@
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
 
-				<div class="helpMenu">
-					<a :href="$global.url+'/en-cours/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-en-cours/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-komadur/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
+				<div class="imgBar" v-show="selectFirst">
+					<i class="fa fa-search-plus" aria-hidden="true" @mouseover="selectImg(imgZoom)"></i>
 				</div>
+
 			</div>
 
 
@@ -386,5 +406,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.komadur.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.komadur.js?v=2.6"></script>

@@ -51,6 +51,7 @@ new Vue({
 
       // valeurs par défaut (value) : autre champs
       choixProd : 'choisir le type de vinyle',
+      choixPrint: '',
       choixOpts : '',
       choixLami : '',
       choixMaqt : '',
@@ -66,6 +67,7 @@ new Vue({
 
       // valeurs par défaut : classes
       reqProd: 'required',
+      reqPrint: '',
       reqHaut: '',
       reqLarg: '',
       reqLami: '',
@@ -85,12 +87,14 @@ new Vue({
 
       // valeurs par défaut de visibilité des blocs :
       toggleProd: true,
+      togglePrint: true,
       toggleOpts: true,
       toggleLami: true,
       toggleMaqt: true,
       toggleSign: true,
       togglePers: true,
 
+      showPrint: false,
       showLami: false,
       showOpts: false,
       showMaqt: false,
@@ -203,7 +207,7 @@ new Vue({
         this.toggleProd = false;  // on replie le menu à la sélection
         this.reqProd = '';        // on rétablit les styles du champ à "non requis"
 
-        this.showLami = false;   // réinitialisation au changement d'option
+        this.showLami = this.showPrint = false;   // réinitialisation au changement d'option
         this.choixLami = 'Sans pelliculage';
 
         // masquer le slider pour afficher le produit choisi :
@@ -215,13 +219,12 @@ new Vue({
 
         if (this.produit == 'permanent' || this.produit == 'semi-permanent' || this.produit == 'permanent 75μ' || this.produit == 'magnétique') {
           // afficher le champ suivant et indiquer qu'il est requis :
-          this.showLami = true;
-          this.reqLami = 'required';
-          this.toggleLami = true;
-          this.choixLami = 'choisir le type de pelliculage';
+          this.showPrint = true;
+          this.reqPrint = 'required';
+          this.togglePrint = true;
+          this.choixPrint = 'choisir l\'impression';
 
         } else {
-
           // afficher le champ suivant et indiquer qu'il est requis :
 
           this.showMaqt = true;
@@ -232,6 +235,20 @@ new Vue({
 
 
     }, // fin fonction choix produit
+
+    // fonction affichage champs formulaire :         au choix impression validé
+    //==========================================================================
+    selectPrint: function(value) {
+        this.choixPrint = value;
+        this.togglePrint = false;
+        this.reqPrint = '';
+
+        // afficher le champ suivant et indiquer qu'il est requis :
+        this.showLami = true;
+        this.reqLami = 'required';
+        this.toggleLami = true;
+        this.choixLami = 'choisir le type de pelliculage';
+    },
 
 
     // fonction affichage champs formulaire :        au choix pelliculage validé
@@ -503,6 +520,10 @@ new Vue({
   			if (this.produit == 'magnétique')     cena = metraz*0.0055;
         if (this.produit == 'transparent')    cena = metraz*0.0055;
 
+        //----------------------------------------------------------- impression
+        if (this.choixPrint == 'uv hd')    {cena +=  cena*0.40;}
+        if (this.choixPrint =='photo hd')  {cena +=  cena*0.90;}
+
   			//----------------------------------------------------------- lamination
 
 				if (this.choixLami == 'pelliculage brillant')  {
@@ -660,14 +681,17 @@ new Vue({
           this.errorMessage='<i class="fa fa-warning"></i> veuillez entrer une largeur';
           this.erreurType=1; this.reqLarg = 'required';
 
+        } else if (this.produit == 'magnétique' && this.largeur > 60 ) {
+          this.errorMessage='<i class="fa fa-warning"></i> Vinyle magnétique : largeur maximum 60cm !';
+          this.erreurType=1; this.reqHaut = false; this.reqLarg = 'required';
+
+        } else if ((this.produit == 'micro-perforé' && this.hauteur > 151 ) && (this.produit == 'micro-perforé' && this.largeur > 151 )) {
+          this.errorMessage='<i class="fa fa-warning"></i> un des deux côtés doit faire maximum 151cm !';
+          this.erreurType=1; this.reqHaut = false; this.reqLarg = 'required';
 
         } else if (this.hauteur > 160 && this.largeur > 160 ) {
           this.errorMessage='<i class="fa fa-warning"></i> un des deux côtés doit faire maximum 160cm !';
           this.erreurType=1; this.reqHaut = this.reqLarg = 'required';
-
-        } else if (this.produit == 'magnétique' && this.largeur > 60 ) {
-          this.errorMessage='<i class="fa fa-warning"></i> Vinyle magnétique : largeur maximum 60cm !';
-          this.erreurType=1; this.reqHaut = false; this.reqLarg = 'required';
 
         } else if (this.hauteur < 10  || this.largeur < 10 ) {
   				this.errorMessage='<i class="fa fa-warning"></i> TAILLE MINIMALE 10x10cm !';
@@ -757,7 +781,7 @@ new Vue({
           this.inputHauteur = this.hauteur;
           this.inputLargeur = this.largeur;
 
-          this.inputDesc = '- carré / rectangulaire <br />- '+this.produit+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixLami+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+' <br>- P '+dprod+'J / L '+dliv+'J';
+          this.inputDesc = '- carré / rectangulaire <br />- '+this.produit+' '+this.choixPrint+'<br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixLami+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+' <br>- P '+dprod+'J / L '+dliv+'J';
 
           this.inputProd      = 'Sticker autocollant';
           this.inputQte       = this.qte;

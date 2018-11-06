@@ -82,6 +82,8 @@ new Vue({
       opeco:    false,
       opcapo:   false,
 
+      swRvd: false,
+
       // bloc options
       qte: 1,
       adresse: true,
@@ -111,6 +113,7 @@ new Vue({
       livraisonrapide: false,
       livraisonComp:   false,
       formError:       false,
+      formWarng:       false,
       ajoutPanier:     false,
 
       // valeurs par défaut : calques images
@@ -144,6 +147,7 @@ new Vue({
       hoverTrigger : false,
       dateTrigger: false,
       errorTrigger: false,
+      warngTrigger: false,
 
       // valeurs par défaut variables destinées au panier :
       inputProd : '',
@@ -177,6 +181,7 @@ new Vue({
       message: 'livraison comprise',
       erreurType: 0,
       errorMessage: '',
+      warngMessage: '',
       errorColor: '',
       prixUnit: '-',
       prixOption: '-',
@@ -194,7 +199,7 @@ new Vue({
       //window.addEventListener('mousemove', this.panImg);
 
       // si client revendeur : afficher les options supplémentaires
-      if ( document.getElementById('revendeur')) this.swRvd = true;
+      if ( document.getElementById('rev') || document.getElementById('revendeur') || document.getElementById('revendeurRC') || document.getElementById('revendeurRS')) this.swRvd = true;
       else this.swRvd = false;
   },
 
@@ -547,6 +552,11 @@ new Vue({
         this.btnD1 = 'inactive';
         this.btnD2 = 'inactive';
         this.btnD3 = 'inactive';
+        this.erreurType = 0;
+        this.warngMessage = '';
+        this.errorMessage = '';
+        this.formError = false;
+        this.formWarng = false;
     },
 
     // fonction calcul délais :            calcul et affichage délais livraision
@@ -615,9 +625,10 @@ new Vue({
         var metraz             = 0;   var image;
         var metrazzaokraglony  = 0;
         var metrazzaokraglony1 = 0;
-        var poids              = '';  // poids total
-        var p1                 = '';  // poids du support
-        var p2                 = '';  // poids du structure
+        var prixsupport        = 0;
+        var poids              = '';                                           ////poids total
+        var p1                 = '';                                           ////poids du support
+        var p2                 = '';                                           ////poids du structure
         var metrage            = 0;
         var structure          = 0;
         var fp                 = '';
@@ -637,6 +648,8 @@ new Vue({
           if (this.qte >= 49 && this.qte <= 108) {cena=23;}
           if (this.qte >= 109 && this.qte <= 216) {cena=22.5;}
           if (this.qte >= 217) {cena=22;}
+
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 80;
@@ -658,6 +671,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 4;}
           if (this.support == '100% écologique M1') {cena += 11;}
           if (this.support == 'capotoile') {cena += 11*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 60;
@@ -677,6 +691,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 4;}
           if (this.support == '100% écologique M1') {cena += 10;}
           if (this.support == 'capotoile') {cena += 11*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 160;
           this.largeur = 60;
@@ -696,6 +711,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 5;}
           if (this.support == '100% écologique M1') {cena += 12;}
           if (this.support == 'capotoile') {cena += 12*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 80;
@@ -715,10 +731,12 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 6;}
           if (this.support == '100% écologique M1') {cena += 12;}
           if (this.support == 'capotoile') {cena += 12*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 85;
           this.prodref = '20170103';
+          this.details = ' (ref:bis)';
         }
 
         //---------------------------------------------------------------100x200
@@ -734,6 +752,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 7;}
           if (this.support == '100% écologique M1') {cena += 13;}
           if (this.support == 'capotoile') {cena += 13*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 100;
@@ -753,6 +772,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 8;}
           if (this.support == '100% écologique M1') {cena += 16;}
           if (this.support == 'capotoile') {cena += 16*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 120;
@@ -772,6 +792,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 10;}
           if (this.support == '100% écologique M1') {cena += 18;}
           if (this.support == 'capotoile') {cena += 18*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 150;
@@ -789,6 +810,7 @@ new Vue({
 
           if (this.support == '440g') {cena += 0;}
           if (this.support == 'jet 520 M1') {cena += 20;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 200;
@@ -810,6 +832,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 4;}
           if (this.support == '100% écologique M1') {cena += 11;}
           if (this.support == 'capotoile') {cena += 11*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 80;
@@ -829,6 +852,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 5;}
           if (this.support == '100% écologique M1') {cena += 12;}
           if (this.support == 'capotoile') {cena += 12*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 100;
@@ -848,6 +872,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 8;}
           if (this.support == '100% écologique M1') {cena += 16;}
           if (this.support == 'capotoile') {cena += 16*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 120;
@@ -867,6 +892,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 12;}
           if (this.support == '100% écologique M1') {cena += 20;}
           if (this.support == 'capotoile') {cena += 20*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 150;
@@ -884,6 +910,7 @@ new Vue({
 
           if (this.support == '440g') {cena += 0;}
           if (this.support == 'jet 520 M1') {cena += 40;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 200;
@@ -905,6 +932,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 8;}
           if (this.support == '100% écologique M1') {cena += 20;}
           if (this.support == 'capotoile') {cena += 20*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 80;
@@ -925,11 +953,12 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 12;}
           if (this.support == '100% écologique M1') {cena += 22;}
           if (this.support == 'capotoile') {cena += 22*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 85;
           this.prodref = '20170120';
-          this.details = 'recto-verso';
+          this.details = 'recto-verso (ref:bis)';
         }
 
         //---------------------------------------------------------------100x200
@@ -945,6 +974,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena += 15;}
           if (this.support == '100% écologique M1') {cena += 28;}
           if (this.support == 'capotoile') {cena += 28*1.3;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 100;
@@ -986,6 +1016,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 160;
           this.largeur = 60;
@@ -1007,6 +1038,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 60;
@@ -1029,6 +1061,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 80;
@@ -1051,6 +1084,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 85;
@@ -1073,6 +1107,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 100;
@@ -1095,6 +1130,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 120;
@@ -1117,6 +1153,7 @@ new Vue({
           if (this.support == 'jet 520 M1') {cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 150;
@@ -1139,6 +1176,7 @@ new Vue({
           if (this.support == 'jet 520 M1'){cena *= 2.45;}
           if (this.support == '100% écologique M1') {cena *= 2.9;}
           if (this.support == 'capotoile') {cena *= 3.86;}
+          if (this.support == '450 M1') {cena += (cena*35)/100;}
 
           this.hauteur = 200;
           this.largeur = 200;
@@ -1274,7 +1312,7 @@ new Vue({
         }
 
         if (this.atelier == true) {
-          cena-= cena*this.$global.livRAT;
+          cena -= cena*this.$global.livRAT;
           this.retrait = 'retrait colis atelier';
         }
 
@@ -1333,6 +1371,10 @@ new Vue({
 
         this.erreurType = 0;
         //---------------------------- vérifier que les champs sont bien remplis
+        if ( this.produit == 'bestline' && this.dimensions == '80x200'){
+          this.warngMessage = '<i class="fa fa-warning"></i> Selon nos stocks les visuels 80x200 peuvent être montés sur des structures 85x200';
+          this.erreurType = 2;
+        }
 
         if     (this.produit    == '') {this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez choisir un produit';}
         else if(this.dimensions == '') {this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez choisir une dimension';}
@@ -1344,6 +1386,11 @@ new Vue({
           this.erreurType=1; this.reqQtte = 'required';
         } else {this.reqQtte = '';}
 
+        if (this.erreurType == 2) {
+          this.formWarng     = true;
+          this.warngTrigger  = !this.warngTrigger;
+        }
+
         if (this.erreurType == 1) {
           this.prixUnit      = '-';
           this.prixOption    =  '-';
@@ -1351,6 +1398,7 @@ new Vue({
           this.ajoutPanier   = false;
           this.livraisonComp = false;
           this.formError     = true;
+          this.formWarng     = false;
           this.errorTrigger  = !this.errorTrigger;
           this.reqEstm       = 'required';
         } else {
@@ -1364,7 +1412,7 @@ new Vue({
 
         // --------------------------------------------------- PREPARATION ENVOI
 
-        if (this.erreurType==0 && (this.delailiv == '2-3' || this.delailiv == '1-1' || this.delailiv == '3-4')){
+        if ((this.erreurType == 0 || this.erreurType == 2) && (this.delailiv == '2-3' || this.delailiv == '1-1' || this.delailiv == '3-4')){
           suma=cena-rabat;
           suma=fixstr(suma);
           this.suma2 = suma.replace(".", ",");

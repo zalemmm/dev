@@ -565,13 +565,17 @@ new Vue({
           this.errorMessage='<i class="fa fa-warning"></i> veuillez entrer une largeur';
           this.erreurType=1; this.reqLarg = 'required';
 
-        } else if (this.hauteur > 160 && this.largeur > 160 ) {
-          this.errorMessage='<i class="fa fa-warning"></i> un des deux côtés doit faire maximum 160cm !';
-          this.erreurType=1; this.reqHaut = this.reqLarg = 'required';
-
         } else if (this.produit == 'magnétique' && this.largeur > 60 ) {
           this.errorMessage='<i class="fa fa-warning"></i> Vinyle magnétique : largeur maximum 60cm !';
           this.erreurType=1; this.reqHaut = false; this.reqLarg = 'required';
+
+        } else if ((this.produit == 'micro-perforé' && this.hauteur > 151 ) && (this.produit == 'micro-perforé' && this.largeur > 151 )) {
+          this.errorMessage='<i class="fa fa-warning"></i> un des deux côtés doit faire maximum 151cm !';
+          this.erreurType=1; this.reqHaut = false; this.reqLarg = 'required';
+
+        } else if (this.hauteur > 160 && this.largeur > 160 ) {
+          this.errorMessage='<i class="fa fa-warning"></i> un des deux côtés doit faire maximum 160cm !';
+          this.erreurType=1; this.reqHaut = this.reqLarg = 'required';
 
         } else if (this.hauteur < 10  || this.largeur < 10 ) {
   				this.errorMessage='<i class="fa fa-warning"></i> TAILLE MINIMALE 10x10cm !';

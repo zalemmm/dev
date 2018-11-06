@@ -18,13 +18,6 @@ function fb_admin_init() {
   add_action('admin_menu', 'fbs_admin_menu');
   add_action('admin_head', 'fbs_admin_head');
 
-  /*$resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
-  $existsaddcolumn = (mysqli_num_rows($resultaddcolumn)?true:false);
-  if(!$existsaddcolumn) {
-  	$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
-      $wpdb->query($sql);
-  }*/
-    //$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` IF NOT EXISTS `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
 }
 
 function fbs_admin_menu() {
@@ -156,15 +149,10 @@ function get_ratings($type_prod, $nb_comment=2) {
     if ($prodname->name == 'Kakemono'){$lienprod = get_bloginfo('url').'/roll-up';}
     elseif ($prodname->name == 'Banderole'){$lienprod = get_bloginfo('url').'/banderoles';}
     elseif ($prodname->name == 'Oriflamme'){$lienprod = get_bloginfo('url').'/oriflammes';}
-		elseif ($prodname->name == 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
-		elseif ($prodname->name == 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
-    elseif ($prodname->name == 'Affiches 120g'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Affiches 150g'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Affiches 220g'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Affiches 120g fluo'){$lienprod = get_bloginfo('url').'/affiches';}
-		elseif ($prodname->name == 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
-    elseif ($prodname->name == 'Cartes 270µ'){$lienprod = get_bloginfo('url').'/cartes';}
-    elseif ($prodname->name == 'Cartes 350µ'){$lienprod = get_bloginfo('url').'/cartes';}
+		elseif (substr($prodname->name, 0, 9) === 'Depliants'){$lienprod = get_bloginfo('url').'/flyers';}
+		elseif (substr($prodname->name, 0, 6) === 'Flyers'){$lienprod = get_bloginfo('url').'/flyers';}
+    elseif (substr($prodname->name, 0, 8) === 'Affiches'){$lienprod = get_bloginfo('url').'/affiches';}
+		elseif (substr($prodname->name, 0, 6) === 'Cartes 350g'){$lienprod = get_bloginfo('url').'/cartes';}
 		elseif ($prodname->name == 'Enseigne'){$lienprod = get_bloginfo('url').'/enseignes';}
     elseif ($prodname->name == 'PHOTOCALL 220x240'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
     elseif ($prodname->name == 'Barrière délimitation'){$lienprod = get_bloginfo('url').'/plv-exterieur';}
@@ -179,12 +167,13 @@ function get_ratings($type_prod, $nb_comment=2) {
     elseif ($prodname->name == 'Forex 3mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-3mm';}
     elseif ($prodname->name == 'Forex 5mm'){$lienprod = get_bloginfo('url').'/panneaux-forex-5mm';}
     elseif ($prodname->name == 'Dibond'){$lienprod = get_bloginfo('url').'/panneaux-dibond';}
-    elseif ($prodname->name == 'Stickers Lettrage'){$lienprod = get_bloginfo('url').'/stickers';}
-    elseif ($prodname->name == 'Stickers prédécoupé'){$lienprod = get_bloginfo('url').'/stickers';}
-    elseif ($prodname->name == 'Stickers vitrophanie'){$lienprod = get_bloginfo('url').'/stickers';}
-    elseif ($prodname->name == 'Stickers mural'){$lienprod = get_bloginfo('url').'/stickers';}
-    elseif ($prodname->name == 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
+    elseif (substr($prodname->name, 0, 7) === 'Sticker'){$lienprod = get_bloginfo('url').'/stickers';}
+    elseif (substr($prodname->name, 0, 5) === 'Tente'){$lienprod = get_bloginfo('url').'/tente-publicitaire-barnum';}
 		elseif ($prodname->name == 'Nappe'){$lienprod = get_bloginfo('url').'/nappes-publicitaires';}
+    elseif ($prodname->name == 'Stand Tissu'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+    elseif ($prodname->name == 'Comptoir'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+    elseif ($prodname->name == 'Valise'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
+    elseif ($prodname->name == 'Stand ExpoBag'){$lienprod = get_bloginfo('url').'/stand-parapluie';}
 		elseif ($prodname->name == 'Cadre tissu'){$lienprod = get_bloginfo('url').'/cadre-tissu';}
     elseif ($prodname->name == 'Enseigne stand suspendue'){$lienprod = get_bloginfo('url').'/enseigne-suspendue-textile';}
     else {$lienprod = get_bloginfo('url').'/banderoles';};
@@ -2247,14 +2236,7 @@ function fbs_admin_head() {
 	echo '<link rel="stylesheet" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
   echo '<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">';
-  /*echo '<link href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.dynatable.css" rel="stylesheet">';*/
-  /*echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.increment.js"></script>';*/
   echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.table2excel.js"></script>';
-  /*echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.dynatable.js"></script>';*/
-	if (isset($_GET['fbdet'])) {
-  /*	echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/thickbox.css" /><script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/thickbox/jquery-latest.js"></script>*/
-
-	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2601,7 +2583,7 @@ function fb_admin_sales() {
 			$sortby .= ' ASC';
 		}
 	} else {
- 		$sortby = 'ORDER BY status ASC';
+ 		$sortby = 'ORDER BY status ASC, date ASC';
  	}
 
 	if ($_GET['sort'] == 'client') {
@@ -3492,7 +3474,7 @@ function fb_admin_users2() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function fbadm_print_details($number) {
-	global $wpdb;
+  global $wpdb;
   global $current_user;
   get_currentuserinfo();
 	$prefix = $wpdb->prefix;
@@ -3769,10 +3751,10 @@ function fbadm_print_details($number) {
 		}
 	}
 
-  /////////////////////////////////////////////////////////////////// ENVOIS MSG
+  /////////////////////////////////////////////////////////////////// GET DATA
   $statusy = $wpdb->get_results("SELECT * FROM `$fb_tablename_state` ORDER BY value ASC", ARRAY_A);
   $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` ORDER BY content ASC", ARRAY_A);
-  $prod = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$number'", ARRAY_A);
+  $prod = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$number' ORDER BY id ASC", ARRAY_A);
   $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails`", ARRAY_A);
   $sms = $wpdb->get_results("SELECT * FROM `$fb_tablename_sms`", ARRAY_A);
 
@@ -3812,8 +3794,6 @@ function fbadm_print_details($number) {
       $upDB = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$allsms' WHERE type='sms' AND unique_id = '$number'");
     }
 
-    header('Location: '.$_SERVER['REQUEST_URI']);
-    exit();
   }
   echo '<div class="histo">HISTORIQUE <button class="voirPlus2">+</button>/<button class="voirMoins2">-</button></div> <ul class="lastSms">'.$getsms.'</ul> ';
   echo '<div style="clear:both"></div></div></div></div>
@@ -3857,8 +3837,6 @@ function fbadm_print_details($number) {
 
     mail($uzyt->email, stripslashes($temat), stripslashes($zawar),$header);
 
-    header('Location: '.$_SERVER['REQUEST_URI']);
-    exit();
   }
   echo '<div class="histo">HISTORIQUE <button class="voirPlus">+</button>/<button class="voirMoins">-</button></div> <ul class="lastMails">'.$getmail.'</ul> ';
   echo '<div style="clear:both"></div></div></div></div>
@@ -3939,8 +3917,6 @@ function fbadm_print_details($number) {
     $l_city = $_POST['l_city'];
     $l_phone = $_POST['l_phone'];
     $updateAddress = $wpdb->query("UPDATE `$fb_tablename_users` SET email = '$l_mail', f_name = '$l_name', f_comp = '$l_comp', f_address = '$l_address', f_code ='$l_code', f_city = '$l_city', f_phone = '$l_phone' WHERE id = '$ktoryuser'");
-    header('Location: '.$_SERVER['REQUEST_URI']);
-    exit();
   }
   //---------------------------------------------modifier l'adresse de livraison
   if(isset($_POST['changeLivSubmit'])) {
@@ -3951,8 +3927,6 @@ function fbadm_print_details($number) {
     $l_city = $_POST['l_city'];
     $l_phone = $_POST['l_phone'];
     $updateAddress = $wpdb->query("UPDATE `$fb_tablename_address` SET l_name = '$l_name', l_comp = '$l_comp', l_address = '$l_address', l_code ='$l_code', l_city = '$l_city', l_phone = '$l_phone' WHERE unique_id = '$number'");
-    header('Location: '.$_SERVER['REQUEST_URI']);
-    exit();
   }
 
   //--------------------------------------------- afficher l'adresse facturation
@@ -4081,8 +4055,6 @@ function fbadm_print_details($number) {
     }else{
       $up = $wpdb->query("UPDATE `$fb_tablename_users_cf` SET att_value='$memo' WHERE  att_name = 'memo' AND uid = ".$ktoryuser."");
     }
-    header('Location: '.$_SERVER['REQUEST_URI']);
-    exit();
   }
 
   //-------------------------------------------------------------------affichage
@@ -4205,6 +4177,7 @@ function fbadm_print_details($number) {
     $btnAccess = '<button class="btn2 desactive" type="button" disabled>Se connecter côté client</button>';
     $btnReset = '<button class="btn3 desactive" type="button" disabled>Reset pass client</button>';
   }
+
   if ($_POST['logme']=='logme') {
     $verifier = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE login='$user->login' AND pass='$user->pass'");
     /* connection utilisateur*/
@@ -4393,7 +4366,52 @@ function fbadm_print_details($number) {
   // fin select options livraison
 
   //========================================================== envoi de fichiers
-	echo '<div class="statusp2">Upload <a href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/frmupload2.php?cmd='.$order->unique_id.'&usr='.$uzyt->login.'&isproject=true&placeValuesBeforeTB_=savedValues&TB_iframe=true&height=450&width=500&modal=true" class="thickbox but_par">PARCOURIR</a><br />';
+  if(isset($_POST['sendImg'])) {
+      // File upload configuration
+      $targetDir = (__DIR__).'/../../../uploaded/'.$order->unique_id.'-projects/';
+      $allowTypes = array('jpg','png','jpeg','gif','pdf','tiff');
+      if (!is_dir($targetDir)) {
+          mkdir($targetDir, 0777, true);
+      }
+      $images_arr = array();
+      foreach($_FILES['images']['name'] as $key=>$val){
+          $image_name = $_FILES['images']['name'][$key];
+          $tmp_name   = $_FILES['images']['tmp_name'][$key];
+          $size       = $_FILES['images']['size'][$key];
+          $type       = $_FILES['images']['type'][$key];
+          $error      = $_FILES['images']['error'][$key];
+
+          // File upload path
+          $fileName = basename($_FILES['images']['name'][$key]);
+          $targetFilePath = $targetDir . $fileName;
+
+          // Check whether file type is valid
+          $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+          if(in_array($fileType, $allowTypes)){
+              // Store images on the server
+              if(move_uploaded_file($_FILES['images']['tmp_name'][$key],$targetFilePath)){
+                  $images_arr[] = $targetFilePath;
+              }
+          }
+      }
+  }
+
+	echo '<div class="statusp2">
+
+  <form id="batUpload" action="" method="POST" enctype="multipart/form-data">
+    <div class="form-inline">
+      <input type="hidden" name="sendImg" value="">
+      <input class="form-control" type="file" name="images[]" multiple="multiple"/>
+      <button id="batUpbtn">Upload</button>
+    </div>
+  </form>
+
+  <script>
+    jQuery("#batUpbtn").click(function() {
+      jQuery("#batUpbtn").append(" <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>");
+    });
+  </script>';
+
 	$name=$_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$order->unique_id.'-projects';
 	$fichiers="";
 	if(file_exists($name))
@@ -4405,7 +4423,8 @@ function fbadm_print_details($number) {
   	}
     closedir($dir);
   }
-	echo $fichiers;
+  echo $fichiers;
+
 	echo '</div>';
 
   // fin envoi de fichiers
@@ -4503,12 +4522,18 @@ function fbadm_print_details($number) {
 	echo '<form name="editdetails" id="editdetails" action="" method="post"><input type="hidden" name="editdet" value="'.$number.'" />';
 	echo '<p><small>Please note that:<br />Description lines should contain break lines marker &lt;br /&gt;<br />Total sum couldn\'t contain Frais de port cost.</small></p>';
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th style="width:30px;"><i class="fa fa-times-circle" aria-hidden="true"></i></th><th>ITEM</th><th style="width:150px;">DESCRIPTION</th><th>QUANTITÉ</th><th>PRIX U.</th><th>OPTION</th><th>REMISE</th><th>TOTAL</th><th>FRAIS DE PORT</th><th>FILE(S)</th></tr></thead>';
-	$ilosc=0;
+	$licznik=0;
 	foreach ($prod as $p) :
-		$ilosc++;
-		echo '<input type="hidden" name="c'.$ilosc.'" value="'.$p['id'].'" />';
+		$licznik++;
+    $i = $licznik;
+    if ($licznik < 10) {
+      $i = str_pad($licznik, 2, "0", STR_PAD_LEFT);
+    }
 
+		echo '<input type="hidden" name="c'.$licznik.'" value="'.$p['id'].'" />';
 
+    //---------------------------------------- lien maquette pour chaque produit
+    $allfiles='';
 		$filepath='';
 		$pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
 		if(file_exists($pathfiles)) {
@@ -4518,19 +4543,24 @@ function fbadm_print_details($number) {
             if(!in_array($file, array(".",".."))){
               // différencier les fichiers json & csv des fichiers maquette:
               $notimg='';
+              $dn='';
+              $filename = $file;
               $info = pathinfo(get_bloginfo('url').'/uploaded/'.$number.'/'.$file);
-              if ($info["extension"] == "json" || $info["extension"] == "csv") $notimg='class="notimg"';
-              else if ($info["extension"] == "") $notimg='style="display:none"';
-
-              if ($info["extension"] != "")
-              $filepath .= '<a '.$notimg.' href="'.get_bloginfo('url').'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$file.'</a><br />';
+              if ($info["extension"] == "json")                      {$notimg='class="notimg"'; $filename = 'json';};
+              if ($info["extension"] == "xml")                       {$notimg='class="notimg"'; $filename = 'xml';};
+              if ($info["extension"] == "")                           $dn='style="display:none"';
+              if (substr($info["filename"], 0, 7 ) != 'prod'.$i.'-')  $dn='style="display:none"';
+              if ($info["extension"] != "") {
+                $filepath .= '<a '.$notimg.' '.$dn.' href="'.get_bloginfo('url').'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$filename.'</a>';
+                $allfiles .= '<a '.$notimg.' href="'.get_bloginfo('url').'/uploaded/'.$number.'/'.$file.'" target="_blank">'.$filename.'</a> | ';
+              }
             }
-
   				}
     		}
 	    	closedir($dir);
   		}
     }
+    //--------------------------------------------------------------------------
 
 		$frais = str_replace(',', '', $p['frais']);
     $deleted = '';
@@ -4556,7 +4586,7 @@ function fbadm_print_details($number) {
 	endforeach;
 
   /////////////////////////////////////////////////////////////// générer csv //
-  if(isset($_POST['inputCSV'])) {
+  /*if(isset($_POST['inputCSV'])) {
     $chemin = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/'.$number.'.csv';
     $delimiteur = ',';
 
@@ -4583,8 +4613,7 @@ function fbadm_print_details($number) {
       // fermeture du fichier csv
       fclose($fichier_csv);
     }
-  }
-
+  }*/
   ///////////////////////////////////////////// zip des fichiers utilisateurs //
 
   $pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
@@ -4651,13 +4680,13 @@ function fbadm_print_details($number) {
     </td>
   </tr>';
 
-  echo '<tr>
+  /*echo '<tr>
     <td colspan="9" style="text-align: left;">
       <form method="post" action="" id="addCSV"><input type="hidden" name="inputCSV" value="true">
         <button type="submit" id="add_csv" >Générer CSV</button>
       </form>
     </td>
-  </tr>';
+  </tr>';*/
 
 	echo '<tr id="new_1" style="display: none;">
     <td></td>
@@ -4686,13 +4715,24 @@ function fbadm_print_details($number) {
     if ($codename) $codevalue = '(code: '.$codename->value.')';
     else $codevalue = '';
 
-    $calculCode = $exist_code->promo;
-    $calculCode = str_replace(',', '', number_format($calculCode, 2));
+    $calculCode = str_replace(',', '', number_format($exist_code->promo, 2));
 
     echo '<tr>
       <td colspan="6"></td>
       <td colspan="2" style="text-align:right">PROMO '.$codevalue.'</td>
       <td>-'.$calculCode.' &euro;</td>
+    </tr>';
+  }
+
+  //--------------------------------------------vérifier escompte commercial
+  $esc = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='escompte' AND unique_id = '$number'");
+
+  if ($esc) {
+    $calculEscompte =  str_replace(',', '', number_format($esc->value, 2));
+    echo '<tr>
+      <td colspan="6"></td>
+      <td colspan="2" style="text-align:right">Suppression escompte</td>
+      <td>'.$calculEscompte.' &euro;</td>
     </tr>';
   }
   //----------------------------------------------------------------------------
@@ -4706,14 +4746,16 @@ function fbadm_print_details($number) {
 	}
   //----------------------------------------------------------------------------
   $totalht = str_replace(',', '', $order->totalht);
-  $totalht = $totalht-$calculRemise-$calculCode;
+  $totalht = $totalht-$calculRemise-$calculCode+$calculEscompte;
   //----------------------------------------------------------------------------
-	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">DELAI RUSH OR DISCOUNT (INSERT POSITIVE OR NEGATIVE VALUE):</td><td colspan="1"><input name="totalht2after" type="text" value="'.$czyjestrabat->remis.'" width="5" /> &euro;</td></tr>';
-	echo '<tr><td colspan="6"></td><td colspan="1" style="text-align:right">THE REASON OF ADDING DELAI RUSH OR DISCOUNT:</td><td colspan="2"><input name="totalht2afterreason" type="text" value="'.$czyjestrabat->reason.'" style="width:200px;" /></td></tr>';
+	echo '<tr><td colspan="5"></td><td colspan="3" style="text-align:right">DELAI RUSH OU DISCOUNT:</td><td colspan="1"><input name="totalht2after" type="text" value="'.$czyjestrabat->remis.'" width="5" /> &euro;</td></tr>';
+	echo '<tr><td colspan="5"></td><td colspan="3" style="text-align:right">RAISON DELAI RUSH OU DISCOUNT:</td><td colspan="2"><input name="totalht2afterreason" type="text" value="'.$czyjestrabat->reason.'" style="width:170px;" /></td></tr>';
 	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TVA %:</td><td colspan="1"><input name="tvaafterreason" type="text" value="'.$procpod.'" width="5" /> %</td></tr>';
 	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL HT:</td><td colspan="1">'.str_replace(',', '', number_format($totalht, 2)).' &euro;</td></tr>';
 	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">MONTANT TVA ('.$procpod.'%):</td><td>'.str_replace(',', '', $order->tva).' &euro;</td></tr>';
-	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL TTC:</td><td colspan="1">'.str_replace(',', '', $order->totalttc).' &euro;</td></tr>';
+	echo '<tr><td colspan="6"></td><td colspan="2" style="text-align:right">TOTAL TTC:</td><td colspan="1">'.str_replace(',', '', $order->totalttc).' &euro;</td></tr>
+  <tr><td colspan="10"><span class="allfiles">Tous les fichiers : '.$allfiles.'</span></td></tr>';
+
 	echo '</table>';
 	echo '<input type="submit" value="SAVE" class="savebutt" onclick=\'if (confirm("'.esc_js( "Are you sure?" ).'")) {return true;} return false;\' /></form>';
 	echo '</div>';

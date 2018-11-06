@@ -109,11 +109,12 @@ new Vue({
       showRecv: false,
       showPied: false,
 
-      dateLivraison: false,
+      dateLivraison:   false,
       livraisonrapide: false,
-      livraisonComp: false,
-      formError: false,
-      ajoutPanier: false,
+      livraisonComp:   false,
+      formError:       false,
+      formWarng:       false,
+      ajoutPanier:     false,
 
       // valeurs par défaut : calques images
       slideContainer: true,
@@ -139,6 +140,7 @@ new Vue({
       hoverTrigger : false,
       dateTrigger: false,
       errorTrigger: false,
+      warngTrigger: false,
 
       // valeurs par défaut variables destinées au panier :
       inputProd : '',
@@ -173,6 +175,7 @@ new Vue({
       message: 'livraison comprise',
       erreurType: 0,
       errorMessage: '',
+      warngMessage: '',
       errorColor: '',
       prixUnit: '-',
       prixOption: '-',
@@ -534,6 +537,11 @@ new Vue({
         this.btnD1 = 'inactive';
         this.btnD2 = 'inactive';
         this.btnD3 = 'inactive';
+        this.erreurType = 0;
+        this.warngMessage = '';
+        this.errorMessage = '';
+        this.formError = false;
+        this.formWarng = false;
     },
 
     // fonction calcul délais :            calcul et affichage délais livraision
@@ -1434,6 +1442,10 @@ new Vue({
 
         this.erreurType = 0;
         //---------------------------- vérifier que les champs sont bien remplis
+        if ( this.kit == 'structure et voile' ){
+          this.warngMessage = '<i class="fa fa-warning"></i> Attention ! sans choix d\'un pied adapté sur France Banderole, pas de garantie sur les structures/voiles';
+          this.erreurType = 2;
+        }
 
         if     (this.produit   == 'choisir votre modèle d\'oriflamme') {this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez choisir un produit';}
         else if(this.choixSize == 'choisir les dimensions') {this.erreurType=1; this.errorMessage='<i class="fa fa-warning"></i> veuillez choisir une dimension';}
@@ -1447,6 +1459,11 @@ new Vue({
           this.erreurType=1; this.reqQtte = 'required';
         } else {this.reqQtte = '';}
 
+        if (this.erreurType == 2) {
+          this.formWarng     = true;
+          this.warngTrigger  = !this.warngTrigger;
+        }
+
         if (this.erreurType == 1) {
           this.prixUnit      = '-';
           this.prixOption    = '-';
@@ -1454,6 +1471,7 @@ new Vue({
           this.ajoutPanier   = false;
           this.livraisonComp = false;
           this.formError     = true;
+          this.formWarng     = false;
           this.errorTrigger  = !this.errorTrigger;
           this.reqEstm       = 'required';
         } else {
@@ -1467,7 +1485,7 @@ new Vue({
 
         // --------------------------------------------------- PREPARATION ENVOI
 
-        if (this.erreurType==0 && (this.delailiv == '2-3' || this.delailiv == '1-1' || this.delailiv == '3-4')){
+        if ((this.erreurType == 0 || this.erreurType == 2) && (this.delailiv == '2-3' || this.delailiv == '1-1' || this.delailiv == '3-4')){
           suma=cena;
           suma=fixstr(suma);
           this.suma2 = suma.replace(".", ",");

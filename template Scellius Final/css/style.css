@@ -1,0 +1,320 @@
+@charset "UTF-8";
+/* ------------------------------------------------------------------------
+ *
+ * 	SIPS, Worldline e-payment Services
+ *  Main Styles
+ *  06/2016
+ *
+/* --------------------------------------------------------------------------- */
+/* ------------------------------------ CUSTOM ------------------------------- */
+/* --------------------------------------------------------------------------- */
+
+body {
+  color: #222;
+  font: 100%/1.3 Arial, sans-serif;
+}
+
+
+header[role="banner"] h1:before {
+  content: url(../images/logo_LBP.png) '  Transaction securisee par La Banque Postale';
+	padding: 5px;
+  margin-left: 0;
+	display: block;
+	color: #FFF;
+  font-weight: normal;
+  font-size: 12px;
+  vertical-align: top;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------- */
+header[role="banner"]  {
+  position: relative;
+  height: 70px;
+  padding: 0;
+  border-bottom: 0;
+}
+
+div.main-data h3 {
+  display: none;
+}
+
+aside.transaction-data h2 {
+  margin-top: 0px;
+  width: 100%;
+}
+aside[role="complementary"] {
+  background: #fff;
+  margin-top: 15px;
+  padding: 0;
+  width: 100%;
+}
+
+span.transactionShowMore {
+  position: absolute;
+  right: 7%;
+  top: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.data-sheet {
+  background: #E9EAEC;
+  margin-top: -7px;
+  padding: 5px 10px 0;
+}
+
+ul.list-of-cards li {
+    padding: 0 0 0 5px;
+    margin-bottom: 0;
+    width: auto;
+}
+
+ul.list-of-cards li img {
+  height: 25px;
+  margin-top: 0;
+}
+
+#no_virtualnumpad_p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+legend, #cvvfield-label, #cardNumberField-label {
+  color: #222;
+  padding-bottom: 0px;
+  letter-spacing: .5px;
+}
+
+legend:first-of-type{
+  display: none;
+}
+
+#cvvfield-label, #cardNumberField-label {
+  padding-bottom: 4px;
+}
+
+#wrapper {
+  padding: 1rem 0 0;
+}
+
+#main {
+    clear: both;
+    width: 100%;
+    max-width: 1024px;
+    min-width: 220px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+#captureCardForm {
+    margin-top: 0;
+}
+
+#captureCardForm div.card-data,
+.k-choice legend,
+fieldset p {
+  border-top: 0;
+}
+
+#captureCardForm div.card-data {
+  margin-top: -10px !important;
+}
+
+.k-choice legend {
+  display: block;
+  margin-bottom: 0;
+}
+
+fieldset {
+  margin-bottom: 0;
+}
+
+fieldset p {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#aliasBlock em {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.k-choice label + label {
+  padding-left: 0;
+}
+
+.k-buttons-bar {
+  margin-top: 10px;
+}
+
+input[type="submit"],
+a[role="button"], a[role="button"]:link, a[role="button"]:visited, a.bt-submit, a.bt-reset {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 20px;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+a[role="button"].k-field-help img {
+  height: 25px;
+  width: 25px;
+}
+
+#form_submit {
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 20px;
+  text-shadow: 0;
+  box-shadow: 0;
+}
+#cancel_0 {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 20px;
+  text-shadow: 0;
+  box-shadow: 0;
+}
+
+#captureCardForm div.conditional {
+  display: block;
+  margin-top: .4em;
+  width: 100%;
+  float: none;
+}
+
+div.message {
+  margin: 0;
+  padding: 10px;
+  width: 97.8%;
+  display: block;
+  border: none;
+  background: #E9EAEC;
+}
+
+div.message:first-of-type {
+  margin-top: 1em;
+  border-top: 4px solid #808080;
+}
+
+div.message p {
+  color: #444;
+  display: inline-block;
+  max-width: 69%;
+  width: 69%;
+  vertical-align: middle;
+}
+
+p.threeDSLogo {
+  display: inline-block;
+  width: 29% !important;
+}
+
+p.threeDSLogo img {
+  display: inline-block;
+  width: 32%;
+  margin-right: 0;
+  margin-left: 1%;
+  float: right;
+}
+
+
+footer[role="contentinfo"] {
+  display: none;
+}
+/* --------------------------------------------------------------------------- */
+
+
+
+#main:not(:only-child) {
+	float: left;
+}
+
+div.main-data  {
+  color: #222;
+	text-align: right;
+}
+
+div.main-data dl  {
+	display: block;
+}
+
+div.main-data dl {
+	float: right;
+}
+
+ul.list-of-cards {
+	position: relative;
+	padding: 0;
+	margin: -5px 0 0 0;
+	text-align: left;
+	top: 0;
+}
+
+footer[role="contentinfo"] {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+@media screen and (min-width: 650px) {
+	.k-buttons-bar {
+		text-align: left;
+    margin-top: 10px;
+	}
+
+	#captureCardForm div.card-data {
+      width: 100%;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	aside[role="complementary"] {
+    float: right;
+    width: 30%;
+		margin-top: 3em;
+    border-top: 1px solid #E9EAEC;
+	}
+
+  aside.transaction-data h2 {
+    margin-top: 0px;
+  }
+
+	#main:not(:only-child){
+		padding-top: 3em;
+	}
+
+	p.vendor {
+		padding-bottom: 0;
+	}
+}
+
+@media screen and (max-width: 760px) {
+  header[role="banner"] h1:before {
+    font-size: 9px;
+  }
+
+  legend {
+    font-size: 11px;
+  }
+
+  a.bt-reset {
+    margin: 5px 0;
+  }
+
+  ul.list-of-cards {
+    margin-top: 15px;
+  }
+
+  ul.list-of-cards li img {
+    height: 15px;
+  }
+
+  div.message p {
+    font-size: 10px;
+    line-height: 11px;
+  }
+}

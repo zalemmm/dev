@@ -33,7 +33,7 @@ function getPaiementDroits($customer_id) {
 }
 
 //========================================================== Afficher la facture sur pages virement, cheque etc
-function getCalculs($idzamowienia, $userid) {
+function getCalculs($idzamowienia, $userid, $metoda) {
 
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -42,7 +42,11 @@ function getCalculs($idzamowienia, $userid) {
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_users = $prefix."fbs_users";
+	$fb_tablename_paiement_moy = $prefix."fbs_paiement_moy";
+	$fb_tablename_cf = $prefix."fbs_cf";
+	$fb_tablename_address = $prefix."fbs_address";
 
+	$useraddress = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$idzamowienia'");
 	$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
 	$us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
 
@@ -54,20 +58,27 @@ function getCalculs($idzamowienia, $userid) {
 	$l_address = $explode2['0'];
 	$l_porte = $explode2['1'].'<br />';
 	$facture_add = $us->f_name.'<br />'.$us->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$us->f_code.'<br />'.$us->f_city.'<br />'.$us->f_phone;
-	if ( ( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) ) ) {
-		$livraison_add = $us->l_name.'<br />'.$us->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$us->l_code.'<br />'.$us->l_city.'<br />'.$us->l_phone;
+	if ($useraddress) {
+		$explode2 = explode('|', $useraddress->l_address);
+		$l_address = $explode2['0'];
+		$l_porte = $explode2['1'].'<br />';
+		$livraison_add  = $useraddress->l_name.'<br />'.$useraddress->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$useraddress->l_code.'<br />'.$useraddress->l_city;
+
 	} else {
 		$livraison_add = $facture_add;
 	}
 
 	//------------------------------------------------------------------- produits
 	$products = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$idzamowienia' AND status='1' ORDER BY id ASC", ARRAY_A);
-	$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
 
-	foreach ( $products as $products => $item ) {
-		$view .= '<tr><td class="lefttd"><span class="name">'.$item['name'].'</span><br /><span class="therest">'.$item['description'].'</span></td><td>'.$item['quantity'].'</td><td>'.$item['prix'].'</td><td>'.$item['prix_option'].'</td><td>'.$item['remise'].'</td><td>'.$item['total'].'</td></tr>';
+	if($metoda !== 'carte') {
+		$view .= '<table id="fbcart_cart" cellspacing="0"><tr><th class="leftth">Description</th><th>Quantité</th><th>Prix  U.</th><th>Option</th><th>Remise</th><th>Total</th></tr>';
+
+		foreach ( $products as $products => $item ) {
+			$view .= '<tr><td class="lefttd"><span class="name">'.$item['name'].'</span><br /><span class="therest">'.$item['description'].'</span></td><td>'.$item['quantity'].'</td><td>'.$item['prix'].'</td><td>'.$item['prix_option'].'</td><td>'.$item['remise'].'</td><td>'.$item['total'].'</td></tr>';
+		}
+		$view .= '</table>';
 	}
-	$view .= '</table>';
 
 	//------------------------------------------------------------vérifier remises
 	$czyjestrabat = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$idzamowienia'");
@@ -88,20 +99,46 @@ function getCalculs($idzamowienia, $userid) {
 		$insertRemise = '<tr><td class="toleft">REMISE</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
 	}
 
-	//----------------------------------------------------------------------------
+	//----------------------------------------------------- TOTAL HT MOINS REMISES
 	$totalht = str_replace(',', '', $query->totalht);
 	$totalht = $totalht-$calculRemise-$calculCode;
-	$ttotalht = str_replace(',','', number_format($totalht, 2)).' &euro;';
-	//----------------------------------------------------------------------------
 
-	$tfrais = $query->frais.' &euro;';
-	$ttva = $query->tva.' &euro;';
-	$ttotalttc = str_replace(',', '', $query->totalttc).' &euro;';
+	//------------------------------- escompte en fonction du choix moyen paiement
+	$pay_percent = $wpdb->get_row("SELECT * FROM `$fb_tablename_paiement_moy` WHERE pay_code = '$metoda'");
+	$esc = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='escompte' AND unique_id = '$idzamowienia'");
+
+	if($pay_percent->pay_percent_add > 0) { // si on choisit une méthode de paiement différé
+		$calculEscompte = number_format(($pay_percent->pay_percent_add * $totalht) / 100, 2);
+		$insertEscompte = '<tr><td class="toleft"><small>suprression escompte commercial lié au choix d\'un moyen de paiement différé</small> ('.$pay_percent->pay_percent_add.'%)</td><td class="toright">'.$calculEscompte.' €</td></tr>';
+
+		if (!$esc) $ajoutesc = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$idzamowienia', 'escompte', '$calculEscompte')");
+		else       $modifesc = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$calculEscompte' WHERE unique_id='$idzamowienia' AND type='escompte'");
+
+	} else { // si on revient à une méthode de paiement non différé
+		$calculEscompte = 0;
+		$insertEscompte = '';
+
+		if ($esc) $wpdb->query("DELETE FROM `$fb_tablename_cf` WHERE unique_id='$idzamowienia' AND type='escompte'");
+	}
+
+	//----------------------------------------------------------------------------
+	$totalht   = str_replace(',','', number_format($totalht + $calculEscompte, 2));
+	$tva       = str_replace(',','', number_format($totalht * 0.20, 2));
+	$totalttc  = str_replace(',','', number_format($totalht + $tva, 2));
+
+	$tfrais    = $query->frais.' &euro;';
+	$ttotalht  = $totalht.' &euro;';
+	$ttva      = $tva.' &euro;';
+	$ttotalttc = $totalttc.' &euro;';
+
+	$majtva = $wpdb->query("UPDATE `$fb_tablename_order` SET tva='$tva'           WHERE unique_id='$idzamowienia' AND user='$userid'");
+	$majttc = $wpdb->query("UPDATE `$fb_tablename_order` SET totalttc='$totalttc' WHERE unique_id='$idzamowienia' AND user='$userid'");
+
 	//----------------------------------------------------------------------------
 
 	$view .= '<table id="fbcart_address" cellspacing="0"><tr><th class="leftth">ADDRESSE DE FACTURATION:</th><th>ADDRESSE DE LIVRAISON:</th></tr><tr><td class="lefttd">'.$facture_add.'</td><td>'.$livraison_add.'</td></tr></table>';
 
-	$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$insertRemise.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
+	$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$insertRemise.$insertEscompte.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA (20%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table>';
 
 	$view .= '<div class="bottomfak onlyprint"><i>RCS Aix en provence: 510.605.140 - TVA INTRA: FR65510605140<br />SAS au capital de 15.000,00 &euro;</i></div>';
 
@@ -109,7 +146,7 @@ function getCalculs($idzamowienia, $userid) {
 }
 
 //========================= recalculer total en fonction des moyens de paiement (similaire à reorganize ds fb_functions et fb_order)
-function calcOrder($uid) {
+/*function calcOrder($uid) {
 
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -172,7 +209,7 @@ function calcOrder($uid) {
 
 		//--------------------------------------------------------------------------
 		$totalTTC = $totalHT+$calculTVA;
-		$totalHT = $totalHT+$calculRemise+$calculCode; // on rétablit le total ht sans remises dans la bdd
+		$totalHT = $totalHT+$calculRemise+$calculCode+$calculEscompte; // on rétablit le total ht sans remises dans la bdd
 
 		$totalHT = number_format($totalHT, 2);
 		$fraisPort = number_format($fraisPort, 2);
@@ -181,10 +218,10 @@ function calcOrder($uid) {
 		//$nowadata = date('Y-m-d H:i:s');
 		$zmiana = $wpdb->update($fb_tablename_order, array ( 'frais' => $fraisPort, 'totalht' => $totalHT, 'tva' => $calculTVA, 'totalttc' => $totalTTC), array ( 'unique_id' => $idzamowienia ) );
 	}
-}
+}*/
 
 //=========================================== ajout ou suppression de l'escompte
-function setPaiementFinProd($uid,$pay_method) {
+/*function setPaiementFinProd($uid,$pay_method) {
 
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -204,7 +241,7 @@ function setPaiementFinProd($uid,$pay_method) {
 			// on recalcule l'escompte
 			$order_tmp = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$uid'");
 			$montant_cmd = str_replace(',','',$order_tmp->totalht);
-			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
+			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100);
 			$prod_insert = number_format($prod_total, 2) . ' €';
 			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','','','')");
 			calcOrder($uid);
@@ -219,13 +256,13 @@ function setPaiementFinProd($uid,$pay_method) {
 		if($pay_percent->pay_percent_add > 0) { // si on choisit une méthode de paiement différé
 			$order_tmp = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$uid'");
 			$montant_cmd = str_replace(',','',$order_tmp->totalht);
-			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100)/1.20;
+			$prod_total = (($pay_percent->pay_percent_add * $montant_cmd) / 100);
 			$prod_insert = number_format($prod_total, 2) . ' €';
 			$wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '$uid', 'Suppression de l\'escompte commercial', 'Suppression de l\'escompte commercial France Banderole suite au choix du moyen de paiement','1','$prod_insert','-','-','$prod_insert','0.00 €','','1','','','','')");
 			calcOrder($uid);
 		}
 	}
-}
+}*/
 
 //====================================================== choix méthodes paiement
 function get_payement() {
@@ -238,6 +275,8 @@ function get_payement() {
 	$fb_tablename_users = $prefix."fbs_users";
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_paiement = $prefix."fbs_paiement";
+	$fb_tablename_cf = $prefix."fbs_cf";
+
 	$images_url=get_bloginfo('url').'/wp-content/plugins/fbshop/images/';
  	$idzamowienia = $_GET['pay'];
 	$uid = $_GET['pay'];
@@ -256,9 +295,16 @@ function get_payement() {
 
 		//-------------------------------------------------------------------- carte
 	 	if ($metoda == 'carte') {
-			setPaiementFinProd($uid,'carte');
 
-			//---------------------------------------- prep data pour paiment scellius
+			$view .= '<div class="acces_tab_name_devis noprint">
+			<a class="retourCom" title="retour" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'"><i class="fa fa-caret-left"></i></a>
+			<span class="disno480" style="font-weight:normal;font-size:15px;">Paiement COMMANDE </span>nº '.$idzamowienia.'<span class="etat"><i class="fa fa-lock" aria-hidden="true"></i> Carte Bancaire</span>
+			</div>';
+			$view .= '<div class="cheque_tab_name marginBottom noprint">Paiement sécurisé par carte bancaire: Merci de suivre les instructions ci-dessous. Récapitulatif:</div>';
+
+			$view .= getCalculs($idzamowienia, $userid, 'carte');
+
+			//--------------------------------------- prep data pour paiement scellius
 
 			// montant de la transaction
 			$query = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$idzamowienia' AND user='$userid'");
@@ -269,11 +315,12 @@ function get_payement() {
 			// infos client / commande
 			$_SESSION['fbcmd'] = $idzamowienia; //!
 			$userinfo = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$userid'");
-			$usermail = $userinfo->email;
+			$usermail = trim($userinfo->email); // supprime les eventuels espaces avant/après le mail client
+			$_SESSION['fbmail'] = $usermail;
 
 			// au basculement test/prod, penser à modifier aussi la clé test/prod dans fb_paye_done.php
 
-			//--------------------------------- connexion au serveur de paiement test
+			//---------------------------------- connexion au serveur de paiement test
 			/*$mid = '002001000000002';
 			$key = '002001000000002_KEY1';
 			$kv  = '1';
@@ -290,12 +337,13 @@ function get_payement() {
 			$autoUrl   = get_bloginfo("url").'/wp-content/plugins/fbshop/fb_paye_done.php/?paid='.$_SESSION['fbcmd'];
 
 			// envoi des données
-			$data = 'orderId='.$idzamowienia.'|customerId='.$userid.'|merchantWalletId='.$userid.'|customerEmail='.$usermail.'|amount='.$amount. '|currencyCode=978|paypageData.bypassReceiptPage=true|keyVersion='.$kv.'|merchantId='.$mid.'|normalReturnUrl='.$returnUrl.'|automaticResponseUrl='.$autoUrl.'|fraudData.bypass3DS=ALL|paymentMeanBrandList=VISA,VISA_ELECTRON,VPAY,MASTERCARD,MAESTRO,CB|'; // encodage utf8 ?  utf8_encode()
+			$data = 'orderId='.$idzamowienia.'|customerId='.$userid.'|merchantWalletId='.$userid.'|customerEmail='.$usermail.'|amount='.$amount. '|currencyCode=978|paypageData.bypassReceiptPage=true|keyVersion='.$kv.'|merchantId='.$mid.'|normalReturnUrl='.$returnUrl.'|automaticResponseUrl='.$autoUrl.'|fraudData.bypass3DS=ALL|paymentMeanBrandList=VISA,VISA_ELECTRON,VPAY,MASTERCARD,MAESTRO,CB|templateName=style|';
+			// encodage utf8 ?  utf8_encode()
 			// signature
 			$sign = hash_hmac('sha256', $data, $key);
 
 			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			//if ($setorder->status < '2' || $setorder->status == '7') { // si la commande est en attente ou paiment en traitement
+			if ($setorder->status < '2' || $setorder->status == '7') { // si la commande est en attente ou paiement en traitement
 
 			$view .= '
 				<form method="post" action="'.$payUrl.'" target="scellius" name="paycb">
@@ -306,7 +354,7 @@ function get_payement() {
 				</form>
 
 	      <div class="ifcont">
-					<iframe name="scellius" id="scellius" src="" frameborder="0" width="100%" height="100%"marginheight="0" marginwidth="0" scrolling="no"></iframe>
+					<iframe name="scellius" id="scellius" src="" frameborder="0" width="100%" marginheight="0" marginwidth="0" scrolling="no"></iframe>
 				  <div id="ifLoad">
 						<i class="fa fa-circle-o-notch fa-spin" style="font-size:100px"></i>
 						<div class="loadingMessage">Vous avez choisi le paiement par carte bancaire, veuillez patienter...</div>
@@ -317,18 +365,12 @@ function get_payement() {
 				  document.getElementById("scellius").onload = (function(){ document.getElementById("ifLoad").style.display = "none"; })
 				</script>';
 
-			/*} else { // si la commande est en statut payé, traitement, expédiée, clôturée
+			} else { // si la commande est en statut payé, traitement, expédiée, clôturée
 				$view .= '<div class="box_info center">
 					<h2><i class="fa fa-info-circle"></i></h2>
 					<span>Cette commande a déjà été réglée !</span>
 				</div>';
-			}*/
-			/*<div id="paiements_left_con">
-
-			<label for="accepte" class="checkbox2"><img class="cartes" src="'.$images_url.'pay_carte.png" alt="Carte" /> <span class="noDisXS"><i class="fa fa-lock" aria-hidden="true"></i> Sécurisé par formulaire SSL avec La Banque Postale.</span></label>
-			<button id="suivant_reg" type="submit"><i class="fa fa-check"></i> Payer <span class="noDisXS">par Carte Bancaire</span></button>
-
-			</div>*/
+			}
 
 	 		//require('./sherlock/paiement_f_sherlok.php'); // appel sherlock commenté le 20.09.2018
 			//$set_statut = $wpdb->query("UPDATE `$fb_tablename_order` SET status = 2 WHERE unique_id='$idzamowienia' AND user='$userid'"); //déjà en com
@@ -336,98 +378,103 @@ function get_payement() {
 
 		//--------------------------------------------------------------------chèque
 	 	if ($metoda == 'cheque') {
-			setPaiementFinProd($uid,'cheque');
 
-			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
-			$view .= '<div class="box_info noprint"><i class="fa fa-warning"></i> Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</div>';
-			$view .= '<div class="noprint">';
+			$view .= '<div class="acces_tab_name_devis noprint">
+			<a class="retourCom" title="retour" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'"><i class="fa fa-caret-left"></i></a>
+			<span class="disno480" style="font-weight:normal;font-size:15px;">Paiement COMMANDE </span>nº '.$idzamowienia.'<span class="etat"><i class="fa fa-lock" aria-hidden="true"></i> Chèque</span>
+			</div>';
 
-			$view .= '<div class="cheque_tab_name">Paiement comptant par chèque Bancaire</div>';
-			$view .= '<div class="cheque_tab_con">Imprimez ce Bon de Commande et envoyez votre Reglement accompagné du Bon de Commande à l\'adresse suivante:<br /><br /><span class="colblue">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</span><br /><br />Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
-			$view .= '</div>';
+			$view .= '<div class="cheque_tab_name noprint">Paiement comptant par chèque bancaire : Merci de suivre les instructions ci-dessous.</div>';
+			$view .= '<div class="cheque_tab_con noprint">Imprimez ce Bon de Commande et envoyez votre Reglement accompagné du Bon de Commande à l\'adresse suivante:<br /><br /><span class="colblue">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</span><br /><br />Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
+
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= getCalculs($idzamowienia, $userid);
+			$view .= getCalculs($idzamowienia, $userid, 'cheque');
 
-  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le Bon de commande</a></div>';
+  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a><a href="javascript:window.print()" id="but_imprimerbon"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le Bon de commande</a></div>';
  		}
 
 		//------------------------------------------------------------------virement
 	 	if ($metoda == 'virement') {
-	 		setPaiementFinProd($uid,'virement');
 
-			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
-			$view .= '<div class="box_info noprint"><i class="fa fa-warning"></i> Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</div>';
-			$view .= '<div class="noprint">';
+			$view .= '<div class="acces_tab_name_devis noprint">
+			<a class="retourCom" title="retour" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'"><i class="fa fa-caret-left"></i></a>
+			<span class="disno480" style="font-weight:normal;font-size:15px;">Paiement COMMANDE </span>nº '.$idzamowienia.'<span class="etat"><i class="fa fa-lock" aria-hidden="true"></i> virement</span>
+			</div>';
 
-			$view .= '<div class="cheque_tab_name">Paiement comptant par virement bancaire</div>';
-			$view .= '<div class="cheque_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Cliquez sur le bouton "<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> IMPRIMER LE RIB</a>" pour obtenir nos coordonnées bancaires et effectuer votre règlement. Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
-			$view .= '</div>';
+			$view .= '<div class="cheque_tab_name noprint">Paiement comptant par virement bancaire : Merci de suivre les instructions ci-dessous.</div>';
+			$view .= '<div class="cheque_tab_con noprint">Veuillez trouver ci-dessous un récapitulatif de votre commande. Cliquez sur le bouton "<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> IMPRIMER LE RIB</a>" pour obtenir nos coordonnées bancaires et effectuer votre règlement. Dès réception effective de votre règlement, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
+
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= getCalculs($idzamowienia, $userid);
+			$view .= getCalculs($idzamowienia, $userid, 'virement');
 
-  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
+  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 
 		//---------------------------------------------------------------différé 30j
 		if ($metoda == 'trente') {
-			setPaiementFinProd($uid,'trente');
 
-			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
-			$view .= '<div class="box_info noprint"><i class="fa fa-warning"></i> Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</div>';
-			$view .= '<div class="noprint">';
+			$view .= '<div class="acces_tab_name_devis noprint">
+			<a class="retourCom" title="retour" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'"><i class="fa fa-caret-left"></i></a>
+			<span class="disno480" style="font-weight:normal;font-size:15px;">Paiement COMMANDE </span>nº '.$idzamowienia.'<span class="etat"><i class="fa fa-lock" aria-hidden="true"></i> différé 30j</span>
+			</div>';
 
-			$view .= '<div class="paydiff_tab_name">Paiement différé à 30 jours net</div>';
-			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. Cliquez sur le bouton "<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> IMPRIMER LE RIB</a>" pour obtenir nos coordonnées bancaires et effectuer votre règlement sous 30 jours par virement bancaire. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
-			$view .= '</div>';
+			$view .= '<div class="cheque_tab_name noprint">Paiement différé par LCR à 30 jours date de facture: Merci de suivre les instructions ci-dessous.</div>';
+
+			$view .= '<div class="paydiff_tab_con noprint">Veuillez trouver ci-dessous un récapitulatif de votre commande. Cliquez sur le bouton "<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> IMPRIMER LE RIB</a>" pour obtenir nos coordonnées bancaires et effectuer votre règlement sous 30 jours par virement bancaire. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>
+			<span class="warning"><i class="fa fa-warning"></i> Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant</span>';
+
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= getCalculs($idzamowienia, $userid);
+			$view .= getCalculs($idzamowienia, $userid, 'trente');
 
-  		$view .= '<div id="fbcart_buttons3" class="noprint"1 - 2 ou 3 rainages</b></u><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
+  		$view .= '<div id="fbcart_buttons3" class="noprint"1 - 2 ou 3 rainages</b></u><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 
 		//---------------------------------------------------------------différé 60j
 		if ($metoda == 'soixante') {
-			setPaiementFinProd($uid,'soixante');
 
-			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
-			$view .= '<div class="box_info noprint"><i class="fa fa-warning"></i> Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</div>';
-			$view .= '<div class="noprint">';
+			$view .= '<div class="acces_tab_name_devis noprint">
+			<a class="retourCom" title="retour" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'"><i class="fa fa-caret-left"></i></a>
+			<span class="disno480" style="font-weight:normal;font-size:15px;">Paiement COMMANDE </span>nº '.$idzamowienia.'<span class="etat"><i class="fa fa-lock" aria-hidden="true"></i> différé 60j</span>
+			</div>';
 
-			$view .= '<div class="paydiff_tab_name">Paiement par LCR 30 jours fin de mois:</div>';
-			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant.  Telechargez, remplissez et remvoyez les 2 formulaires ci-dessous par mail ou fax pour une prise en compte de votre demande:
+			$view .= '<div class="cheque_tab_name noprint">Paiement différé par LCR à 60 jours date de facture: Merci de suivre les instructions ci-dessous.</div>';
+
+			$view .= '<div class="paydiff_tab_con noprint">Veuillez trouver ci-dessous un récapitulatif de votre commande. Telechargez, remplissez et remvoyez les 2 formulaires ci-dessous par mail ou fax pour une prise en compte de votre demande:
 			<div class="downloadFiles">
 				<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/OUVERTURECOMPTE.pdf" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> OUVERTURE DE COMPTE</a><br />
 				<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/PAIEMENTLCR.pdf" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PAIEMENT LCR</a>
 			</div>
-			Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
-			$view .= '</div>';
+			Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>
+			<span class="warning"><i class="fa fa-warning"></i> Ce mode de paiement implique la suppression de l\'escompte commercial de 7% appliqués sur nos tarifs en ligne pour paiement comptant</span>';
+
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p><p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= getCalculs($idzamowienia, $userid);
+			$view .= getCalculs($idzamowienia, $userid,'soixante');
 
-  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
+  		$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/RIB-FB.pdf" target="_blank" id="but_imprimer_rib"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le RIB</a></div>';
 		}
 
 		//----------------------------------------------------- mandat administratif
 		if ($metoda == 'administratif') {
-			setPaiementFinProd($uid,'administratif');
+			$view .= '<div class="acces_tab_name_devis noprint">
+			<a class="retourCom" title="retour" href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'"><i class="fa fa-caret-left"></i></a>
+			<span class="disno480" style="font-weight:normal;font-size:15px;">Paiement COMMANDE </span>nº '.$idzamowienia.'<span class="etat"><i class="fa fa-lock" aria-hidden="true"></i> mandat administratif</span>
+			</div>';
 
-			$view .= '<h1><i class="fa fa-lock" aria-hidden="true"></i> Accès client: Paiement</h1><hr />';
-			$view .= '<div class="box_info noprint"><i class="fa fa-warning"></i> Votre commande a bien été validée ! Merci de suivre les instructions ci-dessous pour procéder au paiement.</div>';
-			$view .= '<div class="noprint">';
+			$view .= '<div class="cheque_tab_name noprint">Paiement différé par mandat administratif: Merci de suivre les instructions ci-dessous.</div>';
 
-			$view .= '<div class="paydiff_tab_name">Paiement différé par mandat administratif</div>';
-			$view .= '<div class="paydiff_tab_con">Veuillez trouver ci-dessous un récapitulatif de votre commande. Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant. <br />
-		  Cliquez sur le bouton "<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/form-adm-FB.pdf" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> IMPRIMER LE FORMULAIRE DE COMMANDE ADMINISTRATIVE</a>", complétez-le et envoyez votre bon de commande interne et le formulaire complété par mail à paiement@france-banderole.fr ou par fax au 0957.045.045. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>';
-			$view .= '</div>';
+			$view .= '<div class="paydiff_tab_con noprint">Veuillez trouver ci-dessous un récapitulatif de votre commande.<br />
+		  Cliquez sur le bouton "<a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/form-adm-FB.pdf" target="_blank"><i class="fa fa-print" aria-hidden="true"></i> IMPRIMER LE FORMULAIRE DE COMMANDE ADMINISTRATIVE</a>", complétez-le et envoyez votre bon de commande interne et le formulaire complété par mail à paiement@france-banderole.com ou par fax au 0957.045.045. Dès validation de votre commande par notre service Comptabilité / Expert Risque / Factor, votre commande passera en production.<br />Pour toutes questions n\'hesitez pas à nous contacter au 0442.401.401</div>
+			<span  class="warning"><i class="fa fa-warning"></i> Ce mode de paiement implique la suppression de l\'escompte commercial de 5% appliqués sur nos tarifs en ligne pour paiement comptant</span>';
+
 			$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td ><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2 onlyprint" /></td><td>&nbsp;</td></tr><tr><td><p class="print-info">Imprimez ce Bon de Commande et envoyez votre Règlement accompagné du Bon de Commande à l\'adresse suivante:</p> <p class="print-adress">France Banderole Sas<br />24 avenue de Bruxelles<br />ZI les Estroublans<br />13127 Vitrolles</p> <p class="text-center">Pour toutes questions n\'hésitez pas à nous contacter au 0442.401.401 </p> <p class="print-no">BON DE COMMANDE N°'.$idzamowienia.'</p></td></tr></table></div>';
 
-			$view .= getCalculs($idzamowienia, $userid);
+			$view .= getCalculs($idzamowienia, $userid, 'administratif');
 
-	  	$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour à vos devis</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le formulaire</a></div>';
+	  	$view .= '<div id="fbcart_buttons3" class="noprint"><a href="'.get_bloginfo("url").'/vos-devis/?detail='.$idzamowienia.'" id="but_retour"><i class="fa fa-caret-left" aria-hidden="true"></i> Retour</a><a href="'.get_bloginfo("url").'/wp-content/plugins/fbshop/PDF/form-adm-FB.pdf" target="_blank" id="but_imprimer_form"><i class="fa fa-print" aria-hidden="true"></i> Imprimer le formulaire</a></div>';
 		}
 
 	} else {

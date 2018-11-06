@@ -268,14 +268,7 @@
 			</form>
 
 			<div v-if="choix"> <!-- debug -->
-				<span>- produit : {{ produit }}</span><br />
-				<span>- dimensions : {{ dimensions }}</span><br />
-				<span>- support : {{ support }} </span><br />
-				<span>- maquette : {{ maquette }} </span><br />
-				<span>- signature : {{ sign }} </span><br />
-				<span>- quantité : {{ qte }} </span><br />
-				<span>- domicile : {{ adresse }} | atelier : {{ atelier }} | relais : {{ relais }} | colis rev : {{ colis }}</span><br />
-				<span>- production : {{ delaiprod }} | livraision : {{ delailiv}} </span><br />
+				<span v-html="inputDesc"></span>
 			</div>
 
 			<transition name="slideLeft">
@@ -291,20 +284,30 @@
 
 		<!--bloc preview-->
 		<div class="column" id="previewContainer">
+			<div class="helpMenu">
+				<a :href="$global.url+'/aide-tente-publicitair/'" class="notice modal-link" title="aide produit">
+					<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
+				</a>
+				<a :href="$global.url+'/notice-technique-tente-publicitaire/'" class="notice modal-link"  title="notices techniques">
+					<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
+				</a>
+				<a :href="$global.url+'/gabarit-tente-publicitaire/'" class="notice modal-link"  title="gabarits maquette">
+					<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
+				</a>
+			</div>
+
 			<div id="previewImg">
 
 				<transition name="slideDown">
-					<div id="container" v-if="slideContainer">
-						<ul id="slides">
+					<ul id="slides" v-if="slideContainer">
 
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-0.jpg'" alt="tente forum association" title="tente pub économique" /></li>
-							<li><img :src="$global.img+'/tente/slide/tente-barnum-4.jpg'" alt="tente forum association" title="tente pub économique" /></li>
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-1.jpg'" alt="tente publicitaire pas cher" title="tente pub économique" /></li>
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-3.jpg'" alt="tente barnum pas cher" title="barnum bas prix" /></li>
-				      <li><img :src="$global.img+'/tente/slide/tente-barnum-2.jpg'" alt="barnum tente plublicitaire pas cher" title="tente publicitaire discount" /></li>
-				      <li><img :src="$global.img+'/banderole/slide/devis-en-ligne'.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
-						</ul>
-					</div>
+			      <li><img :src="$global.img+'/tente/slide/tente-barnum-0.jpg'" alt="tente forum association" title="tente pub économique" /></li>
+						<li><img :src="$global.img+'/tente/slide/tente-barnum-4.jpg'" alt="tente forum association" title="tente pub économique" /></li>
+			      <li><img :src="$global.img+'/tente/slide/tente-barnum-1.jpg'" alt="tente publicitaire pas cher" title="tente pub économique" /></li>
+			      <li><img :src="$global.img+'/tente/slide/tente-barnum-3.jpg'" alt="tente barnum pas cher" title="barnum bas prix" /></li>
+			      <li><img :src="$global.img+'/tente/slide/tente-barnum-2.jpg'" alt="barnum tente plublicitaire pas cher" title="tente publicitaire discount" /></li>
+			      <li><img :src="$global.img+'/banderole/slide/devis-en-ligne'.png" alt="commencez votre devis en ligne" title="devis impression grand format" /></li>
+					</ul>
 				</transition>
 
 				<transition name="slideDown"><div class="preview_imag0" :style="bg0" v-show="pr0"></div></transition>
@@ -316,18 +319,6 @@
 				<transition name="slideLeft"><div class="preview_imagH" :style="bgH" v-show="prH">
 					<p v-show="calqueTexte"><span>{{ calqueContent }}</span></p>
 				</div></transition>
-
-				<div class="helpMenu">
-					<a :href="$global.url+'/aide-tente-publicitair/'" class="notice modal-link" title="aide produit">
-						<i class="fa fa-lightbulb-o"  aria-hidden="true"></i> <span class="textHide">Aide</span>
-					</a>
-					<a :href="$global.url+'/notice-technique-tente-publicitaire/'" class="notice modal-link"  title="notices techniques">
-						<i class="fa fa-wrench"       aria-hidden="true"></i> <span class="textHide">Notices</span>
-					</a>
-					<a :href="$global.url+'/gabarit-tente-publicitaire/'" class="notice modal-link"  title="gabarits maquette">
-						<i class="fa fa-object-group" aria-hidden="true"></i> <span class="textHide">Gabarits</span>
-					</a>
-				</div>
 
 			</div>
 

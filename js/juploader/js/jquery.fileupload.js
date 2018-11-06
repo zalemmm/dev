@@ -46,7 +46,7 @@
         options: {
             // The drop target element(s), by the default the complete document.
             // Set to null to disable drag & drop support:
-            dropZone: $('#dropZone'),
+            dropZone: $('.dropZone'),
             // The paste target element(s), by the default the complete document.
             // Set to null to disable paste support:
             pasteZone: $(document),

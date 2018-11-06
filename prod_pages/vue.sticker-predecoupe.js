@@ -40,141 +40,145 @@ new Vue({
 
   data: {
 
-      choix : false, // passer à true pour debug : affiche les modifications à la sélection des options
+    choix : false, // passer à true pour debug : affiche les modifications à la sélection des options
 
-      // valeurs par défaut (value) : champs select
-      produit: '',
-      dimensions: '',
-      support: '',
-      maquette: '',
-      sign: '',
+    // valeurs par défaut (value) : champs select
+    produit: '',
+    dimensions: '',
+    support: '',
+    maquette: '',
+    sign: '',
 
-      // valeurs par défaut (value) : autre champs
-      choixProd : 'choisir le type de vinyle',
-      choixOpts : '',
-      choixLami : '',
-      choixMaqt : '',
-      choixSign : '',
-      choixPers : '',
-      qte: 1,
-      adresse: true,
-      atelier: false,
-      relais: false,
-      colis: false,
-      delaiprod: '',
-      delailiv: '',
+    // valeurs par défaut (value) : autre champs
+    choixProd : 'choisir le type de vinyle',
+    choixPrint: '',
+    choixOpts : '',
+    choixLami : '',
+    choixMaqt : '',
+    choixSign : '',
+    choixPers : '',
+    qte: 1,
+    adresse: true,
+    atelier: false,
+    relais: false,
+    colis: false,
+    delaiprod: '',
+    delailiv: '',
 
-      // valeurs par défaut : classes
-      reqProd: 'required',
-      reqHaut: '',
-      reqLarg: '',
-      reqLami: '',
-      reqMaqt: '',
-      reqSign: '',
-      reqQtte: '',
-      reqEstm: '',
-      reqOpts: '',
-      reqPers: '',
+    // valeurs par défaut : classes
+    reqProd: 'required',
+    reqPrint: '',
+    reqHaut: '',
+    reqLarg: '',
+    reqLami: '',
+    reqMaqt: '',
+    reqSign: '',
+    reqQtte: '',
+    reqEstm: '',
+    reqOpts: '',
+    reqPers: '',
 
-      btnP1: 'inactive',
-      btnP2: 'inactive',
-      btnP3: 'inactive',
-      btnD1: 'inactive',
-      btnD2: 'inactive',
-      btnD3: 'inactive',
+    btnP1: 'inactive',
+    btnP2: 'inactive',
+    btnP3: 'inactive',
+    btnD1: 'inactive',
+    btnD2: 'inactive',
+    btnD3: 'inactive',
 
-      // valeurs par défaut de visibilité des blocs :
-      toggleProd: true,
-      toggleOpts: true,
-      toggleLami: true,
-      toggleMaqt: true,
-      toggleSign: true,
-      togglePers: true,
+    // valeurs par défaut de visibilité des blocs :
+    toggleProd: true,
+    togglePrint: true,
+    toggleOpts: true,
+    toggleLami: true,
+    toggleMaqt: true,
+    toggleSign: true,
+    togglePers: true,
 
-      showLami: false,
-      showOpts: false,
-      showMaqt: false,
-      showSign: false,
-      showPers: false,
-      showOptions: false,
-      showLiv: false,
-      showEsize: false,
-      errorSize: false,
-      optionSize: true,
+    showPrint: false,
+    showLami: false,
+    showOpts: false,
+    showMaqt: false,
+    showSign: false,
+    showPers: false,
+    showOptions: false,
+    showLiv: false,
+    showEsize: false,
+    errorSize: false,
+    optionSize: true,
 
-      swRvd: false,
-      nb: '',
+    swRvd: false,
+    nb: '',
 
-      dateLivraison: false,
-      livraisonrapide: false,
-      livraisonComp: false,
-      formError: false,
-      formWarng: false,
-      ajoutPanier: false,
+    dateLivraison: false,
+    livraisonrapide: false,
+    livraisonComp: false,
+    formError: false,
+    formWarng: false,
+    ajoutPanier: false,
 
-      // valeurs par défaut : calques images
-      slideContainer: true,
-      bg0: {backgroundImage: 'none'},
-      bg1: {backgroundImage: 'none'},
-      bg2: {backgroundImage: 'none'},
-      bg3: {backgroundImage: 'none'},
-      bg4: {backgroundImage: 'none'},
-      bg5: {backgroundImage: 'none'},
-      bgH: {backgroundImage: 'none'},
-      pr0: false,
-      pr1: false,
-      pr2: false,
-      pr3: false,
-      pr4: false,
-      pr5: false,
-      prH: false,
-      calqueTexte: false,
-      calqueContent: '',
+    // valeurs par défaut : calques images
+    slideContainer: true,
+    bg0: {backgroundImage: 'none'},
+    bg1: {backgroundImage: 'none'},
+    bg2: {backgroundImage: 'none'},
+    bg3: {backgroundImage: 'none'},
+    bg4: {backgroundImage: 'none'},
+    bg5: {backgroundImage: 'none'},
+    bgH: {backgroundImage: 'none'},
+    pr0: false,
+    pr1: false,
+    pr2: false,
+    pr3: false,
+    pr4: false,
+    pr5: false,
+    prH: false,
+    calqueTexte: false,
+    calqueContent: '',
 
-      // déclancheurs d'annimations :
-      imgTrigger : false,
-      hoverTrigger : false,
-      dateTrigger: false,
-      errorTrigger: false,
-      warngTrigger: false,
+    // déclancheurs d'annimations :
+    imgTrigger : false,
+    hoverTrigger : false,
+    dateTrigger: false,
+    errorTrigger: false,
+    warngTrigger: false,
 
-      // valeurs par défaut variables destinées au panier :
-      inputProd : '',
-      inputDesc: '',
-      inputQte: '',
-      inputPrix: '',
-      inputOption: '',
-      inputRemise: '',
-      inputTotal: '',
-      inputTransport: '',
-      inputHauteur: '',
-      inputLargeur: '',
+    // valeurs par défaut variables destinées au panier :
+    inputProd : '',
+    inputDesc: '',
+    inputQte: '',
+    inputPrix: '',
+    inputOption: '',
+    inputRemise: '',
+    inputTotal: '',
+    inputTransport: '',
+    inputHauteur: '',
+    inputLargeur: '',
 
-      designation: '',
-      details: '',
-      modmaq: '',
-      optliv: '',
-      retrait: '',
-      prliv: '',
-      cena2: 0,
-      rabat2: 0,
-      suma2: 0,
-      transport: 0,
-      hauteur: '',
-      largeur: '',
-      prodref: '',
+    designation: '',
+    details: '',
+    modmaq: '',
+    optliv: '',
+    retrait: '',
+    prliv: '',
+    cena2: 0,
+    rabat2: 0,
+    suma2: 0,
+    transport: 0,
+    hauteur: '',
+    largeur: '',
+    prodref: '',
 
-      // valeurs par défaut bloc de droite :  prix et infos
-      estdate: '',
-      forfait: '',
-      message: 'livraison comprise',
-      erreurType: 0,
-      errorMessage: '',
-      warngMessage: '',
-      errorColor: '',
-      prixUnit: '-',
-      prixOption: '-',
-      prixTotal: '-'
+    // valeurs par défaut bloc de droite :  prix et infos
+    estdate: '',
+    forfait: '',
+    message: 'livraison comprise',
+    erreurType: 0,
+    errorMessage: '',
+    warngMessage: '',
+    errorColor: '',
+    prixUnit: '-',
+    prixOption: '-',
+    prixTotal: '-'
 
   }, // fin DATA
 
@@ -214,13 +218,26 @@ new Vue({
         this.bg1 = {backgroundImage: 'url('+this.$global.img+'/stickers/'+src+'.png)'};
 
         // afficher le champ suivant et indiquer qu'il est requis :
+        this.showPrint = true;
+        this.reqPrint = 'required';
+        this.togglePrint = true;
+        this.choixPrint = 'choisir l\'impression';
+
+    }, // fin fonction choix produit
+
+    // fonction affichage champs formulaire :         au choix impression validé
+    //==========================================================================
+    selectPrint: function(value) {
+        this.choixPrint = value;
+        this.togglePrint = false;
+        this.reqPrint = '';
+
+        // afficher le champ suivant et indiquer qu'il est requis :
         this.showLami = true;
         this.reqLami = 'required';
         this.toggleLami = true;
         this.choixLami = 'choisir le type de pelliculage';
-
-    }, // fin fonction choix produit
-
+    },
 
     // fonction affichage champs formulaire :        au choix pelliculage validé
     //==========================================================================
@@ -491,6 +508,10 @@ new Vue({
   			if (this.produit == 'semi-permanent' && this.choixPers == 'tape') cena = metraz*0.0040;
   			if (this.produit == 'permanent 75μ'  && this.choixPers == 'tape')	cena = metraz*0.0060;
 
+        //----------------------------------------------------------- impression
+        if (this.choixPrint == 'uv hd')    {cena +=  cena*0.40;}
+        if (this.choixPrint =='photo hd')  {cena +=  cena*0.90;}
+
   			//----------------------------------------------------------- lamination
 
 				if (this.choixLami == 'pelliculage brillant')  {
@@ -748,7 +769,7 @@ new Vue({
           this.inputHauteur = this.hauteur;
           this.inputLargeur = this.largeur;
 
-          this.inputDesc = '- Forme personnalisée <br />- '+this.produit+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixLami+'  <br>- '+this.choixPers+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+' <br>- P '+dprod+'J / L '+dliv+'J';
+          this.inputDesc = '- carré / rectangulaire <br />- '+this.produit+' '+this.choixPrint+'<br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixLami+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+' <br>- P '+dprod+'J / L '+dliv+'J';
 
           this.inputProd      = 'Sticker prédécoupé';
           this.inputQte       = this.qte;

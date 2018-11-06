@@ -1,7 +1,8 @@
 <?php
   session_start();
-  define( 'SHORTINIT', true );
   require( '../../../wp-load.php' );
+  define( 'SHORTINIT', true );
+
   global $wpdb;
   $prefix = $wpdb->prefix;
   $fb_tablename_order = $prefix."fbs_order";
@@ -11,10 +12,9 @@
   $fb_tablename_users = $prefix."fbs_users";
   $fb_tablename_mails = $prefix."fbs_mails";
   $fb_tablename_cf = $prefix."fbs_cf";
-  //$site_url = $_SERVER['HTTP_REFERER'].'/wordpress';
-  $site_url = 'https://dev.france-banderole.com';
-  //$site_url = 'https://www.france-banderole.com';
+  $site_url = get_bloginfo('url');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,22 +43,34 @@
     //$encode = $_POST['Encode'];
     //$interfaceVersion = $_POST['InterfaceVersion'];
 
-    $dat = preg_split('/(\||=)/', $data,-1, PREG_SPLIT_NO_EMPTY); // split received data
-    echo '<pre>'; echo print_r($dat); echo '</pre>';
+    // création d'un tableau de correspondance des données renvoyées par la banque
+    preg_match_all("/([^|= ]+)=([^|= ]+)/", $data, $r);
+    $dat = array_combine($r[1], $r[2]);
+    // debug :
+    //echo $data;
+    //echo '<pre>'; echo print_r($dat); echo '</pre>';
 
-    $merchantId           = $dat[7];
-    $responseCode         = $dat[11]; // 00 = paiement accepté / 05 = refusé / 34 = fraude / 75 = nb max tentatives /
-                                      // 90 = service temp indisponible / 97 = delai expiré / 99 = pb temp serveur scillius
-    $acquirerReponseCode  = $dat[19];
-    $guaranteeIndicator   = $dat[25];
-    $transactionDateTime  = $dat[13];
-    $transactionReference = $dat[15];
-    $amount               = $dat[21];
-    $authorisationId      = $dat[23];
-    $card                 = $dat[41];
-    $orderId              = $dat[43];
-    $userMail             = $dat[35];
-    $montant = substr_replace($amount,',',-2,0);
+    // données renvoyées
+    $merchantId           = $dat['merchantId'];
+    $responseCode         = $dat['responseCode']; // 00 = paiement accepté / 05 = refusé / 34 = fraude / 75 = nb max tentatives /
+                                                  // 90 = service temp indisponible / 97 = delai expiré / 99 = pb temp serveur scillius
+    $acquirerReponseCode  = $dat['acquirerResponseCode'];
+    $guaranteeIndicator   = $dat['guaranteeIndicator '];
+    $transactionDateTime  = $dat['transactionDateTime'];
+    $transactionReference = $dat['transactionReference'];
+    $amount               = $dat['amount'];
+    $authorisationId      = $dat['authorisationId'];
+    $card                 = $dat['maskedPan'];
+    $customerEmail        = $dat['customerEmail'];
+
+    $montant              = substr_replace($amount,',',-2,0);
+    $date                 = date_create($transactionDateTime);
+    $paydate              = date_format($date,"d/m/Y H:i:s");
+
+    // données session
+    $orderId              = $_SESSION['fbcmd'];
+    $userMail             = $_SESSION['fbmail'];
+    $paiement             = $_SESSION['fbcartsum'];
 
     //------------------------------------------------------vérification signature
 
@@ -82,15 +94,31 @@
         <h2 class="recTitle">Votre Reçu : <button class="printr" onclick="printContent(\'receipt\')"><i class="fa fa-print"></i> Imprimer</button></h2>
         <div id="receipt">
           <p><span class="rtt">Reçu paiement CB @france-banderole.com :</span></p>
-          <p><span class="rlabel">Date de transaction : </span><span class="rdata">'.$transactionDateTime.'</span></p>
-          <p><span class="rlabel">Montant : </span><span class="rdata">'.$montant.' €</span></p>
+          <p><span class="rlabel">Date de transaction : </span><span class="rdata">'.$paydate.'</span></p>
+          <p><span class="rlabel">Montant : </span><span class="rdata">'.$paiement.' €</span></p>
           <p><span class="rlabel">Numéro de carte : </span><span class="rdata">'.$card.'</span></p>
           <p><span class="rlabel">Référence de transaction : </span><span class="rdata">'.$transactionReference.'</span></p>
           <p><span class="rlabel">Numéro de commande : </span><span class="rdata">'.$orderId.'</span></p>
-          <p><span class="rlabel">Identifiant du commerçant : </span><span class="rdata">'.$merchantId.'</span></p>
+          <p><span class="rlabel">Identifiant du commerçant : </span><span class="rdata">218000016820001</span></p>
           <p><span class="rlabel">Numéro d’autorisation :  </span><span class="rdata">'.$authorisationId.'</span></p>
-          <p class="rmail">Ce reçu vous a été envoyé par mail à '.$userMail.'</p>
+          <p class="rmail">Ce reçu vous a été envoyé par mail à '.$customerEmail.'</p>
         </div>';
+
+        $letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour,<br /><br />Votre paiement par carte bancaire pour France Banderole a bien été enregistré. Voici votre reçu :<br /><br />
+        <div id="receipt">
+          Date de transaction : '.$paydate.'<br />
+          Montant : '.$paiement.' €<br />
+          Numéro de carte : '.$card.'<br />
+          Référence de transaction : '.$transactionReference.'<br />
+          Numéro de commande : '.$orderId.'<br />
+          Identifiant du commerçant : 218000016820001 <br />
+          Numéro d’autorisation : '.$authorisationId.'<br />
+        </div>
+        <br />Amicalement,<br />L’équipe FRANCE BANDEROLE</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
+				$header = 'From: France Banderole <information@france-banderole.com>';
+  			$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+        wp_mail($customerEmail, 'Reçu paiement pour France Banderole', stripslashes($letter),$header);
+
         $setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$orderId'");
 
         if ($setorder->status < '2' || $setorder->status == '7') {

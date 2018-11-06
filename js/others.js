@@ -1,3 +1,4 @@
+
 function sprawdzrejestracje() {
 	var e = document.getElementById('sprawdzrejestr');
 	var b = document.getElementById('registerform_adresselivraison');

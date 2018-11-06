@@ -52,6 +52,7 @@ new Vue({
       // valeurs par défaut (value) : autre champs
       choixProd : 'choisir l\'impression',
       choixOpts : '',
+      choixPrint: '',
       choixRain : '',
       choixMaqt : '',
       choixSign : '',
@@ -69,6 +70,7 @@ new Vue({
       reqProd: 'required',
       reqHaut: '',
       reqLarg: '',
+      reqPrint: '',
       reqRain: '',
       reqMaqt: '',
       reqSign: '',
@@ -86,12 +88,14 @@ new Vue({
 
       // valeurs par défaut de visibilité des blocs :
       toggleProd: true,
+      togglePrint: true,
       toggleOpts: true,
       toggleRain: true,
       toggleMaqt: true,
       toggleSign: true,
       togglePers: true,
 
+      showPrint: false,
       showRain: false,
       showOpts: false,
       showMaqt: false,
@@ -214,12 +218,26 @@ new Vue({
         this.bg1 = {backgroundImage: 'url('+this.$global.img+'/akilux/base.png)'};
 
         // afficher le champ suivant et indiquer qu'il est requis :
+        this.showPrint = true;
+        this.reqPrint = 'required';
+        this.togglePrint = true;
+        this.choixPrint = 'choisir l\'impression';
+
+    }, // fin fonction choix produit
+
+    // fonction affichage champs formulaire :         au choix impression validé
+    //==========================================================================
+    selectPrint: function(value) {
+        this.choixPrint = value;
+        this.togglePrint = false;
+        this.reqPrint = '';
+
+        // afficher le champ suivant et indiquer qu'il est requis :
         this.showOpts = true;
         this.reqOpts = 'required';
         this.toggleOpts = true;
         this.choixOpts = 'choisir une option';
-
-    }, // fin fonction choix produit
+    },
 
     // fonction affichage champs formulaire :            au choix options validé
     //==========================================================================
@@ -528,7 +546,9 @@ new Vue({
         metraz                 = (this.largeur * this.hauteur)/10000;         // métrage
         metraz                 = fixstr(metraz);
 
-        if (this.produit == 'recto standard' || this.produit == 'recto hd') {
+        //-----------------------------------------------------------Recto/Verso
+
+        if (this.choixPrint == 'Recto') {
 
           if (metraz <=0.24)                   metraz2 = 0.24;
   				if (metraz > 0.24 && metraz <= 0.48) metraz2 = 0.48;
@@ -543,7 +563,7 @@ new Vue({
   				poidstotal = metragetotal*0.60;	// m² total x grammage
         }
 
-        if (this.produit == 'recto/verso standard' || this.produit == 'recto/verso hd') {
+        if (this.choixPrint == 'Recto/Verso') {
 
           if (metraz <=0.24)                   metraz2 = 0.24;
   				if (metraz > 0.24 && metraz <= 0.48) metraz2 = 0.48;
@@ -797,7 +817,8 @@ new Vue({
   			cena = puoption+maquette;
 
         // -------------------------------------------------------------------HD
-        if (this.produit == 'recto hd' || this.produit == 'recto/verso hd') {prixHD = cena*0.35; cena += prixHD;}
+        if (this.produit == 'uv hd')    {prixHD = cena*0.35; cena += prixHD;}
+        if (this.produit == 'photo hd') {prixHD = cena*0.90; cena += prixHD;}
 
         // ----------------------------------------------------------- SIGNATURE
 
@@ -1037,7 +1058,7 @@ new Vue({
           this.inputHauteur = this.hauteur;
           this.inputLargeur = this.largeur;
 
-          this.inputDesc = '- '+this.produit+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixOpts+' '+this.choixPers+ ' <br>- '+this.choixRain+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+palet+' <br>- P '+dprod+'J / L '+dliv+'J';
+          this.inputDesc = '- '+this.produit+' '+this.choixPrint+' <br />- H|'+this.hauteur+' x L|'+this.largeur+' <br>- '+this.choixOpts+' '+this.choixPers+ ' <br>- '+this.choixRain+' <br>- '+this.modmaq+' <br>- '+this.sign+' <br>- '+this.retrait+this.optliv+palet+' <br>- P '+dprod+'J / L '+dliv+'J';
 
           this.inputProd      = 'Akilux 3.5mm';
           this.inputQte       = this.qte;

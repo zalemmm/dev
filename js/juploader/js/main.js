@@ -49,7 +49,7 @@ $(function () {
         dataType: 'json',
         context: $('#fileupload')[0]
     }).done(function (result) {
-        //-------------------------- bloquer l'affichage des fichiers json & csv
+        //-------------------- bloquer l'affichage des fichiers xml json & csv
         $.each(result, function( index, objects ) {
           var x;
           for (x in objects) {
@@ -57,6 +57,9 @@ $(function () {
                 objects.splice(x, 1);
               }
               if (objects[x].name.endsWith('.csv')){
+                objects.splice(x, 1);
+              }
+              if (objects[x].name.endsWith('.xml')){
                 objects.splice(x, 1);
               }
           }
