@@ -306,7 +306,7 @@
 				<transition name="slideLeft" mode="out-in">
 					<div class="preview_imag1" :style="bg1" v-show="pr1" >
 						<video v-show="calqueVideo" width="100%" height="auto" ref="vidElm">
-							<source :src="this.$global.img+'/roll-up/rollup.m4v'" type="video/mp4">
+							<source :src="this.$global.img+'/roll-up/rollupmini.mp4'" type="video/mp4">
 						</video>
 						<img   v-show="calqueImage" :src="detImg" alt="détail rollup" id="zoomImg" style="cursor: zoom-in" />
 					</div>
@@ -328,6 +328,8 @@
 				</div>
 
 			</div>
+
+
 
 			<div id="estimation" :class="reqEstm">
 
@@ -389,5 +391,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.test-roll-up.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=3.0"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/test-roll-up.vue.js?v=3.0"></script>

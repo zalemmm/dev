@@ -1,4 +1,17 @@
 <?php
+  define( 'SHORTINIT', true );
+  require( '../../../wp-load.php' );
+  global $wpdb;
+  global $current_user;
+  $prefix = $wpdb->prefix;
+  $fb_tablename_order = $prefix."fbs_order";
+  $fb_tablename_prods = $prefix."fbs_prods";
+  $fb_tablename_comments = $prefix."fbs_comments";
+  $fb_tablename_comments_new = $prefix."fbs_comments_new";
+  $fb_tablename_users = $prefix."fbs_users";
+  $fb_tablename_mails = $prefix."fbs_mails";
+  $fb_tablename_cf = $prefix."fbs_cf";
+
   //========================================================== envoi de fichiers
   if(isset($_POST['prodLine'])) {
       $orderId  = $_POST['orderId'];
@@ -34,5 +47,10 @@
       if(in_array($fileType, $allowTypes)){
         move_uploaded_file($_FILES['images']['tmp_name'],$targetFilePath);
       }
+
+      // si fichier uploadé, passer au nouveau statut 8 'fichier en traitement'
+			/*$nowadata = date('Y-m-d H:i:s');
+			$upstat = $wpdb->update($fb_tablename_order, array ( 'status' => '8', 'date_modify' => $nowadata), array ( 'unique_id' => $orderId ) );
+*/
   }
 ?>

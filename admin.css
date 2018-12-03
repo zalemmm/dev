@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700,700i,900');
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 #wpfooter {
   display: none !important;
 }
@@ -28,11 +33,11 @@ p {
 
 input[type="submit"],
 .gobackBtn,
-#batUpbtn {
+#batUpbtn,
+.butdefault {
   box-sizing: border-box;
   width: auto;
   display: inline-block;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.20);
   background: #26a7d9;
   border: 0;
   border-radius: 3px;
@@ -78,35 +83,7 @@ input.edit {
   text-transform: none;
 }
 
-.zipMessage {
-  margin-bottom: 5px;
-  text-align: left;
-  font-size: 11px;
-}
 
-.zipDownload {
-  display: inline-block;
-  padding: 0 5px;
-  margin: 0;
-  border: none;
-  text-decoration: none;
-  background-color: #14b61c;
-  font-size: 11px;
-  cursor: pointer;
-  color: #fff;
-  font-weight: bold;
-  width: auto;
-  height: 20px;
-  padding: 2px 7px;
-  text-transform: none;
-}
-
-.zipDownload:hover,
-.zipDownload:focus {
-  background-color: #ea2a6a;
-  color: #fff;
-  transition: .2s;
-}
 
 input.delete {
   padding: 0 5px;
@@ -134,7 +111,6 @@ input.delete:hover {
   color: #fff;
   margin-left: 20px;
   text-transform: uppercase;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
 #add_1 a:hover {
@@ -369,7 +345,6 @@ select.urs {
   cursor: pointer;
   margin-right: 5px;
   text-transform: uppercase;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
 }
 
 .coteClient button:hover {
@@ -491,7 +466,6 @@ select.urs {
   height: 20px;
   text-decoration: none;
   border-radius: 3px;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
   padding: 1px 10px 0;
 }
 
@@ -1300,7 +1274,6 @@ input.phoneBtn {
   color: #fff;
   cursor: pointer;
   text-transform: uppercase;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.10);
   border: 0;
   border-radius: 3px;
   padding: 5px 10px;
@@ -1580,4 +1553,59 @@ audio {
 
 .allfiles a.notimg{
   color: #ff8e00;
+}
+
+.zipMessage {
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 11px;
+}
+
+.zipDownload  {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 3px 0 !important;
+  margin: 5px 0;
+  border: none;
+  text-decoration: none;
+  background-color: #14b61c;
+  font-size: 11px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  width: auto;
+  height: 25px;
+  padding: 2px 7px;
+  text-align: center;
+  text-transform: none;
+  vertical-align: middle;
+  width: 32%;
+}
+
+.deactive {
+  background: #ccc;
+}
+
+.zipDownload:hover,
+.zipDownload:focus {
+  background-color: #ea2a6a;
+  color: #fff;
+  transition: .2s;
+}
+
+.deactive:hover,
+.deactive:focus {
+  background: #ccc;
+  cursor: default;
+  pointer-events: none !important;
+}
+
+.fileTr {
+  position: absolute;
+  font-size: 10px;
+  bottom: 5px;
+  right: 5px;
+  padding-top: 3px;
+  width: 30%;
+  line-height: 10px;
 }

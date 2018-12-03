@@ -19,6 +19,7 @@ $fb_tablename_cf = $prefix."fbs_cf";
 	5>cloturé
 	6>annulées
 	7>paiment en traitement
+	8>fichier en traitement
 //------------------------------------------------------------------------------
 */
 
@@ -342,6 +343,7 @@ function get_details() {
 		$bat = 1;
 		$need_act = 1;
 	}
+
 	if((!(has_uploaded_files($idzamowienia,$user->id))) AND ($status != 4) AND ($status != 5) AND ($status != 6)) {
 		$upload = 1;
 		$need_act = 1;
@@ -352,7 +354,7 @@ function get_details() {
 		$need_act = 1;
 	}
 
-	//---------------------------------------------------- warnings bat et paiment
+	//--------------------------------------------------- warnings bat et paiement
 	if($need_act == 0) {
 		$ptip = ''; $btip = '';
 
@@ -460,7 +462,7 @@ function get_details() {
 	//$epilog .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour"><i class="fa fa-caret-left"></i> Retour</a>';
 
 	//-------------------------------------------------- bouton écrire commentaire
-  if ($status!=5 && $status!=6 ) {
+  if ($status!=5 && $status!=6) {
 		$epilog .= '<a href="'.get_bloginfo('url').'/vos-devis/?comment='.$idzamowienia.'" id="but_comment" class="comBtn"><i class="fa fa-pencil"></i> Écrire un commentaire</a>';
 	} else {
 		$epilog .= '<span id="but_comment" class="comBtn deactive"><i class="fa fa-pencil"></i> Écrire un commentaire</span>';
@@ -480,7 +482,7 @@ function get_details() {
 	}
 
 	//--------------------------------------------------- bouton payer la commande
-	if ($status < 2) { // si statut en attente
+	if ($status < 2 || $status == 8) { // si statut en attente ou fichier en traitement
 		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payer" type="submit" class="comBtn"><i class="fa fa-credit-card-alt"></i> Payer la commande </button>'.$ptip.'</form>';
 	} else if ($status == 7){ // si statut paiement en traitement
 		$epilog .= '<form name="paye" id="paye" action="'.get_bloginfo('url').'/paiement/" method="get"><input type="hidden" name="pay" value="'.$idzamowienia.'" /><button id="but_payed" type="submit" class="comBtn"><i class="fa fa-credit-card-alt"></i> Changer méthode paiement </button>'.$ptip.'</form>';
@@ -489,7 +491,7 @@ function get_details() {
 	}
 
 	//----------------------------------------------------- bouton suivre le colis
-	if ($status>=4 && $status<=5 && $status!=7) {
+	if ($status == 4 || $status == 5) { // seulement si status expédié ou cloturé
 		$ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$idzamowienia'");
 		if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
 			if ($ktoryshipping->value == 'tnt') {
@@ -506,10 +508,10 @@ function get_details() {
 			}
 		}
 	//------------------------------------------------ bouton adresse de livraison
-	}else if ($status==0 || $status==1 || $status==2 || $status==7){
-		$epilog .= '<a id="but_suivre" class="comBtn" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> Adresse de livraison</a>';
-	}else{
+	}else if ($status == 6){ // désactivé si annulé
 		$epilog .= '<a id="but_suivre" class="comBtn deactive"  href="#"><i class="fa fa-truck"></i> Adresse de livraison</a>';
+	}else{
+		$epilog .= '<a id="but_suivre" class="comBtn" href="'.get_bloginfo("url").'/order-inscription/?goback='.$idzamowienia.'"><i class="fa fa-truck"></i> Adresse de livraison</a>';
 	}
 
 	$epilog .= '</div>'
@@ -523,7 +525,7 @@ function get_details() {
 	//$bottombar .= '<a href="'.get_bloginfo("url").'/vos-devis/" id="but_retour" class="comBtn"><i class="fa fa-caret-left"></i> Retour</a>';
 
 	//------------------------------------------------------------- bouton annuler
-	if ($status<2) {
+	if ($status < 2 || $status == 8) {
 		$bottombar .= '<form name="delfromvosdevis" id="delfromvosdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="annulervosdevis" value="'.$idzamowienia.'" /><button id="but_annulercommande" type="submit" class="comBtn noprint"><i class="fa fa-times-circle"></i> Annuler la commande</button></form>';
 	// status 1 attente paeiment bouton annuler
 	} elseif ($status>1) {
@@ -688,7 +690,7 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 	}
 
 	// EFFACER MAQUETTES UPLOADEES
-	//----------------------------------------------------------------------
+	//----------------------------------------------------------------------------
 	if(isset($_POST['delid'])) {
 		$delid   = $_POST['delid'];
 		$delname = $_POST['delname'];
@@ -704,29 +706,27 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 		//--------------------------------------------------------------------------
 		$view .= '<div class="print_nag onlyprint"><table class="print_header"><tr><td style="float:left;"><img src="'.$images_url.'printlogo.jpg" alt="france banderole" class="logoprint2" /><div class="adresseFact"><b>CLIENT</b><br />'.$facture_add.'</div></td></tr><tr><td class="print-no">Devis Nº D - '.$idzamowienia.'</td></tr><tr><td class="text-center">DATE - '.$query->datamodyfikacji.'</td></tr></table></div>';
 
-		if (!$writable) { // si commande payée, on génère le xml
-			// GENERER XML
-	    //========================================================================
-			$targetDir = (__DIR__).'/../../../uploaded/'.$idzamowienia.'/';
-			if (!is_dir($targetDir))  mkdir($targetDir, 0777, true);
+		// GENERER XML
+    //==========================================================================
+		$targetDir = (__DIR__).'/../../../uploaded/'.$idzamowienia.'/';
+		if (!is_dir($targetDir))  mkdir($targetDir, 0777, true);
 
-	    $dom = new DOMDocument('1.0', 'UTF-8');
+    $dom = new DOMDocument('1.0', 'UTF-8');
 
-	    /* create the root element of the xml tree */
-	    $xmlRoot = $dom->createElement("xml");
-	    /* append it to the document created */
-	    $xmlRoot = $dom->appendChild($xmlRoot);
+    /* create the root element of the xml tree */
+    $xmlRoot = $dom->createElement("xml");
+    /* append it to the document created */
+    $xmlRoot = $dom->appendChild($xmlRoot);
 
-	    $jobticket = $dom->createElement("jobticket");
-	    $jobticket = $xmlRoot->appendChild($jobticket);
+    $jobticket = $dom->createElement("jobticket");
+    $jobticket = $xmlRoot->appendChild($jobticket);
 
-	    /* en tête du xml */
-	    $jobticket->appendChild($dom->createElement('societe',$_SESSION['loggeduser']->f_comp));
-	    $jobticket->appendChild($dom->createElement('nom',    $_SESSION['loggeduser']->f_name));
-	    $jobticket->appendChild($dom->createElement('mail',   $_SESSION['loggeduser']->email));
-	    $jobticket->appendChild($dom->createElement('numero', $idzamowienia));
-	    //========================================================================
-		}
+    /* en tête du xml */
+    $jobticket->appendChild($dom->createElement('societe',$_SESSION['loggeduser']->f_comp));
+    $jobticket->appendChild($dom->createElement('nom',    $_SESSION['loggeduser']->f_name));
+    $jobticket->appendChild($dom->createElement('mail',   $_SESSION['loggeduser']->email));
+    $jobticket->appendChild($dom->createElement('numero', $idzamowienia));
+    //==========================================================================
 
 		if ($products) {
 			$produkty = $products;
@@ -766,13 +766,13 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 				$maqfb     = preg_match_all('/France banderole crée/', $item['description'], $resultat04);
 				$maqfb     = count($resultat04[0]);
 
-				if ($maqfb >= 1)    $mfb += 1;
+				if ($maqfb    >= 1) $mfb += 1;
 				if ($maquette >= 1) $mel += 1;
 
 				// affichage conditionnel minitaure et référence produit
 				// ---------------------------------------------------------------------
-				$ref = $item['ref'];
-				$prodimg = '';
+				$ref       = $item['ref'];
+				$prodimg   = '';
 	      $reference = '';
 
 	      if (!empty($item['img'])) {
@@ -788,61 +788,59 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 				$rectoverso = preg_match_all('/verso/', strtolower($item['description']), $resultat2);
 				$rectoverso = count($resultat2[0]);
 
-				$stand = preg_match_all('/tissu/i', $item['description'], $resultat3);
-				$stand = count($resultat3[0]);
+				$stand      = preg_match_all('/tissu/i', $item['description'], $resultat3);
+				$stand      = count($resultat3[0]);
 
-				$comptoir = preg_match_all('/Comptoir/', $item['description'], $resultat4);
-				$comptoir = count($resultat4[0]);
+				$comptoir   = preg_match_all('/Comptoir/', $item['description'], $resultat4);
+				$comptoir   = count($resultat4[0]);
 
-				$valise = preg_match_all('/Valise/', $item['description'], $resultat5);
-				$valise = count($resultat5[0]);
+				$valise     = preg_match_all('/Valise/', $item['description'], $resultat5);
+				$valise     = count($resultat5[0]);
 
-				$tente = preg_match_all('/Tente/', $item['name'], $resultatt);
-				$tente = count($resultatt[0]);
+				$tente      = preg_match_all('/Tente/', $item['name'], $resultatt);
+				$tente      = count($resultatt[0]);
 
-				$depliant = preg_match_all('/Depliants/', $item['name'], $resultatd);
-				$depliant = count($resultatd[0]);
+				$depliant   = preg_match_all('/Depliants/', $item['name'], $resultatd);
+				$depliant   = count($resultatd[0]);
 
 				// AJOUT DES PRODUITS AU XML
 				//======================================================================
-				$br = array("<br>","<br/>","<br />"); // suppression des balises dans la description
-				$desc = str_replace($br, "", $item['description']);
+				$br      = array("<br>","<br/>","<br />"); // suppression des balises dans la description
+				$desc    = str_replace($br, "", $item['description']);
 				$explode = explode('- ', $desc); // spliter la descritpion à chaque tiret
 
-				if (!$writable) {
-					$prod = $dom->createElement('prod'.$i);
-			    $prod = $jobticket->appendChild($prod);
+				$prod = $dom->createElement('prod'.$i);
+		    $prod = $jobticket->appendChild($prod);
 
-			    $prod->appendChild($dom->createElement('produit',   $item['name']));
-					$prod->appendChild($dom->createElement('details',   $explode[1]));
+		    $prod->appendChild($dom->createElement('produit',   $item['name']));
+				$prod->appendChild($dom->createElement('details',   $explode[1]));
 
-					$keym1 = count($explode) - 1;
-					$keym2 = count($explode) - 2;
-					$keym3 = count($explode) - 3;
-					$keym4 = count($explode) - 4;
-					foreach ($explode as $key => $val) {
-						// on crée un champ option par ligne de la desc en excluant les 2 premières et les 4 dernières lignes pour éviter champs vides et redondance d'infos déjà envoyées dans 'détails', 'maquette', 'signature' et 'livraison'
-						if($key !== 0 && $key !== 1 && $key !==$keym1 && $key !==$keym2 && $key !==$keym3 && $key !==$keym4) $prod->appendChild($dom->createElement('option'.$key,  $val));
-					}
-
-					$reverse = array_reverse($explode); // inverser la desc pour récupérer les options maquettes signatures et livraison en positions -3 à -1
-
-					$prod->appendChild($dom->createElement('choixMaquette', $reverse[3]));
-					$prod->appendChild($dom->createElement('signature',     $reverse[2]));
-			    $prod->appendChild($dom->createElement('quantite',      $item['quantity']));
-			    $prod->appendChild($dom->createElement('hauteur',       $item['hauteur']));
-					$prod->appendChild($dom->createElement('largeur',       $item['largeur']));
-					$prod->appendChild($dom->createElement('livraison',     $reverse[0]));
-
-					// on crée un champ maquette pour chaque maquette trouvée dans le répertoire commençant par prod0-n°produit
-					$m = 0;
-					foreach (glob($targetDir.'prod'.$i.'-*.*') as $filepath) {
-						$m++;
-						$filename = pathinfo($filepath, PATHINFO_FILENAME);
-						$fileext  = pathinfo($filepath, PATHINFO_EXTENSION);
-						if ($fileext !== 'json')  $prod->appendChild($dom->createElement('maquette'.$m, $filename.'.'.$fileext));
-	        }
+				$keym1 = count($explode) - 1;
+				$keym2 = count($explode) - 2;
+				$keym3 = count($explode) - 3;
+				$keym4 = count($explode) - 4;
+				foreach ($explode as $key => $val) {
+					// on crée un champ option par ligne de la desc en excluant les 2 premières et les 4 dernières lignes pour éviter champs vides et redondance d'infos déjà envoyées dans 'détails', 'maquette', 'signature' et 'livraison'
+					if($key !== 0 && $key !== 1 && $key !==$keym1 && $key !==$keym2 && $key !==$keym3 && $key !==$keym4) $prod->appendChild($dom->createElement('option'.$key,  $val));
 				}
+
+				$reverse = array_reverse($explode); // inverser la desc pour récupérer les options maquettes signatures et livraison en positions -3 à -1
+
+				$prod->appendChild($dom->createElement('choixMaquette', $reverse[3]));
+				$prod->appendChild($dom->createElement('signature',     $reverse[2]));
+		    $prod->appendChild($dom->createElement('quantite',      $item['quantity']));
+		    $prod->appendChild($dom->createElement('hauteur',       $item['hauteur']));
+				$prod->appendChild($dom->createElement('largeur',       $item['largeur']));
+				$prod->appendChild($dom->createElement('livraison',     $reverse[0]));
+
+				// on crée un champ maquette pour chaque maquette trouvée dans le répertoire commençant par prod0-n°produit
+				$m = 0;
+				foreach (glob($targetDir.'prod'.$i.'-*.*') as $filepath) {
+					$m++;
+					$filename = pathinfo($filepath, PATHINFO_FILENAME);
+					$fileext  = pathinfo($filepath, PATHINFO_EXTENSION);
+					if ($fileext !== 'json')  $prod->appendChild($dom->createElement('maquette'.$m, $filename.'.'.$fileext));
+        }
 
 				// LIGNE DE TABLEAU TYPE POUR 1 PRODUIT
 				//----------------------------------------------------------------------
@@ -919,7 +917,7 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 					$view .= '<div class="prodAction">';
 
 						// affichage conditionnel bouton télécharger le gabarit
-						//----------------------------------------------------------------------
+						//------------------------------------------------------------------
 						$bis = preg_match_all('/bis/', $item['description'], $resultatbis);
 						$bis = count($resultatbis[0]);
 
@@ -927,14 +925,14 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 							$ref = $ref.'b';
 						}
 
-						//--------------------------------------------------------- gabarits pdf
+						//----------------------------------------------------- gabarits pdf
 						$rootpath = (__DIR__).'/gabarits/'.$ref.'.pdf'; // pour vérifier la présence des fichiers
 						$gpath = get_bloginfo('url').'/wp-content/plugins/fbshop/gabarits/'.$ref.'.pdf'; // lien de téléchargement
 						$lity = 'data-lity';
 						$s = '';
 						$stand = '';
 
-						//--------------------------- cas particuliers plusieurs gabarits zippés
+						//----------------------- cas particuliers plusieurs gabarits zippés
 						if($tente >= 1 || $item['name'] === 'Stand ExpoBag') {
 							$rootpath = (__DIR__).'/gabarits/'.$ref.'.zip'; // pour vérifier la présence des fichiers
 							$gpath = get_bloginfo('url').'/wp-content/plugins/fbshop/gabarits/'.$ref.'.zip'; // lien de téléchargement
@@ -974,17 +972,20 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 								$view .= '<div class="capt">';
 
 								if ($ext !== 'csv' && $ext !== 'xml' && $ext !== '') { // éliminer les extensions de fichiers non uploadées par le client
-									if ($ext == 'jpg' || $ext == 'png' || $ext == 'svg') {
+									if ($ext == 'jpg' || $ext == 'png') {
 									  $lity = 'data-lity';
-										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'/'.$file.'" alt="'.$file.'" />';
+										//$view .= '<img class="miniature" src="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'/'.$file.'" alt="'.$file.'" />';
+										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/icn_png.svg" alt="'.$file.'" />';
 									} else if ($ext == 'pdf') {
 										$lity = 'data-lity';
-										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/pdf.svg" alt="'.$file.'" />';
+										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/icn_pdf.svg" alt="'.$file.'" />';
 									} else if ($ext == 'psd') {
-										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/psd.svg" alt="'.$file.'" />';
-									} else {
-									  $view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/file.svg" alt="'.$file.'" />';
-	                }
+										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/icn_psd.svg" alt="'.$file.'" />';
+									} else if ($ext == 'ai' || $ext == 'eps' || $ext == 'svg') {
+									  $view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/icn_ai.svg" alt="'.$file.'" />';
+	                } else {
+										$view .= '<img class="miniature" src="'.get_bloginfo("url").'/wp-content/plugins/fbshop/images/icn_png.svg" alt="'.$file.'" />';
+									}
 									$view .= '<a href="'.get_bloginfo("url").'/uploaded/'.$idzamowienia.'/'.$file.'" class="viewmaq" '.$lity.'><i class="fa fa-eye"></i><span class="legend">'.$ext.'</span></a><form action="" method="POST"><input type="hidden" name="delid" value="'.$idzamowienia.'"/><input type="hidden" name="delname" value="'.$file.'"/><button onclick=\'if (confirm("'.esc_js( "Etes vous sûr de vouloir supprimer ce fichier ?" ).'")) {return true;} return false;\' class="delmaq"><i class="fa fa-trash-o"></i></button></form>';
 								}
 
@@ -1034,6 +1035,7 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 								<input type="hidden" name="nbm"      value="'.$nbm.'">
 								<input type="hidden" name="prodLine" value="'.$i.'">
 								<input type="hidden" name="orderId"  value="'.$idzamowienia.'">
+								<input type="hidden" name="bat"      value="'.$nobat.'">
 								<input type="file"   name="images"   id="file'.$i.'" class="inputfile" data-multiple-caption="{count} files selected" />
 
 								<label for="file'.$i.'">
@@ -1073,9 +1075,9 @@ function print_devis_details($products, $prolog, $epilog, $bottombar, $writable,
 			} // fin foreach (boucle produits)
 
 			//======================================================== ENREGISTRER XML
-			if (!$writable) {
-				$dom->save((__DIR__).'/../../../uploaded/'.$idzamowienia.'/'.$idzamowienia.'.xml');
-			}
+
+			$dom->save((__DIR__).'/../../../uploaded/'.$idzamowienia.'/'.$idzamowienia.'.xml');
+
 
 			// vérification code postal
 			//------------------------------------------------------------------------
@@ -1605,8 +1607,8 @@ function print_votre() {
 			$view .= '<tr>';
 			$view .= '<td class="lefttd">';
 			//if ($o->status != 6) {
-				$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">
- 				<i class="fa fa-arrow-circle-right"></i> Gérer <span class="disno960">la commande</span></button></form>';
+			$view .= '<form name="detailinfo" id="detailinfo" action="" method="GET"><input type="hidden" name="detail" value="'.$o->unique_id.'" /><button class="but_details" title="Télécharger des fichiers, Envoyer et voir les commentaires, Voir les maquettes, Imprimer les factures..." type="submit">
+			<i class="fa fa-arrow-circle-right"></i> Gérer <span class="disno960">la commande</span></button></form>';
 			//}
 			$view .= '</td>';
 			$view .= '<td class="tddesc"><div class="kontener">';
@@ -1778,6 +1780,9 @@ function print_status_form($status, $cmd) {
 	if ($status == 7) {
 		$formatted .= 'paiement en traitement';
 	}
+	if ($status == 8) {
+		$formatted .= 'fichier en traitement';
+	}
 	//$formatted .= '</button></form>';
 	return $formatted;
 }
@@ -1809,6 +1814,9 @@ function print_status($status) {
 	}
 	if ($status == 7) {
 		$formatted .= 'paiement en traitement';
+	}
+	if ($status == 8) {
+		$formatted .= 'fichier en traitement';
 	}
 	$formatted .= '</span>';
 	return $formatted;
@@ -1893,6 +1901,7 @@ function add_to_db() {
 
 		//------------------------------------------------vérification remise client
 		$uid = $user->id;
+		$revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_value = 'compte revendeur' AND uid = '$uid'");
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_name = 'client_remise' AND uid = '$uid'");
 		$client_remise = $exist_remise->att_value;
 
@@ -1903,8 +1912,9 @@ function add_to_db() {
 
 		$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
 
-		//-------------------------------------------s'il n'y a pas de remise client
-		if ((!$exist_remise || $client_remise == 0) && isRowEmpty($cat)) {
+		// s'il n'y a pas de remise client et que le client n'est pas revendeur,
+		// on applique les remises intégrées ou code promo
+		if (!$revendeur && (!$exist_remise || $client_remise == 0) && isRowEmpty($cat)) {
 
 			//-------------------------------------------------------Remises intégrées
 
@@ -1921,12 +1931,12 @@ function add_to_db() {
 
 			if(isset($_POST['codeProm'] )) {
 
-	      $products = $_SESSION['fbcart'];
-	      $codepromo = $_POST['codeProm'] ;
+	      $products   = $_SESSION['fbcart'];
+	      $codepromo  = $_POST['codeProm'] ;
 	      $codeisindb = $wpdb->get_row("SELECT code FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-	      $reduction = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
-	      $curdate = date("Y-m-d");
-	      $promoCat = $reduction->categorie;
+	      $reduction  = $wpdb->get_row("SELECT * FROM `$fb_tablename_promo` WHERE code='$codepromo'");
+	      $curdate    = date("Y-m-d");
+	      $promoCat   = $reduction->categorie;
 
 	      if($codeisindb) { // si le code entré est bien dans la bdd:
 	        if($totalHT >= $reduction->mini) { // si le total TTC est supérieur ou égal au minimum d'achat:
@@ -1973,13 +1983,13 @@ function add_to_db() {
     $calculTVA = $totalHTdeduit*0.200;
     $totalTTC = $totalHTdeduit+$calculTVA;
 
-		$calculRemise = str_replace(',', '', number_format($calculRemise, 2));
-    $calculCode = str_replace(',', '', number_format($calculCode, 2));
-		$totalHT = str_replace(',', '', number_format($totalHT, 2));
+		$calculRemise  = str_replace(',', '', number_format($calculRemise, 2));
+    $calculCode    = str_replace(',', '', number_format($calculCode, 2));
+		$totalHT       = str_replace(',', '', number_format($totalHT, 2));
 		$totalHTdeduit = str_replace(',', '', number_format($totalHTdeduit, 2));
-		$fraisPort = str_replace(',', '', number_format($fraisPort, 2));
-		$calculTVA = str_replace(',', '', number_format($calculTVA, 2));
-		$totalTTC = str_replace(',', '', number_format($totalTTC, 2));
+		$fraisPort     = str_replace(',', '', number_format($fraisPort, 2));
+		$calculTVA     = str_replace(',', '', number_format($calculTVA, 2));
+		$totalTTC      = str_replace(',', '', number_format($totalTTC, 2));
 
     //--------------------------------------------------------------------------
 
@@ -2001,16 +2011,15 @@ function add_to_db() {
 				$dodaj_nowyrabat = $wpdb->query("INSERT INTO `$fb_tablename_remisenew` VALUES (not null, '".$unique_id."', '".$client_remise."', '".$calculRemise."')");
 				if ($dodaj_nowyrabat) { }
 			}
-			$ktomakiete = 0;
-			$czyfbrobimakiete = 0;
+
 			$products = $_SESSION['fbcart'];
 
 			foreach ( $products as $products => $item ) {
 				$calculCat = '-';
 				$totalItem = str_replace(',', '.', $item['total']);
-	      $prixUnit = str_replace(',', '.', $item['prix']);
+	      $prixUnit  = str_replace(',', '.', $item['prix']);
 	      $totalItem = str_replace('€', '', $totalItem);
-	      $prixUnit = str_replace('€', '', $prixUnit);
+	      $prixUnit  = str_replace('€', '', $prixUnit);
 				$cat = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cr` WHERE uid =  '$uid'");
 
 				//------------------------------------vérification remise par catégories
@@ -2033,23 +2042,6 @@ function add_to_db() {
 						}
 					endforeach;
 				}
-				$wzorzec = '/j’ai déjà crée la maquette/';
-				$ktomak = preg_match_all($wzorzec, $item['description'], $wynik);
-				$ktomak = count($wynik[0]);
-
-				$find = '/je crée ma maquette en ligne/';
-				$maquette = preg_match_all($find, $item['description'], $resultat);
-				$maquette = count($resultat[0]);
-
-				if ($ktomak >= 1) {
-					$ktomakiete = 0;
-				}else if ($maquette >= 1) {
-					$ktomakiete = 2;
-				}else {
-					$ktomakiete = 1;
-				}
-				if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-				if ($ktomakiete == 2) $czyfbrobimakiete = 2;
 
 				$dodaj_produkt = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES (not null, '".$unique_id."', '".$item['rodzaj']."', '".$item['opis']."', '".$item['ilosc']."', '".$prixUnit."', '".str_replace(',', '.', $item['option'])."', '".$calculCat."', '".$totalItem."', '".$item['transport']."', '', '1', '".$item['hauteur']."', '".$item['largeur']."', '".$item['reference']."', '".$item['image']."')");
 			}
@@ -2057,28 +2049,20 @@ function add_to_db() {
 			if ($dodaj_produkt) {
 				unset($_SESSION['fbcart']);
 			}
-			if ($czyfbrobimakiete == 0) {
-				$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
-				$lettert = "Fonctionnement général de votre accès client";
-			} elseif  ($czyfbrobimakiete == 2){
-				$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Créer votre maquette grâce à notre application en ligne. <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
-				$lettert = "Fonctionnement général de votre accès client";
-			} else {
-				$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
-				$lettert = "Fonctionnement général de votre accès client";
-			}
+
+			$letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour et bienvenue sur France banderole !<br /><br />Conservez soigneusement le nom d\'utilisateur et mot de passe que vous avez choisi, ils vous serviront pour vous connecter à votre accès client et suivre en direct l\'évolution de vos devis et commandes.<br />En cliquant sur GERER VOTRE COMMANDE dans votre accès client, vous accédez à l\'interface de communication, vous pouvez alors :<br />- Envoyer ou créer vos maquettes (selon vos choix à la commande), envoyer vos fichiers ou explicatifs via le module de téléchargement (maximum 100mo). <br />- Envoyer des commentaires directement au service d\'infographie de France banderole et lire les réponses.<br />- Visualiser votre ou vos maquette(s) de validation (BAT) avant de procéder à votre règlement.<br />- Payer votre commande par carte bleue sécurisée en ligne, chèque ou virement bancaire.<br />- Suivre l\'expédition de votre colis et imprimer vos factures.<br /><br />Les délais de fabrication/livraison sont de 6 à 9 jours ouvrés maximum à compter de la réception de votre règlement.<br />Vous pouvez également contacter un conseiller commercial au 0442.401.401 pour mettre en place un délai Rush qui vous permet de faire passer votre commande en priorité. Elle sera alors fabriquée et expédiée en 24/48 ou 72H !<br />Dans l\'espoir d\'avoir répondu à vos premières questions, nous vous souhaitons une agréable navigation sur notre site web.<br /><br />Amicalement,<br />L\'équipe France banderole.<br />https://www.france-banderole.com</div><br /><div style="font-family:calibri;font-size:10px">NB : ce mail est un mail généré automatiquement. Merci de ne pas y répondre directement.<br /><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailFooterGeneral.png" alt="information@france-banderole.com - 0442 40401" width="432px" /></div>';
+			$lettert = "Fonctionnement général de votre accès client";
+
 			function wpse27856_set_content_type(){
 			  return "text/html";
 			}
 			add_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
 			$header = 'From: France Banderole <information@france-banderole.com>';
   		$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
-      //mail($user->email, $lettert, $letter, $header);
+
       wp_mail($user->email, $lettert, $letter);
 			remove_filter( 'wp_mail_content_type','wpse27856_set_content_type' );
 		}
-
-		//ajout header mail <a href=\'https://www.france-banderole.com\'><img src=\'https://www.france-banderole.com/wp-content/plugins/fbshop/images/printlogo.jpg\'></a>
 
 		/* Ajout de l'indicateur "retrait atelier" dans le champ "type" et "yes" dans le champ value de la table "fbs_cf" */
 		if($retrait_atelier !== false){
@@ -2144,16 +2128,6 @@ function add_to_db() {
 							addslashes($_SESSION['loggeduser']->l_city)."', '".
 							addslashes($_SESSION['loggeduser']->l_phone)."')");
 			}
-			/* Enregistrement de l'adresse du relais colis dans l'adresse de livraison utilisateur*/
-			/*$updateuserZZ = $wpdb->query("UPDATE `$fb_tablename_users` SET
-							l_name = '".$_SESSION['loggeduser']->l_name."',
-							l_comp = '".$_SESSION['loggeduser']->l_comp."',
-							l_address = '".$_SESSION['loggeduser']->l_address."',
-							l_code = '".$_SESSION['loggeduser']->l_code."',
-							l_city = '".$_SESSION['loggeduser']->l_city."',
-							l_phone = '".$_SESSION['loggeduser']->f_phone."'
-								   WHERE id = '$uid'");
-			*/
 		}
 		/* FIN Ajout de l'indicateur "relaiscolis" dans la table  "fbs_cf" & ajout adresse du relais colis dans la table "fbs_address" */
 

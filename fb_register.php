@@ -137,6 +137,13 @@ function get_inscription() {
 
 			} else {
 				$kod = uniqid(rand());
+				if (!empty($f_porte)) {
+					$f_address = $f_address.'| '.$f_porte;
+				}
+				if (!empty($l_porte)) {
+					$l_address = $l_address.'| '.$l_porte;
+				}
+
 				$dodaj = $wpdb->query("INSERT INTO `$fb_tablename_users` VALUES (not null, '".$login."', '".$email."', '".$pass."', '".$f_name."', '".$f_comp."', '".$f_address."', '".$f_code."', '".$f_city."', '".$f_phone."', '".$l_name."', '".$l_comp."', '".$l_address."', '".$l_code."', '".$l_city."', '".$l_phone."', '1', '".$kod."', '', '".$newslet."')");
 
 				if ($dodaj) { //dodaj=ajouter

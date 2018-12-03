@@ -35,6 +35,7 @@
     }
   </script>
 </head>
+
 <body id="#body">
 <div id="top">
   <?php
@@ -104,6 +105,15 @@
           <p class="rmail">Ce reçu vous a été envoyé par mail à '.$customerEmail.'</p>
         </div>';
 
+        $setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$orderId'");
+
+        if ($setorder->status < '2' || $setorder->status > '6') {
+          // si status attente/attente paiment ou paiement en traitement - passer au statut 2 payé
+          $apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='2' WHERE unique_id='$orderId'");
+          // enregistrement de la date de paiement
+          $adpd = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$orderId', 'paydate', '$transactionDateTime')");
+        }
+
         $letter = '<div style="font-family:calibri"><a href="https://www.france-banderole.com" title="entete-france-banderole" target=""><img src="https://www.france-banderole.com/wp-content/plugins/fbshop/images/mailHeader.png" alt="entete-france-banderole" width="100%" align="none"></a><br></div><div style="font-family:calibri">Bonjour,<br /><br />Votre paiement par carte bancaire pour France Banderole a bien été enregistré. Voici votre reçu :<br /><br />
         <div id="receipt">
           Date de transaction : '.$paydate.'<br />
@@ -118,15 +128,6 @@
 				$header = 'From: France Banderole <information@france-banderole.com>';
   			$header .= "\nContent-type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
         wp_mail($customerEmail, 'Reçu paiement pour France Banderole', stripslashes($letter),$header);
-
-        $setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$orderId'");
-
-        if ($setorder->status < '2' || $setorder->status == '7') {
-          // si status attente/attente paiment ou paiement en traitement - passer au statut 2 payé
-          $apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='2' WHERE unique_id='$orderId'");
-          // enregistrement de la date de paiement
-          $adpd = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$orderId', 'paydate', '$transactionDateTime')");
-        }
 
       } else if ($responseCode == '90' || $responseCode == '97' || $responseCode == '99') { // si erreur serveur banque
         echo '

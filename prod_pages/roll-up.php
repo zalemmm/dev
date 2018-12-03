@@ -112,9 +112,9 @@
 										<div class="cornfire"><i class="fa fa-fire-extinguisher" aria-hidden="true"></i></div>
 										<i class="fa fa-sticky-note fared" aria-hidden="true"></i><span>Dickson Jet 520 M1</span>
 									</div>
-									<div @mouseover="hoPw(9,'100% écologique M1');" @mouseout="hout(9)" v-tooltip.bottom="$global.beco" @click="reset(); selectSupport('100% écologique M1');" v-if="notfirst && opeco">
+									<div @mouseover="hoPw(9,'100% écologique M1 dos noir');" @mouseout="hout(9)" v-tooltip.bottom="$global.beco" @click="reset(); selectSupport('100% écologique M1 dos noir');" v-if="notfirst">
 										<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
-										<i class="fa fa-sticky-note fagreen" aria-hidden="true"></i><span>100% écologique M1</span>
+										<i class="fa fa-sticky-note fagreen" aria-hidden="true"></i><span>100% écologique M1 dos noir</span>
 									</div>
 									<!--<div @mouseover="hoPw(9,'Capotoile 320 M1 Ecocert');" @mouseout="hout(9)" v-tooltip.bottom="$global.capo" @click="reset(); selectSupport('capotoile');" v-if="notfirst && opcapo">
 										<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
@@ -374,5 +374,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.roll-up.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=3.0"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/roll-up.vue.js?v=3.0"></script>

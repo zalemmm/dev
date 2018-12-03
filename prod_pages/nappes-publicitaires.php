@@ -353,4 +353,4 @@
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
 <script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.1"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.nappes-publicitaires.js?v=2.2"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/nappes-publicitaires.vue.js?v=2.2"></script>

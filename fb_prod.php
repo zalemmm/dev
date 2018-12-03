@@ -306,7 +306,7 @@ function generate_page ($page, $pageid) {
 		$imghead3='kakemonos3';
 		$mini='komadur';
 		$info_title='Panneaux PVC rigide - panneau Kömadur 2mm green PVC rigide';
-		$info_info='<span class="prezHide">Les enseignes et panneaux pas cher France banderole fabriqués en Kömadur sont au meilleur rapport qualité/prix. Fabriqué en PVC extrudé de surface lisse et satinée, le Kömadur est un produit haut de gamme qui bénéficie de toutes les avancées techniques et savoir-faire de KÖMMERLING. Impression directe UV, avec lamination anti-UV ou anti-graffiti possible pour une protection optimale. <b>Nos panneaux sont livrées en mètre linéaire, emballées et prêt à monter.</b> Option envoi en un seul panneau possible jusqu\'à 150x300cm</span>';
+		$info_info='<span class="prezHide">Les enseignes et panneaux pas cher France banderole fabriqués en Kömadur sont au meilleur rapport qualité/prix. Fabriqué en PVC extrudé de surface lisse et satinée, le Kömadur est un produit haut de gamme qui bénéficie de toutes les avancées techniques et savoir-faire de KÖMMERLING. Impression directe UV, avec lamination anti-UV ou anti-graffiti possible pour une protection optimale. <b>Nos panneaux sont livrées en mètre linéaire, emballées et prêt à monter.</b> Option envoi en un seul panneau possible jusqu\'à 100x200cm</span>';
 		$formularz = get_komadur_form();
 	}
 
@@ -632,7 +632,7 @@ Vous pourrez l’équiper d’une banderole publicitaire pour une installation e
 //==============================================================================
 function contact_advert() {
 	$plugin_url=get_bloginfo('url').'/wp-content/plugins/fbshop/';
-	$view .= '<div id="contact_advert"><a href="tel:+33442401401"><img src="'.$plugin_url.'images/contact_info.jpg" alt="contact with us" /></a></div>';
+	$view .= '<div id="contact_advert"><a href="tel:+33442401401"><img src="'.$plugin_url.'images/contact_info.jpg" alt="rush banderole: contactez nous pour les délais livraison" /></a></div>';
 	return $view;
 }
 
@@ -752,7 +752,6 @@ function get_votre() {
   $promo = $_POST['codeProm'];
 
 	if (fb_is_logged()) {
-
 		if (isset($_POST['votrecompte']) && isset($_SESSION['fbcart'])) {
 
 			add_to_db(); // enregistrement de la commande
@@ -763,107 +762,7 @@ function get_votre() {
 		}
 
 	} else {
-
 		if (!(isset($_POST['logme']))) {
-
-      //si vous avez fait des paiements et l'utilisateur connecté hors cours
-    	/*if (isset($_GET['paid']) && isset($_POST[DATA])) {
-      	// RÈcupÈration de la variable cryptÈe DATA
-      	$message="message=".$_POST[DATA];
-      	$pathfile="pathfile=/home/frbanderolecom/www/sherlock/param/pathfile";
-      	$path_bin = "/home/frbanderolecom/www/sherlock/bin/response";
-      	$result=exec("$path_bin $pathfile $message");
-      	$tableau = explode ("!", $result);
-
-      	$code = $tableau[1];
-      	$error = $tableau[2];
-      	$merchant_id = $tableau[3];
-      	$merchant_country = $tableau[4];
-      	$amount = $tableau[5];
-      	$transaction_id = $tableau[6];
-      	$payment_means = $tableau[7];
-      	$transmission_date= $tableau[8];
-      	$payment_time = $tableau[9];
-      	$payment_date = $tableau[10];
-      	$response_code = $tableau[11];
-      	$payment_certificate = $tableau[12];
-      	$authorisation_id = $tableau[13];
-      	$currency_code = $tableau[14];
-      	$card_number = $tableau[15];
-      	$cvv_flag = $tableau[16];
-      	$cvv_response_code = $tableau[17];
-      	$bank_response_code = $tableau[18];
-      	$complementary_code = $tableau[19];
-      	$complementary_info= $tableau[20];
-      	$return_context = $tableau[21];
-      	$caddie = $tableau[22];
-      	$receipt_complement = $tableau[23];
-      	$merchant_language = $tableau[24];
-      	$language = $tableau[25];
-      	$customer_id = $tableau[26];
-      	$order_id = $tableau[27];
-      	$customer_email = $tableau[28];
-      	$customer_ip_address = $tableau[29];
-      	$capture_day = $tableau[30];
-      	$capture_mode = $tableau[31];
-      	$data = $tableau[32];
-      	$logfile="/home/frbanderolecom/www/sherlock/log/logfile.log";
-      	$fp=fopen($logfile, "a");
-
-       	if (( $code == "" ) && ( $error == "" ) ) {
-      	  fwrite($fp, "erreur appel response\n");
-        	echo "executable response non trouve $path_bin\n";
-       	} else if ( $code != 0 ){
-          fwrite($fp, " API call error.\n");
-          fwrite($fp, "Error message :  $error\n");
-       	}	else {
-        	fwrite( $fp, "merchant_id : $merchant_id\n");
-        	fwrite( $fp, "merchant_country : $merchant_country\n");
-        	fwrite( $fp, "amount : $amount\n");
-        	fwrite( $fp, "transaction_id : $transaction_id\n");
-        	fwrite( $fp, "transmission_date: $transmission_date\n");
-        	fwrite( $fp, "payment_means: $payment_means\n");
-        	fwrite( $fp, "payment_time : $payment_time\n");
-        	fwrite( $fp, "payment_date : $payment_date\n");
-      		fwrite( $fp, "response_code : $response_code\n");
-      		fwrite( $fp, "payment_certificate : $payment_certificate\n");
-      		fwrite( $fp, "authorisation_id : $authorisation_id\n");
-      		fwrite( $fp, "currency_code : $currency_code\n");
-      		fwrite( $fp, "card_number : $card_number\n");
-      		fwrite( $fp, "cvv_flag: $cvv_flag\n");
-      		fwrite( $fp, "cvv_response_code: $cvv_response_code\n");
-      		fwrite( $fp, "bank_response_code: $bank_response_code\n");
-      		fwrite( $fp, "complementary_code: $complementary_code\n");
-      		fwrite( $fp, "complementary_info: $complementary_info\n");
-      		fwrite( $fp, "return_context: $return_context\n");
-      		fwrite( $fp, "caddie : $caddie\n");
-      		fwrite( $fp, "receipt_complement: $receipt_complement\n");
-      		fwrite( $fp, "merchant_language: $merchant_language\n");
-      		fwrite( $fp, "language: $language\n");
-      		fwrite( $fp, "customer_id: $customer_id\n");
-      		fwrite( $fp, "order_id: $order_id\n");
-      		fwrite( $fp, "customer_email: $customer_email\n");
-      		fwrite( $fp, "customer_ip_address: $customer_ip_address\n");
-      		fwrite( $fp, "capture_day: $capture_day\n");
-      		fwrite( $fp, "capture_mode: $capture_mode\n");
-      		fwrite( $fp, "data: $data\n");
-      		fwrite( $fp, "-------------------------------------------\n");
-
-      		fclose ($fp);
-      		if($bank_response_code=='00') {
-      			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$order_id'");
-      			if ($setorder->status == '1') {
-      				$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='2' WHERE unique_id='$order_id'");
-      				if (!$apdejt) {
-      					$view .= 'Erreur appel response. Contactez l\'administrateur.';
-      				} else {
-      					$view .= 'Votre paiement est accepté. Merci de vous connecter à votre compte.';
-      				}
-      			}
-      		}
-      	}
-    	}*/
-
 			$view .= get_acces_panel(0);
 		}
 	}
@@ -884,34 +783,13 @@ function get_verification() {
 
 			$epilog_a .= '<a href="'.get_bloginfo("url").'/votre-panier/?cart=clear" id="but_annuler"><i class="fa fa-times-circle" aria-hidden="true"></i> Annuler la commande</a>';
 			$epilog_b .= '<a href="'.get_bloginfo("url").'/votre-panier/" id="but_modifier"><i class="fa fa-wrench" aria-hidden="true"></i> Modifier le devis</a>';
-			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+			$epilog_c .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" /><input type="hidden" name="codeProm" value="'.$promo.'" /><button id="but_validerdevis" type="submit">Enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
 			$epilog_d .= contact_advert();
-			$epilog_0 .= '<div id="addresses"><div class="address_tab_name">ADRESSE DE LIVRAISON</div><div class="address_tab_name">ADRESSE DE FACTURATION</div>';
-			$explode = explode('|', $user->f_address);
-			$f_address = $explode['0'];
-			$f_porte = $explode['1'].'<br />';
-			$explode2 = explode('|', $user->l_address);
-			$l_address = $explode2['0'];
-			$l_porte = $explode2['1'].'<br />';
-			if ( ($l_name == '') && ($l_address == '') ) {
-				$epilog_0 .= '<div class="address_tab_content">'.$user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city.'</div>';
-			} else {
-				$epilog_0 .= '<div class="address_tab_content">'.$user->l_name.'<br />'.$user->l_comp.'<br />'.$l_address.'<br />'.$l_porte.$user->l_code.'<br />'.$user->l_city.'</div>';
-			}
-			$epilog_0 .= '<div class="address_tab_content">'.$user->f_name.'<br />'.$user->f_comp.'<br />'.$f_address.'<br />'.$f_porte.$user->f_code.'<br />'.$user->f_city.'</div></div>';
+			$epilog_0 .= '</div>';
 		}
 
-		if($_SESSION['isburaliste']){
-			$lien_catalogue = get_bloginfo("url") . "/buralistes";
-		}
-		elseif($_SESSION['ismma']){
-			$lien_catalogue = get_bloginfo("url") . "/mma";
-		}else{
-			$lien_catalogue = get_bloginfo("url") . "#tarifs";
-		}
+		$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.get_bloginfo("url") . '#tarifs" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;
 
-		/*$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.get_bloginfo("url").'#tarifs" id="but_ajouter"></a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;*/
-		$epilog .= $epilog_0.'<div id="fbcart_buttons2">'.$epilog_a.'<a href="'.$lien_catalogue.'" id="but_ajouter"><i class="fa fa-plus-square" aria-hidden="true"></i> Ajouter un article</a>'.$epilog_b.$epilog_c.'</div>'.$epilog_d;
 		$view .= print_devis_verification($products, $prolog, $epilog);
 
 	} else {
@@ -1124,14 +1002,13 @@ function print_devis_verification($products, $prolog, $epilog) {
                 if($reduction->remise != 0) // si la remise est en pourcentage
                 $calculCode += ($prixItem)*($reduction->remise/100); // calcule le % sur le total HT des produits de la catégorie
                 else // si la remise est en euros
-                $calculCode += $reduction->reduction; // applique la réduction en euros
-
+                $calculCode += $reducEu; // applique la réduction en euros
 
               }else{ //----------si la réduction s'applique à tous les produits:
                 if($reduction->remise != 0) // si la remise est en pourcentage
                 $calculCode += ($totalHT)*($reduction->remise/100); // calcule le % sur le montant HT moins l'éventuelle remise
                 else // si la remise est en euros
-                $calculCode += $reducEu; // applique la réduction en euros
+                $calculCode += $reduction->reduction; // applique la réduction en euros
               }
 
               if ($totalHT < 50)
@@ -1219,7 +1096,7 @@ function get_devis() {
 		$relais_colis = recursive_array_search("relais colis", $_SESSION['fbcart']);
 
  		if($relais_colis !== false){
-			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
+			$epilog .= '<a href="#" id="but_continuer" onclick="callbackSelectionRelaisClick();return false;">Enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></a>';
 
 		}else{
       // soit l'utilisateur est connecté et il enregistre son panier directement(1),
@@ -1229,11 +1106,11 @@ function get_devis() {
       if (!empty($_SESSION['loggeduser'])) {
         $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/vos-devis/" method="post"><input type="hidden" name="votrecompte" />
         <input type="hidden" name="codeProm" value="'.$promo.'" />
-        <button id="but_validerdevis" type="submit">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+        <button id="but_validerdevis" type="submit">Enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }else{
         $epilog .= '<form name="validerdevis" id="validerdevis" action="'.get_bloginfo('url').'/verification/" method="post"><input type="hidden" name="votrecompte" />
         <input type="hidden" name="codeProm" value="'.$promo.'" />
-        <button id="but_validerdevis" type="submit">Continuer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
+        <button id="but_validerdevis" type="submit">Enregistrer <i class="fa fa-caret-right" aria-hidden="true"></i></button></form>';
       }
 
 		}
@@ -1506,11 +1383,11 @@ function print_devis($products, $prolog, $epilog) {
                 }else{ // si la réduction s'applique à tous les produits:
                   if($reduction->remise != 0) { // si la remise est en pourcentage
                     $calculCode += ($totalHT)*($reduction->remise/100); // calcule le % sur le montant HT moins l'éventuelle remise
-                    $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur l\'ensemble de votre commande, vous économisez enn tout <strong>'.number_format($calculCode, 2).'&euro;</strong>!</div>';
+                    $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->remise.'%</strong> sur l\'ensemble de votre commande, vous économisez en tout <strong>'.number_format($calculCode, 2).'&euro;</strong>!</div>';
 
                   } else {  // si la remise est en euros
                     $calculCode += $reduction->reduction; // applique la réduction en euros
-                    $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->reduction.' €</strong> sur l\'ensemble de votre commande.</div>, vous économisez enn tout <strong>'.number_format($calculCode, 2).'&euro;</strong>!</div>';
+                    $checkcode = '<div class="box_info">Ce code applique une réduction de <strong>'.$reduction->reduction.' €</strong> sur l\'ensemble de votre commande.</strong>, vous économisez en tout <strong>'.number_format($calculCode, 2).'&euro;</strong>!</div>';
                   }
                 }
                 if ($totalHT < 50)
@@ -1532,9 +1409,6 @@ function print_devis($products, $prolog, $epilog) {
 
       }
     }
-
-
-
 
     //--------------------------------------------------------------------------
 
@@ -1571,8 +1445,7 @@ function print_devis($products, $prolog, $epilog) {
       <p>'.$checkcode.'</p>';
 
     if (!empty($_SESSION['loggeduser'])){
-      //shorten url
-      //$urlinput=mysqli_real_escape_string($full);
+
       // désactiver l'image pour pas l'intégrer dans l'url
       $prods = $_SESSION['fbcart'];
       foreach(array_keys($prods) as $key) {
@@ -1644,229 +1517,7 @@ function print_devis($products, $prolog, $epilog) {
 	return $view;
 }
 
-////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////// plv extérieur //
-
-function get_plv() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_plv";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
-
-
-	$view .= '
-  <script type="text/javascript">
-  function rushcheckbox24($type) {
-    var rush24 = document.getElementById("rush24"+$type);
-    var rush72 = document.getElementById("rush72"+$type);
-    if (rush72.checked == true) {
-      rush72.checked = false;
-    }
-  }
-  function rushcheckbox72($type) {
-    var rush24 = document.getElementById("rush24"+$type);
-    var rush72 = document.getElementById("rush72"+$type);
-    if (rush24.checked == true) {
-      rush24.checked = false;
-    }
-  }
-  </script>
-	';
-
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-
-  $view .= '<div id="plvLayout">';
-
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p['price'], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p['ceddre']).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p['photo_mini']) {
-			if ($p['photo']) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/'.$p['photo'].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" />';
-			}
-		}
-    $path = get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p['photo_mini'];
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
-    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-
-		if ($p['ceddre'] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p['ceddre'].'" /></div>';
-		}
-		if ($p['subname'] != '') {
-			$p['subname'] = str_replace('"', '&ldquo;', $p['subname']);
-			$subtitle = '<span class="subtitle">'.$p['subname'].'<br /></span>';
-			$sname = $p['subname'].'<br />';
-		}
-
-    $view .= '
-    <div class="plvItem">
-      <div class="accname prom_title">'.$p['name'].'</div>
-      <div class="accmini imgtd">'.$viewmini.'</div>
-      <div class="accdesc prom_therest" id="desc'.$licznik.'">'.stripslashes($subtitle.$p['description']).'</div>
-  		<div class="accprice prom_price">'.$n_price.' <span class="plusopt">+ options:</span></div>
-      <div class="accadd">
-        <form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-
-          <div class="sqdf">
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-          </div>
-
-          <div class="plvmakcon">
-      			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-      			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-      		</div>
-
-          <div class="pilosc"  data-trigger="spinner">
-            <input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
-            <div class="spinner-controls plvpromo">
-             <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-             <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
-            </div>
-          </div>
-
-          <input type="hidden" name="addtocart2" value="addtocart2" />
-          <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
-          <input type="hidden" name="isplv" value="true" />
-          <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].'" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
-      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
-    		</form>
-      </div>
-    </div>';
-
-	endforeach;
-
-  $view .= '</div>';
-
-	return $view;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////// plv intérieur //
-
-function get_plv_int() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_plv_int";
-	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
-	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
-	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
-
-	$view .= '
-  <script type="text/javascript">
-  function rushcheckbox24($type) {
-    var rush24 = document.getElementById("rush24"+$type);
-    var rush72 = document.getElementById("rush72"+$type);
-    if (rush72.checked == true) {
-      rush72.checked = false;
-    }
-  }
-  function rushcheckbox72($type) {
-    var rush24 = document.getElementById("rush24"+$type);
-    var rush72 = document.getElementById("rush72"+$type);
-    if (rush24.checked == true) {
-      rush24.checked = false;
-    }
-  }
-  </script>
-	';
-
-	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
-	$licznik = 0;
-
-  $view .= '<div id="plvLayout">';
-
-	foreach ($promotions as $p) :
-		$licznik++;
-		$n_price = str_replace('.', ',',  number_format($p['price'], 2)).' &euro;';
-		$n_ceddre = str_replace('.', ',', $p['ceddre']).' &euro;';
-		$viewmini = '';
-		$cedd = '';
-		$subtitle = '';
-		$sname = '';
-
-		if ($p['photo_mini']) {
-			if ($p['photo']) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/'.$p['photo'].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" /></a>';
-			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" />';
-			}
-		}
-    $path = get_bloginfo("url").'/wp-content/uploads/shopfiles/plv/mini/'.$p['photo_mini'];
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
-    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-		/*if ($p['ceddre'] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p['ceddre'].'" /></div>';
-		}*/
-		if ($p['subname'] != '') {
-			$p['subname'] = str_replace('"', '&ldquo;', $p['subname']);
-			$subtitle = '<span class="subtitle">'.$p['subname'].'<br /></span>';
-			$sname = $p['subname'].'<br />';
-		}
-
-    $view .= '
-    <div class="plvItem">
-      <div class="accname prom_title">'.$p['name'].'</div>
-      <div class="accmini imgtd">'.$viewmini.'</div>
-      <div class="accdesc prom_therest" id="desc'.$licznik.'">'.stripslashes($subtitle.$p['description']).'</div>
-  		<div class="accprice prom_price">'.$n_price.' <span class="plusopt">+ options:</span></div>
-      <div class="accadd">
-        <form name="cart_form'.$licznik.'"  data-cartform="'.$licznik.'" class="prom_form" action="'.get_bloginfo("url").'/votre-panier/" method="post" onsubmit="return czyilosc('.$licznik.')">
-
-          <div class="sqdf">
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="colis' . $licznik . '" name="colis" value="1" onchange="colisrevendeurclick(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_colis' . $licznik . '" for="colis' . $licznik . '">Colis revendeur</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextcolis' . $licznik . '" style="visibility:hidden;">Vous permet d’avoir une expédition neutre sans étiquetage France banderole.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush24' . $licznik . '" name="rush24" value="1" onchange="rushcheckbox24(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush24' . $licznik . '" for="rush24' . $licznik . '">Délai Rush 24/48H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextRush24' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré le lendemain ou surlendemain avant 13h00 par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="rush72' . $licznik . '" name="rush72" value="1" onchange="rushcheckbox72(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_rush72' . $licznik . '" for="rush72' . $licznik . '">Délai Rush 72H</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrush72' . $licznik . '" style="visibility:hidden;">Pour toute commande passée et réglée avant midi du lundi au jeudi, le colis sera livré 72H après par TNT Express à l’adresse indiquée par le client.</span></span></span>
-            <span class="plvoptionsingle"><input type="checkbox" class="form-checkbox" id="relais' . $licznik . '" name="relais" value="1" onchange="relaisColischeckbox15(' . $licznik . ');refreshBoxs(' . $licznik . ');" /><label class="form-label-left" id="label_relais' . $licznik . '" for="relais' . $licznik . '">Dépot en relais colis</label><span class="fa fa-question-circle helpButton"><span class="helpText" id="helpTextrelais' . $licznik . '" style="visibility:hidden;">Vous ne souhaitez pas être livré à une adresse professionnelle ou personnelle. Votre commande sera déposée dans le relais colis le plus proche de l adresse souhaitée. Vous serez informé du nom et de l adresse du point de dépot dans votre accès client la veille de l expedition.</span></span></span>
-          </div>
-
-          <div class="plvmakcon">
-      			<div class="plvmak"><input type="radio" name="projectmak" value="fb" /> France banderole crée la maquette</div>
-      			<div class="plvmak1"><input type="radio" name="projectmak" value="us" checked="checked" /> j’ai déjà crée la maquette</div>
-      		</div>
-
-          <div class="pilosc"  data-trigger="spinner">
-            <input type="text" name="ilosc" id="nummo' . $licznik . '" class="inp_ilosc" value="" data-rule="quantity" />
-            <div class="spinner-controls plvpromo">
-             <a href="#" data-spin="up" onclick="JKakemono.czyscpola();"><i class="fa fa-plus" aria-hidden="true"></i></a>
-             <a href="#" data-spin="down" onclick="JKakemono.czyscpola();"><i class="fa fa-minus" aria-hidden="true"></i></a>
-            </div>
-          </div>
-
-          <input type="hidden" name="addtocart2" value="addtocart2" />
-          <input type="hidden" name="rodzaj" value="'.$p['name'].'" />
-          <input type="hidden" name="isplv" value="true" />
-          <input type="hidden" name="opis1" value="'.$p['subname'].'" /><input type="hidden" name="opis2" value="'.$p['description'].'" />
-          <input type="hidden" name="prix" value="'.$p['price'].'" /><input type="hidden" name="transport" value="'.$p['frais'].'" /> <input type="hidden" name="reference" value="'.$p['ref'].'" /><input type="hidden" name="image" value="'.$base64.'" />
-      		<button data-cartbtn="'.$licznik.'" type="submit" class="prom_sub"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Ajouter</button>
-    		</form>
-      </div>
-    </div>';
-
-	endforeach;
-
-	$view .= '</div>';
-
-	return $view;
-}
-
-function Change() {
+/*function Change() {
 	if (document.getElementById("fb").checked) {
 	'document.getElementById("madiv").style.display="block"';
 	}
@@ -1876,37 +1527,64 @@ function Change() {
 	if (document.getElementById("us").checked) {
 	'document.getElementById("madiv").style.display="none"';
 	}
+}*/
+
+
+//================================================================ plv extérieur
+function get_plv() {
+	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
+	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f10.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Exterieur - Intérieur - Accessoires</span><br />Toutes les PLV extérieures et intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
+
+  $view .= plv_page_model('fbs_plv','plv');
+	return $view;
 }
 
-///////////////////////////////////////////////////////////////////// promotions
+//================================================================ plv intérieur
+function get_plv_int() {
+	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
+	$view .= '<h1 class="h1product">PLV Exterieur - Intérieur - Stop trottoir - Chevalet - Accessoires pose - Cadre Alu</h1><hr />';
+	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/f22.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PLV Intérieur - Accessoires</span><br />Toutes les PLV intérieur de France banderole ont été sélectionnées pour leur simplicité d\'utilisation et leur robustesse.<br />Nos PLV sont livrées complètes et prêtes à monter, avec vos visuels imprimés en quadri haute définition compris dans nos tarifs.</div></div>';
 
+  $view .= plv_page_model('fbs_plv_int','plv');
+  return $view;
+}
+
+//=================================================================== promotions
 function get_acc() {
-	global $wpdb;
-	$prefix = $wpdb->prefix;
-	$fb_tablename_promo = $prefix."fbs_acc";
 	$plugin_url = get_bloginfo("url").'/wp-content/plugins/fbshop/';
 	$view .= '<h1>Promotions kit banderole publicitaire et mini banderole</h1><hr />';
 	$view .= '<div id="top_info"><div class="front"><img class="alignleft" src="'.$plugin_url.'images/facc.png" alt="" /></div><div id="top_info_info2"><span class="info_nag">PROMOTIONS</span><br />Les offres promotionnelles présentées ont été étudiées pour répondre à vos besoins de communication à petite et grande échelle. Nous avons selectionnés les produits correspondants aux demandes récurrentes de nos clients dans le meilleur rapport qualité/prix. toutes les offres sont entendues : imprimées quadri recto.</div></div>';
 
-	$view .= '<table id="promotions_table" cellspacing="0">';
-	$view .= '
-		<script type="text/javascript">
-		function rushcheckbox24($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush72.checked == true) {
-				rush72.checked = false;
-			}
-		}
-		function rushcheckbox72($type) {
-			var rush24 = document.getElementById("rush24"+$type);
-			var rush72 = document.getElementById("rush72"+$type);
-			if (rush24.checked == true) {
-				rush24.checked = false;
-			}
-		}
-		</script>
-	';
+	$view .= plv_page_model('fbs_acc','acc');
+	return $view;
+}
+
+//                                                     modèle pages plv - promos
+//==============================================================================
+
+function plv_page_model($table, $folder) {
+  global $wpdb;
+	$prefix = $wpdb->prefix;
+	$fb_tablename_promo = $prefix.$table;
+
+  $view .= '<script type="text/javascript">
+    function rushcheckbox24($type) {
+      var rush24 = document.getElementById("rush24"+$type);
+      var rush72 = document.getElementById("rush72"+$type);
+      if (rush72.checked == true) {
+        rush72.checked = false;
+      }
+    }
+    function rushcheckbox72($type) {
+      var rush24 = document.getElementById("rush24"+$type);
+      var rush72 = document.getElementById("rush72"+$type);
+      if (rush24.checked == true) {
+        rush24.checked = false;
+      }
+    }
+  </script>';
+
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
 	$licznik = 0;
 
@@ -1923,19 +1601,16 @@ function get_acc() {
 
 		if ($p['photo_mini']) {
 			if ($p['photo']) {
-				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/'.$p['photo'].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" /></a>';
+				$viewmini = '<a href="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/'.$folder.'/'.$p['photo'].'" target="_blank"><img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/'.$folder.'/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" /></a>';
 			} else {
-				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" />';
+				$viewmini = '<img src="'.get_bloginfo("url").'/wp-content/uploads/shopfiles/'.$folder.'/mini/'.$p['photo_mini'].'" alt="'.$p['name'].'" />';
 			}
 		}
-    $path = get_bloginfo("url").'/wp-content/uploads/shopfiles/acc/mini/'.$p['photo_mini'];
+    $path = get_bloginfo("url").'/wp-content/uploads/shopfiles/'.$folder.'/mini/'.$p['photo_mini'];
     $type = pathinfo($path, PATHINFO_EXTENSION);
     $data = file_get_contents($path);
     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
 
-		if ($p['ceddre'] != '') {
-			$cedd = '<div class="prom_box"><label class="prom_box_label">RECYCLER LES BACHES</label><input class="prom_box_box" type="checkbox" name="ceddre" value="'.$p['ceddre'].'" /></div>';
-		}
 		if ($p['subname'] != '') {
 			$p['subname'] = str_replace('"', '&ldquo;', $p['subname']);
 			$subtitle = '<span class="subtitle">'.$p['subname'].'<br /></span>';
@@ -1981,15 +1656,14 @@ function get_acc() {
       </div>
     </div>';
 
-		endforeach;
+	endforeach;
 
 	$view .= '</div>';
-
 	return $view;
 }
 
-///////////////////////////////////////////////////////////////////// accessoires
-
+//                                  ACCESSOIRES (produits connexes ajout panier)
+//==============================================================================
 function get_accessoires($cat) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
@@ -2048,12 +1722,11 @@ function get_accessoires($cat) {
 		endforeach;
 
 	$view .= '</div>';
-
 	return $view;
 }
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////// validation BAT //
 
+//                                                                validation BAT
+//==============================================================================
 function get_valider_bat() {
 	global $wpdb;
 	$prefix = $wpdb->prefix;

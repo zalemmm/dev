@@ -385,5 +385,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.7"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.akilux3_5.js?v=2.7"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=3.0"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/akilux3_5mm.vue.js?v=3.0"></script>

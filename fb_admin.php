@@ -17,7 +17,6 @@ function fb_admin_init() {
 
   add_action('admin_menu', 'fbs_admin_menu');
   add_action('admin_head', 'fbs_admin_head');
-
 }
 
 function fbs_admin_menu() {
@@ -96,17 +95,12 @@ function get_ratings($type_prod, $nb_comment=2) {
 
   /////////////////////////////////////////////////////////// affichage notes //
   $view = '<div style="clear: both;"></div>
-    <div id="rating_livre" itemtype="http://schema.org/Review">
-
-      <div id="vosavis"></div>';
+  <div id="rating_livre" itemtype="http://schema.org/Review">
+  <div id="vosavis"></div>';
 	$view .= '<div itemscope itemtype="http://schema.org/AggregateRating" id="rating_general" itemprop="aggregateRating"><h2>Vos avis :</h2>';
 	$notation = $wpdb->get_row("SELECT * FROM `$fb_tablename_cache_notes` WHERE code_parent = '$prod_family'");
 	$strmoyenne1 = $notation->note;
-	// $moyenne = $wpdb->get_row("SELECT AVG(r.fir+r.sec+r.thi)/3 AS moy FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
-	// $strmoyenne1 = round($moyenne->moy,2);
 	$strmoyenne2 = "/5 - ";
-	// $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family'");
-	// $strmoyenne3 = $total->nb_avis;
 	$strmoyenne3 = $notation->nb_avis;
 	$strmoyenne4 = " avis";
 
@@ -121,27 +115,10 @@ function get_ratings($type_prod, $nb_comment=2) {
   ////////////////////////////// affichage des 2 derniers avis pages produits //
 	$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_prods` p, `$fb_tablename_order` o, `$fb_tablename_catprods` c WHERE r.exist = 'true' AND r.unique_id = o.unique_id AND p.order_id = o.unique_id AND p.name = c.nom_produit AND c.code_parent = '$prod_family' ORDER BY r.date DESC LIMIT 2", ARRAY_A);
 
-  // ancienne requête qui va chercher les commentaires en cache : //////////////
-  // ! à conserver /////////////////////////////////////////////////////////////
-	//$rates = $wpdb->get_results("SELECT r.*, DATE_FORMAT(r.date, '%d/%m/%Y') AS data FROM `$fb_tablename_rating` r, `$fb_tablename_cache_comments` c WHERE r.exist = 'true' AND c.code_parent = '$prod_family' AND (r.id = c.comment1 OR r.id = c.comment2 OR r.id = c.comment3 OR r.id = c.comment4 OR r.id = c.comment5) ORDER BY r.date DESC LIMIT 2", ARRAY_A);
-
-  // vider le cache ////////////////////////////////////////////////////////////
-  //$del_cache = $wpdb->query("DELETE FROM `$fb_tablename_cache_comments` WHERE code_parent = '$prod_family'");
-  //////////////////////////////////////////////////////////////////////////////
-  //echo "<pre>";  echo print_r($rates);  echo "</pre>";
-
 	$view .= '<table id="fbcart_rating" cellspacing="0"><tbody>';
 
 	//$i = 0;
 	foreach ($rates as $r) :
-  /*$i++;
-		if($i == 1) {
-		  $mise_cache = $wpdb->query("INSERT INTO `$fb_tablename_cache_comments` VALUES ('','$prod_family','$r[id]',0,0,0,0)");
-		} else if($i == 2) {
-			$mise_cache = $wpdb->query("UPDATE `$fb_tablename_cache_comments` SET comment2 = '$r[id]' WHERE code_parent = '$prod_family'");
-    }
-		}*/
-
 		$singlerate = (($r['fir'] + $r['sec'] + $r['thi'])/3); $singlerate = (round($singlerate, 0)) * 20;
 		$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$r[unique_id]'");
 		$prodname = $wpdb->get_row("SELECT * FROM `$fb_tablename_prods` WHERE order_id='$r[unique_id]'");
@@ -331,7 +308,6 @@ function fb_admin_ratings_comments() {
 				echo '<input type="submit" value="Valider" /></form>';
 			}
 
-
 		} else {
 			echo 'Erreur ! Aucun avis ne correspond à l\'identifiant renseigné.';
 		}
@@ -339,7 +315,6 @@ function fb_admin_ratings_comments() {
 	} else {
 		echo '<p>Bienvenue sur l\'administration des réponses aux clients. Pour rédiger une réponse, rendez-vous sur la page <a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fb-ratings">Ratings</a>.</p>';
 	}
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -492,13 +467,11 @@ function fb_payment() {
 		echo '<table><tr><th>Code</th><th>Intitulé</th><th>% de majoration</th></tr>';
 
 		foreach ($tbl_paiement_moy as $moy_pay) {
-
 			echo '<tr><td style="min-width: 60px;">'.$moy_pay->pay_code.'</td><td style="text-align: center;"><input type="text" name="desc_'.$moy_pay->pay_code.'" value="'.$moy_pay->pay_designation.'" size="36" /></td><td style="text-align: right;"><input type="text" name="percent_'.$moy_pay->pay_code.'" value="'.$moy_pay->pay_percent_add.'" size="6" /> %</td></tr>';
-
 		}
+
 		echo '</table>';
 		echo '<p><input type="submit" name="paiement_moy" value="Valider" /></p>';
-
 	}
 }
 
@@ -605,8 +578,6 @@ function fb_relances() {
 			echo '</form></td>';
 			echo '<td><form method="post" onsubmit="return confirm(\'Voulez-vous vraiment supprimer cette relance ?\');"><input type="hidden" name="suppr_id" value="'.$relance->id.'" />';
 			submit_button('Supprimer','small','Rel_Suppr', FALSE);
-
-
 			echo '</form></td></tr>';
 		}
 		echo '</table>';
@@ -617,44 +588,44 @@ function fb_relances() {
 	echo '<form method="post">';
 	echo '<table><tr><th>Moyen de paiement</th><th>Seuil de commande minimal</th><th>Délai d\'inactivité</th><th>Modèle e-mail</th><th></th></tr>';
 
-		echo '<tr><td>';
-		echo '<select name="pay_create">';
-		echo '<option value="0">Tous</option>';
-		$list_pay = $wpdb->get_results("SELECT * FROM `$fb_tablename_paiement_moy`");
-		foreach ($list_pay as $pay) {
-			echo '<option value="'.$pay->id.'">'.$pay->pay_designation.'</option>';
-		}
+	echo '<tr><td>';
+	echo '<select name="pay_create">';
+	echo '<option value="0">Tous</option>';
+	$list_pay = $wpdb->get_results("SELECT * FROM `$fb_tablename_paiement_moy`");
+	foreach ($list_pay as $pay) {
+		echo '<option value="'.$pay->id.'">'.$pay->pay_designation.'</option>';
+	}
 
-		echo '</select></td><td><input type="text" name="seuil_create" /> €</td>';
-		echo '<td><input type="text" name="delai_create" /> jours</td><td>';
-		echo '<select name="mail_create">';
-		echo '<option value="0">Tous</option>';
-		$list_mail = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails`");
-		foreach ($list_mail as $mail) {
-			echo '<option value="'.$mail->id.'">'.$mail->topic.'</option>';
-		}
-		echo '</select></td><td>';
-		echo '<select name="comment_create">';
-		echo '<option value="0">Tous</option>';
-		$list_comment = $wpdb->get_results("SELECT * FROM `$fb_tablename_topics`");
-		foreach ($list_comment as $comment) {
-			echo '<option value="'.$comment->id.'">'.$comment->topic.'</option>';
-		}
-		echo '</select></td>';
-		echo '<td>';
-		submit_button('Créer','small','Rel_Cre', FALSE);
-		echo '</td></tr>';
+	echo '</select></td><td><input type="text" name="seuil_create" /> €</td>';
+	echo '<td><input type="text" name="delai_create" /> jours</td><td>';
+	echo '<select name="mail_create">';
+	echo '<option value="0">Tous</option>';
+	$list_mail = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails`");
+	foreach ($list_mail as $mail) {
+		echo '<option value="'.$mail->id.'">'.$mail->topic.'</option>';
+	}
+	echo '</select></td><td>';
+	echo '<select name="comment_create">';
+	echo '<option value="0">Tous</option>';
+	$list_comment = $wpdb->get_results("SELECT * FROM `$fb_tablename_topics`");
+	foreach ($list_comment as $comment) {
+		echo '<option value="'.$comment->id.'">'.$comment->topic.'</option>';
+	}
+	echo '</select></td>';
+	echo '<td>';
+	submit_button('Créer','small','Rel_Cre', FALSE);
+	echo '</td></tr>';
 
-		echo '</table>';
-		echo '</form>';
+	echo '</table>';
+	echo '</form>';
 
-		echo '<p><strong>Résumé des 10 derniers envois</strong></p>';
-		$list_rapport = $wpdb->get_results("SELECT R.*, M.topic FROM `$fb_tablename_rapport` R, `$fb_tablename_mails` M WHERE R.id_mail = M.id ORDER BY R.id DESC LIMIT 0,10");
-		echo '<table><tr><th>Date d\'envoi</th><th>Id de campagne</th><th>Mail envoyé</th><th>Nb destinataires</th></tr>';
-		foreach ($list_rapport as $rapport) {
-			echo '<tr><td>'.$rapport->date_envoi.'</td><td>'.$rapport->id_relance.'</td><td>'.$rapport->topic.'</td><td>'.$rapport->nb_dest.'</td></tr>';
-		}
-		echo '</table>';
+	echo '<p><strong>Résumé des 10 derniers envois</strong></p>';
+	$list_rapport = $wpdb->get_results("SELECT R.*, M.topic FROM `$fb_tablename_rapport` R, `$fb_tablename_mails` M WHERE R.id_mail = M.id ORDER BY R.id DESC LIMIT 0,10");
+	echo '<table><tr><th>Date d\'envoi</th><th>Id de campagne</th><th>Mail envoyé</th><th>Nb destinataires</th></tr>';
+	foreach ($list_rapport as $rapport) {
+		echo '<tr><td>'.$rapport->date_envoi.'</td><td>'.$rapport->id_relance.'</td><td>'.$rapport->topic.'</td><td>'.$rapport->nb_dest.'</td></tr>';
+	}
+	echo '</table>';
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -764,7 +735,6 @@ function fb_mailjet() {
 		echo $count_cat3.' entre 2500 et 4000.<br />';
 		echo $count_cat4.' entre 4000 et 6500.<br />';
 		echo $count_cat5.' à plus de 6500.<br />';
-
 	}
 }
 
@@ -776,6 +746,7 @@ function fbadm_invoice_print($number) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_order = $prefix."fbs_order";
+  $fb_tablename_cf = $prefix."fbs_cf";
 	$fb_tablename_remises = $prefix."fbs_remises";
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
 	$fb_tablename_users = $prefix."fbs_users";
@@ -813,8 +784,8 @@ function fbadm_invoice_print($number) {
 		if ($czyjestrabat) {
 			$view .= '<tr><td class="lefttd" colspan="5"><span class="name">'.$czyjestrabat->reason.'</span></td><td>'.$czyjestrabat->remis.' &euro;</td></tr>';
 		}
-
   	$view .= '</table>';
+
     //---------------------------------------vérifier s'il y a une remise client
 		$exist_remise = $wpdb->get_row("SELECT * FROM `$fb_tablename_remisnew` WHERE sku = '$idzamowienia'");
 		if ($exist_remise) {
@@ -824,13 +795,18 @@ function fbadm_invoice_print($number) {
     //-------------------------------------------vérifier s'il y a un code promo
     $exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
     if ($exist_code->promo > 1) {
-      $calculCode = $exist_code->promo;
-      $calculCode = str_replace(',', '', number_format($calculCode, 2));
+      $calculCode = str_replace(',', '', number_format($exist_code->promo, 2));
       $addtodevis ='<tr><td class="toleft">REMISE</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+    }
+    //----------------------------------------------vérifier escompte commercial
+    $esc = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='escompte' AND unique_id = '$idzamowienia'");
+    if ($esc) {
+      $calculEscompte =  str_replace(',', '', number_format($esc->value, 2));
+      $addesc = '<tr><td class="toleft">SUPRRESSION ESCOMPTE COMMERCIAL</td><td class="toright">'.$calculEscompte.'</td></tr>';
     }
     //--------------------------------------------------------------------------
     $totalht = str_replace(',', '', $query->totalht);
-    $totalht = $totalht-$calculRemise-$calculCode;
+    $totalht = $totalht-$calculRemise-$calculCode+$calculEscompte;
     //--------------------------------------------------------------------------
 		$tfrais = str_replace(',', '', $query->frais).'&nbsp;&euro;';
 		$ttotalht = str_replace(',', '', number_format($totalht, 2)).'&nbsp;&euro;';
@@ -842,7 +818,7 @@ function fbadm_invoice_print($number) {
 		} else {
 			$procpod = '20.0';
 		}
-		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$addtodevis.$cremisetd.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
+		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$addtodevis.$cremisetd.$addesc.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
 
 		if ($query->payment == 'cheque') { $method = 'CHEQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
@@ -866,6 +842,7 @@ function fbadm_invoice_proprint($number) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
 	$fb_tablename_order = $prefix."fbs_order";
+  $fb_tablename_cf = $prefix."fbs_cf";
 	$fb_tablename_remises = $prefix."fbs_remises";
 	$fb_tablename_remisnew = $prefix."fbs_remisenew";
 	$fb_tablename_users = $prefix."fbs_users";
@@ -914,13 +891,18 @@ function fbadm_invoice_proprint($number) {
     //-------------------------------------------vérifier s'il y a un code promo
     $exist_code = $wpdb->get_row("SELECT promo FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
     if ($exist_code->promo > 1) {
-      $calculCode = $exist_code->promo;
-      $calculCode = str_replace(',', '', number_format($calculCode, 2));
+      $calculCode = str_replace(',', '', number_format($exist_code->promo, 2));
       $addtodevis ='<tr><td class="toleft">REMISE</td><td class="toright">-'.$calculCode.' &euro;</td></tr>';
+    }
+    //----------------------------------------------vérifier escompte commercial
+    $esc = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='escompte' AND unique_id = '$idzamowienia'");
+    if ($esc) {
+      $calculEscompte =  str_replace(',', '', number_format($esc->value, 2));
+      $addesc = '<tr><td class="toleft">SUPRRESSION ESCOMPTE COMMERCIAL</td><td class="toright">'.$calculEscompte.'</td></tr>';
     }
     //--------------------------------------------------------------------------
     $totalht = str_replace(',', '', $query->totalht);
-    $totalht = $totalht-$calculRemise-$calculCode;
+    $totalht = $totalht-$calculRemise-$calculCode+$calculEscompte;
     //--------------------------------------------------------------------------
 		$tfrais = str_replace(',', '', $query->frais).'&nbsp;&euro;';
     $ttotalht = str_replace(',', '', number_format($totalht, 2)).'&nbsp;&euro;';
@@ -932,7 +914,7 @@ function fbadm_invoice_proprint($number) {
 		} else {
 			$procpod = '20.0';
 		}
-		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$addtodevis.$cremisetd.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
+		$view .= '<table id="fbcart_check" cellspacing="0"><tr><td class="toleft">FRAIS DE PORT</td><td class="toright">'.$tfrais.'</td></tr>'.$addtodevis.$cremisetd.$addesc.'<tr><td class="toleft">TOTAL HT</td><td class="toright">'.$ttotalht.'</td></tr><tr><td class="toleft">MONTANT TVA ('.$procpod.'%)</td><td class="toright">'.$ttva.'</td></tr><tr><td class="toleft total">TOTAL TTC</td><td class="toright total">'.$ttotalttc.'</td></tr></table></div>';
 
 		if ($query->payment == 'cheque') { $method = 'CHEQUE'; }
 		if ($query->payment == 'bancaire') { $method = 'VIREMENT BANCAIRE'; }
@@ -943,8 +925,8 @@ function fbadm_invoice_proprint($number) {
 		if ($query->payment == 'soixante') { $method = 'PAIEMENT A 60 JOURS'; }
 
 		$view .= '<div class="bottomfak onlyprint"><br /><br /><i>RCS: 510.605.140 - TVA INTRA: FR65510605140<br />Sas au capital de 60.000,00 &euro;</i></div>';
-	  		$view .= '<div id="fbcart_buttons3"><a href="javascript:window.print()" id="but_imprimerfacture"></a></div>';
-	  		echo $view;
+	  $view .= '<div id="fbcart_buttons3"><a href="javascript:window.print()" id="but_imprimerfacture"></a></div>';
+	 	echo $view;
 	}
 }
 
@@ -985,8 +967,6 @@ function fbadm_bon_print($number) {
 		 $address_relais_colis = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id='$number'");
 		 $livraison_add = $us->f_name . '<br />' . $address_relais_colis->l_name . '<br />' . $address_relais_colis->l_comp . '<br />' . $address_relais_colis->l_code . '<br />' . $address_relais_colis->l_city . '<br />' . $address_relais_colis->l_phone;
 		 $boucle_if = 1;
-
-	/*}elseif (( ($us->l_address != "") && ($f_address != $l_address) ) || ( ($us->l_name != "") && ($us->f_name != $us->l_name) )) {*/
 	}elseif (( ($l_address != "") && ($f_address != $l_address) ) || ( ($user_liv_address->l_name != "") && ($us->f_name != $user_liv_address->l_name) )) {
     $livraison_add = $user_liv_address->l_name . '<br />' . $user_liv_address->l_comp . '<br />' . $l_address . '<br />' . $l_porte . $user_liv_address->l_code . '<br />' . $user_liv_address->l_city . '<br />' . $user_liv_address->l_phone;
 		$boucle_if = 2;
@@ -996,26 +976,20 @@ function fbadm_bon_print($number) {
   }
 
   $coliR = EstColieRevendeur($number);
-	/*$livraison_add .= "boucle_if=". $boucle_if . "coliR=".($coliR?"VRAI":"FAUX")."relais_colis=".$existe_relais_colis. "descriptionproduits=".$descriptionproduits. print_r($us,true). "f_address=".$f_address . "l_address=".$l_address . "query=". "SELECT * FROM `$fb_tablename_users` WHERE id='$userid'";*/
+
   $hasPD = false;
 	$hasBLXLS = false;
   if ($coliR) {
     $BLFile = il_y_a_fichier_bl($number);
     if ($BLFile != false) {
       $hasPD = $BLFile;
-      //goto normal;
-		  //goto colisre;
     }
 
   	$BLXLSFile = il_y_a_fichier_BLXLS($number);
     if ($BLXLSFile != false) {
       $hasBLXLS = $BLXLSFile;
-      //goto normal;
-  		//goto colisre;
     }
 
-		//imprime l'actual en changent le header
-		//colisre:
 		$view .= '
 			<div id="barSPLImg" style="width: 100%; height: 150px; position: relative;"></div>
 			<div class="print_nag onlyprint">
@@ -1036,7 +1010,6 @@ function fbadm_bon_print($number) {
 
     } else {
     normal:
-	  //mail("contact@tempopasso.com","GOTO NORMAL // EstColieRevendeur+HasPDF","coliR=".$coliR."BLFile=".$BLFile." // number=".$number." ///// ".print_r("",true));
       $view .= '<div class="print_nag onlyprint">
                   <table class="print_header">
                       <tr>
@@ -1772,7 +1745,7 @@ function fb_admin_reports_users() {
     			if ($o->status == 5) $stylstatusu = ' style="background:#819ac3;"';
     			if ($o->status == 6) $stylstatusu = ' style="background:#c4c4c4;"';
     			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
-
+          if ($o->status == 8) $stylstatusu = ' style="background:#6293de;"';
 
     			echo '</td><td>'.$o->datamodyfikacji.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>'.$o->frais.' &euro;</td><td>'.$o->totalht.' &euro;</td><td>'.$o->tva.' &euro;</td><td>'.$o->totalttc.' &euro;</td><td'.$stylstatusu.'>'.print_status($o->status).'</td><td class="noprint"><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbinvoiceprint='.$o->unique_id.'" target="_blank"><img src="'.$imagespath.'but_p_fac.png" alt="" /></a></td></tr>';
     			$sumfrais = $sumfrais+str_replace(',', '', $o->frais);
@@ -2235,7 +2208,7 @@ function fb_admin_reports() {
 function fbs_admin_head() {
 	echo '<link rel="stylesheet" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin.css" type="text/css" />';
 	echo '<link rel="stylesheet" type="text/css" media="print" href="'.get_bloginfo('url').'/wp-content/plugins/fbshop/admin_print.css" />';
-  echo '<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">';
+  echo '<link href="'.get_bloginfo('stylesheet_directory').'/css/font-awesome.min.css" rel="stylesheet">';
   echo '<script language="javascript" type="text/javascript" src="'.get_bloginfo('url').'/wp-content/plugins/fbshop/js/jquery.table2excel.js"></script>';
 }
 
@@ -2583,7 +2556,7 @@ function fb_admin_sales() {
 			$sortby .= ' ASC';
 		}
 	} else {
- 		$sortby = 'ORDER BY status ASC, date ASC';
+ 		$sortby = 'ORDER BY FIELD(o.status,8,0,1,2,3,7), date ASC';
  	}
 
 	if ($_GET['sort'] == 'client') {
@@ -2595,12 +2568,11 @@ function fb_admin_sales() {
 
 	if ($orders) {
 
-		//echo '<table class="widefat widecenter"><tr><th><a href="admin.php?page=fbsh&sort=number">N° DE COMMANDE</a></th><th><a href="admin.php?page=fbsh&sort=client">CLIENT</a></th><th>DESCRIPTION</th><th><a href="admin.php?page=fbsh&sort=totalttc">PRIX</a></th><th><a href="admin.php?page=fbsh&sort=datec">DATE CREATE</a></th><th><a href="admin.php?page=fbsh&sort=etat">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th></tr>';
-		$order_link = 'admin.php?page=fbsh&sort=number';
+		$order_link  = 'admin.php?page=fbsh&sort=number';
 		$client_link = 'admin.php?page=fbsh&sort=client';
-		$prix_link = 'admin.php?page=fbsh&sort=totalttc';
-		$date_link = 'admin.php?page=fbsh&sort=datec';
-		$etat_link = 'admin.php?page=fbsh&sort=etat';
+		$prix_link   = 'admin.php?page=fbsh&sort=totalttc';
+		$date_link   = 'admin.php?page=fbsh&sort=datec';
+		$etat_link   = 'admin.php?page=fbsh&sort=etat';
 
 		if (isset($_GET['sort'])) {
 			if(isset($_GET['asc'])) {
@@ -2639,6 +2611,8 @@ function fb_admin_sales() {
 
 		echo '<table class="widefat widecenter"><tr><th><a href="'.$order_link.'">N° COMMANDE</a></th><th><a href="'.$client_link.'">CLIENT</a></th><th>DESCRIPTION</th><th><a href="'.$prix_link.'">PRIX</a></th><th><a href="'.$date_link.'">DATE</a></th><th><a href="'.$etat_link.'">ETAT</a></th><th>TYPE</th><th>FILES</th><th>LAST ACTION</th><th>COMMENTS</th><th></th><th></th></tr>';
 
+    $totalinactive = '';
+
 		foreach ($orders as $o) :
 			$client = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$o->user'");
 			$style = '';
@@ -2649,9 +2623,10 @@ function fb_admin_sales() {
 			echo '<tr'.$style.'><td>'.$o->unique_id.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>';
 			$status = print_status($o->status);
 			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' ORDER BY name ASC");
-			$ktomakiete = 0;
-			$czyfbrobimakiete = 0;
-			$kolorujstatus = 0;
+
+			$choixMaquette = 0;
+			$rush = 0;
+
 			foreach ($prods as $p) :
 				if ($p->status == 0) {
 					echo '<s style="color:red;">'.$p->name.' ('.$p->quantity.')</s><br />';
@@ -2660,23 +2635,15 @@ function fb_admin_sales() {
 				}
 
 			  //-------------------------------------------------vérification maquette
-        $cherche = '/France banderole crée la mise en page/';
-        $found = preg_match_all($cherche, $p->description, $resultat);
-        $found = count($resultat[0]);
+        $find1 = preg_match_all('/France banderole crée la mise en page/', $p->description, $resultat1);
+        $maqfb = count($resultat1[0]);
 
-        $cherche2 = '/je crée ma maquette en ligne/';
-        $found2 = preg_match_all($cherche2, $p->description, $resultat2);
-        $found2 = count($resultat2[0]);
+        $find2 = preg_match_all('/je crée ma maquette en ligne/', $p->description, $resultat2);
+        $maqol = count($resultat2[0]);
 
-        if ($found >= 1) {
-          $ktomakiete = 1;
-        }else if ($found2 >= 1) {
-          $ktomakiete = 2;
-        }else {
-          $ktomakiete = 0;
-        }
-        if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-        if ($ktomakiete == 2) $czyfbrobimakiete = 2;
+        if      ($maqfb >= 1) $choixMaquette = 1;
+        else if ($maqol >= 1) $choixMaquette = 2;
+        else                  $choixMaquette = 0;
 
         //-----------------------------------------si pas de BAT, texte en blanc
         $batcolor = '';
@@ -2689,18 +2656,18 @@ function fb_admin_sales() {
 
   			//-----------------------------------------------------vérification rush
   			if ($p->status == 1) {
-  				if ($kolorujstatus<1) {
+  				if ($rush < 1) {
   					$wzorzec2 = '/1J/';
-  					$wzorzec = '/rush/';
-  					$czyrush = preg_match_all($wzorzec, $p->description, $wynikrush);
+  					$wzorzec  = '/rush/';
+  					$czyrush  = preg_match_all($wzorzec, $p->description, $wynikrush);
   					$czyrush2 = preg_match_all($wzorzec2, $p->description, $wynikrush2);
   					$czyrush2 = count($wynikrush2[0]);
-  					$czyrush = count($wynikrush[0]);
+  					$czyrush  = count($wynikrush[0]);
   					if ($czyrush >= 1) {
-  						$kolorujstatus = 1;
+  						$rush = 1;
   					}
   					if ($czyrush2 >= 1) {
-  						$kolorujstatus = 1;
+  						$rush = 1;
 
   					}
   				}
@@ -2708,22 +2675,20 @@ function fb_admin_sales() {
 		  endforeach;
 
       $maktype = 'impression';
-      if ($czyfbrobimakiete == 1) $maktype = 'creation';
-      if ($czyfbrobimakiete == 2) $maktype = 'en ligne';
+      if ($choixMaquette == 1) $maktype = 'creation';
+      if ($choixMaquette == 2) $maktype = 'en ligne';
 
 			$filepath='';
 			$pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$o->unique_id.'/';
+
 			if(file_exists($pathfiles)) {
 				if ($dir = @opendir($pathfiles)) {
-
-          $excludeExtensions = array(
-      		  'csv',
-            'json'  // Ignorer fichiers csv & json
-      		);
+          // Ignorer fichiers xml csv & json
+          $excludeExtensions = array('csv','xml','json');
 
 			    while(($file = readdir($dir))) {
             if(!is_dir($file) && !in_array($file, array(".","..")) && !in_array(pathinfo($file, PATHINFO_EXTENSION), $excludeExtensions)) {
-  				  		$filepath = '<img src="'.$imagespath.'wykrzyknik2.png" alt="" />';
+  				  	$filepath = '<img src="'.$imagespath.'wykrzyknik2.png" alt="" />';
   					}
 	    		}
 
@@ -2738,27 +2703,30 @@ function fb_admin_sales() {
 	  		$filepath = '<img src="'.$imagespath.'wykrzyknik.png" alt="" />';
 	  	}
 
+      $waitcolor = '#82ff7f';
+      if ($rush == 1) $waitcolor = '#ff664f'; // couleur commandes rush en attente
+      $paidcolor = '#f3a0ee';
+      if ($rush == 1) $paidcolor = '#ff4ff4'; // couleur commandes rush payées
+
 			$stylstatusu = '';
-			if ($o->status == 0) {
-				if ($kolorujstatus == 1) {
-					$stylstatusu = ' style="background:#f23434"';
-				} else {
-					$stylstatusu = ' style="background:#82ff7f;"';
-				}
-			}
+			if ($o->status == 0) $stylstatusu = ' style="background:'.$waitcolor.';"';
 			if ($o->status == 1) $stylstatusu = ' style="background:#feca7f;"';
-			if ($o->status == 2) {
-        if ($kolorujstatus == 1) {
-					$stylstatusu = ' style="background:#ff4ff4;"';
-				} else {
-					$stylstatusu = ' style="background:#f3a0ee;"';
-				}
-      }
+			if ($o->status == 2) $stylstatusu = ' style="background:'.$paidcolor.';"';
 			if ($o->status == 3) $stylstatusu = ' style="background:#7edfff;"';
 			if ($o->status == 4) $stylstatusu = ' style="background:#f6ff7e;"';
 			if ($o->status == 5) $stylstatusu = ' style="background:#819ac3;"';
 			if ($o->status == 6) $stylstatusu = ' style="background:#c4c4c4;"';
 			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
+      if ($o->status == 8) {
+        if($o->payment != '') { // si la commande est payée
+					$stylstatusu = ' style="background:linear-gradient(left, '.$paidcolor.' 0%, #6293de 100%);
+                             background:-moz-linear-gradient(left, '.$paidcolor.' 0%, #6293de 100%);
+                          background:-webkit-linear-gradient(left, '.$paidcolor.' 0%, #6293de 100%)"';
+
+				} else {
+  				$stylstatusu = ' style="background:#6293de;"';
+				}
+      };
 
       $payday = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='paydate' AND unique_id = '$o->unique_id'");
       if ($payday && $o->status == 7) $stylstatusu = ' style="background:#ea2a6a;"';
@@ -2767,7 +2735,7 @@ function fb_admin_sales() {
 			$czyjostatnikomentarz = '';
 			$lastcomment = $wpdb->get_row("SELECT c.* FROM `$fb_tablename_comments` as c WHERE c.order_id = '$o->unique_id' AND topic != 'Fichier(s)' ORDER BY c.date DESC");
 			if ($lastcomment) {
-				if (($lastcomment->author == 'France Banderole') || ($lastcomment->author == 'France Banderole 1') || ($lastcomment->author == 'France Banderole 2') || ($lastcomment->author == 'France Banderole 3') || ($lastcomment->author == 'France Banderole 4') || ($lastcomment->author == 'France Banderole 5') || ($lastcomment->author == 'France Banderole FB EXPEDITION')) {
+				if (strpos($lastcomment->author, 'France Banderole') !== false) {
 					$czyjostatnikomentarz = '<img src="'.$imagespath.'wykrzyknik2.png" alt="" />';
 				} else {
 					$czyjostatnikomentarz = '<img src="'.$imagespath.'wykrzyknik.png" alt="" />';
@@ -2778,7 +2746,7 @@ function fb_admin_sales() {
 			$czyjostatniruch = '';
 			$lastaction = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '$o->unique_id'");
 			if ($lastaction) {
-				if ($o->status == 0 || 1 || 2 || 7 ) {
+				if ($o->status == 0 || 1 || 2 || 7 || 8 ) {
 					if ($lastaction->value == 'fb') {
 						$czyjostatniruch = '<img src="'.$imagespath.'wykrzyknik2.png" alt="" />';
 
@@ -2822,10 +2790,18 @@ function fb_admin_sales() {
 			<form id="delitem" name="delitem" action="" method="post"><input type="hidden" name="delete_item" value="'.$o->unique_id.'" /><input class="delete" type="submit" value="delete" onclick=\'if (confirm("'.esc_js( "Sûr? Ceci effacera la commande, les produits et commentaires associés" ).'")) {return true;} return false;\' /></form></td>
       <td><input form="del_selection"  type="checkbox" name="del_selected[]" class="checkbox" value="'.$o->unique_id.'"></td>
       </tr>';
+
+      $totalinactive .= cancel_abandonned($o->user);
 		endforeach;
 		echo '</table>';
 
     echo '<input type="submit" form="del_selection" style="float:right;margin-top:5px" value="Supprimer les commandes sélectionnées" onclick=\'if (confirm("'.esc_js( "Sûr? Ceci effacera toutes les commandes sélectionnées, les produits et commentaires associés!" ).'")) {return true;} return false;\' />';
+
+    echo '<form name="cancelinactive" action="" method="post">
+    <input type="hidden" name="cancelinactive" value="" />
+    <p>commandes inactives + de 7J (client sans autre commande active ni clôturée, avec + de 3 avis de relance, le dernier commentaire est un avis de relance et aucun fichier uploadé) :<br /> n°'.$totalinactive.'</p>
+    <button>Annuler les commandes inactives</button>
+    </form>';
 	} else {
 		echo 'There\'s nothing yet.';
 	}
@@ -2905,7 +2881,7 @@ function fb_admin_sales_old() {
   	} else {
    		$sortby = 'ORDER BY data DESC';
    	}
-	$count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM `$fb_tablename_order` o WHERE o.status >= 5"));
+	$count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM `$fb_tablename_order` o WHERE (o.status = 5 || o.status = 6)"));
 	$offset=$_GET['offset'];
 	if($offset =='') {
 		$offset = 0;
@@ -2919,9 +2895,9 @@ function fb_admin_sales_old() {
 		$limit = $count;
 	}
 	if ($_GET['sort'] == 'client') {
-		$orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H:%i') AS datamodyfikacji FROM `$fb_tablename_order` o, `$fb_tablename_users` us WHERE us.id = o.user && o.status >= 5 ORDER BY us.f_name LIMIT $offset, $limit");
+		$orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H:%i') AS datamodyfikacji FROM `$fb_tablename_order` o, `$fb_tablename_users` us WHERE us.id = o.user && (o.status = 5 || o.status = 6) ORDER BY us.f_name LIMIT $offset, $limit");
 	} else {
-		$orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H:%i') AS datamodyfikacji FROM `$fb_tablename_order` o WHERE o.status >= 5 ".$sortby." LIMIT $offset, $limit");
+		$orders = $wpdb->get_results("SELECT o.*, DATE_FORMAT(o.date, '%d/%m/%Y<br />%H:%i') AS data, DATE_FORMAT(o.date_modify, '%d/%m/%Y<br />%H:%i') AS datamodyfikacji FROM `$fb_tablename_order` o WHERE (o.status = 5 || o.status = 6) ".$sortby." LIMIT $offset, $limit");
 	}
 	if ($orders) {
 		echo '<h1><a href="admin.php?page=fbsh" class="stockbtn">Sales <a class="stockbtn" href="admin.php?page=fbship">Shipped</a> <a class="stockbtn" href="admin.php?page=fbsho" style="background:#26a7d9">Old</a></h1>';
@@ -2939,8 +2915,7 @@ function fb_admin_sales_old() {
 			echo '<tr'.$style.'><td>'.$o->unique_id.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>';
 			$status = print_status($o->status);
 			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' ORDER BY name ASC");
-			$ktomakiete = 0;
-			$czyfbrobimakiete = 0;
+			$choixMaquette = 0;
 
 			foreach ($prods as $p) :
 				if ($p->status == 0) {
@@ -2950,29 +2925,21 @@ function fb_admin_sales_old() {
 				}
 
 			  //-------------------------------------------------vérification maquette
-        $cherche = '/France banderole crée la mise en page/';
-        $found = preg_match_all($cherche, $p->description, $resultat);
-        $found = count($resultat[0]);
+        $find1 = preg_match_all('/France banderole crée la mise en page/', $p->description, $resultat1);
+        $maqfb = count($resultat1[0]);
 
-        $cherche2 = '/je crée ma maquette en ligne/';
-        $found2 = preg_match_all($cherche2, $p->description, $resultat2);
-        $found2 = count($resultat2[0]);
+        $find2 = preg_match_all('/je crée ma maquette en ligne/', $p->description, $resultat2);
+        $maqol = count($resultat2[0]);
 
-        if ($found >= 1) {
-          $ktomakiete = 1;
-        }else if ($found2 >= 1) {
-          $ktomakiete = 2;
-        }else {
-          $ktomakiete = 0;
-        }
-        if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-        if ($ktomakiete == 2) $czyfbrobimakiete = 2;
+        if      ($maqfb >= 1) $choixMaquette = 1;
+        else if ($maqol >= 1) $choixMaquette = 2;
+        else                  $choixMaquette = 0;
 
 			endforeach;
 
 			$maktype = 'impression';
-			if ($czyfbrobimakiete == 1) $maktype = 'creation';
-      if ($czyfbrobimakiete == 2) $maktype = 'en ligne';
+			if ($choixMaquette == 1) $maktype = 'creation';
+      if ($choixMaquette == 2) $maktype = 'en ligne';
       //------------------------------------------------------------------------
 
 			$filepath='';
@@ -3004,6 +2971,7 @@ function fb_admin_sales_old() {
 			if ($o->status == 5) $stylstatusu = ' style="background:#819ac3;"';
 			if ($o->status == 6) $stylstatusu = ' style="background:#c4c4c4;"';
 			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
+      if ($o->status == 8) $stylstatusu = ' style="background:#6293de;"';
 
 			$czyjostatnikomentarz = '';
 			$lastcomment = $wpdb->get_row("SELECT c.* FROM `$fb_tablename_comments` as c WHERE c.order_id = '$o->unique_id' ORDER BY c.date DESC");
@@ -3227,8 +3195,7 @@ function fb_admin_sales_shipped() {
   			echo '<tr'.$style.'><td>'.$o->unique_id.'</td><td>'.$client->f_name.'<br />'.$client->f_comp.'</td><td>';
   			$status = print_status($o->status);
   			$prods = $wpdb->get_results("SELECT name, description, quantity, status FROM `$fb_tablename_prods` WHERE order_id = '$o->unique_id' ORDER BY name ASC");
-  			$ktomakiete = 0;
-  			$czyfbrobimakiete = 0;
+  			$choixMaquette = 0;
 
   			foreach ($prods as $p) :
   				if ($p->status == 0) {
@@ -3238,29 +3205,21 @@ function fb_admin_sales_shipped() {
   				}
 
   			  //-------------------------------------------------vérification maquette
-          $cherche = '/France banderole crée la mise en page/';
-          $found = preg_match_all($cherche, $p->description, $resultat);
-          $found = count($resultat[0]);
+          $find1 = preg_match_all('/France banderole crée la mise en page/', $p->description, $resultat1);
+          $maqfb = count($resultat1[0]);
 
-          $cherche2 = '/je crée ma maquette en ligne/';
-          $found2 = preg_match_all($cherche2, $p->description, $resultat2);
-          $found2 = count($resultat2[0]);
+          $find2 = preg_match_all('/je crée ma maquette en ligne/', $p->description, $resultat2);
+          $maqol = count($resultat2[0]);
 
-          if ($found >= 1) {
-            $ktomakiete = 1;
-          }else if ($found2 >= 1) {
-            $ktomakiete = 2;
-          }else {
-            $ktomakiete = 0;
-          }
-          if ($ktomakiete == 1) $czyfbrobimakiete = 1;
-          if ($ktomakiete == 2) $czyfbrobimakiete = 2;
+          if      ($maqfb >= 1) $choixMaquette = 1;
+          else if ($maqol >= 1) $choixMaquette = 2;
+          else                  $choixMaquette = 0;
 
   			endforeach;
 
   			$maktype = 'impression';
-  			if ($czyfbrobimakiete == 1) $maktype = 'creation';
-        if ($czyfbrobimakiete == 2) $maktype = 'en ligne';
+  			if ($choixMaquette == 1) $maktype = 'creation';
+        if ($choixMaquette == 2) $maktype = 'en ligne';
         //------------------------------------------------------------------------
 
   			$filepath='';
@@ -3292,6 +3251,7 @@ function fb_admin_sales_shipped() {
   			if ($o->status == 5) $stylstatusu = ' style="background:#819ac3;"';
   			if ($o->status == 6) $stylstatusu = ' style="background:#c4c4c4;"';
   			if ($o->status == 7) $stylstatusu = ' style="background:#fbcfd0;"';
+        if ($o->status == 8) $stylstatusu = ' style="background:#6293de;"';
 
   			$czyjostatnikomentarz = '';
   			$lastcomment = $wpdb->get_row("SELECT c.* FROM `$fb_tablename_comments` as c WHERE c.order_id = '$o->unique_id' ORDER BY c.date DESC");
@@ -3478,16 +3438,6 @@ function fbadm_print_details($number) {
   global $current_user;
   get_currentuserinfo();
 	$prefix = $wpdb->prefix;
-  /*$resultaddcolumn = mysqli_query("SHOW COLUMNS FROM " . $prefix . "fbs_order LIKE 'poids'");
-  $existsaddcolumn = mysqli_num_rows($resultaddcolumn)?true:false;
-  if(!$existsaddcolumn) {
-  	$sql = "ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;";
-      $wpdb->query($sql);
-  }*/
-
-  //$wpdb->query("ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` IF NOT EXISTS `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;");
-  // mail("contact@tempopasso.com","SQL ALTER TABLE ligne 1873 ","ALTER TABLE `" . $prefix . "fbs_order` ADD COLUMN `poids` IF NOT EXISTS `poids` VARCHAR (100) NULL DEFAULT 0 AFTER `status`;");
-  //----------------------------------------------------------------------------
 	$fb_tablename_order = $prefix."fbs_order";
 	$fb_tablename_prods = $prefix."fbs_prods";
 	$fb_tablename_remises = $prefix."fbs_remises";
@@ -3508,10 +3458,13 @@ function fbadm_print_details($number) {
   $fb_tablename_entree = $prefix."fbs_stock_entree";
   $fb_tablename_auto = $prefix."fbs_stock_auto";
   $fb_tablename_save = $prefix."fbs_save";
+  $fb_tablename_promo = $prefix."fbs_codepromo";
 
+  // alertes rappel téléphonique
   echo '<div>';
   fb_tel_alert($number);
   echo '</div>';
+
   //----------------------------------------------------------------------------
 	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
 	$ktoryuser = $order->user;
@@ -3533,18 +3486,17 @@ function fbadm_print_details($number) {
 			$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')");
 		}
 	}
+
   //-------------------------------------------------------- effacer commentaire
 	if (isset($_POST['delcomment'])) {
 		$ident = $_POST['delcomment'];
 		$wpdb->query("DELETE FROM `$fb_tablename_comments` WHERE id='$ident' AND order_id='$number'");
 	}
 
-
   //------------------------------- traitement au save shipping company & number
   if (isset($_POST['changingtnt'])) {
     $newtnt = $_POST['tntn'];
     $newcompany = $_POST['shippingcompany'];
-
 
     $apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET tnt='$newtnt' WHERE unique_id='$number'");
     $sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$number'");
@@ -3565,8 +3517,8 @@ function fbadm_print_details($number) {
     } else {
       $dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '" . $number . "', 'shipping', '" . $newcompany . "')");
     }
-
   }
+
   //---------------------------- tratitement au save nb colis poids et assurance
   if (isset($_POST['btnSavePoids'])) {
     $poidsColis = $_POST['poids_commende'];
@@ -3587,11 +3539,13 @@ function fbadm_print_details($number) {
     }
 
   }
+
   //------------------------------------------------------------------- paiement
 	if (isset($_POST['zmianaplatnosci'])) {
 		$newplat = $_POST['changeplatnosc'];
 		$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET payment='$newplat' WHERE unique_id='$number'");
 	}
+
   //----------------------------------------------------------------------status
 	if (isset($_POST['changingstatus'])) {
 		$newstat = $_POST['changestatus'];
@@ -3600,8 +3554,10 @@ function fbadm_print_details($number) {
 			$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
       // appel fonction retrait stock auto
       fb_stock_traitement($number);
+
 		} else {
-			$apdejt = $wpdb->query("UPDATE `$fb_tablename_order` SET status='$newstat' WHERE unique_id='$number'");
+      $nowadata = date('Y-m-d H:i:s');
+			$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
 		}
 	}
 
@@ -3614,12 +3570,12 @@ function fbadm_print_details($number) {
 
   //---------------------------------------------------- Passage en mode expedie
   if (isset($_POST['mode_expedie'])) {
-  traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address);
+    traitement_passage_expedie($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address);
   }
 
   //---------------------------------------------------- Passage en mode cloturé
   if (isset($_POST['mode_cloture'])) {
-  traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address);
+    traitement_passage_cloture($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users,$fb_tablename_address);
   }
 
   //----------------------------------------------------- suppression images bat
@@ -3640,9 +3596,8 @@ function fbadm_print_details($number) {
     } else {
       $dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '" . $number . "', 'nbcolis', '" . $nbcolis . "')");
     }
-    //$ttPoids = $wpdb->query("UPDATE `" . $prefix . "` SET poids='' where unique_id='$number'");
 
-    /* On détermine si l'envoi est Fedex ou TNT pour l'appel de la bonne fonction de génération des fichiers d'expédition */
+    /* On détermine le transporteur pour l'appel de la bonne fonction de génération des fichiers d'expédition */
     $tnt_ou_fedex = $wpdb->get_var("SELECT value FROM `$fb_tablename_cf` WHERE type='shipping' AND unique_id = '$number'");
     if('tnt' == strtolower($tnt_ou_fedex)) {
   		$BLXLSFile = il_y_a_fichier_BLXLS($number);
@@ -3662,9 +3617,9 @@ function fbadm_print_details($number) {
   			getTnt($_POST['gettnt'], $_POST['tntuser']);
   		}
     }elseif('fedex' == strtolower($tnt_ou_fedex)) {
-        getFedex($_POST['gettnt'], $_POST['tntuser']);
+      getFedex($_POST['gettnt'], $_POST['tntuser']);
     }elseif('dpd' == strtolower($tnt_ou_fedex)) {
-        getDPD($_POST['gettnt'], $_POST['tntuser']);
+      getDPD($_POST['gettnt'], $_POST['tntuser']);
     }else{
       /* S'il n'y a pas de value, on fait rien */
     }
@@ -3683,16 +3638,14 @@ function fbadm_print_details($number) {
 		$add_prod = $wpdb->query("INSERT INTO `$fb_tablename_prods` VALUES('','$number','$e_name_new1','$e_description_new1','$e_quantity_new1','$e_prix_new1','$e_option_new1','$e_remise_new1','$e_total_new1','$e_frais_new1','',1,'','','','')");
 	}
 
-
-
   //============================================================= éditer produit
   if (isset($_POST['editdet'])) {
     //----------------------------------------------------------Effacer produits
-   if (isset($_POST['e_delete'])) {
-     foreach($_POST['e_delete'] as $checked) :
-       $deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE order_id='".$number."' AND id='".$checked."'");
-     endforeach;
-   }
+    if (isset($_POST['e_delete'])) {
+      foreach($_POST['e_delete'] as $checked) :
+        $deleting = $wpdb->query("DELETE FROM `$fb_tablename_prods` WHERE order_id='".$number."' AND id='".$checked."'");
+      endforeach;
+    }
 
     $count = $wpdb->get_var("SELECT COUNT(*) FROM `$fb_tablename_prods` WHERE order_id = '$number'");
     for ($i = 1; $i < $count + 1; $i++) {
@@ -3709,7 +3662,7 @@ function fbadm_print_details($number) {
       $e_frais = number_format((float)$e_frais, 2) . ' €';
       $apdejt = $wpdb->query("UPDATE `$fb_tablename_prods` SET name='$e_name', description='$e_description', quantity='$e_quantity', prix='$e_prix', prix_option='$e_option', remise='$e_remise', total='$e_total', frais='$e_frais' WHERE id='$ktory' AND order_id='$number'");
 
-      /// remise supplémentaire à la facture
+      // remise supplémentaire à la facture
   		$dodatkowyrabat = $_POST['totalht2after'];
       $dodatkowyrabatprzyczyna = $_POST['totalht2afterreason'];
       $czyjestwtabeli = $wpdb->get_row("SELECT * FROM `$fb_tablename_remises` WHERE unique_id = '$number'");
@@ -3720,8 +3673,8 @@ function fbadm_print_details($number) {
           $dodajrabat = $wpdb->query("INSERT INTO `$fb_tablename_remises` VALUES (not null, '" . $number . "', '" . $dodatkowyrabat . "', '" . $dodatkowyrabatprzyczyna . "')");
         }
       }
-      /// remise supplémentaire à la facture
-      /// changement TVA
+      // remise supplémentaire à la facture
+      // changement TVA
       if (isset($_POST['tvaafterreason']) && !($_POST['tvaafterreason'] == '')) {
         $zmianatva = $_POST['tvaafterreason'];
       } else {
@@ -3733,7 +3686,7 @@ function fbadm_print_details($number) {
       } else {
         $dodajtva = $wpdb->query("INSERT INTO `$fb_tablename_remises` VALUES (not null, '" . $number . "-tva', '" . $zmianatva . "', 'tva')");
       }
-      /// changement TVA
+      // changement TVA
       reorganize($number);
     }
   }
@@ -3751,12 +3704,12 @@ function fbadm_print_details($number) {
 		}
 	}
 
-  /////////////////////////////////////////////////////////////////// GET DATA
+  ///////////////////////////////////////////////////////////////////// GET DATA
   $statusy = $wpdb->get_results("SELECT * FROM `$fb_tablename_state` ORDER BY value ASC", ARRAY_A);
-  $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` ORDER BY content ASC", ARRAY_A);
-  $prod = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$number' ORDER BY id ASC", ARRAY_A);
-  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails`", ARRAY_A);
-  $sms = $wpdb->get_results("SELECT * FROM `$fb_tablename_sms`", ARRAY_A);
+  $topics  = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` ORDER BY content ASC", ARRAY_A);
+  $prod    = $wpdb->get_results("SELECT * FROM `$fb_tablename_prods` WHERE order_id = '$number' ORDER BY id ASC", ARRAY_A);
+  $mails   = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails`", ARRAY_A);
+  $sms     = $wpdb->get_results("SELECT * FROM `$fb_tablename_sms`", ARRAY_A);
 
   //====================================== affichage blocs envoi mail com et sms
   echo '<div class="form-wrap"><div id="col-container">';
@@ -4097,6 +4050,7 @@ function fbadm_print_details($number) {
     }
   }
   echo  '</table>';
+
   echo '</div>'; // fermeture div .blocRight
 
   //------------------------------------------------------gestion groupes client
@@ -4211,17 +4165,18 @@ function fbadm_print_details($number) {
 
 
   ///////////////////////////////////////////////////// Bloc gestion commande //
-
+  $dateCre = date_create($order->date);
+  $dateMod = date_create($order->date_modify);;
+  $dateCre = date_format($dateCre,"d/m/Y H:i:s");
+  $dateMod = date_format($dateMod,"d/m/Y H:i:s");
   echo '<h1>N° DE COMMANDE: ' . $order->unique_id . '</h1>';
-  echo '<p style="margin-bottom:20px"><b>Date created: </b>' . $order->date . '<br />';
-  if (($order->status > 2) AND ($order->status < 7)) {
-      echo '<b>Date on invoice: </b>' . $order->date_modify . '</p>';
-  }
+  echo '<p style="margin-bottom:10px;line-height:15px"><b>Date de création:</b>' . $dateCre . '<br />';
+  echo '<b>Date de modification:</b>' . $dateMod . '</p>';
 
-  $ktoryshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number' AND type='shipping'");
+  $transporteur = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$number' AND type='shipping'");
 
-  if (($ktoryshipping) && ($ktoryshipping->value != '0')) {
-		if (strtolower($ktoryshipping->value) == 'tnt') {
+  if ($transporteur && $transporteur->value != '0') {
+		if (strtolower($transporteur->value) == 'tnt') {
       $ship1 = ' selected="selected" ';
       $ship2 = '';
       $ship3 = '';
@@ -4229,7 +4184,7 @@ function fbadm_print_details($number) {
       $lien_check_status = 'https://www.tnt.fr/public/suivi_colis/recherche/visubontransport.do?btnSubmit=&radiochoixrecherche=BT&bonTransport=' . $order->tnt . '&radiochoixtypeexpedition=NAT';
       $texte_check_status = "TNT";
     }
-    if (strtolower($ktoryshipping->value) == 'dpd') {
+    if (strtolower($transporteur->value) == 'dpd') {
       $ship1 = '';
       $ship2 = ' selected="selected" ';
       $ship3 = '';
@@ -4238,7 +4193,7 @@ function fbadm_print_details($number) {
       $texte_check_status = "DPD";
       $lien_check_status = 'http://e-trace.ils-consult.fr/dpd-webtrace/webtrace.aspx?sdg_landnr=250&sdg_mandnr=013&sdg_lfdnr='.$order->tnt.'&cmd=SDG_SEARCH';
     }
-    if (strtolower($ktoryshipping->value) == 'fedex') {
+    if (strtolower($transporteur->value) == 'fedex') {
       $ship1 = '';
       $ship2 = '';
       $ship3 = ' selected="selected" ';
@@ -4247,7 +4202,7 @@ function fbadm_print_details($number) {
       $lien_check_status = 'https://france.fedex.com/te/webapp25?&trans=tesow350&action=recherche_complete&NUM_COLIS=' .$order->tnt;
       $texte_check_status = "FEDEX";
     }
-		if (strtolower($ktoryshipping->value) == 'autre') {
+		if (strtolower($transporteur->value) == 'autre') {
       $ship1 = '';
       $ship2 = '';
       $ship3 = '';
@@ -4260,11 +4215,11 @@ function fbadm_print_details($number) {
   // Ajout des fonction d'optimisation d'admin /////////////////////////////////
 
   /* Commande en attente de paiement puis passage en paiement reçu*/
-  //if(($order->status==2 && $order->payment=="carte") || $order->status==1 ){
-  if($order->status==2 || $order->status==1 ){
+
+  if ($order->status == 2 || $order->status == 1 || ($order->status == 8 && $order->payment !== '')){
   	passage_paiement_recu();
   }
-  if($order->status==4){
+  if ($order->status==4){
   	passage_cloture();
   }
   // FIN Ajout des fonction d'optimisation d'admin
@@ -4324,7 +4279,7 @@ function fbadm_print_details($number) {
     <p>
       <label for="nbcolis">
         <b>NB COLIS: </b> <input type="text" name="nbcolis" id="nbcolis" value="'.$nbcolis.'" maxlength="6" size="6" />
-        <b class="assu">ASSURANCE:</b> <input type="text" name="assurance" id="assurance" value="'.$assur.'" maxlength="6" size="6" />
+        <b class="assu">ASSURANCE:</b> <input type="text" name="assurance" id="assurance" value="'.$assur.'" maxlength="10" size="4" />
       </label>
     </p>
 
@@ -4347,17 +4302,17 @@ function fbadm_print_details($number) {
 	$select_inter = '';
 	foreach ($statusy as $stat) :
 		$i++;
-		if ($stat[value] == $order->status) {
+		if ($stat['value'] == $order->status) {
 			$sel = ' selected="selected"';
 		} else {
 			$sel = '';
 		}
 		if($i == 8) {
-			$select_inter .= '<option value="'.$stat[value].'"'.$sel.'>'.$stat[status].'</option>';
+			$select_inter .= '<option value="'.$stat['value'].'"'.$sel.'>'.$stat['status'].'</option>';
 		} else if ($i <= 3) {
-			$select_pre .= '<option value="'.$stat[value].'"'.$sel.'>'.$stat[status].'</option>';
+			$select_pre .= '<option value="'.$stat['value'].'"'.$sel.'>'.$stat['status'].'</option>';
 		} else if ($i > 3) {
-			$select_post .= '<option value="'.$stat[value].'"'.$sel.'>'.$stat[status].'</option>';
+			$select_post .= '<option value="'.$stat['value'].'"'.$sel.'>'.$stat['status'].'</option>';
 		}
 	endforeach;
 	echo $select_pre.$select_inter.$select_post;
@@ -4520,15 +4475,30 @@ function fbadm_print_details($number) {
   //================================================== Produits dans la commande
 
 	echo '<form name="editdetails" id="editdetails" action="" method="post"><input type="hidden" name="editdet" value="'.$number.'" />';
-	echo '<p><small>Please note that:<br />Description lines should contain break lines marker &lt;br /&gt;<br />Total sum couldn\'t contain Frais de port cost.</small></p>';
+	//echo '<p><small>Please note that:<br />Description lines should contain break lines marker &lt;br /&gt;<br />Total sum couldn\'t contain Frais de port cost.</small></p>';
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th style="width:30px;"><i class="fa fa-times-circle" aria-hidden="true"></i></th><th>ITEM</th><th style="width:150px;">DESCRIPTION</th><th>QUANTITÉ</th><th>PRIX U.</th><th>OPTION</th><th>REMISE</th><th>TOTAL</th><th>FRAIS DE PORT</th><th>FILE(S)</th></tr></thead>';
-	$licznik=0;
+
+	$licznik = 0;
+  $maqol = $maqfb = $maqbt = $maqsb = 0;
+
 	foreach ($prod as $p) :
 		$licznik++;
     $i = $licznik;
     if ($licznik < 10) {
       $i = str_pad($licznik, 2, "0", STR_PAD_LEFT);
     }
+
+    $find1 = preg_match_all('/France banderole crée la mise en page/', $p['description'], $resultat1);
+    $maqfb += count($resultat1[0]);
+
+    $find2 = preg_match_all('/je crée ma maquette en ligne/', $p['description'], $resultat2);
+    $maqol += count($resultat2[0]);
+
+    $find3 = preg_match_all('/BAT en ligne/', $p['description'], $resultat3);
+    $maqbt += count($resultat3[0]);
+
+    $find4 = preg_match_all('/pas de BAT/', $p['description'], $resultat4);
+    $maqsb += count($resultat4[0]);
 
 		echo '<input type="hidden" name="c'.$licznik.'" value="'.$p['id'].'" />';
 
@@ -4617,60 +4587,88 @@ function fbadm_print_details($number) {
   ///////////////////////////////////////////// zip des fichiers utilisateurs //
 
   $pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/';
-  //--------------------------------------------- retourne un array des fichiers
+  // retourne un array des fichiers
   $files = scandir($pathfiles);
-  //---------------------------------- nombre de fichiers dans le dossier client
+  // nombre de fichiers dans le dossier client
   $num_files = count($files)-2;
 
-  //-------- s'il y a plus de 2 fichiers dans le dossier client, créer l'archive
-  if(file_exists($pathfiles) && $num_files >=2) {
+  if(file_exists($pathfiles)) { // s'il y a plus de +d'1 fichiers dans le dossier client
+    // calcul taille totale des fichiers client
     $totalSize = 0;
     foreach (new DirectoryIterator($pathfiles) as $file) {
       if ($file->isFile()) {
-          $totalSize += $file->getSize();
+        $totalSize += $file->getSize();
       }
     }
-    //-------------------------------------------------- conversion en Megabytes
+    // conversion en Megabytes
     $totalSize = number_format($totalSize / 1048576, 2);
-    // si taille des fichiers inférieure à la limite, créer l'archive et afficher le bouton de téléchargement
-    if($totalSize < 300) {
-      ini_set('max_execution_time', 600);
-      ini_set('memory_limit','1024M');
-      // Start the backup!
-      function zipData($source, $destination) {
-        if (extension_loaded('zip')) {
-          if (file_exists($source)) {
-            $zip = new ZipArchive();
-            if ($zip->open($destination, ZIPARCHIVE::CREATE)) {
-              $source = realpath($source);
-              if (is_dir($source)) {
-                $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
-                foreach ($files as $file) {
-                  $file = realpath($file);
-                  if (is_dir($file)) {
-                    $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
-                  } else if (is_file($file)) {
-                    $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
-                  }
+
+    // function to start the zip backup
+    function zipData($source, $destination) {
+      if (extension_loaded('zip')) {
+        if (file_exists($source)) {
+          $zip = new ZipArchive();
+          if ($zip->open($destination, ZIPARCHIVE::CREATE)) {
+            $source = realpath($source);
+            if (is_dir($source)) {
+              $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($source), RecursiveIteratorIterator::SELF_FIRST);
+              foreach ($files as $file) {
+                $file = realpath($file);
+                if (is_dir($file)) {
+                  $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+                } else if (is_file($file)) {
+                  $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
                 }
-              } else if (is_file($source)) {
-                $zip->addFromString(basename($source), file_get_contents($source));
               }
+            } else if (is_file($source)) {
+              $zip->addFromString(basename($source), file_get_contents($source));
             }
-            return $zip->close();
           }
+          return $zip->close();
         }
-        return false;
       }
-      //--------------------------------------------------------- create archive
-      zipData($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/', $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip');
-      echo '<div class="zipMessage">FICHIERS CLIENT - taille totale : '.$totalSize.' MB <a href="'.get_bloginfo('url').'/zip/'.$number.'.archive.zip" class="zipDownload"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i> Download Zip</a></div>';
-    //--------------------------------- si la taille des fichiers et trop grande
-    } else {
-      echo '<div class="zipMessage">FICHIERS CLIENT - taille totale : '.$totalSize.'MB - l\'archive n\'a pas été générée : taille max 300MB</div>';
+      return false;
     }
+    $location = '/wp-admin/admin.php?page=fbsh&fbdet='.$number;
+    $zipPath = $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip';
+
+    if (!file_exists($zipPath)) {
+      $deactDL = $deactTR = 'deactive'; // boutons désactivés tant que l'archive n'est pas générée
+
+    } else {
+      $deactDL = '';                   // si le fichier zip existe déjà, bouton dl activé
+      $deactTR = '';
+      if ($maqbt == 0 && $maqol == 0) $deactTR = 'deactive';
+    }
+
+    if (isset($_POST['genzip'])) { // si le bouton générer est cliqué, générer l'archive
+      zipData($_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$number.'/', $_SERVER['DOCUMENT_ROOT'].'/zip/'.$number.'.archive.zip');
+      $deactDL = '';
+      $deactTR = '';
+      if ($maqbt == 0 && $maqol == 0) $deactTR = 'deactive';
+      header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . $location);
+    }
+
+    if (isset($_POST['fileTr'])) {
+      traitement_passage_fichier_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users);
+      header("Location: " . "http://" . $_SERVER['HTTP_HOST'] . $location);
+    }
+
+    echo '<div class="statuspaction"><b>'.$num_files.'</b> FICHIERS CLIENT - taille totale : '.$totalSize.'MB <br />
+
+    <form action="" method="POST"><input type="hidden" name="genzip" value="" />
+      <button class="zipDownload" action="submit"><i class="fa fa-cogs"></i> Générer Zip</button>
+    </form>
+
+    <a href="'.get_bloginfo('url').'/zip/'.$number.'.archive.zip" class="zipDownload '.$deactDL.'"><i class="fa fa-file-archive-o" aria-hidden="true"></i> Download Zip</a>
+
+    <form class="fileTr" action="" method="POST"><input type="hidden" name="fileTr" value="" />
+      <button class="butdefault fileTr '.$deactTR.'" action="submit">fichier en traitement</button>
+    </form>
+
+    </div>';
   }
-  // fin zip des fichiers utilisateur //////////////////////////////////////////
+  // fin zip des fichiers utilisateur
   // fin fichiers utilisateur //////////////////////////////////////////////////
 
 	// ajouter un produit à la commande //////////////////////////////////////////
@@ -4679,14 +4677,6 @@ function fbadm_print_details($number) {
       <span id="add_1"><a onClick=\'jQuery("#new_1").toggle("slow");jQuery("#add_1").toggle("slow");\' style="cursor: pointer;">Ajouter un produit à la commande</a></span>
     </td>
   </tr>';
-
-  /*echo '<tr>
-    <td colspan="9" style="text-align: left;">
-      <form method="post" action="" id="addCSV"><input type="hidden" name="inputCSV" value="true">
-        <button type="submit" id="add_csv" >Générer CSV</button>
-      </form>
-    </td>
-  </tr>';*/
 
 	echo '<tr id="new_1" style="display: none;">
     <td></td>
@@ -4715,6 +4705,15 @@ function fbadm_print_details($number) {
     if ($codename) $codevalue = '(code: '.$codename->value.')';
     else $codevalue = '';
 
+    // si le code promo est un code SAV ou AVOIR, le supprimer de la bdd
+
+    if (strpos(strtolower($codename->value), 'sav') !== false || strpos(strtolower($codename->value), 'avoir') !== false) {
+      if (strpos(strtolower($codename->value), 'sav') !== false) $codevalue = '(code SAV: '.$codename->value.')';
+      else                                                       $codevalue = '(code AVOIR: '.$codename->value.')';
+
+      $wpdb->query("DELETE FROM `$fb_tablename_promo` WHERE code='$codename->value'");
+    }
+
     $calculCode = str_replace(',', '', number_format($exist_code->promo, 2));
 
     echo '<tr>
@@ -4722,9 +4721,10 @@ function fbadm_print_details($number) {
       <td colspan="2" style="text-align:right">PROMO '.$codevalue.'</td>
       <td>-'.$calculCode.' &euro;</td>
     </tr>';
-  }
 
-  //--------------------------------------------vérifier escompte commercial
+
+  }
+  //------------------------------------------------vérifier escompte commercial
   $esc = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='escompte' AND unique_id = '$number'");
 
   if ($esc) {
@@ -4775,67 +4775,67 @@ function fb_admin_plv() {
 	$path_mini = $_SERVER['DOCUMENT_ROOT'].'/wp-content/uploads/shopfiles/plv/mini/';
 	$rand = '';
 
-	if (isset($_POST['delpromo'])) {
-		$ajdi = $_POST['delpromo'];
-		$wpdb->query("DELETE FROM `$fb_tablename_promo` WHERE id='$ajdi'");
-	}
+  if (isset($_POST['delpromo'])) {
+    $ajdi = $_POST['delpromo'];
+    $wpdb->query("DELETE FROM `$fb_tablename_promo` WHERE id='$ajdi'");
+  }
 
-	if (isset($_POST['addpromotion'])) {
-		$p_name = $_POST['prom_name'];
-		$p_subname = $_POST['prom_subname'];
-		$p_desc = addslashes($_POST['prom_content']);
-		$p_price = $_POST['prom_price'];
-		$p_frais = $_POST['prom_frais'];
-		$p_ceddre = $_POST['prom_ceddre'];
-		$p_order = $_POST['prom_order'];
-		if (isset($_FILES['uploadfile'])) {
-			$f = $_FILES['uploadfile'];
-			$fmini = $_FILES['uploadfilemini'];
-			if (!is_dir($path)) {
-				if (!mkdir($path, 0777, true)) {
-					echo 'Failed to create folders...';
-				}
-			}
-			if (!is_dir($path_mini)) {
-				if (!mkdir($path_mini, 0777, true)) {
-					$view .= 'Failed to create folders...';
-				}
-			}
-			$copie = copy($f['tmp_name'], $path.$f['name']);
-			if (!$copie) {
-				$rand = rand(0, 100);
-				$copie = copy($f['tmp_name'], $path.$rand.$f['name']);
-			}
-			if ($fmini && ($fmini != '')) {
-     			$imagem = new SimpleImage();
-      			$imagem->load($_FILES['uploadfilemini']['tmp_name']);
-				$largeur = $imagem->getWidth();
-				$hauteur = $imagem->getHeight();
-				if ( ($largeur > 151) || ($hauteur > 76) ) {
-					if ($largeur > $hauteur) {
-		    	  		$imagem->resizeToWidth(151);
-						$hauteur = $imagem->getHeight();
-						if ($hauteur > 76) {
-				      		$imagem->resizeToHeight(76);
-						}
-					} else {
-	    		  		$imagem->resizeToHeight(76);
-						$szerom = $imagem->getWidth();
-						if ($hauteur > 76) {
-				      		$imagem->resizeToWidth(151);
-						}
-					}
-		      		$imagem->save($path_mini.$rand.$fmini['name']);
-					$thumbName = $rand.$fmini['name'];
-				} else {
-					$copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
-					$thumbName = $rand.$fmini['name'];
-				}
-			}
-			$fileName = $rand.$f['name'];
-		}
-		$wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."')");
-	}
+  if (isset($_POST['addpromotion'])) {
+    $p_name = $_POST['prom_name'];
+    $p_subname = $_POST['prom_subname'];
+    $p_desc = addslashes($_POST['prom_content']);
+    $p_price = $_POST['prom_price'];
+    $p_frais = $_POST['prom_frais'];
+    $p_ceddre = $_POST['prom_ceddre'];
+    $p_order = $_POST['prom_order'];
+    if (isset($_FILES['uploadfile'])) {
+      $f = $_FILES['uploadfile'];
+      $fmini = $_FILES['uploadfilemini'];
+      if (!is_dir($path)) {
+        if (!mkdir($path, 0777, true)) {
+          echo 'Failed to create folders...';
+        }
+      }
+      if (!is_dir($path_mini)) {
+        if (!mkdir($path_mini, 0777, true)) {
+          $view .= 'Failed to create folders...';
+        }
+      }
+      $copie = copy($f['tmp_name'], $path.$f['name']);
+      if (!$copie) {
+        $rand = rand(0, 100);
+        $copie = copy($f['tmp_name'], $path.$rand.$f['name']);
+      }
+      if ($fmini && ($fmini != '')) {
+        $imagem = new SimpleImage();
+        $imagem->load($_FILES['uploadfilemini']['tmp_name']);
+        $largeur = $imagem->getWidth();
+        $hauteur = $imagem->getHeight();
+        if ( ($largeur > 151) || ($hauteur > 76) ) {
+          if ($largeur > $hauteur) {
+            $imagem->resizeToWidth(151);
+            $hauteur = $imagem->getHeight();
+            if ($hauteur > 76) {
+              $imagem->resizeToHeight(76);
+            }
+          } else {
+            $imagem->resizeToHeight(76);
+            $szerom = $imagem->getWidth();
+            if ($hauteur > 76) {
+              $imagem->resizeToWidth(151);
+            }
+          }
+          $imagem->save($path_mini.$rand.$fmini['name']);
+          $thumbName = $rand.$fmini['name'];
+        } else {
+          $copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
+          $thumbName = $rand.$fmini['name'];
+        }
+      }
+      $fileName = $rand.$f['name'];
+    }
+    $wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."')");
+  }
 
 	if (isset($_POST['editpromotion'])) {
 		$p_name = $_POST['prom_name'];
@@ -4900,7 +4900,7 @@ function fb_admin_plv() {
 				}
 			}
 		}
-  //$updateowanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '1')");
+
 		$updateowanie = $wpdb->query("UPDATE `$fb_tablename_promo` SET name='$p_name', description='$p_desc', price='$p_price', ceddre='$p_ceddre', frais='$p_frais', `order` = '$p_order' WHERE id='$edytuj_id'");
 	}
 
@@ -4913,27 +4913,26 @@ function fb_admin_plv() {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Edit plv:</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="editpromotion" value="'.$editid.'" />';
   	echo '<p>Name: <input type="text" name="prom_name" value="'.$ed->name.'" /></p>';
-    //	echo '<p>Subtitle: <input type="text" name="prom_subname" value="'.$ed->subname.'" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+
   	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon">'.stripslashes($ed->description).'</textarea></p>';
   	echo '<p>Price: <input type="text" size="10" name="prom_price" value="'.$ed->price.'" />&euro;</p>';
   	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="'.$ed->frais.'" />&euro;</p>';
-    //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" value="'.$ed->ceddre.'" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Order: <input type="text" size="5" name="prom_order" value="'.$ed->order.'" /></p>';
   	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
   	echo '</div></div></div>';
 
-  /* promocje -dodawanie */
   } else {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new plv:</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
   	echo '<p>Name: <input type="text" name="prom_name" /></p>';
-    //	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+
   	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon"></textarea></p>';
   	echo '<p>Price: <input type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
   	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
-    //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
   	echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
@@ -4942,10 +4941,11 @@ function fb_admin_plv() {
   }
 
 	echo '</div>';
-
 	echo '<div id="col-left" style="width:70%;margin-top:40px;">';
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
+
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
+
 	foreach ($promotions as $p) :
 		$n_price = str_replace(',', '', $p['price']).' &euro;';
 		$n_frais = str_replace(',', '', $p['frais']).' &euro;';
@@ -4990,56 +4990,56 @@ function fb_admin_plv_int() {
 		$p_name = $_POST['prom_name'];
 		$p_subname = $_POST['prom_subname'];
 		$p_desc = addslashes($_POST['prom_content']);
-		$p_price = $_POST['prom_price'];
-		$p_frais = $_POST['prom_frais'];
-		$p_ceddre = $_POST['prom_ceddre'];
-		$p_order = $_POST['prom_order'];
-		if (isset($_FILES['uploadfile'])) {
-			$f = $_FILES['uploadfile'];
-			$fmini = $_FILES['uploadfilemini'];
-			if (!is_dir($path)) {
-				if (!mkdir($path, 0777, true)) {
-					echo 'Failed to create folders...';
-				}
-			}
-			if (!is_dir($path_mini)) {
-				if (!mkdir($path_mini, 0777, true)) {
-					$view .= 'Failed to create folders...';
-				}
-			}
-			$copie = copy($f['tmp_name'], $path.$f['name']);
-			if (!$copie) {
-				$rand = rand(0, 100);
-				$copie = copy($f['tmp_name'], $path.$rand.$f['name']);
-			}
-			if ($fmini && ($fmini != '')) {
-     			$imagem = new SimpleImage();
-      			$imagem->load($_FILES['uploadfilemini']['tmp_name']);
-				$largeur = $imagem->getWidth();
-				$hauteur = $imagem->getHeight();
-				if ( ($largeur > 151) || ($hauteur > 76) ) {
-					if ($largeur > $hauteur) {
-		    	  		$imagem->resizeToWidth(151);
-						$hauteur = $imagem->getHeight();
-						if ($hauteur > 76) {
-				      		$imagem->resizeToHeight(76);
-						}
-					} else {
-	    		  		$imagem->resizeToHeight(76);
-						$szerom = $imagem->getWidth();
-						if ($hauteur > 76) {
-				      		$imagem->resizeToWidth(151);
-						}
-					}
-		      		$imagem->save($path_mini.$rand.$fmini['name']);
-					$thumbName = $rand.$fmini['name'];
-				} else {
-					$copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
-					$thumbName = $rand.$fmini['name'];
-				}
-			}
-			$fileName = $rand.$f['name'];
-		}
+    $p_price = $_POST['prom_price'];
+    $p_frais = $_POST['prom_frais'];
+    $p_ceddre = $_POST['prom_ceddre'];
+    $p_order = $_POST['prom_order'];
+    if (isset($_FILES['uploadfile'])) {
+      $f = $_FILES['uploadfile'];
+      $fmini = $_FILES['uploadfilemini'];
+      if (!is_dir($path)) {
+        if (!mkdir($path, 0777, true)) {
+          echo 'Failed to create folders...';
+        }
+      }
+      if (!is_dir($path_mini)) {
+        if (!mkdir($path_mini, 0777, true)) {
+          $view .= 'Failed to create folders...';
+        }
+      }
+      $copie = copy($f['tmp_name'], $path.$f['name']);
+      if (!$copie) {
+        $rand = rand(0, 100);
+        $copie = copy($f['tmp_name'], $path.$rand.$f['name']);
+      }
+      if ($fmini && ($fmini != '')) {
+        $imagem = new SimpleImage();
+        $imagem->load($_FILES['uploadfilemini']['tmp_name']);
+        $largeur = $imagem->getWidth();
+        $hauteur = $imagem->getHeight();
+        if ( ($largeur > 151) || ($hauteur > 76) ) {
+          if ($largeur > $hauteur) {
+            $imagem->resizeToWidth(151);
+            $hauteur = $imagem->getHeight();
+            if ($hauteur > 76) {
+              $imagem->resizeToHeight(76);
+            }
+          } else {
+            $imagem->resizeToHeight(76);
+            $szerom = $imagem->getWidth();
+            if ($hauteur > 76) {
+              $imagem->resizeToWidth(151);
+            }
+          }
+          $imagem->save($path_mini.$rand.$fmini['name']);
+          $thumbName = $rand.$fmini['name'];
+        } else {
+          $copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
+          $thumbName = $rand.$fmini['name'];
+        }
+      }
+      $fileName = $rand.$f['name'];
+    }
 		$wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."')");
 	}
 
@@ -5106,7 +5106,7 @@ function fb_admin_plv_int() {
 				}
 			}
 		}
-  //$updateowanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '1')");
+
 		$updateowanie = $wpdb->query("UPDATE `$fb_tablename_promo` SET name='$p_name', description='$p_desc', price='$p_price', ceddre='$p_ceddre', frais='$p_frais', `order` = '$p_order' WHERE id='$edytuj_id'");
 	}
 
@@ -5119,27 +5119,26 @@ function fb_admin_plv_int() {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Edit plv:</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="editpromotion" value="'.$editid.'" />';
   	echo '<p>Name: <input type="text" name="prom_name" value="'.$ed->name.'" /></p>';
-  //	echo '<p>Subtitle: <input type="text" name="prom_subname" value="'.$ed->subname.'" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+
   	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon">'.stripslashes($ed->description).'</textarea></p>';
   	echo '<p>Price: <input type="text" size="10" name="prom_price" value="'.$ed->price.'" />&euro;</p>';
   	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="'.$ed->frais.'" />&euro;</p>';
-  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" value="'.$ed->ceddre.'" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Order: <input type="text" size="5" name="prom_order" value="'.$ed->order.'" /></p>';
   	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
   	echo '</div></div></div>';
 
-  /* promocje -dodawanie */
   } else {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Add new plv:</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
   	echo '<p>Name: <input type="text" name="prom_name" /></p>';
-  //	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+
   	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="closedorders"></textarea></p>';
   	echo '<p>Price: <input type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
   	echo '<p>Frais de port: <input type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
-  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
   	echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
@@ -5149,7 +5148,9 @@ function fb_admin_plv_int() {
 	echo '</div>';
 	echo '<div id="col-left" style="width:70%;margin-top:40px;">';
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
+
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
+
 	foreach ($promotions as $p) :
 		$n_price = str_replace(',', '', $p['price']).' &euro;';
 		$n_frais = str_replace(',', '', $p['frais']).' &euro;';
@@ -5190,59 +5191,59 @@ function fb_admin_promo() {
 		$p_name = $_POST['prom_name'];
 		$p_subname = $_POST['prom_subname'];
 		$p_desc = addslashes($_POST['prom_content']);
-		$p_price = $_POST['prom_price'];
-		$p_frais = $_POST['prom_frais'];
-		$p_ceddre = $_POST['prom_ceddre'];
-		$p_order = $_POST['prom_order'];
+    $p_price = $_POST['prom_price'];
+    $p_frais = $_POST['prom_frais'];
+    $p_ceddre = $_POST['prom_ceddre'];
+    $p_order = $_POST['prom_order'];
 
-		if (isset($_FILES['uploadfile'])) {
-			$f = $_FILES['uploadfile'];
-			$fmini = $_FILES['uploadfilemini'];
-			if (!is_dir($path)) {
-				if (!mkdir($path, 0777, true)) {
-					echo 'Failed to create folders...';
-				}
-			}
-			if (!is_dir($path_mini)) {
-				if (!mkdir($path_mini, 0777, true)) {
-					$view .= 'Failed to create folders...';
-				}
-			}
-			$copie = copy($f['tmp_name'], $path.$f['name']);
-			if (!$copie) {
-				$rand = rand(0, 100);
-				$copie = copy($f['tmp_name'], $path.$rand.$f['name']);
-			}
-			if ($fmini && ($fmini != '')) {
-     			$imagem = new SimpleImage();
-      			$imagem->load($_FILES['uploadfilemini']['tmp_name']);
-				$largeur = $imagem->getWidth();
-				$hauteur = $imagem->getHeight();
-				if ( ($largeur > 151) || ($hauteur > 76) ) {
-					if ($largeur > $hauteur) {
-		    	  		$imagem->resizeToWidth(151);
-						$hauteur = $imagem->getHeight();
-						if ($hauteur > 76) {
-				      		$imagem->resizeToHeight(76);
-						}
-					} else {
-	    		  		$imagem->resizeToHeight(76);
-						$szerom = $imagem->getWidth();
-						if ($hauteur > 76) {
-				      		$imagem->resizeToWidth(151);
-						}
-					}
-		      $imagem->save($path_mini.$rand.$fmini['name']);
-					$thumbName = $rand.$fmini['name'];
-				} else {
-					$copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
-					$thumbName = $rand.$fmini['name'];
-				}
-			}
-			$fileName = $rand.$f['name'];
-		}
-		$wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."')");
-	}
+    if (isset($_FILES['uploadfile'])) {
+      $f = $_FILES['uploadfile'];
+      $fmini = $_FILES['uploadfilemini'];
+      if (!is_dir($path)) {
+        if (!mkdir($path, 0777, true)) {
+          echo 'Failed to create folders...';
+        }
+      }
+      if (!is_dir($path_mini)) {
+        if (!mkdir($path_mini, 0777, true)) {
+          $view .= 'Failed to create folders...';
+        }
+      }
+      $copie = copy($f['tmp_name'], $path.$f['name']);
+      if (!$copie) {
+        $rand = rand(0, 100);
+        $copie = copy($f['tmp_name'], $path.$rand.$f['name']);
+      }
+      if ($fmini && ($fmini != '')) {
+        $imagem = new SimpleImage();
+        $imagem->load($_FILES['uploadfilemini']['tmp_name']);
+        $largeur = $imagem->getWidth();
+        $hauteur = $imagem->getHeight();
+        if ( ($largeur > 151) || ($hauteur > 76) ) {
+          if ($largeur > $hauteur) {
+            $imagem->resizeToWidth(151);
+            $hauteur = $imagem->getHeight();
+            if ($hauteur > 76) {
+              $imagem->resizeToHeight(76);
+            }
+          } else {
+            $imagem->resizeToHeight(76);
+            $szerom = $imagem->getWidth();
+            if ($hauteur > 76) {
+              $imagem->resizeToWidth(151);
+            }
+          }
+          $imagem->save($path_mini.$rand.$fmini['name']);
+          $thumbName = $rand.$fmini['name'];
+        } else {
+          $copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
+          $thumbName = $rand.$fmini['name'];
+        }
+      }
+      $fileName = $rand.$f['name'];
+    }
+    $wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."')");
+  }
 
 	if (isset($_POST['editpromotion'])) {
 		$p_name = $_POST['prom_name'];
@@ -5307,7 +5308,7 @@ function fb_admin_promo() {
 				}
 			}
 		}
-  //$updateowanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '1')");
+
 		$updateowanie = $wpdb->query("UPDATE `$fb_tablename_promo` SET name='$p_name', description='$p_desc', price='$p_price', ceddre='$p_ceddre', frais='$p_frais', `order` = '$p_order' WHERE id='$edytuj_id'");
 	}
 
@@ -5320,27 +5321,26 @@ function fb_admin_promo() {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Edit acc:</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="editpromotion" value="'.$editid.'" />';
   	echo '<p>Name: <input type="text" name="prom_name" value="'.$ed->name.'" /></p>';
-  //	echo '<p>Subtitle: <input type="text" name="prom_subname" value="'.$ed->subname.'" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+
   	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon">'.stripslashes($ed->description).'</textarea></p>';
   	echo '<p>Price: <input class="alignR" type="text" size="10" name="prom_price" value="'.$ed->price.'" />&euro;</p>';
   	echo '<p>Frais de port: <input class="alignR" type="text" size="10" name="prom_frais" value="'.$ed->frais.'" />&euro;</p>';
-  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" value="'.$ed->ceddre.'" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /> '.$ed->photo.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /> '.$ed->photo_mini.'&nbsp;<span style="color:red">choosing new = delete old file!</span></p>';
   	echo '<p>Order: <input type="text" size="5" name="prom_order" value="'.$ed->order.'" /></p>';
   	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
   	echo '</div></div></div>';
 
-  /* promocje -dodawanie */
   } else {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Nouvelle promo</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
   	echo '<p>Name: <input type="text" name="prom_name" /></p>';
-  //	echo '<p>Subtitle: <input type="text" name="prom_subname" /><small>(larger font, eg. "Solde!Solde!Solde! You can leave it empty.)</small></p>';
+
   	echo '<p>Description: <small>(Separate lines with &lt;br /&gt;)</small><br /><textarea name="prom_content" id="incon"></textarea></p>';
   	echo '<p>Price: <input class="alignR" type="text" size="10" name="prom_price" value="0.00" />&euro;</p>';
   	echo '<p>Frais de port: <input class="alignR" type="text" size="10" name="prom_frais" value="0.00" />&euro;</p>';
-  //	echo '<p>Ceddre: <input type="text" size="10" name="prom_ceddre" />&euro; <small> (If no CEDDRE leave empty)</small></p>';
+
   	echo '<p>PDF: <small>(or other external file)</small><br /><input type="file" name="uploadfile" /></p>';
   	echo '<p>Thumbnail: <small>(max 151x76px)</small><br /><input type="file" name="uploadfilemini" /></p>';
   	echo '<p>Order: <input type="text" size="5" name="prom_order" value="1" /></p>';
@@ -5349,11 +5349,12 @@ function fb_admin_promo() {
   }
 
 	echo '</div>';
-
 	echo '<div id="col-left" style="width:70%;margin-top:-7px;">';
   echo '<h1>Promotions</h1>';
 	echo '<table class="widefat widecenter fixed" id="mywidefat" cellspacing="0"><thead><tr><th>Name</th><th style="width:150px;">Description</th><th>Image</th><th>Price</th><th>Frais de Port</th><th>CEDDRE</th><th>Order</th><th>Action</th></tr></thead>';
+
 	$promotions = $wpdb->get_results("SELECT * FROM `$fb_tablename_promo` ORDER BY `order` ASC", ARRAY_A);
+
 	foreach ($promotions as $p) :
 		$n_price = str_replace(',', '', $p['price']).' &euro;';
 		$n_frais = str_replace(',', '', $p['frais']).' &euro;';
@@ -5395,46 +5396,46 @@ function fb_admin_acc() {
     $wpdb->query("INSERT INTO `$fb_tablename_acc` VALUES ('', '$ed->name', '$ed->subname', '$ed->description', '$ed->price', '$ed->cat','$ed->frais', '$ed->photo', '$ed->photo_mini', '$ed->order', '$ed->ref') ");
 	}
 
-	if (isset($_POST['addpromotion'])) {
-		$p_name = $_POST['prom_name'];
-		$p_subname = $_POST['prom_subname'];
-		$p_desc = addslashes($_POST['prom_content']);
-		$p_price = $_POST['prom_price'];
-		$p_frais = $_POST['prom_frais'];
-		$p_cat = $_POST['prom_cat'];
-		$p_order = $_POST['prom_order'];
+  if (isset($_POST['addpromotion'])) {
+    $p_name = $_POST['prom_name'];
+    $p_subname = $_POST['prom_subname'];
+    $p_desc = addslashes($_POST['prom_content']);
+    $p_price = $_POST['prom_price'];
+    $p_frais = $_POST['prom_frais'];
+    $p_cat = $_POST['prom_cat'];
+    $p_order = $_POST['prom_order'];
     $p_ref = $_POST['prom_ref'];
 
-		if (isset($_FILES['uploadfile'])) {
-			$f = $_FILES['uploadfile'];
-			$fmini = $_FILES['uploadfilemini'];
-			if (!is_dir($path)) {
-				if (!mkdir($path, 0777, true)) {
-					echo 'Failed to create folders...';
-				}
-			}
-			if (!is_dir($path_mini)) {
-				if (!mkdir($path_mini, 0777, true)) {
-					$view .= 'Failed to create folders...';
-				}
-			}
-			$copie = copy($f['tmp_name'], $path.$f['name']);
-			if (!$copie) {
-				$rand = rand(0, 100);
-				$copie = copy($f['tmp_name'], $path.$rand.$f['name']);
-			}
-			if ($fmini && ($fmini != '')) {
-     		$imagem = new SimpleImage();
-      	$imagem->load($_FILES['uploadfilemini']['tmp_name']);
+    if (isset($_FILES['uploadfile'])) {
+      $f = $_FILES['uploadfile'];
+      $fmini = $_FILES['uploadfilemini'];
+      if (!is_dir($path)) {
+        if (!mkdir($path, 0777, true)) {
+          echo 'Failed to create folders...';
+        }
+      }
+      if (!is_dir($path_mini)) {
+        if (!mkdir($path_mini, 0777, true)) {
+          $view .= 'Failed to create folders...';
+        }
+      }
+      $copie = copy($f['tmp_name'], $path.$f['name']);
+      if (!$copie) {
+        $rand = rand(0, 100);
+        $copie = copy($f['tmp_name'], $path.$rand.$f['name']);
+      }
+      if ($fmini && ($fmini != '')) {
+        $imagem = new SimpleImage();
+        $imagem->load($_FILES['uploadfilemini']['tmp_name']);
 
-				$copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
-				$thumbName = $rand.$fmini['name'];
-			}
-			$fileName = $rand.$f['name'];
-		}
+        $copie = copy($fmini['tmp_name'], $path_mini.$rand.$fmini['name']);
+        $thumbName = $rand.$fmini['name'];
+      }
+      $fileName = $rand.$f['name'];
+    }
 
-		$wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_acc` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_cat."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."', '".$p_ref."')");
-	}
+    $wysylanie = $wpdb->query("INSERT INTO `$fb_tablename_acc` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_cat."', '".$p_frais."', '".$fileName."', '".$thumbName."', '".$p_order."', '".$p_ref."')");
+  }
 
 	if (isset($_POST['editpromotion'])) {
 		$p_name = $_POST['prom_name'];
@@ -5484,7 +5485,7 @@ function fb_admin_acc() {
 				}
 			}
 		}
-  //$updateowanie = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES (not null, '".$p_name."', '".$p_subname."', '".$p_desc."', '".$p_price."', '".$p_ceddre."', '".$p_frais."', '".$fileName."', '".$thumbName."', '1')");
+
 		$updateowanie = $wpdb->query("UPDATE `$fb_tablename_acc` SET name='$p_name', description='$p_desc', price='$p_price', cat='$p_cat', frais='$p_frais', `order` = '$p_order', `ref` = '$p_ref' WHERE id='$edytuj_id'");
 	}
 
@@ -5531,7 +5532,6 @@ function fb_admin_acc() {
   	echo '<input type="submit" value="SAVE" class="savebutt3" /> or <a href="">CLOSE</a></form>';
   	echo '</div></div></div>';
 
-  /* promocje -dodawanie */
   } else {
   	echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Nouvel accessoire</span></h3><div class="inside">';
   	echo '<form name="newprom" id="newprom" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addpromotion" />';
@@ -5625,10 +5625,6 @@ function fb_admin_ncomments() {
   $aut = $_POST['auteur'];
   $dat = $_POST['date'];
 
-  /*if (isset($_GET["page"])) $page = $_GET["page"];
-  else $page = 1;
-  $start_from = ((int)$page-1) * (int)$limit;*/
-
 	echo '<div id="col-left" style="width:70%;">';
 	echo '<h1>Derniers commentaires</h1>';
 
@@ -5690,13 +5686,6 @@ function fb_admin_ncomments() {
 		echo '<tr><td>'.$i.'</td><td>'.$c['topic'].'</td><td>'.$txt.'</td><td>'.$c['data'].'</td><td>'.$c['author'].'</td><td><a href="'.get_bloginfo('url').'/wp-admin/admin.php?page=fbsh&fbdet='.$c['order_id'].'">'.$c['order_id'].'</a></td></tr>';
 	endforeach;
 
-  /*$total_pages = 10;
-  $pagLink = "<div class='pagination'>";
-  for ($i=1; $i<=$total_pages; $i++) {
-    $pagLink .= "<a href='?page=".$i."'>".$i."</a>";
-  };
-  echo $pagLink . "</div>";*/
-
 	echo '</table>';
 	echo '</div>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -5720,18 +5709,10 @@ function convertToNumber($string) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function convertToClean($string) {
-//	$string = str_replace('/', '', $string);
 	$search = explode(",","ç,æ,œ,á,é,í,ó,ú,à,è,ì,ò,ù,ä,ë,ï,ö,ü,ÿ,â,ê,î,ô,û,å,e,i,ø,u");
 	$replace = explode(",","c,ae,oe,a,e,i,o,u,a,e,i,o,u,a,e,i,o,u,y,a,e,i,o,u,a,e,i,o,u");
 	$string = str_replace($search, $replace, $string);
-//	$num = preg_replace('[\w .-]', '', $string);
 	$num = ereg_replace("[^a-zA-Z0-9\-\ ]", "", $string );
-//	$num = str_replace('/', ' ', $num);
-//	$num = ereg_replace("/^[a-zàâçéèêëîïôûùüÿñæœ .-]*$/i", "", $string );
-
-//	$num = ereg_replace("^([a-zA-Zŕ-üŔ-Ü0-9 \.\!\?\'\-]+)$", "", $string );
-//	$num = ereg_replace("[^a-zA-Z0-9\.\-\ ]", "", $string );
-//	$num = ereg_replace("[^a-zA-Z0-9\xBF-\xFF\.\-\ ]+$/", "", $string );
 	return $num;
 }
 
@@ -5750,7 +5731,6 @@ function convertSA($string, $count) {
 	} else {
 		$txt = $string;
 	}
-//	echo $string.' '.iconv_strlen($txt, "UTF-8").'<br />';
 	return $txt;
 }
 
@@ -5769,7 +5749,6 @@ function convertN($string, $count) {
   } else {
     $txt = $string;
   }
-  //	echo $string.' '.iconv_strlen($txt, "UTF-8").'<br />';
   return $txt;
 }
 
@@ -5801,7 +5780,6 @@ function convertSAAddress($string, $count) {
 		$new[] = $txt;
 		$txt = $new;
 	}
-//	echo $txt.'<br />';
 	return $txt;
 }
 
@@ -5812,20 +5790,20 @@ function convertSAAddress($string, $count) {
 function getTnt($id, $user) {
 	global $wpdb;
 	$prefix = $wpdb->prefix;
-	$fb_tablename_users = $prefix."fbs_users";
+	$fb_tablename_users   = $prefix."fbs_users";
 	$fb_tablename_address = $prefix."fbs_address";
-	$fb_tablename_cf = $prefix."fbs_cf";
-	$exadd = false;
-	$suser = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$user'");
+	$fb_tablename_cf      = $prefix."fbs_cf";
+	$exadd  = false;
+	$suser  = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$user'");
 	$exuser = $wpdb->get_row("SELECT * FROM `$fb_tablename_address` WHERE unique_id = '$id'");
 	if ($exuser) {
 		$exadd = true;
 	}
-    //echo "///USER=";print_r($suser);
-    //echo "///EXUSER=";print_r($exuser);
-    $relais_colis = false;
-    $relais_number = "";
-    $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
+
+  $relais_colis = false;
+  $relais_number = "";
+  $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
+
 	foreach ($commande_relais as $UN_commande_relais) :
 		$relais = $UN_commande_relais->type;
 		if ($relais == "relais") {
@@ -5845,43 +5823,62 @@ function getTnt($id, $user) {
 		}
 	endforeach;
 
+  $query_assurance = "SELECT value FROM `$fb_tablename_cf` WHERE type='assurance' AND unique_id = '$id'";
+  $query_poids = "SELECT value FROM `$fb_tablename_cf` WHERE type='poids' AND unique_id = '$id'";
+  $poids = $wpdb->get_var($query_poids);
+  $assu = $wpdb->get_var($query_assurance);
+  $assurance = number_format($assu, 2, '.', '');
+
   /* Nombre de colis */
-	$sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='nbcolis' AND unique_id = '$id'");
-		if ($sprawdzshipping) {
-			$nbcolis = $sprawdzshipping->value;
-		}else {
-			$nbcolis = "1";
-        }
+  $sprawdzshipping = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='nbcolis' AND unique_id = '$id'");
+  if ($sprawdzshipping) {
+    $nbcolis = $sprawdzshipping->value;
+  }else {
+    $nbcolis = "1";
+  }
 
 	$v340 = "";
-
-	$v1 = convertSA('08904205', 9);
+	$v1  = convertSA('08904205', 9);
 	$v10 = convertSA($id, 18);
 	$v28 = convertSA('', 9);
 
+  if($relais_colis && $relais_number != ""){
+  	$v37 = convertSA('JD', 3);
+    $v70 = convertSA('0', 11);
+    $v340 = convertSA($relais_number, 10);
+  }else{
+    $v37 = convertSA('J', 3);
+    $v70 = convertSA('', 11);
+    $v340 = convertSA('', 10);
+  }
 
-    if($relais_colis && $relais_number != ""){
-    	$v37 = convertSA('JD', 3);
-        $v70 = convertSA('0', 11);
-        $v340 = convertSA($relais_number, 10);
-    }else{
-		$v37 = convertSA('J', 3);
-		$v70 = convertSA('', 11);
-		$v340 = convertSA('', 10);
-    }
-
-    /* Pas sur de ce champ: je le mets à 0*/
-    $v70 = '';
-
+  /* Pas sur de ce champ: je le mets à 0*/
+  $v70 = '';
 	$v40 = convertSA('', 16);
-	$v56 = convertSA('0.0', 11);
-	$v67 = convertSA('', 17);
-	$v84 = convertSA($nbcolis, 2);
-	$v86 = convertSA('0001.000', 8);
+
+  // valeur assurée Format '99999999.99' ---------------------------------------
+  if     ($assurance < 10)     $zeros = '0000000'; // si nb à 1 chiffre
+  elseif ($assurance < 100)    $zeros = '000000';  // si nb à 2 chiffres
+  elseif ($assurance < 1000)   $zeros = '00000';   //...      3
+  elseif ($assurance < 10000)  $zeros = '0000';    //...      4
+  elseif ($assurance < 100000) $zeros = '000';     //...      5
+  $as = $zeros.$assurance;
+  $v56 = convertSA($as, 11);
+
+  //----------------------------------------------------------------------------
+  $v57 = convertSA('EUR', 3); // devise
+  $v67 = convertSA('', 14);
+  $v84 = convertSA($nbcolis, 2);
+
+  // poids: Format '9999.999' en Kg---------------------------------------------
+  if ($poids < 10) $pt = '0'.$poids;
+  else             $pt = $poids;
+  $v86 = convertSA('00'.$pt.'.000', 8);
+  //----------------------------------------------------------------------------
+
 	$v94 = convertSA('', 7);
 	$v101 = convertSA(date('Ymd'), 8);
 	$v109 = convertSA('', 30);
-  //	$v139 = convertSA('APPELER CLIENT SI BESOIN MERCI', 30); // ???
 
 	if ($exadd == true) {
 		$v169 = convertSA(convertToNumber($exuser->l_phone), 30); // phone
@@ -5893,15 +5890,15 @@ function getTnt($id, $user) {
 		}
 	}
 
-    if($relais_colis && $relais_number != ""){
-    	$v169 = convertSA(convertToNumber($suser->f_phone), 30); // phone
-    	//$v169 = convertSA('1234567890123456789012345678901234567890', 30); // phone
-    }
+  if($relais_colis && $relais_number != ""){
+  	$v169 = convertSA(convertToNumber($suser->f_phone), 30); // phone
+  }
 
-	$v199 = convertSA('', 85);
+	$v199 = convertSA('', 25);
+  $v224 = convertSA(trim($suser->email), 40); // mail user
+  $v264 = convertSA('', 20); // TVA
+
 	$v284 = convertSA('C', 1);
-	/* Vu que l'on rajoute le champ v340 de 10 char, on enlève 10 à v285:
-    $v285 = convertSA('', 65);*/
 	$v285 = convertSA('', 55);
 
 	if ($exadd == true) {
@@ -5916,10 +5913,9 @@ function getTnt($id, $user) {
 		}
 	}
 
-    if($relais_colis && $relais_number != ""){
-        $v139 = convertSA(convertToClean($suser->f_name), 30);
-    }
-
+  if($relais_colis && $relais_number != ""){
+      $v139 = convertSA(convertToClean($suser->f_name), 30);
+  }
 
 	if ($exadd == true) {
 		$v350 = convertSA(convertToClean($exuser->l_comp), 30);
@@ -5931,9 +5927,9 @@ function getTnt($id, $user) {
 		}
 	}
 
-    if($relais_colis && $relais_number != ""){
-        $v350 = convertSA('RELAIS COLIS', 30);
-    }
+  if($relais_colis && $relais_number != ""){
+      $v350 = convertSA('RELAIS COLIS', 30);
+  }
 
 	if ($exadd == true) {
 		$explode = explode('|', $exuser->l_address);
@@ -5978,56 +5974,47 @@ function getTnt($id, $user) {
 		}
 	}
 
-    if($relais_colis && $relais_number != ""){
-        $v380 = convertSA(convertToClean(strtoupper($exuser->l_address)), 30);
-        $v410 = convertSA(convertToClean($exuser->l_comp), 30);
-		    $v470 = convertSA(convertToNumber($exuser->l_code), 9);
-        $v479 = convertSA(convertToClean($exuser->l_city), 30);
-    }
+  if($relais_colis && $relais_number != ""){
+      $v380 = convertSA(convertToClean(strtoupper($exuser->l_address)), 30);
+      $v410 = convertSA(convertToClean($exuser->l_comp), 30);
+	    $v470 = convertSA(convertToNumber($exuser->l_code), 9);
+      $v479 = convertSA(convertToClean($exuser->l_city), 30);
+  }
 
 	$v509 = convertSA('', 30);
-	$v539 = convertSA('FR', 3);
-    if($colis_revendeur){
-    	/* Saisie de l'adresse de facturation du client dans les champs expéditeur pour les envois en colis revendeur */
-		$v542 = convertSA('', 53);
-		$v595 = convertSA(convertToClean($suser->f_name), 30);
-        if(trim($suser->f_comp) == ""){
-				$v625 = convertSA(convertToClean($suser->f_address), 60);
-				$v655 = "";
-        }else{
-				$v625 = convertSA(convertToClean($suser->f_comp), 30);
-				$v655 = convertSA(convertToClean($suser->f_address), 30);
-        }
-        $v685 = convertSA('', 30);
-		$v715 = convertSA(convertToNumber($suser->f_code), 9);
-		$v724 = convertSA(convertToClean($suser->f_city), 30);
-		$v754 = convertSA('', 30);
-		$v784 = convertSA('FR', 3);
-		$v787 = convertSA('', 22);
-		$v809 = convertSA(convertToClean($suser->f_phone), 16);
-        $v825 = convertSA('',386);
-
-        $v542 = $v542 . $v595 . $v625 . $v655 . $v685 . $v715 . $v724 . $v754 . $v784 . $v787 . $v809 . $v825;
+  $v539 = convertSA('FR', 3);
+  if($colis_revendeur){
+    /* Saisie de l'adresse de facturation du client dans les champs expéditeur pour les envois en colis revendeur */
+    $v542 = convertSA('', 53);
+    $v595 = convertSA(convertToClean($suser->f_name), 30);
+    if(trim($suser->f_comp) == ""){
+      $v625 = convertSA(convertToClean($suser->f_address), 60);
+      $v655 = "";
     }else{
-        $v542 = convertSA('', 669);
+      $v625 = convertSA(convertToClean($suser->f_comp), 30);
+      $v655 = convertSA(convertToClean($suser->f_address), 30);
     }
+    $v685 = convertSA('', 30);
+    $v715 = convertSA(convertToNumber($suser->f_code), 9);
+    $v724 = convertSA(convertToClean($suser->f_city), 30);
+    $v754 = convertSA('', 30);
+    $v784 = convertSA('FR', 3);
+    $v787 = convertSA('', 22);
+    $v809 = convertSA(convertToClean($suser->f_phone), 16);
+    $v825 = convertSA('',386);
 
-	//$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
-	$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
+    $v542 = $v542 . $v595 . $v625 . $v655 . $v685 . $v715 . $v724 . $v754 . $v784 . $v787 . $v809 . $v825;
+  }else{
+    $v542 = convertSA('', 669);
+  }
+
+  $sum = $v1.$v10.$v28.$v37.$v40.$v56.$v57.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v224.$v264.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
 	$sum = str_ireplace('cedex', '     ', $sum);
-  //	echo $sum;
 
   $myFile = 'tnt/'.$id.".txt";
-  //echo 'myFile='.$myFile;
   $fh = fopen($myFile, 'w') or die("1can't open file");
   fwrite($fh, $sum);
   fclose($fh);
-  $myFile2 = 'tnt/'.$id.".tem";
-  $fh2 = fopen($myFile2, 'w') or die("2can't open file");
-  //fwrite($fh2, $sum);
-  fclose($fh2);
-  //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-  //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
 
   $BLXLSFile = il_y_a_fichier_BLXLS($id);
   if ($BLXLSFile != false) {
@@ -6037,50 +6024,11 @@ function getTnt($id, $user) {
   }
   if($hasBLXLS != false) {
   echo '<div id="downFiles">
-  <a href="download.php?filename='.$id.'" id="downZIPTXT">Download ZIP TXT</a><br />
-  <a href="download2.php?filename='.$id.'" id="downZIPTEM">Download ZIP TEM</a></div>';
+  <a href="download.php?filename='.$id.'" id="downZIPTXT">Download ZIP TXT</a><br />';
   } else {
   echo '<div id="downFiles">
-  <a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />
-  <a href="download2.php?filename='.$id.'" id="downTEM">Download tem</a></div>';
+  <a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />';
   }
-  //echo '<a href="download.php?filename='.$id.'">Download</a>';
-
-  ?>
-  <script type="text/javascript">
-  /*		$(document).ready(function(){
-
-          	$.ajax({
-  			    type: "GET",
-  			    url: "http://"+document.location.host+"/wp-admin/download2.php",
-  			    data: "filename=".$id,
-                  success:function(response){
-                      alert('ok-'+response);
-                      alert("Details saved successfully!!!");
-                  },
-                  error: function (request, status, error) {
-                      alert(request.responseText);
-                  }
-  			});
-  //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.txt','Download')",100);
-  // 			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Downloadtem')",200);
-  //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Download')",1010);
-          });
-  */
-  </script>
-  <?php
-
-  /*
-  <script type="text/javascipt">
-  setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'Download\')",500);
-
-  function startDownload() {
-  alert();
-  var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
-  window.open(url,"Download");
-  setTimeout("startDownload()",500);
-  }
-  */
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -6099,8 +6047,7 @@ function getTnt_ZIP($id, $user, $liste) {
 	if ($exuser) {
 		$exadd = true;
 	}
-  //echo "///USER=";print_r($suser);
-  //echo "///EXUSER=";print_r($exuser);
+
   $relais_colis = false;
   $relais_number = "";
   $commande_relais = $wpdb->get_results("SELECT * FROM `$fb_tablename_cf` WHERE unique_id = '$id'");
@@ -6108,8 +6055,8 @@ function getTnt_ZIP($id, $user, $liste) {
 		$relais = $UN_commande_relais->type;
 		if ($relais == "relais") {
 			$relais_colis = true;
-            $relais_number = $UN_commande_relais->value;
-            break;
+      $relais_number = $UN_commande_relais->value;
+      break;
 		}
 	endforeach;
 
@@ -6146,6 +6093,12 @@ function getTnt_ZIP($id, $user, $liste) {
   	$incr_id++;
     if($code != 0) {
   		if($donnees_client = $wpdb->get_row("SELECT * FROM wp_retail WHERE retail_code = '" . $code . "'")) {
+        $query_assurance = "SELECT value FROM `$fb_tablename_cf` WHERE type='assurance' AND unique_id = '$id'";
+        $query_poids = "SELECT value FROM `$fb_tablename_cf` WHERE type='poids' AND unique_id = '$id'";
+        $poids = $wpdb->get_var($query_poids);
+        $assu = $wpdb->get_var($query_assurance);
+        $assurance = number_format($assu, 2, '.', '');
+
       	$v340 = "";
       	$v1 = convertSA('08904205', 9);
       	$v10 = convertSA($id, 18);
@@ -6156,7 +6109,7 @@ function getTnt_ZIP($id, $user, $liste) {
           $v70 = convertSA('0', 11);
           $v340 = convertSA($relais_number, 10);
         }else{
-        	$v37 = convertSA('J', 3);
+          $v37 = convertSA('J', 3);
         	$v70 = convertSA('', 11);
         	$v340 = convertSA('', 10);
         }
@@ -6164,10 +6117,29 @@ function getTnt_ZIP($id, $user, $liste) {
         /* Pas sur de ce champ: je le mets à 0*/
         $v70 = '';
       	$v40 = convertSA('', 16);
-      	$v56 = convertSA('0.0', 11);
-      	$v67 = convertSA('', 17);
+
+        // valeur assurée Format '99999999.99' ---------------------------------
+
+        if     ($assurance < 10)     $zeros = '0000000'; // si nb à 1 chiffre
+        elseif ($assurance < 100)    $zeros = '000000';  // si nb à 2 chiffres
+        elseif ($assurance < 1000)   $zeros = '00000';   //...      3
+        elseif ($assurance < 10000)  $zeros = '0000';    //...      4
+        elseif ($assurance < 100000) $zeros = '000';     //...      5
+        $as = $zeros.$assurance;
+        $v56 = convertSA($as, 11);
+
+        //----------------------------------------------------------------------
+        $v57 = convertSA('EUR', 3); // devise
+      	$v67 = convertSA('', 14);
       	$v84 = convertSA($nbcolis, 2);
-      	$v86 = convertSA('0001.000', 8);
+
+        // poids: Format '9999.999' en Kg---------------------------------------
+
+        if ($poids < 10) $pt = '0'.$poids;
+        else             $pt = $poids;
+      	$v86 = convertSA('00'.$pt.'.000', 8);
+        //----------------------------------------------------------------------
+
       	$v94 = convertSA('', 7);
       	$v101 = convertSA(date('Ymd'), 8);
       	$v109 = convertSA('', 30);
@@ -6192,7 +6164,10 @@ function getTnt_ZIP($id, $user, $liste) {
         	//$v169 = convertSA('1234567890123456789012345678901234567890', 30); // phone
         }
 
-      	$v199 = convertSA('', 85);
+        $v199 = convertSA('', 25);
+        $v224 = convertSA(trim($suser->email), 40); // mail user
+        $v264 = convertSA('', 20); // TVA
+
       	$v284 = convertSA('C', 1);
       	/* Vu que l'on rajoute le champ v340 de 10 char, on enlève 10 à v285:
           $v285 = convertSA('', 65);*/
@@ -6325,24 +6300,15 @@ function getTnt_ZIP($id, $user, $liste) {
           $v542 = convertSA('', 669);
         }
 
-      	//$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
-      	$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
+      	$sum = $v1.$v10.$v28.$v37.$v40.$v56.$v57.$v67.$v70.$v84.$v86.$v94.$v101.$v109.$v139.$v169.$v199.$v224.$v264.$v284.$v285.$v340.$v350.$v380.$v410.$v440.$v470.$v479.$v509.$v539.$v542;
       	$sum = str_ireplace('cedex', '     ', $sum);
-        //	echo $sum;
 
         $myFile = "tnt/".substr($id,2).str_pad($incr_id, 2, '0', STR_PAD_LEFT).".txt";
-        //echo 'myFile='.$myFile;
         $fh = fopen($myFile, 'w') or die("1can't open file");
         fwrite($fh, $sum);
         fclose($fh);
         $zip_txt->addFile($myFile);
-        $myFile2 = "tnt/".substr($id,2).str_pad($incr_id, 2, '0', STR_PAD_LEFT).".tem";
-        $fh2 = fopen($myFile2, 'w') or die("2can't open file");
-        //fwrite($fh2, $sum);
-        fclose($fh2);
-        $zip_tem->addFile($myFile2);
-        //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />'
-        //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
+
   		}
   	}
   }
@@ -6358,53 +6324,11 @@ function getTnt_ZIP($id, $user, $liste) {
   }
   if($hasBLXLS != false) {
   echo '<div id="downFiles">
-  <a href="download.php?filename='.$id.'&zip=1" id="downZIPTXT">Download ZIP TXT</a><br />
-  <a href="download2.php?filename='.$id.'&zip=1" id="downZIPTEM">Download ZIP TEM</a></div>';
+  <a href="download.php?filename='.$id.'&zip=1" id="downZIPTXT">Download ZIP TXT</a>';
   } else {
   echo '<div id="downFiles">
-  <a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />
-  <a href="download2.php?filename='.$id.'" id="downTEM">Download tem</a></div>';
+  <a href="download.php?filename='.$id.'" id="downTXT">Download txt</a><br />';
   }
-
-  //echo '<a href="download.php?filename='.$id.'">Download</a>';
-
-  ?>
-  <script type="text/javascript">
-  /*		$(document).ready(function(){
-
-          	$.ajax({
-  			    type: "GET",
-  			    url: "http://"+document.location.host+"/wp-admin/download2.php",
-  			    data: "filename=".$id,
-                  success:function(response){
-                      alert('ok-'+response);
-                      alert("Details saved successfully!!!");
-                  },
-                  error: function (request, status, error) {
-                      alert(request.responseText);
-                  }
-  			});
-   //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.txt','Download')",100);
-  // 			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Downloadtem')",200);
-  //			setTimeout("window.open('/wp-admin/tnt/<?php echo $id; ?>.tem','Download')",1010);
-          });
-  */
-  </script>
-  <?php
-
-  /*
-  <script type="text/javascipt">
-  setTimeout("window.open(\''.get_bloginfo("url").'/wp-admin/tnt/'.$id.'.tem\',\'Download\')",500);
-
-
-  function startDownload() {
-  alert();
-  var url="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem";
-  window.open(url,"Download");
-  setTimeout("startDownload()",500);
-  }
-  */
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -6424,9 +6348,7 @@ function getFedex($id, $user) {
   if ($exuser) {
       $exadd = true;
   }
-  //echo "///USER=";print_r($suser);
-  //echo "///EXUSER=";print_r($exuser);
-	//$query_poids = "SELECT poids FROM `$fb_tablename_cf` WHERE unique_id = '$id'";
+
 	$query_poids = "SELECT value FROM `$fb_tablename_cf` WHERE type='poids' AND unique_id = '$id'";
 	$poids = $wpdb->get_var($query_poids);
 
@@ -6462,12 +6384,10 @@ function getFedex($id, $user) {
       $nbcolis = "1";
   }
 
-
 	/* Construction Fichier plat */
 
 	/* Compte client */
 	$v1 = convertN('0440949', 7);
-
 	/* REF A Constante à définir */
 	/* Envois en marque blanche */
 	if($colis_revendeur) {
@@ -6564,7 +6484,6 @@ function getFedex($id, $user) {
 	/*Code PAys: 2AN, blanc pour la France  */
 	$v294 = convertSA('  ', 2);
 
-
   /*Codepostal */
   if ($exadd == true) {
     $v296 = convertSA(convertToNumber($exuser->l_code), 7);
@@ -6642,19 +6561,11 @@ function getFedex($id, $user) {
   //	echo $sum;
 
   $myFile = 'tnt/tedip_' . $id . ".csv";
-  //echo 'myFile='.$myFile;
   $fh = fopen($myFile, 'w') or die("1can't open file");
   fwrite($fh, $sum);
   fclose($fh);
-  //$myFile2 = 'tnt/' . $id . ".tem";
-  //$fh2 = fopen($myFile2, 'w') or die("2can't open file");
-  //fwrite($fh2, $sum);
-  //fclose($fh2);
-  //echo '<div id="downFiles"><a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.txt" id="downTXT">Download txt</a><br />';
-  //echo '<a target="_blank" href="'.get_bloginfo('url').'/wp-admin/tnt/'.$id.'.tem" id="downTEM">Download tem</a></div>';
   echo '<div id="downFiles">
   <a href="download.php?filename=tedip_' . $id . '.csv" id="downTXT">Download txt</a><br />';
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -6896,7 +6807,6 @@ function getDPD($id, $user) {
 
   echo '<div id="downFiles">
   <a href="download.php?filename=tedip_' . $id . '.txt" id="downTXT">Download txt</a><br />';
-
 }
 
 //////////////////////////////////////////////////// check si colis revendeur //
@@ -6908,21 +6818,20 @@ function getDPD($id, $user) {
  * @return boolean
  */
 function EstColieRevendeur($idorder) {
-    global $wpdb;
-    $prefix = $wpdb->prefix;
-    $sql = "select id from " . $prefix . "fbs_prods where order_id='" . $idorder . "' and description like '%colis revendeur%'";
-    try {
-      $id = $wpdb->get_var($sql);
-	//mail("contact@tempopasso.com","TEST EstColieRevendeur","sql=".$sql." // id=".$id." ///// ".print_r("",true));
-      if ($id) {
-          return true;
-      } else {
-          return false;
-      }
-    } catch (Exception $ex) {
-        echo $ex->getMessage();
-        return false;
+  global $wpdb;
+  $prefix = $wpdb->prefix;
+  $sql = "select id from " . $prefix . "fbs_prods where order_id='" . $idorder . "' and description like '%colis revendeur%'";
+  try {
+    $id = $wpdb->get_var($sql);
+    if ($id) {
+      return true;
+    } else {
+      return false;
     }
+  } catch (Exception $ex) {
+    echo $ex->getMessage();
+    return false;
+  }
 }
 
 ///////////////////////////////////////////////////////// check si BL présent //
@@ -6932,43 +6841,43 @@ function EstColieRevendeur($idorder) {
  * @param type $idorder
  * @return boolean
  */
-function il_y_a_fichier_bl($idorder) {
-    $base = ABSPATH;
-    if (@file_exists($base . 'uploaded/' . $idorder . '/BL.PDF')) {
-        return $base . 'uploaded/' . $idorder . '/BL.PDF';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/bl.pdf')) {
-        return $base . 'uploaded/' . $idorder . '/bl.pdf';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.PDF')) {
-        return $base . 'uploaded/' . $idorder . '/Bl.PDF';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.pdf')) {
-        return $base . 'uploaded/' . $idorder . '/Bl.pdf';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/BL.pdf')) {
-        return $base . 'uploaded/' . $idorder . '/BL.pdf';
-    } else {
-        return false;
-    }
-}
+ function il_y_a_fichier_bl($idorder) {
+   $base = ABSPATH;
+   if (@file_exists($base . 'uploaded/' . $idorder . '/BL.PDF')) {
+     return $base . 'uploaded/' . $idorder . '/BL.PDF';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/bl.pdf')) {
+     return $base . 'uploaded/' . $idorder . '/bl.pdf';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.PDF')) {
+     return $base . 'uploaded/' . $idorder . '/Bl.PDF';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.pdf')) {
+     return $base . 'uploaded/' . $idorder . '/Bl.pdf';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/BL.pdf')) {
+     return $base . 'uploaded/' . $idorder . '/BL.pdf';
+   } else {
+     return false;
+   }
+ }
 
 /**
  * Verifier si un fichier BL.XLS exits et renvoit le chemin, sinon FALSE
  * @param type $idorder
  * @return boolean
  */
-function il_y_a_fichier_BLXLS($idorder) {
-    $base = ABSPATH;
-    if (@file_exists($base . 'uploaded/' . $idorder . '/BL.XLS')) {
-        return $base . 'uploaded/' . $idorder . '/BL.XLS';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/bl.xls')) {
-        return $base . 'uploaded/' . $idorder . '/bl.xls';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.XLS')) {
-        return $base . 'uploaded/' . $idorder . '/Bl.XLS';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.xls')) {
-        return $base . 'uploaded/' . $idorder . '/Bl.xls';
-    } elseif (@file_exists($base . 'uploaded/' . $idorder . '/BL.xls')) {
-        return $base . 'uploaded/' . $idorder . '/BL.xls';
-    } else {
-        return false;
-    }
+ function il_y_a_fichier_BLXLS($idorder) {
+   $base = ABSPATH;
+   if (@file_exists($base . 'uploaded/' . $idorder . '/BL.XLS')) {
+     return $base . 'uploaded/' . $idorder . '/BL.XLS';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/bl.xls')) {
+     return $base . 'uploaded/' . $idorder . '/bl.xls';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.XLS')) {
+     return $base . 'uploaded/' . $idorder . '/Bl.XLS';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/Bl.xls')) {
+     return $base . 'uploaded/' . $idorder . '/Bl.xls';
+   } elseif (@file_exists($base . 'uploaded/' . $idorder . '/BL.xls')) {
+     return $base . 'uploaded/' . $idorder . '/BL.xls';
+   } else {
+     return false;
+   }
 }
 
 ///////////////////////////////////////////////// générer code barre commande //
@@ -7001,22 +6910,13 @@ function renvoiCodeBar($idorder) {
   imagefilledrectangle($im, 0, 0, 300, 300, $white);
 
   $data = Barcode::gd($im, $black, $x, $y, $angle, $type, array('code' => $code,'crc' => false), $width, $height);
-	/*
-	$im     = imagecreatetruecolor(300, 300);
-  $black  = ImageColorAllocate($im,0x00,0x00,0x00);
-  $white  = ImageColorAllocate($im,0xff,0xff,0xff);
-  imagefilledrectangle($im, 0, 0, 300, 300, $white);
-  $type = "code128";
-  $data = Barcode::gd($im, $black, $x, $y, $angle, $type, array('code' => $code), $width, $height);
-  */
+
   imagestring($im, 5, $x-100, $y+46, formatStringForCodeBarre($idorder), 0);
-  //imageline($im, $x, 0, $x, 250, $red);
-  //imageline($im, 0, $y, 250, $y, $red);
+
   for ($i = 1; $i < 5; $i++) {
       //drawCross($im, $blue, $data['p' . $i]['x'], $data['p' . $i]['y']);
   }
   $imgPath = __DIR__ . "/barcodes_GkA32Bn09fKNxSL/". $idorder . "_" . uniqid() . ".png";
-  //imagepng($image)
   imagepng($im, $imgPath);
   imagedestroy($im);
 
@@ -7031,11 +6931,11 @@ function renvoiCodeBar($idorder) {
  * @param type $y
  */
 function drawCross($im, $color, $x, $y) {
-    imageline($im, $x - 10, $y, $x + 10, $y, $color);
-    imageline($im, $x, $y - 10, $x, $y + 10, $color);
+  imageline($im, $x - 10, $y, $x + 10, $y, $color);
+  imageline($im, $x, $y - 10, $x, $y + 10, $color);
 }
 
-/**
+ /**
  * Renvoi la ligne qui contient l'addresse du client de la commande ($numero)
  * Sinon il renvoi FALSE
  * @global type $wpdb
@@ -7043,22 +6943,22 @@ function drawCross($im, $color, $x, $y) {
  * @return boolean
  */
 function renvoiAdresseClient($numero) {
-    global $wpdb;
-    $prefix = $wpdb->prefix;
-    $sql = "SELECT * FROM " . $prefix . "fbs_users a left join " . $prefix . "fbs_order b on (b.`user` = a.id) left join " . $prefix . "fbs_prods c on (c.order_id = b.unique_id) where c.order_id = '" . $numero . "';";
-    if ($row = $wpdb->get_row($sql)) {
-        return $row;
-    } else {
-        return false;
-    }
+  global $wpdb;
+  $prefix = $wpdb->prefix;
+  $sql = "SELECT * FROM " . $prefix . "fbs_users a left join " . $prefix . "fbs_order b on (b.`user` = a.id) left join " . $prefix . "fbs_prods c on (c.order_id = b.unique_id) where c.order_id = '" . $numero . "';";
+  if ($row = $wpdb->get_row($sql)) {
+      return $row;
+  } else {
+      return false;
+  }
 }
 
 function formatStringForCodeBarre($string) {
-    $s = "";
-    for($i=0; $i<=strlen($string); $i++) {
-        $s .= $string[$i] . "  ";
-    }
-    return $s;
+  $s = "";
+  for($i=0; $i<=strlen($string); $i++) {
+      $s .= $string[$i] . "  ";
+  }
+  return $s;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -8209,7 +8109,8 @@ function fb_admin_promocode() {
     $prdate = $_POST['prdate'];
     $addtodb = $wpdb->query("INSERT INTO `$fb_tablename_promo` VALUES ('$prcode', '$pramount', '$prprice', '$prcat', '$prmini','$prdate') ");
   }
-  echo '<div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Ajouter code promo</span></h3><div class="inside">';
+  echo '
+  <div id="poststuff" class="metabox-holder has-right-sidebar"><div class="postbox"><h3><span>Ajouter code promo</span></h3><div class="inside">';
   echo '<form name="newfr" id="newfr" action="" enctype="multipart/form-data" method="post"><input type="hidden" name="addfr" value="" />';
   echo '<p>Code: <input class="alignR" type="text" name="prcode" placeholder="code promo" /></p>';
   echo '<p>Réduction (%): <input class="alignR" type="text" name="pramount" placeholder="réduction en pourcentage" /></p>';
@@ -8238,9 +8139,19 @@ function fb_admin_promocode() {
     <option value="Enseigne">Enseigne Suspendue</option>
   </select></p>';
   echo '<p>Minimum d\'achat: <input class="alignR" type="text" name="prmini" placeholder="minimum d\'achat HT" /></p>';
-  echo '<p>Date d\'expiration: <input class="alignR" type="text" name="prdate" placeholder="AAAA-MM-JJ" /></p>';
+  echo '<p>Date d\'expiration: <input class="alignR" type="text" name="prdate" placeholder="AAAA-MM-JJ" id="datepicker" /></p>';
   echo '<input type="submit" value="ajouter" class="savebutt5" /></form>';
-  echo '</div></div></div>';
+  echo '</div></div></div>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#datepicker" ).datepicker({ dateFormat: "yy-mm-dd" });
+    } );
+  </script>
+  ';
 
   //----------------------------------------------------------------------------
 	echo '</div>';
@@ -8289,4 +8200,88 @@ function fb_admin_promocode() {
 	echo '</div></div>';
 }
 
+// ANNULATION DES DEVIS SANS ACTION DEPUIS +7J
+
+function cancel_abandonned($uid) {
+
+  /*le client est un nouveau client,
+  il n' a pas téléchargé de fichier,
+  n'a pas d'ancienne commande dans son compte,
+  n'a pas payé sa commande,
+  il a déjà reçu 3 relances pour un devis inactif,
+  ==> dans ce cas, la commande passe en statut "annulé" et on envoie le mail "votre devis a été annulé*/
+
+  global $wpdb;
+  $prefix = $wpdb->prefix;
+	$fb_tablename_order = $prefix."fbs_order";
+	$fb_tablename_prods = $prefix."fbs_prods";
+	$fb_tablename_users = $prefix."fbs_users";
+	$fb_tablename_users_cf = $prefix."fbs_users_cf";
+  $fb_tablename_mails = $prefix."fbs_mails";
+	$fb_tablename_comments = $prefix."fbs_comments";
+	$fb_tablename_cf = $prefix."fbs_cf";
+
+  $us = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id='$uid'");
+
+  $active = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE user = '$uid' AND status > 1 AND status != 6");
+  $num_active = count($active);
+  $inactive = $wpdb->get_results("SELECT * FROM `$fb_tablename_order` WHERE user = '$uid' AND status < 2");
+  $num_inactive = count($inactive);
+  /*echo '<br/><br/>'.$num_active. ' commandes actives ou cloturées pour le client '.$o->user .'<br/>';
+  echo '<br/><br/>'.$num_inactive. ' commandes en attente pour le client '.$o->user .'<br/>';*/
+
+  // pour chaque commande de ce client
+  $i = 0;
+  $rt = '';
+  foreach ($inactive as $c) :
+    // vérifier s'il y a des fichiers uploadés dans la commande
+    $cid = $c->unique_id;
+    $pathfiles = $_SERVER['DOCUMENT_ROOT'].'/uploaded/'.$cid.'/';
+    $files = scandir($pathfiles);
+    $num_files = count($files)-1;
+    /*echo 'il y a ' .$num_files. ' fichiers dans le dossier commande no ' .$cid.'<br/>';
+    echo 'status: ' .$c->status.' <br>';*/
+
+    // vérifier s'il y a des relances (recherche titre commentaire "attention 7 jours")
+    $comments = $wpdb->get_results("SELECT * FROM `$fb_tablename_comments` WHERE order_id = '$cid' AND topic like 'ATTENTION 7 JOURS'");
+    $num_com = count($comments);
+    /*echo 'il y a ' .$num_com. ' relances devis inactif pour la commande no ' .$cid.'<br/>';*/
+
+    // vérifier que le dernier commentaire soit un avis de relance
+    $lastcomment = $wpdb->get_row("SELECT * FROM `$fb_tablename_comments` WHERE order_id = '$cid' ORDER BY date DESC");
+
+    // s'il n'y a pas de fichier ni de commandes actives ou cloturées, et qu'il y a plus de 2 relances, passage au statut 'annulé'
+    if ($lastcomment->topic == 'ATTENTION 7 JOURS' && $num_active == 0 && $num_files < 1 && $num_com > 2) {
+      $i++;
+      // on ajoute un lien vers les commandes concernées
+      $rt .= '<a href="'.get_bloginfo("url").'/wp-admin/admin.php?page=fbsh&fbdet='.$cid.'">'.$cid.'</a> | ';
+
+      $date = date('Y-m-d H:i:s');
+      // au clic sur annuler on passe les commandes au statut annulé et on envoie un mail au client
+      if(isset($_POST['cancelinactive'])) {
+    	  $cancel = $wpdb->update($fb_tablename_order, array ( 'status' => 6, 'date_modify' => $date), array ( 'unique_id' => $cid ));
+
+        // ENVOI de l'email 'Votre devis a été annulé'
+        $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'Votre devis a été annulé'", ARRAY_A);
+      	foreach ($mails as $ma) :
+      		$con = stripslashes($ma['content']);
+      		$con = htmlspecialchars($con);
+      		$top = stripslashes($ma['topic']);
+      		$top = htmlspecialchars($top);
+      	endforeach;
+
+      	/* On remplace NNNNN dans le message par le no de comande */
+      	$con = str_replace("NNNNN",$cid,$con);
+
+      	$temat = htmlspecialchars_decode($top);
+      	$zawar = htmlspecialchars_decode($con);
+      	$header = 'From: France Banderole <information@france-banderole.com>';
+        $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+
+      	mail($us->email, stripslashes($temat), stripslashes($zawar), $header);
+      }
+    }
+  endforeach;
+  return $rt;
+}
 ?>

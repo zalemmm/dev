@@ -357,5 +357,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.5"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.affiches.js?v=2.5"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=3.0"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/affiches.vue.js?v=3.0"></script>

@@ -31,11 +31,12 @@ function fbs_plugin_init() {
 	fb_is_logged();
 }
 
-////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////// enregistrement panier //
+//======================================================== enregistrement panier
 
 function register_cart() {
+
 	session_start();
+
 	if(!isset($_SESSION['fbcart'])) {
 		$_SESSION['fbcart'] = 0;
 	}
@@ -45,19 +46,21 @@ function register_cart() {
 	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart'])) {
 		$products = $_SESSION['fbcart'];
-    	if (!is_array($products)) {
+    if (!is_array($products)) {
 			$products = array();
 		}
 		$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$_POST['opis'], 'ilosc'=>$_POST['ilosc'], 'prix'=>$_POST['prix'], 'option'=>$_POST['option'], 'remise'=>$_POST['remise'], 'total'=>$_POST['total'], 'transport'=>$_POST['transport'], 'hauteur'=>$_POST['hauteur'], 'largeur'=>$_POST['largeur'], 'reference'=>$_POST['reference'], 'image'=>$_POST['image']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
-		//header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
-		//exit;
+
+		$prods = json_encode($products, JSON_FORCE_OBJECT);
+		setcookie('fbcart', $prods, time() + 30*24*3600);
 	}
+
 	//----------------------------------------------------------------------------
 	if(isset($_POST['addtocart2'])) {
 		$products = $_SESSION['fbcart'];
-    	if (!is_array($products)) {
+    if (!is_array($products)) {
 			$products = array();
 		}
 		if ($_POST['opis1'] != '') $opis .= '- '.$_POST['opis1'].'<br />';
@@ -154,164 +157,15 @@ function register_cart() {
 		$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$opis, 'ilosc'=>$_POST['ilosc'], 'prix'=>$prix2, 'option'=>'-', 'remise'=>'-', 'total'=>$total, 'transport'=>$_POST['transport'], 'hauteur'=>$_POST['hauteur'], 'largeur'=>$_POST['largeur'], 'reference'=>$_POST['reference'], 'image'=>$_POST['image']);
 		array_push($products, $product);
 		$_SESSION['fbcart'] = $products;
+		setcookie('fbcart', json_encode($products), time() + 30*24*3600);
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
 	//----------------------------------------------------------------------------
-	if(isset($_POST['addtocartmma'])) {
-		$products = $_SESSION['fbcart'];
-    	if (!is_array($products)) {
-			$products = array();
-		}
-		if ($_POST['opis1'] != '') $opis .= '- '.$_POST['opis1'].'<br />';
-		if ($_POST['opis2'] != '') $opis .= '- '.$_POST['opis2'].'<br />';
-		if (isset($_POST['ceddre'])) {
-			$prix = $_POST['prix'] + $_POST['ceddre'];
-		} else {
-			$prix = $_POST['prix'];
-		}
-		if ($_POST['ismma'] == 'true') {
-		$_SESSION['ismma'] = 'true';
-			if ($_POST['projectmak'] == 'fb') {
-				$opis .= '- France banderole crée la maquette<br />';
-				$prix = $prix + 40;
-			}
-			if ($_POST['projectmak'] == 'us') {
-				$opis .= '- j’ai déjà crée la maquette<br />';
-			}
-		}
-		$ilosc = $_POST['ilosc'];
-		$recycler = $_POST['recycler'];
-		if (!empty($recycler)) {
-			if ($ilosc == 1) {
-				$prix = $prix + 40;
-			}
-			if ($ilosc > 1) {
-				$prix = $prix + 4.9;
-			}
-			$opis .= '- recycler les bâches<br />';
-		}
-		$colis = $_POST['colis'];
-		if (!empty($colis)) {
-			$opis .= '- colis revendeur<br />';
-		}
-		$etiquette = $_POST['etiquette'];
-		if (!empty($etiquette)) {
-			if ($ilosc > 9) {
-				$prix = $prix + (1.5 * $ilosc);
-				$opis .= '- étiquette personnalisée<br />';
-			}
-		}
-		$rush24 = $_POST['rush24'];
-		if (!empty($rush24)) {
-			if ($ilosc == 1) {
-				$prix = $prix + 59;
-			}
-			if ($ilosc == 2) {
-				$prix = $prix + 49;
-			}
-			if ($ilosc > 2 && $ilosc < 6) {
-				$prix = $prix + 39;
-			}
-			if ($ilosc > 5 && $ilosc < 9) {
-				$prix = $prix + 29;
-			}
-			if ($ilosc > 8 && $ilosc < 21) {
-				$prix = $prix + 19;
-			}
-			if ($ilosc > 20) {
-				$prix = $prix + 19;
-			}
-			$opis .= '- délai rush 24/48H<br />';
-		}
-		$rush72 = $_POST['rush72'];
-		if (!empty($rush72)) {
-			if ($ilosc == 1) {
-				$prix = $prix + 49;
-			}
-			if ($ilosc == 2) {
-				$prix = $prix + 39;
-			}
-			if ($ilosc > 2 && $ilosc < 6) {
-				$prix = $prix + 29;
-			}
-			if ($ilosc > 5 && $ilosc < 9) {
-				$prix = $prix + 19;
-			}
-			if ($ilosc > 8 && $ilosc < 21) {
-				$prix = $prix + 9;
-			}
-			if ($ilosc > 20) {
-				$prix = $prix + 9;
-			}
-			$opis .= '- délai rush 72H<br />';
-		}
 
-		$total = $ilosc * $prix;
-		$relais = $_POST['relais'];
-		if (!empty($relais)) {
-			$total = $total + 3;
-			$opis .= '- relais colis<br />';
-		}
-		$prix2 = number_format($prix, 2, '.', '');
-		$total = number_format($total, 2, '.', '');
-		$product = array(rodzaj=>$_POST['rodzaj'], opis=>$opis, ilosc=>$_POST['ilosc'], prix=>$prix2, option=>'-', remise=>'-', total=>$total, transport=>$_POST['transport']);
-		array_push($products, $product);
-		$_SESSION['fbcart'] = $products;
-		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
-		exit;
-	}
-	//----------------------------------------------------------------------------
-	if(isset($_POST['addtocart3'])) {
-		$products = $_SESSION['fbcart'];
-    	if (!is_array($products)) {
-			$products = array();
-		}
-		if ($_POST['opis1'] != '') $opis .= '- '.$_POST['opis1'].'<br />';
-		if ($_POST['opis2'] != '') $opis .= '- '.$_POST['opis2'].'<br />';
-		if (isset($_POST['ceddre'])) {
-			$prix = $_POST['prix'] + $_POST['ceddre'];
-		} else {
-			$prix = $_POST['prix'];
-		}
-		if ($_POST['isburaliste'] == 'true') {
-			$_SESSION['isburaliste'] = 'true';
-			if ($_POST['projectmak'] == 'fb') {
-				$opis .= '- Personalisation du Visuel<br />';
-				$prix = $prix + 27.5;
-			}
-			if ($_POST['projectmak'] == 'us') {
-				$opis .= '- Visuel Standard<br />';
-			}
-		}
 
-		$ilosc = $_POST['ilosc'];
-		$total = $ilosc * $prix;
-		$prix2 = number_format($prix, 2, '.', '');
-		$total = number_format($total, 2, '.', '');
-		$product = array('rodzaj'=>$_POST['rodzaj'], 'opis'=>$opis, 'ilosc'=>$_POST['ilosc'], 'prix'=>$prix2, 'option'=>'-', 'remise'=>'-', 'total'=>$total, 'transport'=>$_POST['transport']);
-		array_push($products, $product);
-		$_SESSION['fbcart'] = $products;
-		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
-		exit;
-	}
 
-	/////////////////////////////////////////////////////// effacer item panier //
-	if(isset($_POST['delfromcart'])) {
-		$products = $_SESSION['fbcart'];
-		$licznik = 0;
-		foreach ( $products as $key => $item ) {
-			$licznik++;
-			if ( $licznik == $_POST['licznik'] ){
-				unset($products[$key]);
-			}
-		}
-	  $_SESSION['fbcart'] = $products;
-		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
-		exit;
-	}
-
-	///////////////////////////////////////////////////// dupliquer item panier //
+	//====================================================== dupliquer item panier
 	if(isset($_POST['adfromcart'])) {
 		$products = $_SESSION['fbcart'];
 		$licznik = 0;
@@ -323,15 +177,16 @@ function register_cart() {
 			}
 		}
 		$_SESSION['fbcart'] = $products;
+		setcookie('fbcart', json_encode($products), time() + 30*24*3600);
 		header('location: ' . $SERVER['PHP_SELF'] . '?' . SID);
 		exit;
 	}
 
-	//////////////////////////////////////////////////////////////////////////////
+	//================================================================ déconnexion
 	if (isset($_SESSION['loggeduser']) && ($_GET["logout"] == "true")) {
 	    unset($_SESSION['loggeduser']);
 	    unset($_SESSION['fbcart']);
-		header('location: / ' );
+	  	header('location: / ' );
 		exit;
 	}
 }

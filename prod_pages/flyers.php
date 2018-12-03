@@ -265,33 +265,6 @@
 
 						</li>
 
-						<li class="formSelect" v-show="showPers">
-
-							<button type="button" class="toggle" :class="reqPers" @click="togglePers = !togglePers">
-								{{ choixPers }} <i class="fa fa-caret-down"></i>
-							</button>
-
-							<transition name="slideDown">
-								<div class="boutonsSelect" v-show="togglePers" >
-
-									<div @mouseover="hoPw(4,'2');"  @mouseout="hout(4)" @click="reset(); selectPers('2');">
-										<i class="fa fa-circle" style="color:red"></i><span>Rouge</span>
-									</div>
-									<div @mouseover="hoPw(4,'4');"  @mouseout="hout(4)" @click="reset(); selectPers('4');">
-										<i class="fa fa-circle" style="color:blue"></i><span>Bleu</span>
-									</div>
-									<div @mouseover="hoPw(4,'6');"  @mouseout="hout(4)" @click="reset(); selectPers('6');">
-										<i class="fa fa-circle" style="color:green"></i><span>Vert</span>
-									</div>
-									<div @mouseover="hoPw(4,'8');"  @mouseout="hout(4)" @click="reset(); selectPers('8');">
-										<i class="fa fa-circle" style="color:white"></i><span>Blanc</span>
-									</div>
-
-								</div>
-							</transition>
-
-						</li>
-
 					</ul> <!-- fin listes déroulantes -->
 
 					<ul class="optionsBlock" v-show="showOptions">
@@ -494,5 +467,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.7"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.flyers.js?v=2.7"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=3.0"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/flyers.vue.js?v=3.0"></script>

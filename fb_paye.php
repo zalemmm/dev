@@ -343,9 +343,9 @@ function get_payement() {
 			$sign = hash_hmac('sha256', $data, $key);
 
 			$setorder = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$idzamowienia'");
-			if ($setorder->status < '2' || $setorder->status == '7') { // si la commande est en attente ou paiement en traitement
+			if ($setorder->status < '2' || $setorder->status > '6') { // si la commande est en attente ou paiement/fichier en traitement
 
-			$view .= '
+				$view .= '
 				<form method="post" action="'.$payUrl.'" target="scellius" name="paycb">
 					<input type="hidden" name="Data" value="'.$data.'">
 					<input type="hidden" name="InterfaceVersion" value="HP_2.18">

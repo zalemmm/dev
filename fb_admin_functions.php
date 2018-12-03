@@ -9,6 +9,7 @@ Statuts des commandes:
 	5>cloturé
 	6>annulées
 	7>paiment en traitement
+	8>fichier en traitement
 */
 //======================================== fonctions changement statuts commande
 ////////////////////////////////////////////////////////////// status 2: payé //
@@ -31,6 +32,93 @@ function passage_paiement_recu(){
 	</form>
 	</div>
 	';
+}
+
+function traitement_passage_fichier_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){
+	global $wpdb;
+	global $current_user;
+	//------------------------------------------ Nouveau statut à 8 (fichier reçu)
+  $newstat = '8';
+	$nowadata = date('Y-m-d H:i:s');
+	$apdejt = $wpdb->update($fb_tablename_order, array ( 'status' => $newstat, 'date_modify' => $nowadata), array ( 'unique_id' => $number ) );
+	$wpuser = $current_user->display_name;
+
+  //------------------------------------------ ENVOI du commentaire RECU FICHIER
+
+  $topics = $wpdb->get_results("SELECT * FROM `$fb_tablename_topic` WHERE topic LIKE 'Fichier en traitement' ORDER BY content ASC", ARRAY_A);
+  if ($topics) {
+		foreach ($topics as $t) :
+			$cont = stripslashes($t['content']);
+			$cont= htmlspecialchars($cont);
+			$topt = stripslashes($t['topic']);
+			$topt = htmlspecialchars($topt);
+		endforeach;
+	}
+
+	$tresc = addslashes($cont);
+	$temat = addslashes($topt);
+	$data = date('Y-m-d H:i:s');
+	$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_comments` VALUES (not null, '".$number."', '".$temat."', '".$data."', 'France Banderole ".$wpuser."', '".$tresc."')");
+
+	$dodawanie_new = $wpdb->query("INSERT INTO `$fb_tablename_comments_new` VALUES (not null, '".$number."', '1')");
+	$sprawdzcf = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='lastupdate' AND unique_id = '".$number."'");
+	if ($sprawdzcf) {
+		$apd = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='fb' WHERE unique_id='".$number."' AND type='lastupdate'");
+	} else {
+		$dodawanie = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '".$number."', 'lastupdate', 'fb')");
+	}
+
+	//----------------------------------------------récupération mail & tel client
+	$order = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id = '$number'");
+	$ktoryuser = $order->user;
+	$uzyt = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE id = '$ktoryuser'");
+
+  //-------------------------------- ENVOI de l'email Paiement de votre commande
+  $mails = $wpdb->get_results("SELECT * FROM `$fb_tablename_mails` WHERE topic LIKE 'Fichier en traitement'", ARRAY_A);
+	foreach ($mails as $ma) :
+		$con = stripslashes($ma['content']);
+		$con = htmlspecialchars($con);
+		$top = stripslashes($ma['topic']);
+		$top = htmlspecialchars($top);
+	endforeach;
+
+	/* On remplace NNNNN dans le message par le no de comande */
+	$con = str_replace("NNNNN",$number,$con);
+
+	$temat = htmlspecialchars_decode($top);
+	$zawar = htmlspecialchars_decode($con);
+	$header = 'From: France Banderole <information@france-banderole.com>';
+  $header .= "\nContent-Type: text/html; charset=UTF-8\n" ."Content-Transfer-Encoding: 8bit\n";
+
+	mail(trim($uzyt->email), stripslashes($temat), stripslashes($zawar), $header);
+
+	//----------------------------------------------------- ajout du mail à la bdd
+	$checkmail = $wpdb->get_row("SELECT * FROM `$fb_tablename_order` WHERE unique_id='$number'");
+  $getmail = $checkmail->last_mail;
+
+	$lastmail = '<li>'.date('d-m-Y H:i'). ' ' .$temat.'</li>';
+	$adtodb = $wpdb->query("UPDATE `$fb_tablename_order` SET last_mail='$lastmail $getmail' WHERE unique_id='$number'");
+
+	//------------------------------------------------------------------ envoi SMS
+	$sms = $wpdb->get_results("SELECT * FROM `$fb_tablename_sms` WHERE topic LIKE 'Fichier en traitement'", ARRAY_A);
+	foreach ($sms as $s) :
+		$content = stripslashes($s[content]);
+	endforeach;
+
+	$content = str_replace("NNNNN",$number,$content);
+	send_sms($uzyt->f_phone, $content);
+
+	// ajout sms à la bdd
+	$checksms = $wpdb->get_row("SELECT * FROM `$fb_tablename_cf` WHERE type='sms' AND unique_id = '$number'");
+  $getsms = $checksms->value;
+
+	$lastsms = '<li>'.date('d-m-Y H:i'). ' Fichier en traitement</li>';
+	$allsms  = $lastsms.$getsms;
+	if (!$checksms) {
+		$addDB = $wpdb->query("INSERT INTO `$fb_tablename_cf` VALUES (not null, '$number','sms','$lastsms')");
+	}else{
+		$upDB = $wpdb->query("UPDATE `$fb_tablename_cf` SET value='$allsms' WHERE type='sms' AND unique_id = '$number'");
+	}
 }
 
 function traitement_passage_paiement_recu($number,$fb_tablename_order,$fb_tablename_topic,$fb_tablename_mails,$fb_tablename_sms,$fb_tablename_comments,$fb_tablename_comments_new,$fb_tablename_cf,$fb_tablename_users){

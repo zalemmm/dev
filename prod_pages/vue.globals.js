@@ -22,13 +22,13 @@ var shared = { // variables globales
   livRAT: 6/100, // retrait atelier
   livREL: 6,     // relais Colis
   livREV: 5,     // colis revendeur
-  livROL: 29,    // livraison roulée
+  livROL: 40,    // livraison roulée
 
   // délais production / livraison base (excepté roll-up, tentes, oriflammes)
-  prodA23: 25,    // prod 2-3j
-  prodA11: 45,    // prod 1j
-  livrA23: 25,    // livr 2-3j
-  livrA11: 45,    // livr 1j
+  prodA23: 20,    // prod 2-3j
+  prodA11: 40,    // prod 1j
+  livrA23: 20,    // livr 2-3j
+  livrA11: 40,    // livr 1j
 
 
   //------------------------------- tooltips communs à toutes les pages produits
@@ -79,7 +79,7 @@ var shared = { // variables globales
   b450: '<b>bâche 450g M1</b> ',
   b550: '<b>bâche 550g enduite</b>',
   b520: '<b>dickson jet 520 M1:</b> bâche pvc enduite anti-feu M1 durable et made in France.',
-  beco: '<b>toile 100% écologique M1:</b> Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.',
+  beco: '<b>toile 100% écologique M1 dos noir:</b> Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.',
   capo: '<b>capotoile 320 M1:</b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS à base de bouchons de bouteille recyclés.',
   t220: '<b>tissu 220g M1:</b> tissu stretch léger 100% polyester 220g traité retardant au feu M1',
   t260: '<b>tissu 260g B1:</b> tissu extensible dos noir 100% polyester 260g traité retardant au feu B1.',
@@ -90,7 +90,7 @@ var shared = { // variables globales
 
   // support banderole avec prix au m2
   ecotm2: '<b>écotoile france banderole: dès 7,80/<sub>m</sub>²</b> Toile écologique et économique sans PVC en PEHD. Communiquez au meilleur prix et proprement !',
-  becom2: '<b>toile 100% écologique M1: dès 21,45€/<sub>m</sub>²</b> Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.',
+  becom2: '<b>toile 100% écologique M1 dos noir: dès 21,45€/<sub>m</sub>²</b> Toile 100% polyester M1 sans PVC ni phtalate. Texturée, aspect blanc cassé, type toile de peintre.',
   capom2: '<b>capotoile 320 M1: dès 24,20€/<sub>m</sub>²</b> Toile 100% éco-conçue de fabrication française, labellisée ECOCERT ERTS à base de bouchons de bouteille recyclés.',
 
   b440m2: '<b>bâche 440g: le moins cher dès 4,90€/<sub>m</sub>²</b> bâche PVC 440g légère et texturée. Idéale pour obtenir le meilleur prix',
@@ -161,6 +161,21 @@ var shared = { // variables globales
   clum: '<b>cadre tissu lumineux: Dès 510,00€</b> Le cadre tissu lumineux est composé de la structure, du visuel imprimé et des LED.',
   cstr: '<b>Cadre stucture seule: Dès 61,00€</b> Stucture avec connecteur',
   ctis: '<b>Visuel (tissu imprimé): Dès 12,00€</b> Tissu imprimé avec jonc',
+  
+  //------------------------------------------------------- tooltips page structure cadre banderole
+
+   stcm: '<b>Structure Cadre Mural</b>La structure est composée de tubes en aluminium de 42.4mm de diamètre avec une épaisseur de 3mm (1kg/m)',
+  stcp: '<b>Structure Cadre pied</b>ATTENTION les IPN ne sont pas fournis, nous vous fournissons uniquement le cadre et les accroches.(le coût de transport étant trop élevé Les IPN sont à installer par vos soins).',
+  cstr: '<b>Cadre stucture seule: Dès 61,00€</b> Stucture avec connecteur',
+  ctis: '<b>Visuel (tissu imprimé): Dès 12,00€</b> Tissu imprimé avec jonc',
+  lst: '<b>ATTENTION</b>les IPN ne sont pas fournis, nous vous fournissons uniquement les accroches.</br>Nous conseillons le nombre d\'IPN suivant : </br> - Longueur du cadre > 2m : 2 IPN.</br>- Longueur du cadre > 3m : 3 IPN.</br>- Longueur du cadre > 5m : 4 IPN.</br>- Longueur du cadre > 8m : 5 IPN.',
+  projecteurssans: '<b>Sans supports pour accrocher vos projecteurs.</b>',
+  projecteurs05: 'Supports avec tubes 0.5m = un tube de 0,5m est rajouté avec le support (tous les 2m).<b>Attention : le support ne comporte pas de projecteurs. </b>',
+  projecteurs10: 'Supports avec tubes 1m = un tube de 1m est rajouté avec le support (tous les 2m).<b>Attention : le support ne comporte pas de projecteurs. </b>',
+  projecteurs15: 'Supports avec tubes 1.5m = un tube de 1,5m est rajouté avec le support (tous les 2m).<b>Attention : le support ne comporte pas de projecteurs. </b>',
+
+ 
+
 
   //-------------------------------------------------------- tooltips page tente
 

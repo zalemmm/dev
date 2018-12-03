@@ -31,9 +31,9 @@
 											<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
 											<img :src="$global.img+'/banderole/ecotoile.png'" /><span>Ecotoile 175g</span>
 										</div>
-										<div class="clEco" @mouseover="hoPw(1,'eco')"      @mouseout="hout(1)" v-tooltip.bottom="$global.becom2" @click="reset(); selectSupport('bache 100% écologique M1');" v-if="swEco || swFeu">
+										<div class="clEco" @mouseover="hoPw(1,'eco')"      @mouseout="hout(1)" v-tooltip.bottom="$global.becom2" @click="reset(); selectSupport('bache 100% écologique M1 dos noir');" v-if="swEco || swFeu">
 											<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
-											<img :src="$global.img+'/banderole/eco.png'" /><span>100% éco. 250g M1</span>
+											<img :src="$global.img+'/banderole/eco.png'" /><span>100% éco. 340g M1</span>
 										</div>
 										<!--<div class="clEco" @mouseover="hoPw(1,'capotoile')"@mouseout="hout(1)" v-tooltip.bottom="$global.capom2" @click="reset(); selectSupport('capotoile');" v-if="swEco || swFeu">
 											<div class="corneco"><i class="fa fa-leaf" aria-hidden="true"></i></div>
@@ -590,5 +590,5 @@
 <!--<script src="../wp-content/plugins/fbshop/js/vue.js"></script>-->
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.6"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.banderoles.js?v=2.6"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=3.0"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/banderoles.vue.js?v=3.0"></script>

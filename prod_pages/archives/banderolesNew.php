@@ -601,4 +601,4 @@
 <script src="../wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="../wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
 <script src="../wp-content/plugins/fbshop/prod_pages/vue.globals.js?v=2.2"></script>
-<script src="../wp-content/plugins/fbshop/prod_pages/vue.banderoles.js?v=2.4"></script>
+<script src="../wp-content/plugins/fbshop/prod_pages/vue.banderoles.js?v=3.0"></script>
